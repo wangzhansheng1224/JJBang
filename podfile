@@ -10,6 +10,5 @@ target 'jjb_user' do
     pod 'XLForm'
     pod 'CTPersistance'
     pod 'JLRoutes'
-    pod 'CTNetworking'
 #    pod 'RAMAnimatedTabBarController'
 end
