@@ -1,0 +1,38 @@
+//
+//  jjb_user.pch
+//  jjb_user
+//
+//  Created by Maybe on 16/8/1.
+//  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
+//
+
+//PCH文件
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+/**
+ *  日志输出
+ */
+#define JJBLog(...) NSLog(__VA_ARGS__)
+#else
+#define JJBLog(...)
+#endif
+
+
+
+
+
+
+
+#import "UIColor+MBHex.h"
+
+/**
+ *  颜色
+ 
+ */
+#define JJBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0  alpha:1.0]
+#define JJBRandomColor JJBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define JJBGGlobalBg JJBColor(215, 215, 215)
+
+#endif
