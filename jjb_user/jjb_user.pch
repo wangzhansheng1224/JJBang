@@ -10,6 +10,33 @@
 
 #ifdef __OBJC__
 
+// 定义颜色
+#define RGBCOLOR(r, g, b)                                                      \
+[UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1]
+#define RGBACOLOR(r, g, b, a)                                                  \
+[UIColor colorWithRed:(r) / 255.0                                            \
+green:(g) / 255.0                                            \
+blue:(b) / 255.0                                            \
+alpha:(a)]
+
+//字体定义
+#define FONT_NAME @"PingFangSC-Regular"
+#define FONT_SIZE(s) [UIFont fontWithName:FONT_NAME size:s]
+
+
+//字体
+#define H1 FONT_SIZE(30)
+#define H2 FONT_SIZE(20)
+#define H3 FONT_SIZE(16)
+#define H4 FONT_SIZE(14)
+#define H5 FONT_SIZE(12)
+
+//颜色
+#define COLOR_ORANGE RGBACOLOR(224, 85, 35, 1)
+#define COLOR_WHITE RGBACOLOR(255, 255, 255, 1)
+#define COLOR_DARK_GRAY RGBACOLOR(51, 51, 51, 1)
+#define COLOR_GRAY RGBACOLOR(163, 163, 163, 1)
+#define COLOR_LIGHT_GRAY RGBACOLOR(242, 242, 242, 1)
 #ifdef DEBUG
 /**
  *  日志输出

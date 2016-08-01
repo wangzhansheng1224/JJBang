@@ -67,10 +67,16 @@
 
 - (void)viewWillAppear:(BOOL)animated viewController:(UIViewController *)viewController
 {
-    [viewController.navigationController.navigationBar setBarTintColor:[UIColor yellowColor]];
-    viewController.navigationController.navigationBar.alpha = 1.0;
-    //[viewController.navigationController.navigationBar setTranslucent:NO];
-    [viewController.navigationController.navigationBar setTintColor:[UIColor redColor]];
+    
+    
+//    //设置导航栏背景
+//    UINavigationBar * bar = [UINavigationBar appearance];
+//    [bar setBackgroundColor:COLOR_ORANGE];
+//    
+//    //设置导航栏中间的标题
+//    NSMutableDictionary * attrs = [NSMutableDictionary dictionary];
+//    attrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+//    [bar setTitleTextAttributes:attrs];
     /* 你可以使用这个方法进行打日志，初始化基础业务相关的内容 */
     NSLog(@"[%@ viewWillAppear:%@]", [viewController class], animated ? @"YES" : @"NO");
 }
