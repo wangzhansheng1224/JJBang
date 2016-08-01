@@ -9,6 +9,33 @@
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
+		73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */; };
+		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
+		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
+		73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE41D4F735D00643BBA /* LDSignatureGenerator.m */; };
+		73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE61D4F735D00643BBA /* LDUDIDGenerator.m */; };
+		73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE91D4F735D00643BBA /* NSArray+LDNetworkingMethods.m */; };
+		73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CEB1D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m */; };
+		73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CED1D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m */; };
+		73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CEF1D4F735D00643BBA /* NSObject+LDNetworkingMethods.m */; };
+		73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CF11D4F735D00643BBA /* NSString+LDNetworkingMethods.m */; };
+		73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CF31D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m */; };
+		73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CF51D4F735D00643BBA /* UIDevice+IdentifierAddition.m */; };
+		73886D291D4F735D00643BBA /* LDCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CF91D4F735D00643BBA /* LDCache.m */; };
+		73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CFB1D4F735D00643BBA /* LDCachedObject.m */; };
+		73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CFD1D4F735D00643BBA /* LDAPIBaseManager.m */; };
+		73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CFF1D4F735D00643BBA /* LDApiProxy.m */; };
+		73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D011D4F735D00643BBA /* LDAppContext.m */; };
+		73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D031D4F735D00643BBA /* LDURLResponse.m */; };
+		73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D061D4F735D00643BBA /* LDLogger.m */; };
+		73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D081D4F735D00643BBA /* LDLoggerConfiguration.m */; };
+		73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D0B1D4F735D00643BBA /* LDLoginByWeiboManager.m */; };
+		73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D0D1D4F735D00643BBA /* LDLoginManager.m */; };
+		73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D101D4F735D00643BBA /* LDTravelListManager.m */; };
+		73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D131D4F735D00643BBA /* LDViewSpotListManager.m */; };
+		73886D351D4F735D00643BBA /* LDService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D181D4F735D00643BBA /* LDService.m */; };
+		73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D1A1D4F735D00643BBA /* LDServiceFactory.m */; };
+		73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */; };
 		73ED4F091D4EFA410022BF79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F081D4EFA410022BF79 /* main.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F131D4EFA410022BF79 /* Assets.xcassets */; };
@@ -29,6 +56,62 @@
 		58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jjb_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
+		73886CDA1D4F6F1F00643BBA /* ShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopIndexAPIManager.h; path = APIManager/ShopIndexAPIManager.h; sourceTree = "<group>"; };
+		73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopIndexAPIManager.m; path = APIManager/ShopIndexAPIManager.m; sourceTree = "<group>"; };
+		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
+		73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommonParamsGenerator.m; sourceTree = "<group>"; };
+		73886CE11D4F735D00643BBA /* LDRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRequestGenerator.h; sourceTree = "<group>"; };
+		73886CE21D4F735D00643BBA /* LDRequestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDRequestGenerator.m; sourceTree = "<group>"; };
+		73886CE31D4F735D00643BBA /* LDSignatureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSignatureGenerator.h; sourceTree = "<group>"; };
+		73886CE41D4F735D00643BBA /* LDSignatureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSignatureGenerator.m; sourceTree = "<group>"; };
+		73886CE51D4F735D00643BBA /* LDUDIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDUDIDGenerator.h; sourceTree = "<group>"; };
+		73886CE61D4F735D00643BBA /* LDUDIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDUDIDGenerator.m; sourceTree = "<group>"; };
+		73886CE81D4F735D00643BBA /* NSArray+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CE91D4F735D00643BBA /* NSArray+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CEA1D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CEB1D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CEC1D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CED1D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CEE1D4F735D00643BBA /* NSObject+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CEF1D4F735D00643BBA /* NSObject+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CF01D4F735D00643BBA /* NSString+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CF11D4F735D00643BBA /* NSString+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CF21D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+LDNetworkingMethods.h"; sourceTree = "<group>"; };
+		73886CF31D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+LDNetworkingMethods.m"; sourceTree = "<group>"; };
+		73886CF41D4F735D00643BBA /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		73886CF51D4F735D00643BBA /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		73886CF81D4F735D00643BBA /* LDCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCache.h; sourceTree = "<group>"; };
+		73886CF91D4F735D00643BBA /* LDCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCache.m; sourceTree = "<group>"; };
+		73886CFA1D4F735D00643BBA /* LDCachedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCachedObject.h; sourceTree = "<group>"; };
+		73886CFB1D4F735D00643BBA /* LDCachedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCachedObject.m; sourceTree = "<group>"; };
+		73886CFC1D4F735D00643BBA /* LDAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDAPIBaseManager.h; sourceTree = "<group>"; };
+		73886CFD1D4F735D00643BBA /* LDAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDAPIBaseManager.m; sourceTree = "<group>"; };
+		73886CFE1D4F735D00643BBA /* LDApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDApiProxy.h; sourceTree = "<group>"; };
+		73886CFF1D4F735D00643BBA /* LDApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDApiProxy.m; sourceTree = "<group>"; };
+		73886D001D4F735D00643BBA /* LDAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDAppContext.h; sourceTree = "<group>"; };
+		73886D011D4F735D00643BBA /* LDAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDAppContext.m; sourceTree = "<group>"; };
+		73886D021D4F735D00643BBA /* LDURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDURLResponse.h; sourceTree = "<group>"; };
+		73886D031D4F735D00643BBA /* LDURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDURLResponse.m; sourceTree = "<group>"; };
+		73886D051D4F735D00643BBA /* LDLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDLogger.h; sourceTree = "<group>"; };
+		73886D061D4F735D00643BBA /* LDLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLogger.m; sourceTree = "<group>"; };
+		73886D071D4F735D00643BBA /* LDLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDLoggerConfiguration.h; sourceTree = "<group>"; };
+		73886D081D4F735D00643BBA /* LDLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLoggerConfiguration.m; sourceTree = "<group>"; };
+		73886D0A1D4F735D00643BBA /* LDLoginByWeiboManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDLoginByWeiboManager.h; sourceTree = "<group>"; };
+		73886D0B1D4F735D00643BBA /* LDLoginByWeiboManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLoginByWeiboManager.m; sourceTree = "<group>"; };
+		73886D0C1D4F735D00643BBA /* LDLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDLoginManager.h; sourceTree = "<group>"; };
+		73886D0D1D4F735D00643BBA /* LDLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDLoginManager.m; sourceTree = "<group>"; };
+		73886D0F1D4F735D00643BBA /* LDTravelListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDTravelListManager.h; sourceTree = "<group>"; };
+		73886D101D4F735D00643BBA /* LDTravelListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDTravelListManager.m; sourceTree = "<group>"; };
+		73886D121D4F735D00643BBA /* LDViewSpotListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDViewSpotListManager.h; sourceTree = "<group>"; };
+		73886D131D4F735D00643BBA /* LDViewSpotListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDViewSpotListManager.m; sourceTree = "<group>"; };
+		73886D141D4F735D00643BBA /* LDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworking.h; sourceTree = "<group>"; };
+		73886D151D4F735D00643BBA /* LDNetworkingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkingConfiguration.h; sourceTree = "<group>"; };
+		73886D171D4F735D00643BBA /* LDService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDService.h; sourceTree = "<group>"; };
+		73886D181D4F735D00643BBA /* LDService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDService.m; sourceTree = "<group>"; };
+		73886D191D4F735D00643BBA /* LDServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDServiceFactory.h; sourceTree = "<group>"; };
+		73886D1A1D4F735D00643BBA /* LDServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDServiceFactory.m; sourceTree = "<group>"; };
+		73886D391D4F742500643BBA /* LDServiceJJBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDServiceJJBUser.h; path = JJBUser/LDServiceJJBUser.h; sourceTree = "<group>"; };
+		73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDServiceJJBUser.m; path = JJBUser/LDServiceJJBUser.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F081D4EFA410022BF79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +266,156 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		73886CD91D4F6ED600643BBA /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				73886CDA1D4F6F1F00643BBA /* ShopIndexAPIManager.h */,
+				73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
+		73886CDD1D4F735D00643BBA /* LDNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				73886CDE1D4F735D00643BBA /* Assistants */,
+				73886CE71D4F735D00643BBA /* Categories */,
+				73886CF61D4F735D00643BBA /* Components */,
+				73886D141D4F735D00643BBA /* LDNetworking.h */,
+				73886D151D4F735D00643BBA /* LDNetworkingConfiguration.h */,
+				73886D161D4F735D00643BBA /* Services */,
+			);
+			path = LDNetworking;
+			sourceTree = "<group>";
+		};
+		73886CDE1D4F735D00643BBA /* Assistants */ = {
+			isa = PBXGroup;
+			children = (
+				73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */,
+				73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */,
+				73886CE11D4F735D00643BBA /* LDRequestGenerator.h */,
+				73886CE21D4F735D00643BBA /* LDRequestGenerator.m */,
+				73886CE31D4F735D00643BBA /* LDSignatureGenerator.h */,
+				73886CE41D4F735D00643BBA /* LDSignatureGenerator.m */,
+				73886CE51D4F735D00643BBA /* LDUDIDGenerator.h */,
+				73886CE61D4F735D00643BBA /* LDUDIDGenerator.m */,
+			);
+			path = Assistants;
+			sourceTree = "<group>";
+		};
+		73886CE71D4F735D00643BBA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				73886CE81D4F735D00643BBA /* NSArray+LDNetworkingMethods.h */,
+				73886CE91D4F735D00643BBA /* NSArray+LDNetworkingMethods.m */,
+				73886CEA1D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.h */,
+				73886CEB1D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m */,
+				73886CEC1D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.h */,
+				73886CED1D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m */,
+				73886CEE1D4F735D00643BBA /* NSObject+LDNetworkingMethods.h */,
+				73886CEF1D4F735D00643BBA /* NSObject+LDNetworkingMethods.m */,
+				73886CF01D4F735D00643BBA /* NSString+LDNetworkingMethods.h */,
+				73886CF11D4F735D00643BBA /* NSString+LDNetworkingMethods.m */,
+				73886CF21D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.h */,
+				73886CF31D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m */,
+				73886CF41D4F735D00643BBA /* UIDevice+IdentifierAddition.h */,
+				73886CF51D4F735D00643BBA /* UIDevice+IdentifierAddition.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		73886CF61D4F735D00643BBA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				73886CF71D4F735D00643BBA /* CacheComponent */,
+				73886CFC1D4F735D00643BBA /* LDAPIBaseManager.h */,
+				73886CFD1D4F735D00643BBA /* LDAPIBaseManager.m */,
+				73886CFE1D4F735D00643BBA /* LDApiProxy.h */,
+				73886CFF1D4F735D00643BBA /* LDApiProxy.m */,
+				73886D001D4F735D00643BBA /* LDAppContext.h */,
+				73886D011D4F735D00643BBA /* LDAppContext.m */,
+				73886D021D4F735D00643BBA /* LDURLResponse.h */,
+				73886D031D4F735D00643BBA /* LDURLResponse.m */,
+				73886D041D4F735D00643BBA /* LogComponent */,
+				73886D091D4F735D00643BBA /* LoginComponent */,
+				73886D0E1D4F735D00643BBA /* TravelComponent */,
+				73886D111D4F735D00643BBA /* ViewspotComponent */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		73886CF71D4F735D00643BBA /* CacheComponent */ = {
+			isa = PBXGroup;
+			children = (
+				73886CF81D4F735D00643BBA /* LDCache.h */,
+				73886CF91D4F735D00643BBA /* LDCache.m */,
+				73886CFA1D4F735D00643BBA /* LDCachedObject.h */,
+				73886CFB1D4F735D00643BBA /* LDCachedObject.m */,
+			);
+			path = CacheComponent;
+			sourceTree = "<group>";
+		};
+		73886D041D4F735D00643BBA /* LogComponent */ = {
+			isa = PBXGroup;
+			children = (
+				73886D051D4F735D00643BBA /* LDLogger.h */,
+				73886D061D4F735D00643BBA /* LDLogger.m */,
+				73886D071D4F735D00643BBA /* LDLoggerConfiguration.h */,
+				73886D081D4F735D00643BBA /* LDLoggerConfiguration.m */,
+			);
+			path = LogComponent;
+			sourceTree = "<group>";
+		};
+		73886D091D4F735D00643BBA /* LoginComponent */ = {
+			isa = PBXGroup;
+			children = (
+				73886D0A1D4F735D00643BBA /* LDLoginByWeiboManager.h */,
+				73886D0B1D4F735D00643BBA /* LDLoginByWeiboManager.m */,
+				73886D0C1D4F735D00643BBA /* LDLoginManager.h */,
+				73886D0D1D4F735D00643BBA /* LDLoginManager.m */,
+			);
+			path = LoginComponent;
+			sourceTree = "<group>";
+		};
+		73886D0E1D4F735D00643BBA /* TravelComponent */ = {
+			isa = PBXGroup;
+			children = (
+				73886D0F1D4F735D00643BBA /* LDTravelListManager.h */,
+				73886D101D4F735D00643BBA /* LDTravelListManager.m */,
+			);
+			path = TravelComponent;
+			sourceTree = "<group>";
+		};
+		73886D111D4F735D00643BBA /* ViewspotComponent */ = {
+			isa = PBXGroup;
+			children = (
+				73886D121D4F735D00643BBA /* LDViewSpotListManager.h */,
+				73886D131D4F735D00643BBA /* LDViewSpotListManager.m */,
+			);
+			path = ViewspotComponent;
+			sourceTree = "<group>";
+		};
+		73886D161D4F735D00643BBA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				73886D381D4F73C100643BBA /* JJBUser */,
+				73886D171D4F735D00643BBA /* LDService.h */,
+				73886D181D4F735D00643BBA /* LDService.m */,
+				73886D191D4F735D00643BBA /* LDServiceFactory.h */,
+				73886D1A1D4F735D00643BBA /* LDServiceFactory.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		73886D381D4F73C100643BBA /* JJBUser */ = {
+			isa = PBXGroup;
+			children = (
+				73886D391D4F742500643BBA /* LDServiceJJBUser.h */,
+				73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */,
+			);
+			name = JJBUser;
+			sourceTree = "<group>";
+		};
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +466,7 @@
 		73ED4F1F1D4F09320022BF79 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				73886CD91D4F6ED600643BBA /* APIManager */,
 				73ED4F201D4F09320022BF79 /* Controller */,
 				73ED4F211D4F09320022BF79 /* Model */,
 				73ED4F221D4F09320022BF79 /* View */,
@@ -266,6 +500,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				73886CDD1D4F735D00643BBA /* LDNetworking */,
 				BB159CB11D4F473200F46F09 /* Category */,
 				BB159CB51D4F473200F46F09 /* MBTabBar */,
 			);
@@ -440,17 +675,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
+				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
+				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
+				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
+				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
+				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
+				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
+				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
+				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
+				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
+				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
+				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				BB159CAA1D4F3B0E00F46F09 /* ShopController.m in Sources */,
+				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
+				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
+				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
+				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
+				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
+				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
+				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
+				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
+				73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */,
+				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
+				73886D351D4F735D00643BBA /* LDService.m in Sources */,
+				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
+				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
+				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
+				73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

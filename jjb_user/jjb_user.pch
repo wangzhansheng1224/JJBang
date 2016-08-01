@@ -19,6 +19,14 @@ green:(g) / 255.0                                            \
 blue:(b) / 255.0                                            \
 alpha:(a)]
 
+/**
+ *  颜色
+ 
+ */
+#define JJBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0  alpha:1.0]
+#define JJBRandomColor JJBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define JJBGGlobalBg JJBColor(215, 215, 215)
+
 //字体定义
 #define FONT_NAME @"PingFangSC-Regular"
 #define FONT_SIZE(s) [UIFont fontWithName:FONT_NAME size:s]
@@ -53,13 +61,7 @@ alpha:(a)]
 
 
 #import "UIColor+MBHex.h"
+#import "LDNetworking.h"
 
-/**
- *  颜色
- 
- */
-#define JJBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0  alpha:1.0]
-#define JJBRandomColor JJBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
-#define JJBGGlobalBg JJBColor(215, 215, 215)
 
 #endif

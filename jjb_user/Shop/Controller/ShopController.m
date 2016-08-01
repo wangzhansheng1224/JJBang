@@ -7,6 +7,10 @@
 //
 
 #import "ShopController.h"
+#import "SHopIndexAPIManager.h"
+@interface ShopController()
+@property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
+@end
 
 @implementation ShopController
 -(void)viewDidLoad
@@ -14,4 +18,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = JJBRandomColor;
 }
+
+#pragma mark - getters and setters
+- (LDAPIBaseManager *)shopAPIManager {
+    if (_shopIndexAPIManager == nil) {
+        _shopIndexAPIManager = [ShopIndexAPIManager  sharedInstance];
+    }
+    return _shopIndexAPIManager;
+}
+
 @end
