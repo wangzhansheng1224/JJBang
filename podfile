@@ -1,0 +1,14 @@
+target 'jjb_user' do
+    pod 'AFNetworking', '~> 2.6.3'
+    pod 'Masonry'
+    pod 'Toast'
+    pod 'MJRefresh'
+    pod 'Aspects'
+    pod 'SDWebImage'
+    pod 'CocoaLumberjack'
+    pod 'pop', '~> 1.0'
+    pod 'XLForm'
+    pod 'CTPersistance'
+    pod 'JLRoutes'
+#    pod 'RAMAnimatedTabBarController'
+end
