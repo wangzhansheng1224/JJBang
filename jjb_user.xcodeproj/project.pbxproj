@@ -82,6 +82,10 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
+				73ED4F2C1D4F0A2E0022BF79 /* GrowingTree */,
+				73ED4F271D4F09A10022BF79 /* Activity */,
+				73ED4F231D4F09620022BF79 /* My */,
+				73ED4F1F1D4F09320022BF79 /* Shop */,
 				73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */,
 				73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */,
 				73ED4F0D1D4EFA410022BF79 /* ViewController.h */,
@@ -101,6 +105,130 @@
 				73ED4F081D4EFA410022BF79 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73ED4F1F1D4F09320022BF79 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				73ED4F201D4F09320022BF79 /* Controller */,
+				73ED4F211D4F09320022BF79 /* Model */,
+				73ED4F221D4F09320022BF79 /* View */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		73ED4F201D4F09320022BF79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73ED4F211D4F09320022BF79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73ED4F221D4F09320022BF79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73ED4F231D4F09620022BF79 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				73ED4F241D4F09620022BF79 /* Controller */,
+				73ED4F251D4F09620022BF79 /* Model */,
+				73ED4F261D4F09620022BF79 /* View */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		73ED4F241D4F09620022BF79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73ED4F251D4F09620022BF79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73ED4F261D4F09620022BF79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73ED4F271D4F09A10022BF79 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				73ED4F281D4F09A10022BF79 /* Controller */,
+				73ED4F291D4F09A10022BF79 /* Model */,
+				73ED4F2A1D4F09A10022BF79 /* View */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		73ED4F281D4F09A10022BF79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73ED4F291D4F09A10022BF79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73ED4F2A1D4F09A10022BF79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73ED4F2C1D4F0A2E0022BF79 /* GrowingTree */ = {
+			isa = PBXGroup;
+			children = (
+				73ED4F2D1D4F0A2E0022BF79 /* Controller */,
+				73ED4F2E1D4F0A2E0022BF79 /* Model */,
+				73ED4F2F1D4F0A2E0022BF79 /* View */,
+			);
+			path = GrowingTree;
+			sourceTree = "<group>";
+		};
+		73ED4F2D1D4F0A2E0022BF79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73ED4F2E1D4F0A2E0022BF79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73ED4F2F1D4F0A2E0022BF79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
