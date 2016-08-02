@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
+		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4C1D5081C80064EEFD /* release.png in Resources */ = {isa = PBXBuildFile; fileRef = 514E9B4B1D5081C80064EEFD /* release.png */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
@@ -76,6 +77,8 @@
 /* Begin PBXFileReference section */
 		2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.debug.xcconfig"; sourceTree = "<group>"; };
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
+		514AD59E1D50A9F500E196FE /* ActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailController.h; sourceTree = "<group>"; };
+		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4B1D5081C80064EEFD /* release.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = release.png; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
 		514E9B4E1D5086020064EEFD /* IssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueController.m; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				51B875D91D503DD80082558D /* ParticipationController.m */,
 				51B875DA1D503DD80082558D /* SponsorViewController.h */,
 				51B875DB1D503DD80082558D /* SponsorViewController.m */,
+				514AD59E1D50A9F500E196FE /* ActivityDetailController.h */,
+				514AD59F1D50A9F500E196FE /* ActivityDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
 				73886D5A1D50803100643BBA /* CourseInfoReformer.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
+				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
