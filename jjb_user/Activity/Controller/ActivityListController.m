@@ -1,17 +1,17 @@
 //
-//  GrowingTreeController.m
+//  ActivityListController.m
 //  jjb_user
 //
-//  Created by Maybe on 16/8/1.
+//  Created by Check on 16/8/1.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "GrowingTreeController.h"
-#import "GrowingCell.h"
+#import "ActivityListController.h"
+#import "ActivityListCell.h"
 
 #define SIZE [UIScreen mainScreen].bounds.size
 
-@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ActivityListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 
@@ -19,13 +19,13 @@
 
 @end
 
-@implementation GrowingTreeController
+@implementation ActivityListController
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = JJBRandomColor;
     
-    self.navigationItem.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self initData];
@@ -47,12 +47,12 @@
 #pragma mark -- CreateTableView
 - (void)createTableView {
     
-    self.tableView.frame = CGRectMake(0, 64, SIZE.width, SIZE.height-40 -64);
+    self.tableView.frame = CGRectMake(0, 0, SIZE.width, SIZE.height-40);
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"ident"];
+    [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:@"ID"];
     
     [self.view addSubview:self.tableView];
 }
@@ -67,9 +67,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ident" forIndexPath:indexPath];
+    ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ID" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ident"];
+        cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
     }
     
     return cell;
@@ -77,7 +77,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 400;
+    return 340;
 }
 
 #pragma mark -- getter and setter
@@ -101,20 +101,34 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

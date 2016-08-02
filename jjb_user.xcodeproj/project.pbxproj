@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
+		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
+		51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CE1D503DB20082558D /* RHMenuButtonItem.m */; };
+		51B875D41D503DB20082558D /* RHMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D01D503DB20082558D /* RHMenuView.m */; };
+		51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D21D503DB20082558D /* RHMenuViewController.m */; };
+		51B875DC1D503DD80082558D /* ActivityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D71D503DD80082558D /* ActivityListController.m */; };
+		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
+		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
+		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
@@ -54,6 +62,23 @@
 /* Begin PBXFileReference section */
 		2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.debug.xcconfig"; sourceTree = "<group>"; };
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
+		51B875C91D5033D30082558D /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingCell.h; path = jjb_user/GrowingTree/GrowingCell.h; sourceTree = SOURCE_ROOT; };
+		51B875CA1D5033D30082558D /* GrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowingCell.m; path = jjb_user/GrowingTree/GrowingCell.m; sourceTree = SOURCE_ROOT; };
+		51B875CC1D503DB20082558D /* RHHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHHeader.h; sourceTree = "<group>"; };
+		51B875CD1D503DB20082558D /* RHMenuButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHMenuButtonItem.h; sourceTree = "<group>"; };
+		51B875CE1D503DB20082558D /* RHMenuButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHMenuButtonItem.m; sourceTree = "<group>"; };
+		51B875CF1D503DB20082558D /* RHMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHMenuView.h; sourceTree = "<group>"; };
+		51B875D01D503DB20082558D /* RHMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHMenuView.m; sourceTree = "<group>"; };
+		51B875D11D503DB20082558D /* RHMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHMenuViewController.h; sourceTree = "<group>"; };
+		51B875D21D503DB20082558D /* RHMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHMenuViewController.m; sourceTree = "<group>"; };
+		51B875D61D503DD80082558D /* ActivityListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListController.h; sourceTree = "<group>"; };
+		51B875D71D503DD80082558D /* ActivityListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListController.m; sourceTree = "<group>"; };
+		51B875D81D503DD80082558D /* ParticipationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipationController.h; sourceTree = "<group>"; };
+		51B875D91D503DD80082558D /* ParticipationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipationController.m; sourceTree = "<group>"; };
+		51B875DA1D503DD80082558D /* SponsorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorViewController.h; sourceTree = "<group>"; };
+		51B875DB1D503DD80082558D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
+		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
+		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
 		58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jjb_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
@@ -174,6 +199,13 @@
 		73886CB91D4F237600643BBA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				51B875CC1D503DB20082558D /* RHHeader.h */,
+				51B875CD1D503DB20082558D /* RHMenuButtonItem.h */,
+				51B875CE1D503DB20082558D /* RHMenuButtonItem.m */,
+				51B875CF1D503DB20082558D /* RHMenuView.h */,
+				51B875D01D503DB20082558D /* RHMenuView.m */,
+				51B875D11D503DB20082558D /* RHMenuViewController.h */,
+				51B875D21D503DB20082558D /* RHMenuViewController.m */,
 				73886CBA1D4F237600643BBA /* Controller */,
 				73886CBD1D4F237600643BBA /* Model */,
 				73886CBE1D4F237600643BBA /* View */,
@@ -186,6 +218,12 @@
 			children = (
 				BB159CA51D4F3AE900F46F09 /* ActivityController.h */,
 				BB159CA61D4F3AE900F46F09 /* ActivityController.m */,
+				51B875D61D503DD80082558D /* ActivityListController.h */,
+				51B875D71D503DD80082558D /* ActivityListController.m */,
+				51B875D81D503DD80082558D /* ParticipationController.h */,
+				51B875D91D503DD80082558D /* ParticipationController.m */,
+				51B875DA1D503DD80082558D /* SponsorViewController.h */,
+				51B875DB1D503DD80082558D /* SponsorViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -200,6 +238,8 @@
 		73886CBE1D4F237600643BBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51B875DF1D503E880082558D /* ActivityListCell.h */,
+				51B875E01D503E880082558D /* ActivityListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +273,8 @@
 		73886CC51D4F239500643BBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51B875C91D5033D30082558D /* GrowingCell.h */,
+				51B875CA1D5033D30082558D /* GrowingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -703,18 +745,24 @@
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
+				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
+				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				BB159CAA1D4F3B0E00F46F09 /* ShopController.m in Sources */,
+				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
+				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
+				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
+				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
@@ -726,9 +774,11 @@
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
+				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
 				73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */,
+				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
