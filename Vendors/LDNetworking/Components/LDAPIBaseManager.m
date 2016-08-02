@@ -107,7 +107,7 @@
   [[LDApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
 }
 
-- (id)fetchDataWithReformer:(id<LDAPIManagerCallbackDataReformer>)reformer
+- (id)fetchDataWithReformer:(id<ReformerProtocol>)reformer
 {
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(manager:reformData:)]) {
@@ -203,7 +203,7 @@
     }
 
     [self beforePerformSuccessWithResponse:response];
-    [self.delegate managerCallAPIDidSuccess:self];
+    [self.delegate apiManagerCallDidSuccess:self];
     [self afterPerformSuccessWithResponse:response];
   } else {
     [self failedOnCallingAPI:response
@@ -216,7 +216,7 @@
   self.errorType = errorType;
   [self removeRequestIdWithRequestID:response.requestId];
   [self beforePerformFailWithResponse:response];
-  [self.delegate managerCallAPIDidFailed:self];
+  [self.delegate apiManagerCallDidFailed:self];
   [self afterPerformFailWithResponse:response];
 }
 

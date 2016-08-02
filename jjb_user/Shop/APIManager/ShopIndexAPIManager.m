@@ -8,7 +8,39 @@
 
 #import "ShopIndexAPIManager.h"
 
+@interface ShopIndexAPIManager ()
+@property(nonatomic, copy, readwrite) NSString *methodName;
+@property(nonatomic, strong) NSString *serviceType;
+@property(nonatomic, assign) LDAPIManagerRequestType requestType;
+@end
+
 @implementation ShopIndexAPIManager
+
+
+#pragma mark - life cycle
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _methodName = @"home/list";
+        _serviceType = kLDServiceJJBUser;
+        _requestType = LDAPIManagerRequestTypePost;
+        self.validator = self;
+        self.interceptor = self;
+    }
+    return self;
+}
+
+#pragma mark - LDAPIManagerValidator
+- (BOOL)manager:(LDAPIBaseManager *)manager
+isCorrectWithCallBackData:(NSDictionary *)data {
+    return YES;
+}
+
+- (BOOL)manager:(LDAPIBaseManager *)manager
+isCorrectWithParamsData:(NSDictionary *)data {
+    return YES;
+}
+
 + (instancetype)sharedInstance {
     static dispatch_once_t ShopIndexAPIManagerOnceToken;
     static ShopIndexAPIManager *sharedInstance = nil;

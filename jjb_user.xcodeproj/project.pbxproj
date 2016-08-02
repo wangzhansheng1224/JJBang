@@ -36,6 +36,7 @@
 		73886D351D4F735D00643BBA /* LDService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D181D4F735D00643BBA /* LDService.m */; };
 		73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D1A1D4F735D00643BBA /* LDServiceFactory.m */; };
 		73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */; };
+		73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D451D50065A00643BBA /* ShopIndexReformer.m */; };
 		73ED4F091D4EFA410022BF79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F081D4EFA410022BF79 /* main.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F131D4EFA410022BF79 /* Assets.xcassets */; };
@@ -112,6 +113,9 @@
 		73886D1A1D4F735D00643BBA /* LDServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDServiceFactory.m; sourceTree = "<group>"; };
 		73886D391D4F742500643BBA /* LDServiceJJBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDServiceJJBUser.h; path = JJBUser/LDServiceJJBUser.h; sourceTree = "<group>"; };
 		73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDServiceJJBUser.m; path = JJBUser/LDServiceJJBUser.m; sourceTree = "<group>"; };
+		73886D441D50065A00643BBA /* ShopIndexReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexReformer.h; sourceTree = "<group>"; };
+		73886D451D50065A00643BBA /* ShopIndexReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexReformer.m; sourceTree = "<group>"; };
+		73886D481D50067800643BBA /* ShopIndexKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopIndexKeys.h; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F081D4EFA410022BF79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -416,6 +420,24 @@
 			name = JJBUser;
 			sourceTree = "<group>";
 		};
+		73886D421D50065A00643BBA /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				73886D431D50065A00643BBA /* ShopIndex */,
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		73886D431D50065A00643BBA /* ShopIndex */ = {
+			isa = PBXGroup;
+			children = (
+				73886D481D50067800643BBA /* ShopIndexKeys.h */,
+				73886D441D50065A00643BBA /* ShopIndexReformer.h */,
+				73886D451D50065A00643BBA /* ShopIndexReformer.m */,
+			);
+			path = ShopIndex;
+			sourceTree = "<group>";
+		};
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
@@ -466,9 +488,9 @@
 		73ED4F1F1D4F09320022BF79 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				73886D421D50065A00643BBA /* Reformer */,
 				73886CD91D4F6ED600643BBA /* APIManager */,
 				73ED4F201D4F09320022BF79 /* Controller */,
-				73ED4F211D4F09320022BF79 /* Model */,
 				73ED4F221D4F09320022BF79 /* View */,
 			);
 			path = Shop;
@@ -481,13 +503,6 @@
 				BB159CA91D4F3B0E00F46F09 /* ShopController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73ED4F211D4F09320022BF79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73ED4F221D4F09320022BF79 /* View */ = {
@@ -709,6 +724,7 @@
 				73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
+				73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,

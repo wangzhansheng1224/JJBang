@@ -15,11 +15,11 @@
 }
 
 - (NSString *)onlineApiBaseUrl {
-    return @"http://123.56.225.133/";
+    return @"http://115.29.221.199:8081/sys/rest/";
 }
 
 - (NSString *)onlineApiVersion {
-    return @"v1";
+    return @"";
 }
 
 - (NSString *)onlinePrivateKey {

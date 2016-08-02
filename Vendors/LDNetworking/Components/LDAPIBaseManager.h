@@ -17,8 +17,8 @@ static NSString *const kLDAPIBaseManagerRequestID =
 // api回调
 @protocol LDAPIManagerApiCallBackDelegate <NSObject>
 @required
-- (void)managerCallAPIDidSuccess:(LDAPIBaseManager *)manager;
-- (void)managerCallAPIDidFailed:(LDAPIBaseManager *)manager;
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager;
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager;
 @end
 
 
@@ -81,7 +81,7 @@ static NSString *const kLDAPIBaseManagerRequestID =
  [self.view configWithData:data];
  
  */
-@protocol LDAPIManagerCallbackDataReformer <NSObject>
+@protocol ReformerProtocol <NSObject>
 @required
 /*
  比如同样的一个获取电话号码的逻辑，二手房，新房，租房调用的API不同，所以它们的manager和data都会不同。
@@ -230,7 +230,7 @@ typedef NS_ENUM(NSUInteger, LDAPIManagerRequestType) {
 @property(nonatomic, assign, readonly) BOOL isReachable;
 @property(nonatomic, assign, readonly) BOOL isLoading;
 
-- (id)fetchDataWithReformer:(id<LDAPIManagerCallbackDataReformer>)reformer;
+- (id)fetchDataWithReformer:(id<ReformerProtocol>)reformer;
 
 //尽量使用loadData这个方法,这个方法会通过param
 // source来获得参数，这使得参数的生成逻辑位于controller中的固定位置

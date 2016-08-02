@@ -7,6 +7,7 @@
 //
 
 
-@interface ShopIndexAPIManager : LDAPIBaseManager
+@interface ShopIndexAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
+LDAPIManagerInterceptor>
 + (instancetype)sharedInstance;
 @end
