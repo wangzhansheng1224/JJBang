@@ -18,7 +18,6 @@ NSString *const kShopIndexTechList=@"TechList";
 NSString *const kShopIndexRadioList=@"RadioList";
 NSString *const kShopIndexCourseList=@"CourseList";
 
-
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
     return @{

@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AliyunOSSiOS (2.5.1)
   - Aspects (1.4.1)
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
@@ -42,6 +43,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
+  - AliyunOSSiOS (~> 2.5.0)
   - Aspects
   - CocoaLumberjack
   - CTPersistance
@@ -55,6 +57,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AliyunOSSiOS: 0366ab7e52ef663cd1c950d63584ebb96b717c72
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CTPersistance: 830b4420215081e39f29f7909753602809c708b8
@@ -66,6 +69,6 @@ SPEC CHECKSUMS:
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: f942fec9f908133a3a0fb77efcd255cea531e4dc
+PODFILE CHECKSUM: 1f054c2259e94bbf06641307b8c2ee93eb1c3785
 
 COCOAPODS: 1.0.1
