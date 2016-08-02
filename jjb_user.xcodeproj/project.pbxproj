@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
+		514E9B4C1D5081C80064EEFD /* release.png in Resources */ = {isa = PBXBuildFile; fileRef = 514E9B4B1D5081C80064EEFD /* release.png */; };
+		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
 		51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CE1D503DB20082558D /* RHMenuButtonItem.m */; };
 		51B875D41D503DB20082558D /* RHMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D01D503DB20082558D /* RHMenuView.m */; };
@@ -62,6 +64,9 @@
 /* Begin PBXFileReference section */
 		2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.debug.xcconfig"; sourceTree = "<group>"; };
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
+		514E9B4B1D5081C80064EEFD /* release.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = release.png; sourceTree = "<group>"; };
+		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
+		514E9B4E1D5086020064EEFD /* IssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueController.m; sourceTree = "<group>"; };
 		51B875C91D5033D30082558D /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingCell.h; path = jjb_user/GrowingTree/GrowingCell.h; sourceTree = SOURCE_ROOT; };
 		51B875CA1D5033D30082558D /* GrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowingCell.m; path = jjb_user/GrowingTree/GrowingCell.m; sourceTree = SOURCE_ROOT; };
 		51B875CC1D503DB20082558D /* RHHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHHeader.h; sourceTree = "<group>"; };
@@ -179,6 +184,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		514E9B4A1D5081C80064EEFD /* image */ = {
+			isa = PBXGroup;
+			children = (
+				514E9B4B1D5081C80064EEFD /* release.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		6702D6FE0C68A85C27B5AFC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +272,8 @@
 			children = (
 				BB159CA21D4F3ABD00F46F09 /* GrowingTreeController.h */,
 				BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */,
+				514E9B4D1D5086020064EEFD /* IssueController.h */,
+				514E9B4E1D5086020064EEFD /* IssueController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -557,6 +572,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				514E9B4A1D5081C80064EEFD /* image */,
 				73886CDD1D4F735D00643BBA /* LDNetworking */,
 				BB159CB11D4F473200F46F09 /* Category */,
 				BB159CB51D4F473200F46F09 /* MBTabBar */,
@@ -673,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
+				514E9B4C1D5081C80064EEFD /* release.png in Resources */,
 				73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +758,7 @@
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
+				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,

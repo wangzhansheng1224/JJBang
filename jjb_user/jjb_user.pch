@@ -55,13 +55,16 @@ alpha:(a)]
 #endif
 
 
-
+/*
+ *  屏幕尺寸
+ */
+#define SIZE [UIScreen mainScreen].bounds.size
 
 
 
 
 #import "UIColor+MBHex.h"
 #import "LDNetworking.h"
-
+#import <Masonry.h>
 
 #endif

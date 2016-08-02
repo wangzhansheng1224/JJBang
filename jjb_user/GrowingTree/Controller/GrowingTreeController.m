@@ -8,6 +8,8 @@
 
 #import "GrowingTreeController.h"
 #import "GrowingCell.h"
+#import "IssueController.h"
+
 
 #define SIZE [UIScreen mainScreen].bounds.size
 
@@ -17,9 +19,15 @@
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
 
+@property (nonatomic,strong) UIButton *issueBtn;
+
+@property (nonatomic,strong) IssueController *issueVC;
+
 @end
 
 @implementation GrowingTreeController
+
+#pragma mark -- life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,9 +40,15 @@
     
     [self loadData];
     
-    [self createTableView];
+    [self.view addSubview:self.tableView];
+    
+    [self.view addSubview:self.issueBtn];
+//    [self.view bringSubviewToFront:self.issueBtn];
+    
+    [self configMasonry];
 }
 
+#pragma mark -- CustomMethods
 
 - (void)initData {
     
@@ -44,19 +58,20 @@
     
 }
 
-#pragma mark -- CreateTableView
-- (void)createTableView {
-    
-    self.tableView.frame = CGRectMake(0, 64, SIZE.width, SIZE.height-40 -64);
-    
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    
-    [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"ident"];
-    
-    [self.view addSubview:self.tableView];
-}
+- (void)configMasonry {
 
+    
+            [self.issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+                make.size.mas_equalTo(CGSizeMake(50, 50));
+                make.bottom.equalTo(@-100);
+                make.right.equalTo(@-50);
+    //
+    //            make.right.equalTo(self.view.mas_right).with.offset(-50);
+    //            make.bottom.equalTo(self.view.mas_bottom).with.offset(-100);
+                
+            }];
+}
 
 
 #pragma mark -- UITableViewDelegate
@@ -80,12 +95,32 @@
     return 400;
 }
 
+#pragma mark -- event response
+- (void)btnClick:(UIButton *)btn {
+
+    NSLog(@"发布");
+    
+    [self.navigationController pushViewController:self.issueVC animated:YES];
+}
+
+
 #pragma mark -- getter and setter
 - (UITableView *)tableView {
     
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
+        _tableView.frame = CGRectMake(0, 64, SIZE.width, SIZE.height-64 -40);
+//        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(@64);
+//            make.bottom.equalTo(@-49);
+//            make.left.right.equalTo(@0);
+//        }];
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        
+        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"ident"];
     }
     return _tableView;
 }
@@ -98,6 +133,27 @@
     }
     return _dataArr;
     
+}
+
+- (UIButton *)issueBtn {
+
+    if (!_issueBtn) {
+        
+        _issueBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _issueBtn.frame = CGRectMake(200, 200, 50, 50);
+        [_issueBtn setImage:[UIImage imageNamed:@"release"] forState:UIControlStateNormal];
+        [_issueBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _issueBtn;
+}
+
+- (IssueController *)issueVC {
+
+    if (!_issueVC) {
+        
+        _issueVC = [[IssueController alloc] init];
+    }
+    return _issueVC;
 }
 
 
