@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BaseTabBarController.h"
+#import "MBGuideTool.h"
 @interface AppDelegate ()
 
 @end
@@ -19,9 +20,11 @@
     // Override point for customization after application launch.
     
     self.window =  [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
-    self.window.rootViewController = tabBarVC;
-    [self.window makeKeyAndVisible];
+//    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
+//    self.window.rootViewController = tabBarVC;
+//    [self.window makeKeyAndVisible];
+    //判断是否有新特性
+    [MBGuideTool selectRootViewController:self.window];
     
     return YES;
 }

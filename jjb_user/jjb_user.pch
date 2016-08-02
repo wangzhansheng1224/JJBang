@@ -62,6 +62,6 @@ alpha:(a)]
 
 #import "UIColor+MBHex.h"
 #import "LDNetworking.h"
-
+#import "UIView+MBFrame.h"
 
 #endif
