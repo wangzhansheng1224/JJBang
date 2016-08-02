@@ -10,6 +10,7 @@ target 'jjb_user' do
     pod 'XLForm'
     pod 'CTPersistance'
     pod 'JLRoutes'
-    #pod 'LBXScan',git:'https://github.com/MxABC/LBXScan.git'
+    pod 'AliyunOSSiOS', '~> 2.5.0'
+    #pod 'LBXScan'
 #    pod 'RAMAnimatedTabBarController'
 end

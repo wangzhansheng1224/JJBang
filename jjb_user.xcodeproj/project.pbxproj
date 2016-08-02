@@ -45,6 +45,18 @@
 		73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D1A1D4F735D00643BBA /* LDServiceFactory.m */; };
 		73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */; };
 		73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D451D50065A00643BBA /* ShopIndexReformer.m */; };
+		73886D4B1D507B3A00643BBA /* CourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D4A1D507B3A00643BBA /* CourseListController.m */; };
+		73886D521D507C2A00643BBA /* CourseListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D511D507C2A00643BBA /* CourseListReformer.m */; };
+		73886D551D507ED900643BBA /* CourseListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D541D507ED900643BBA /* CourseListAPIManager.m */; };
+		73886D5A1D50803100643BBA /* CourseInfoReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D591D50803100643BBA /* CourseInfoReformer.m */; };
+		73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D5D1D50841700643BBA /* ActivityListAPIManager.m */; };
+		73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D5F1D50841700643BBA /* ActivityDetailAPIManager.m */; };
+		73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D751D50850D00643BBA /* ActivityInfoReformer.m */; };
+		73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D7A1D5088EC00643BBA /* ActivityDetailReformer.m */; };
+		73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D7F1D508B0200643BBA /* ActivityRegisterReformer.m */; };
+		73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D831D508B0200643BBA /* ActivityRegisterListReformer.m */; };
+		73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */; };
+		73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */; };
 		73ED4F091D4EFA410022BF79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F081D4EFA410022BF79 /* main.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F131D4EFA410022BF79 /* Assets.xcassets */; };
@@ -141,6 +153,36 @@
 		73886D441D50065A00643BBA /* ShopIndexReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexReformer.h; sourceTree = "<group>"; };
 		73886D451D50065A00643BBA /* ShopIndexReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexReformer.m; sourceTree = "<group>"; };
 		73886D481D50067800643BBA /* ShopIndexKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopIndexKeys.h; sourceTree = "<group>"; };
+		73886D491D507B3A00643BBA /* CourseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListController.h; sourceTree = "<group>"; };
+		73886D4A1D507B3A00643BBA /* CourseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListController.m; sourceTree = "<group>"; };
+		73886D4F1D507C0200643BBA /* CourseListKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CourseListKey.h; path = CourseList/CourseListKey.h; sourceTree = "<group>"; };
+		73886D501D507C2A00643BBA /* CourseListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListReformer.h; path = CourseList/CourseListReformer.h; sourceTree = "<group>"; };
+		73886D511D507C2A00643BBA /* CourseListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListReformer.m; path = CourseList/CourseListReformer.m; sourceTree = "<group>"; };
+		73886D531D507ED900643BBA /* CourseListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListAPIManager.h; path = APIManager/CourseListAPIManager.h; sourceTree = "<group>"; };
+		73886D541D507ED900643BBA /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListAPIManager.m; path = APIManager/CourseListAPIManager.m; sourceTree = "<group>"; };
+		73886D571D50800200643BBA /* CourseInfoKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CourseInfoKey.h; path = CourseInfo/CourseInfoKey.h; sourceTree = "<group>"; };
+		73886D581D50803100643BBA /* CourseInfoReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseInfoReformer.h; path = CourseInfo/CourseInfoReformer.h; sourceTree = "<group>"; };
+		73886D591D50803100643BBA /* CourseInfoReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseInfoReformer.m; path = CourseInfo/CourseInfoReformer.m; sourceTree = "<group>"; };
+		73886D5C1D50841700643BBA /* ActivityListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListAPIManager.h; sourceTree = "<group>"; };
+		73886D5D1D50841700643BBA /* ActivityListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListAPIManager.m; sourceTree = "<group>"; };
+		73886D5E1D50841700643BBA /* ActivityDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailAPIManager.h; sourceTree = "<group>"; };
+		73886D5F1D50841700643BBA /* ActivityDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailAPIManager.m; sourceTree = "<group>"; };
+		73886D731D50850D00643BBA /* ActivityInfoKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInfoKey.h; sourceTree = "<group>"; };
+		73886D741D50850D00643BBA /* ActivityInfoReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInfoReformer.h; sourceTree = "<group>"; };
+		73886D751D50850D00643BBA /* ActivityInfoReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInfoReformer.m; sourceTree = "<group>"; };
+		73886D781D5088EC00643BBA /* ActivityDetailKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailKey.h; sourceTree = "<group>"; };
+		73886D791D5088EC00643BBA /* ActivityDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailReformer.h; sourceTree = "<group>"; };
+		73886D7A1D5088EC00643BBA /* ActivityDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailReformer.m; sourceTree = "<group>"; };
+		73886D7D1D508B0200643BBA /* ActivityRegisterKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterKey.h; sourceTree = "<group>"; };
+		73886D7E1D508B0200643BBA /* ActivityRegisterReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterReformer.h; sourceTree = "<group>"; };
+		73886D7F1D508B0200643BBA /* ActivityRegisterReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterReformer.m; sourceTree = "<group>"; };
+		73886D811D508B0200643BBA /* ActivityRegisterListKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterListKey.h; sourceTree = "<group>"; };
+		73886D821D508B0200643BBA /* ActivityRegisterListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterListReformer.h; sourceTree = "<group>"; };
+		73886D831D508B0200643BBA /* ActivityRegisterListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterListReformer.m; sourceTree = "<group>"; };
+		73886D861D508B7D00643BBA /* ActivityRegisterAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterAPIManager.h; sourceTree = "<group>"; };
+		73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterAPIManager.m; sourceTree = "<group>"; };
+		73886D881D508B7D00643BBA /* ActivityRegisterListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterListAPIManager.h; sourceTree = "<group>"; };
+		73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterListAPIManager.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F081D4EFA410022BF79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -199,6 +241,8 @@
 		73886CB91D4F237600643BBA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				73886D5B1D50841700643BBA /* APIManager */,
+				73886D601D50841700643BBA /* Reformer */,
 				51B875CC1D503DB20082558D /* RHHeader.h */,
 				51B875CD1D503DB20082558D /* RHMenuButtonItem.h */,
 				51B875CE1D503DB20082558D /* RHMenuButtonItem.m */,
@@ -317,6 +361,8 @@
 			children = (
 				73886CDA1D4F6F1F00643BBA /* ShopIndexAPIManager.h */,
 				73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */,
+				73886D531D507ED900643BBA /* CourseListAPIManager.h */,
+				73886D541D507ED900643BBA /* CourseListAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -465,6 +511,8 @@
 		73886D421D50065A00643BBA /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				73886D561D507FD300643BBA /* CourseInfo */,
+				73886D4C1D507B6B00643BBA /* CourseList */,
 				73886D431D50065A00643BBA /* ShopIndex */,
 			);
 			path = Reformer;
@@ -478,6 +526,92 @@
 				73886D451D50065A00643BBA /* ShopIndexReformer.m */,
 			);
 			path = ShopIndex;
+			sourceTree = "<group>";
+		};
+		73886D4C1D507B6B00643BBA /* CourseList */ = {
+			isa = PBXGroup;
+			children = (
+				73886D4F1D507C0200643BBA /* CourseListKey.h */,
+				73886D501D507C2A00643BBA /* CourseListReformer.h */,
+				73886D511D507C2A00643BBA /* CourseListReformer.m */,
+			);
+			name = CourseList;
+			sourceTree = "<group>";
+		};
+		73886D561D507FD300643BBA /* CourseInfo */ = {
+			isa = PBXGroup;
+			children = (
+				73886D571D50800200643BBA /* CourseInfoKey.h */,
+				73886D581D50803100643BBA /* CourseInfoReformer.h */,
+				73886D591D50803100643BBA /* CourseInfoReformer.m */,
+			);
+			name = CourseInfo;
+			sourceTree = "<group>";
+		};
+		73886D5B1D50841700643BBA /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				73886D861D508B7D00643BBA /* ActivityRegisterAPIManager.h */,
+				73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */,
+				73886D881D508B7D00643BBA /* ActivityRegisterListAPIManager.h */,
+				73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */,
+				73886D5C1D50841700643BBA /* ActivityListAPIManager.h */,
+				73886D5D1D50841700643BBA /* ActivityListAPIManager.m */,
+				73886D5E1D50841700643BBA /* ActivityDetailAPIManager.h */,
+				73886D5F1D50841700643BBA /* ActivityDetailAPIManager.m */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		73886D601D50841700643BBA /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				73886D7C1D508B0200643BBA /* ActivityRegister */,
+				73886D801D508B0200643BBA /* ActivityRegisterList */,
+				73886D771D5088EC00643BBA /* ActivityDetail */,
+				73886D721D50850D00643BBA /* ActivityInfo */,
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		73886D721D50850D00643BBA /* ActivityInfo */ = {
+			isa = PBXGroup;
+			children = (
+				73886D731D50850D00643BBA /* ActivityInfoKey.h */,
+				73886D741D50850D00643BBA /* ActivityInfoReformer.h */,
+				73886D751D50850D00643BBA /* ActivityInfoReformer.m */,
+			);
+			path = ActivityInfo;
+			sourceTree = "<group>";
+		};
+		73886D771D5088EC00643BBA /* ActivityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				73886D781D5088EC00643BBA /* ActivityDetailKey.h */,
+				73886D791D5088EC00643BBA /* ActivityDetailReformer.h */,
+				73886D7A1D5088EC00643BBA /* ActivityDetailReformer.m */,
+			);
+			path = ActivityDetail;
+			sourceTree = "<group>";
+		};
+		73886D7C1D508B0200643BBA /* ActivityRegister */ = {
+			isa = PBXGroup;
+			children = (
+				73886D7D1D508B0200643BBA /* ActivityRegisterKey.h */,
+				73886D7E1D508B0200643BBA /* ActivityRegisterReformer.h */,
+				73886D7F1D508B0200643BBA /* ActivityRegisterReformer.m */,
+			);
+			path = ActivityRegister;
+			sourceTree = "<group>";
+		};
+		73886D801D508B0200643BBA /* ActivityRegisterList */ = {
+			isa = PBXGroup;
+			children = (
+				73886D811D508B0200643BBA /* ActivityRegisterListKey.h */,
+				73886D821D508B0200643BBA /* ActivityRegisterListReformer.h */,
+				73886D831D508B0200643BBA /* ActivityRegisterListReformer.m */,
+			);
+			path = ActivityRegisterList;
 			sourceTree = "<group>";
 		};
 		73ED4EFB1D4EFA410022BF79 = {
@@ -543,6 +677,8 @@
 			children = (
 				BB159CA81D4F3B0E00F46F09 /* ShopController.h */,
 				BB159CA91D4F3B0E00F46F09 /* ShopController.m */,
+				73886D491D507B3A00643BBA /* CourseListController.h */,
+				73886D4A1D507B3A00643BBA /* CourseListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -732,6 +868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
@@ -743,16 +880,21 @@
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
+				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
+				73886D521D507C2A00643BBA /* CourseListReformer.m in Sources */,
 				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
+				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				BB159CAA1D4F3B0E00F46F09 /* ShopController.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
+				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
+				73886D5A1D50803100643BBA /* CourseInfoReformer.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
@@ -764,15 +906,21 @@
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
+				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
+				73886D4B1D507B3A00643BBA /* CourseListController.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
+				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
 				73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */,
+				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
+				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */,
+				73886D551D507ED900643BBA /* CourseListAPIManager.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AliyunOSSiOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Aspects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,6 +77,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>23DAF21ED1FFF084FC0CF50B132533D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34B458C9739EAC80855F67DA9878C7AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40A045DF8C21A467D0092F6642949199</key>
 		<dict>
 			<key>primary</key>
@@ -82,17 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BFB7DE07FDDD2FDB599A3CE8C86CF6A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EA3BF54962038B7945CCA7EA2F1B644</key>
+		<key>5D1CF4C27119E3A62AA312C622FAD95C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D4879ABE7082238020AA55FE42C9ACB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91469EE50935B126EDD29414D63030F6</key>
+		<key>97B2ACF3AA4080D1991B55C3E50A10F5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A98C138EC14572F9D888F351A226FA14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,16 +133,6 @@
 			<true/>
 		</dict>
 		<key>DBC9A0AF6D4571D059D2AF2422F2BD6E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4C4D245CDFD154C1B11D1C862E1037A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE47A2B0C7A8CC96D52FF0363E486688</key>
 		<dict>
 			<key>primary</key>
 			<true/>
