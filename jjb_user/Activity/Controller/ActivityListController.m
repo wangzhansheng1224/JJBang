@@ -9,15 +9,15 @@
 #import "ActivityListController.h"
 #import "ActivityListCell.h"
 #import "ActivityListAPIManager.h"
+#import "ActivityListReformer.h"
 #import "ActivityDetailController.h"
 
-
-#define SIZE [UIScreen mainScreen].bounds.size
+static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier";
 
 @interface ActivityListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) LDAPIBaseManager *activityListAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> activityListReformer;
 
@@ -31,28 +31,30 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.activityListAPIManager loadData];
     [self.view addSubview:self.tableView];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.arrData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"List" forIndexPath:indexPath];
+    ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:ActivityListCellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"List"];
+        cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActivityListCellIdentifier];
     }
-    
+
     return cell;
 }
 
@@ -64,7 +66,10 @@
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSDictionary *reformedShopIndexData = [manager fetchDataWithReformer:self.activityListReformer];
+    NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
+    
+    [self.arrData addObjectsFromArray:resultData];
+
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     
@@ -73,8 +78,22 @@
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"shop_id":@"1",@"user_id":@"1",@"start":@"0",@"count":@"20"};
+    return @{@"shop_id":@"3",@"user_id":@"1",@"start":@"0",@"count":@"10",@"isOwn":@"0"};
 }
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    NSString *str=_dataDic[_array[indexPath.section]][indexPath.row];
+//    vc.name=str;
+
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    self.detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:self.detail animated:YES];
+}
+
 
 #pragma -
 #pragma mark - getters and setters
@@ -88,18 +107,14 @@
     return _activityListAPIManager;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ - (id<ReformerProtocol>) activityListReformer{
     
-//    NSString *str=_dataDic[_array[indexPath.section]][indexPath.row];
-//    vc.name=str;
-
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    self.detail.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:self.detail animated:YES];
+     if (!_activityListReformer) {
+         _activityListReformer=[[ActivityListReformer alloc] init];
+     }
+     return _activityListReformer;
 }
 
-#pragma mark -- getter and setter
 - (UITableView *)tableView {
     
     if (!_tableView) {
@@ -110,18 +125,17 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
-        [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:@"List"];
+        [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:ActivityListCellIdentifier];
     }
     return _tableView;
 }
 
-- (NSMutableArray *)dataArr{
+- (NSMutableArray *)arrData{
     
-    if (!_dataArr) {
-        
-        _dataArr = [NSMutableArray array];
+    if (!_arrData) {
+        _arrData = [NSMutableArray array];
     }
-    return _dataArr;
+    return _arrData;
     
 }
 
@@ -134,34 +148,5 @@
     return _detail;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

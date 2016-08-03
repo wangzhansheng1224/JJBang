@@ -48,6 +48,7 @@
 		731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091EE1D51C8840031B443 /* GetCodeAPIManager.m */; };
 		731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091F01D51C8840031B443 /* LoginAPIManager.m */; };
 		731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091F21D51C8840031B443 /* RegisterAPIManager.m */; };
+		731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091FB1D51E91E0031B443 /* ActivityListReformer.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -190,6 +191,9 @@
 		731091F01D51C8840031B443 /* LoginAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAPIManager.m; sourceTree = "<group>"; };
 		731091F11D51C8840031B443 /* RegisterAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAPIManager.h; sourceTree = "<group>"; };
 		731091F21D51C8840031B443 /* RegisterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAPIManager.m; sourceTree = "<group>"; };
+		731091F91D51E80F0031B443 /* ActivityListKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ActivityListKey.h; path = ActivityList/ActivityListKey.h; sourceTree = "<group>"; };
+		731091FA1D51E91E0031B443 /* ActivityListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListReformer.h; path = ActivityList/ActivityListReformer.h; sourceTree = "<group>"; };
+		731091FB1D51E91E0031B443 /* ActivityListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListReformer.m; path = ActivityList/ActivityListReformer.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -621,6 +625,16 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		731091F81D51E71B0031B443 /* ActivityList */ = {
+			isa = PBXGroup;
+			children = (
+				731091F91D51E80F0031B443 /* ActivityListKey.h */,
+				731091FA1D51E91E0031B443 /* ActivityListReformer.h */,
+				731091FB1D51E91E0031B443 /* ActivityListReformer.m */,
+			);
+			name = ActivityList;
+			sourceTree = "<group>";
+		};
 		73886CB91D4F237600643BBA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +924,7 @@
 		73886D601D50841700643BBA /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				731091F81D51E71B0031B443 /* ActivityList */,
 				73886D7C1D508B0200643BBA /* ActivityRegister */,
 				73886D801D508B0200643BBA /* ActivityRegisterList */,
 				73886D771D5088EC00643BBA /* ActivityDetail */,
@@ -1292,6 +1307,7 @@
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
+				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
