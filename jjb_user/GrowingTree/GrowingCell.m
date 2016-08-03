@@ -51,16 +51,15 @@
         [self.contentView addSubview:self.moodLabel];
         [self.contentView addSubview:self.locView];
         [self.contentView addSubview:self.locLabel];
-//        [self.contentView addSubview:self.line];
-//        [self.contentView addSubview:self.issueBtn];
         
-        [self configMasonry];
+        [self layoutPageSubviews];
     }
     return self;
 }
 
-#pragma mark -- masonry
-- (void)configMasonry {
+#pragma -
+#pragma mark -- layoutPageSubviews
+- (void)layoutPageSubviews {
 
     [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -85,7 +84,7 @@
     
     [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 180));//mark
+        make.size.mas_equalTo(CGSizeMake(119, 77));
         make.top.mas_equalTo(_iconView.mas_bottom).with.offset(8);
         make.left.mas_equalTo(self.mas_left).with.offset(8);
     }];
@@ -101,7 +100,7 @@
     
     [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(20, 20));//mark
+        make.size.mas_equalTo(CGSizeMake(12, 16));
         make.top.equalTo(_moodLabel.mas_bottom).with.offset(6);
         make.left.equalTo(self.mas_left).with.offset(8);
     }];
@@ -112,38 +111,15 @@
         make.bottom.equalTo(self.mas_bottom).with.offset(-10);
         make.left.equalTo(_locView.mas_right).with.offset(8);
     }];
-    
-//    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.height.mas_equalTo(2);
-//        make.top.equalTo(_moodLabel.mas_bottom).with.offset(10);
-//        make.right.equalTo(self.mas_right).with.offset(-20);
-//        make.left.equalTo(self.mas_left).with.offset(20);
-//    }];
-//    
-//    [_issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.size.mas_equalTo(CGSizeMake(42, 21));
-//        make.right.equalTo(self.mas_right).with.offset(-20);
-//        make.top.equalTo(_line.mas_bottom).with.offset(20);
-//        
-//    }];
 }
 
-#pragma mark -- event response
-//- (void)btnClick:(UIButton *)btn {
-//    
-//    NSLog(@"发布");
-//}
 
-
+#pragma -
 #pragma mark - getters and setters
 - (UIImageView *)iconView {
     
     if (!_iconView) {
-        
         _iconView = [[UIImageView alloc] init];
-        _iconView.frame = CGRectMake(84, 20, 50, 50);
         _iconView.backgroundColor = JJBRandomColor;
         _iconView.layer.cornerRadius = 25;
         _iconView.clipsToBounds = YES;
@@ -155,22 +131,22 @@
 
 
 - (UILabel *)nameLabel {
- 
-     if (!_nameLabel) {
- 
-         _nameLabel = [[UILabel alloc] init];
-         _nameLabel.backgroundColor = JJBRandomColor;
-         _nameLabel.text = @"王老师";
-         _nameLabel.font = [UIFont systemFontOfSize:12];
-         _nameLabel.textColor = [UIColor darkGrayColor];
-     }
-     return _nameLabel;
+    
+    if (!_nameLabel) {
+        
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.backgroundColor = JJBRandomColor;
+        _nameLabel.text = @"王老师";
+        _nameLabel.font = [UIFont systemFontOfSize:12];
+        _nameLabel.textColor = [UIColor darkGrayColor];
+    }
+    return _nameLabel;
 }
- 
+
 - (UILabel *)timeLabel {
- 
+    
     if (!_timeLabel) {
- 
+        
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.backgroundColor = JJBRandomColor;
         _timeLabel.text = @"5小时";
@@ -180,21 +156,21 @@
     }
     return _timeLabel;
 }
- 
+
 - (UIImageView *)picView {
- 
+    
     if (!_picView) {
- 
+        
         _picView = [[UIImageView alloc] init];
         _picView.backgroundColor = JJBRandomColor;
     }
     return _picView;
 }
- 
+
 - (UILabel *)moodLabel {
- 
+    
     if (!_moodLabel) {
- 
+        
         _moodLabel = [[UILabel alloc] init];
         _moodLabel.backgroundColor = JJBRandomColor;
         _moodLabel.text = @"我们的张檬小朋友";
@@ -204,7 +180,7 @@
 }
 
 - (UIImageView *)locView {
-
+    
     if (!_locView) {
         
         _locView = [[UIImageView alloc] init];
@@ -215,7 +191,7 @@
 }
 
 - (UILabel *)locLabel {
-
+    
     if (!_locLabel) {
         _locLabel = [[UILabel alloc] init];
         _locLabel.backgroundColor = JJBRandomColor;
@@ -224,49 +200,6 @@
     }
     return _locLabel;
 }
- 
-//- (UILabel *)line {
-// 
-//    if (!_line) {
-// 
-//        _line = [[UILabel alloc] init];
-//        _line.textColor = [UIColor blackColor];
-//    }
-//    return _line;
-//}
 
-//- (UIButton *)issueBtn {
-// 
-//    if (!_issueBtn) {
-// 
-//        _issueBtn =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        _issueBtn.backgroundColor = JJBRandomColor;
-//        _issueBtn.frame = CGRectMake(0, 0, 20, 20);
-//        [_issueBtn setTitle:@"发布" forState:UIControlStateNormal];
-//        [_issueBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//    return _issueBtn;
-//}
-
-
-
-
-
-
-
-
-
-
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
 
 @end

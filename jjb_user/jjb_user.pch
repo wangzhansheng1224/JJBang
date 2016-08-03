@@ -54,8 +54,12 @@ alpha:(a)]
 #define iPhone5 ([UIScreen mainScreen].bounds.size.height == 568)
 #define iPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
 
-#define JJBScreenW [UIScreen mainScreen].bounds.size.width
-#define JJBScreenH [UIScreen mainScreen].bounds.size.height
+#define Screen_Width [UIScreen mainScreen].bounds.size.width
+#define Screen_Height [UIScreen mainScreen].bounds.size.height
+
+#define statusHeight 20
+#define TabBarHeight 49
+#define NavBarHeight 64
 
 /*屏幕视频*/
 
