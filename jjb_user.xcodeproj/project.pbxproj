@@ -48,6 +48,8 @@
 		731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091F01D51C8840031B443 /* LoginAPIManager.m */; };
 		731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091F21D51C8840031B443 /* RegisterAPIManager.m */; };
 		731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091FB1D51E91E0031B443 /* ActivityListReformer.m */; };
+		731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091FE1D520F280031B443 /* MyPublishAPIManager.m */; };
+		731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092011D520FA10031B443 /* GrowingTreePublishAPIManager.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -196,6 +198,10 @@
 		731091F91D51E80F0031B443 /* ActivityListKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ActivityListKey.h; path = ActivityList/ActivityListKey.h; sourceTree = "<group>"; };
 		731091FA1D51E91E0031B443 /* ActivityListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListReformer.h; path = ActivityList/ActivityListReformer.h; sourceTree = "<group>"; };
 		731091FB1D51E91E0031B443 /* ActivityListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListReformer.m; path = ActivityList/ActivityListReformer.m; sourceTree = "<group>"; };
+		731091FD1D520F280031B443 /* MyPublishAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishAPIManager.h; path = APIManager/MyPublishAPIManager.h; sourceTree = "<group>"; };
+		731091FE1D520F280031B443 /* MyPublishAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishAPIManager.m; path = APIManager/MyPublishAPIManager.m; sourceTree = "<group>"; };
+		731092001D520FA10031B443 /* GrowingTreePublishAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingTreePublishAPIManager.h; path = APIManager/GrowingTreePublishAPIManager.h; sourceTree = "<group>"; };
+		731092011D520FA10031B443 /* GrowingTreePublishAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowingTreePublishAPIManager.m; path = APIManager/GrowingTreePublishAPIManager.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -446,6 +452,8 @@
 				731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */,
 				731091CA1D51B28D0031B443 /* MyOrderAPIManager.h */,
 				731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */,
+				731091FD1D520F280031B443 /* MyPublishAPIManager.h */,
+				731091FE1D520F280031B443 /* MyPublishAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -598,6 +606,8 @@
 			children = (
 				731091C41D51B0660031B443 /* GrowingTreeListAPIManager.h */,
 				731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */,
+				731092001D520FA10031B443 /* GrowingTreePublishAPIManager.h */,
+				731092011D520FA10031B443 /* GrowingTreePublishAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -1341,6 +1351,7 @@
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
+				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
@@ -1360,6 +1371,7 @@
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
+				731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,

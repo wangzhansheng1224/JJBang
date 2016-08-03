@@ -1,27 +1,27 @@
 //
-//  GrowingTreeListAPIManager.m
+//  GrowingTreePublishAPIManager.m
 //  jjb_user
 //
 //  Created by Aimee on 16/8/3.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "GrowingTreeListAPIManager.h"
+#import "GrowingTreePublishAPIManager.h"
 
-@interface GrowingTreeListAPIManager ()
+@interface GrowingTreePublishAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation GrowingTreeListAPIManager
+@implementation GrowingTreePublishAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"grown/selectGrowingDynamic";
+        _methodName = @"grown/list";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -42,10 +42,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t GrowingTreeListAPIManagerOnceToken;
-    static GrowingTreeListAPIManager *sharedInstance = nil;
-    dispatch_once(&GrowingTreeListAPIManagerOnceToken, ^{
-        sharedInstance = [[GrowingTreeListAPIManager alloc] init];
+    static dispatch_once_t GrowingTreePublishAPIManagerOnceToken;
+    static GrowingTreePublishAPIManager *sharedInstance = nil;
+    dispatch_once(&GrowingTreePublishAPIManagerOnceToken, ^{
+        sharedInstance = [[GrowingTreePublishAPIManager alloc] init];
     });
     return sharedInstance;
 }
