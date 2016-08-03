@@ -1,27 +1,27 @@
 //
-//  LoginAPIManager.m
+//  MyPublishAPIManager.m
 //  jjb_user
 //
 //  Created by Aimee on 16/8/3.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "LoginAPIManager.h"
+#import "MyPublishAPIManager.h"
 
-@interface LoginAPIManager ()
+@interface MyPublishAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation LoginAPIManager
+@implementation MyPublishAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"user/login";
+        _methodName = @"grown/selectMyPublishs";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -42,12 +42,11 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t LoginAPIManagerOnceToken;
-    static LoginAPIManager *sharedInstance = nil;
-    dispatch_once(&LoginAPIManagerOnceToken, ^{
-        sharedInstance = [[LoginAPIManager alloc] init];
+    static dispatch_once_t MyPublishAPIManagerOnceToken;
+    static MyPublishAPIManager *sharedInstance = nil;
+    dispatch_once(&MyPublishAPIManagerOnceToken, ^{
+        sharedInstance = [[MyPublishAPIManager alloc] init];
     });
     return sharedInstance;
 }
-
 @end

@@ -1,5 +1,5 @@
 //
-//  LoginAPIManager.h
+//  GrowingTreePublishAPIManager.h
 //  jjb_user
 //
 //  Created by Aimee on 16/8/3.
@@ -8,9 +8,7 @@
 
 #import "LDAPIBaseManager.h"
 
-@interface LoginAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
+@interface GrowingTreePublishAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
 LDAPIManagerInterceptor>
 + (instancetype)sharedInstance;
-
-
 @end

@@ -11,6 +11,23 @@
 
 #define SIZE [UIScreen mainScreen].bounds.size
 #define PIC_HEIGHT 240
+@interface ActivityListCell()
+
+@property (nonatomic,strong) UIImageView *picView;
+
+@property (nonatomic,strong) UILabel *statusLabel;
+
+@property (nonatomic,strong) UILabel *titleLabel;
+
+@property (nonatomic,strong) UIImageView *locView;
+
+@property (nonatomic,strong) UILabel *locLabel;
+
+@property (nonatomic,strong) UIImageView *timeView;
+
+@property (nonatomic,strong) UILabel *timeLabel;
+
+@end
 
 @implementation ActivityListCell
 

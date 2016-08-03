@@ -8,7 +8,6 @@
 
 #import "ActivityListReformer.h"
 #import "ActivityListAPIManager.h"
-#import "ActivityListCell.h"
 
 NSString *const kActivityListID=@"ActivityListID";
 NSString *const kActivityListTitle=@"ActivityListTitle";
@@ -18,8 +17,6 @@ NSString *const kActivityListAddress=@"ActivityListAddress";
 NSString *const kActivityListState=@"ActivityListState";
 NSString *const kActivityListImageURL=@"ActivityListImage";
 NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
-
-static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier";
 
 @implementation ActivityListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
