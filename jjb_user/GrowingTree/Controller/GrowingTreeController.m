@@ -10,12 +10,16 @@
 #import "GrowingCell.h"
 #import "IssueController.h"
 #import <Masonry.h>
+#import "GrowingTreeListAPIManager.h"
 
 
-#define SIZE [UIScreen mainScreen].bounds.size
 
-@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource>
+static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
+@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
+
+@property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -37,6 +41,7 @@
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.issueBtn];
     [self layoutPageSubviews];
+    [self.growingTreeListAPIManager loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +73,9 @@
     GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GrowingCellIdentifier" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GrowingCellIdentifier"];
+    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
     return cell;
 }
@@ -78,10 +86,27 @@
 }
 
 #pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSDictionary *reformedShopIndexData = [manager fetchDataWithReformer:self.growingTreeListReformer];
+}
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"shop_id":@"1",
+             @"type":@"2",
+             @"start":@"1",
+             @"count":@"20"
+             };
+}
+
+#pragma -
 #pragma mark - event response
 - (void)btnClick:(UIButton *)btn {
-
-    NSLog(@"发布");
     
     [self.navigationController pushViewController:self.issueVC animated:YES];
 }
@@ -92,10 +117,10 @@
     
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 64, SIZE.width, SIZE.height-64 -40);
+        _tableView.frame = CGRectMake(0, 64, Screen_Width, Screen_Height-64 -40);
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"GrowingCellIdentifier"];
+        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;
 }
@@ -130,5 +155,12 @@
     return _issueVC;
 }
 
-
+- (LDAPIBaseManager *)growingTreeListAPIManager {
+    if (_growingTreeListAPIManager == nil) {
+        _growingTreeListAPIManager = [GrowingTreeListAPIManager  sharedInstance];
+        _growingTreeListAPIManager.delegate=self;
+        _growingTreeListAPIManager.paramSource=self;
+    }
+    return _growingTreeListAPIManager;
+}
 @end
