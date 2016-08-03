@@ -85,7 +85,7 @@
     
     [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 180));//mark
+        make.size.mas_equalTo(CGSizeMake(119, 77));
         make.top.mas_equalTo(_iconView.mas_bottom).with.offset(8);
         make.left.mas_equalTo(self.mas_left).with.offset(8);
     }];
@@ -101,7 +101,7 @@
     
     [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(20, 20));//mark
+        make.size.mas_equalTo(CGSizeMake(12, 16));
         make.top.equalTo(_moodLabel.mas_bottom).with.offset(6);
         make.left.equalTo(self.mas_left).with.offset(8);
     }];

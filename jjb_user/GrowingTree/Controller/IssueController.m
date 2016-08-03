@@ -35,7 +35,7 @@
 
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@64);
-        make.height.equalTo(@300);
+        make.height.equalTo(@240);
         make.left.right.equalTo(@0);
     }];
 }

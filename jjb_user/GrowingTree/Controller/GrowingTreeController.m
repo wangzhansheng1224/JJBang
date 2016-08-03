@@ -75,7 +75,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 313;
+    return 210;
 }
 
 #pragma -
