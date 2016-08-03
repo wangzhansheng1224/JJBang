@@ -42,6 +42,12 @@
 		731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */; };
 		731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */; };
 		731091D01D51B34F0031B443 /* RegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091CF1D51B34F0031B443 /* RegisterAPIManager.m */; };
+		731091D31D51B6080031B443 /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D21D51B6080031B443 /* LoginAPIManager.m */; };
+		731091D61D51B6ED0031B443 /* EditUserInfoAPIManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */; };
+		731091D91D51B7540031B443 /* EditPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D81D51B7540031B443 /* EditPasswordAPIManager.m */; };
+		731091DC1D51B7B80031B443 /* ResetPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */; };
+		731091DF1D51B8510031B443 /* GetCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091DE1D51B8510031B443 /* GetCodeAPIManager.m */; };
+		731091E21D51B8C00031B443 /* VerifyCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -102,7 +108,6 @@
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
-		512F233C1D51766000E33A92 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineModel.h; path = jjb_user/My/MineModel.h; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
 		512F233F1D51773500E33A92 /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineTableViewCell.h; path = jjb_user/My/MineTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		512F23401D51773500E33A92 /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineTableViewCell.m; path = jjb_user/My/MineTableViewCell.m; sourceTree = SOURCE_ROOT; };
@@ -172,6 +177,18 @@
 		731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderAPIManager.m; path = APIManager/MyOrderAPIManager.m; sourceTree = "<group>"; };
 		731091CE1D51B34F0031B443 /* RegisterAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterAPIManager.h; path = System/APIManager/RegisterAPIManager.h; sourceTree = SOURCE_ROOT; };
 		731091CF1D51B34F0031B443 /* RegisterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterAPIManager.m; path = System/APIManager/RegisterAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091D11D51B6080031B443 /* LoginAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPIManager.h; path = System/APIManager/LoginAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091D21D51B6080031B443 /* LoginAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPIManager.m; path = System/APIManager/LoginAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091D41D51B6ED0031B443 /* EditUserInfoAPIManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditUserInfoAPIManger.h; path = System/APIManager/EditUserInfoAPIManger.h; sourceTree = SOURCE_ROOT; };
+		731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditUserInfoAPIManger.m; path = System/APIManager/EditUserInfoAPIManger.m; sourceTree = SOURCE_ROOT; };
+		731091D71D51B7540031B443 /* EditPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPasswordAPIManager.h; path = System/APIManager/EditPasswordAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091D81D51B7540031B443 /* EditPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPasswordAPIManager.m; path = System/APIManager/EditPasswordAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091DA1D51B7B80031B443 /* ResetPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091DD1D51B8510031B443 /* GetCodeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetCodeAPIManager.h; path = System/APIManager/GetCodeAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091DE1D51B8510031B443 /* GetCodeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetCodeAPIManager.m; path = System/APIManager/GetCodeAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091E01D51B8C00031B443 /* VerifyCodeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyCodeAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCodeAPIManager.m; sourceTree = SOURCE_ROOT; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -571,6 +588,18 @@
 			children = (
 				731091CE1D51B34F0031B443 /* RegisterAPIManager.h */,
 				731091CF1D51B34F0031B443 /* RegisterAPIManager.m */,
+				731091D11D51B6080031B443 /* LoginAPIManager.h */,
+				731091D21D51B6080031B443 /* LoginAPIManager.m */,
+				731091D41D51B6ED0031B443 /* EditUserInfoAPIManger.h */,
+				731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */,
+				731091D71D51B7540031B443 /* EditPasswordAPIManager.h */,
+				731091D81D51B7540031B443 /* EditPasswordAPIManager.m */,
+				731091DA1D51B7B80031B443 /* ResetPasswordAPIManager.h */,
+				731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */,
+				731091DD1D51B8510031B443 /* GetCodeAPIManager.h */,
+				731091DE1D51B8510031B443 /* GetCodeAPIManager.m */,
+				731091E01D51B8C00031B443 /* VerifyCodeAPIManager.h */,
+				731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -686,15 +715,6 @@
 				731091841D51991E0031B443 /* MyCourseController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73886CCB1D4F23AC00643BBA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				512F233C1D51766000E33A92 /* MineModel.h */,
-				512F233D1D51766000E33A92 /* MineModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73886CCC1D4F23AC00643BBA /* View */ = {
@@ -1270,6 +1290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
+				731091D31D51B6080031B443 /* LoginAPIManager.m in Sources */,
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
@@ -1290,6 +1311,7 @@
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
+				731091E21D51B8C00031B443 /* VerifyCodeAPIManager.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
@@ -1299,6 +1321,8 @@
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
+				731091D61D51B6ED0031B443 /* EditUserInfoAPIManger.m in Sources */,
+				731091D91D51B7540031B443 /* EditPasswordAPIManager.m in Sources */,
 				731091851D51991E0031B443 /* MyCourseController.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
@@ -1316,6 +1340,7 @@
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
 				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,
 				BB1294291D50A8D60048927D /* MBAdItem.m in Sources */,
+				731091DF1D51B8510031B443 /* GetCodeAPIManager.m in Sources */,
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
@@ -1353,6 +1378,7 @@
 				73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
 				731091BE1D51A6CD0031B443 /* CourseCatalogAPIManager.m in Sources */,
+				731091DC1D51B7B80031B443 /* ResetPasswordAPIManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

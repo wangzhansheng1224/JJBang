@@ -1,27 +1,29 @@
 //
-//  RegisterAPIManager.m
+//  EditPasswordAPIManager.m
 //  jjb_user
 //
 //  Created by Aimee on 16/8/3.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "RegisterAPIManager.h"
+#import "EditPasswordAPIManager.h"
 
-@interface RegisterAPIManager ()
+
+
+@interface EditPasswordAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation RegisterAPIManager
+@implementation EditPasswordAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"user/register";
+        _methodName = @"user/editPassword";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -42,10 +44,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t RegisterAPIManagerOnceToken;
-    static RegisterAPIManager *sharedInstance = nil;
-    dispatch_once(&RegisterAPIManagerOnceToken, ^{
-        sharedInstance = [[RegisterAPIManager alloc] init];
+    static dispatch_once_t EditPasswordAPIManagerOnceToken;
+    static EditPasswordAPIManager *sharedInstance = nil;
+    dispatch_once(&EditPasswordAPIManagerOnceToken, ^{
+        sharedInstance = [[EditPasswordAPIManager alloc] init];
     });
     return sharedInstance;
 }

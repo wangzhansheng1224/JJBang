@@ -1,5 +1,5 @@
 //
-//  RegisterAPIManager.h
+//  EditUserInfoAPIManger.h
 //  jjb_user
 //
 //  Created by Aimee on 16/8/3.
@@ -8,9 +8,8 @@
 
 #import "LDAPIBaseManager.h"
 
-@interface RegisterAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
+@interface EditUserInfoAPIManger : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
 LDAPIManagerInterceptor>
 + (instancetype)sharedInstance;
-
 
 @end
