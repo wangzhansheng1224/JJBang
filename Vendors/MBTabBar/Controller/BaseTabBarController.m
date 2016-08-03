@@ -13,6 +13,7 @@
 #import "ActivityController.h"
 #import "MyController.h"
 #import "BaseNavigationController.h"
+#import "UIImage+image.h"
 @interface BaseTabBarController ()<MBTabBarDelegate>
 
 @property(nonatomic,strong) NSMutableArray * items;
@@ -21,7 +22,8 @@
 
 
 @implementation BaseTabBarController
- 
+#pragma mark
+#pragma mark - life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,27 +32,29 @@
     
     [self setUpAllChildControllers];
     
-//    [self setUpTabBar];
 }
 
 
--(void)setUpTabBar
-{
-    [self setValue:[[BaseTabBar alloc]init] forKey:@"tabBar"];
-}
+#pragma mark
+#pragma mark - private methods
 //修改tabbar里面的属性
 -(void)setCustomTabBar
 {
     UITabBarItem * item = [UITabBarItem appearance];
+
     NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    
+    normalAttrs[NSFontAttributeName] = H5;
+    normalAttrs[NSForegroundColorAttributeName] = COLOR_GRAY;
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     
     NSMutableDictionary * selectAttrs = [NSMutableDictionary dictionary];
-    selectAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    selectAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
     [item setTitleTextAttributes:selectAttrs forState:UIControlStateSelected];
-}
+    //取消tabbar的半透明效果
+    [UITabBar appearance].translucent = NO;
+  }
+
 
 //添加所有子控制器
 -(void)setUpAllChildControllers
@@ -86,12 +90,14 @@
     //设置导航条
     vc.title = titleString;
     vc.tabBarItem.image = norImage;
-    vc.tabBarItem.selectedImage = selImage;
+    //返回一张未被渲染的图片
+    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     
 }
 
-#pragma mark -
-#pragma mark  setter--getter
+#pragma mark
+#pragma mark - setter--getter
 -(NSMutableArray *)items
 {
     if (!_items) {

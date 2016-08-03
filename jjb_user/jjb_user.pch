@@ -37,7 +37,7 @@ alpha:(a)]
 #define H2 FONT_SIZE(17)
 #define H3 FONT_SIZE(16)
 #define H4 FONT_SIZE(14)
-#define H5 FONT_SIZE(12)
+#define H5 FONT_SIZE(9)
 
 //颜色
 #define COLOR_ORANGE RGBACOLOR(224, 85, 35, 1)

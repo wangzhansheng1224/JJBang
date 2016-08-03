@@ -103,6 +103,7 @@
 		BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */; };
 		BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97E1D50878B0037DA9F /* MBGuideTool.m */; };
 		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
+		BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8843011D51E02100A537D8 /* UIImage+image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -306,6 +307,8 @@
 		BB68C97E1D50878B0037DA9F /* MBGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideTool.m; sourceTree = "<group>"; };
 		BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MBCustom.h"; sourceTree = "<group>"; };
 		BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MBCustom.m"; sourceTree = "<group>"; };
+		BB8843001D51E02100A537D8 /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
+		BB8843011D51E02100A537D8 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
 		BBCCB49C1D4F24F40020E170 /* jjb_user.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jjb_user.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1087,6 +1090,8 @@
 				BB68C9701D506E580037DA9F /* UIView+MBFrame.m */,
 				BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */,
 				BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */,
+				BB8843001D51E02100A537D8 /* UIImage+image.h */,
+				BB8843011D51E02100A537D8 /* UIImage+image.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1354,7 +1359,6 @@
 				731091DF1D51B8510031B443 /* GetCodeAPIManager.m in Sources */,
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
-
 				BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */,
 				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
@@ -1374,6 +1378,7 @@
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
+				BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */,
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				7310917F1D5198C60031B443 /* ShopController.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,

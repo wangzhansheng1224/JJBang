@@ -19,11 +19,15 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6" alpha:1];
+//        self.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6" alpha:1];
+//        self.backgroundColor = [UIColor redColor];
+//        self.tintColor = [UIColor redColor];
+        
     
     }
     return self;
 }
+
 
 //设置位置
 -(void)layoutSubviews
