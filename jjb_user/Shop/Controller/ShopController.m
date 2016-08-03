@@ -8,6 +8,7 @@
 
 #import "ShopController.h"
 #import "SHopIndexAPIManager.h"
+
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
@@ -20,8 +21,38 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self.shopIndexAPIManager loadData];
+    [self setUpNav];
+}
+
+
+
+
+
+
+#pragma -
+#pragma mark - private methods
+//自定义导航栏
+-(void)setUpNav
+{
+    UIBarButtonItem * scanButton = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"tab_activity_normal"] highImage:[UIImage imageNamed:@"tab_activity_normal"] target:self action:@selector(gotoScan)];
+    self.navigationItem.rightBarButtonItem = scanButton;
+    
+    UIBarButtonItem * loactionButton = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"tab_activity_normal"] highImage:[UIImage imageNamed:@"tab_activity_normal"] target:self action:@selector(gotoLocation)];
+    self.navigationItem.leftBarButtonItem = loactionButton;
+    self.navigationItem.title = @"望湖公园店";
+}
+
+//扫描
+-(void)gotoScan
+{
+    JJBLog(@"%s",__func__);
+}
+//定位
+-(void)gotoLocation
+{
+    JJBLog(@"%s",__func__);
 }
 
 #pragma -

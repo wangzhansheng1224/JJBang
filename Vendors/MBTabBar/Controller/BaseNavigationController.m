@@ -13,12 +13,14 @@
 {
     //设置导航栏背景
     UINavigationBar * bar = [UINavigationBar appearance];
-    //    [bar setBackgroundColor:[UIColor grayColor]];
-    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+//    [bar setBackgroundImage:[UIImage imageNamed:@"guide_1"] forBarMetrics:UIBarMetricsDefault];
+//    [bar setBackgroundColor:[UIColor colorWithRed:224.0 green:85.0 blue:35.0 alpha:1]]; //设置导航栏底部背景颜色
+    [bar setBarTintColor:COLOR_ORANGE];
     //设置导航栏中间的标题
     NSMutableDictionary * attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
-//    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    //导航栏字体H1大小，
+    attrs[NSFontAttributeName] = H1;
+    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [bar setTitleTextAttributes:attrs];
     
 }
@@ -40,13 +42,13 @@
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
-        [button setTitle:@"返回" forState:UIControlStateNormal];
+//        [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:JJBColor(251, 32, 37) forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         [button sizeToFit];
         //让按钮的内容向左偏移20
-        button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+//        button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     }
     [super pushViewController:viewController animated:animated];

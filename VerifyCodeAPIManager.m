@@ -1,27 +1,27 @@
 //
-//  CourseListAPIManager.m
+//  VerifyCodeAPIManager.m
 //  jjb_user
 //
-//  Created by Aimee on 16/8/2.
+//  Created by Aimee on 16/8/3.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "CourseListAPIManager.h"
+#import "VerifyCodeAPIManager.h"
 
-@interface CourseListAPIManager ()
+@interface VerifyCodeAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation CourseListAPIManager
+@implementation VerifyCodeAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"course/list";
+        _methodName = @"user/verify";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -42,11 +42,12 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t ShopIndexAPIManagerOnceToken;
-    static CourseListAPIManager *sharedInstance = nil;
-    dispatch_once(&ShopIndexAPIManagerOnceToken, ^{
-        sharedInstance = [[CourseListAPIManager alloc] init];
+    static dispatch_once_t VerifyCodeAPIManagerOnceToken;
+    static VerifyCodeAPIManager *sharedInstance = nil;
+    dispatch_once(&VerifyCodeAPIManagerOnceToken, ^{
+        sharedInstance = [[VerifyCodeAPIManager alloc] init];
     });
     return sharedInstance;
 }
+
 @end

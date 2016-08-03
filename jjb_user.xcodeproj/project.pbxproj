@@ -24,8 +24,31 @@
 		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
+		7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091671D5198C60031B443 /* ShopIndexAPIManager.m */; };
+		7310917E1D5198C60031B443 /* CourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310916A1D5198C60031B443 /* CourseListController.m */; };
+		7310917F1D5198C60031B443 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310916C1D5198C60031B443 /* ShopController.m */; };
+		731091801D5198C60031B443 /* CourseInfoReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091721D5198C60031B443 /* CourseInfoReformer.m */; };
+		731091811D5198C60031B443 /* CourseListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091761D5198C60031B443 /* CourseListReformer.m */; };
+		731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310917A1D5198C60031B443 /* ShopIndexReformer.m */; };
+		731091851D51991E0031B443 /* MyCourseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091841D51991E0031B443 /* MyCourseController.m */; };
+		7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091891D51998F0031B443 /* MyCourseAPIManager.m */; };
+		731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091B01D51A67A0031B443 /* TeacherListAPIManager.m */; };
+		731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */; };
+		731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091B41D51A6CD0031B443 /* CourseListAPIManager.m */; };
+		731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091B61D51A6CD0031B443 /* CourseDetailAPIManager.m */; };
+		731091BE1D51A6CD0031B443 /* CourseCatalogAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091B81D51A6CD0031B443 /* CourseCatalogAPIManager.m */; };
+		731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */; };
+		731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */; };
+		731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */; };
+		731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */; };
+		731091D01D51B34F0031B443 /* RegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091CF1D51B34F0031B443 /* RegisterAPIManager.m */; };
+		731091D31D51B6080031B443 /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D21D51B6080031B443 /* LoginAPIManager.m */; };
+		731091D61D51B6ED0031B443 /* EditUserInfoAPIManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */; };
+		731091D91D51B7540031B443 /* EditPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091D81D51B7540031B443 /* EditPasswordAPIManager.m */; };
+		731091DC1D51B7B80031B443 /* ResetPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */; };
+		731091DF1D51B8510031B443 /* GetCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091DE1D51B8510031B443 /* GetCodeAPIManager.m */; };
+		731091E21D51B8C00031B443 /* VerifyCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
-		73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
 		73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE41D4F735D00643BBA /* LDSignatureGenerator.m */; };
@@ -52,11 +75,6 @@
 		73886D351D4F735D00643BBA /* LDService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D181D4F735D00643BBA /* LDService.m */; };
 		73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D1A1D4F735D00643BBA /* LDServiceFactory.m */; };
 		73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */; };
-		73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D451D50065A00643BBA /* ShopIndexReformer.m */; };
-		73886D4B1D507B3A00643BBA /* CourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D4A1D507B3A00643BBA /* CourseListController.m */; };
-		73886D521D507C2A00643BBA /* CourseListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D511D507C2A00643BBA /* CourseListReformer.m */; };
-		73886D551D507ED900643BBA /* CourseListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D541D507ED900643BBA /* CourseListAPIManager.m */; };
-		73886D5A1D50803100643BBA /* CourseInfoReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D591D50803100643BBA /* CourseInfoReformer.m */; };
 		73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D5D1D50841700643BBA /* ActivityListAPIManager.m */; };
 		73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D5F1D50841700643BBA /* ActivityDetailAPIManager.m */; };
 		73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D751D50850D00643BBA /* ActivityInfoReformer.m */; };
@@ -74,16 +92,17 @@
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
 		BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */; };
 		BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA61D4F3AE900F46F09 /* ActivityController.m */; };
-		BB159CAA1D4F3B0E00F46F09 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA91D4F3B0E00F46F09 /* ShopController.m */; };
 		BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */; };
 		BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CB81D4F473200F46F09 /* BaseNavigationController.m */; };
 		BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CBA1D4F473200F46F09 /* BaseTabBarController.m */; };
 		BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CC91D4F489700F46F09 /* BaseTabBar.m */; };
+		BB344F891D50BEFD0049CE92 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB344F881D50BEFD0049CE92 /* LoginController.m */; };
 		BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */; };
 		BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9701D506E580037DA9F /* UIView+MBFrame.m */; };
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
 		BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */; };
 		BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97E1D50878B0037DA9F /* MBGuideTool.m */; };
+		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +110,6 @@
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
-		512F233C1D51766000E33A92 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineModel.h; path = jjb_user/My/MineModel.h; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
 		512F233F1D51773500E33A92 /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineTableViewCell.h; path = jjb_user/My/MineTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		512F23401D51773500E33A92 /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineTableViewCell.m; path = jjb_user/My/MineTableViewCell.m; sourceTree = SOURCE_ROOT; };
@@ -122,10 +140,59 @@
 		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
 		58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jjb_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		731091661D5198C60031B443 /* ShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexAPIManager.h; sourceTree = "<group>"; };
+		731091671D5198C60031B443 /* ShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexAPIManager.m; sourceTree = "<group>"; };
+		731091691D5198C60031B443 /* CourseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListController.h; sourceTree = "<group>"; };
+		7310916A1D5198C60031B443 /* CourseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListController.m; sourceTree = "<group>"; };
+		7310916B1D5198C60031B443 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
+		7310916C1D5198C60031B443 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
+		731091701D5198C60031B443 /* CourseInfoKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInfoKey.h; sourceTree = "<group>"; };
+		731091711D5198C60031B443 /* CourseInfoReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInfoReformer.h; sourceTree = "<group>"; };
+		731091721D5198C60031B443 /* CourseInfoReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInfoReformer.m; sourceTree = "<group>"; };
+		731091741D5198C60031B443 /* CourseListKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListKey.h; sourceTree = "<group>"; };
+		731091751D5198C60031B443 /* CourseListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListReformer.h; sourceTree = "<group>"; };
+		731091761D5198C60031B443 /* CourseListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListReformer.m; sourceTree = "<group>"; };
+		731091781D5198C60031B443 /* ShopIndexKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexKeys.h; sourceTree = "<group>"; };
+		731091791D5198C60031B443 /* ShopIndexReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexReformer.h; sourceTree = "<group>"; };
+		7310917A1D5198C60031B443 /* ShopIndexReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexReformer.m; sourceTree = "<group>"; };
+		731091831D51991E0031B443 /* MyCourseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCourseController.h; sourceTree = "<group>"; };
+		731091841D51991E0031B443 /* MyCourseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCourseController.m; sourceTree = "<group>"; };
+		731091881D51998F0031B443 /* MyCourseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseAPIManager.h; path = APIManager/MyCourseAPIManager.h; sourceTree = "<group>"; };
+		731091891D51998F0031B443 /* MyCourseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseAPIManager.m; path = APIManager/MyCourseAPIManager.m; sourceTree = "<group>"; };
+		731091B01D51A67A0031B443 /* TeacherListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListAPIManager.m; sourceTree = "<group>"; };
+		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListAPIManager.h; sourceTree = "<group>"; };
+		731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentAPIManager.m; sourceTree = "<group>"; };
+		731091B41D51A6CD0031B443 /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListAPIManager.m; sourceTree = "<group>"; };
+		731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentAPIManager.h; sourceTree = "<group>"; };
+		731091B61D51A6CD0031B443 /* CourseDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailAPIManager.m; sourceTree = "<group>"; };
+		731091B71D51A6CD0031B443 /* CourseDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailAPIManager.h; sourceTree = "<group>"; };
+		731091B81D51A6CD0031B443 /* CourseCatalogAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCatalogAPIManager.m; sourceTree = "<group>"; };
+		731091B91D51A6CD0031B443 /* CourseCatalogAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCatalogAPIManager.h; sourceTree = "<group>"; };
+		731091BA1D51A6CD0031B443 /* CourseListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListAPIManager.h; sourceTree = "<group>"; };
+		731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherInfoAPIManager.h; sourceTree = "<group>"; };
+		731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoAPIManager.m; sourceTree = "<group>"; };
+		731091C41D51B0660031B443 /* GrowingTreeListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingTreeListAPIManager.h; path = APIManager/GrowingTreeListAPIManager.h; sourceTree = "<group>"; };
+		731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowingTreeListAPIManager.m; path = APIManager/GrowingTreeListAPIManager.m; sourceTree = "<group>"; };
+		731091C71D51B1190031B443 /* MyGrowingTreeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGrowingTreeAPIManager.h; path = APIManager/MyGrowingTreeAPIManager.h; sourceTree = "<group>"; };
+		731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingTreeAPIManager.m; path = APIManager/MyGrowingTreeAPIManager.m; sourceTree = "<group>"; };
+		731091CA1D51B28D0031B443 /* MyOrderAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderAPIManager.h; path = APIManager/MyOrderAPIManager.h; sourceTree = "<group>"; };
+		731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderAPIManager.m; path = APIManager/MyOrderAPIManager.m; sourceTree = "<group>"; };
+		731091CE1D51B34F0031B443 /* RegisterAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterAPIManager.h; path = System/APIManager/RegisterAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091CF1D51B34F0031B443 /* RegisterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterAPIManager.m; path = System/APIManager/RegisterAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091D11D51B6080031B443 /* LoginAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAPIManager.h; path = System/APIManager/LoginAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091D21D51B6080031B443 /* LoginAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAPIManager.m; path = System/APIManager/LoginAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091D41D51B6ED0031B443 /* EditUserInfoAPIManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditUserInfoAPIManger.h; path = System/APIManager/EditUserInfoAPIManger.h; sourceTree = SOURCE_ROOT; };
+		731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditUserInfoAPIManger.m; path = System/APIManager/EditUserInfoAPIManger.m; sourceTree = SOURCE_ROOT; };
+		731091D71D51B7540031B443 /* EditPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPasswordAPIManager.h; path = System/APIManager/EditPasswordAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091D81D51B7540031B443 /* EditPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPasswordAPIManager.m; path = System/APIManager/EditPasswordAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091DA1D51B7B80031B443 /* ResetPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091DD1D51B8510031B443 /* GetCodeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetCodeAPIManager.h; path = System/APIManager/GetCodeAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091DE1D51B8510031B443 /* GetCodeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetCodeAPIManager.m; path = System/APIManager/GetCodeAPIManager.m; sourceTree = SOURCE_ROOT; };
+		731091E01D51B8C00031B443 /* VerifyCodeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyCodeAPIManager.h; sourceTree = SOURCE_ROOT; };
+		731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCodeAPIManager.m; sourceTree = SOURCE_ROOT; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
-		73886CDA1D4F6F1F00643BBA /* ShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopIndexAPIManager.h; path = APIManager/ShopIndexAPIManager.h; sourceTree = "<group>"; };
-		73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopIndexAPIManager.m; path = APIManager/ShopIndexAPIManager.m; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
 		73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommonParamsGenerator.m; sourceTree = "<group>"; };
 		73886CE11D4F735D00643BBA /* LDRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRequestGenerator.h; sourceTree = "<group>"; };
@@ -180,19 +247,6 @@
 		73886D1A1D4F735D00643BBA /* LDServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDServiceFactory.m; sourceTree = "<group>"; };
 		73886D391D4F742500643BBA /* LDServiceJJBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDServiceJJBUser.h; path = JJBUser/LDServiceJJBUser.h; sourceTree = "<group>"; };
 		73886D3A1D4F742500643BBA /* LDServiceJJBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDServiceJJBUser.m; path = JJBUser/LDServiceJJBUser.m; sourceTree = "<group>"; };
-		73886D441D50065A00643BBA /* ShopIndexReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexReformer.h; sourceTree = "<group>"; };
-		73886D451D50065A00643BBA /* ShopIndexReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexReformer.m; sourceTree = "<group>"; };
-		73886D481D50067800643BBA /* ShopIndexKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopIndexKeys.h; sourceTree = "<group>"; };
-		73886D491D507B3A00643BBA /* CourseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListController.h; sourceTree = "<group>"; };
-		73886D4A1D507B3A00643BBA /* CourseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListController.m; sourceTree = "<group>"; };
-		73886D4F1D507C0200643BBA /* CourseListKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CourseListKey.h; path = CourseList/CourseListKey.h; sourceTree = "<group>"; };
-		73886D501D507C2A00643BBA /* CourseListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListReformer.h; path = CourseList/CourseListReformer.h; sourceTree = "<group>"; };
-		73886D511D507C2A00643BBA /* CourseListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListReformer.m; path = CourseList/CourseListReformer.m; sourceTree = "<group>"; };
-		73886D531D507ED900643BBA /* CourseListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListAPIManager.h; path = APIManager/CourseListAPIManager.h; sourceTree = "<group>"; };
-		73886D541D507ED900643BBA /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListAPIManager.m; path = APIManager/CourseListAPIManager.m; sourceTree = "<group>"; };
-		73886D571D50800200643BBA /* CourseInfoKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CourseInfoKey.h; path = CourseInfo/CourseInfoKey.h; sourceTree = "<group>"; };
-		73886D581D50803100643BBA /* CourseInfoReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseInfoReformer.h; path = CourseInfo/CourseInfoReformer.h; sourceTree = "<group>"; };
-		73886D591D50803100643BBA /* CourseInfoReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseInfoReformer.m; path = CourseInfo/CourseInfoReformer.m; sourceTree = "<group>"; };
 		73886D5C1D50841700643BBA /* ActivityListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListAPIManager.h; sourceTree = "<group>"; };
 		73886D5D1D50841700643BBA /* ActivityListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListAPIManager.m; sourceTree = "<group>"; };
 		73886D5E1D50841700643BBA /* ActivityDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailAPIManager.h; sourceTree = "<group>"; };
@@ -230,8 +284,6 @@
 		BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTreeController.m; sourceTree = "<group>"; };
 		BB159CA51D4F3AE900F46F09 /* ActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityController.h; sourceTree = "<group>"; };
 		BB159CA61D4F3AE900F46F09 /* ActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityController.m; sourceTree = "<group>"; };
-		BB159CA81D4F3B0E00F46F09 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
-		BB159CA91D4F3B0E00F46F09 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
 		BB159CB21D4F473200F46F09 /* UIColor+MBHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBHex.h"; sourceTree = "<group>"; };
 		BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MBHex.m"; sourceTree = "<group>"; };
 		BB159CB71D4F473200F46F09 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
@@ -240,6 +292,8 @@
 		BB159CBA1D4F473200F46F09 /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		BB159CC81D4F489700F46F09 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
 		BB159CC91D4F489700F46F09 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
+		BB344F871D50BEFD0049CE92 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		BB344F881D50BEFD0049CE92 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		BB68C96C1D506D500037DA9F /* MBNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewFeatureController.h; sourceTree = "<group>"; };
 		BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewFeatureController.m; sourceTree = "<group>"; };
 		BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBFrame.h"; sourceTree = "<group>"; };
@@ -250,6 +304,8 @@
 		BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNSUserDefaultsTool.m; sourceTree = "<group>"; };
 		BB68C97D1D50878B0037DA9F /* MBGuideTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGuideTool.h; sourceTree = "<group>"; };
 		BB68C97E1D50878B0037DA9F /* MBGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideTool.m; sourceTree = "<group>"; };
+		BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MBCustom.h"; sourceTree = "<group>"; };
+		BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MBCustom.m"; sourceTree = "<group>"; };
 		BBCCB49C1D4F24F40020E170 /* jjb_user.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jjb_user.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,6 +344,270 @@
 				58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		731091621D5198C60031B443 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				731091631D5198C60031B443 /* APIManager */,
+				731091681D5198C60031B443 /* Controller */,
+				7310916E1D5198C60031B443 /* Reformer */,
+				7310917B1D5198C60031B443 /* View */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		731091631D5198C60031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091661D5198C60031B443 /* ShopIndexAPIManager.h */,
+				731091671D5198C60031B443 /* ShopIndexAPIManager.m */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		731091681D5198C60031B443 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				731091691D5198C60031B443 /* CourseListController.h */,
+				7310916A1D5198C60031B443 /* CourseListController.m */,
+				7310916B1D5198C60031B443 /* ShopController.h */,
+				7310916C1D5198C60031B443 /* ShopController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7310916E1D5198C60031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				7310916F1D5198C60031B443 /* CourseInfo */,
+				731091731D5198C60031B443 /* CourseList */,
+				731091771D5198C60031B443 /* ShopIndex */,
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		7310916F1D5198C60031B443 /* CourseInfo */ = {
+			isa = PBXGroup;
+			children = (
+				731091701D5198C60031B443 /* CourseInfoKey.h */,
+				731091711D5198C60031B443 /* CourseInfoReformer.h */,
+				731091721D5198C60031B443 /* CourseInfoReformer.m */,
+			);
+			path = CourseInfo;
+			sourceTree = "<group>";
+		};
+		731091731D5198C60031B443 /* CourseList */ = {
+			isa = PBXGroup;
+			children = (
+				731091741D5198C60031B443 /* CourseListKey.h */,
+				731091751D5198C60031B443 /* CourseListReformer.h */,
+				731091761D5198C60031B443 /* CourseListReformer.m */,
+			);
+			path = CourseList;
+			sourceTree = "<group>";
+		};
+		731091771D5198C60031B443 /* ShopIndex */ = {
+			isa = PBXGroup;
+			children = (
+				731091781D5198C60031B443 /* ShopIndexKeys.h */,
+				731091791D5198C60031B443 /* ShopIndexReformer.h */,
+				7310917A1D5198C60031B443 /* ShopIndexReformer.m */,
+			);
+			path = ShopIndex;
+			sourceTree = "<group>";
+		};
+		7310917B1D5198C60031B443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		731091861D5199310031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091881D51998F0031B443 /* MyCourseAPIManager.h */,
+				731091891D51998F0031B443 /* MyCourseAPIManager.m */,
+				731091C71D51B1190031B443 /* MyGrowingTreeAPIManager.h */,
+				731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */,
+				731091CA1D51B28D0031B443 /* MyOrderAPIManager.h */,
+				731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
+		731091871D51993D0031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reformer;
+			sourceTree = "<group>";
+		};
+		731091A11D51A4FD0031B443 /* Org */ = {
+			isa = PBXGroup;
+			children = (
+				731091A21D51A4FD0031B443 /* APIManager */,
+				731091A31D51A4FD0031B443 /* Controller */,
+				731091A41D51A4FD0031B443 /* Reformer */,
+				731091A51D51A4FD0031B443 /* View */,
+			);
+			path = Org;
+			sourceTree = "<group>";
+		};
+		731091A21D51A4FD0031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		731091A31D51A4FD0031B443 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		731091A41D51A4FD0031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		731091A51D51A4FD0031B443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		731091A61D51A52C0031B443 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				731091A71D51A52C0031B443 /* APIManager */,
+				731091A81D51A52C0031B443 /* Controller */,
+				731091A91D51A52C0031B443 /* Reformer */,
+				731091AA1D51A52C0031B443 /* View */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		731091A71D51A52C0031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */,
+				731091B41D51A6CD0031B443 /* CourseListAPIManager.m */,
+				731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */,
+				731091B61D51A6CD0031B443 /* CourseDetailAPIManager.m */,
+				731091B71D51A6CD0031B443 /* CourseDetailAPIManager.h */,
+				731091B81D51A6CD0031B443 /* CourseCatalogAPIManager.m */,
+				731091B91D51A6CD0031B443 /* CourseCatalogAPIManager.h */,
+				731091BA1D51A6CD0031B443 /* CourseListAPIManager.h */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		731091A81D51A52C0031B443 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		731091A91D51A52C0031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		731091AA1D51A52C0031B443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		731091AB1D51A5F20031B443 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				731091AC1D51A5F20031B443 /* APIManager */,
+				731091AD1D51A5F20031B443 /* Controller */,
+				731091AE1D51A5F20031B443 /* Reformer */,
+				731091AF1D51A5F20031B443 /* View */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		731091AC1D51A5F20031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
+				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
+				731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */,
+				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		731091AD1D51A5F20031B443 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		731091AE1D51A5F20031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		731091AF1D51A5F20031B443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		731091C21D51AA870031B443 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reformer;
+			sourceTree = "<group>";
+		};
+		731091C31D51B02A0031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091C41D51B0660031B443 /* GrowingTreeListAPIManager.h */,
+				731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
+		731091CD1D51B2FC0031B443 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				731091CE1D51B34F0031B443 /* RegisterAPIManager.h */,
+				731091CF1D51B34F0031B443 /* RegisterAPIManager.m */,
+				731091D11D51B6080031B443 /* LoginAPIManager.h */,
+				731091D21D51B6080031B443 /* LoginAPIManager.m */,
+				731091D41D51B6ED0031B443 /* EditUserInfoAPIManger.h */,
+				731091D51D51B6ED0031B443 /* EditUserInfoAPIManger.m */,
+				731091D71D51B7540031B443 /* EditPasswordAPIManager.h */,
+				731091D81D51B7540031B443 /* EditPasswordAPIManager.m */,
+				731091DA1D51B7B80031B443 /* ResetPasswordAPIManager.h */,
+				731091DB1D51B7B80031B443 /* ResetPasswordAPIManager.m */,
+				731091DD1D51B8510031B443 /* GetCodeAPIManager.h */,
+				731091DE1D51B8510031B443 /* GetCodeAPIManager.m */,
+				731091E01D51B8C00031B443 /* VerifyCodeAPIManager.h */,
+				731091E11D51B8C00031B443 /* VerifyCodeAPIManager.m */,
+			);
+			name = APIManager;
 			sourceTree = "<group>";
 		};
 		73886CB91D4F237600643BBA /* Activity */ = {
@@ -345,6 +665,8 @@
 		73886CC01D4F239500643BBA /* GrowingTree */ = {
 			isa = PBXGroup;
 			children = (
+				731091C31D51B02A0031B443 /* APIManager */,
+				731091C21D51AA870031B443 /* Reformer */,
 				73886CC11D4F239500643BBA /* Controller */,
 				73886CC41D4F239500643BBA /* Model */,
 				73886CC51D4F239500643BBA /* View */,
@@ -382,8 +704,9 @@
 		73886CC71D4F23AC00643BBA /* My */ = {
 			isa = PBXGroup;
 			children = (
+				731091871D51993D0031B443 /* Reformer */,
+				731091861D5199310031B443 /* APIManager */,
 				73886CC81D4F23AC00643BBA /* Controller */,
-				73886CCB1D4F23AC00643BBA /* Model */,
 				73886CCC1D4F23AC00643BBA /* View */,
 			);
 			path = My;
@@ -394,17 +717,10 @@
 			children = (
 				BB159C9F1D4F3A8A00F46F09 /* MyController.h */,
 				BB159CA01D4F3A8A00F46F09 /* MyController.m */,
+				731091831D51991E0031B443 /* MyCourseController.h */,
+				731091841D51991E0031B443 /* MyCourseController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73886CCB1D4F23AC00643BBA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				512F233C1D51766000E33A92 /* MineModel.h */,
-				512F233D1D51766000E33A92 /* MineModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73886CCC1D4F23AC00643BBA /* View */ = {
@@ -420,17 +736,6 @@
 				512F233A1D5172ED00E33A92 /* MineHeaderView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		73886CD91D4F6ED600643BBA /* APIManager */ = {
-			isa = PBXGroup;
-			children = (
-				73886CDA1D4F6F1F00643BBA /* ShopIndexAPIManager.h */,
-				73886CDB1D4F6F1F00643BBA /* ShopIndexAPIManager.m */,
-				73886D531D507ED900643BBA /* CourseListAPIManager.h */,
-				73886D541D507ED900643BBA /* CourseListAPIManager.m */,
-			);
-			name = APIManager;
 			sourceTree = "<group>";
 		};
 		73886CDD1D4F735D00643BBA /* LDNetworking */ = {
@@ -574,46 +879,6 @@
 			name = JJBUser;
 			sourceTree = "<group>";
 		};
-		73886D421D50065A00643BBA /* Reformer */ = {
-			isa = PBXGroup;
-			children = (
-				73886D561D507FD300643BBA /* CourseInfo */,
-				73886D4C1D507B6B00643BBA /* CourseList */,
-				73886D431D50065A00643BBA /* ShopIndex */,
-			);
-			path = Reformer;
-			sourceTree = "<group>";
-		};
-		73886D431D50065A00643BBA /* ShopIndex */ = {
-			isa = PBXGroup;
-			children = (
-				73886D481D50067800643BBA /* ShopIndexKeys.h */,
-				73886D441D50065A00643BBA /* ShopIndexReformer.h */,
-				73886D451D50065A00643BBA /* ShopIndexReformer.m */,
-			);
-			path = ShopIndex;
-			sourceTree = "<group>";
-		};
-		73886D4C1D507B6B00643BBA /* CourseList */ = {
-			isa = PBXGroup;
-			children = (
-				73886D4F1D507C0200643BBA /* CourseListKey.h */,
-				73886D501D507C2A00643BBA /* CourseListReformer.h */,
-				73886D511D507C2A00643BBA /* CourseListReformer.m */,
-			);
-			name = CourseList;
-			sourceTree = "<group>";
-		};
-		73886D561D507FD300643BBA /* CourseInfo */ = {
-			isa = PBXGroup;
-			children = (
-				73886D571D50800200643BBA /* CourseInfoKey.h */,
-				73886D581D50803100643BBA /* CourseInfoReformer.h */,
-				73886D591D50803100643BBA /* CourseInfoReformer.m */,
-			);
-			name = CourseInfo;
-			sourceTree = "<group>";
-		};
 		73886D5B1D50841700643BBA /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,13 +967,16 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
+				731091AB1D51A5F20031B443 /* Teacher */,
+				731091A61D51A52C0031B443 /* Course */,
+				731091A11D51A4FD0031B443 /* Org */,
+				731091621D5198C60031B443 /* Shop */,
 				BB1294201D50A6970048927D /* Ad */,
 				BB12941C1D50A4CC0048927D /* Login */,
 				BB68C9681D506D120037DA9F /* NewFeature */,
 				73886CC71D4F23AC00643BBA /* My */,
 				73886CC01D4F239500643BBA /* GrowingTree */,
 				73886CB91D4F237600643BBA /* Activity */,
-				73ED4F1F1D4F09320022BF79 /* Shop */,
 				73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */,
 				73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */,
 				73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */,
@@ -730,38 +998,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		73ED4F1F1D4F09320022BF79 /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-				73886D421D50065A00643BBA /* Reformer */,
-				73886CD91D4F6ED600643BBA /* APIManager */,
-				73ED4F201D4F09320022BF79 /* Controller */,
-				73ED4F221D4F09320022BF79 /* View */,
-			);
-			path = Shop;
-			sourceTree = "<group>";
-		};
-		73ED4F201D4F09320022BF79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BB159CA81D4F3B0E00F46F09 /* ShopController.h */,
-				BB159CA91D4F3B0E00F46F09 /* ShopController.m */,
-				73886D491D507B3A00643BBA /* CourseListController.h */,
-				73886D4A1D507B3A00643BBA /* CourseListController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		73ED4F221D4F09320022BF79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		BB12941C1D50A4CC0048927D /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				731091CD1D51B2FC0031B443 /* APIManager */,
 				BB12941D1D50A4CC0048927D /* Controller */,
 				BB12941E1D50A4CC0048927D /* Model */,
 				BB12941F1D50A4CC0048927D /* View */,
@@ -772,6 +1012,8 @@
 		BB12941D1D50A4CC0048927D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BB344F871D50BEFD0049CE92 /* LoginController.h */,
+				BB344F881D50BEFD0049CE92 /* LoginController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -843,6 +1085,8 @@
 				BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */,
 				BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */,
 				BB68C9701D506E580037DA9F /* UIView+MBFrame.m */,
+				BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */,
+				BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1056,6 +1300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
+				731091D31D51B6080031B443 /* LoginAPIManager.m in Sources */,
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
@@ -1067,6 +1312,7 @@
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
+				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
@@ -1075,50 +1321,66 @@
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
+				731091E21D51B8C00031B443 /* VerifyCodeAPIManager.m in Sources */,
+				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
-				73886D521D507C2A00643BBA /* CourseListReformer.m in Sources */,
+				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
 				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
+				731091D61D51B6ED0031B443 /* EditUserInfoAPIManger.m in Sources */,
+				731091D91D51B7540031B443 /* EditPasswordAPIManager.m in Sources */,
+				731091851D51991E0031B443 /* MyCourseController.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
+				BB344F891D50BEFD0049CE92 /* LoginController.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
-				BB159CAA1D4F3B0E00F46F09 /* ShopController.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
-				73886D5A1D50803100643BBA /* CourseInfoReformer.m in Sources */,
+				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
+				731091D01D51B34F0031B443 /* RegisterAPIManager.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
+				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
+				7310917E1D5198C60031B443 /* CourseListController.m in Sources */,
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
+				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,
 				BB1294291D50A8D60048927D /* MBAdItem.m in Sources */,
+				731091DF1D51B8510031B443 /* GetCodeAPIManager.m in Sources */,
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
+
+				BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */,
+				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
+				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
+				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
+				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
-				73886D4B1D507B3A00643BBA /* CourseListController.m in Sources */,
+				731091811D5198C60031B443 /* CourseListReformer.m in Sources */,
+				731091801D5198C60031B443 /* CourseInfoReformer.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
-				73886CDC1D4F6F1F00643BBA /* ShopIndexAPIManager.m in Sources */,
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
+				7310917F1D5198C60031B443 /* ShopController.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
+				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
-				73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */,
-				73886D551D507ED900643BBA /* CourseListAPIManager.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
@@ -1128,6 +1390,8 @@
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
 				73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
+				731091BE1D51A6CD0031B443 /* CourseCatalogAPIManager.m in Sources */,
+				731091DC1D51B7B80031B443 /* ResetPasswordAPIManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
