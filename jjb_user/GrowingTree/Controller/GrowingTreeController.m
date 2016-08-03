@@ -65,9 +65,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ident" forIndexPath:indexPath];
+    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GrowingCellIdentifier" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ident"];
+        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GrowingCellIdentifier"];
     }
     return cell;
 }
