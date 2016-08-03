@@ -40,8 +40,8 @@
         
         //设置左上角按钮
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setBackgroundImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
 //        [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:JJBColor(251, 32, 37) forState:UIControlStateHighlighted];
