@@ -8,14 +8,16 @@
 
 #import "ActivityListController.h"
 #import "ActivityListCell.h"
+#import "ActivityListAPIManager.h"
 
 #define SIZE [UIScreen mainScreen].bounds.size
 
-@interface ActivityListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ActivityListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-
 @property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) LDAPIBaseManager *activityListAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> activityListReformer;
 
 @end
 
@@ -29,9 +31,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self initData];
-    
-    [self loadData];
-    
+    [self.activityListAPIManager loadData];
     [self createTableView];
 }
 
@@ -80,7 +80,33 @@
     return 340;
 }
 
-#pragma mark -- getter and setter
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSDictionary *reformedShopIndexData = [manager fetchDataWithReformer:self.activityListReformer];
+}
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{@"shop_id":@"1",@"user_id":@"1",@"start":@"0",@"count":@"20"};
+}
+
+#pragma -
+#pragma mark - getters and setters
+
+- (LDAPIBaseManager *)activityListAPIManager {
+    if (_activityListAPIManager == nil) {
+        _activityListAPIManager = [ActivityListAPIManager  sharedInstance];
+        _activityListAPIManager.delegate=self;
+        _activityListAPIManager.paramSource=self;
+    }
+    return _activityListAPIManager;
+}
+
 - (UITableView *)tableView {
     
     if (!_tableView) {
