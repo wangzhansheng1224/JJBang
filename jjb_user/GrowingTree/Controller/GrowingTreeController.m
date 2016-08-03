@@ -12,7 +12,8 @@
 #import <Masonry.h>
 
 
-#define SIZE [UIScreen mainScreen].bounds.size
+
+static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 @interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -65,9 +66,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ident" forIndexPath:indexPath];
+    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ident"];
+        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
     return cell;
 }
@@ -93,7 +94,7 @@
         _tableView.frame = CGRectMake(0, 64, Screen_Width, Screen_Height-64 -40);
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"GrowingCellIdentifier"];
+        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;
 }
