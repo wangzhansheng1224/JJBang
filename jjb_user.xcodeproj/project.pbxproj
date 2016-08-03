@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
+		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
+		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
+		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
+		512F23461D517FD800E33A92 /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23431D517FD800E33A92 /* LevelButton.m */; };
+		512F23471D517FD800E33A92 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23451D517FD800E33A92 /* MyButton.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4C1D5081C80064EEFD /* release.png in Resources */ = {isa = PBXBuildFile; fileRef = 514E9B4B1D5081C80064EEFD /* release.png */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
@@ -84,6 +89,16 @@
 /* Begin PBXFileReference section */
 		2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.debug.xcconfig"; sourceTree = "<group>"; };
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
+		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
+		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
+		512F233C1D51766000E33A92 /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineModel.h; path = jjb_user/My/MineModel.h; sourceTree = SOURCE_ROOT; };
+		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
+		512F233F1D51773500E33A92 /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineTableViewCell.h; path = jjb_user/My/MineTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		512F23401D51773500E33A92 /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineTableViewCell.m; path = jjb_user/My/MineTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		512F23421D517FD800E33A92 /* LevelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelButton.h; path = jjb_user/My/LevelButton.h; sourceTree = SOURCE_ROOT; };
+		512F23431D517FD800E33A92 /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelButton.m; path = jjb_user/My/LevelButton.m; sourceTree = SOURCE_ROOT; };
+		512F23441D517FD800E33A92 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyButton.h; path = jjb_user/My/MyButton.h; sourceTree = SOURCE_ROOT; };
+		512F23451D517FD800E33A92 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyButton.m; path = jjb_user/My/MyButton.m; sourceTree = SOURCE_ROOT; };
 		514AD59E1D50A9F500E196FE /* ActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailController.h; sourceTree = "<group>"; };
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4B1D5081C80064EEFD /* release.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = release.png; sourceTree = "<group>"; };
@@ -386,6 +401,8 @@
 		73886CCB1D4F23AC00643BBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				512F233C1D51766000E33A92 /* MineModel.h */,
+				512F233D1D51766000E33A92 /* MineModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,6 +410,14 @@
 		73886CCC1D4F23AC00643BBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				512F23421D517FD800E33A92 /* LevelButton.h */,
+				512F23431D517FD800E33A92 /* LevelButton.m */,
+				512F23441D517FD800E33A92 /* MyButton.h */,
+				512F23451D517FD800E33A92 /* MyButton.m */,
+				512F233F1D51773500E33A92 /* MineTableViewCell.h */,
+				512F23401D51773500E33A92 /* MineTableViewCell.m */,
+				512F23391D5172ED00E33A92 /* MineHeaderView.h */,
+				512F233A1D5172ED00E33A92 /* MineHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1035,6 +1060,7 @@
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
+				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
@@ -1042,6 +1068,7 @@
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
+				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
@@ -1088,13 +1115,16 @@
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
+				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				73886D471D50065A00643BBA /* ShopIndexReformer.m in Sources */,
 				73886D551D507ED900643BBA /* CourseListAPIManager.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
+				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
+				512F23461D517FD800E33A92 /* LevelButton.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
 				73886D331D4F735D00643BBA /* LDTravelListManager.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,

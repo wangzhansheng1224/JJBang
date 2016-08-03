@@ -32,17 +32,11 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self initData];
-    
     [self loadData];
     
     [self.view addSubview:self.tableView];
 }
 
-
-- (void)initData {
-    
-}
 
 - (void)loadData {
     
