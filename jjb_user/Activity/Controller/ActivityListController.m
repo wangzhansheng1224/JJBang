@@ -23,6 +23,9 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 @property (nonatomic,strong) ActivityDetailController *detail;
 
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
+
 @end
 
 @implementation ActivityListController
@@ -32,6 +35,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.pageIndex=0;
+    self.pageSize=20;
     [self.view addSubview:self.tableView];
     [self.activityListAPIManager loadData];
 
@@ -39,7 +44,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -69,27 +73,27 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
     [self.arrData addObjectsFromArray:resultData];
+   [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    
+       [self.tableView.mj_header endRefreshing];
 }
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"shop_id":@"3",@"user_id":@"1",@"start":@"0",@"count":@"10",@"isOwn":@"0"};
+    return @{
+             @"shop_id":@"3",
+             @"user_id":@"1",
+             @"start":@(self.pageIndex),
+             @"count":@(self.pageSize),
+             @"isOwn":@"0"
+             };
 }
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    NSString *str=_dataDic[_array[indexPath.section]][indexPath.row];
-//    vc.name=str;
-
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     self.detail.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:self.detail animated:YES];
 }
@@ -124,8 +128,20 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
+    
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.arrData removeAllObjects];
+            self.pageIndex=0;
+            [self.activityListAPIManager loadData];
+        }];
+        
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            self.pageIndex++;
+            [self.activityListAPIManager loadData];
+        }];
         
         [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:ActivityListCellIdentifier];
+        
     }
     return _tableView;
 }
