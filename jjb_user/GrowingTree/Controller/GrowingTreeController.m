@@ -9,7 +9,6 @@
 #import "GrowingTreeController.h"
 #import "GrowingCell.h"
 #import "IssueController.h"
-#import <Masonry.h>
 #import "GrowingTreeListAPIManager.h"
 
 
@@ -69,7 +68,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];

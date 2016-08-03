@@ -24,4 +24,6 @@
 
 @property (nonatomic,strong) UILabel *timeLabel;
 
+- (void)configWithData:(NSDictionary *)data;
+
 @end
