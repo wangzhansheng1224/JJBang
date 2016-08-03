@@ -9,6 +9,7 @@
  *  个人主控制器
  */
 #import "MyController.h"
+#import <Masonry.h>
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
