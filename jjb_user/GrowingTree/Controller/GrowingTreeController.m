@@ -10,13 +10,16 @@
 #import "GrowingCell.h"
 #import "IssueController.h"
 #import <Masonry.h>
+#import "GrowingTreeListAPIManager.h"
 
 
 
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
-@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource>
+@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
+@property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -38,6 +41,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.issueBtn];
     [self layoutPageSubviews];
+    [self.growingTreeListAPIManager loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +80,25 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 210;
+}
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSDictionary *reformedShopIndexData = [manager fetchDataWithReformer:self.growingTreeListReformer];
+}
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"shop_id":@"1",
+             @"type":@"2",
+             @"start":@"1",
+             @"count":@"20"
+             };
 }
 
 #pragma -
@@ -129,5 +152,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return _issueVC;
 }
 
-
+- (LDAPIBaseManager *)growingTreeListAPIManager {
+    if (_growingTreeListAPIManager == nil) {
+        _growingTreeListAPIManager = [GrowingTreeListAPIManager  sharedInstance];
+        _growingTreeListAPIManager.delegate=self;
+        _growingTreeListAPIManager.paramSource=self;
+    }
+    return _growingTreeListAPIManager;
+}
 @end
