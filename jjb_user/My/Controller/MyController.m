@@ -18,7 +18,7 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 
-@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) NSMutableArray *array_data;
 
 @end
 
@@ -40,49 +40,48 @@
     
     [self configMasonry];
 }
-
-#pragma mark -- CustomMethods
+#pragma -
+#pragma mark - CustomMethods
 - (void)loadData {
     
-    NSArray * imageArr1 = @[@"", @"", @""];
+    NSArray *array_image1 = @[@"", @"", @""];
     
-    NSArray * titleArr1 = @[@"我的订单", @"我的课程", @"我的评价"];
+    NSArray * array_title1 = @[@"我的订单", @"我的课程", @"我的评价"];
     
-    NSMutableArray * sectionArr1 = [[NSMutableArray alloc] init];
+    NSMutableArray * array_section1 = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < imageArr1.count; i++) {
+    for (int i = 0; i < array_image1.count; i++) {
         
         MineModel * model = [[MineModel alloc] init];
         
-        model.image = imageArr1[i];
+        model.image = array_image1[i];
         
-        model.title = titleArr1[i];
+        model.title = array_title1[i];
         
-        [sectionArr1 addObject:model];
+        [array_section1 addObject:model];
         
     }
     
-    [self.dataArr addObject:sectionArr1];
+    [self.dataArr addObject:array_section1];
     
-    NSArray * imageArr2 = @[@"", @"", @""];
+    NSArray * array_image2 = @[@"", @"", @""];
     
-    NSArray * titleArr2 = @[@"帮助与反馈", @"联系客服", @"更多"];
+    NSArray * array_title2 = @[@"帮助与反馈", @"联系客服", @"更多"];
     
-    NSMutableArray * sectionArr2 = [[NSMutableArray alloc] init];
+    NSMutableArray * array_section2 = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < imageArr2.count; i++) {
+    for (int i = 0; i < array_image2.count; i++) {
         
         MineModel * model = [[MineModel alloc] init];
         
-        model.image = imageArr2[i];
+        model.image = array_image2[i];
         
-        model.title = titleArr2[i];
+        model.title = array_title2[i];
         
-        [sectionArr2 addObject:model];
+        [array_section2 addObject:model];
     }
     
-    [self.dataArr addObject:sectionArr2];
-    
+    [self.dataArr addObject:array_section2];
 }
 
 #pragma mark -- tableView headerView
@@ -223,11 +222,11 @@
 
 - (NSMutableArray *)dataArr{
     
-    if (!_dataArr) {
+    if (!_array_data) {
         
-        _dataArr = [NSMutableArray array];
+        _array_data = [NSMutableArray array];
     }
-    return _dataArr;
+    return _array_data;
 }
 
 @end
