@@ -32,16 +32,9 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self initData];
-    
     [self loadData];
     
     [self createTableView];
-}
-
-
-- (void)initData {
-    
 }
 
 - (void)loadData {

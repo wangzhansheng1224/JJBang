@@ -24,9 +24,13 @@
 
 @property (nonatomic,strong) UILabel *moodLabel;
 
+@property (nonatomic,strong) UIImageView *locView;
+
+@property (nonatomic,strong) UILabel *locLabel;
+
 //@property (nonatomic,strong) UIButton *issueBtn;
 
-@property (nonatomic,strong) UILabel *line;
+//@property (nonatomic,strong) UILabel *line;
 
 
 @end
@@ -45,7 +49,9 @@
         [self.contentView addSubview:self.timeLabel];
         [self.contentView addSubview:self.picView];
         [self.contentView addSubview:self.moodLabel];
-        [self.contentView addSubview:self.line];
+        [self.contentView addSubview:self.locView];
+        [self.contentView addSubview:self.locLabel];
+//        [self.contentView addSubview:self.line];
 //        [self.contentView addSubview:self.issueBtn];
         
         [self configMasonry];
@@ -59,48 +65,62 @@
     [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.contentView.mas_top).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(50, 50));//mark
+        make.left.equalTo(self.contentView.mas_left).with.offset(8);
     }];
     
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(100, 20));
-        make.top.equalTo(self.mas_top).with.offset(25);
-        make.left.equalTo(_iconView.mas_right).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(100, 20));      //mark
+        make.top.equalTo(self.mas_top).with.offset(25);  //mark
+        make.left.equalTo(_iconView.mas_right).with.offset(8);
     }];
     
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(50, 20));
-        make.top.equalTo(self.mas_top).with.offset(25);
-        make.right.equalTo(self.mas_right).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(50, 20));//mark
+        make.top.equalTo(self.mas_top).with.offset(19);
+        make.right.equalTo(self.mas_right).with.offset(-16);
     }];
     
     [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 180));
-        make.top.mas_equalTo(_iconView.mas_bottom).with.offset(10);
-        make.left.mas_equalTo(self.mas_left).with.offset(5);
+        make.size.mas_equalTo(CGSizeMake(200, 180));//mark
+        make.top.mas_equalTo(_iconView.mas_bottom).with.offset(8);
+        make.left.mas_equalTo(self.mas_left).with.offset(8);
     }];
     
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(SIZE.width-20, 21));
-        make.top.equalTo(_picView.mas_bottom).with.offset(10);
-        make.right.equalTo(self.mas_right).with.offset(-10);
-        make.left.equalTo(self.mas_left).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(SIZE.width-20, 21));//mark
+        make.top.equalTo(_picView.mas_bottom).with.offset(8);
+        make.right.equalTo(self.mas_right).with.offset(-8);
+        make.left.equalTo(self.mas_left).with.offset(8);
         
     }];
     
-    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.mas_equalTo(2);
-        make.top.equalTo(_moodLabel.mas_bottom).with.offset(10);
-        make.right.equalTo(self.mas_right).with.offset(-20);
-        make.left.equalTo(self.mas_left).with.offset(20);
+        make.size.mas_equalTo(CGSizeMake(20, 20));//mark
+        make.top.equalTo(_moodLabel.mas_bottom).with.offset(6);
+        make.left.equalTo(self.mas_left).with.offset(8);
     }];
     
+    [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(200, 20));//mark
+        make.bottom.equalTo(self.mas_bottom).with.offset(-10);
+        make.left.equalTo(_locView.mas_right).with.offset(8);
+    }];
+    
+//    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.height.mas_equalTo(2);
+//        make.top.equalTo(_moodLabel.mas_bottom).with.offset(10);
+//        make.right.equalTo(self.mas_right).with.offset(-20);
+//        make.left.equalTo(self.mas_left).with.offset(20);
+//    }];
+//    
 //    [_issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 //        
 //        make.size.mas_equalTo(CGSizeMake(42, 21));
@@ -166,7 +186,6 @@
     if (!_picView) {
  
         _picView = [[UIImageView alloc] init];
-//        _picView.frame = CGRectMake(100, 100, 200, 180);
         _picView.backgroundColor = JJBRandomColor;
     }
     return _picView;
@@ -183,17 +202,39 @@
     }
     return _moodLabel;
 }
- 
-- (UILabel *)line {
- 
-    if (!_line) {
- 
-        _line = [[UILabel alloc] init];
-        _line.textColor = [UIColor blackColor];
+
+- (UIImageView *)locView {
+
+    if (!_locView) {
+        
+        _locView = [[UIImageView alloc] init];
+        _locView.image = [UIImage imageNamed:@""];  //mark
+        _locView.backgroundColor = JJBRandomColor;
     }
-    return _line;
+    return _locView;
+}
+
+- (UILabel *)locLabel {
+
+    if (!_locLabel) {
+        _locLabel = [[UILabel alloc] init];
+        _locLabel.backgroundColor = JJBRandomColor;
+        _locLabel.text = @"来自北京，望湖公园店";  //mark
+        _locLabel.font = [UIFont systemFontOfSize:14];//mark
+    }
+    return _locLabel;
 }
  
+//- (UILabel *)line {
+// 
+//    if (!_line) {
+// 
+//        _line = [[UILabel alloc] init];
+//        _line.textColor = [UIColor blackColor];
+//    }
+//    return _line;
+//}
+
 //- (UIButton *)issueBtn {
 // 
 //    if (!_issueBtn) {

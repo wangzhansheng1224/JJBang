@@ -37,8 +37,6 @@
     self.navigationItem.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self initData];
-    
     [self loadData];
     
     [self.view addSubview:self.tableView];
@@ -50,11 +48,6 @@
 }
 
 #pragma mark -- CustomMethods
-
-- (void)initData {
-    
-}
-
 - (void)loadData {
     
 }
@@ -87,13 +80,12 @@
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ident"];
     }
-    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 400;
+    return 313;
 }
 
 #pragma mark -- event response
@@ -120,7 +112,6 @@
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"ident"];
     }
     return _tableView;

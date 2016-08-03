@@ -34,19 +34,8 @@
     self.view.backgroundColor = JJBRandomColor;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [self initData];
     [self.activityListAPIManager loadData];
     [self.view addSubview:self.tableView];
-}
-
-
-- (void)initData {
-    
-}
-
-- (void)loadData {
-    
 }
 
 
