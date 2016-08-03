@@ -29,15 +29,15 @@
     if ([currentVersion isEqualToString:lastVersion]) {
         //没有新版本
         //设置窗口根控制器
-//        UITabBarController * tabBarController = [[BaseTabBarController alloc]init];
-//        window.rootViewController = tabBarController;
+        UITabBarController * tabBarController = [[BaseTabBarController alloc]init];
+        window.rootViewController = tabBarController;
         
         /**
          测试
          */
-        MBNewFeatureController * newFeatureController = [[MBNewFeatureController alloc]init];
-        window.rootViewController = newFeatureController;
-        [MBNSUserDefaultsTool setObject:currentVersion forKey:MBVersion];
+//        MBNewFeatureController * newFeatureController = [[MBNewFeatureController alloc]init];
+//        window.rootViewController = newFeatureController;
+//        [MBNSUserDefaultsTool setObject:currentVersion forKey:MBVersion];
         
         
         [window makeKeyAndVisible];
