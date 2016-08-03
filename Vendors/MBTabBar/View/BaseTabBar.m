@@ -19,7 +19,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6"];
+        self.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6" alpha:1];
     
     }
     return self;
@@ -54,20 +54,20 @@
 }
 #pragma mark -
 #pragma mark setter-- getter
--(void)setTabBarItems:(NSArray *)tabBarItems
-{
-    _tabBarItems = tabBarItems;
-    for (UITabBarItem * item in tabBarItems) {
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setBackgroundImage:item.image forState:UIControlStateNormal];
-        [btn setBackgroundImage:item.selectedImage forState:UIControlStateSelected];
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-        btn.tag = self.subviews.count;
-        if (self.subviews.count == 0) {
-            [self btnClick:btn];
-        }
-        [self addSubview:btn];
-    }
-    
-}
+//-(void)setTabBarItems:(NSArray *)tabBarItems
+//{
+//    _tabBarItems = tabBarItems;
+//    for (UITabBarItem * item in tabBarItems) {
+//        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [btn setBackgroundImage:item.image forState:UIControlStateNormal];
+//        [btn setBackgroundImage:item.selectedImage forState:UIControlStateSelected];
+//        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+//        btn.tag = self.subviews.count;
+//        if (self.subviews.count == 0) {
+//            [self btnClick:btn];
+//        }
+//        [self addSubview:btn];
+//    }
+//    
+//}
 @end

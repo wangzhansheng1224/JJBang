@@ -18,6 +18,7 @@
     //设置导航栏中间的标题
     NSMutableDictionary * attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+//    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [bar setTitleTextAttributes:attrs];
     
 }

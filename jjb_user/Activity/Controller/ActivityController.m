@@ -58,7 +58,7 @@
     
     [self addChildViewController:menu];
     
-    
+//    [menu addChildViewController:self.list];
 }
 
 

@@ -31,6 +31,13 @@
         
         _controllers = [NSArray arrayWithArray:controllers];
         
+        for (int i = 0; i < _controllers.count; i ++) {
+            
+            UIViewController * vc = (UIViewController *)_controllers[i];
+            
+            [self addChildViewController:vc];
+        }
+        
         _menuTitles = [NSArray arrayWithArray:menuTitles];
         
     }

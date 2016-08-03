@@ -29,60 +29,66 @@
         [self.contentView addSubview:self.timeView];
         [self.contentView addSubview:self.timeLabel];
         
-        [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(self.contentView.mas_top).with.offset(0);
-            make.size.mas_equalTo(CGSizeMake(SIZE.width, PIC_HEIGHT));
-            make.left.equalTo(self.contentView.mas_left).with.offset(0);
-        }];
-        
-        [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.bottom.equalTo(_picView.mas_bottom).with.offset(-10);
-            make.size.mas_equalTo(CGSizeMake(100, 30));
-            make.left.equalTo(self.contentView.mas_left).with.offset(0);
-        }];
-
-        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(_picView.mas_bottom).with.offset(10);
-            make.size.mas_equalTo(CGSizeMake(SIZE.width - 10, 20));
-            make.left.equalTo(self.contentView.mas_left).with.offset(10);
-            make.right.equalTo(self.contentView.mas_right).with.offset(-10);
-        }];
-
-        [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
-            make.size.mas_equalTo(CGSizeMake(20, 20));
-            make.left.equalTo(self.contentView.mas_left).with.offset(10);
-        }];
-
-        [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
-            make.size.mas_equalTo(CGSizeMake(150, 20));
-            make.left.equalTo(_locView.mas_right).with.offset(10);
-        }];
-
-        [_timeView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(_locView.mas_bottom).with.offset(10);
-            make.size.mas_equalTo(CGSizeMake(20, 20));
-            make.left.equalTo(self.contentView.mas_left).with.offset(10);
-        }];
-
-        [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(_locLabel.mas_bottom).with.offset(10);
-            make.size.mas_equalTo(CGSizeMake(150, 20));
-            make.left.equalTo(_timeView.mas_right).with.offset(10);
-        }];
+        [self configMasonry];
         
     }
     return self;
 }
 
+#pragma mark -- Masonry
+- (void)configMasonry {
+
+    [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.contentView.mas_top).with.offset(0);
+        make.size.mas_equalTo(CGSizeMake(SIZE.width, PIC_HEIGHT));
+        make.left.equalTo(self.contentView.mas_left).with.offset(0);
+    }];
+    
+    [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.bottom.equalTo(_picView.mas_bottom).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(100, 30));
+        make.left.equalTo(self.contentView.mas_left).with.offset(0);
+    }];
+    
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_picView.mas_bottom).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(SIZE.width - 10, 20));
+        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-10);
+    }];
+    
+    [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+    }];
+    
+    [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(150, 20));
+        make.left.equalTo(_locView.mas_right).with.offset(10);
+    }];
+    
+    [_timeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_locView.mas_bottom).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.left.equalTo(self.contentView.mas_left).with.offset(10);
+    }];
+    
+    [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_locLabel.mas_bottom).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(150, 20));
+        make.left.equalTo(_timeView.mas_right).with.offset(10);
+    }];
+    
+}
 
 
 #pragma mark - getters and setters

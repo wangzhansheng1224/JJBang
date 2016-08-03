@@ -10,21 +10,5 @@
 
 @interface GrowingCell : UITableViewCell
 
-@property (nonatomic,strong) UILabel *nameLabel;
-
-@property (nonatomic,strong) UILabel *timeLabel;
-
-@property (nonatomic,strong) UIImageView *iconView;
-
-@property (nonatomic,strong) UIImageView *picView;
-
-@property (nonatomic,strong) UILabel *moodLabel;
-
-@property (nonatomic,strong) UIButton *issueBtn;
-
-@property (nonatomic,strong) UILabel *line;
-
-
-
 
 @end

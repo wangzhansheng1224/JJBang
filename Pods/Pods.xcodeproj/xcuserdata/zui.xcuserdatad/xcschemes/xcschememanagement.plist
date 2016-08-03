@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>AliyunOSSiOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>Aspects.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -72,6 +77,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>23DAF21ED1FFF084FC0CF50B132533D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34B458C9739EAC80855F67DA9878C7AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40A045DF8C21A467D0092F6642949199</key>
 		<dict>
 			<key>primary</key>
@@ -92,6 +107,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5D1CF4C27119E3A62AA312C622FAD95C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D4879ABE7082238020AA55FE42C9ACB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EA3BF54962038B7945CCA7EA2F1B644</key>
 		<dict>
 			<key>primary</key>
@@ -103,6 +128,16 @@
 			<true/>
 		</dict>
 		<key>91469EE50935B126EDD29414D63030F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97B2ACF3AA4080D1991B55C3E50A10F5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A98C138EC14572F9D888F351A226FA14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
