@@ -41,7 +41,8 @@
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(SIZE.width, SIZE.height - 64 - 49));
-        make.top.left.equalTo(0);
+        make.top.mas_equalTo(self.view.mas_top).with.offset(64);
+        make.left.equalTo(@0);
     }];
 }
 

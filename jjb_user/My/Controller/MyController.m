@@ -12,6 +12,7 @@
 #import <Masonry.h>
 #import "MineHeaderView.h"
 #import "MineTableViewCell.h"
+#import "MyCourseController.h"
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -19,6 +20,8 @@
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *array_data;
+
+@property (nonatomic,strong) MyCourseController *myCourseVC;
 
 @end
 
@@ -202,6 +205,16 @@
     return 0.0001;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.section == 0) {
+        
+        if (indexPath.row == 1) {
+            
+            [self.navigationController pushViewController:self.myCourseVC animated:YES];
+        }
+    }
+}
 
 
 #pragma mark -- getter and setter
@@ -227,6 +240,15 @@
         _array_data = [NSMutableArray array];
     }
     return _array_data;
+}
+
+- (MyCourseController *)myCourseVC{
+    
+    if (!_myCourseVC) {
+        
+        _myCourseVC = [[MyCourseController alloc] init];
+    }
+    return _myCourseVC;
 }
 
 @end
