@@ -40,8 +40,9 @@
 - (void)layoutPageSubviews {
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(SIZE.width, SIZE.height - 64 - 49));
-        make.top.mas_equalTo(self.view.mas_top).with.offset(64);
+
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 64 - 49));
+        make.top.equalTo(@64);
         make.left.equalTo(@0);
     }];
 }

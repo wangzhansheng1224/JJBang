@@ -8,10 +8,11 @@
 
 #import "ShopController.h"
 #import "SHopIndexAPIManager.h"
-
+#import "LoginViewController.h"
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
+@property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
 @end
 
 @implementation ShopController
@@ -24,6 +25,7 @@
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self.shopIndexAPIManager loadData];
     [self setUpNav];
+    [self setUpButton];
 }
 
 
@@ -54,7 +56,24 @@
 {
     JJBLog(@"%s",__func__);
 }
+//点击登录
+-(void)loginClick
+{
+    LoginViewController * loginVC = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
+-(void)setUpButton
+{
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"点击登录" forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor redColor]];
+    button.frame = CGRectMake(100, 100, 100, 30);
+    _LoginButton = button;
 
+    [_LoginButton addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_LoginButton];
+   
+}
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
@@ -79,6 +98,12 @@
     }
     return _shopIndexAPIManager;
 }
+//-(UIButton *)LoginButton
+//{
+//    if (_LoginButton == nil) {
+//    }
+//    return _LoginButton;
+//}
 
 
 @end

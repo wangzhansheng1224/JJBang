@@ -7,7 +7,7 @@
 //
 
 #import "ActivityListCell.h"
-#import <Masonry.h>
+#import "ActivityListKey.h"
 
 #define SIZE [UIScreen mainScreen].bounds.size
 #define PIC_HEIGHT 240
@@ -90,6 +90,13 @@
     
 }
 
+- (void)configWithData:(NSDictionary *)data{
+        
+    [self.titleLabel setText:data[kActivityListTitle]];
+    [self.locLabel setText:data[kActivityListAddress]];
+    [self.picView sd_setImageWithURL:data[kActivityListImageURL] placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
+
 
 #pragma mark - getters and setters
 - (UIImageView *)picView {
@@ -108,11 +115,10 @@
     if (!_statusLabel) {
         
         _statusLabel = [[UILabel alloc] init];
-        _statusLabel.backgroundColor = JJBRandomColor;
         _statusLabel.textAlignment = NSTextAlignmentCenter;
         _statusLabel.text = @"进行中";
         _statusLabel.textColor = [UIColor whiteColor];
-        _titleLabel.numberOfLines = 1;
+        _statusLabel.numberOfLines = 1;
 
     }
     
@@ -128,6 +134,8 @@
         _titleLabel.text = @"三峡游开始了，大家快快报名吧";
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.numberOfLines = 1;
+        [_statusLabel setBackgroundColor:COLOR_DARK_GRAY];
+        [_statusLabel setAlpha:0.3];
     }
     
     return _titleLabel;
@@ -178,23 +186,6 @@
     }
     
     return _timeLabel;
-}
-
-
-
-
-
-
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

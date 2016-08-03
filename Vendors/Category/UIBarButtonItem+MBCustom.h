@@ -14,6 +14,6 @@
 
 +(UIBarButtonItem *)itemWithNormalImage:(UIImage *)normalImage selectImage:(UIImage *)selectImage target:(nullable id)target action:(nullable SEL)action;
 
--(UIBarButtonItem *)backItmeWithNormalImage:(UIImage *)normalImage high:(UIImage *)highImage target:(nullable id)target action:(nullable SEL)action norColor:(UIColor *)norColor highColor:(UIColor *)highColor title:(NSString *)title;
++(UIBarButtonItem *)itmeWithNormalImage:(UIImage *)normalImage high:(UIImage *)highImage target:(nullable id)target action:(nullable SEL)action norColor:(UIColor *)norColor highColor:(UIColor *)highColor title:(NSString *)title;
 
 @end

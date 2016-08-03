@@ -42,7 +42,6 @@
 		731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */; };
 		731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */; };
 		731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */; };
-		731091E71D51C8700031B443 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091E61D51C8700031B443 /* LoginController.m */; };
 		731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091EA1D51C8840031B443 /* EditPasswordAPIManager.m */; };
 		731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091EC1D51C8840031B443 /* EditUserInfoAPIManger.m */; };
 		731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091EE1D51C8840031B443 /* GetCodeAPIManager.m */; };
@@ -103,6 +102,11 @@
 		BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */; };
 		BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97E1D50878B0037DA9F /* MBGuideTool.m */; };
 		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
+		BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8843011D51E02100A537D8 /* UIImage+image.m */; };
+		BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */; };
+		BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4451D51EDEE001BCEEF /* registerViewController.m */; };
+		BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4491D51FD22001BCEEF /* MBloginButton.m */; };
+		BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F44C1D51FE5E001BCEEF /* MBotherLoginView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,8 +183,6 @@
 		731091C81D51B1190031B443 /* MyGrowingTreeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingTreeAPIManager.m; path = APIManager/MyGrowingTreeAPIManager.m; sourceTree = "<group>"; };
 		731091CA1D51B28D0031B443 /* MyOrderAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderAPIManager.h; path = APIManager/MyOrderAPIManager.h; sourceTree = "<group>"; };
 		731091CB1D51B28D0031B443 /* MyOrderAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderAPIManager.m; path = APIManager/MyOrderAPIManager.m; sourceTree = "<group>"; };
-		731091E51D51C8700031B443 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		731091E61D51C8700031B443 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		731091E91D51C8840031B443 /* EditPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordAPIManager.h; sourceTree = "<group>"; };
 		731091EA1D51C8840031B443 /* EditPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordAPIManager.m; sourceTree = "<group>"; };
 		731091EB1D51C8840031B443 /* EditUserInfoAPIManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserInfoAPIManger.h; sourceTree = "<group>"; };
@@ -307,6 +309,16 @@
 		BB68C97E1D50878B0037DA9F /* MBGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideTool.m; sourceTree = "<group>"; };
 		BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MBCustom.h"; sourceTree = "<group>"; };
 		BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MBCustom.m"; sourceTree = "<group>"; };
+		BB8843001D51E02100A537D8 /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
+		BB8843011D51E02100A537D8 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
+		BBC3F4411D51ECD0001BCEEF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		BBC3F4441D51EDEE001BCEEF /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
+		BBC3F4451D51EDEE001BCEEF /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerViewController.m; sourceTree = "<group>"; };
+		BBC3F4481D51FD22001BCEEF /* MBloginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBloginButton.h; sourceTree = "<group>"; };
+		BBC3F4491D51FD22001BCEEF /* MBloginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBloginButton.m; sourceTree = "<group>"; };
+		BBC3F44B1D51FE5E001BCEEF /* MBotherLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBotherLoginView.h; sourceTree = "<group>"; };
+		BBC3F44C1D51FE5E001BCEEF /* MBotherLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBotherLoginView.m; sourceTree = "<group>"; };
 		BBCCB49C1D4F24F40020E170 /* jjb_user.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jjb_user.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -593,6 +605,7 @@
 		731091E31D51C8700031B443 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				BBC3F4471D51FCE3001BCEEF /* View */,
 				731091E81D51C8840031B443 /* APIManager */,
 				731091E41D51C8700031B443 /* Controller */,
 			);
@@ -602,8 +615,10 @@
 		731091E41D51C8700031B443 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				731091E51D51C8700031B443 /* LoginController.h */,
-				731091E61D51C8700031B443 /* LoginController.m */,
+				BBC3F4411D51ECD0001BCEEF /* LoginViewController.h */,
+				BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */,
+				BBC3F4441D51EDEE001BCEEF /* registerViewController.h */,
+				BBC3F4451D51EDEE001BCEEF /* registerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -995,8 +1010,8 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
-				731091E31D51C8700031B443 /* System */,
 				731091AB1D51A5F20031B443 /* Teacher */,
+				731091E31D51C8700031B443 /* System */,
 				731091A61D51A52C0031B443 /* Course */,
 				731091A11D51A4FD0031B443 /* Org */,
 				731091621D5198C60031B443 /* Shop */,
@@ -1081,6 +1096,8 @@
 				BB68C9701D506E580037DA9F /* UIView+MBFrame.m */,
 				BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */,
 				BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */,
+				BB8843001D51E02100A537D8 /* UIImage+image.h */,
+				BB8843011D51E02100A537D8 /* UIImage+image.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1168,6 +1185,17 @@
 			);
 			name = Method;
 			path = View/Method;
+			sourceTree = "<group>";
+		};
+		BBC3F4471D51FCE3001BCEEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBC3F4481D51FD22001BCEEF /* MBloginButton.h */,
+				BBC3F4491D51FD22001BCEEF /* MBloginButton.m */,
+				BBC3F44B1D51FE5E001BCEEF /* MBotherLoginView.h */,
+				BBC3F44C1D51FE5E001BCEEF /* MBotherLoginView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1293,6 +1321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */,
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
@@ -1300,6 +1329,7 @@
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
+				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
@@ -1321,6 +1351,7 @@
 				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
+				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
@@ -1354,7 +1385,6 @@
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
-				731091E71D51C8700031B443 /* LoginController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
@@ -1363,11 +1393,13 @@
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				731091811D5198C60031B443 /* CourseListReformer.m in Sources */,
 				731091801D5198C60031B443 /* CourseInfoReformer.m in Sources */,
+				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
+				BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */,
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				7310917F1D5198C60031B443 /* ShopController.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,

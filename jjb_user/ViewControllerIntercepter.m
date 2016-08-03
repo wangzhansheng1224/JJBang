@@ -79,6 +79,7 @@
 //    [bar setTitleTextAttributes:attrs];
     /* 你可以使用这个方法进行打日志，初始化基础业务相关的内容 */
     NSLog(@"[%@ viewWillAppear:%@]", [viewController class], animated ? @"YES" : @"NO");
+    
 }
 
 @end

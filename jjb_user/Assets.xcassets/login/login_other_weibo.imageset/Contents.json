@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "nav_Scan.png.png"
+      "filename" : "login_other_weibo.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "nav_Scan.png@2x.png"
+      "filename" : "login_other_weibo@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "nav_Scan.png@3x.png",
+      "filename" : "login_other_weibo@3x.png",
       "scale" : "3x"
     }
   ],

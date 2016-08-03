@@ -90,7 +90,7 @@
 #pragma mark -- tableView headerView
 - (void)createTableHeaderView {
     
-    MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, SIZE.width, 250)];
+    MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 250)];
     
     headerView.topImageView = @"";
     
@@ -223,7 +223,7 @@
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 64, SIZE.width, SIZE.height-64 -40);
+        _tableView.frame = CGRectMake(0, 64, Screen_Width, Screen_Height-64 -40);
         
         _tableView.delegate = self;
         _tableView.dataSource = self;

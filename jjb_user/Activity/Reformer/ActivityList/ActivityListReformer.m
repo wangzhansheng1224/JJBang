@@ -16,7 +16,7 @@ NSString *const kActivityListStarttime=@"ActivityListStarttime";
 NSString *const kActivityListEndtime=@"ActivityListEndtime";
 NSString *const kActivityListAddress=@"ActivityListAddress";
 NSString *const kActivityListState=@"ActivityListState";
-NSString *const kActivityListImage=@"ActivityListImage";
+NSString *const kActivityListImageURL=@"ActivityListImage";
 NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
 
 static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier";
@@ -37,23 +37,14 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
                                      kActivityListTitle:arrData[i][@"title"],
                                      kActivityListStarttime:arrData[i][@"starttime"],
                                      kActivityListEndtime:arrData[i][@"endtime"],
-                                     kActivityListAddress:arrData[i][@""]
+                                     kActivityListAddress:arrData[i][@"address"],
+                                     kActivityListState:arrData[i][@"state"],
+                                     kActivityListImageURL:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]],
+                                     kActivityListIsRegist:arrData[i][@"isRegist"]
                                      };
-            
-            ActivityListCell *cell=[[ActivityListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActivityListCellIdentifier];
+            [arrResult addObject:itemData];
         }
-    }
-
-    
-    NSDictionary *resultData = nil;
-    
-    if ([manager isKindOfClass:[ActivityListAPIManager class]]) {
-        resultData = @{
-                       kActivityListID:data[@"id"],
-                       kActivityListTitle:data[@"title"],
-                       kActivityListStarttime:data[@"title"],
-                       kActivityListEndtime:data[@"title"]
-                       };
+        return arrResult;
     }
     return nil;
 }
