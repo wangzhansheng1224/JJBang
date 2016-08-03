@@ -69,7 +69,10 @@ alpha:(a)]
 #endif
 
 
-
+/*
+ *  屏幕尺寸
+ */
+#define SIZE [UIScreen mainScreen].bounds.size
 
 
 
