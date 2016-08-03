@@ -41,6 +41,17 @@ static NSString * const reuseIdentifier = @"cell";
     self.collectionView.bounces = NO;
     [self setUpGuideView];
 }
+/**
+ *  控制器消失时移除掉ImageView
+ *
+ *  @param animated
+ */
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.guideView removeFromSuperview];
+    
+}
 
 -(void)setUpGuideView
 {
@@ -63,11 +74,9 @@ static NSString * const reuseIdentifier = @"cell";
     CGFloat offsetX = scrollView.contentOffset.x;
     CGFloat offsetGap = offsetX - self.offSetX;
     self.guideView.X += 2 * offsetGap;
-    JJBLog(@"%f",self.guideView.X);
     int page = offsetX / self.view.width +1 ;
     NSString * string = [NSString stringWithFormat:@"guide_%d",page];
     self.guideView.image = [UIImage imageNamed:string];
-    JJBLog(@"+++++%@",self.guideView.image);
     self.offSetX = offsetX;
     
     
@@ -86,8 +95,7 @@ static NSString * const reuseIdentifier = @"cell";
     MBNewFeatureCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     NSString * string = [NSString stringWithFormat:@"guide_%ld",indexPath.row+1];
     cell.image = [UIImage imageNamed:string];
-    JJBLog(@"%ld",indexPath.row+1);
-    JJBLog(@"---%@",cell.image);
+
     [cell setIndexPath:indexPath count:kMBGuidePageCount];
     return cell;
 }
