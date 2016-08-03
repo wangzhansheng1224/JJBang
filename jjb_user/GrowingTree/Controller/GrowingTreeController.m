@@ -85,7 +85,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 313;
+    return 210;
 }
 
 #pragma mark -- event response
@@ -95,7 +95,6 @@
     
     [self.navigationController pushViewController:self.issueVC animated:YES];
 }
-
 
 #pragma mark -- getter and setter
 - (UITableView *)tableView {
