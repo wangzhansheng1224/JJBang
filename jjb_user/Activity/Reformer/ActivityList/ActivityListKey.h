@@ -14,6 +14,6 @@ extern NSString *const kActivityListStarttime;
 extern NSString *const kActivityListEndtime;
 extern NSString *const kActivityListAddress;
 extern NSString *const kActivityListState;
-extern NSString *const kActivityListImage;
+extern NSString *const kActivityListImageURL;
 extern NSString *const kActivityListIsRegist;
 #endif /* ActivityListKey_h */

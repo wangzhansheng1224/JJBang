@@ -57,9 +57,11 @@ alpha:(a)]
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_Height [UIScreen mainScreen].bounds.size.height
 
-#define statusHeight 20
+#define StatusHeight 20
 #define TabBarHeight 49
 #define NavBarHeight 64
+
+#define ImageServer @"http://image.happycity777.com/"
 
 /*屏幕视频*/
 
@@ -73,10 +75,6 @@ alpha:(a)]
 #endif
 
 
-/*
- *  屏幕尺寸
- */
-#define SIZE [UIScreen mainScreen].bounds.size
 
 
 
@@ -85,6 +83,7 @@ alpha:(a)]
 #import "LDNetworking.h"
 #import "UIView+MBFrame.h"
 #import "UIBarButtonItem+MBCustom.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry.h>
 
 #endif

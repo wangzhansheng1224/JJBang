@@ -32,8 +32,9 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.activityListAPIManager loadData];
     [self.view addSubview:self.tableView];
+    [self.activityListAPIManager loadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +55,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     if (cell == nil) {
         cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActivityListCellIdentifier];
     }
-
+    [cell configWithData:_arrData[indexPath.row]];
     return cell;
 }
 
@@ -67,9 +68,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
-    
     [self.arrData addObjectsFromArray:resultData];
-
+    [self.tableView reloadData];
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     
@@ -120,7 +120,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, SIZE.width, SIZE.height-40);
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height-40);
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
