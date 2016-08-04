@@ -65,7 +65,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 340;
+    return 272;
 }
 
 #pragma -
@@ -95,6 +95,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.detail.hidesBottomBarWhenPushed = YES;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.navigationController pushViewController:self.detail animated:YES];
 }
 
