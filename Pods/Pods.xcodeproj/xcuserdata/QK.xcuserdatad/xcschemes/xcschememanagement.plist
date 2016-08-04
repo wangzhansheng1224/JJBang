@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>LBXScan.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -63,6 +68,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>12</integer>
+		</dict>
+		<key>ZXingObjC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
@@ -97,12 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>458C6331DBC14749EE6D2599570C76DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4BFB7DE07FDDD2FDB599A3CE8C86CF6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B0BD2DECAB32BFCFD79325EA6EAC852</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +137,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5E8731F12DC027CA5A4B8239BC4A2E0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>692C9586C5F163073476831C4571A330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6A0E28CC8C8D825E31D2ADA8AF838319</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EA3BF54962038B7945CCA7EA2F1B644</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EB33A6AA4B56718E8068354CA19686D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,6 +183,11 @@
 			<true/>
 		</dict>
 		<key>AC6C573058237B97B1BEE20322865172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF6B011BBE8230BB4FA370B0AB4EEA76</key>
 		<dict>
 			<key>primary</key>
 			<true/>

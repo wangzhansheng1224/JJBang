@@ -1,16 +1,16 @@
 target 'jjb_user' do
-    pod 'AFNetworking', '~> 2.6.3'
-    pod 'Masonry'
-    pod 'Toast'
-    pod 'MJRefresh'
-    pod 'Aspects'
-    pod 'SDWebImage'
-    pod 'CocoaLumberjack'
-    pod 'pop', '~> 1.0'
-    pod 'XLForm'
-    pod 'CTPersistance'
-    pod 'JLRoutes'
-    pod 'AliyunOSSiOS', '~> 2.5.0'
-    #pod 'LBXScan'
+    pod 'AFNetworking', '~> 2.6.3' #网络请求
+    pod 'Masonry' #界面布局
+    pod 'Toast' #友好提示
+    pod 'MJRefresh' #下来刷新
+    pod 'Aspects' #aop
+    pod 'SDWebImage' #网络图片处理
+    pod 'CocoaLumberjack' #写日志
+    pod 'pop', '~> 1.0' #facebook 的动画组件
+    pod 'XLForm' #灵活、强大的表单组件
+    pod 'CTPersistance' #数据库操作、和框架有关
+    pod 'JLRoutes'  #路由
+    pod 'AliyunOSSiOS', '~> 2.5.0' #阿里云的oss图片上传
+    pod 'LBXScan'
 #    pod 'RAMAnimatedTabBarController'
 end

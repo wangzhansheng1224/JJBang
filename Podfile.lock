@@ -32,6 +32,8 @@ PODS:
     - CocoaLumberjack/Default
   - CTPersistance (1.2.9)
   - JLRoutes (1.6)
+  - LBXScan (1.1.1):
+    - ZXingObjC (~> 3.0)
   - Masonry (1.0.1)
   - MJRefresh (3.1.12)
   - pop (1.0.9)
@@ -40,6 +42,9 @@ PODS:
   - SDWebImage/Core (3.8.1)
   - Toast (3.0)
   - XLForm (3.2.0)
+  - ZXingObjC (3.1.0):
+    - ZXingObjC/All (= 3.1.0)
+  - ZXingObjC/All (3.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
@@ -48,6 +53,7 @@ DEPENDENCIES:
   - CocoaLumberjack
   - CTPersistance
   - JLRoutes
+  - LBXScan
   - Masonry
   - MJRefresh
   - pop (~> 1.0)
@@ -62,13 +68,15 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CTPersistance: 830b4420215081e39f29f7909753602809c708b8
   JLRoutes: 435d791422e96c9b9b5e1c4db1aedb3ae1b1a08f
+  LBXScan: dfb4d8ae8e4cff2aa0c9e1771e43954dce1469a9
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
+  ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: 1f054c2259e94bbf06641307b8c2ee93eb1c3785
+PODFILE CHECKSUM: 3936587e6365c39103f71b36459f5de08603ed63
 
 COCOAPODS: 1.0.1

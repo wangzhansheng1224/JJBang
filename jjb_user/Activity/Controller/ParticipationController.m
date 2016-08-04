@@ -74,7 +74,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 340;
+    return 264;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +84,6 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.detail.hidesBottomBarWhenPushed = YES;
-    
     [self.navigationController pushViewController:self.detail animated:YES];
 }
 

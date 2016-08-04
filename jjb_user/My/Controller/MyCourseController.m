@@ -40,8 +40,10 @@
 - (void)layoutPageSubviews {
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 64 - 49));
-        make.top.left.equalTo(0);
+
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 64));
+        make.top.equalTo(@64);
+        make.left.equalTo(@0);
     }];
 }
 
@@ -63,7 +65,7 @@
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         
-    return 210;
+    return 140;
 }
     
 #pragma -

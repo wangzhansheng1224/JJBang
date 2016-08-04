@@ -10,20 +10,6 @@
 
 @interface ActivityListCell : UITableViewCell
 
-@property (nonatomic,strong) UIImageView *picView;
-
-@property (nonatomic,strong) UILabel *statusLabel;
-
-@property (nonatomic,strong) UILabel *titleLabel;
-
-@property (nonatomic,strong) UIImageView *locView;
-
-@property (nonatomic,strong) UILabel *locLabel;
-
-@property (nonatomic,strong) UIImageView *timeView;
-
-@property (nonatomic,strong) UILabel *timeLabel;
-
 - (void)configWithData:(NSDictionary *)data;
 
 @end
