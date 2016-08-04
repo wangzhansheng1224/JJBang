@@ -48,14 +48,15 @@
         [self.contentView addSubview:self.label_time];
         [self.contentView addSubview:self.label_line];
         
-        [self configMasonry];
+        [self layoutPageSubviews];
         
     }
     return self;
 }
 
-#pragma mark -- Masonry
-- (void)configMasonry {
+#pragma -
+#pragma mark - layoutPageSubviews
+- (void)layoutPageSubviews {
 
     [_imageView_pic mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -123,7 +124,7 @@
     [self.imageView_pic sd_setImageWithURL:data[kActivityListImageURL] placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 
-
+#pragma -
 #pragma mark - getters and setters
 - (UIImageView *)imageView_pic {
     
@@ -163,7 +164,6 @@
         [_label_title sizeToFit];
         _label_title.textColor = [UIColor blackColor];
         _label_title.numberOfLines = 1;
-        
     }
     
     return _label_title;
