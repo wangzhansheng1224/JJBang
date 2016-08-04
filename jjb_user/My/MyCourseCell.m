@@ -68,7 +68,7 @@
     [_label_class mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.imageView_pic.mas_top).with.offset(6);
-        make.size.mas_equalTo(CGSizeMake(30, 15));
+        make.size.mas_equalTo(CGSizeMake(40, 15));
         make.left.equalTo(self.imageView_pic.mas_left).with.offset(0);
     }];
     
@@ -83,7 +83,7 @@
         
         make.size.mas_equalTo(CGSizeMake(80, 20));
         make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
-        make.top.equalTo(@10);
+        make.top.equalTo(_label_title.mas_bottom).with.offset(10);
     }];
     
     [_label_evaluation mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,9 +117,8 @@
         
         make.bottom.equalTo(@-10);
         make.size.mas_equalTo(CGSizeMake(20, 20));
-        make.left.equalTo(self.label_money.mas_right).with.offset(10);
+        make.right.equalTo(self.label_money.mas_left).with.offset(-10);
     }];
-    
 }
 
 
@@ -141,9 +140,9 @@
     if (!_label_class) {
         
         _label_class = [[UILabel alloc] init];
-        _label_class.textAlignment = NSTextAlignmentCenter;
         _label_class.text = @"少儿";
         _label_class.textColor = [UIColor whiteColor];
+        _label_class.backgroundColor = JJBRandomColor;
         _label_class.numberOfLines = 1;
         
     }

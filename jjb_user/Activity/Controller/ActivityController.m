@@ -33,7 +33,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
     
     [self createControllers];
 }
@@ -47,9 +46,9 @@
 
 -(void)createControllers{
     
-    self.arrayVC = @[self.list,self.participation,self.sponsor];
+    self.arrayVC = @[self.list,self.participation];
     
-    self.titlesArray = @[@"活动列表",@"我参与的",@"我发布的"];
+    self.titlesArray = @[@"活动列表",@"我参与的"];
     
     RHMenuViewController *menu = [[RHMenuViewController alloc]initWithViewControllers:_arrayVC andMenuTitles:_titlesArray];
     self.automaticallyAdjustsScrollViewInsets = NO;
