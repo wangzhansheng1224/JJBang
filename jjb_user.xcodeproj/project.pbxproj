@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
+		51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */; };
+		51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBE1D53A96400F54210 /* ActivityInfoCell.m */; };
 		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
 		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
@@ -121,6 +123,10 @@
 /* Begin PBXFileReference section */
 		2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.debug.xcconfig"; sourceTree = "<group>"; };
 		30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jjb_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-jjb_user/Pods-jjb_user.release.xcconfig"; sourceTree = "<group>"; };
+		51181DBA1D53A94D00F54210 /* ActivityDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailCell.h; path = jjb_user/Activity/ActivityDetailCell.h; sourceTree = SOURCE_ROOT; };
+		51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailCell.m; path = jjb_user/Activity/ActivityDetailCell.m; sourceTree = SOURCE_ROOT; };
+		51181DBD1D53A96400F54210 /* ActivityInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityInfoCell.h; path = jjb_user/Activity/ActivityInfoCell.h; sourceTree = SOURCE_ROOT; };
+		51181DBE1D53A96400F54210 /* ActivityInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityInfoCell.m; path = jjb_user/Activity/ActivityInfoCell.m; sourceTree = SOURCE_ROOT; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
@@ -742,6 +748,10 @@
 			children = (
 				51B875DF1D503E880082558D /* ActivityListCell.h */,
 				51B875E01D503E880082558D /* ActivityListCell.m */,
+				51181DBA1D53A94D00F54210 /* ActivityDetailCell.h */,
+				51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */,
+				51181DBD1D53A96400F54210 /* ActivityInfoCell.h */,
+				51181DBE1D53A96400F54210 /* ActivityInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1395,8 +1405,10 @@
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
+				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
+				51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,

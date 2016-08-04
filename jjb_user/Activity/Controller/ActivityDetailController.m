@@ -7,6 +7,8 @@
 //
 
 #import "ActivityDetailController.h"
+#import "ActivityDetailCell.h"
+#import "ActivityInfoCell.h"
 
 @interface ActivityDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -34,13 +36,17 @@
 
 @property (nonatomic,strong) UILabel *label_bottomline;
 
+@property (nonatomic,strong) UILabel *label_verticalline;
+
 @property (nonatomic,strong) UIView *view_header;
 
 @property (nonatomic,strong) NSArray *array_title;
 
 @property (nonatomic,assign) int index;//0 1 2
 
+@property (nonatomic,strong) UIView *view_top;
 
+@property (nonatomic,strong) NSMutableArray *array_btn;
 
 @end
 
@@ -51,21 +57,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = JJBRandomColor;
+//    self.view.backgroundColor = JJBRandomColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
 
-    [self.tableView addSubview:self.imageView_pic];
-    [self.view addSubview:self.label_status];
-    [self.view addSubview:self.label_title];
-    [self.view addSubview:self.imageView_location];
-    [self.view addSubview:self.label_location];
-    [self.view addSubview:self.imageView_time];
-    [self.view addSubview:self.label_time];
-    [self.view addSubview:self.btn_join];
-    
-    [self layoutPageSubviews];
+    [self.view addSubview:self.tableView];
+    [self.tableView addSubview:self.view_top];
+    [self.view_top addSubview:self.imageView_pic];
+    [self.view_top addSubview:self.label_status];
+    [self.view_top addSubview:self.label_title];
+    [self.view_top addSubview:self.imageView_location];
+    [self.view_top addSubview:self.label_location];
+    [self.view_top addSubview:self.imageView_time];
+    [self.view_top addSubview:self.label_time];
+    [self.view_top addSubview:self.btn_join];
+    [self createHeadView];
     [self setUpNav];
-//    [self createHeadView];
+    [self layoutPageSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,10 +93,17 @@
         make.left.equalTo(@0);
     }];
     
+    [self.view_top mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 264));
+        make.top.equalTo(@-264);
+        make.left.equalTo(@0);
+    }];
+    
     [self.imageView_pic mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(Screen_Width, 178));
-        make.top.equalTo(@-200);
+        make.top.equalTo(@0);
         make.left.equalTo(@0);
     }];
     
@@ -144,9 +158,33 @@
         make.right.equalTo(@-16);
     }];
     
+    [self.label_topline mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
+        make.top.left.equalTo(@0);
+    }];
+    
     [self.view_header mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 50));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 44));
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+    }];
+    
+    [self.label_bottomline mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
+        make.bottom.equalTo(@0);
+        make.right.equalTo(@0);
+    }];
+    
+    __weak typeof (self) weakSelf = self;
+
+    [self.label_verticalline mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(1, 16));
+        make.top.equalTo(self.label_topline.mas_bottom).with.offset(13);
+        make.centerX.equalTo(weakSelf.view);
     }];
 }
 
@@ -160,19 +198,21 @@
 - (void)createHeadView{
     
     for (int i = 0; i < self.array_title.count; i++) {
-        UIButton * button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(Screen_Width / 3 * i, 0, Screen_Width / 3, 48);
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(Screen_Width / 2 * i, 0, Screen_Width / 2, 42);
         [button setTitle:self.array_title[i] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.titleLabel.font = H3;
+        [button setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
+        [button setTitleColor:COLOR_ORANGE forState:UIControlStateSelected];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 2000 + i;
-        [_view_header addSubview:button];
+        [self.array_btn addObject:button];
+        [self.view_header addSubview:button];
     }
-    //线条
-//    _line = [[UIView alloc]initWithFrame:CGRectMake(0, 48, SCREEN_WIDTH / 3, 2)];
-//    _line.backgroundColor = [UIColor orangeColor];
-//    [headView addSubview:_line];
     self.tableView.tableHeaderView = self.view_header;
+    [self.view_header addSubview:self.label_topline];
+    [self.view_header addSubview:self.label_bottomline];
+    [self.view_header addSubview:self.label_verticalline];
 }
 
 
@@ -184,11 +224,30 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCCC" forIndexPath:indexPath];
     
-    return cell;
+    if (_index == 0) {
+        //活动详情
+        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailIdentifier" forIndexPath:indexPath];
+//        if (indexPath.row == 0) {
+//            
+//            cell.textLabel.text = @"活动规则";
+//        }else if (indexPath.row == 1) {
+//        
+//            cell.textLabel.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
+//        }
+        
+        return cell;
+        
+    }else {
+        //报名信息
+        ActivityInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityInfoCellIdentifier" forIndexPath:indexPath];
+        
+        return cell;
+    }
 }
+
+
+
 
 #pragma -
 #pragma mark - event response
@@ -201,15 +260,23 @@
 
     NSLog(@"------立即报名------");
 }
-//
-//- (void)buttonClick:(UIButton*)button{
-//    _index = (int)button.tag - 2000;
-//    [UIView animateWithDuration:0.5 animations:^{
-//        _line.frame = CGRectMake(SCREEN_WIDTH / 3 * _index, 48, SCREEN_WIDTH / 3, 2);
-//    }];
-//    //刷新
-//    [_tableView reloadData];
-//}
+
+- (void)buttonClick:(UIButton*)button{
+    _index = (int)button.tag - 2000;
+    
+    for (int i = 0; i < self.array_btn.count; i++) {
+        
+        UIButton * button = (UIButton *)self.array_btn[i];
+        
+        if (i == _index) {
+            
+            button.selected = YES;
+        }else {
+            
+            button.selected = NO;
+        }
+    }
+}
 
 
 #pragma -
@@ -223,15 +290,17 @@
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc]init];
-        [self.view addSubview:self.tableView];
 
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CCCC"];
+        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailIdentifier"];
+        [_tableView registerClass:[ActivityInfoCell class] forCellReuseIdentifier:@"ActivityInfoCellIdentifier"];
 
         _tableView.rowHeight = UITableViewAutomaticDimension;
         //预计行高
         _tableView.estimatedRowHeight = 44.0;
         
-        _tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(264, 0, 0, 0);
+        
+        _tableView.contentOffset = CGPointMake(0, -264);
         
     }
     return _tableView;
@@ -355,7 +424,6 @@
     if (!_view_header) {
         
         _view_header = [[UIView alloc] init];
-        _view_header.backgroundColor = JJBRandomColor;
     }
     return _view_header;
 }
@@ -364,11 +432,57 @@
 
     if (!_array_title) {
         
-        _array_title = [[NSArray alloc] init];
-        _array_title = @[@"活动详情",@"报名信息",@"活动评价"];
+        _array_title = @[@"活动详情",@"报名信息"];
     }
     return _array_title;
 }
 
+- (UIView *)view_top {
+
+    if (!_view_top) {
+        
+        _view_top = [[UIView alloc] init];
+    }
+    return _view_top;
+}
+
+- (UILabel *)label_topline {
+
+    if (!_label_topline) {
+        
+        _label_topline = [[UILabel alloc] init];
+        _label_topline.backgroundColor = COLOR_GRAY;
+    }
+    return _label_topline;
+}
+
+- (UILabel *)label_bottomline {
+    
+    if (!_label_bottomline) {
+        
+        _label_bottomline = [[UILabel alloc] init];
+        _label_bottomline.backgroundColor = COLOR_GRAY;
+    }
+    return _label_bottomline;
+}
+
+- (UILabel *)label_verticalline {
+
+    if (!_label_verticalline) {
+        
+        _label_verticalline = [[UILabel alloc] init];
+        _label_verticalline.backgroundColor = COLOR_GRAY;
+    }
+    return _label_verticalline;
+}
+
+- (NSMutableArray *)array_btn {
+
+    if (!_array_btn) {
+        
+        _array_btn = [[NSMutableArray alloc] init];
+    }
+    return _array_btn;
+}
 
 @end

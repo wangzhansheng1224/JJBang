@@ -56,7 +56,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:ActivityListCellIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActivityListCellIdentifier];
     }
     [cell configWithData:_arrData[indexPath.row]];
@@ -66,6 +66,12 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 272;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.detail.hidesBottomBarWhenPushed = YES;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:self.detail animated:YES];
 }
 
 #pragma -
@@ -93,11 +99,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
              };
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.detail.hidesBottomBarWhenPushed = YES;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:self.detail animated:YES];
-}
 
 
 #pragma -
