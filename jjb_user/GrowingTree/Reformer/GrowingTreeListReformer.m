@@ -11,13 +11,15 @@
 
 NSString *const kGrowingTreeListID=@"GrowingTreeListID";
 NSString *const kGrowingTreeListContent=@"GrowingTreeListContent";
-NSString *const kGrowingTreeListLongitude=@"GrowingTreeListLongitude";
-NSString *const kGrowingTreeListLatitude=@"GrowingTreeListLatitude";
-NSString *const kGrowingTreeListFromUser=@"GrowingTreeListFromUser";
-NSString *const kGrowingTreeListStuName=@"GrowingTreeListStuName";
+NSString *const kGrowingTreeListToUserID=@"GrowingTreeListToUserID";
+NSString *const kGrowingTreeListToUserName=@"GrowingTreeListToUserName";
+NSString *const kGrowingTreeListToUserFace=@"GrowingTreeListToUserFace";
+NSString *const kGrowingTreeListFromUserID=@"GrowingTreeListFromUserID";
+NSString *const kGrowingTreeListFromUserName=@"GrowingTreeListFromUserName";
+NSString *const kGrowingTreeListFromUserFace=@"GrowingTreeListFromUserFace";
+NSString *const kGrowingTreeListAddress=@"GrowingTreeListAddress";
 NSString *const kGrowingTreeListCreateTime=@"GrowingTreeListCreateTime";
-NSString *const kGrowingTreeListImagePaths=@"GrowingTreeListImagePath";
-
+NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
 
 @implementation GrowingTreeListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
@@ -30,15 +32,19 @@ NSString *const kGrowingTreeListImagePaths=@"GrowingTreeListImagePath";
         NSArray *arrData=data[@"data"];
         
         for (NSInteger i=0; i< [arrData count]; i++) {
+            
             NSDictionary *itemData=@{
                                      kGrowingTreeListID:arrData[i][@"id"],
                                      kGrowingTreeListContent:arrData[i][@"content"],
-                                     kGrowingTreeListLongitude:arrData[i][@"longitude"],
-                                     kGrowingTreeListLatitude:arrData[i][@"latitude"],
-                                     kGrowingTreeListFromUser:arrData[i][@"fromUser"],
-                                     kGrowingTreeListStuName:arrData[i][@"stuName"],
+                                     kGrowingTreeListToUserID:arrData[i][@"stuId"],
+                                     kGrowingTreeListToUserFace:arrData[i][@"stuUserface"],
+                                     kGrowingTreeListToUserName:arrData[i][@"stuName"],
+                                     kGrowingTreeListFromUserID:arrData[i][@"fromUserId"],
+                                     kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
+                                     kGrowingTreeListFromUserName:arrData[i][@"formuser"],
+                                     kGrowingTreeListAddress:arrData[i][@"address"],
                                      kGrowingTreeListCreateTime:arrData[i][@"create_time"],
-                                     kGrowingTreeListImagePaths:arrData[i][@"images"]
+                                     kGrowingTreeListImages:arrData[i][@"images"]
                                      };
             [arrResult addObject:itemData];
         }
