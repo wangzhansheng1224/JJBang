@@ -58,8 +58,8 @@
 -(void)gotoLocation
 {
     JJBLog(@"%s",__func__);
-    ScanViewController * ScanVC = [[ScanViewController alloc]init];
-    [self.navigationController pushViewController:ScanVC animated:YES];
+//    ScanViewController * ScanVC = [[ScanViewController alloc]init];
+//    [self.navigationController pushViewController:ScanVC animated:YES];
 }
 //点击登录
 -(void)loginClick
