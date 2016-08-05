@@ -130,8 +130,8 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(superView.mas_top);
         make.bottom.equalTo(superView.mas_bottom);
-        make.left.equalTo(superView.mas_left);
-            make.left.equalTo(superView.mas_left);
+        make.width.equalTo(superView.mas_width);
+        make.height.equalTo(superView.mas_height);
     }];
 }
 
