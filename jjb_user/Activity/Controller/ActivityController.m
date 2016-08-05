@@ -33,7 +33,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self createControllers];
 }
 
@@ -113,25 +112,4 @@
     
     return _titlesArray;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end

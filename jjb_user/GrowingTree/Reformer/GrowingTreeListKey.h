@@ -10,11 +10,13 @@
 #define GrowingTreeListKey_h
 extern NSString *const kGrowingTreeListID;
 extern NSString *const kGrowingTreeListContent;
-extern NSString *const kGrowingTreeListLongitude;
-extern NSString *const kGrowingTreeListLatitude;
-extern NSString *const kGrowingTreeListFromUser;
-extern NSString *const kGrowingTreeListStuName;
+extern NSString *const kGrowingTreeListToUserID;
+extern NSString *const kGrowingTreeListToUserName;
+extern NSString *const kGrowingTreeListToUserFace;
+extern NSString *const kGrowingTreeListFromUserID;
+extern NSString *const kGrowingTreeListFromUserName;
+extern NSString *const kGrowingTreeListFromUserFace;
+extern NSString *const kGrowingTreeListAddress;
 extern NSString *const kGrowingTreeListCreateTime;
-extern NSString *const kGrowingTreeListImagePaths;
-
+extern NSString *const kGrowingTreeListImages;
 #endif /* GrowingTreeListKey_h */

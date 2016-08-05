@@ -9,7 +9,6 @@
  *  个人主控制器
  */
 #import "MyController.h"
-#import <Masonry.h>
 #import "MineHeaderView.h"
 #import "MineTableViewCell.h"
 #import "MyCourseController.h"
@@ -31,7 +30,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -128,11 +126,12 @@
 
 #pragma mark -- Masonry
 - (void)configMasonry {
-
+    UIView* superView=self.view;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@64);
-        make.bottom.equalTo(@-49);
-        make.left.right.equalTo(@0);
+        make.top.equalTo(superView.mas_top);
+        make.bottom.equalTo(superView.mas_bottom);
+        make.left.equalTo(superView.mas_left);
+            make.left.equalTo(superView.mas_left);
     }];
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "MyCourseController.h"
-#import <Masonry.h>
 #import "MyCourseCell.h"
 
 @interface MyCourseController ()<UITableViewDelegate,UITableViewDataSource>

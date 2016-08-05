@@ -35,6 +35,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view setBackgroundColor:[UIColor clearColor]];
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
@@ -56,7 +57,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:ActivityListCellIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActivityListCellIdentifier];
     }
     [cell configWithData:_arrData[indexPath.row]];
@@ -68,17 +69,26 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     return 272;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.detail.hidesBottomBarWhenPushed = YES;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:self.detail animated:YES];
+}
+
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
     [self.arrData addObjectsFromArray:resultData];
-   [self.tableView.mj_header endRefreshing];
+    self.pageIndex=[self.arrData count];
+    [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
+
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-       [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
@@ -93,11 +103,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
              };
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.detail.hidesBottomBarWhenPushed = YES;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:self.detail animated:YES];
-}
 
 
 #pragma -
@@ -125,20 +130,16 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height-40);
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height + 64);
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
-    
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
             [self.activityListAPIManager loadData];
         }];
-        
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            self.pageIndex++;
-            [self.activityListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.activityListAPIManager loadData];
         }];
         
         [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:ActivityListCellIdentifier];
