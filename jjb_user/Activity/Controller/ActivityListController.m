@@ -73,7 +73,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
     [self.arrData addObjectsFromArray:resultData];
-   [self.tableView.mj_header endRefreshing];
+    self.pageIndex=[self.arrData count];
+    [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
@@ -126,19 +127,14 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
         
         _tableView = [[UITableView alloc] init];
         _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height-40);
-        
         _tableView.delegate = self;
         _tableView.dataSource = self;
-    
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
             [self.activityListAPIManager loadData];
         }];
-        
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            self.pageIndex++;
-            [self.activityListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.activityListAPIManager loadData];
         }];
         
         [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:ActivityListCellIdentifier];

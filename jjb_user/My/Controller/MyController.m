@@ -31,7 +31,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     

@@ -40,19 +40,19 @@
 //修改tabbar里面的属性
 -(void)setCustomTabBar
 {
-    UITabBarItem * item = [UITabBarItem appearance];
-
-    NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
-    
-    normalAttrs[NSFontAttributeName] = H5;
-    normalAttrs[NSForegroundColorAttributeName] = COLOR_GRAY;
-    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
-    
-    NSMutableDictionary * selectAttrs = [NSMutableDictionary dictionary];
-    selectAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-    [item setTitleTextAttributes:selectAttrs forState:UIControlStateSelected];
-    //取消tabbar的半透明效果
-    [UITabBar appearance].translucent = NO;
+//    UITabBarItem * item = [UITabBarItem appearance];
+//
+//    NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
+//    
+//    normalAttrs[NSFontAttributeName] = H5;
+//    normalAttrs[NSForegroundColorAttributeName] = COLOR_GRAY;
+//    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+//    
+//    NSMutableDictionary * selectAttrs = [NSMutableDictionary dictionary];
+//    selectAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+//    [item setTitleTextAttributes:selectAttrs forState:UIControlStateSelected];
+//    //取消tabbar的半透明效果
+//    [UITabBar appearance].translucent = NO;
   }
 
 
@@ -90,8 +90,8 @@
     //设置导航条
     vc.title = titleString;
     vc.tabBarItem.image = norImage;
-    //返回一张未被渲染的图片
-    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    //返回一张未被渲染的图片
+//    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     
 }

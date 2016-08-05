@@ -33,7 +33,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:COLOR_ORANGE];
     [self createControllers];
 }
 
@@ -113,25 +113,4 @@
     
     return _titlesArray;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end
