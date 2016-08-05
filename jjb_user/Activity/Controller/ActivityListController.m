@@ -86,7 +86,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [self.tableView reloadData];
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-       [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate

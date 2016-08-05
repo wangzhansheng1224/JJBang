@@ -7,9 +7,8 @@
 //
 
 #import "GrowingCell.h"
-#import <Masonry.h>
+#import "GrowingTreeListKey.h"
 
-#define SIZE [UIScreen mainScreen].bounds.size
 
 @interface GrowingCell ()
 
@@ -43,7 +42,6 @@
     
     if (self)
     {
-        
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.timeLabel];
@@ -77,7 +75,7 @@
     
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(50, 20));//mark
+        make.size.mas_equalTo(CGSizeMake(100, 20));//mark
         make.top.equalTo(self.mas_top).with.offset(19);
         make.right.equalTo(self.mas_right).with.offset(-16);
     }];
@@ -91,7 +89,7 @@
     
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(SIZE.width-20, 21));//mark
+        make.size.mas_equalTo(CGSizeMake(Screen_Width-20, 21));//mark
         make.top.equalTo(_picView.mas_bottom).with.offset(8);
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
@@ -113,6 +111,18 @@
     }];
 }
 
+#pragma -
+#pragma mark - configWithData
+
+- (void)configWithData:(NSDictionary *)data{
+    
+    [self.nameLabel setText:data[kGrowingTreeListFromUserName]];
+    [self.locLabel setText:data[kGrowingTreeListAddress]];
+    [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
+    [self.moodLabel setText:data[kGrowingTreeListContent]];
+    [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+}
+
 
 #pragma -
 #pragma mark - getters and setters
@@ -120,22 +130,16 @@
     
     if (!_iconView) {
         _iconView = [[UIImageView alloc] init];
-        _iconView.backgroundColor = JJBRandomColor;
         _iconView.layer.cornerRadius = 25;
         _iconView.clipsToBounds = YES;
-        
     }
-    
     return _iconView;
 }
 
 
 - (UILabel *)nameLabel {
-    
     if (!_nameLabel) {
-        
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.backgroundColor = JJBRandomColor;
         _nameLabel.text = @"王老师";
         _nameLabel.font = [UIFont systemFontOfSize:12];
         _nameLabel.textColor = [UIColor darkGrayColor];
@@ -148,7 +152,6 @@
     if (!_timeLabel) {
         
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.backgroundColor = JJBRandomColor;
         _timeLabel.text = @"5小时";
         _timeLabel.font = [UIFont systemFontOfSize:10];
         _timeLabel.textColor = [UIColor darkGrayColor];
@@ -172,8 +175,6 @@
     if (!_moodLabel) {
         
         _moodLabel = [[UILabel alloc] init];
-        _moodLabel.backgroundColor = JJBRandomColor;
-        _moodLabel.text = @"我们的张檬小朋友";
         _moodLabel.font = [UIFont systemFontOfSize:14];
     }
     return _moodLabel;

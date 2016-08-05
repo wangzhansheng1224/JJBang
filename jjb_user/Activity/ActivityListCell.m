@@ -117,6 +117,9 @@
     
 }
 
+
+#pragma -
+#pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
         
     [self.label_title setText:data[kActivityListTitle]];
@@ -131,7 +134,6 @@
     if (!_imageView_pic) {
         
         _imageView_pic = [[UIImageView alloc] init];
-        _imageView_pic.backgroundColor = JJBRandomColor;
         
     }
     return _imageView_pic;
