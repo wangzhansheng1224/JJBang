@@ -59,6 +59,10 @@
 		731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092081D5215790031B443 /* VerifyCodeAPIManager.m */; };
 		7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310920B1D5215840031B443 /* ResetPasswordAPIManager.m */; };
 		731092321D5483600031B443 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092311D5483600031B443 /* UserModel.m */; };
+		73575F361D549C7C0037F697 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F331D549C7C0037F697 /* FileCache.m */; };
+		73575F371D549C7C0037F697 /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F351D549C7C0037F697 /* PathHelper.m */; };
+		73575F3B1D549D6B0037F697 /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F3A1D549D6B0037F697 /* AppCache.m */; };
+		73575F3F1D54A2780037F697 /* UserReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F3E1D54A2780037F697 /* UserReformer.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -233,6 +237,14 @@
 		7310920B1D5215840031B443 /* ResetPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordAPIManager.m; sourceTree = "<group>"; };
 		731092301D5483600031B443 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		731092311D5483600031B443 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		73575F321D549C7C0037F697 /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
+		73575F331D549C7C0037F697 /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
+		73575F341D549C7C0037F697 /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
+		73575F351D549C7C0037F697 /* PathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathHelper.m; sourceTree = "<group>"; };
+		73575F391D549D6B0037F697 /* AppCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCache.h; sourceTree = "<group>"; };
+		73575F3A1D549D6B0037F697 /* AppCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCache.m; sourceTree = "<group>"; };
+		73575F3D1D54A2780037F697 /* UserReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserReformer.h; path = Reformer/UserReformer.h; sourceTree = "<group>"; };
+		73575F3E1D54A2780037F697 /* UserReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserReformer.m; path = Reformer/UserReformer.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -655,6 +667,7 @@
 		731091E31D51C8700031B443 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				73575F3C1D54A2530037F697 /* Reformer */,
 				BB82A0BF1D520B8F006739A5 /* Model */,
 				BBC3F4471D51FCE3001BCEEF /* View */,
 				731091E81D51C8840031B443 /* APIManager */,
@@ -707,6 +720,35 @@
 				731091FB1D51E91E0031B443 /* ActivityListReformer.m */,
 			);
 			name = ActivityList;
+			sourceTree = "<group>";
+		};
+		73575F311D549C7C0037F697 /* FileCache */ = {
+			isa = PBXGroup;
+			children = (
+				73575F321D549C7C0037F697 /* FileCache.h */,
+				73575F331D549C7C0037F697 /* FileCache.m */,
+				73575F341D549C7C0037F697 /* PathHelper.h */,
+				73575F351D549C7C0037F697 /* PathHelper.m */,
+			);
+			path = FileCache;
+			sourceTree = "<group>";
+		};
+		73575F381D549D6B0037F697 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				73575F391D549D6B0037F697 /* AppCache.h */,
+				73575F3A1D549D6B0037F697 /* AppCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		73575F3C1D54A2530037F697 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				73575F3D1D54A2780037F697 /* UserReformer.h */,
+				73575F3E1D54A2780037F697 /* UserReformer.m */,
+			);
+			name = Reformer;
 			sourceTree = "<group>";
 		};
 		73886CB91D4F237600643BBA /* Activity */ = {
@@ -1146,6 +1188,8 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				73575F381D549D6B0037F697 /* Cache */,
+				73575F311D549C7C0037F697 /* FileCache */,
 				73886CDD1D4F735D00643BBA /* LDNetworking */,
 				BB159CB11D4F473200F46F09 /* Category */,
 				BB159CB51D4F473200F46F09 /* MBTabBar */,
@@ -1312,7 +1356,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 59V932RQGA;
+						DevelopmentTeam = 972SEJPPZB;
 					};
 				};
 			};
@@ -1417,6 +1461,7 @@
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
+				73575F361D549C7C0037F697 /* FileCache.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
@@ -1446,6 +1491,7 @@
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
+				73575F371D549C7C0037F697 /* PathHelper.m in Sources */,
 				51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */,
 				731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
@@ -1467,6 +1513,7 @@
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */,
+				73575F3F1D54A2780037F697 /* UserReformer.m in Sources */,
 				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
@@ -1499,6 +1546,7 @@
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
+				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
@@ -1623,7 +1671,7 @@
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/jjb_user.pch";
 				INFOPLIST_FILE = jjb_user/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happycity777.jjb-user1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1640,7 +1688,7 @@
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/jjb_user.pch";
 				INFOPLIST_FILE = jjb_user/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happycity777.jjb-user1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

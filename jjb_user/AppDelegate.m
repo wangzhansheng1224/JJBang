@@ -10,6 +10,7 @@
 #import "BaseTabBarController.h"
 #import "MBGuideTool.h"
 #import "MBAdViewController.h"
+#import "UserModel.h"
 @interface AppDelegate ()
 
 @end
@@ -32,7 +33,7 @@
     //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
     
-    
+    [UserModel load];
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];
