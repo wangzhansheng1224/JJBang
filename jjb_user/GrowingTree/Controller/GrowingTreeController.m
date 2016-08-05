@@ -39,7 +39,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.pageSize=20;
     [self.view addSubview:self.tableView];
     self.navigationItem.rightBarButtonItem = self.btn_issue;
-//    [self layoutPageSubviews];
+    [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
 }
 
@@ -49,16 +49,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 #pragma -
 #pragma mark - layoutPageSubviews
-//- (void)layoutPageSubviews {
-//    
-//    UIView *superView = self.view;
-//    [self.issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.width.mas_equalTo(@50);
-//                make.height.mas_equalTo(@50);
-//                make.bottom.mas_equalTo(superView.mas_bottom).offset(-50);
-//                make.right.mas_equalTo(superView.mas_right).offset(-50);
-//    }];
-//}
 - (void)layoutPageSubviews {
     
     UIView *superView = self.view;
