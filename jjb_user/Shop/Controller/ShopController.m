@@ -13,6 +13,7 @@
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 @property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation ShopController
@@ -22,15 +23,11 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = COLOR_LIGHT_GRAY;
+    [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     [self setUpNav];
     [self setUpButton];
 }
-
-
-
-
 
 
 #pragma -
@@ -105,5 +102,12 @@
 //    return _LoginButton;
 //}
 
+
+-(UITableView*) tableView {
+    if (!_tableView) {
+        _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, Screen_Width, Screen_Height-64-49)];
+    }
+    return _tableView;
+}
 
 @end

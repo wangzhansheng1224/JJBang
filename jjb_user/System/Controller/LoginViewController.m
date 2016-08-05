@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "registerViewController.h"
 #import "FindPassWordViewController.h"
+#import "LoginAPIManager.h"
 /**
  *  登录主控制器
  */

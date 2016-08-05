@@ -35,6 +35,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view setBackgroundColor:[UIColor clearColor]];
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
@@ -79,6 +80,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
     [self.arrData addObjectsFromArray:resultData];
+    self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
@@ -131,16 +133,12 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
         
         _tableView.delegate = self;
         _tableView.dataSource = self;
-    
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
             [self.activityListAPIManager loadData];
         }];
-        
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            self.pageIndex++;
-            [self.activityListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.activityListAPIManager loadData];
         }];
         
         [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:ActivityListCellIdentifier];
