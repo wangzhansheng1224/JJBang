@@ -35,6 +35,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view setBackgroundColor:[UIColor clearColor]];
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];

@@ -33,7 +33,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:COLOR_ORANGE];
     [self createControllers];
 }
 

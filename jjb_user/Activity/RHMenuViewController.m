@@ -55,7 +55,7 @@
 #pragma mark -- create menuView
 - (void)createMenuView{
     
-    _menuView = [[RHMenuView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_W, ITEM_HEIGHT) andMenuTitles:_menuTitles andBlock:^(NSInteger index) {
+    _menuView = [[RHMenuView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, ITEM_HEIGHT) andMenuTitles:_menuTitles andBlock:^(NSInteger index) {
         
         [_collectionView setContentOffset:CGPointMake(SCREEN_W*index, 0) animated:YES];
         

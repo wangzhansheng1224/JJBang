@@ -13,6 +13,7 @@
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 @property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation ShopController
@@ -22,6 +23,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     [self setUpNav];
     [self setUpButton];
@@ -100,5 +102,12 @@
 //    return _LoginButton;
 //}
 
+
+-(UITableView*) tableView {
+    if (!_tableView) {
+        _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height)];
+    }
+    return _tableView;
+}
 
 @end
