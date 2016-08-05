@@ -9,6 +9,8 @@
 #import "ShopController.h"
 #import "SHopIndexAPIManager.h"
 #import "LoginViewController.h"
+#import <LBXScanViewController.h>
+#import "ScanViewController.h"
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
@@ -50,11 +52,14 @@
 -(void)gotoScan
 {
     JJBLog(@"%s",__func__);
+    
 }
 //定位
 -(void)gotoLocation
 {
     JJBLog(@"%s",__func__);
+    ScanViewController * ScanVC = [[ScanViewController alloc]init];
+    [self.navigationController pushViewController:ScanVC animated:YES];
 }
 //点击登录
 -(void)loginClick

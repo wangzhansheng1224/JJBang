@@ -11,6 +11,6 @@ target 'jjb_user' do
     pod 'CTPersistance' #数据库操作、和框架有关
     pod 'JLRoutes'  #路由
     pod 'AliyunOSSiOS', '~> 2.5.0' #阿里云的oss图片上传
-    pod 'LBXScan'
+    pod 'LBXScan'  #扫描二维码
 #    pod 'RAMAnimatedTabBarController'
 end
