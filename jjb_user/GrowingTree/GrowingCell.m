@@ -7,10 +7,8 @@
 //
 
 #import "GrowingCell.h"
-<<<<<<< HEAD
 #import "GrowingTreeListKey.h"
-=======
->>>>>>> 40923793a74840dbe30f0597824b82817d2594f2
+
 
 
 @interface GrowingCell ()
