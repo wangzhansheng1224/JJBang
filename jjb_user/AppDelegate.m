@@ -18,22 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     self.window =  [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    
-    //再plist文件中设置View controller-based status bar appearance 为 NO才能起效
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //设置导航栏背景色
     [[UINavigationBar appearance] setBarTintColor:COLOR_ORANGE];
-    
+    //设置导航栏为不透明
     [[UINavigationBar appearance] setTranslucent:NO];
     //TabBar选中图标的颜色,默认是蓝色
     [[UITabBar appearance] setTintColor:COLOR_ORANGE];
-    //TabBarItem选中的颜色
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:COLOR_ORANGE} forState:UIControlStateSelected];
+    //设置tabbar为不透明
     [UITabBar appearance].translucent = NO;
-    
+    //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
     
     

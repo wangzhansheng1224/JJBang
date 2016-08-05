@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GrowingCell : UITableViewCell
-
-
+- (void)configWithData:(NSDictionary *)data;
 @end

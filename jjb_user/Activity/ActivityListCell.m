@@ -99,6 +99,9 @@
     }];
 }
 
+
+#pragma -
+#pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
         
     [self.label_title setText:data[kActivityListTitle]];

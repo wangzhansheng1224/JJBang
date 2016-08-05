@@ -33,8 +33,11 @@
 ### Installation with CocoaPods
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '6.0'
-pod 'LBXScan',:git=>'https://github.com/MxABC/LBXScan.git'
+pod 'LBXScan','~> 1.1.1'
+# 获取最新版本,采用下面的方式
+#pod 'LBXScan',git:'https://github.com/MxABC/LBXScan.git'
 ```
 
 ### 手动安装 
@@ -47,10 +50,11 @@ pod 'LBXScan',:git=>'https://github.com/MxABC/LBXScan.git'
 ```
 否则编译会报许多错误
 
+另外需要将ZXing代码copy到工程中:[ZXing代码下载地址](https://github.com/TheLevelUp/ZXingObjC)
 
 ### Demo测试
 - xcode版本:xcode7.1
-- 将工程下载下来，打开DemoTests中 LBXScanDemo.xcodeproj
+- 将工程下载下来，打开DemoTests中 LBXScanDemo.xcworkspace
 
 ### 使用
 

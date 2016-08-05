@@ -10,6 +10,7 @@
 		3C5E4BF6BCF889AD77B449CD /* libPods-jjb_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */; };
 		51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */; };
 		51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBE1D53A96400F54210 /* ActivityInfoCell.m */; };
+		511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */; };
 		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
 		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
@@ -98,7 +99,6 @@
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
-		BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */; };
 		BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA61D4F3AE900F46F09 /* ActivityController.m */; };
 		BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */; };
 		BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CB81D4F473200F46F09 /* BaseNavigationController.m */; };
@@ -107,6 +107,8 @@
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
+		BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */; };
+		BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */; };
 		BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */; };
 		BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9701D506E580037DA9F /* UIView+MBFrame.m */; };
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
@@ -128,6 +130,7 @@
 		51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailCell.m; path = jjb_user/Activity/ActivityDetailCell.m; sourceTree = SOURCE_ROOT; };
 		51181DBD1D53A96400F54210 /* ActivityInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityInfoCell.h; path = jjb_user/Activity/ActivityInfoCell.h; sourceTree = SOURCE_ROOT; };
 		51181DBE1D53A96400F54210 /* ActivityInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityInfoCell.m; path = jjb_user/Activity/ActivityInfoCell.m; sourceTree = SOURCE_ROOT; };
+		511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTreeController.m; sourceTree = "<group>"; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
@@ -316,7 +319,6 @@
 		BB159C9F1D4F3A8A00F46F09 /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyController.h; sourceTree = "<group>"; };
 		BB159CA01D4F3A8A00F46F09 /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyController.m; sourceTree = "<group>"; };
 		BB159CA21D4F3ABD00F46F09 /* GrowingTreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingTreeController.h; sourceTree = "<group>"; };
-		BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTreeController.m; sourceTree = "<group>"; };
 		BB159CA51D4F3AE900F46F09 /* ActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityController.h; sourceTree = "<group>"; };
 		BB159CA61D4F3AE900F46F09 /* ActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityController.m; sourceTree = "<group>"; };
 		BB159CB21D4F473200F46F09 /* UIColor+MBHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MBHex.h"; sourceTree = "<group>"; };
@@ -333,6 +335,10 @@
 		BB4C13151D53303E002C13FA /* FindPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPassWordViewController.m; sourceTree = "<group>"; };
 		BB4C13171D5330E2002C13FA /* ReplacePassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplacePassWordViewController.h; sourceTree = "<group>"; };
 		BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplacePassWordViewController.m; sourceTree = "<group>"; };
+		BB4E4EFA1D546AFD000A0855 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		BB4E4EFD1D54838C000A0855 /* ScanResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanResultViewController.h; sourceTree = "<group>"; };
+		BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanResultViewController.m; sourceTree = "<group>"; };
 		BB68C96C1D506D500037DA9F /* MBNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewFeatureController.h; sourceTree = "<group>"; };
 		BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewFeatureController.m; sourceTree = "<group>"; };
 		BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBFrame.h"; sourceTree = "<group>"; };
@@ -416,6 +422,10 @@
 				7310916A1D5198C60031B443 /* CourseListController.m */,
 				7310916B1D5198C60031B443 /* ShopController.h */,
 				7310916C1D5198C60031B443 /* ShopController.m */,
+				BB4E4EFA1D546AFD000A0855 /* ScanViewController.h */,
+				BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */,
+				BB4E4EFD1D54838C000A0855 /* ScanResultViewController.h */,
+				BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -768,7 +778,7 @@
 			isa = PBXGroup;
 			children = (
 				BB159CA21D4F3ABD00F46F09 /* GrowingTreeController.h */,
-				BB159CA31D4F3ABD00F46F09 /* GrowingTreeController.m */,
+				511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */,
 				514E9B4D1D5086020064EEFD /* IssueController.h */,
 				514E9B4E1D5086020064EEFD /* IssueController.m */,
 			);
@@ -1407,7 +1417,9 @@
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */,
+				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
+				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
@@ -1416,7 +1428,6 @@
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
-				BB159CA41D4F3ABD00F46F09 /* GrowingTreeController.m in Sources */,
 				BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
@@ -1483,6 +1494,7 @@
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
+				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,

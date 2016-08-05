@@ -7,6 +7,8 @@
 //
 
 #import "GrowingCell.h"
+#import "GrowingTreeListKey.h"
+
 
 
 @interface GrowingCell ()
@@ -66,7 +68,7 @@
     }];
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(50, 20));//mark
+        make.size.mas_equalTo(CGSizeMake(100, 20));//mark
         make.top.equalTo(self.mas_top).with.offset(19);
         make.right.equalTo(self.mas_right).with.offset(-16);
     }];
@@ -99,12 +101,23 @@
 }
 
 #pragma -
+#pragma mark - configWithData
+
+- (void)configWithData:(NSDictionary *)data{
+    
+    [self.nameLabel setText:data[kGrowingTreeListFromUserName]];
+    [self.locLabel setText:data[kGrowingTreeListAddress]];
+    [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
+    [self.moodLabel setText:data[kGrowingTreeListContent]];
+    [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+}
+
+#pragma -
 #pragma mark - getters and setters
 - (UIImageView *)iconView {
     
     if (!_iconView) {
         _iconView = [[UIImageView alloc] init];
-        _iconView.backgroundColor = JJBRandomColor;
         _iconView.layer.cornerRadius = 25;
         _iconView.clipsToBounds = YES;
     }
@@ -112,11 +125,8 @@
 }
 
 - (UILabel *)nameLabel {
-    
     if (!_nameLabel) {
-        
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.backgroundColor = JJBRandomColor;
         _nameLabel.text = @"王老师";
         _nameLabel.font = [UIFont systemFontOfSize:12];
         _nameLabel.textColor = [UIColor darkGrayColor];
@@ -129,7 +139,6 @@
     if (!_timeLabel) {
         
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.backgroundColor = JJBRandomColor;
         _timeLabel.text = @"5小时";
         _timeLabel.font = [UIFont systemFontOfSize:10];
         _timeLabel.textColor = [UIColor darkGrayColor];
@@ -153,8 +162,6 @@
     if (!_moodLabel) {
         
         _moodLabel = [[UILabel alloc] init];
-        _moodLabel.backgroundColor = JJBRandomColor;
-        _moodLabel.text = @"我们的张檬小朋友";
         _moodLabel.font = [UIFont systemFontOfSize:14];
     }
     return _moodLabel;
