@@ -102,8 +102,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
              };
 }
 
-
-
 #pragma -
 #pragma mark - getters and setters
 

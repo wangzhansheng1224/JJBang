@@ -23,7 +23,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 @property (nonatomic,strong) NSMutableArray *dataArr;
 
-@property (nonatomic,strong) UIButton *issueBtn;
+@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 
 @property (nonatomic,strong) IssueController *issueVC;
 
@@ -38,8 +38,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.issueBtn];
-    [self layoutPageSubviews];
+    self.navigationItem.rightBarButtonItem = self.btn_issue;
+//    [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
 }
 
@@ -49,16 +49,16 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 #pragma -
 #pragma mark - layoutPageSubviews
-- (void)layoutPageSubviews {
-    
-    UIView *superView = self.view;
-    [self.issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(@50);
-                make.height.mas_equalTo(@50);
-                make.bottom.mas_equalTo(superView.mas_bottom).offset(-50);
-                make.right.mas_equalTo(superView.mas_right).offset(-50);
-    }];
-}
+//- (void)layoutPageSubviews {
+//    
+//    UIView *superView = self.view;
+//    [self.issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.width.mas_equalTo(@50);
+//                make.height.mas_equalTo(@50);
+//                make.bottom.mas_equalTo(superView.mas_bottom).offset(-50);
+//                make.right.mas_equalTo(superView.mas_right).offset(-50);
+//    }];
+//}
 
 #pragma -
 #pragma mark - UITableViewDelegate
@@ -102,7 +102,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 #pragma -
 #pragma mark - event response
-- (void)btnClick:(UIButton *)btn {
+- (void)itemClick {
     
     [self.navigationController pushViewController:self.issueVC animated:YES];
 }
@@ -113,7 +113,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 64, Screen_Width, Screen_Height-64 -40);
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height-40);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
@@ -131,15 +131,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
 }
 
-- (UIButton *)issueBtn {
+- (UIBarButtonItem *)issueBtn {
 
-    if (!_issueBtn) {
+    if (!_btn_issue) {
         
-        _issueBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_issueBtn setImage:[UIImage imageNamed:@"release"] forState:UIControlStateNormal];
-        [_issueBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _btn_issue = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(itemClick)];
     }
-    return _issueBtn;
+    return _btn_issue;
 }
 
 - (IssueController *)issueVC {

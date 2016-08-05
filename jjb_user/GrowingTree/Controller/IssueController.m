@@ -35,8 +35,14 @@
 //    [self.textView addSubview:self.btn_face];
 //    [self.textView addSubview:self.btn_more];
     [self layoutPageSubviews];
-   
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    [self.textView reloadInputViews];
+}
+
 #pragma
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {

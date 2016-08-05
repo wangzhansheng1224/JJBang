@@ -17,6 +17,7 @@
 		512F23471D517FD800E33A92 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23451D517FD800E33A92 /* MyButton.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
+		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2B6BB1D51F75800347E57 /* MyCourseCell.m */; };
 		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
 		51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CE1D503DB20082558D /* RHMenuButtonItem.m */; };
@@ -26,6 +27,8 @@
 		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
+		51EB73141D546E69009D08FE /* MyMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73131D546E69009D08FE /* MyMoreController.m */; };
+		51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73161D547DAC009D08FE /* MyMoreCell.m */; };
 		7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091671D5198C60031B443 /* ShopIndexAPIManager.m */; };
 		7310917E1D5198C60031B443 /* CourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310916A1D5198C60031B443 /* CourseListController.m */; };
 		7310917F1D5198C60031B443 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310916C1D5198C60031B443 /* ShopController.m */; };
@@ -89,7 +92,6 @@
 		73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D831D508B0200643BBA /* ActivityRegisterListReformer.m */; };
 		73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */; };
 		73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */; };
-		73ED4F091D4EFA410022BF79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F081D4EFA410022BF79 /* main.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F131D4EFA410022BF79 /* Assets.xcassets */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
@@ -139,6 +141,7 @@
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
 		514E9B4E1D5086020064EEFD /* IssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueController.m; sourceTree = "<group>"; };
+		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		51B2B6BA1D51F75800347E57 /* MyCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseCell.h; path = jjb_user/My/MyCourseCell.h; sourceTree = SOURCE_ROOT; };
 		51B2B6BB1D51F75800347E57 /* MyCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseCell.m; path = jjb_user/My/MyCourseCell.m; sourceTree = SOURCE_ROOT; };
 		51B875C91D5033D30082558D /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingCell.h; path = jjb_user/GrowingTree/GrowingCell.h; sourceTree = SOURCE_ROOT; };
@@ -158,6 +161,10 @@
 		51B875DB1D503DD80082558D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
 		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
+		51EB73121D546E69009D08FE /* MyMoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoreController.h; sourceTree = "<group>"; };
+		51EB73131D546E69009D08FE /* MyMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoreController.m; sourceTree = "<group>"; };
+		51EB73151D547DAC009D08FE /* MyMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMoreCell.h; path = jjb_user/My/MyMoreCell.h; sourceTree = SOURCE_ROOT; };
+		51EB73161D547DAC009D08FE /* MyMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMoreCell.m; path = jjb_user/My/MyMoreCell.m; sourceTree = SOURCE_ROOT; };
 		58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jjb_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		731091661D5198C60031B443 /* ShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexAPIManager.h; sourceTree = "<group>"; };
 		731091671D5198C60031B443 /* ShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexAPIManager.m; sourceTree = "<group>"; };
@@ -297,7 +304,6 @@
 		73886D881D508B7D00643BBA /* ActivityRegisterListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterListAPIManager.h; sourceTree = "<group>"; };
 		73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterListAPIManager.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		73ED4F081D4EFA410022BF79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		73ED4F131D4EFA410022BF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -803,6 +809,8 @@
 				BB159CA01D4F3A8A00F46F09 /* MyController.m */,
 				731091831D51991E0031B443 /* MyCourseController.h */,
 				731091841D51991E0031B443 /* MyCourseController.m */,
+				51EB73121D546E69009D08FE /* MyMoreController.h */,
+				51EB73131D546E69009D08FE /* MyMoreController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -820,6 +828,8 @@
 				512F233A1D5172ED00E33A92 /* MineHeaderView.m */,
 				51B2B6BA1D51F75800347E57 /* MyCourseCell.h */,
 				51B2B6BB1D51F75800347E57 /* MyCourseCell.m */,
+				51EB73151D547DAC009D08FE /* MyMoreCell.h */,
+				51EB73161D547DAC009D08FE /* MyMoreCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1079,7 +1089,7 @@
 		73ED4F071D4EFA410022BF79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				73ED4F081D4EFA410022BF79 /* main.m */,
+				5175745B1D548203009894D7 /* main.m */,
 				BBCCB49C1D4F24F40020E170 /* jjb_user.pch */,
 			);
 			name = "Supporting Files";
@@ -1419,6 +1429,7 @@
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
+				51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */,
 				731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
 				73886D321D4F735D00643BBA /* LDLoginManager.m in Sources */,
@@ -1435,6 +1446,7 @@
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
 				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,
 				BB1294291D50A8D60048927D /* MBAdItem.m in Sources */,
+				5175745C1D548203009894D7 /* main.m in Sources */,
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */,
@@ -1444,6 +1456,7 @@
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
+				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
@@ -1458,7 +1471,6 @@
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
-				73ED4F091D4EFA410022BF79 /* main.m in Sources */,
 				BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
 				BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */,
