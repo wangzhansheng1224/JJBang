@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '410B25DF16EA5C5B3E2698F74F9625FB'
-               BlueprintName = 'AFNetworking'
+               BlueprintIdentifier = '4C92304D7238AFB97C1D3B7A76C26609'
+               BlueprintName = 'ZXingObjC'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libAFNetworking.a'>
+               BuildableName = 'libZXingObjC.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

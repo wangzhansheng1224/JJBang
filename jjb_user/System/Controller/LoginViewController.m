@@ -24,7 +24,8 @@
 //其他登录方式
 @property(nonatomic,strong) UILabel * otherLabel;
 //其他登陆方式线
-@property(nonatomic,strong) UIImageView * otherLabelLine;
+@property(nonatomic,strong) UILabel * otherLabelLine;
+@property(nonatomic,strong) UILabel * secondLabelLine;
 //忘记密码
 @property(nonatomic,strong) UIButton * forgetPassWordButton;
 //微信
@@ -170,28 +171,43 @@
     [self.otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.loginButton.mas_bottom).offset(258);
         make.centerX.equalTo(self.view.mas_centerX);
-        make.width.mas_equalTo(@100);
+//        make.width.mas_equalTo(@100);
         make.height.mas_equalTo(@10);
     }];
+    [self.otherLabelLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.otherLabel.mas_left).offset(-17);
+        make.centerY.equalTo(self.otherLabel.mas_centerY);
+        make.height.mas_equalTo(@1);
+    }];
+    [self.secondLabelLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.otherLabel.mas_right).offset(17);
+        make.right.equalTo(self.view.mas_right);
+        make.centerY.equalTo(self.otherLabelLine.mas_centerY);
+        make.height.equalTo(self.otherLabelLine.mas_height);
+    }];
     
+
     [self.weChatButton mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.otherLabel.mas_bottom).offset(43);
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
         make.left.equalTo(self.view.mas_left).offset(14);
-        make.height.mas_equalTo(@47);
-        make.width.mas_equalTo(@105);
+        make.width.equalTo(self.view.mas_width).multipliedBy(1.0/3.0).offset(-20);
+//        make.right.equalTo(self.qqButton.mas_right).offset(14);
+
     }];
+    
     [self.qqButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.weChatButton.mas_top);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-20);
         make.centerY.equalTo(self.weChatButton.mas_centerY);
-        make.height.equalTo(self.weChatButton.mas_height);
+        make.centerX.equalTo(self.view.mas_centerX);
         make.width.equalTo(self.weChatButton.mas_width);
-        make.left.equalTo(self.weChatButton.mas_right).offset(5);
     }];
+
     [self.weiBoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.weChatButton.mas_top);
         make.centerY.equalTo(self.weChatButton.mas_centerY);
-        make.height.equalTo(self.weChatButton.mas_height);
+//        make.height.equalTo(self.weChatButton.mas_height);
         make.width.equalTo(self.weChatButton.mas_width);
         make.right.equalTo(self.view.mas_right).offset(-14);
     }];
@@ -270,21 +286,32 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font = [UIFont systemFontOfSize:14];
         label.textColor = [UIColor lightGrayColor];
+        
         label.text = @"其它登陆方式";
         _otherLabel = label;
     }
     
     return _otherLabel;
 }
--(UIImageView *)otherLabelLine
+-(UILabel *)otherLabelLine
 {
     if (_otherLabelLine == nil) {
-        UIImageView * imageView = [[UIImageView alloc]init];
-        imageView.translatesAutoresizingMaskIntoConstraints = NO;
-        imageView.image = [UIImage imageNamed:@""];
-        _otherLabelLine = imageView;
+        UILabel * label = [[UILabel alloc]init];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        label.backgroundColor = [UIColor lightGrayColor];
+        _otherLabelLine = label;
     }
     return _otherLabelLine;
+}
+-(UILabel *)secondLabelLine
+{
+    if (_secondLabelLine == nil) {
+        UILabel * label = [[UILabel alloc]init];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        label.backgroundColor = [UIColor lightGrayColor];
+        _secondLabelLine = label;
+    }
+    return _secondLabelLine;
 }
 -(UIButton *)weChatButton
 {

@@ -9,9 +9,9 @@
 #import "ShopController.h"
 #import "SHopIndexAPIManager.h"
 #import "LoginViewController.h"
-#import "LBXScanView.h"
-#import "LBXScanViewController.h"
 
+#import <LBXScanViewController.h>
+#import "ScanViewController.h"
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
@@ -31,7 +31,12 @@
     [self setUpNav];
     [self setUpButton];
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    LoginViewController * loginVC = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+ 
+}
 
 #pragma -
 #pragma mark - private methods
@@ -49,6 +54,12 @@
 
 //扫描
 -(void)gotoScan
+{
+
+    [self setUpScanStyle];
+}
+
+-(void)setUpScanStyle
 {
     //设置扫码区域参数设置
     
@@ -78,16 +89,18 @@
     
     //SubLBXScanViewController继承自LBXScanViewController
     //添加一些扫码或相册结果处理
-    LBXScanViewController *vc = [LBXScanViewController new];
-    vc.style = style;   
+    ScanViewController *vc = [ScanViewController new];
+    vc.style = style;
     
-  //  vc.isQQSimulator = YES;
+    vc.isQQSimulator = YES;
+    vc.isVideoZoom = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //定位
 -(void)gotoLocation
 {
     JJBLog(@"%s",__func__);
+
 }
 //点击登录
 -(void)loginClick
