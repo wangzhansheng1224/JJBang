@@ -85,6 +85,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
+
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
@@ -129,7 +130,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height-40);
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height + 64);
+        
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{

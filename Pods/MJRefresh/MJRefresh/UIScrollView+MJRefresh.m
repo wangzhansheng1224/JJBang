@@ -76,7 +76,7 @@ static const char MJRefreshFooterKey = '\0';
 - (void)setFooter:(MJRefreshFooter *)footer
 {
     self.mj_footer = footer;
-}
+}   
 
 - (MJRefreshFooter *)footer
 {

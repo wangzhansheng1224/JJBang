@@ -12,19 +12,12 @@
 @interface ActivityListCell()
 
 @property (nonatomic,strong) UIImageView *imageView_pic;
-
 @property (nonatomic,strong) UILabel *label_status;
-
 @property (nonatomic,strong) UILabel *label_title;
-
 @property (nonatomic,strong) UIImageView *imageView_location;
-
 @property (nonatomic,strong) UILabel *label_location;
-
 @property (nonatomic,strong) UIImageView *imageView_time;
-
 @property (nonatomic,strong) UILabel *label_time;
-
 @property (nonatomic,strong) UILabel *label_line;
 
 @end
@@ -37,7 +30,6 @@
     
     if (self)
     {
-        
         self.backgroundColor = COLOR_WHITE;
         [self.contentView addSubview:self.imageView_pic];
         [self.contentView addSubview:self.label_status];
@@ -47,9 +39,7 @@
         [self.contentView addSubview:self.imageView_time];
         [self.contentView addSubview:self.label_time];
         [self.contentView addSubview:self.label_line];
-        
         [self layoutPageSubviews];
-        
     }
     return self;
 }
@@ -64,14 +54,12 @@
         make.size.mas_equalTo(CGSizeMake(Screen_Width, 178));
         make.left.equalTo(self.contentView.mas_left).with.offset(0);
     }];
-    
     [_label_status mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.bottom.equalTo(_imageView_pic.mas_bottom).with.offset(-16);
         make.size.mas_equalTo(CGSizeMake(76, 30));
         make.left.equalTo(@0);
     }];
-    
     [_label_title mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_imageView_pic.mas_bottom).with.offset(8);
@@ -79,42 +67,36 @@
         make.left.equalTo(@16);
         make.right.equalTo(@-16);
     }];
-    
     [_imageView_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_label_title.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(17, 17));
         make.left.equalTo(@16);
     }];
-    
     [_label_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_label_title.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(200, 17));
         make.left.equalTo(_imageView_location.mas_right).with.offset(8);
     }];
-    
     [_imageView_time mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_imageView_location.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(17, 17));
         make.left.equalTo(@16);
     }];
-    
     [_label_time mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_label_location.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(200, 17));
         make.left.equalTo(_imageView_time.mas_right).with.offset(8);
     }];
-    
     [_label_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(Screen_Width, 8));
         make.left.equalTo(@0);
         make.top.equalTo(self.imageView_time.mas_bottom).with.offset(8);
     }];
-    
 }
 
 
@@ -134,11 +116,10 @@
     if (!_imageView_pic) {
         
         _imageView_pic = [[UIImageView alloc] init];
-        
+        _imageView_pic.backgroundColor = JJBRandomColor;
     }
     return _imageView_pic;
 }
-
 - (UILabel *)label_status {
     
     if (!_label_status) {
@@ -152,10 +133,8 @@
         [_label_status setBackgroundColor:COLOR_DARK_GRAY];
         [_label_status setAlpha:0.3];
     }
-    
     return _label_status;
 }
-
 - (UILabel *)label_title {
     
     if (!_label_title) {
@@ -167,10 +146,8 @@
         _label_title.textColor = [UIColor blackColor];
         _label_title.numberOfLines = 1;
     }
-    
     return _label_title;
 }
-
 - (UIImageView *)imageView_location {
     
     if (!_imageView_location) {
@@ -178,10 +155,8 @@
         _imageView_location = [[UIImageView alloc] init];
         _imageView_location.image = [UIImage imageNamed:@"activity_location"];
     }
-    
     return _imageView_location;
 }
-
 - (UILabel *)label_location {
     
     if (!_label_location) {
@@ -192,10 +167,8 @@
         _label_location.font = H4;
         [_label_location sizeToFit];
     }
-    
     return _label_location;
 }
-
 - (UIImageView *)imageView_time {
     
     if (!_imageView_time) {
@@ -205,7 +178,6 @@
     }
     return _imageView_time;
 }
-
 - (UILabel *)label_time {
     
     if (!_label_time) {
@@ -216,10 +188,8 @@
         [_label_time sizeToFit];
         _label_time.font = H4;
     }
-    
     return _label_time;
 }
-
 - (UILabel *)label_line {
 
     if (!_label_line) {
@@ -229,6 +199,5 @@
     }
     return _label_line;
 }
-
 
 @end

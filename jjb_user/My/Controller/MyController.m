@@ -9,7 +9,6 @@
  *  个人主控制器
  */
 #import "MyController.h"
-#import <Masonry.h>
 #import "MineHeaderView.h"
 #import "MineTableViewCell.h"
 #import "MyCourseController.h"
