@@ -7,24 +7,16 @@
 //
 
 #import "IssueController.h"
-#import <Masonry.h>
 
 @interface IssueController ()<UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) UITextView *textView;
-
 @property (nonatomic,strong) UIBarButtonItem *item_issue;
-
 @property (nonatomic,strong) UIButton *btn_camera;
-
 @property (nonatomic,strong) UIButton *btn_video;
-
 @property (nonatomic,strong) UIButton *btn_face;
-
 @property (nonatomic,strong) UIButton *btn_more;
-
 @property (nonatomic, strong) UIImageView * view_pic; //展示图片
-
 
 @end
 
@@ -210,10 +202,7 @@
         
     }
     sheet.tag = 255;
-    
     [sheet showInView:self.view];
-    
-    
 }
 
 
@@ -248,7 +237,6 @@
         _textView.returnKeyType = UIReturnKeyDefault;
         _textView.keyboardType = UIKeyboardTypeDefault;
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-
         _textView.delegate = self;
     }
     return _textView;

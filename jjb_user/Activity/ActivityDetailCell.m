@@ -7,12 +7,10 @@
 //
 
 #import "ActivityDetailCell.h"
-#import <Masonry.h>
 
 @interface ActivityDetailCell ()
 
 @property (nonatomic,strong) UILabel *label_title;
-
 @property (nonatomic,strong) UILabel *label_info;
 
 @end
@@ -25,11 +23,9 @@
     
     if (self)
     {
-        
         [self.contentView addSubview:self.label_title];
         [self.contentView addSubview:self.label_info];
         [self layoutPageSubviews];
-        
     }
     return self;
 }
@@ -39,14 +35,12 @@
 - (void)layoutPageSubviews {
 
     [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(64, 16));
         make.top.equalTo(@66);
         make.left.equalTo(@16);
     }];
     
     [self.label_info mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(64, 16));
         make.top.equalTo(self.label_title.mas_bottom).with.offset(8);
         make.left.equalTo(@6);

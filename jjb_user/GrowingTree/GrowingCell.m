@@ -7,25 +7,17 @@
 //
 
 #import "GrowingCell.h"
-#import <Masonry.h>
 
-#define SIZE [UIScreen mainScreen].bounds.size
 
 @interface GrowingCell ()
 
 
 @property (nonatomic,strong) UILabel *nameLabel;
-
 @property (nonatomic,strong) UILabel *timeLabel;
-
 @property (nonatomic,strong) UIImageView *iconView;
-
 @property (nonatomic,strong) UIImageView *picView;
-
 @property (nonatomic,strong) UILabel *moodLabel;
-
 @property (nonatomic,strong) UIImageView *locView;
-
 @property (nonatomic,strong) UILabel *locLabel;
 
 //@property (nonatomic,strong) UIButton *issueBtn;
@@ -43,7 +35,6 @@
     
     if (self)
     {
-        
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.timeLabel];
@@ -67,44 +58,38 @@
         make.size.mas_equalTo(CGSizeMake(50, 50));//mark
         make.left.equalTo(self.contentView.mas_left).with.offset(8);
     }];
-    
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(100, 20));      //mark
         make.top.equalTo(self.mas_top).with.offset(25);  //mark
         make.left.equalTo(_iconView.mas_right).with.offset(8);
     }];
-    
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(50, 20));//mark
         make.top.equalTo(self.mas_top).with.offset(19);
         make.right.equalTo(self.mas_right).with.offset(-16);
     }];
-    
     [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(119, 77));
         make.top.mas_equalTo(_iconView.mas_bottom).with.offset(8);
         make.left.mas_equalTo(self.mas_left).with.offset(8);
     }];
-    
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(SIZE.width-20, 21));//mark
+        make.size.mas_equalTo(CGSizeMake(Screen_Width-20, 21));//mark
         make.top.equalTo(_picView.mas_bottom).with.offset(8);
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
         
     }];
-    
     [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(12, 16));
         make.top.equalTo(_moodLabel.mas_bottom).with.offset(6);
         make.left.equalTo(self.mas_left).with.offset(8);
     }];
-    
     [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(200, 20));//mark
@@ -112,7 +97,6 @@
         make.left.equalTo(_locView.mas_right).with.offset(8);
     }];
 }
-
 
 #pragma -
 #pragma mark - getters and setters
@@ -123,12 +107,9 @@
         _iconView.backgroundColor = JJBRandomColor;
         _iconView.layer.cornerRadius = 25;
         _iconView.clipsToBounds = YES;
-        
     }
-    
     return _iconView;
 }
-
 
 - (UILabel *)nameLabel {
     
