@@ -11,7 +11,7 @@
 
 
 #define ITEM_WIDTH [UIScreen mainScreen].bounds.size.width/3.0
-#define ITEM_HEIGHT 64
+#define ITEM_HEIGHT 44
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height

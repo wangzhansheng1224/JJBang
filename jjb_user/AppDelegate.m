@@ -26,6 +26,8 @@
     //再plist文件中设置View controller-based status bar appearance 为 NO才能起效
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setBarTintColor:COLOR_ORANGE];
+    
+    [[UINavigationBar appearance] setTranslucent:NO];
     //TabBar选中图标的颜色,默认是蓝色
     [[UITabBar appearance] setTintColor:COLOR_ORANGE];
     //TabBarItem选中的颜色
