@@ -61,7 +61,7 @@
         
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         
-        _scrollView.backgroundColor = JJBRandomColor;
+        _scrollView.backgroundColor = COLOR_ORANGE;
         
         NSLog(@"%f",_scrollView.frame.size.height);
         [self addSubview:_scrollView];
