@@ -20,6 +20,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) IssueController *issueVC;
 @property (nonatomic,assign) NSInteger pageIndex;
@@ -37,7 +38,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
-    [self layoutPageSubviews];
+    self.navigationItem.rightBarButtonItem = self.btn_issue;
+//    [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
 }
 
@@ -47,6 +49,16 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 #pragma -
 #pragma mark - layoutPageSubviews
+//- (void)layoutPageSubviews {
+//    
+//    UIView *superView = self.view;
+//    [self.issueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.width.mas_equalTo(@50);
+//                make.height.mas_equalTo(@50);
+//                make.bottom.mas_equalTo(superView.mas_bottom).offset(-50);
+//                make.right.mas_equalTo(superView.mas_right).offset(-50);
+//    }];
+//}
 - (void)layoutPageSubviews {
     
     UIView *superView = self.view;
@@ -105,7 +117,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 #pragma -
 #pragma mark - event response
-- (void)btnClick:(UIButton *)btn {
+- (void)itemClick {
     
     [self.navigationController pushViewController:self.issueVC animated:YES];
 }
@@ -128,6 +140,15 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;
+}
+
+- (UIBarButtonItem *)issueBtn {
+
+    if (!_btn_issue) {
+        
+        _btn_issue = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(itemClick)];
+    }
+    return _btn_issue;
 }
 
 - (NSMutableArray *)arrData{

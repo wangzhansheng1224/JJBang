@@ -12,6 +12,7 @@
 #import "MineHeaderView.h"
 #import "MineTableViewCell.h"
 #import "MyCourseController.h"
+#import "MyMoreController.h"
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -21,6 +22,8 @@
 @property (nonatomic,strong) NSMutableArray *array_data;
 
 @property (nonatomic,strong) MyCourseController *myCourseVC;
+
+@property (nonatomic,strong) MyMoreController *moreVC;
 
 @end
 
@@ -211,6 +214,12 @@
         if (indexPath.row == 1) {
             
             [self.navigationController pushViewController:self.myCourseVC animated:YES];
+        }
+    }else {
+    
+        if (indexPath.row == 2) {
+            
+            [self.navigationController pushViewController:[[MyMoreController alloc]init] animated:YES];
         }
     }
 }

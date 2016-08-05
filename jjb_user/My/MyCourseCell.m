@@ -11,21 +11,13 @@
 @interface MyCourseCell ()
 
 @property (nonatomic,strong) UIImageView *imageView_pic;
-
 @property (nonatomic,strong) UILabel *label_class;      //少儿
-
 @property (nonatomic,strong) UILabel *label_title;
-
 @property (nonatomic,strong) UIImageView *imageView_star;
-
 @property (nonatomic,strong) UILabel *label_evaluation; //评价
-
 @property (nonatomic,strong) UILabel *label_teacher;
-
 @property (nonatomic,strong) UILabel *label_status;     //已报名
-
 @property (nonatomic,strong) UIImageView *imageView_moneyIcon;  //￥
-
 @property (nonatomic,strong) UILabel *label_money;
 
 @end

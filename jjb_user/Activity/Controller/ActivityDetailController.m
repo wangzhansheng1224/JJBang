@@ -57,7 +57,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.view.backgroundColor = JJBRandomColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     [self.view addSubview:self.tableView];
@@ -79,7 +78,6 @@
 
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-
 }
 
 #pragma -
