@@ -54,6 +54,7 @@
 		731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092051D5210FA0031B443 /* GrowingTreeListReformer.m */; };
 		731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092081D5215790031B443 /* VerifyCodeAPIManager.m */; };
 		7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310920B1D5215840031B443 /* ResetPasswordAPIManager.m */; };
+		731092321D5483600031B443 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 731092311D5483600031B443 /* UserModel.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -220,6 +221,8 @@
 		731092081D5215790031B443 /* VerifyCodeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyCodeAPIManager.m; sourceTree = "<group>"; };
 		7310920A1D5215840031B443 /* ResetPasswordAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordAPIManager.h; sourceTree = "<group>"; };
 		7310920B1D5215840031B443 /* ResetPasswordAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordAPIManager.m; sourceTree = "<group>"; };
+		731092301D5483600031B443 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		731092311D5483600031B443 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -1235,6 +1238,8 @@
 			children = (
 				BB82A0C01D520BEC006739A5 /* otherButtonModel.h */,
 				BB82A0C11D520BEC006739A5 /* otherButtonModel.m */,
+				731092301D5483600031B443 /* UserModel.h */,
+				731092311D5483600031B443 /* UserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1380,6 +1385,7 @@
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
+				731092321D5483600031B443 /* UserModel.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,

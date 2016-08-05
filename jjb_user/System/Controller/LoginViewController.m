@@ -13,7 +13,7 @@
 /**
  *  登录主控制器
  */
-@interface LoginViewController ()
+@interface LoginViewController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 //手机号
 @property(nonatomic,strong) UITextField * telTextField;
@@ -34,6 +34,8 @@
 //微博
 @property(nonatomic,strong) UIButton * weiBoButton;
 
+@property(nonatomic,strong) LDAPIBaseManager *loginAPIManager;
+
 @end
 
 @implementation LoginViewController
@@ -48,10 +50,19 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     [self setupNav];
-    [self addChildView];
+    //添加所有子视图
+    [self.view addSubview:self.telTextField];
+    [self.view addSubview:self.passWordTextField];
+    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.forgetPassWordButton];
+    [self.view addSubview:self.otherLabel];
+    [self.view addSubview:self.otherLabelLine];
+    [self.view addSubview:self.weChatButton];
+    [self.view addSubview:self.weiBoButton];
+    [self.view addSubview:self.qqButton];
     
-    [self addChildViewContraints];
-    JJBLog(@"$$$$%@",self.view.subviews);
+    [self layoutPageSubviews];
+
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -67,12 +78,35 @@
 #pragma mark - private methods
 -(void)setupNav
 {
-    UIBarButtonItem * scanButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(gotoRegister) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"注册账号"];
+    UIBarButtonItem * scanButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(gotoRegister:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"注册账号"];
     self.navigationItem.rightBarButtonItem = scanButton;
     self.navigationItem.title = @"登录";
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    [self.view makeToast:@"登录成功"];
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.view makeToast:@"登录失败"];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"phone":self.telTextField.text,
+             @"password":self.passWordTextField.text
+             };
+}
+
+#pragma mark
+#pragma mark - Event methods
 //注册
--(void)gotoRegister
+-(void)gotoRegister:(id)sender
 {
     registerViewController * registerVC = [[registerViewController alloc]init];
     [self.navigationController pushViewController:registerVC animated:YES];
@@ -98,20 +132,16 @@
 {
     JJBLog(@"%s",__func__);
 }
--(void)addChildView
-{
-    //添加所有子视图
-    [self.view addSubview:self.telTextField];
-    [self.view addSubview:self.passWordTextField];
-    [self.view addSubview:self.loginButton];
-    [self.view addSubview:self.forgetPassWordButton];
-    [self.view addSubview:self.otherLabel];
-    [self.view addSubview:self.otherLabelLine];
-    [self.view addSubview:self.weChatButton];
-    [self.view addSubview:self.weiBoButton];
-    [self.view addSubview:self.qqButton];
+
+//用户登录事情
+-(void)login:(id)sender{
+    [self.loginAPIManager loadData];
 }
--(void)addChildViewContraints
+
+
+#pragma mark
+#pragma mark - layoutPageSubviews
+-(void)layoutPageSubviews
 {
     [self.telTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(18);
@@ -209,7 +239,7 @@
         button.translatesAutoresizingMaskIntoConstraints = NO;
         
         [button setBackgroundColor:COLOR_ORANGE];
-        
+        [button addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:@"登录" forState:UIControlStateNormal];
         button.titleLabel.textColor = [UIColor whiteColor];
         [button.layer setMasksToBounds:YES];
@@ -297,7 +327,14 @@
 }
 
 
-
+- (LDAPIBaseManager *)loginAPIManager {
+    if (_loginAPIManager == nil) {
+        _loginAPIManager = [LoginAPIManager  sharedInstance];
+        _loginAPIManager.delegate=self;
+        _loginAPIManager.paramSource=self;
+    }
+    return _loginAPIManager;
+}
 
 
 @end

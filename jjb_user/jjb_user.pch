@@ -86,5 +86,6 @@ alpha:(a)]
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry.h>
 #import "MJRefresh.h"
+#import "UIView+Toast.h"
 
 #endif
