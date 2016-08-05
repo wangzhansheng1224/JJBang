@@ -12,11 +12,17 @@
 
 #import <LBXScanViewController.h>
 #import "ScanViewController.h"
-@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
+
+
+#define kPageCount 3    //广告位的数量
+@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 @property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
 @property (nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) UIScrollView * scrollView;  //banner位
+@property(nonatomic,strong) UIPageControl * pageControl;
+@property(nonatomic,weak) NSTimer * Timer;
 @end
 
 @implementation ShopController
@@ -26,10 +32,13 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     [self setUpNav];
     [self setUpButton];
+    //banner位
+    [self setUpBanner];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -120,6 +129,78 @@
     [self.view addSubview:_LoginButton];
    
 }
+
+
+//banner位
+-(void)setUpBanner
+{
+    CGFloat width = self.scrollView.width;
+    CGFloat height = self.scrollView.height;
+    
+    for(int i = 0 ; i <kPageCount; i++)
+    {
+        UIImageView * imageView  = [[UIImageView alloc]init];
+        imageView.frame = CGRectMake(width * i, 0, width, height);
+       NSString * imageName = [NSString stringWithFormat:@"ima%d",i];
+       
+//        imageView .image = [UIImage imageNamed:imageName];
+        imageView.image = [UIImage imageNamed:@"img_default"];
+        [self.scrollView addSubview:imageView];
+    }
+    self.scrollView.contentSize= CGSizeMake(kPageCount * width, 0);
+    self.pageControl.numberOfPages = kPageCount;
+    self.pageControl.currentPageIndicatorTintColor = COLOR_ORANGE;
+    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.scrollView.mas_centerX);
+        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-5);
+    }];
+    self.scrollView.delegate = self;
+    
+    [self addPageTimer];
+    
+    
+}
+//对定时器操作
+-(void)addPageTimer
+{
+    self.Timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(updatePage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.Timer forMode:NSRunLoopCommonModes];
+}
+
+-(void)removePageTimer
+{
+    [self.Timer invalidate];
+}
+//切换界面
+-(void)updatePage
+{
+    //获取当前的页码
+    NSInteger currentPageIndex = self.pageControl.currentPage;
+    currentPageIndex++;
+    if (currentPageIndex >= kPageCount) {
+        currentPageIndex = 0;
+    }
+    CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
+    [self.scrollView setContentOffset:offset animated:YES];
+}
+
+#pragma mark
+#pragma mark -   UIScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSInteger currentPage = (NSInteger)(self.scrollView.contentOffset.x/scrollView.width+0.5);
+    self.pageControl.currentPage = currentPage;
+}
+
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self removePageTimer];
+}
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self addPageTimer];
+}
+
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
@@ -144,19 +225,40 @@
     }
     return _shopIndexAPIManager;
 }
-//-(UIButton *)LoginButton
-//{
-//    if (_LoginButton == nil) {
+
+//-(UITableView*) tableView {
+//    if (!_tableView) {
+//        _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height)];
 //    }
-//    return _LoginButton;
+//    return _tableView;
 //}
-
-
--(UITableView*) tableView {
-    if (!_tableView) {
-        _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height)];
+//banner位
+-(UIScrollView *)scrollView
+{
+    if (_scrollView == nil) {
+    //保持宽高比
+        UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width * 0.336)];
+        scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.pagingEnabled = YES;
+        [self.view addSubview:scrollView];
+        _scrollView = scrollView;
     }
-    return _tableView;
+    
+    return _scrollView;
+}
+
+-(UIPageControl *)pageControl
+{
+    if (_pageControl == nil) {
+        UIPageControl * pageControl = [[UIPageControl alloc]init];
+        pageControl.currentPage = 0;
+        pageControl.hidesForSinglePage = YES;
+        pageControl.userInteractionEnabled = NO;
+        [self.view addSubview:pageControl];
+        _pageControl  =  pageControl;
+        
+    }
+    return _pageControl;
 }
 
 @end
