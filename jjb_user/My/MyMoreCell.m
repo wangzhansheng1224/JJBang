@@ -14,6 +14,8 @@
 
 @property (nonatomic,strong) UIImageView *imageView_icon;
 
+@property (nonatomic,strong) UILabel *label_line;
+
 @end
 
 @implementation MyMoreCell
@@ -27,6 +29,7 @@
     
         [self.contentView addSubview:self.label_title];
         [self.contentView addSubview:self.imageView_icon];
+//        [self.contentView addSubview:_label_line];
         [self layoutPageSubviews];
     }
     return self;
@@ -50,6 +53,13 @@
         make.top.equalTo(@22);
         make.right.equalTo(@-16);
     }];
+    
+//    [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
+//        make.top.equalTo(@0);
+//        make.left.equalTo(@0);
+//    }];
 }
 
 
@@ -64,7 +74,7 @@
         _label_title = [[UILabel alloc] init];
         _label_title.text = @"检查更新";
         _label_title.font = H2;
-        _label_title.backgroundColor = COLOR_LIGHT_GRAY;
+        _label_title.textColor = COLOR_GRAY;
     }
     return _label_title;
 }
@@ -79,5 +89,13 @@
     return _imageView_icon;
 }
 
+- (UILabel *)label_line {
 
+    if (!_label_line) {
+        
+        _label_line = [[UILabel alloc] init];
+        _label_line.backgroundColor = COLOR_GRAY;
+    }
+    return _label_line;
+}
 @end

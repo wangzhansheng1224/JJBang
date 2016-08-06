@@ -23,6 +23,7 @@
     
     if (self)
     {
+        
         [self.contentView addSubview:self.label_title];
         [self.contentView addSubview:self.label_info];
         [self layoutPageSubviews];

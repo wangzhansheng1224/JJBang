@@ -20,9 +20,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) LDAPIBaseManager *activityListAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> activityListReformer;
-
 @property (nonatomic,strong) ActivityDetailController *detail;
-
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 
@@ -128,7 +126,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height + 64);
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height - 49);
         
         _tableView.delegate = self;
         _tableView.dataSource = self;

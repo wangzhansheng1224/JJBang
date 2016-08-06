@@ -16,13 +16,9 @@
 @interface ActivityController ()
 
 @property (nonatomic,strong) ActivityListController *list;
-
 @property (nonatomic,strong) ParticipationController *participation;
-
 @property (nonatomic,strong) SponsorViewController *sponsor;
-
 @property (nonatomic,strong) NSArray *arrayVC;
-
 @property (nonatomic,strong) NSArray *titlesArray;
 
 @end
