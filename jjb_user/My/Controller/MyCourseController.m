@@ -38,10 +38,13 @@
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     
+    UIView *superView=self.view;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
-        make.top.left.equalTo(@0);
+        
+        make.top.equalTo(superView.mas_top);
+        make.left.equalTo(superView.mas_left);
+        make.right.equalTo(superView.mas_right);
+        make.bottom.equalTo(superView.mas_bottom);
     }];
 }
 

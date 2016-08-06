@@ -16,4 +16,11 @@
 @property (nonatomic,assign) NSInteger sex;
 @property (nonatomic,strong) NSString* signature;
 @property (nonatomic,assign) NSArray* myFamily;
+
+
++ (UserModel *)currentUser;
++ (void)save:(UserModel *)user;
++ (void)remove;
++(BOOL) isHasLogin;
++ (UserModel*)JsonParse:(NSDictionary*)dic;
 @end

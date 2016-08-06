@@ -10,6 +10,9 @@
 #import "registerViewController.h"
 #import "FindPassWordViewController.h"
 #import "LoginAPIManager.h"
+#import "UserModel.h"
+#import "UserReformer.h"
+
 /**
  *  登录主控制器
  */
@@ -37,6 +40,8 @@
 
 @property(nonatomic,strong) LDAPIBaseManager *loginAPIManager;
 
+@property(nonatomic,strong) UserReformer *userReformer;
+
 @end
 
 @implementation LoginViewController
@@ -58,6 +63,7 @@
     [self.view addSubview:self.forgetPassWordButton];
     [self.view addSubview:self.otherLabel];
     [self.view addSubview:self.otherLabelLine];
+    [self.view addSubview:self.secondLabelLine];
     [self.view addSubview:self.weChatButton];
     [self.view addSubview:self.weiBoButton];
     [self.view addSubview:self.qqButton];
@@ -87,7 +93,10 @@
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    UserModel *user=[manager fetchDataWithReformer:self.userReformer];
+    [UserModel save:user];
     [self.view makeToast:@"登录成功"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -144,6 +153,8 @@
 #pragma mark - layoutPageSubviews
 -(void)layoutPageSubviews
 {
+    UIView *superView=self.view;
+    
     [self.telTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(18);
         make.right.mas_equalTo(self.view.mas_right).offset(-20);
@@ -169,13 +180,13 @@
         make.width.mas_equalTo(@60);
     }];
     [self.otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.loginButton.mas_bottom).offset(258);
-        make.centerX.equalTo(self.view.mas_centerX);
+        make.top.equalTo(superView.mas_bottom).offset(-200);
+        make.centerX.equalTo(superView.mas_centerX);
 //        make.width.mas_equalTo(@100);
         make.height.mas_equalTo(@10);
     }];
     [self.otherLabelLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
+        make.left.equalTo(superView.mas_left);
         make.right.equalTo(self.otherLabel.mas_left).offset(-17);
         make.centerY.equalTo(self.otherLabel.mas_centerY);
         make.height.mas_equalTo(@1);
@@ -363,5 +374,12 @@
     return _loginAPIManager;
 }
 
+- (id<ReformerProtocol>) userReformer{
+    
+    if (!_userReformer) {
+        _userReformer=[[UserReformer alloc] init];
+    }
+    return _userReformer;
+}
 
 @end

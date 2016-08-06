@@ -74,7 +74,8 @@ alpha:(a)]
 #define JJBLog(...)
 #endif
 
-
+//文件操作
+#define FILEHOMENAME @"File_cache" 
 
 
 
