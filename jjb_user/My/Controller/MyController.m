@@ -13,6 +13,8 @@
 #import "MineTableViewCell.h"
 #import "MyCourseController.h"
 #import "MyMoreController.h"
+#import "LoginViewController.h"
+
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -44,6 +46,11 @@
     
     [self configMasonry];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 #pragma -
 #pragma mark - CustomMethods
 - (void)loadData {
@@ -212,14 +219,15 @@
     if (indexPath.section == 0) {
         
         if (indexPath.row == 1) {
-            
-            [self.navigationController pushViewController:self.myCourseVC animated:YES];
+         UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:self.myCourseVC];
+        [self.navigationController pushViewController:controller animated:YES];
         }
     }else {
     
         if (indexPath.row == 2) {
-            
-            [self.navigationController pushViewController:[[MyMoreController alloc]init] animated:YES];
+            MyMoreController *myMoreVC=[[MyMoreController alloc]init];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:myMoreVC];
+            [self.navigationController pushViewController:controller animated:YES];
         }
     }
 }

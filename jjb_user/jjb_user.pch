@@ -88,5 +88,8 @@ alpha:(a)]
 #import <Masonry.h>
 #import "MJRefresh.h"
 #import "UIView+Toast.h"
+#import "UserModel.h"
+#import "CTMediator.h"
+#import "CTMediator+CTMediatorSystemActions.h"
 
 #endif

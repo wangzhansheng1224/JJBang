@@ -10,7 +10,6 @@
 #import "BaseTabBarController.h"
 #import "MBGuideTool.h"
 #import "MBAdViewController.h"
-#import "UserModel.h"
 @interface AppDelegate ()
 
 @end
@@ -32,8 +31,8 @@
     [UITabBar appearance].translucent = NO;
     //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
+    [[UITableViewCell appearance] setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [UserModel load];
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];
@@ -66,6 +65,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
 }
 
 @end
