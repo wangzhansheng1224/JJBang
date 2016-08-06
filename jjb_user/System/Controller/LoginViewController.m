@@ -95,12 +95,11 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     UserModel *user=[manager fetchDataWithReformer:self.userReformer];
     [UserModel save:user];
-    [self.view makeToast:@"登录成功"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    [self.view makeToast:@"登录失败"];
+     [self.view makeToast:@"登录失败！" duration:3.0 position:CSToastPositionCenter];
 }
 
 #pragma -

@@ -8,12 +8,18 @@
 
 #import "MyCourseController.h"
 #import "MyCourseCell.h"
+#import "MyCourseAPIManager.h"
+#import "ActivityListReformer.h"
 
-@interface MyCourseController ()<UITableViewDelegate,UITableViewDataSource>
+static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
+@interface MyCourseController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-
-@property (nonatomic,strong) NSMutableArray *array_course;
+@property (nonatomic,strong) NSMutableArray *arrData;
+@property (nonatomic,strong) LDAPIBaseManager *myCourseAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> myCourseReformer;
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
 
 @end
 
@@ -52,23 +58,70 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.arrData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MyCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseCellIdentifier" forIndexPath:indexPath];
+    MyCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:MyCourseCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCourseCellIdentifier"];
+        cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyCourseCellIdentifier];
     }
     return cell;
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         
-    return 140;
+    return 148;
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSArray *resultData = [manager fetchDataWithReformer:self.myCourseReformer];
+    [self.arrData addObjectsFromArray:resultData];
+    self.pageIndex=[self.arrData count];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"shop_id":@"3",
+             @"user_id":@([UserModel currentUser].userID),
+             @"start":@(self.pageIndex),
+             @"count":@(self.pageSize)
+             };
+}
+
+#pragma -
+#pragma mark - getters and setters
+
+- (LDAPIBaseManager *)myCourseAPIManager {
+    if (_myCourseAPIManager == nil) {
+        _myCourseAPIManager = [MyCourseAPIManager  sharedInstance];
+        _myCourseAPIManager.delegate=self;
+        _myCourseAPIManager.paramSource=self;
+    }
+    return _myCourseAPIManager;
+}
+
+- (id<ReformerProtocol>) myCourseReformer{
     
+    if (!_myCourseReformer) {
+        _myCourseReformer=[[ActivityListReformer alloc] init];
+    }
+    return _myCourseReformer;
+}
+
 #pragma -
 #pragma mark - getter and setter
 - (UITableView *)tableView {
@@ -77,17 +130,24 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[MyCourseCell class] forCellReuseIdentifier:@"MyCourseCellIdentifier"];
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.arrData removeAllObjects];
+            self.pageIndex=0;
+            [self.myCourseAPIManager loadData];
+        }];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.myCourseAPIManager loadData];
+        }];
+        [_tableView registerClass:[MyCourseCell class] forCellReuseIdentifier:MyCourseCellIdentifier];
     }
     return _tableView;
 }
     
-- (NSMutableArray *)array_course{
+- (NSMutableArray *)arrData{
         
-    if (!_array_course) {
+    if (!_arrData) {
         
-        _array_course = [NSMutableArray array];
+        _arrData = [NSMutableArray array];
     }
-    return _array_course;
+    return _arrData;
 }
 @end

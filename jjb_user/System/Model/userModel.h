@@ -20,7 +20,7 @@
 
 + (UserModel *)currentUser;
 + (void)save:(UserModel *)user;
-+ (void)remove;
++ (void)removeUser;
 +(BOOL) isHasLogin;
 + (UserModel*)JsonParse:(NSDictionary*)dic;
 @end

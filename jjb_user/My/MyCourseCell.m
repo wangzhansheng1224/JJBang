@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UILabel *label_status;     //已报名
 @property (nonatomic,strong) UIImageView *imageView_moneyIcon;  //￥
 @property (nonatomic,strong) UILabel *label_money;
+@property (nonatomic,strong) UILabel *label_line;
 
 @end
 
@@ -40,7 +41,7 @@
         [self.contentView addSubview:self.label_status];
         [self.contentView addSubview:self.imageView_moneyIcon];
         [self.contentView addSubview:self.label_money];
-
+        [self.contentView addSubview:self.label_line];
         [self layoutPageSubviews];
         
     }
@@ -110,6 +111,11 @@
         make.bottom.equalTo(@-10);
         make.size.mas_equalTo(CGSizeMake(20, 20));
         make.right.equalTo(self.label_money.mas_left).with.offset(-10);
+    }];
+    [_label_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 8));
+        make.left.equalTo(@0);
+        make.top.equalTo(self.imageView_moneyIcon.mas_bottom).with.offset(8);
     }];
 }
 
@@ -231,6 +237,14 @@
     
     return _label_money;
 }
-
+- (UILabel *)label_line {
+    
+    if (!_label_line) {
+        
+        _label_line = [[UILabel alloc] init];
+        _label_line.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _label_line;
+}
 
 @end
