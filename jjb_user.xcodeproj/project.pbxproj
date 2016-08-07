@@ -77,6 +77,7 @@
 		73575F781D54EEA00037F697 /* CTMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F761D54EEA00037F697 /* CTMediator.m */; };
 		73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F811D553C510037F697 /* CTMediator+CTMediatorSystemActions.m */; };
 		73575F861D5546B80037F697 /* Target_System.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F851D5546B80037F697 /* Target_System.m */; };
+		73575F891D556D3A0037F697 /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F881D556D3A0037F697 /* MyOrderController.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -285,6 +286,8 @@
 		73575F811D553C510037F697 /* CTMediator+CTMediatorSystemActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorSystemActions.m"; path = "System/CTMediator+CTMediatorSystemActions.m"; sourceTree = "<group>"; };
 		73575F841D5546B80037F697 /* Target_System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_System.h; path = Actions/Target_System.h; sourceTree = "<group>"; };
 		73575F851D5546B80037F697 /* Target_System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_System.m; path = Actions/Target_System.m; sourceTree = "<group>"; };
+		73575F871D556D3A0037F697 /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
+		73575F881D556D3A0037F697 /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -999,6 +1002,8 @@
 				5126C1F51D55FE90005D23F3 /* MyOrderController.m */,
 				5126C1F91D56E70D005D23F3 /* MyOrderPayController.h */,
 				5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */,
+				73575F871D556D3A0037F697 /* MyOrderController.h */,
+				73575F881D556D3A0037F697 /* MyOrderController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1680,6 +1685,7 @@
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				5126C1F61D55FE90005D23F3 /* MyOrderController.m in Sources */,
+				73575F891D556D3A0037F697 /* MyOrderController.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
