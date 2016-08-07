@@ -69,7 +69,7 @@
     [self.telTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(18);
         make.right.mas_equalTo(self.view.mas_right).offset(-150);
-        make.top.mas_equalTo(self.view.mas_top).offset(84);
+        make.top.mas_equalTo(self.view.mas_top).offset(20);
         make.height.mas_equalTo(@40);
         
     }];
