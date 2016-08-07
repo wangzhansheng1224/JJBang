@@ -7,6 +7,7 @@
 //
 
 #import "MyCourseCell.h"
+#import "CourseListKey.h"
 
 @interface MyCourseCell ()
 
@@ -49,6 +50,12 @@
 }
 
 #pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSDictionary *)data{
+    [self.label_title setText:data[kCourseListName]];
+}
+
+#pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     
@@ -67,14 +74,12 @@
     
     [_label_title mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(80, 20));
+        make.right.mas_equalTo(self.label_status.mas_left);
         make.top.equalTo(@10);
         make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
     }];
     
     [_imageView_star mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(80, 20));
         make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
         make.top.equalTo(_label_title.mas_bottom).with.offset(10);
     }];
@@ -126,8 +131,7 @@
     
     if (!_imageView_pic) {
         
-        _imageView_pic = [[UIImageView alloc] init];
-        _imageView_pic.backgroundColor = JJBRandomColor;
+        _imageView_pic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_default"]];
         
     }
     return _imageView_pic;
@@ -136,11 +140,9 @@
 - (UILabel *)label_class {
     
     if (!_label_class) {
-        
         _label_class = [[UILabel alloc] init];
         _label_class.text = @"少儿";
         _label_class.textColor = [UIColor whiteColor];
-        _label_class.backgroundColor = JJBRandomColor;
         _label_class.numberOfLines = 1;
         
     }
@@ -151,13 +153,10 @@
 - (UILabel *)label_title {
     
     if (!_label_title) {
-        
         _label_title = [[UILabel alloc] init];
-        _label_title.backgroundColor = [UIColor lightGrayColor];
-        _label_title.text = @"少儿体育";
-        _label_title.textColor = [UIColor blackColor];
+        _label_title.text = @"逻辑思维";
+        _label_title.font=H3;
         _label_title.numberOfLines = 1;
-        [_label_title setBackgroundColor:COLOR_DARK_GRAY];
         [_label_title setAlpha:0.3];
     }
     
@@ -168,8 +167,7 @@
     
     if (!_imageView_star) {
         
-        _imageView_star = [[UIImageView alloc] init];
-        _imageView_star.backgroundColor = JJBRandomColor;
+        _imageView_star = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_solid"]];
     }
     
     return _imageView_star;

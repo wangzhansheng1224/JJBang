@@ -31,6 +31,8 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 {
     [super viewDidLoad];
     self.title = @"我的课程";
+    self.pageSize=10;
+    self.pageIndex=0;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
@@ -66,6 +68,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
     if (!cell) {
         cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyCourseCellIdentifier];
     }
+    [cell configWithData:self.arrData[indexPath.row]];
     return cell;
 }
     
@@ -94,7 +97,6 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"shop_id":@"3",
              @"user_id":@([UserModel currentUser].userID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
