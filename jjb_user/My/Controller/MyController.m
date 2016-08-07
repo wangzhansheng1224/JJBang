@@ -14,6 +14,7 @@
 #import "MyCourseController.h"
 #import "MyMoreController.h"
 #import "LoginViewController.h"
+#import "MyOrderPayController.h"
 
 
 
@@ -36,6 +37,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBarHidden = YES;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.tableView];
@@ -49,13 +52,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 #pragma -
 #pragma mark - CustomMethods
 - (void)loadData {
     
-    NSArray *array_image1 = @[@"", @"", @""];
+    NSArray *array_image1 = @[@"my_order", @"my_course", @"my_evaluate"];
     
     NSArray * array_title1 = @[@"我的订单", @"我的课程", @"我的评价"];
     
@@ -75,7 +79,7 @@
     
     [self.dataArr addObject:array_section1];
     
-    NSArray * array_image2 = @[@"", @"", @""];
+    NSArray * array_image2 = @[@"my_help", @"my_service", @"my_more"];
     
     NSArray * array_title2 = @[@"帮助与反馈", @"联系客服", @"更多"];
     
@@ -98,13 +102,13 @@
 #pragma mark -- tableView headerView
 - (void)createTableHeaderView {
     
-    MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 250)];
-    
+    MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 276)];
+        
     headerView.topImageView = @"";
     
-    headerView.emailButton = @"";
+    headerView.emailButton = @"my_email";
     
-    headerView.setButton = @"";
+    headerView.setButton = @"my_setting";
     
     headerView.itemImageView = @"";
     
@@ -114,7 +118,7 @@
     
     headerView.levelTitle = @"黄金会员";
     
-    headerView.levelImage = @"";
+    headerView.levelImage = @"my_member1_select";
     
     headerView.money = @"88.88";
     
@@ -218,6 +222,11 @@
 
     if (indexPath.section == 0) {
         
+        if (indexPath.row == 0) {
+            MyOrderPayController *pay = [[MyOrderPayController alloc] init];
+            [self.navigationController pushViewController:pay animated:YES];
+        }
+        
         if (indexPath.row == 1) {
          UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:self.myCourseVC];
         [self.navigationController pushViewController:controller animated:YES];
@@ -239,11 +248,8 @@
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 64, Screen_Width, Screen_Height-64 -49);
-        
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
         [_tableView registerClass:[MineTableViewCell class] forCellReuseIdentifier:@"Cell"];
     }
     return _tableView;

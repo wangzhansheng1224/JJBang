@@ -21,23 +21,16 @@
 
 @interface MineHeaderView ()
 
-@property (nonatomic, strong) UIImageView * topImage;
-
-@property (nonatomic, strong) UIButton * setBtn;
-
-@property (nonatomic, strong) UIButton * emailBtn;
-
-@property (nonatomic, strong) UIImageView * itemImage;
-
-@property (nonatomic, strong) UILabel * nameLabel;
-
-@property (nonatomic, strong) UILabel * signLabel;
-
-@property (nonatomic, strong) LevelButton * levelBtn;
-
-@property (nonatomic, strong) MyButton * moneyBtn;
-
-@property (nonatomic, strong) MyButton * adBtn;
+@property (nonatomic,strong) UIImageView * topImage;
+@property (nonatomic,strong) UIButton * setBtn;
+@property (nonatomic,strong) UIButton * emailBtn;
+@property (nonatomic,strong) UIImageView * itemImage;
+@property (nonatomic,strong) UILabel * nameLabel;
+@property (nonatomic,strong) UILabel * signLabel;
+@property (nonatomic,strong) LevelButton * levelBtn;
+@property (nonatomic,strong) MyButton * moneyBtn;
+@property (nonatomic,strong) MyButton * adBtn;
+@property (nonatomic,strong) UILabel *label_line;
 
 
 @end
@@ -53,36 +46,106 @@
     if (self) {
         
         [self createTopImageView];
-        
         [self createSetBtn];
-        
         [self createEmailBtn];
-        
         [self createItemImageView];
-        
         [self createNameLabel];
-        
         [self createSignLabel];
-        
         [self createLevelBtn];
-        
         [self createMoneyBtn];
-        
         [self createAdBtn];
-        
+        [self createLine];
+        [self layoutPageSubviews];
     }
-    
     return self;
 }
+
+#pragma -
+#pragma mark - layoutPageSubviews
+- (void)layoutPageSubviews {
+
+    [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 202));
+        make.top.left.equalTo(@0);
+    }];
+
+    [self.setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.top.equalTo(@28);
+        make.right.equalTo(@-16);
+    }];
+    
+    
+    [self.emailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.top.equalTo(@28);
+        make.right.equalTo(self.setBtn.mas_left).with.offset(-16);
+    }];
+    
+    [self.itemImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(78, 78));
+        make.left.equalTo(@16);
+        make.top.equalTo(@124);
+    }];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(60, 16));
+        make.top.equalTo(self.itemImage.mas_top).with.offset(22);
+        make.left.equalTo(self.itemImage.mas_right).with.offset(16);
+    }];
+    
+    [self.signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(100, 14));
+        make.top.equalTo(self.nameLabel.mas_bottom).with.offset(8);
+        make.left.equalTo(self.itemImage.mas_right).with.offset(16);
+    }];
+    
+    [self.levelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(110, 21));
+        make.right.equalTo(@20);
+        make.top.equalTo(self.setBtn.mas_bottom).with.offset(80);
+    }];
+    
+    [self.moneyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 74));
+        make.top.equalTo(@202);
+        make.left.equalTo(@0);
+    }];
+    
+    [self.adBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 74));
+        make.top.equalTo(@202);
+        make.left.equalTo(self.moneyBtn.mas_right).with.offset(0);
+    }];
+    
+    [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(2, 30));
+        make.centerY.equalTo(self.adBtn.mas_centerY);
+        make.centerX.equalTo(self.mas_centerX);
+    }];
+}
+
+
+
 
 #pragma mark -- 上部背景图片
 - (void)createTopImageView {
     
-    _topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, TopImage_Height)];
+    _topImage = [[UIImageView alloc] init];
     
     _topImage.contentMode = UIViewContentModeScaleAspectFit;
     
-    _topImage.backgroundColor = [UIColor blueColor];
+    _topImage.backgroundColor = COLOR_DARK_GRAY;
     
     [self addSubview:_topImage];
 }
@@ -96,9 +159,13 @@
 #pragma mark -- 设置按钮
 - (void)createSetBtn {
     
-    _setBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SetBtn_Width, SetBtn_Width)];
+    _setBtn = [[UIButton alloc] init];
     
-    _setBtn.backgroundColor = [UIColor blackColor];
+    _setBtn.backgroundColor = COLOR_DARK_GRAY;
+    
+    _setBtn.layer.cornerRadius = _setBtn.width/2.0;
+    
+    _setBtn.clipsToBounds = YES;
     
     _setBtn.center = CGPointMake(SCREEN_W - 35, 35);
     
@@ -119,11 +186,13 @@
 #pragma mark -- 邮件按钮
 - (void)createEmailBtn {
     
-    _emailBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SetBtn_Width, SetBtn_Width)];
+    _emailBtn = [[UIButton alloc] init];
     
-    _emailBtn.backgroundColor = [UIColor blackColor];
+    _emailBtn.backgroundColor = COLOR_DARK_GRAY;
     
-    _emailBtn.center = CGPointMake(CGRectGetMinX(_setBtn.frame) - 25, _setBtn.center.y);
+    _emailBtn.layer.cornerRadius = _emailBtn.width/2.0;
+    
+    _emailBtn.clipsToBounds = YES;
     
     [self addSubview:_emailBtn];
     
@@ -142,12 +211,10 @@
 #pragma mark -- 头像
 - (void)createItemImageView {
     
-    _itemImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Item_Width, Item_Width)];
+    _itemImage = [[UIImageView alloc] init];
     
-    _itemImage.layer.cornerRadius = _itemImage.frame.size.width/2.0;
+    _itemImage.layer.cornerRadius = 39;
     _itemImage.layer.masksToBounds = YES;
-    
-    _itemImage.center = CGPointMake(30 + Item_Width/2.0, CGRectGetMaxY(_topImage.frame) - 30 - Item_Width/2.0);
     
     _itemImage.contentMode = UIViewContentModeScaleAspectFit;
     
@@ -164,9 +231,7 @@
 #pragma mark -- 名字
 - (void)createNameLabel {
     
-    _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_itemImage.frame) + 20, _itemImage.center.y - 21, 150, 21)];
-    
-//    _nameLabel.backgroundColor = [UIColor blueColor];
+    _nameLabel = [[UILabel alloc] init];
     
     _nameLabel.textColor = [UIColor whiteColor];
     
@@ -182,9 +247,7 @@
 #pragma mark -- 签名
 - (void)createSignLabel {
     
-    _signLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_itemImage.frame) + 20, _itemImage.center.y + 10, 150, 21)];
-    
-//    _signLabel.backgroundColor = [UIColor purpleColor];
+    _signLabel = [[UILabel alloc] init];
     
     _signLabel.textColor = [UIColor whiteColor];
     
@@ -233,11 +296,11 @@
 #pragma mark -- 余额
 - (void)createMoneyBtn {
     
-    _moneyBtn = [[MyButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_topImage.frame), SCREEN_W/2.0, HeaderView_Height - TopImage_Height)];
+    _moneyBtn = [[MyButton alloc] init];
     
-    _moneyBtn.backgroundColor = [UIColor orangeColor];
+    _moneyBtn.backgroundColor = COLOR_WHITE;
     
-    _moneyBtn.bImage = @"";
+    _moneyBtn.bImage = @"my_money";
     
     _moneyBtn.bTitle = @"用户余额";
     
@@ -258,11 +321,11 @@
 #pragma mark -- 广告
 - (void)createAdBtn {
     
-    _adBtn = [[MyButton alloc] initWithFrame:CGRectMake(SCREEN_W/2.0, CGRectGetMaxY(_topImage.frame), SCREEN_W/2.0, HeaderView_Height - TopImage_Height)];
+    _adBtn = [[MyButton alloc] init];
     
-    _adBtn.backgroundColor = [UIColor yellowColor];
+    _adBtn.backgroundColor = COLOR_WHITE;
     
-    _adBtn.bImage = @"";
+    _adBtn.bImage = @"my_shop";
     
     _adBtn.bTitle = @"七彩商城";
     
@@ -279,16 +342,15 @@
     [_adBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)createLine {
 
+    _label_line = [[UILabel alloc] init];
+    _label_line.backgroundColor = COLOR_LIGHT_GRAY;
+    
+    [self addSubview:self.label_line];
+    
+    [self bringSubviewToFront:self.label_line];
 
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
 }
-*/
 
 @end
