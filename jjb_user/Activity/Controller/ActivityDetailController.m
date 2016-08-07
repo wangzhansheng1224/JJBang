@@ -13,39 +13,22 @@
 @interface ActivityDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
-
 @property (nonatomic,strong) UIBarButtonItem *item_share;   //分享item
-
 @property (nonatomic,strong) UIImageView *imageView_pic;
-
 @property (nonatomic,strong) UILabel *label_status; //进行中
-
 @property (nonatomic,strong) UILabel *label_title;
-
 @property (nonatomic,strong) UIImageView *imageView_location;
-
 @property (nonatomic,strong) UILabel *label_location;
-
 @property (nonatomic,strong) UIImageView *imageView_time;
-
 @property (nonatomic,strong) UILabel *label_time;
-
 @property (nonatomic,strong) UIButton *btn_join;
-
 @property (nonatomic,strong) UILabel *label_topline;
-
 @property (nonatomic,strong) UILabel *label_bottomline;
-
 @property (nonatomic,strong) UILabel *label_verticalline;
-
 @property (nonatomic,strong) UIView *view_header;
-
 @property (nonatomic,strong) NSArray *array_title;
-
 @property (nonatomic,assign) int index;//0 1 2
-
 @property (nonatomic,strong) UIView *view_top;
-
 @property (nonatomic,strong) NSMutableArray *array_btn;
 
 @end
@@ -86,9 +69,8 @@
 
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 64));
-        make.top.equalTo(@64);
-        make.left.equalTo(@0);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
+        make.top.left.equalTo(@0);
     }];
     
     [self.view_top mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -206,6 +188,11 @@
         button.tag = 2000 + i;
         [self.array_btn addObject:button];
         [self.view_header addSubview:button];
+        
+        if (i == 0) {
+            
+            button.selected = YES;
+        }
     }
     self.tableView.tableHeaderView = self.view_header;
     [self.view_header addSubview:self.label_topline];
@@ -244,6 +231,10 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 200;
+}
 
 
 

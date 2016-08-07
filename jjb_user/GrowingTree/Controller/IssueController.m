@@ -12,11 +12,10 @@
 
 @property (nonatomic,strong) UITextView *textView;
 @property (nonatomic,strong) UIBarButtonItem *item_issue;
-@property (nonatomic,strong) UIButton *btn_camera;
 @property (nonatomic,strong) UIButton *btn_video;
 @property (nonatomic,strong) UIButton *btn_face;
 @property (nonatomic,strong) UIButton *btn_more;
-@property (nonatomic, strong) UIImageView * view_pic; //展示图片
+@property (nonatomic,strong) UIButton *btn_camera;
 
 @end
 
@@ -25,15 +24,18 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.rightBarButtonItem = self.issueItem;
  
+    [self.view addSubview:self.btn_camera];
+    [self.view addSubview:self.btn_video];
+    [self.view addSubview:self.btn_face];
+    [self.view addSubview:self.btn_more];
     [self.view addSubview:self.textView];
-    [self.textView addSubview:self.btn_camera];
-    [self.textView addSubview:self.view_pic];
-//    [self.textView addSubview:self.btn_video];
-//    [self.textView addSubview:self.btn_face];
-//    [self.textView addSubview:self.btn_more];
+    [self.view bringSubviewToFront:self.btn_camera];
+    [self.view bringSubviewToFront:self.btn_face];
+    [self.view bringSubviewToFront:self.btn_video];
+    [self.view bringSubviewToFront:self.btn_more];
     [self layoutPageSubviews];
 }
 
@@ -48,42 +50,38 @@
 - (void)layoutPageSubviews {
 
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@64);
-        make.height.equalTo(@240);
+        make.top.equalTo(@0);
+        make.height.equalTo(@283);
         make.left.right.equalTo(@0);
     }];
-  
-#warning 以下
-#warning 约束
-#warning 未解决
-    
-//    [self.btn_camera mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
-//        make.left.equalTo(self.textView.mas_left).with.offset(30);
-//        make.bottom.equalTo(self.textView.mas_bottom).with.offset(-30);
-//    }];
 
-//    [self.btn_video mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.left.equalTo(self.btn_camera.mas_right).with.offset(10);
-//        make.bottom.equalTo(@-30);
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
-//    }];
-//    
-//    [self.btn_face mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.left.equalTo(self.btn_video.mas_right).with.offset(10);
-//        make.bottom.equalTo(@-30);
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
-//    }];
-//    
-//    [self.btn_more mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.left.equalTo(self.btn_face.mas_right).with.offset(10);
-//        make.bottom.equalTo(@-30);
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
-//    }];
+    [self.btn_camera mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(62, 62));
+        make.left.equalTo(@24);
+        make.bottom.equalTo(self.textView.mas_bottom).with.offset(-24);
+    }];
+
+    [self.btn_video mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.btn_camera.mas_right).with.offset(10);
+        make.bottom.equalTo(self.textView.mas_bottom).with.offset(-24);
+        make.size.mas_equalTo(CGSizeMake(62, 62));
+    }];
+    
+    [self.btn_face mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.btn_video.mas_right).with.offset(10);
+        make.bottom.equalTo(self.textView.mas_bottom).with.offset(-24);
+        make.size.mas_equalTo(CGSizeMake(62, 62));
+    }];
+    
+    [self.btn_more mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.btn_face.mas_right).with.offset(10);
+        make.bottom.equalTo(self.textView.mas_bottom).with.offset(-24);
+        make.size.mas_equalTo(CGSizeMake(62, 62));
+    }];
 }
 
 #pragma 
@@ -175,7 +173,7 @@
     
     UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
     
-    _view_pic.image = savedImage;
+//    _view_pic.image = savedImage;
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -237,7 +235,7 @@
         
         self.automaticallyAdjustsScrollViewInsets = NO;
         _textView = [[UITextView alloc] init];
-        _textView.font = [UIFont fontWithName:@"Arial" size:20.0];
+        _textView.font = H2;
         _textView.text = @"此时此地，想和大家分享什么";
         _textView.textAlignment = NSTextAlignmentLeft;
         _textView.returnKeyType = UIReturnKeyDefault;
@@ -253,6 +251,7 @@
     if (!_item_issue) {
         
         _item_issue = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(itemClick)];
+        [_item_issue setTintColor:COLOR_WHITE];
     }
     return _item_issue;
 }
@@ -306,18 +305,5 @@
     return _btn_more;
 }
 
-- (UIImageView *)view_pic {
-
-    if (!_view_pic) {
-        
-        _view_pic = [[UIImageView alloc] init];
-        _view_pic.frame = CGRectMake(170, 100, 100, 100);
-        _view_pic.userInteractionEnabled = YES;
-        _view_pic.backgroundColor = [UIColor lightGrayColor];
-        _view_pic.contentMode = UIViewContentModeScaleAspectFill;
-        _view_pic.clipsToBounds = YES;
-    }
-    return _view_pic;
-}
 
 @end

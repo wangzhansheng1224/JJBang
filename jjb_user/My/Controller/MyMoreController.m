@@ -103,6 +103,7 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerClass:[MyMoreCell class] forCellReuseIdentifier:@"MyMoreCellIdentifier"];
     }
     return _tableView;

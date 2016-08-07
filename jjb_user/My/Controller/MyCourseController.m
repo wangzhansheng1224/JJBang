@@ -48,6 +48,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
     
     UIView *superView=self.view;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
         make.top.equalTo(superView.mas_top);
         make.left.equalTo(superView.mas_left);
         make.right.equalTo(superView.mas_right);

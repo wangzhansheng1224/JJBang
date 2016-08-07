@@ -20,11 +20,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) UIBarButtonItem *btn_issue;
+//@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) IssueController *issueVC;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
+
 @end
 
 @implementation GrowingTreeController
@@ -38,9 +39,9 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
-    self.navigationItem.rightBarButtonItem = self.btn_issue;
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
+    [self setNav];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +59,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
                 make.width.mas_equalTo(superView.mas_width);
                 make.height.mas_equalTo(superView.mas_height);
     }];
+}
+
+#pragma -
+#pragma mark - custom methods
+- (void)setNav {
+
+    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"growing_issue"] highImage:[UIImage imageNamed:@"growing_issue"] target:self action:@selector(itemClick)];
+    self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
 #pragma -
@@ -91,10 +100,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
+
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
 }
+
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
@@ -130,15 +141,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;
-}
-
-- (UIBarButtonItem *)issueBtn {
-
-    if (!_btn_issue) {
-        
-        _btn_issue = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(itemClick)];
-    }
-    return _btn_issue;
 }
 
 - (NSMutableArray *)arrData{
