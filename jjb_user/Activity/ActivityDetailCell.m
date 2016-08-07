@@ -42,9 +42,10 @@
     }];
     
     [self.label_info mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(64, 16));
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width - 32, 60));
         make.top.equalTo(self.label_title.mas_bottom).with.offset(8);
-        make.left.equalTo(@6);
+        make.left.equalTo(@16);
     }];
 }
 
@@ -71,9 +72,10 @@
         _label_info = [[UILabel alloc] init];
         _label_info.font = H4;
         _label_info.numberOfLines = 0;
-        _label_info.lineBreakMode = UILineBreakModeWordWrap;
-        [_label_info sizeToFit];
+        _label_info.lineBreakMode = NSLineBreakByWordWrapping;
         _label_info.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
+        [_label_info setContentMode:UIViewContentModeTop];
+
     }
     return _label_info;
 }
