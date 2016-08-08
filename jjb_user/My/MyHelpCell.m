@@ -49,8 +49,6 @@
     }];
 }
 
-
-
 #pragma -
 #pragma mark - getters and setters
 - (UILabel *)label_title {

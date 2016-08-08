@@ -15,6 +15,7 @@
 #import "MyMoreController.h"
 #import "LoginViewController.h"
 #import "MyOrderPayController.h"
+#import "MySettingController.h"
 
 
 
@@ -156,7 +157,7 @@
 
 - (void)setBtnClick:(UIButton *)setBtn {
     
-    NSLog(@"我是设置按钮");
+   [self.navigationController pushViewController:[[MySettingController alloc] init] animated:YES];
 }
 
 - (void)emailBtnClick:(UIButton *)emailBtn {
