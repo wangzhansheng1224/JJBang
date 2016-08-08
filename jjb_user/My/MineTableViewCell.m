@@ -27,7 +27,6 @@
     
     if (self) {
         
-//        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 30, 30)];
        
         
         [self.contentView addSubview:self.headerImageView];
@@ -41,14 +40,11 @@
     return self;
 }
 
-
-
 - (void)refreshCellWithModel:(MineModel *)model {
     
-//    _headerImageView.image = [UIImage imageNamed:model.image];
+    _headerImageView.image = [UIImage imageNamed:model.image];
     
     _titleLabel.text = model.title;
-    
 }
 
 #pragma mark -- getter and setter
@@ -56,9 +52,9 @@
 
     if (!_headerImageView) {
         
-        _headerImageView = [[UIImageView alloc] init];
+        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 30, 30)];
         
-        _headerImageView.backgroundColor = JJBRandomColor;
+//        _headerImageView.backgroundColor = JJBRandomColor;
         
         _headerImageView.center = CGPointMake(_headerImageView.center.x, self.center.y);
         
@@ -81,10 +77,9 @@
 
     if (!_rightImage) {
         
-        _rightImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        _rightImage.backgroundColor = [UIColor grayColor];
+        _rightImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
         
-        _rightImage.image = [UIImage imageNamed:@""];
+        _rightImage.image = [UIImage imageNamed:@"my_right"];
         
         _rightImage.center = CGPointMake(SCREEN_W - 25, self.center.y);
         
@@ -93,16 +88,5 @@
     return _rightImage;
 }
 
-
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

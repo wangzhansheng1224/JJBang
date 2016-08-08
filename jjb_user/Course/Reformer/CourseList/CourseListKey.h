@@ -14,4 +14,6 @@ extern NSString *const kCourseListImg;
 extern NSString *const kCourseListPrice;
 extern NSString *const kCourseListNum;
 extern NSString *const kCourseListStar;
+extern NSString *const kCourseListLevel;
+extern NSString *const kCourseListTypeName;
 #endif /* CourseListKey_h */

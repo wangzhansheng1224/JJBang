@@ -21,6 +21,7 @@
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
+@property (nonatomic,strong) UIScrollView *scrollView_pic;
 
 //@property (nonatomic,strong) UIButton *issueBtn;
 
@@ -188,6 +189,23 @@
     }
     return _locLabel;
 }
+
+- (UIScrollView *)scrollView_pic {
+
+    if (!_scrollView_pic) {
+        
+        _scrollView_pic = [[UIScrollView alloc] init];
+    }
+    return _scrollView_pic;
+}
+
+
+
+
+
+
+
+
 
 
 @end

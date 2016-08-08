@@ -10,11 +10,12 @@
 
 @interface MyButton ()
 
-@property (nonatomic, strong) UILabel * titleLab;
-
-@property (nonatomic, strong) UIImageView * imageV;
-
-@property (nonatomic, strong) UILabel * detailLab;
+@property (nonatomic,strong) UILabel *titleLab;
+@property (nonatomic,strong) UIImageView *imageV;
+@property (nonatomic,strong) UILabel *detailLab;
+//@property (nonatomic,strong) UIImageView *imageView_shop;
+//@property (nonatomic,strong) UILabel *label_shop;
+//@property (nonatomic,strong) UILabel *label_detail;
 
 @end
 
@@ -26,43 +27,98 @@
     
     if (self) {
         
-        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-        
-        _titleLab.backgroundColor = [UIColor whiteColor];
-        
-        _titleLab.center = CGPointMake(self.center.x + 20, 35);
-        
-        _titleLab.textAlignment = NSTextAlignmentCenter;
-        
-        _titleLab.font = [UIFont systemFontOfSize:20];
-        
-        [self addSubview:_titleLab];
-        
-        
-        _imageV = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(_titleLab.frame) - 40, CGRectGetMinY(_titleLab.frame), 30, 30)];
-        
-        _imageV.backgroundColor = [UIColor purpleColor];
+        _imageV = [[UIImageView alloc] init];
         
         _imageV.contentMode = UIViewContentModeScaleAspectFit;
         
         [self addSubview:_imageV];
         
-        _detailLab = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(_titleLab.frame), CGRectGetMaxY(_titleLab.frame), 100, frame.size.height/2.0)];
+        [_imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.size.mas_equalTo(CGSizeMake(30, 30));
+            make.left.equalTo(@16);
+            make.top.equalTo(@10);
+        }];
         
-        _detailLab.backgroundColor = [UIColor magentaColor];
+        _titleLab = [[UILabel alloc] init];
         
-        _detailLab.textColor = [UIColor grayColor];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        
+        _titleLab.font = H1;
+        
+        [self addSubview:_titleLab];
+        
+        [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.size.mas_equalTo(CGSizeMake(80, 20));
+            make.top.equalTo(@14);
+            make.left.equalTo(_imageV.mas_right).with.offset(8);
+        }];
+        
+        _detailLab = [[UILabel alloc] init];
+        
+        _detailLab.textColor = COLOR_GRAY;
         
         _detailLab.textAlignment = NSTextAlignmentCenter;
         
+        _detailLab.font = H3;
+        
         [self addSubview:_detailLab];
 
+        [_detailLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.size.mas_equalTo(CGSizeMake(80, 16));
+            make.top.equalTo(_titleLab.mas_bottom).with.offset(4);
+            make.centerX.equalTo(_titleLab.mas_centerX);
+        }];
+        
+//        _imageView_shop = [[UIImageView alloc] init];
+//        
+//        _imageView_shop.contentMode = UIViewContentModeScaleAspectFit;
+//
+//        [self addSubview:_imageView_shop];
+//        
+//        [_imageView_shop mas_makeConstraints:^(MASConstraintMaker *make) {
+//            
+//            make.size.mas_equalTo(CGSizeMake(30, 30));
+//            make.left.equalTo(@(Screen_Width/2.0+16));
+//            make.top.equalTo(@10);
+//        }];
+//        
+//        _label_shop = [[UILabel alloc] init];
+//        
+//        _label_shop.textAlignment = NSTextAlignmentCenter;
+//        
+//        _label_shop.font = H1;
+//        
+//        [self addSubview:_label_shop];
+//        
+//        [_label_shop mas_makeConstraints:^(MASConstraintMaker *make) {
+//            
+//            make.size.mas_equalTo(CGSizeMake(80, 20));
+//            make.top.equalTo(@14);
+//            make.left.equalTo(_imageView_shop.mas_right).with.offset(8);
+//        }];
+        
+//        _label_detail = [[UILabel alloc] init];
+//        
+//        _label_detail.textColor = COLOR_GRAY;
+//        
+//        _label_detail.font = H3;
+//        
+//        _label_detail.textAlignment = NSTextAlignmentCenter;
+//        
+//        [self addSubview:_label_detail];
+//        
+//        [_label_detail mas_makeConstraints:^(MASConstraintMaker *make) {
+//            
+//            make.size.mas_equalTo(CGSizeMake(80, 16));
+//            make.top.equalTo(_label_shop.mas_bottom).with.offset(4);
+//            make.centerX.equalTo(_label_shop.mas_centerX);
+//        }];
     }
-    
     return self;
 }
-
-
 
 - (void)setBImage:(NSString *)bImage {
     
@@ -74,20 +130,24 @@
     _titleLab.text = bTitle;
 }
 
--(void)setBDetail:(NSString *)bDetail {
+- (void)setBDetail:(NSString *)bDetail {
     
     _detailLab.text = bDetail;
 }
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+//
+//- (void)setImageView_shop:(NSString *)imageView_shop {
+//
+//    _imageView_shop.image = [UIImage imageNamed:imageView_shop];
+//}
+//
+//- (void)setLabel_shop:(NSString *)label_shop {
+//
+//    _label_shop.text = label_shop;
+//}
+//
+//- (void)setLabel_detail:(NSString *)label_detail {
+//
+//    _label_detail.text = label_detail;
+//}
 
 @end

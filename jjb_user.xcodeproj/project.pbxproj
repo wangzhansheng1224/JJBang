@@ -11,6 +11,9 @@
 		51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */; };
 		51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBE1D53A96400F54210 /* ActivityInfoCell.m */; };
 		511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */; };
+		5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5126C1F71D562279005D23F3 /* Assets.xcassets */; };
+		5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */; };
+		5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */; };
 		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
 		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
@@ -18,7 +21,11 @@
 		512F23471D517FD800E33A92 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23451D517FD800E33A92 /* MyButton.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
+		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
+		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
+		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
+		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
 		51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2B6BB1D51F75800347E57 /* MyCourseCell.m */; };
 		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
 		51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CE1D503DB20082558D /* RHMenuButtonItem.m */; };
@@ -28,6 +35,9 @@
 		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
+		51D3489E1D57691B002D761C /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3489C1D57691B002D761C /* MyOrderController.m */; };
+		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
+		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
 		51EB73141D546E69009D08FE /* MyMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73131D546E69009D08FE /* MyMoreController.m */; };
 		51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73161D547DAC009D08FE /* MyMoreCell.m */; };
 		7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091671D5198C60031B443 /* ShopIndexAPIManager.m */; };
@@ -73,7 +83,6 @@
 		73575F781D54EEA00037F697 /* CTMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F761D54EEA00037F697 /* CTMediator.m */; };
 		73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F811D553C510037F697 /* CTMediator+CTMediatorSystemActions.m */; };
 		73575F861D5546B80037F697 /* Target_System.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F851D5546B80037F697 /* Target_System.m */; };
-		73575F891D556D3A0037F697 /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F881D556D3A0037F697 /* MyOrderController.m */; };
 		73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */; };
 		73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE01D4F735D00643BBA /* LDCommonParamsGenerator.m */; };
 		73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886CE21D4F735D00643BBA /* LDRequestGenerator.m */; };
@@ -110,7 +119,6 @@
 		73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */; };
 		73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
-		73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F131D4EFA410022BF79 /* Assets.xcassets */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
@@ -157,6 +165,11 @@
 		51181DBD1D53A96400F54210 /* ActivityInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityInfoCell.h; path = jjb_user/Activity/ActivityInfoCell.h; sourceTree = SOURCE_ROOT; };
 		51181DBE1D53A96400F54210 /* ActivityInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityInfoCell.m; path = jjb_user/Activity/ActivityInfoCell.m; sourceTree = SOURCE_ROOT; };
 		511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTreeController.m; sourceTree = "<group>"; };
+		5126C1F71D562279005D23F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5126C1F91D56E70D005D23F3 /* MyOrderPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayController.h; sourceTree = "<group>"; };
+		5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderPayController.m; sourceTree = "<group>"; };
+		5126C1FC1D56EBC9005D23F3 /* MyOrderPayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderPayCell.h; path = jjb_user/My/Controller/MyOrderPayCell.h; sourceTree = SOURCE_ROOT; };
+		5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderPayCell.m; path = jjb_user/My/Controller/MyOrderPayCell.m; sourceTree = SOURCE_ROOT; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
@@ -170,7 +183,15 @@
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
 		514E9B4E1D5086020064EEFD /* IssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueController.m; sourceTree = "<group>"; };
+		5155CE6F1D581F0B00306150 /* StudentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentListCell.h; path = jjb_user/Student/StudentListCell.h; sourceTree = SOURCE_ROOT; };
+		5155CE701D581F0B00306150 /* StudentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentListCell.m; path = jjb_user/Student/StudentListCell.m; sourceTree = SOURCE_ROOT; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		517F992F1D57A6FB002609E5 /* MySettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingController.h; sourceTree = "<group>"; };
+		517F99301D57A6FB002609E5 /* MySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingController.m; sourceTree = "<group>"; };
+		517F99321D57A87B002609E5 /* MySettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySettingCell.h; path = jjb_user/My/MySettingCell.h; sourceTree = SOURCE_ROOT; };
+		517F99331D57A87B002609E5 /* MySettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingCell.m; path = jjb_user/My/MySettingCell.m; sourceTree = SOURCE_ROOT; };
+		517F99351D57A957002609E5 /* MySettingDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingDetailController.h; sourceTree = "<group>"; };
+		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
 		51B2B6BA1D51F75800347E57 /* MyCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseCell.h; path = jjb_user/My/MyCourseCell.h; sourceTree = SOURCE_ROOT; };
 		51B2B6BB1D51F75800347E57 /* MyCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseCell.m; path = jjb_user/My/MyCourseCell.m; sourceTree = SOURCE_ROOT; };
 		51B875C91D5033D30082558D /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingCell.h; path = jjb_user/GrowingTree/GrowingCell.h; sourceTree = SOURCE_ROOT; };
@@ -190,6 +211,12 @@
 		51B875DB1D503DD80082558D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
 		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
+		51D3489C1D57691B002D761C /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
+		51D3489D1D57691B002D761C /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
+		51D3489F1D57924E002D761C /* MyHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHelpCell.h; path = jjb_user/My/MyHelpCell.h; sourceTree = SOURCE_ROOT; };
+		51D348A01D57924E002D761C /* MyHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHelpCell.m; path = jjb_user/My/MyHelpCell.m; sourceTree = SOURCE_ROOT; };
+		51D348A21D5797E3002D761C /* MyMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMemberController.h; sourceTree = "<group>"; };
+		51D348A31D5797E3002D761C /* MyMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMemberController.m; sourceTree = "<group>"; };
 		51EB73121D546E69009D08FE /* MyMoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoreController.h; sourceTree = "<group>"; };
 		51EB73131D546E69009D08FE /* MyMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoreController.m; sourceTree = "<group>"; };
 		51EB73151D547DAC009D08FE /* MyMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMoreCell.h; path = jjb_user/My/MyMoreCell.h; sourceTree = SOURCE_ROOT; };
@@ -286,8 +313,6 @@
 		73575F811D553C510037F697 /* CTMediator+CTMediatorSystemActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorSystemActions.m"; path = "System/CTMediator+CTMediatorSystemActions.m"; sourceTree = "<group>"; };
 		73575F841D5546B80037F697 /* Target_System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_System.h; path = Actions/Target_System.h; sourceTree = "<group>"; };
 		73575F851D5546B80037F697 /* Target_System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_System.m; path = Actions/Target_System.m; sourceTree = "<group>"; };
-		73575F871D556D3A0037F697 /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
-		73575F881D556D3A0037F697 /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
 		73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		73886CDF1D4F735D00643BBA /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
@@ -367,7 +392,6 @@
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		73ED4F131D4EFA410022BF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73ED4F161D4EFA410022BF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
@@ -881,6 +905,8 @@
 		73575F681D54D5FA0037F697 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5155CE6F1D581F0B00306150 /* StudentListCell.h */,
+				5155CE701D581F0B00306150 /* StudentListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1036,8 +1062,16 @@
 				731091841D51991E0031B443 /* MyCourseController.m */,
 				51EB73121D546E69009D08FE /* MyMoreController.h */,
 				51EB73131D546E69009D08FE /* MyMoreController.m */,
-				73575F871D556D3A0037F697 /* MyOrderController.h */,
-				73575F881D556D3A0037F697 /* MyOrderController.m */,
+				5126C1F91D56E70D005D23F3 /* MyOrderPayController.h */,
+				5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */,
+				51D3489D1D57691B002D761C /* MyOrderController.h */,
+				51D3489C1D57691B002D761C /* MyOrderController.m */,
+				51D348A21D5797E3002D761C /* MyMemberController.h */,
+				51D348A31D5797E3002D761C /* MyMemberController.m */,
+				517F992F1D57A6FB002609E5 /* MySettingController.h */,
+				517F99301D57A6FB002609E5 /* MySettingController.m */,
+				517F99351D57A957002609E5 /* MySettingDetailController.h */,
+				517F99361D57A957002609E5 /* MySettingDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1057,6 +1091,12 @@
 				51B2B6BB1D51F75800347E57 /* MyCourseCell.m */,
 				51EB73151D547DAC009D08FE /* MyMoreCell.h */,
 				51EB73161D547DAC009D08FE /* MyMoreCell.m */,
+				5126C1FC1D56EBC9005D23F3 /* MyOrderPayCell.h */,
+				5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */,
+				51D3489F1D57924E002D761C /* MyHelpCell.h */,
+				51D348A01D57924E002D761C /* MyHelpCell.m */,
+				517F99321D57A87B002609E5 /* MySettingCell.h */,
+				517F99331D57A87B002609E5 /* MySettingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1306,9 +1346,9 @@
 				73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */,
 				73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */,
 				73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */,
-				73ED4F131D4EFA410022BF79 /* Assets.xcassets */,
 				73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */,
 				73ED4F181D4EFA410022BF79 /* Info.plist */,
+				5126C1F71D562279005D23F3 /* Assets.xcassets */,
 				73ED4F071D4EFA410022BF79 /* Supporting Files */,
 			);
 			path = jjb_user;
@@ -1568,8 +1608,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */,
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
-				73ED4F141D4EFA410022BF79 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1639,6 +1679,7 @@
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
+				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
@@ -1647,6 +1688,7 @@
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73575F4A1D54D2B70037F697 /* CourseListReformer.m in Sources */,
+				51D348A41D5797E3002D761C /* MyMemberController.m in Sources */,
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
@@ -1673,6 +1715,7 @@
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
+				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
@@ -1700,6 +1743,7 @@
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
+				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
@@ -1717,25 +1761,29 @@
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
 				BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
+				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
+				51D348A11D57924E002D761C /* MyHelpCell.m in Sources */,
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
+				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
+				51D3489E1D57691B002D761C /* MyOrderController.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
-				73575F891D556D3A0037F697 /* MyOrderController.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */,
+				517F99341D57A87B002609E5 /* MySettingCell.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
 				BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */,
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
