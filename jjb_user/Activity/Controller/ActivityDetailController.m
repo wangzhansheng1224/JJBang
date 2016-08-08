@@ -13,6 +13,7 @@
 @interface ActivityDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) NSMutableArray *array_data;
 @property (nonatomic,strong) UIBarButtonItem *item_share;   //分享item
 @property (nonatomic,strong) UIImageView *imageView_pic;
 @property (nonatomic,strong) UILabel *label_status; //进行中
@@ -40,7 +41,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
 
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.view_top];
@@ -200,32 +200,24 @@
     [self.view_header addSubview:self.label_verticalline];
 }
 
-
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (_index == 0) {
         //活动详情
-        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailIdentifier" forIndexPath:indexPath];
-//        if (indexPath.row == 0) {
-//            
-//            cell.textLabel.text = @"活动规则";
-//        }else if (indexPath.row == 1) {
-//        
-//            cell.textLabel.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
-//        }
+        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetail" forIndexPath:indexPath];
         
         return cell;
         
     }else {
         //报名信息
-        ActivityInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityInfoCellIdentifier" forIndexPath:indexPath];
+        ActivityInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityInfo" forIndexPath:indexPath];
         
         return cell;
     }
@@ -265,6 +257,9 @@
             button.selected = NO;
         }
     }
+    NSLog(@"QQQQQQQQQQ%f",self.tableView.frame.origin.y);
+    [self.tableView reloadData];
+    NSLog(@"%f",self.tableView.frame.origin.y);
 }
 
 
@@ -273,15 +268,15 @@
 - (UITableView *)tableView {
 
     if (!_tableView) {
-        
+        self.automaticallyAdjustsScrollViewInsets = NO;
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc]init];
 
-        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailIdentifier"];
-        [_tableView registerClass:[ActivityInfoCell class] forCellReuseIdentifier:@"ActivityInfoCellIdentifier"];
+        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetail"];
+        [_tableView registerClass:[ActivityInfoCell class] forCellReuseIdentifier:@"ActivityInfo"];
 
         _tableView.rowHeight = UITableViewAutomaticDimension;
         //预计行高
@@ -310,6 +305,7 @@
         
         _imageView_pic = [[UIImageView alloc] init];
         _imageView_pic.backgroundColor = JJBRandomColor;
+        _imageView_pic.image = [UIImage imageNamed:@"welcome_bg"];
         _imageView_pic.contentMode = UIViewContentModeScaleAspectFill;
         _imageView_pic.clipsToBounds = YES;
     }
@@ -472,6 +468,15 @@
         _array_btn = [[NSMutableArray alloc] init];
     }
     return _array_btn;
+}
+
+- (NSMutableArray *)array_data {
+
+    if (!_array_data) {
+        
+        _array_data = [[NSMutableArray alloc] init];
+    }
+    return _array_data;
 }
 
 @end
