@@ -21,6 +21,7 @@
 		512F23471D517FD800E33A92 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23451D517FD800E33A92 /* MyButton.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
+		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
@@ -172,6 +173,8 @@
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
 		514E9B4E1D5086020064EEFD /* IssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueController.m; sourceTree = "<group>"; };
+		5155CE6F1D581F0B00306150 /* StudentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentListCell.h; path = jjb_user/Student/StudentListCell.h; sourceTree = SOURCE_ROOT; };
+		5155CE701D581F0B00306150 /* StudentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentListCell.m; path = jjb_user/Student/StudentListCell.m; sourceTree = SOURCE_ROOT; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		517F992F1D57A6FB002609E5 /* MySettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingController.h; sourceTree = "<group>"; };
 		517F99301D57A6FB002609E5 /* MySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingController.m; sourceTree = "<group>"; };
@@ -855,6 +858,8 @@
 		73575F681D54D5FA0037F697 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5155CE6F1D581F0B00306150 /* StudentListCell.h */,
+				5155CE701D581F0B00306150 /* StudentListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1647,6 +1652,7 @@
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
+				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
