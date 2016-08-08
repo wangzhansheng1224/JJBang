@@ -17,7 +17,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) LDAPIBaseManager *myCourseAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> myCourseReformer;
+@property (nonatomic,strong) id<ReformerProtocol> myCourseReformer;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 

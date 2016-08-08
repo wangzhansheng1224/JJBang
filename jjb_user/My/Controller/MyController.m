@@ -16,6 +16,7 @@
 #import "LoginViewController.h"
 #import "MyOrderPayController.h"
 #import "MySettingController.h"
+#import "StudentController.h"
 
 
 
@@ -162,6 +163,7 @@
 
 - (void)emailBtnClick:(UIButton *)emailBtn {
     
+    [self.navigationController pushViewController:[[StudentController alloc] init] animated:YES];
     NSLog(@"我是邮件按钮");
 }
 
