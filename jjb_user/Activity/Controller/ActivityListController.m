@@ -41,6 +41,13 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

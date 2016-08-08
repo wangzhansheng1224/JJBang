@@ -8,6 +8,7 @@
 
 #import "Target_System.h"
 #import "LoginViewController.h"
+#import "ErrorController.h"
 
 @implementation Target_System
 
@@ -15,6 +16,11 @@
 {
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     return loginVC;
+}
+
+- (id)Action_Error:(NSDictionary *)params{
+    ErrorController *errorVC = [[ErrorController alloc] init];
+    return errorVC;
 }
 
 @end

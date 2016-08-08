@@ -155,21 +155,21 @@
     self.btnFlash = [[UIButton alloc]init];
     _btnFlash.bounds = CGRectMake(0, 0, size.width, size.height);
     _btnFlash.center = CGPointMake(CGRectGetWidth(_bottomItemsView.frame)/2, CGRectGetHeight(_bottomItemsView.frame)/2);
-    [_btnFlash setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_flash_nor"] forState:UIControlStateNormal];
+    [_btnFlash setImage:[UIImage imageNamed:@"qrcode_scan_btn_flash_nor"] forState:UIControlStateNormal];
     [_btnFlash addTarget:self action:@selector(openOrCloseFlash) forControlEvents:UIControlEventTouchUpInside];
     
     self.btnPhoto = [[UIButton alloc]init];
     _btnPhoto.bounds = _btnFlash.bounds;
     _btnPhoto.center = CGPointMake(CGRectGetWidth(_bottomItemsView.frame)/4, CGRectGetHeight(_bottomItemsView.frame)/2);
-    [_btnPhoto setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_photo_nor"] forState:UIControlStateNormal];
-    [_btnPhoto setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_photo_down"] forState:UIControlStateHighlighted];
+    [_btnPhoto setImage:[UIImage imageNamed:@"qrcode_scan_btn_photo_nor"] forState:UIControlStateNormal];
+    [_btnPhoto setImage:[UIImage imageNamed:@"qrcode_scan_btn_photo_down"] forState:UIControlStateHighlighted];
     [_btnPhoto addTarget:self action:@selector(openPhoto) forControlEvents:UIControlEventTouchUpInside];
     
     self.btnMyQR = [[UIButton alloc]init];
     _btnMyQR.bounds = _btnFlash.bounds;
     _btnMyQR.center = CGPointMake(CGRectGetWidth(_bottomItemsView.frame) * 3/4, CGRectGetHeight(_bottomItemsView.frame)/2);
-    [_btnMyQR setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_myqrcode_nor"] forState:UIControlStateNormal];
-    [_btnMyQR setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_myqrcode_down"] forState:UIControlStateHighlighted];
+    [_btnMyQR setImage:[UIImage imageNamed:@"qrcode_scan_btn_myqrcode_nor"] forState:UIControlStateNormal];
+    [_btnMyQR setImage:[UIImage imageNamed:@"qrcode_scan_btn_myqrcode_down"] forState:UIControlStateHighlighted];
     [_btnMyQR addTarget:self action:@selector(myQRCode) forControlEvents:UIControlEventTouchUpInside];
     
     [_bottomItemsView addSubview:_btnFlash];
@@ -180,24 +180,12 @@
 
 
 
-
-
-
-
-- (void)showError:(NSString*)str
-{
-//    [LBXAlertAction showAlertWithTitle:@"提示" msg:str chooseBlock:nil buttonsStatement:@"知道了",nil];
-}
-
-
-
 - (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array
 {
     
     if (array.count < 1)
     {
-        [self popAlertMsgWithScanResult:nil];
-        
+        [self.view makeToast:@"扫描失败!"];
         return;
     }
     
@@ -214,47 +202,19 @@
     self.scanImage = scanResult.imgScanned;
     
     if (!strResult) {
-        
-        [self popAlertMsgWithScanResult:nil];
-        
+        [self.view makeToast:@"扫描失败!"];
         return;
     }
-    
     //震动提醒
-    // [LBXScanWrapper systemVibrate];
+     [LBXScanWrapper systemVibrate];
     //声音提醒
-    //[LBXScanWrapper systemSound];
+     [LBXScanWrapper systemSound];
     
-    [self showNextVCWithScanResult:scanResult];
-    
-}
-
-- (void)popAlertMsgWithScanResult:(NSString*)strResult
-{
-    if (!strResult) {
-        
-        strResult = @"识别失败";
-    }
-    
-//    __weak __typeof(self) weakSelf = self;
-//    [LBXAlertAction showAlertWithTitle:@"扫码内容" msg:strResult chooseBlock:^(NSInteger buttonIdx) {
-//        
-//        //点击完，继续扫码
-//        [weakSelf reStartDevice];
-//    } buttonsStatement:@"知道了",nil];
-}
-
-- (void)showNextVCWithScanResult:(LBXScanResult*)strResult
-{
-    ScanResultViewController *vc = [ScanResultViewController new];
-//    vc.imgScan = strResult.imgScanned;
-    
-    vc.strScan = strResult.strScanned;
-    
-//    vc.strCodeType = strResult.strBarCodeType;
-    
+    UIViewController *vc=[[CTMediator sharedInstance] performActionWithUrl:[[NSURL alloc] initWithString:strResult]  completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
+
 
 
 #pragma mark -底部功能项
@@ -278,21 +238,20 @@
     
     if (self.isOpenFlash)
     {
-        [_btnFlash setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_flash_down"] forState:UIControlStateNormal];
+        [_btnFlash setImage:[UIImage imageNamed:@"qrcode_scan_btn_flash_down"] forState:UIControlStateNormal];
     }
     else
-        [_btnFlash setImage:[UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_btn_flash_nor"] forState:UIControlStateNormal];
+        [_btnFlash setImage:[UIImage imageNamed:@"qrcode_scan_btn_flash_nor"] forState:UIControlStateNormal];
 }
 
 
 #pragma mark -底部功能项
 
 
-//- (void)myQRCode
-//{
-//    MyQRViewController *vc = [MyQRViewController new];
-//    [self.navigationController pushViewController:vc animated:YES];
-//}
+- (void)myQRCode
+{
+    [self.view makeToast:@"正在开发中，敬请期待。。。"];
+}
 
 
 @end

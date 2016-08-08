@@ -47,6 +47,7 @@
         [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo, BOOL animated){
             [self viewWillAppear:animated viewController:[aspectInfo instance]];
         } error:NULL];
+        
     }
     return self;
 }
@@ -67,8 +68,6 @@
 
 - (void)viewWillAppear:(BOOL)animated viewController:(UIViewController *)viewController
 {
-    
-    
 //    //设置导航栏背景
 //    UINavigationBar * bar = [UINavigationBar appearance];
 //    [bar setBackgroundColor:COLOR_ORANGE];
