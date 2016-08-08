@@ -9,7 +9,7 @@
 #import "MyCourseController.h"
 #import "MyCourseCell.h"
 #import "MyCourseAPIManager.h"
-#import "ActivityListReformer.h"
+#import "CourseListReformer.h"
 
 static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 @interface MyCourseController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -36,6 +36,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
+    [self.myCourseAPIManager loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,7 +120,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 - (id<ReformerProtocol>) myCourseReformer{
     
     if (!_myCourseReformer) {
-        _myCourseReformer=[[ActivityListReformer alloc] init];
+        _myCourseReformer=[[CourseListReformer alloc] init];
     }
     return _myCourseReformer;
 }

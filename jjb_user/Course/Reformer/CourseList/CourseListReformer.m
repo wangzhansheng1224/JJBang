@@ -27,15 +27,20 @@ NSString *const kCourseListTypeName=@"CourseListTypeName";
         NSArray *arrData=data[@"data"];
         
         for (NSInteger i=0; i< [arrData count]; i++) {
+            NSURL *url= [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,(arrData[i][@"image"]!=[NSNull null])?arrData[i][@"image"]:@""]];
+            if (url==nil) {
+                url=[[NSURL alloc] initFileURLWithPath:@"img_default"];
+            }
+            
             NSDictionary *itemData=@{
-                                     kCourseListID:arrData[i][@"id"],
-                                     kCourseListName:arrData[i][@"name"],
-                                     kCourseListPrice:arrData[i][@"price"],
-                                     kCourseListNum:arrData[i][@"registCount"],
-                                     kCourseListStar:arrData[i][@"star"],
-                                     kCourseListTypeName:arrData[i][@"typeName"],
-                                     kCourseListImg:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]],
-                                     kCourseListLevel:arrData[i][@"levelName"]
+                                     kCourseListID:(arrData[i][@"id"]!=[NSNull null])?arrData[i][@"id"]:@(0),
+                                     kCourseListName:(arrData[i][@"name"]!=[NSNull null])?arrData[i][@"name"]:@"",
+                                     kCourseListPrice:(arrData[i][@"price"]!=[NSNull null])?arrData[i][@"price"]:@"",
+                                     kCourseListNum:(arrData[i][@"registCount"]!=[NSNull null])?arrData[i][@"registCount"]:@"",
+                                     kCourseListStar:(arrData[i][@"star"]!=[NSNull null])?arrData[i][@"star"]:@(0),
+                                     kCourseListTypeName:(arrData[i][@"typeName"]!=[NSNull null])?arrData[i][@"typeName"]:@"",
+                                     kCourseListImg:url,
+                                     kCourseListLevel:(arrData[i][@"levelName"]!=[NSNull null])?arrData[i][@"levelName"]:@""
                                      };
             [arrResult addObject:itemData];
         }
