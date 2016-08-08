@@ -77,6 +77,9 @@ alpha:(a)]
 //文件操作
 #define FILEHOMENAME @"File_cache" 
 
+//self的弱引用
+#define JJBWeakSelf __weak typeof(self) weakSelf = self;
+
 
 
 

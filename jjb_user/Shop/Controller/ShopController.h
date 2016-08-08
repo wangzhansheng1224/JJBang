@@ -11,6 +11,7 @@
  */
 #import <UIKit/UIKit.h>
 
-@interface ShopController : UIViewController
+@interface ShopController : UITableViewController
 
+@property(nonatomic,strong) NSMutableArray * groupsArray;
 @end
