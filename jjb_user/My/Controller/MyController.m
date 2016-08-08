@@ -14,7 +14,7 @@
 #import "MyCourseController.h"
 #import "MyMoreController.h"
 #import "LoginViewController.h"
-#import "MyOrderPayController.h"
+#import "MyOrderController.h"
 #import "MySettingController.h"
 #import "StudentController.h"
 
@@ -39,8 +39,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.tableView];
@@ -54,6 +52,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 #pragma -
@@ -225,8 +224,9 @@
     if (indexPath.section == 0) {
         
         if (indexPath.row == 0) {
-            MyOrderPayController *pay = [[MyOrderPayController alloc] init];
-            [self.navigationController pushViewController:pay animated:YES];
+            MyOrderController *order = [[MyOrderController alloc] init];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:order];
+            [self.navigationController pushViewController:controller animated:YES];
         }
         
         if (indexPath.row == 1) {
