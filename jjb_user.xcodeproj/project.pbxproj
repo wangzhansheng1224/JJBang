@@ -11,7 +11,6 @@
 		51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */; };
 		51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181DBE1D53A96400F54210 /* ActivityInfoCell.m */; };
 		511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */; };
-		5126C1F61D55FE90005D23F3 /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1F51D55FE90005D23F3 /* MyOrderController.m */; };
 		5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5126C1F71D562279005D23F3 /* Assets.xcassets */; };
 		5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */; };
 		5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */; };
@@ -150,8 +149,6 @@
 		51181DBD1D53A96400F54210 /* ActivityInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityInfoCell.h; path = jjb_user/Activity/ActivityInfoCell.h; sourceTree = SOURCE_ROOT; };
 		51181DBE1D53A96400F54210 /* ActivityInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityInfoCell.m; path = jjb_user/Activity/ActivityInfoCell.m; sourceTree = SOURCE_ROOT; };
 		511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingTreeController.m; sourceTree = "<group>"; };
-		5126C1F41D55FE90005D23F3 /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
-		5126C1F51D55FE90005D23F3 /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
 		5126C1F71D562279005D23F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5126C1F91D56E70D005D23F3 /* MyOrderPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayController.h; sourceTree = "<group>"; };
 		5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderPayController.m; sourceTree = "<group>"; };
@@ -998,8 +995,6 @@
 				731091841D51991E0031B443 /* MyCourseController.m */,
 				51EB73121D546E69009D08FE /* MyMoreController.h */,
 				51EB73131D546E69009D08FE /* MyMoreController.m */,
-				5126C1F41D55FE90005D23F3 /* MyOrderController.h */,
-				5126C1F51D55FE90005D23F3 /* MyOrderController.m */,
 				5126C1F91D56E70D005D23F3 /* MyOrderPayController.h */,
 				5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */,
 				73575F871D556D3A0037F697 /* MyOrderController.h */,
@@ -1684,7 +1679,6 @@
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
-				5126C1F61D55FE90005D23F3 /* MyOrderController.m in Sources */,
 				73575F891D556D3A0037F697 /* MyOrderController.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
 				BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */,
