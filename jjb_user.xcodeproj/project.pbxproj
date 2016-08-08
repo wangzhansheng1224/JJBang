@@ -132,11 +132,21 @@
 		BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CB81D4F473200F46F09 /* BaseNavigationController.m */; };
 		BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CBA1D4F473200F46F09 /* BaseTabBarController.m */; };
 		BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CC91D4F489700F46F09 /* BaseTabBar.m */; };
+		BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A571D5703B70078D083 /* MBNewActivityCell.m */; };
+		BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A5A1D5703C70078D083 /* MBSaleCell.m */; };
+		BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A5D1D5703EF0078D083 /* MBVideoCell.m */; };
+		BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A601D5704100078D083 /* MBStarStudentCell.m */; };
+		BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A631D5704240078D083 /* MBStarTeacherCell.m */; };
+		BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A661D5704380078D083 /* MBStarCouseCell.m */; };
+		BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */; };
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
 		BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */; };
 		BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */; };
+		BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */; };
+		BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */; };
+		BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */; };
 		BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */; };
 		BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9701D506E580037DA9F /* UIView+MBFrame.m */; };
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
@@ -413,6 +423,20 @@
 		BB159CBA1D4F473200F46F09 /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		BB159CC81D4F489700F46F09 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
 		BB159CC91D4F489700F46F09 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
+		BB1E8A561D5703B70078D083 /* MBNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBNewActivityCell.h; path = jjb_user/Shop/Controller/MBNewActivityCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A571D5703B70078D083 /* MBNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBNewActivityCell.m; path = jjb_user/Shop/Controller/MBNewActivityCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A591D5703C70078D083 /* MBSaleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBSaleCell.h; path = jjb_user/Shop/Controller/MBSaleCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A5A1D5703C70078D083 /* MBSaleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBSaleCell.m; path = jjb_user/Shop/Controller/MBSaleCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A5C1D5703EF0078D083 /* MBVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBVideoCell.h; path = jjb_user/Shop/Controller/MBVideoCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A5D1D5703EF0078D083 /* MBVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBVideoCell.m; path = jjb_user/Shop/Controller/MBVideoCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A5F1D5704100078D083 /* MBStarStudentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBStarStudentCell.h; path = jjb_user/Shop/Controller/MBStarStudentCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A601D5704100078D083 /* MBStarStudentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarStudentCell.m; path = jjb_user/Shop/Controller/MBStarStudentCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A621D5704240078D083 /* MBStarTeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBStarTeacherCell.h; path = jjb_user/Shop/Controller/MBStarTeacherCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A631D5704240078D083 /* MBStarTeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarTeacherCell.m; path = jjb_user/Shop/Controller/MBStarTeacherCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A651D5704380078D083 /* MBStarCouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBStarCouseCell.h; path = jjb_user/Shop/Controller/MBStarCouseCell.h; sourceTree = SOURCE_ROOT; };
+		BB1E8A661D5704380078D083 /* MBStarCouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarCouseCell.m; path = jjb_user/Shop/Controller/MBStarCouseCell.m; sourceTree = SOURCE_ROOT; };
+		BB1E8A681D57055D0078D083 /* MBNewActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewActivityModel.h; sourceTree = "<group>"; };
+		BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewActivityModel.m; sourceTree = "<group>"; };
 		BB4C13111D52E23E002C13FA /* LoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterView.h; sourceTree = "<group>"; };
 		BB4C13121D52E23E002C13FA /* LoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterView.m; sourceTree = "<group>"; };
 		BB4C13141D53303E002C13FA /* FindPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPassWordViewController.h; sourceTree = "<group>"; };
@@ -423,6 +447,12 @@
 		BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		BB4E4EFD1D54838C000A0855 /* ScanResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanResultViewController.h; sourceTree = "<group>"; };
 		BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanResultViewController.m; sourceTree = "<group>"; };
+		BB5679EA1D5834E400C2B61D /* ShopClassifyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopClassifyCell.h; path = jjb_user/Shop/Model/ShopClassifyCell.h; sourceTree = SOURCE_ROOT; };
+		BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopClassifyCell.m; path = jjb_user/Shop/Model/ShopClassifyCell.m; sourceTree = SOURCE_ROOT; };
+		BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBClassifyCollectionCell.h; path = jjb_user/Shop/Model/MBClassifyCollectionCell.h; sourceTree = SOURCE_ROOT; };
+		BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBClassifyCollectionCell.m; path = jjb_user/Shop/Model/MBClassifyCollectionCell.m; sourceTree = SOURCE_ROOT; };
+		BB5679F01D5889C000C2B61D /* ShopClassifyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopClassifyModel.h; sourceTree = "<group>"; };
+		BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopClassifyModel.m; sourceTree = "<group>"; };
 		BB68C96C1D506D500037DA9F /* MBNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewFeatureController.h; sourceTree = "<group>"; };
 		BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewFeatureController.m; sourceTree = "<group>"; };
 		BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBFrame.h"; sourceTree = "<group>"; };
@@ -482,6 +512,7 @@
 		731091621D5198C60031B443 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				BB1E8A551D57035D0078D083 /* Model */,
 				731091631D5198C60031B443 /* APIManager */,
 				731091681D5198C60031B443 /* Controller */,
 				7310916E1D5198C60031B443 /* Reformer */,
@@ -535,6 +566,22 @@
 		7310917B1D5198C60031B443 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BB1E8A561D5703B70078D083 /* MBNewActivityCell.h */,
+				BB1E8A571D5703B70078D083 /* MBNewActivityCell.m */,
+				BB1E8A591D5703C70078D083 /* MBSaleCell.h */,
+				BB1E8A5A1D5703C70078D083 /* MBSaleCell.m */,
+				BB1E8A5C1D5703EF0078D083 /* MBVideoCell.h */,
+				BB1E8A5D1D5703EF0078D083 /* MBVideoCell.m */,
+				BB1E8A5F1D5704100078D083 /* MBStarStudentCell.h */,
+				BB1E8A601D5704100078D083 /* MBStarStudentCell.m */,
+				BB1E8A621D5704240078D083 /* MBStarTeacherCell.h */,
+				BB1E8A631D5704240078D083 /* MBStarTeacherCell.m */,
+				BB1E8A651D5704380078D083 /* MBStarCouseCell.h */,
+				BB1E8A661D5704380078D083 /* MBStarCouseCell.m */,
+				BB5679EA1D5834E400C2B61D /* ShopClassifyCell.h */,
+				BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */,
+				BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionCell.h */,
+				BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1452,6 +1499,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BB1E8A551D57035D0078D083 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E8A681D57055D0078D083 /* MBNewActivityModel.h */,
+				BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */,
+				BB5679F01D5889C000C2B61D /* ShopClassifyModel.h */,
+				BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BB68C9681D506D120037DA9F /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -1559,7 +1617,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 972SEJPPZB;
+						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -1661,13 +1719,17 @@
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
+				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionCell.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
+				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73575F4A1D54D2B70037F697 /* CourseListReformer.m in Sources */,
 				51D348A41D5797E3002D761C /* MyMemberController.m in Sources */,
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
+				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
+				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				73575F361D549C7C0037F697 /* FileCache.m in Sources */,
@@ -1676,6 +1738,7 @@
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
 				73575F861D5546B80037F697 /* Target_System.m in Sources */,
+				BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				73886D311D4F735D00643BBA /* LDLoginByWeiboManager.m in Sources */,
 				51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */,
@@ -1703,6 +1766,7 @@
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
+				BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
 				73575F371D549C7C0037F697 /* PathHelper.m in Sources */,
 				51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */,
@@ -1714,6 +1778,7 @@
 				73575F6B1D54D5FA0037F697 /* StudentController.m in Sources */,
 				731FDD181D586BEF00A18534 /* ErrorController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
+				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
@@ -1731,6 +1796,7 @@
 				73575F3F1D54A2780037F697 /* UserReformer.m in Sources */,
 				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
+				BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
@@ -1763,6 +1829,7 @@
 				73575F451D54D2A20037F697 /* CourseListController.m in Sources */,
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
 				73886D341D4F735D00643BBA /* LDViewSpotListManager.m in Sources */,
+				BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */,
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
@@ -1776,6 +1843,7 @@
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
+				BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */,
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
 				512F23461D517FD800E33A92 /* LevelButton.m in Sources */,
