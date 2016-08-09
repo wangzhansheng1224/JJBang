@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JLRoutes.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +92,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0049B8949833DF1BF71A638CF7BBB7F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E56B1064A710A2C47730D11A6638AFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2AB49797D14D57FA43A345254AFB9F18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +137,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5B60301962E39F44B65EC2CEE50D12D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B97498F588C52288DC7E25633615FE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,27 +157,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>993670E4A25888ACE73679D07B520156</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>AC6C573058237B97B1BEE20322865172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B50207F7A05FD01AB6B2E7BB361ADC82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C7A04E2284ED6BC0144B372888BC0DBA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2C6B4010F5808432583718433FC50C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,7 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC4C0E5BF04AAFCEFD87BC539111EDC6</key>
+		<key>E65B212052AC8406BABEC0E4B0B648D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

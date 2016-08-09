@@ -32,6 +32,7 @@ PODS:
     - CocoaLumberjack/Default
   - CTPersistance (1.2.9)
   - DateTools (1.7.0)
+  - HMSegmentedControl (1.5.2)
   - JLRoutes (1.6.1)
   - LBXScan (1.1.2):
     - ZXingObjC (~> 3.0)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - CocoaLumberjack
   - CTPersistance
   - DateTools
+  - HMSegmentedControl
   - JLRoutes
   - LBXScan (from `https://github.com/MxABC/LBXScan.git`)
   - Masonry
@@ -79,6 +81,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CTPersistance: 830b4420215081e39f29f7909753602809c708b8
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   JLRoutes: 5a58e3970d03ade80fcdd3274b7b50f023eed4e1
   LBXScan: 30153fa9c57bbe63d93cc6bf35c047ec1b63260c
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
@@ -89,6 +92,6 @@ SPEC CHECKSUMS:
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: a1ae984af8785ec1ebab946f9ddf6b83c52d87f1
+PODFILE CHECKSUM: 4485accdd5b67774996bda06f638e53a521a7184
 
 COCOAPODS: 1.0.1

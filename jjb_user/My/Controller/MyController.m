@@ -17,6 +17,7 @@
 #import "MyOrderController.h"
 #import "MySettingController.h"
 #import "StudentController.h"
+#import "MyOrderPayController.h"
 
 
 
@@ -224,7 +225,7 @@
     if (indexPath.section == 0) {
         
         if (indexPath.row == 0) {
-            MyOrderController *order = [[MyOrderController alloc] init];
+            MyOrderPayController *order = [[MyOrderPayController alloc] init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:order];
             [self.navigationController pushViewController:controller animated:YES];
         }
