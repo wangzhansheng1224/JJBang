@@ -106,6 +106,8 @@
         
     [self.label_title setText:data[kActivityListTitle]];
     [self.label_location setText:data[kActivityListAddress]];
+    [self.label_status setText:data[kActivityListState]];
+    [self.label_time setText:data[kActivityListDate]];
     [self.imageView_pic sd_setImageWithURL:data[kActivityListImageURL] placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 

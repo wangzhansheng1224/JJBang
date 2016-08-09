@@ -41,6 +41,12 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -94,7 +100,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
              @"shop_id":@"3",
-             @"user_id":@"1",
+             @"user_id":@([UserModel currentUser].userID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize),
              @"isOwn":@"0"

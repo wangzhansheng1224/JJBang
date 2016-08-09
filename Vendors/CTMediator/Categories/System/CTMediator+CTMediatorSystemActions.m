@@ -8,7 +8,7 @@
 
 #import "CTMediator+CTMediatorSystemActions.h"
 
-NSString * const kCTMediatorTarget = @"System";
+NSString * const kCTMediatorSystemTarget = @"System";
 NSString * const kCTMediatorActionNativeLogin = @"Login";
 @implementation CTMediator (CTMediatorSystemActions)
 
@@ -17,7 +17,7 @@ NSString * const kCTMediatorActionNativeLogin = @"Login";
         return targetController;
     } else{
         
-        return [self performTarget:kCTMediatorTarget
+        return [self performTarget:kCTMediatorSystemTarget
                  action:kCTMediatorActionNativeLogin
                  params:nil];
     }

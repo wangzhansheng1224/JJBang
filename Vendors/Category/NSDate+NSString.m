@@ -10,6 +10,7 @@
 
 @implementation NSDate (NSString)
 
+
 //计算时间戳
 +(NSString *)setUpTimestampFrom:(NSString *)timeString
 {

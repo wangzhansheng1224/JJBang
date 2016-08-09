@@ -10,4 +10,5 @@
 
 @interface Target_System : NSObject
 - (id)Action_Login:(NSDictionary *)params;
+- (id)Action_Error:(NSDictionary *)params;
 @end
