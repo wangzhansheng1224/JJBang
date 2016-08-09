@@ -131,6 +131,7 @@
     if (_couseNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"少儿美术";
+        label.font = H4;
         _couseNameLabel = label;
         [self.contentView addSubview:label];
     }
@@ -141,6 +142,7 @@
     if (_numbercouseLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"98人已报名";
+        label.font = H4;
         _numbercouseLabel = label;
         [self.contentView addSubview:label];
     }
@@ -160,6 +162,7 @@
     if (_couseNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"王蒙老师";
+        label.font = H4;
         label.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:label];
         _couseNameLabel = label;
@@ -182,6 +185,7 @@
     {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"￥1080";
+        label.font = H4;
         label.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:label];
         _cousePriceLabel = label;

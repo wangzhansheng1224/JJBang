@@ -40,11 +40,7 @@
     if(self)
     {
         
-        
-        [self.contentView addSubview:self.scaleImageView];
-        [self.contentView addSubview:self.scaleTitleLabel];
-        [self.contentView addSubview:self.scalePriceLabel];
-        [self addAllChildViewConstaint];
+     [self addAllChildViewConstaint];
     }
     return self;
 
@@ -56,8 +52,8 @@
     [self.scaleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.left.equalTo(self.contentView.mas_left);
-        make.right.equalTo(self.contentView.mas_right);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.scaleTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.scaleImageView.mas_bottom).offset(10);
@@ -67,7 +63,7 @@
     }];
     [self.scalePriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.scaleTitleLabel.mas_centerY);
-        make.left.equalTo(self.scaleTitleLabel.mas_right).offset(50);
+//        make.left.equalTo(self.scaleTitleLabel.mas_right).offset(50);
         make.right.equalTo(self.contentView.mas_right);
     }];
 }
@@ -79,7 +75,9 @@
         UIImageView * scaleImageView = [[UIImageView alloc]init];
         scaleImageView.image = [UIImage imageNamed:@"img_default"];
     
+        [self.contentView addSubview:scaleImageView];
         _scaleImageView = scaleImageView;
+        
 
     }
     return _scaleImageView;
@@ -89,6 +87,8 @@
     if (_scaleTitleLabel == nil) {
         UILabel * scaleTitleLabel = [[UILabel alloc]init];
         scaleTitleLabel.text = @"特惠商品测试";
+        scaleTitleLabel.font = H4;
+        [self.contentView addSubview:scaleTitleLabel];
         _scaleTitleLabel = scaleTitleLabel;
  
     }
@@ -100,6 +100,8 @@
     if (_scalePriceLabel == nil) {
         UILabel * scalePriceLabel = [[UILabel alloc]init];
         scalePriceLabel.text = @"价格测试";
+        scalePriceLabel.font = H4;
+        [self.contentView addSubview:scalePriceLabel];
         _scalePriceLabel = scalePriceLabel;
     }
     return _scalePriceLabel;

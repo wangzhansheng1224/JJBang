@@ -12,6 +12,7 @@
 #import "MBAdViewController.h"
 @interface AppDelegate ()
 
+
 @end
 
 @implementation AppDelegate

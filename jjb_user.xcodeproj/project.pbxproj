@@ -145,6 +145,9 @@
 		BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */; };
 		BB5679F41D58991800C2B61D /* shopClassify.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB5679F31D58991800C2B61D /* shopClassify.plist */; };
 		BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = BB613AC81D597D85004DE299 /* NSDate+NSString.m */; };
+		BB613ACF1D598B42004DE299 /* ClerkController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB613ACE1D598B42004DE299 /* ClerkController.m */; };
+		BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB613AD11D598B5F004DE299 /* ClerkListController.m */; };
+		BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB613AD41D599DE0004DE299 /* MBSaleCollectionView.m */; };
 		BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */; };
 		BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9701D506E580037DA9F /* UIView+MBFrame.m */; };
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
@@ -157,6 +160,8 @@
 		BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4451D51EDEE001BCEEF /* registerViewController.m */; };
 		BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4491D51FD22001BCEEF /* MBloginButton.m */; };
 		BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F44C1D51FE5E001BCEEF /* MBotherLoginView.m */; };
+		BBC572F51D59C3AE00848F5F /* MBStarStudentCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC572F41D59C3AE00848F5F /* MBStarStudentCollectionView.m */; };
+		BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC572F71D59CD0F00848F5F /* MBStarTeacherCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -446,6 +451,12 @@
 		BB5679F31D58991800C2B61D /* shopClassify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopClassify.plist; sourceTree = "<group>"; };
 		BB613AC71D597D85004DE299 /* NSDate+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSString.h"; sourceTree = "<group>"; };
 		BB613AC81D597D85004DE299 /* NSDate+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NSString.m"; sourceTree = "<group>"; };
+		BB613ACD1D598B42004DE299 /* ClerkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkController.h; sourceTree = "<group>"; };
+		BB613ACE1D598B42004DE299 /* ClerkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkController.m; sourceTree = "<group>"; };
+		BB613AD01D598B5F004DE299 /* ClerkListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkListController.h; sourceTree = "<group>"; };
+		BB613AD11D598B5F004DE299 /* ClerkListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkListController.m; sourceTree = "<group>"; };
+		BB613AD31D599DE0004DE299 /* MBSaleCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBSaleCollectionView.h; path = jjb_user/Clerk/Controller/MBSaleCollectionView.h; sourceTree = SOURCE_ROOT; };
+		BB613AD41D599DE0004DE299 /* MBSaleCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBSaleCollectionView.m; path = jjb_user/Clerk/Controller/MBSaleCollectionView.m; sourceTree = SOURCE_ROOT; };
 		BB68C96C1D506D500037DA9F /* MBNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewFeatureController.h; sourceTree = "<group>"; };
 		BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewFeatureController.m; sourceTree = "<group>"; };
 		BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBFrame.h"; sourceTree = "<group>"; };
@@ -470,6 +481,10 @@
 		BBC3F4491D51FD22001BCEEF /* MBloginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBloginButton.m; sourceTree = "<group>"; };
 		BBC3F44B1D51FE5E001BCEEF /* MBotherLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBotherLoginView.h; sourceTree = "<group>"; };
 		BBC3F44C1D51FE5E001BCEEF /* MBotherLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBotherLoginView.m; sourceTree = "<group>"; };
+		BBC572F31D59C3AE00848F5F /* MBStarStudentCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBStarStudentCollectionView.h; path = jjb_user/Clerk/Controller/MBStarStudentCollectionView.h; sourceTree = SOURCE_ROOT; };
+		BBC572F41D59C3AE00848F5F /* MBStarStudentCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarStudentCollectionView.m; path = jjb_user/Clerk/Controller/MBStarStudentCollectionView.m; sourceTree = SOURCE_ROOT; };
+		BBC572F61D59CD0F00848F5F /* MBStarTeacherCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBStarTeacherCollectionView.h; path = jjb_user/Clerk/Controller/MBStarTeacherCollectionView.h; sourceTree = SOURCE_ROOT; };
+		BBC572F71D59CD0F00848F5F /* MBStarTeacherCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarTeacherCollectionView.m; path = jjb_user/Clerk/Controller/MBStarTeacherCollectionView.m; sourceTree = SOURCE_ROOT; };
 		BBCCB49C1D4F24F40020E170 /* jjb_user.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jjb_user.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -575,6 +590,12 @@
 				BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */,
 				BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionView.h */,
 				BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionView.m */,
+				BB613AD31D599DE0004DE299 /* MBSaleCollectionView.h */,
+				BB613AD41D599DE0004DE299 /* MBSaleCollectionView.m */,
+				BBC572F31D59C3AE00848F5F /* MBStarStudentCollectionView.h */,
+				BBC572F41D59C3AE00848F5F /* MBStarStudentCollectionView.m */,
+				BBC572F61D59CD0F00848F5F /* MBStarTeacherCollectionView.h */,
+				BBC572F71D59CD0F00848F5F /* MBStarTeacherCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1336,6 +1357,7 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
+				BB613ACA1D598B0E004DE299 /* Clerk */,
 				73575F5C1D54D5FA0037F697 /* Student */,
 				731091AB1D51A5F20031B443 /* Teacher */,
 				731091E31D51C8700031B443 /* System */,
@@ -1480,6 +1502,33 @@
 				BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BB613ACA1D598B0E004DE299 /* Clerk */ = {
+			isa = PBXGroup;
+			children = (
+				BB613ACB1D598B0E004DE299 /* Controller */,
+				BB613ACC1D598B0E004DE299 /* View */,
+			);
+			path = Clerk;
+			sourceTree = "<group>";
+		};
+		BB613ACB1D598B0E004DE299 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB613ACD1D598B42004DE299 /* ClerkController.h */,
+				BB613ACE1D598B42004DE299 /* ClerkController.m */,
+				BB613AD01D598B5F004DE299 /* ClerkListController.h */,
+				BB613AD11D598B5F004DE299 /* ClerkListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB613ACC1D598B0E004DE299 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BB68C9681D506D120037DA9F /* NewFeature */ = {
@@ -1685,8 +1734,10 @@
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				731092321D5483600031B443 /* UserModel.m in Sources */,
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
+				BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
+				BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */,
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
@@ -1781,14 +1832,17 @@
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,
+				BBC572F51D59C3AE00848F5F /* MBStarStudentCollectionView.m in Sources */,
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
 				51D3489E1D57691B002D761C /* MyOrderController.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
+				BB613ACF1D598B42004DE299 /* ClerkController.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
+				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,

@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "star_solid-1.png"
+      "filename" : "shop_video_playbutton.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "star_solid-1@2x.png"
+      "filename" : "shop_video_playbutton@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "star_solid-1@3x.png",
+      "filename" : "shop_video_playbutton@3x.png",
       "scale" : "3x"
     }
   ],
