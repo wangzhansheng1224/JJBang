@@ -84,6 +84,7 @@
     if (_videoTitleLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"直播间测试";
+        label.font = H4;
         [self.contentView addSubview:label];
         _videoTitleLabel = label;
     }
@@ -93,7 +94,7 @@
 {
     if (_videoButton == nil) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"shop_video_playbutton"] forState:UIControlStateNormal];
         [self.contentView addSubview:button];
 //    [button addTarget:<#(nullable id)#> action:<#(nonnull SEL)#> forControlEvents:<#(UIControlEvents)#>];
         _videoButton = button;

@@ -11,7 +11,13 @@
  */
 #import <UIKit/UIKit.h>
 
+@protocol ClassViewCellDelegat <NSObject>
+
+//-(void)classViewCell:(Cla)
+
+@end
 @interface ShopController : UITableViewController
 
 @property(nonatomic,strong) NSMutableArray * groupsArray;
+
 @end

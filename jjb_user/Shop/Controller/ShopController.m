@@ -20,6 +20,9 @@
 #import "MBStarCouseCell.h"
 #import "ShopClassifyCell.h"
 #import "MBClassifyCollectionView.h"
+#import "MBSaleCollectionView.h"
+#import "MBStarStudentCollectionView.h"
+#import "MBStarTeacherCollectionView.h"
 
 /**
  *  首页主控制器
@@ -34,9 +37,9 @@ static NSString * const MBStarStudentCellIdentifier = @"MBStarStudentCellIdentif
 static NSString * const MBStarTeacherCellIdentifier = @"MBStarTeacherCellIdentifier";
 static NSString * const MBStarCouseCellIdentifier = @"MBStarCouseCellIdentifier";
 static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifier";
-static NSInteger const cols = 4;
-static CGFloat const margin = 20.0f;
-#define classCellWidth =  ((Screen_Width -(cols -1) * margin)/cols)
+//static NSInteger const cols = 4;
+//static CGFloat const margin = 20.0f;
+//#define classCellWidth =  ((Screen_Width -(cols -1) * margin)/cols)
 
 
 
@@ -48,6 +51,7 @@ static CGFloat const margin = 20.0f;
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
 @property(nonatomic,weak) UICollectionView * collectionView;
+
 @end
 
 @implementation ShopController
@@ -254,18 +258,24 @@ static CGFloat const margin = 20.0f;
     CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
     [self.scrollView setContentOffset:offset animated:YES];
 }
+//更多按钮点击事件
+-(void)buttonMoreClick:(UIButton *)btn
+{
+    JJBLog(@"%s",__func__);
+}
 
 #pragma 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 7;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 1;
 }
+/*
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -289,7 +299,7 @@ static CGFloat const margin = 20.0f;
     
     
     
-}
+}*/
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if(indexPath.section == 0)
@@ -297,10 +307,52 @@ static CGFloat const margin = 20.0f;
 //        MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
 //        return cell;
 //        UITableViewCell * cell = [[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0) ];
+        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0) ];
         [cell.contentView addSubview:collectionView];
         return cell;
+
+    }
+    else if(indexPath.section== 1)
+    {
+        MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if(indexPath.section == 2)
+    {
+//        MBSaleCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
+//        return cell;
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+        MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0)];
+        [cell.contentView addSubview:saleCollectionView];
+        return cell;
+    }
+    else if(indexPath.section ==3)
+    {
+        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    else if(indexPath.section == 4)
+    {
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+        MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180)];
+        [cell.contentView addSubview:starStudentView];
+        return cell;
+        
+    }
+    else if(indexPath.section == 5)
+    {
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+        MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180)];
+        [cell.contentView addSubview:starTeacherView];
+        return cell;
+        
+    }else
+    {
+        MBStarCouseCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarCouseCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
 
 //    }
 //    else if (indexPath.section == 1)
@@ -348,6 +400,36 @@ static CGFloat const margin = 20.0f;
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30.0f;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView * sectionView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 30)];
+    sectionView.backgroundColor = [UIColor whiteColor];
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"更多" forState:UIControlStateNormal];
+    [button setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
+    [button sizeToFit];
+    [button addTarget:self action:@selector(buttonMoreClick:) forControlEvents:UIControlEventTouchUpInside];
+    [sectionView addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sectionView.mas_top);
+        make.right.equalTo(sectionView.mas_right).offset(-20);
+        make.bottom.equalTo(sectionView.mas_bottom);
+    }];
+    UILabel * label = [[UILabel alloc]init];
+    label.text = @"最新活动";
+    label.textAlignment = NSTextAlignmentLeft;
+    [sectionView addSubview:label];
+    [label sizeToFit];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(button.mas_centerY);
+        make.left.equalTo(sectionView.mas_left).offset(20);
+    }];
+    
+
+    
+    return sectionView;
+
 }
 #pragma 
 #pragma mark - collectionDelegate and collectionDataSouce

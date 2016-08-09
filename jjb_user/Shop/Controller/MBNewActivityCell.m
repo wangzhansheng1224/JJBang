@@ -93,6 +93,7 @@
         
         UILabel * activityTitleLabel = [[UILabel alloc]init];
         activityTitleLabel.text = @"活动测试";
+        activityTitleLabel.font = H4;
         [activityTitleLabel sizeToFit];
         [self.contentView addSubview:activityTitleLabel];
         self.ActivityTitleLabel = activityTitleLabel;

@@ -11,6 +11,11 @@
 #import "ShopClassifyModel.h"
 #import "OrgListController.h"
 #import "BaseNavigationController.h"
+#import "AppDelegate.h"
+#import "CourseListController.h"
+#import "ActivityController.h"
+#import "ClerkListController.h"
+#import "TeacherListController.h"
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
 @property(nonatomic,assign) CGSize itemSize;
@@ -32,7 +37,6 @@ static NSString * const cellID = @"cell";
     if (_layout == nil) {
         UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
         layout.itemSize = CGSizeMake(cellWH, cellWH-10);
-        JJBLog(@"%@",NSStringFromCGSize(layout.itemSize));
         layout.minimumInteritemSpacing = margin ;
         layout.minimumLineSpacing = margin;
         _layout = layout;
@@ -77,17 +81,27 @@ static NSString * const cellID = @"cell";
 {
     JJBLog(@"点击了%ld行，第%ld列",indexPath.section,indexPath.row);
     if (indexPath.row == 0) {
+        
         //课程
+        CourseListController * couseListVC = [[CourseListController alloc]init];
+        
     }else if (indexPath.row == 1)
     {
         //活动
+        ActivityController * activityVC = [[ActivityController alloc]init];
+        
     }else if(indexPath.row == 2)
     {
         //店员
+//        ClerkListController * clerkListVC = [];
+        ClerkListController * clerkListVC = [[ClerkListController alloc]init];
+        
         
     }else if(indexPath.row == 3)
     {
         //老师
+        TeacherListController * teacherListVC = [[TeacherListController alloc]init];
+        
         
     }else if(indexPath.row == 4)
     {
@@ -100,18 +114,22 @@ static NSString * const cellID = @"cell";
     }else if(indexPath.row == 6)
     {
         //社区商城
+        
     }else if(indexPath.row == 7)
     {
         //机构
         OrgListController * orgListVC = [OrgListController alloc];
-        UINavigationController * navControl = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        JJBLog(@"--------------%@",[UIApplication sharedApplication].keyWindow);
-//        UINavigationController * navControl =(UINavigationController *) self.window.rootViewController;
-//        self.window.rootViewController
-//        UINavigationController * navControl = (BaseNavigationController *)self.window.rootViewController;
-        [navControl  pushViewController:orgListVC animated:YES];
+//        UINavigationController * navControl = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
         
         
+        
+//        UIApplication * app = [[UIApplication sharedApplication]delegate];
+//        UINavigationController * nav = app.navController;
+//    UINavigationController * navControl  =  [(AppDelegate *)[[UIApplication sharedApplication]delegate]navControl];
+        AppDelegate * nav = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+        
+        [nav.navController  pushViewController:orgListVC animated:YES];
+
     }
     
 }

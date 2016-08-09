@@ -37,8 +37,8 @@
         make.height.mas_equalTo(@49);
     }];
     [self.classifyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.classifyImageView.mas_bottom).offset(-10);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(2);
+        make.top.equalTo(self.classifyImageView.mas_bottom).offset(-8);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(8);
         make.centerX.equalTo(self.contentView.mas_centerX);
     }];
     
@@ -65,6 +65,7 @@
         UILabel * label = [[UILabel alloc]init];
         label.text = @"分类";
         label.textAlignment = NSTextAlignmentLeft;
+        label.font =  H4;
         [label sizeToFit];
         [self.contentView addSubview:label];
         _classifyTitleLabel = label;

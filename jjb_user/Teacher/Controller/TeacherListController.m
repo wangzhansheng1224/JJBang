@@ -10,4 +10,22 @@
 
 @implementation TeacherListController
 
+
+#pragma
+#pragma mark - life cycle
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupNav];
+}
+
+
+
+#pragma
+#pragma mark - private methods
+-(void)setupNav
+{
+    self.navigationItem.title = @"所有老师";
+}
+
 @end

@@ -8,6 +8,28 @@
 
 #import "CourseController.h"
 
+/**
+ *  课程控制器
+ */
 @implementation CourseController
+
+#pragma
+#pragma mark - life cycle
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupNav];
+}
+
+
+
+#pragma
+#pragma mark - private methods
+-(void)setupNav
+{
+    self.navigationItem.title = @"课程";
+}
+
+
 
 @end

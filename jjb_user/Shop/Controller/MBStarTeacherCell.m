@@ -40,8 +40,8 @@
     [self.starTeacherImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.left.equalTo(self.contentView.mas_left);
-        make.right.equalTo(self.contentView.mas_right);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.starTeacherNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.starTeacherImageView.mas_bottom).offset(-10);
@@ -73,7 +73,11 @@
     if (_starTeacherNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"老师名字测试";
+        label.font = H4;
         label.textAlignment  = NSTextAlignmentLeft;
+        label.font = FONT_SIZE(13);
+        
+        [label sizeToFit];
         _starTeacherNameLabel = label;
         [self.contentView addSubview:label];
 

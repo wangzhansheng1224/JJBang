@@ -46,7 +46,7 @@
     [self.starStudentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.leading.equalTo(self.contentView.mas_left);
+        make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
     }];
     [self.starStudentNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,6 +81,7 @@
     if (_starStudentNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"明星学员测试";
+        label.font = H4;
         label.textAlignment = NSTextAlignmentLeft;
         _starStudentNameLabel = label;
         [self.contentView addSubview:label];
@@ -91,7 +92,9 @@
 {
     if (_starStudentGrowLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
+//        NSString * string = [NSString stringWithFormat:@"%@成长值",];
         label.text = @"成长值测试";
+        label.font = H4;
         label.textAlignment = NSTextAlignmentRight;
         _starStudentGrowLabel = label;
         [self.contentView addSubview:label];

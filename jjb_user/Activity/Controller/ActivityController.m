@@ -11,7 +11,9 @@
 #import "ParticipationController.h"
 #import "SponsorViewController.h"
 #import "RHMenuViewController.h"
-
+/**
+ *  活动控制器
+ */
 
 @interface ActivityController ()
 
