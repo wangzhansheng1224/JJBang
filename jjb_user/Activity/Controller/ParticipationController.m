@@ -8,17 +8,21 @@
 
 #import "ParticipationController.h"
 #import "ActivityListCell.h"
+#import "ActivityListAPIManager.h"
+#import "ActivityListReformer.h"
 #import "ActivityDetailController.h"
 
-#define SIZE [UIScreen mainScreen].bounds.size
+static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentifier";
 
-@interface ParticipationController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ParticipationController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-
-@property (nonatomic,strong) NSMutableArray *dataArr;
-
+@property (nonatomic,strong) NSMutableArray *arrData;
+@property (nonatomic,strong) LDAPIBaseManager *activityListAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> activityListReformer;
 @property (nonatomic,strong) ActivityDetailController *detail;
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
 
 @end
 
@@ -28,82 +32,130 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [self loadData];
-    
-    [self createTableView];
-}
-
-- (void)loadData {
-    
-}
-
-#pragma mark -- CreateTableView
-- (void)createTableView {
-    
-    self.tableView.frame = CGRectMake(0, 0, SIZE.width, SIZE.height-40);
-    
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    
-    [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:@"Partic"];
-    
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    self.pageIndex=0;
+    self.pageSize=20;
     [self.view addSubview:self.tableView];
+    [self.activityListAPIManager loadData];
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.arrData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Partic" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Partic"];
+    ActivityListCell *cell = [tableView dequeueReusableCellWithIdentifier:MyActivityListCellIdentifier forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[ActivityListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyActivityListCellIdentifier];
     }
-    
+    [cell configWithData:_arrData[indexPath.row]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 264;
+    return 272;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //    NSString *str=_dataDic[_array[indexPath.section]][indexPath.row];
-    //    vc.name=str;
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.detail.hidesBottomBarWhenPushed = YES;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.navigationController pushViewController:self.detail animated:YES];
 }
 
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
+    [self.arrData addObjectsFromArray:resultData];
+    self.pageIndex=[self.arrData count];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
+}
 
-#pragma mark -- getter and setter
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"shop_id":@"3",
+             @"user_id":@([UserModel currentUser].userID),
+             @"start":@(self.pageIndex),
+             @"count":@(self.pageSize),
+             @"isOwn":@"0"
+             };
+}
+
+#pragma -
+#pragma mark - getters and setters
+
+- (LDAPIBaseManager *)activityListAPIManager {
+    if (_activityListAPIManager == nil) {
+        _activityListAPIManager = [ActivityListAPIManager  sharedInstance];
+        _activityListAPIManager.delegate=self;
+        _activityListAPIManager.paramSource=self;
+    }
+    return _activityListAPIManager;
+}
+
+- (id<ReformerProtocol>) activityListReformer{
+    
+    if (!_activityListReformer) {
+        _activityListReformer=[[ActivityListReformer alloc] init];
+    }
+    return _activityListReformer;
+}
+
 - (UITableView *)tableView {
     
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
+        _tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height - 49);
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.arrData removeAllObjects];
+            self.pageIndex=0;
+            [self.activityListAPIManager loadData];
+        }];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.activityListAPIManager loadData];
+        }];
+        
+        [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:MyActivityListCellIdentifier];
+        
     }
     return _tableView;
 }
 
-- (NSMutableArray *)dataArr{
+- (NSMutableArray *)arrData{
     
-    if (!_dataArr) {
-        
-        _dataArr = [NSMutableArray array];
+    if (!_arrData) {
+        _arrData = [NSMutableArray array];
     }
-    return _dataArr;
+    return _arrData;
     
 }
 
@@ -116,20 +168,5 @@
     return _detail;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

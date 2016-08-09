@@ -9,6 +9,9 @@
 #import "ViewControllerIntercepter.h"
 #import <Aspects/Aspects.h>
 #import <UIKit/UIKit.h>
+#import "ActivityController.h"
+#import "ActivityListController.h"
+#import "ParticipationController.h"
 
 @implementation ViewControllerIntercepter
 + (void)load
@@ -77,8 +80,12 @@
 //    attrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
 //    [bar setTitleTextAttributes:attrs];
     /* 你可以使用这个方法进行打日志，初始化基础业务相关的内容 */
-    NSLog(@"[%@ viewWillAppear:%@]", [viewController class], animated ? @"YES" : @"NO");
-    viewController.navigationController.navigationBarHidden = NO;
+
+//    if ([ActivityController class]==[viewController class]||[ActivityListController class]==[viewController class]||[ParticipationController class]==[viewController class]) {
+//        viewController.navigationController.navigationBarHidden = YES;
+//    }
+//    else
+//        viewController.navigationController.navigationBarHidden = NO;
 }
 
 @end

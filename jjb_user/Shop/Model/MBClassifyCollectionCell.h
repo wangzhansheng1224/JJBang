@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 //@class ShopClassifyModel;
-@class ShopClassifyModel
+@class ShopClassifyModel;
 @interface MBClassifyCollectionCell : UICollectionView
 
 

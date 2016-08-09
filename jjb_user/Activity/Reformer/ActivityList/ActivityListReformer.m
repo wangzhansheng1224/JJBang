@@ -29,6 +29,11 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
         NSArray *arrData=data[@"data"];
         
         for (NSInteger i=0; i< [arrData count]; i++) {
+            
+           NSDate *currentTime=[NSDate dateWithTimeIntervalSinceNow:[arrData[i][@"starttime"] doubleValue]];
+            NSLog(@"%@",[currentTime stringMonthDayHourMinute]);
+      
+            
             NSDictionary *itemData=@{
                                      kActivityListID:arrData[i][@"id"],
                                      kActivityListTitle:arrData[i][@"title"],

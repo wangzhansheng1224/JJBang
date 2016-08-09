@@ -70,6 +70,7 @@
 		731FDD1B1D586F3200A18534 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1A1D586F3200A18534 /* MyOrderDetailController.m */; };
 		731FDD201D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */; };
 		731FDD241D58767700A18534 /* Target_My.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD231D58767700A18534 /* Target_My.m */; };
+		731FDD271D58994300A18534 /* NSDate_TimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD261D58994300A18534 /* NSDate_TimeZone.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73575F361D549C7C0037F697 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F331D549C7C0037F697 /* FileCache.m */; };
 		73575F371D549C7C0037F697 /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F351D549C7C0037F697 /* PathHelper.m */; };
 		73575F3B1D549D6B0037F697 /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F3A1D549D6B0037F697 /* AppCache.m */; };
@@ -289,6 +290,8 @@
 		731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorMyActions.m"; path = "My/CTMediator+CTMediatorMyActions.m"; sourceTree = "<group>"; };
 		731FDD221D58767700A18534 /* Target_My.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_My.h; path = Actions/Target_My.h; sourceTree = "<group>"; };
 		731FDD231D58767700A18534 /* Target_My.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_My.m; path = Actions/Target_My.m; sourceTree = "<group>"; };
+		731FDD251D58994300A18534 /* NSDate_TimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_TimeZone.h; sourceTree = "<group>"; };
+		731FDD261D58994300A18534 /* NSDate_TimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_TimeZone.m; sourceTree = "<group>"; };
 		73575F321D549C7C0037F697 /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
 		73575F331D549C7C0037F697 /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		73575F341D549C7C0037F697 /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
@@ -1450,6 +1453,8 @@
 		BB159CB11D4F473200F46F09 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				731FDD251D58994300A18534 /* NSDate_TimeZone.h */,
+				731FDD261D58994300A18534 /* NSDate_TimeZone.m */,
 				BB159CB21D4F473200F46F09 /* UIColor+MBHex.h */,
 				BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */,
 				BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */,
@@ -1711,6 +1716,7 @@
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				731092321D5483600031B443 /* UserModel.m in Sources */,
+				731FDD271D58994300A18534 /* NSDate_TimeZone.m in Sources */,
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
