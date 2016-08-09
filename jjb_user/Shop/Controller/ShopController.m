@@ -19,7 +19,7 @@
 #import "MBStarTeacherCell.h"
 #import "MBStarCouseCell.h"
 #import "ShopClassifyCell.h"
-#import "MBClassifyCollectionCell.h"
+#import "MBClassifyCollectionView.h"
 
 /**
  *  首页主控制器
@@ -48,8 +48,6 @@ static CGFloat const margin = 20.0f;
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
 @property(nonatomic,weak) UICollectionView * collectionView;
-@property(nonatomic,strong) NSArray * classifyImageArray;  //分类图片
-@property(nonatomic,strong) NSArray * classifyTitleArray;   //分类标题
 @end
 
 @implementation ShopController
@@ -300,7 +298,7 @@ static CGFloat const margin = 20.0f;
 //        return cell;
 //        UITableViewCell * cell = [[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    MBClassifyCollectionCell * collectionView = [[MBClassifyCollectionCell alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0) imageArray:self.classifyImageArray titleArray:self.classifyTitleArray];
+    MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0) ];
         [cell.contentView addSubview:collectionView];
         return cell;
 
@@ -463,40 +461,5 @@ static CGFloat const margin = 20.0f;
 
     }
     return _collectionView;
-}
--(NSArray *)classifyImageArray
-{
-    if (_classifyImageArray == nil) {
-        
-        UIImage * imageCurriculum = [UIImage imageNamed:@"home_btn_curriculum.png"];
-        UIImage * imageActivity = [UIImage imageNamed:@"home_btn_activity.png"];
-        UIImage * imageClerk = [UIImage imageNamed:@"home_btn_Clerk.png"];
-        UIImage * imageTheacher = [UIImage imageNamed:@"home_btn_Teacher.png"];
-        UIImage * imageBlock = [UIImage imageNamed:@"home_btn_block.png"];
-        UIImage * imageChildGrow = [UIImage imageNamed:@"home_btn_Childgrowth.png"];
-        UIImage * imageShop = [UIImage imageNamed:@"home_btn_Shopping.png"];
-        UIImage * imageMechanism = [UIImage imageNamed:@"home_btn_mechanism.png"];
-        _classifyImageArray = [NSArray arrayWithObjects:imageCurriculum,imageActivity,imageClerk,imageTheacher,imageBlock,imageChildGrow,imageShop,imageMechanism, nil];
-        
-    }
-    return _classifyImageArray;
-}
-
--(NSArray *)classifyTitleArray
-{
-    if (_classifyTitleArray == nil) {
-        NSString * stringCurriculum = @"课程";
-        NSString * stringActivity = @"活动";
-        NSString * stringClerk = @"店员";
-        NSString * stringTheacher = @"老师";
-        NSString * stringBlock = @"街区";
-        NSString * stringChildGrow = @"儿童成长";
-        NSString * stringShop = @"社区商城";
-        NSString * stringMechanism = @"机构";
-        
-
-        _classifyTitleArray = [NSArray arrayWithObjects:stringCurriculum,stringActivity,stringClerk,stringTheacher,stringBlock,stringChildGrow,stringShop,stringMechanism, nil];
-    }
-    return _classifyTitleArray;
 }
 @end

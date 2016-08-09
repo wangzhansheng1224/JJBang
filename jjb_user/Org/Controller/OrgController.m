@@ -7,7 +7,25 @@
 //
 
 #import "OrgController.h"
-
+/**
+ *  机构控制器
+ */
 @implementation OrgController
 
+#pragma 
+#pragma mark - life cycle
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupNav];
+}
+
+
+
+#pragma 
+#pragma mark - private methods
+-(void)setupNav
+{
+    self.navigationItem.title = @"机构";
+}
 @end

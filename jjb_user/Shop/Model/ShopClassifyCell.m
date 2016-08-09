@@ -7,10 +7,8 @@
 //
 
 #import "ShopClassifyCell.h"
-
+#import "ShopClassifyModel.h"
 @interface ShopClassifyCell ()
-@property(nonatomic,weak) UIImageView * classifyImageView;
-@property(nonatomic,weak) UILabel * classifyTitleLabel;
 
 @end
 @implementation ShopClassifyCell
@@ -34,7 +32,7 @@
 {
     [self.classifyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left);
+        make.centerX.equalTo(self.contentView.mas_centerX);
         make.width.mas_equalTo(@50);
         make.height.mas_equalTo(@49);
     }];
@@ -48,6 +46,7 @@
 
 #pragma 
 #pragma mark - getter and setter
+
 -(UIImageView *)classifyImageView
 {
 
@@ -55,6 +54,7 @@
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
         _classifyImageView = imageView;
+        [self.contentView addSubview:imageView];
     }
     return _classifyImageView;
 }
@@ -64,10 +64,19 @@
     if (_classifyTitleLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"分类";
-        label.textAlignment = NSTextAlignmentCenter;
+        label.textAlignment = NSTextAlignmentLeft;
         [label sizeToFit];
+        [self.contentView addSubview:label];
         _classifyTitleLabel = label;
     }
     return _classifyTitleLabel;
+}
+
+-(void)setClassifyModel:(ShopClassifyModel *)classifyModel
+{
+    _classifyModel = classifyModel;
+    self.classifyImageView.image = [UIImage imageNamed:classifyModel.image];
+    self.classifyTitleLabel.text = classifyModel.title;
+    
 }
 @end

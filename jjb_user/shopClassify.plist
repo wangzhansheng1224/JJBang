@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>课程</string>
+		<key>image</key>
+		<string>home_btn_curriculum.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>活动</string>
+		<key>image</key>
+		<string>home_btn_activity.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>店员</string>
+		<key>image</key>
+		<string>home_btn_Clerk.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>老师</string>
+		<key>image</key>
+		<string>home_btn_Teacher.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>街区</string>
+		<key>image</key>
+		<string>home_btn_block.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>儿童成长</string>
+		<key>image</key>
+		<string>home_btn_Childgrowth.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>社区商城</string>
+		<key>image</key>
+		<string>home_btn_Shopping.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>机构</string>
+		<key>image</key>
+		<string>home_btn_mechanism.png</string>
+	</dict>
+</array>
+</plist>
