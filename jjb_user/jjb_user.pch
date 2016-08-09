@@ -94,6 +94,7 @@ alpha:(a)]
 #import "UserModel.h"
 #import "CTMediator.h"
 #import "CTMediator+CTMediatorSystemActions.h"
-#import "NSDate_TimeZone.h"
+#import "NSDate+NSString.h"
+#import "DateTools.h"
 
 #endif

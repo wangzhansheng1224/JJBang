@@ -10,4 +10,10 @@
 
 @implementation ShopClassifyModel
 
++(instancetype)classifyWithDict:(NSDictionary *)dict
+{
+    ShopClassifyModel * classModel = [[self alloc]init];
+    [classModel setValuesForKeysWithDictionary:dict];
+    return classModel;
+}
 @end

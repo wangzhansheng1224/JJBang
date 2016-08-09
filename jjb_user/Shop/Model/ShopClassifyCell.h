@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ShopClassifyModel;
 @interface ShopClassifyCell : UICollectionViewCell
+@property(nonatomic,weak) UIImageView * classifyImageView;
+@property(nonatomic,weak) UILabel * classifyTitleLabel;
 
+@property(nonatomic,strong) NSArray * classifyArray;
+
+@property(nonatomic,strong)ShopClassifyModel * classifyModel;
 @end
+

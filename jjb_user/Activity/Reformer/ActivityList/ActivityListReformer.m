@@ -11,8 +11,7 @@
 
 NSString *const kActivityListID=@"ActivityListID";
 NSString *const kActivityListTitle=@"ActivityListTitle";
-NSString *const kActivityListStarttime=@"ActivityListStarttime";
-NSString *const kActivityListEndtime=@"ActivityListEndtime";
+NSString *const kActivityListDate=@"ActivityListDate";
 NSString *const kActivityListAddress=@"ActivityListAddress";
 NSString *const kActivityListState=@"ActivityListState";
 NSString *const kActivityListImageURL=@"ActivityListImage";
@@ -21,7 +20,6 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
 @implementation ActivityListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
-    
     if ([manager isKindOfClass:[ActivityListAPIManager class]]) {
  
         NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
@@ -30,15 +28,15 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
         
         for (NSInteger i=0; i< [arrData count]; i++) {
             
-           NSDate *currentTime=[NSDate dateWithTimeIntervalSinceNow:[arrData[i][@"starttime"] doubleValue]];
-            NSLog(@"%@",[currentTime stringMonthDayHourMinute]);
-      
+            NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"starttime"] doubleValue]/1000];
+            
+            NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"endtime"] doubleValue]/1000];
+            NSString *strTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
             
             NSDictionary *itemData=@{
                                      kActivityListID:arrData[i][@"id"],
                                      kActivityListTitle:arrData[i][@"title"],
-                                     kActivityListStarttime:arrData[i][@"starttime"],
-                                     kActivityListEndtime:arrData[i][@"endtime"],
+                                     kActivityListDate:strTime,
                                      kActivityListAddress:arrData[i][@"address"],
                                      kActivityListState:arrData[i][@"state"],
                                      kActivityListImageURL:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]],

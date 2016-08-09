@@ -11,4 +11,5 @@
 @interface ShopClassifyModel : NSObject
 @property(nonatomic,copy) NSString * image;
 @property(nonatomic,copy) NSString * title;
++(instancetype)classifyWithDict:(NSDictionary *)dict;
 @end

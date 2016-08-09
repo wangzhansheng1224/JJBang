@@ -8,6 +8,26 @@
 
 #import "OrgListController.h"
 
+/**
+ *  机构列表
+ */
 @implementation OrgListController
+
+#pragma
+#pragma mark - life cycle
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupNav];
+}
+
+
+
+#pragma
+#pragma mark - private methods
+-(void)setupNav
+{
+    self.navigationItem.title = @"所有机构";
+}
 
 @end

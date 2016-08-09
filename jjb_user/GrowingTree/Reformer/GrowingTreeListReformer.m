@@ -43,7 +43,7 @@ NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
                                      kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
                                      kGrowingTreeListFromUserName:arrData[i][@"fromUser"],
                                      kGrowingTreeListAddress:arrData[i][@"address"],
-                                     kGrowingTreeListCreateTime:[NSDate dateFromString:arrData[i][@"create_time"]] ,
+                                     kGrowingTreeListCreateTime:arrData[i][@"create_time"] ,
                                      kGrowingTreeListImages:arrData[i][@"images"]
                                      };
             [arrResult addObject:itemData];

@@ -70,7 +70,6 @@
 		731FDD1B1D586F3200A18534 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1A1D586F3200A18534 /* MyOrderDetailController.m */; };
 		731FDD201D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */; };
 		731FDD241D58767700A18534 /* Target_My.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD231D58767700A18534 /* Target_My.m */; };
-		731FDD271D58994300A18534 /* NSDate_TimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD261D58994300A18534 /* NSDate_TimeZone.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73575F361D549C7C0037F697 /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F331D549C7C0037F697 /* FileCache.m */; };
 		73575F371D549C7C0037F697 /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F351D549C7C0037F697 /* PathHelper.m */; };
 		73575F3B1D549D6B0037F697 /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F3A1D549D6B0037F697 /* AppCache.m */; };
@@ -146,8 +145,10 @@
 		BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFB1D546AFD000A0855 /* ScanViewController.m */; };
 		BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */; };
 		BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */; };
-		BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */; };
+		BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionView.m */; };
 		BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */; };
+		BB5679F41D58991800C2B61D /* shopClassify.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB5679F31D58991800C2B61D /* shopClassify.plist */; };
+		BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = BB613AC81D597D85004DE299 /* NSDate+NSString.m */; };
 		BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */; };
 		BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9701D506E580037DA9F /* UIView+MBFrame.m */; };
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
@@ -290,8 +291,6 @@
 		731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorMyActions.m"; path = "My/CTMediator+CTMediatorMyActions.m"; sourceTree = "<group>"; };
 		731FDD221D58767700A18534 /* Target_My.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_My.h; path = Actions/Target_My.h; sourceTree = "<group>"; };
 		731FDD231D58767700A18534 /* Target_My.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_My.m; path = Actions/Target_My.m; sourceTree = "<group>"; };
-		731FDD251D58994300A18534 /* NSDate_TimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_TimeZone.h; sourceTree = "<group>"; };
-		731FDD261D58994300A18534 /* NSDate_TimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_TimeZone.m; sourceTree = "<group>"; };
 		73575F321D549C7C0037F697 /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
 		73575F331D549C7C0037F697 /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		73575F341D549C7C0037F697 /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
@@ -452,10 +451,13 @@
 		BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanResultViewController.m; sourceTree = "<group>"; };
 		BB5679EA1D5834E400C2B61D /* ShopClassifyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopClassifyCell.h; path = jjb_user/Shop/Model/ShopClassifyCell.h; sourceTree = SOURCE_ROOT; };
 		BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopClassifyCell.m; path = jjb_user/Shop/Model/ShopClassifyCell.m; sourceTree = SOURCE_ROOT; };
-		BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBClassifyCollectionCell.h; path = jjb_user/Shop/Model/MBClassifyCollectionCell.h; sourceTree = SOURCE_ROOT; };
-		BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBClassifyCollectionCell.m; path = jjb_user/Shop/Model/MBClassifyCollectionCell.m; sourceTree = SOURCE_ROOT; };
+		BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBClassifyCollectionView.h; path = jjb_user/Shop/Model/MBClassifyCollectionView.h; sourceTree = SOURCE_ROOT; };
+		BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBClassifyCollectionView.m; path = jjb_user/Shop/Model/MBClassifyCollectionView.m; sourceTree = SOURCE_ROOT; };
 		BB5679F01D5889C000C2B61D /* ShopClassifyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopClassifyModel.h; sourceTree = "<group>"; };
 		BB5679F11D5889C000C2B61D /* ShopClassifyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopClassifyModel.m; sourceTree = "<group>"; };
+		BB5679F31D58991800C2B61D /* shopClassify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopClassify.plist; sourceTree = "<group>"; };
+		BB613AC71D597D85004DE299 /* NSDate+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSString.h"; sourceTree = "<group>"; };
+		BB613AC81D597D85004DE299 /* NSDate+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NSString.m"; sourceTree = "<group>"; };
 		BB68C96C1D506D500037DA9F /* MBNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewFeatureController.h; sourceTree = "<group>"; };
 		BB68C96D1D506D500037DA9F /* MBNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewFeatureController.m; sourceTree = "<group>"; };
 		BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBFrame.h"; sourceTree = "<group>"; };
@@ -583,8 +585,8 @@
 				BB1E8A661D5704380078D083 /* MBStarCouseCell.m */,
 				BB5679EA1D5834E400C2B61D /* ShopClassifyCell.h */,
 				BB5679EB1D5834E400C2B61D /* ShopClassifyCell.m */,
-				BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionCell.h */,
-				BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionCell.m */,
+				BB5679ED1D586B5C00C2B61D /* MBClassifyCollectionView.h */,
+				BB5679EE1D586B5C00C2B61D /* MBClassifyCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1398,6 +1400,7 @@
 			children = (
 				5175745B1D548203009894D7 /* main.m */,
 				BBCCB49C1D4F24F40020E170 /* jjb_user.pch */,
+				BB5679F31D58991800C2B61D /* shopClassify.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1453,8 +1456,8 @@
 		BB159CB11D4F473200F46F09 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				731FDD251D58994300A18534 /* NSDate_TimeZone.h */,
-				731FDD261D58994300A18534 /* NSDate_TimeZone.m */,
+				BB613AC71D597D85004DE299 /* NSDate+NSString.h */,
+				BB613AC81D597D85004DE299 /* NSDate+NSString.m */,
 				BB159CB21D4F473200F46F09 /* UIColor+MBHex.h */,
 				BB159CB31D4F473200F46F09 /* UIColor+MBHex.m */,
 				BB68C96F1D506E580037DA9F /* UIView+MBFrame.h */,
@@ -1649,6 +1652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5679F41D58991800C2B61D /* shopClassify.plist in Resources */,
 				5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */,
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1716,7 +1720,6 @@
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				731092321D5483600031B443 /* UserModel.m in Sources */,
-				731FDD271D58994300A18534 /* NSDate_TimeZone.m in Sources */,
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
@@ -1725,7 +1728,7 @@
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
-				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionCell.m in Sources */,
+				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
@@ -1787,6 +1790,7 @@
 				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
+				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,

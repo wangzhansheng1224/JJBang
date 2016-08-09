@@ -10,8 +10,7 @@
 #define ActivityListKey_h
 extern NSString *const kActivityListID;
 extern NSString *const kActivityListTitle;
-extern NSString *const kActivityListStarttime;
-extern NSString *const kActivityListEndtime;
+extern NSString *const kActivityListDate;
 extern NSString *const kActivityListAddress;
 extern NSString *const kActivityListState;
 extern NSString *const kActivityListImageURL;
