@@ -18,7 +18,7 @@
 #import "MySettingController.h"
 #import "StudentController.h"
 #import "MyOrderPayController.h"
-
+#import "MyBalanceViewController.h"
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -174,7 +174,9 @@
 
 - (void)moneyBtnClick:(UIButton *)moneyBtn {
     
-    NSLog(@"我是余额按钮");
+//    NSLog(@"我是余额按钮");
+    MyBalanceViewController * BalanceVC = [[MyBalanceViewController alloc]init];
+    [self.navigationController pushViewController:BalanceVC animated:YES];
 }
 
 - (void)adBtnClick:(UIButton *)adBtn {
