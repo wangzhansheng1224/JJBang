@@ -102,13 +102,6 @@
 }
 
 #pragma -
-#pragma mark - event response
-
-- (void) tabbarControllChangeValue:(id)sender{
-    
-}
-
-#pragma -
 #pragma mark - getters and setters
 - (iCarousel *)iView_Photo {
     

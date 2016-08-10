@@ -1,14 +1,14 @@
 //
-//  ActivityDetailCell.m
+//  ActivityRegistrationCell.m
 //  jjb_user
 //
-//  Created by Check on 16/8/5.
+//  Created by Aimee on 16/8/10.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "ActivityDetailCell.h"
+#import "ActivityRegistrationCell.h"
 
-@interface ActivityDetailCell ()
+@interface ActivityRegistrationCell ()
 
 @property (nonatomic,strong) UIView *view_line;
 @property (nonatomic,strong) UILabel *label_title;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation ActivityDetailCell
+@implementation ActivityRegistrationCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -44,7 +44,7 @@
         make.top.mas_equalTo(superView.mas_top);
         make.height.mas_equalTo(@(10));
     }];
-
+    
     [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
@@ -71,7 +71,7 @@
     return _view_line;
 }
 - (UILabel *)label_title {
-
+    
     if (!_label_title) {
         
         _label_title = [[UILabel alloc] init];
@@ -93,10 +93,9 @@
         _label_info.lineBreakMode = NSLineBreakByWordWrapping;
         _label_info.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
         [_label_info setContentMode:UIViewContentModeTop];
-
+        
     }
     return _label_info;
 }
-
 
 @end

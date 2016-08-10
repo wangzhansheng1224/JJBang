@@ -8,7 +8,7 @@
 
 #import "ActivityDetailController.h"
 #import "ActivityDetailCell.h"
-#import "ActivityInfoCell.h"
+#import "ActivityRegistrationCell.h"
 #import "ActivityDetailAPIManager.h"
 #import "ActivityDetailHeader.h"
 #import "HMSegmentedControl.h"
@@ -16,12 +16,13 @@
 @interface ActivityDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
+@property (nonatomic,strong) LDAPIBaseManager *signUpAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> signUpReformer;
 @property (nonatomic,strong) id<ReformerProtocol> detailReformer;
 @property (nonatomic,strong) ActivityDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *array_data;
-@property (nonatomic,assign) int index;//0 1 2
 
 @end
 
@@ -60,22 +61,34 @@
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    if (section==0) {
+        return 1;
+    } else if (section==1) {
+         return 10;
+    } else
+         return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_index == 0) {
+    if (_tabbarControl.selectedSegmentIndex == 0) {
         //活动详情
-        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetail" forIndexPath:indexPath];
+        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailCell" forIndexPath:indexPath];
         
         return cell;
         
-    }else {
+    }
+   else if (_tabbarControl.selectedSegmentIndex==1) {
         //报名信息
-        ActivityInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityInfo" forIndexPath:indexPath];
+        ActivityRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityRegistrationCell" forIndexPath:indexPath];
+        
+        return cell;
+    } else {
+        //报名信息
+        ActivityRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityRegistrationCell" forIndexPath:indexPath];
         
         return cell;
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,13 +105,12 @@
     return self.tabbarControl;
 }
 
-
-
 #pragma -
 #pragma mark - event response
 
 - (void) tabbarControllChangeValue:(id)sender{
     
+    [_tableView reloadData];
 }
 
 
@@ -127,7 +139,7 @@
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
         _tabbarControl.selectionIndicatorHeight=2.0f;
-        [_tabbarControl addTarget:self action:@selector(tabbarControllChangeValue:) forControlEvents:UIControlEventTouchUpInside];
+        [_tabbarControl addTarget:self action:@selector(tabbarControllChangeValue:) forControlEvents:UIControlEventValueChanged];
     }
     return _tabbarControl;
 }
@@ -140,8 +152,8 @@
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetail"];
-        [_tableView registerClass:[ActivityInfoCell class] forCellReuseIdentifier:@"ActivityInfo"];
+        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailCell"];
+        [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:@"ActivityRegistrationCell"];
         
     }
     return _tableView;
