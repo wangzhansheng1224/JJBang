@@ -69,46 +69,48 @@
 {
     [self.couseImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left);
+        make.left.equalTo(self.contentView.mas_left).offset(16);
 //        make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.width.mas_equalTo(@155);
-        make.height.mas_equalTo(@100);
+        make.width.mas_equalTo(@150);
+        make.height.mas_equalTo(@120);
     
     }];
     [self.couseNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(20);
-        make.left.equalTo(self.couseImageView.mas_right).offset(20);
-        make.right.equalTo(self.numbercouseLabel.mas_left).offset(-20);
-        make.height.mas_equalTo(@30);
+        make.top.equalTo(self.couseImageView.mas_top).offset(8);
+        make.left.equalTo(self.couseImageView.mas_right).offset(16);
+        make.right.equalTo(self.contentView.mas_right).offset(100);
+        make.height.mas_equalTo(@20);
     }];
     [self.numbercouseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.couseNameLabel.mas_bottom);
-        make.left.equalTo(self.couseNameLabel.mas_right).offset(20);
+//        make.bottom.equalTo(self.couseNameLabel.mas_bottom);
+        make.top.equalTo(self.couseNameLabel.mas_top);
+//        make.left.equalTo(self.couseNameLabel.mas_right).offset(20);
         make.right.equalTo(self.contentView.mas_right).offset(-20);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.couseNameLabel.mas_bottom).offset(20);
+        make.top.equalTo(self.couseNameLabel.mas_bottom).offset(8);
         make.left.equalTo(self.couseNameLabel.mas_left);
         make.height.mas_equalTo(@14);
         make.right.equalTo(self.contentView.mas_right).offset(-20);
     }];
-    
     [self.couseTeacherNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.starView.mas_bottom).offset(20);
         make.left.equalTo(self.couseNameLabel.mas_left);
-        make.right.equalTo(self.contentView.mas_right).offset(-20);
-        
+        make.right.equalTo(self.couseNameLabel.mas_right);
+        make.top.equalTo(self.starView.mas_bottom).offset(8);
+        make.height.mas_equalTo(@14);
     }];
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+        [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couseNameLabel.mas_left);
-        make.bottom.equalTo(self.couseImageView.mas_bottom).offset(-20);
+        make.top.equalTo(self.couseTeacherNameLabel.mas_bottom).offset(34);
         make.right.equalTo(self.contentView.mas_right);
         make.height.equalTo(@2);
     }];
     [self.cousePriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_right);
-        make.bottom.equalTo(self.contentView.mas_bottom);
-        make.right.equalTo(self.contentView.mas_right);
+//        make.left.equalTo(self.contentView.mas_right);
+        make.top.equalTo(self.lineView.mas_bottom).offset(12);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        make.height.mas_equalTo(@16);
     }];
     
     
@@ -133,6 +135,7 @@
         label.text = @"少儿美术";
         label.font = H4;
         _couseNameLabel = label;
+        [label sizeToFit];
         [self.contentView addSubview:label];
     }
     return _couseNameLabel;
@@ -143,7 +146,9 @@
         UILabel * label = [[UILabel alloc]init];
         label.text = @"98人已报名";
         label.font = H4;
+        
         _numbercouseLabel = label;
+        [label sizeToFit];
         [self.contentView addSubview:label];
     }
     return _numbercouseLabel;
@@ -152,6 +157,7 @@
 {
     if (_starView == nil) {
         UIView * view = [[UIView alloc]init];
+        view.backgroundColor = [UIColor redColor];
         _starView = view;
         [self.contentView addSubview:view];
     }
@@ -159,20 +165,23 @@
 }
 -(UILabel *)couseTeacherNameLabel
 {
-    if (_couseNameLabel == nil) {
+    if (_couseTeacherNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"王蒙老师";
         label.font = H4;
         label.textAlignment = NSTextAlignmentLeft;
+        
+        [label sizeToFit];
         [self.contentView addSubview:label];
-        _couseNameLabel = label;
+        _couseTeacherNameLabel = label;
     }
-    return _couseNameLabel;
+    return _couseTeacherNameLabel;
 }
 -(UIView *)lineView
 {
     if (_lineView == nil) {
         UIView * line = [[UIView alloc]init];
+        line.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:line];
         _lineView = line;
         
@@ -187,6 +196,7 @@
         label.text = @"￥1080";
         label.font = H4;
         label.textAlignment = NSTextAlignmentRight;
+        [label sizeToFit];
         [self.contentView addSubview:label];
         _cousePriceLabel = label;
     }
