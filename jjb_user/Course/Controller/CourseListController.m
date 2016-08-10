@@ -19,6 +19,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self setupNav];
 }
 

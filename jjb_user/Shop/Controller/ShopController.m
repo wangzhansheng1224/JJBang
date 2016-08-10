@@ -43,7 +43,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 
 
-@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 @property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
@@ -71,21 +71,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     //所有的cell
     [self setupChildViewCell];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-//    [self setupNewActivity];
-//    [self setupsale];
-//    [self setupVideo];
-//    [self setupStarStudents];
-//    [self setupStarTeacher];
-//    [self setupStarCourse];
     
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    LoginViewController * loginVC = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:loginVC animated:YES];
- 
-}
-
 #pragma -
 #pragma mark - private methods
 //自定义导航栏
@@ -110,39 +97,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:MBStarCouseCellIdentifier];
     
 }
-/*
-//最新活动
--(void)setupNewActivity
-{
-    
-}
-//优惠商品
--(void)setupsale
-{
-    
-}
-//直播间
--(void)setupVideo
-{
-    
-}
-
-//明星学员
--(void)setupStarStudents
-{
-    
-}
-//明星老师
--(void)setupStarTeacher
-{
-    
-}
-//明星课程
--(void)setupStarCourse
-{
-    
-}
- */
 //扫描
 -(void)gotoScan
 {
@@ -191,12 +145,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     JJBLog(@"%s",__func__);
 
-}
-//点击登录
--(void)loginClick
-{
-    LoginViewController * loginVC = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:loginVC animated:YES];
 }
 //banner位
 -(void)setUpBanner
@@ -349,38 +297,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         return cell;
     }
 
-//    }
-//    else if (indexPath.section == 1)
-//    {
-//        MBSaleCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//
-//    }
-//    else if(indexPath.section == 2)
-//    {
-//        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//
-//    }
-//    else if(indexPath.section == 3)
-//    {
-//        MBStarStudentCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//
-//    }
-//    else if (indexPath.section == 4)
-//    {
-//        MBStarTeacherCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBStarTeacherCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//
-//    }
-//    else
-//    {
-//        MBStarCouseCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBStarCouseCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//
-//    }
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -427,27 +343,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     return sectionView;
 
 }
-#pragma 
-#pragma mark - collectionDelegate and collectionDataSouce
-//-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-//{
-//    return 8;
-//}
-//
-//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    ShopClassifyCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ShopClassifyCell class] forIndexPath:<#(nonnull NSIndexPath *)#>];
-//}
-//
-
-
-
-
-
-
-
-
 
 #pragma mark
 #pragma mark -   UIScrollViewDelegate

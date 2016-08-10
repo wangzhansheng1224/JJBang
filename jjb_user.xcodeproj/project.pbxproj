@@ -137,6 +137,7 @@
 		BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A631D5704240078D083 /* MBStarTeacherCell.m */; };
 		BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A661D5704380078D083 /* MBStarCouseCell.m */; };
 		BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */; };
+		BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BB223E1A1D5B0E7A003D3703 /* StreetControl.m */; };
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
@@ -438,6 +439,8 @@
 		BB1E8A661D5704380078D083 /* MBStarCouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarCouseCell.m; path = jjb_user/Shop/Controller/MBStarCouseCell.m; sourceTree = SOURCE_ROOT; };
 		BB1E8A681D57055D0078D083 /* MBNewActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewActivityModel.h; sourceTree = "<group>"; };
 		BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewActivityModel.m; sourceTree = "<group>"; };
+		BB223E191D5B0E7A003D3703 /* StreetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetControl.h; sourceTree = "<group>"; };
+		BB223E1A1D5B0E7A003D3703 /* StreetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetControl.m; sourceTree = "<group>"; };
 		BB4C13111D52E23E002C13FA /* LoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterView.h; sourceTree = "<group>"; };
 		BB4C13121D52E23E002C13FA /* LoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterView.m; sourceTree = "<group>"; };
 		BB4C13141D53303E002C13FA /* FindPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPassWordViewController.h; sourceTree = "<group>"; };
@@ -555,6 +558,8 @@
 				BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */,
 				73575F401D54D07B0037F697 /* ShopListController.h */,
 				73575F411D54D07B0037F697 /* ShopListController.m */,
+				BB223E191D5B0E7A003D3703 /* StreetControl.h */,
+				BB223E1A1D5B0E7A003D3703 /* StreetControl.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1648,7 +1653,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 972SEJPPZB;
+						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -1806,6 +1811,7 @@
 				731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */,
 				734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
+				BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */,
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */,
 				73575F6B1D54D5FA0037F697 /* StudentController.m in Sources */,

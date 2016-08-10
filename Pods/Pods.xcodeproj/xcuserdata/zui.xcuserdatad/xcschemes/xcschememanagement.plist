@@ -44,6 +44,11 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>JLRoutes.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,7 +122,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0049B8949833DF1BF71A638CF7BBB7F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E56B1064A710A2C47730D11A6638AFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2AB49797D14D57FA43A345254AFB9F18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,6 +172,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5B60301962E39F44B65EC2CEE50D12D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5E8731F12DC027CA5A4B8239BC4A2E0D</key>
 		<dict>
 			<key>primary</key>
@@ -168,6 +193,11 @@
 			<true/>
 		</dict>
 		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B97498F588C52288DC7E25633615FE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -213,6 +243,11 @@
 			<true/>
 		</dict>
 		<key>DBC9A0AF6D4571D059D2AF2422F2BD6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E65B212052AC8406BABEC0E4B0B648D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
