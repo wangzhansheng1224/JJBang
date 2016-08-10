@@ -58,11 +58,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 #pragma -
 #pragma mark- life cycle
--(instancetype)init
-{
-    
-    return [self initWithStyle:UITableViewStyleGrouped];
-}
 
 -(void)viewDidLoad
 {
@@ -309,7 +304,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 //        UITableViewCell * cell = [[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0) ];
+        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 170) collectionViewItemSize:CGSizeMake(0, 0)];
         [cell.contentView addSubview:collectionView];
         return cell;
 
@@ -324,7 +319,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 //        MBSaleCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
 //        return cell;
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180) collectionViewItemSize:CGSizeMake(0, 0)];
+        MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200) collectionViewItemSize:CGSizeMake(0, 0)];
         [cell.contentView addSubview:saleCollectionView];
         return cell;
     }
@@ -336,7 +331,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section == 4)
     {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180)];
+        MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200)];
         [cell.contentView addSubview:starStudentView];
         return cell;
         
@@ -344,7 +339,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section == 5)
     {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 180)];
+        MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200)];
         [cell.contentView addSubview:starTeacherView];
         return cell;
         
@@ -408,12 +403,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"更多" forState:UIControlStateNormal];
     [button setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
+    button.titleLabel.font = H4;
     [button sizeToFit];
     [button addTarget:self action:@selector(buttonMoreClick:) forControlEvents:UIControlEventTouchUpInside];
     [sectionView addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(sectionView.mas_top);
-        make.right.equalTo(sectionView.mas_right).offset(-20);
+        make.right.equalTo(sectionView.mas_right).offset(-16);
         make.bottom.equalTo(sectionView.mas_bottom);
     }];
     UILabel * label = [[UILabel alloc]init];

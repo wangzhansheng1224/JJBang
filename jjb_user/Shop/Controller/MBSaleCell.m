@@ -64,7 +64,7 @@
     [self.scalePriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.scaleTitleLabel.mas_centerY);
 //        make.left.equalTo(self.scaleTitleLabel.mas_right).offset(50);
-        make.right.equalTo(self.contentView.mas_right);
+        make.right.equalTo(self.scaleImageView.mas_right);
     }];
 }
 #pragma 

@@ -46,8 +46,8 @@
     [self.starStudentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.left.equalTo(self.contentView.mas_left);
-        make.right.equalTo(self.contentView.mas_right);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.starStudentNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.starStudentImageView.mas_bottom).offset(10);
