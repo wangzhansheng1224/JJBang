@@ -163,10 +163,6 @@
 #pragma -
 #pragma mark - tableView delegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 5;
-}
 
 //每个section的row数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

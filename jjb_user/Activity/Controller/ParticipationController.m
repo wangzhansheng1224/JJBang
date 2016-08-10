@@ -103,7 +103,7 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
              @"user_id":@([UserModel currentUser].userID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize),
-             @"isOwn":@"0"
+             @"isOwn":@"1"
              };
 }
 
