@@ -7,12 +7,12 @@
 //
 
 #import "ActivityDetailCell.h"
+#import "ActivityDetailKey.h"
 
 @interface ActivityDetailCell ()
 
 @property (nonatomic,strong) UIView *view_line;
-@property (nonatomic,strong) UILabel *label_title;
-@property (nonatomic,strong) UILabel *label_info;
+@property (nonatomic,strong) UIWebView *detailWebView;
 
 @end
 
@@ -25,8 +25,7 @@
     if (self)
     {
         [self addSubview:self.view_line];
-        [self addSubview:self.label_title];
-        [self addSubview:self.label_info];
+        [self addSubview:self.detailWebView];
         [self layoutPageSubviews];
     }
     return self;
@@ -45,19 +44,21 @@
         make.height.mas_equalTo(@(10));
     }];
 
-    [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
         make.top.equalTo(self.view_line.mas_bottom);
-        make.height.equalTo(@30);
+        make.height.equalTo(@(Screen_Height-300));
     }];
     
-    [self.label_info mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left).offset(10);
-        make.right.mas_equalTo(superView.mas_right).offset(-10);
-        make.top.equalTo(self.label_title.mas_bottom).with.offset(8);
-    }];
 }
+
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSDictionary *)data{
+    [self.detailWebView loadHTMLString:data[kActivityDetailContent] baseURL:nil];
+}
+
 
 
 #pragma -
@@ -70,33 +71,14 @@
     }
     return _view_line;
 }
-- (UILabel *)label_title {
 
-    if (!_label_title) {
-        
-        _label_title = [[UILabel alloc] init];
-        _label_title.font = H3;
-        _label_title.numberOfLines = 1;
-        [_label_title sizeToFit];
-        _label_title.text = @"活动规则";
-    }
-    return _label_title;
-}
-
-- (UILabel *)label_info {
+-(UIWebView*) detailWebView{
     
-    if (!_label_info) {
-        
-        _label_info = [[UILabel alloc] init];
-        _label_info.font = H4;
-        _label_info.numberOfLines = 0;
-        _label_info.lineBreakMode = NSLineBreakByWordWrapping;
-        _label_info.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
-        [_label_info setContentMode:UIViewContentModeTop];
-
+    if (!_detailWebView) {
+        _detailWebView=[[UIWebView alloc] initWithFrame:CGRectMake(0, Screen_Height-280, Screen_Width, Screen_Height)];
+        _detailWebView.backgroundColor=COLOR_WHITE;
     }
-    return _label_info;
+    return _detailWebView;
 }
-
 
 @end

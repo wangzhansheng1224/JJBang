@@ -7,12 +7,14 @@
 //
 
 #import "ActivityRegistrationCell.h"
+#import "ActivityRegisterListKey.h"
 
 @interface ActivityRegistrationCell ()
 
 @property (nonatomic,strong) UIView *view_line;
-@property (nonatomic,strong) UILabel *label_title;
-@property (nonatomic,strong) UILabel *label_info;
+@property (nonatomic,strong) UILabel *nicknameLabel;
+@property (nonatomic,strong) UIImageView *userfaceImageview;
+@property (nonatomic,strong) UILabel *remarkLabel;
 
 @end
 
@@ -25,8 +27,9 @@
     if (self)
     {
         [self addSubview:self.view_line];
-        [self addSubview:self.label_title];
-        [self addSubview:self.label_info];
+        [self addSubview:self.userfaceImageview];
+        [self addSubview:self.nicknameLabel];
+        [self addSubview:self.remarkLabel];
         [self layoutPageSubviews];
     }
     return self;
@@ -44,21 +47,39 @@
         make.top.mas_equalTo(superView.mas_top);
         make.height.mas_equalTo(@(10));
     }];
-    
-    [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.userfaceImageview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(10);
-        make.right.mas_equalTo(superView.mas_right).offset(-10);
-        make.top.equalTo(self.view_line.mas_bottom);
-        make.height.equalTo(@30);
+        make.top.mas_equalTo(superView.mas_top).offset(20);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
+    [self.nicknameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.userfaceImageview.mas_right).offset(10);
+        make.top.mas_equalTo(superView.mas_top).offset(20);
+        make.right.mas_equalTo(superView.mas_right);
+        make.height.mas_equalTo(@(20));
     }];
     
-    [self.label_info mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left).offset(10);
-        make.right.mas_equalTo(superView.mas_right).offset(-10);
-        make.top.equalTo(self.label_title.mas_bottom).with.offset(8);
+    [self.remarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.nicknameLabel.mas_left);
+        make.top.mas_equalTo(self.nicknameLabel.mas_bottom);
+        make.right.mas_equalTo(superView.mas_right);
+        make.height.mas_equalTo(@(20));
     }];
+    
+    
+    
 }
 
+
+#pragma -
+#pragma mark - configWithData
+
+- (void)configWithData:(NSDictionary *)data{
+    
+    [self.nicknameLabel setText:data[kActivityRegisterListNickName]];
+    [self.remarkLabel setText:data[kActivityRegisterListRemark]];
+    [self.userfaceImageview sd_setImageWithURL:data[kActivityRegisterListUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+}
 
 #pragma -
 #pragma mark - getters and setters
@@ -70,32 +91,43 @@
     }
     return _view_line;
 }
-- (UILabel *)label_title {
+
+-(UIImageView*) userfaceImageview{
     
-    if (!_label_title) {
-        
-        _label_title = [[UILabel alloc] init];
-        _label_title.font = H3;
-        _label_title.numberOfLines = 1;
-        [_label_title sizeToFit];
-        _label_title.text = @"活动规则";
+    if (!_userfaceImageview) {
+        _userfaceImageview=[[UIImageView alloc] init];
+        _userfaceImageview.layer.cornerRadius = 25;
+        _userfaceImageview.clipsToBounds = YES;
     }
-    return _label_title;
+    return _userfaceImageview;
 }
 
-- (UILabel *)label_info {
+- (UILabel *)nicknameLabel {
     
-    if (!_label_info) {
+    if (!_nicknameLabel) {
+        _nicknameLabel = [[UILabel alloc] init];
+        _nicknameLabel.font = H3;
+        _nicknameLabel.textColor=COLOR_GRAY;
+        _nicknameLabel.numberOfLines = 1;
+        [_nicknameLabel sizeToFit];
+        _nicknameLabel.text = @"活动规则";
+    }
+    return _nicknameLabel;
+}
+
+- (UILabel *)remarkLabel {
+    
+    if (!_remarkLabel) {
         
-        _label_info = [[UILabel alloc] init];
-        _label_info.font = H4;
-        _label_info.numberOfLines = 0;
-        _label_info.lineBreakMode = NSLineBreakByWordWrapping;
-        _label_info.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
-        [_label_info setContentMode:UIViewContentModeTop];
+        _remarkLabel = [[UILabel alloc] init];
+        _remarkLabel.font = H4;
+        _remarkLabel.numberOfLines = 0;
+        _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _remarkLabel.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
+        [_remarkLabel setContentMode:UIViewContentModeTop];
         
     }
-    return _label_info;
+    return _remarkLabel;
 }
 
 @end

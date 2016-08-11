@@ -84,6 +84,10 @@ static NSString * const cellID = @"cell";
         
         //课程
         CourseListController * couseListVC = [[CourseListController alloc]init];
+        UITabBarController *controller=(UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        UINavigationController *navController= (UINavigationController*)[controller selectedViewController];
+        [navController pushViewController:couseListVC animated:YES];
+        
         
     }else if (indexPath.row == 1)
     {

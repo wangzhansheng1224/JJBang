@@ -8,8 +8,9 @@
 
 #import "ActivityDetailHeader.h"
 #import "HMSegmentedControl.h"
+#import "ActivityDetailKey.h"
 
-@interface ActivityDetailHeader()
+@interface ActivityDetailHeader()<iCarouselDelegate,iCarouselDataSource>
 
 @property (nonatomic,copy) iCarousel *iView_Photo;
 @property (nonatomic,strong) UILabel *label_status;
@@ -98,7 +99,46 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
+    [self.label_title setText:data[kActivityDetailTitle]];
+    [self.label_location setText:data[kActivityDetailAddress]];
+    [self.label_status setText:data[kActivityDetailState]];
+    [self.label_time setText:data[kActivityDetailTime]];
+}
+
+#pragma -
+#pragma mark - iCarouselDataSource
+
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
+    return 10;
+}
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
+    UILabel *label = nil;
     
+    //create new view if no view is available for recycling
+    if (view == nil)
+    {
+        NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,@"/weixin/icon/banner11.jpg"]];
+        UIImageView  *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 100.0f)];
+        
+        [imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+
+        view=imgView;
+        view.contentMode = UIViewContentModeCenter;
+        
+        label = [[UILabel alloc] initWithFrame:view.bounds];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [label.font fontWithSize:50];
+        label.tag = 1;
+        [view addSubview:label];
+    }
+    else
+    {
+        //get a reference to the label in the recycled view
+        label = (UILabel *)[view viewWithTag:1];
+    }
+
+    return view;
 }
 
 #pragma -
@@ -107,7 +147,10 @@
     
     if (!_iView_Photo) {
         _iView_Photo = [[iCarousel alloc] init];
-        _iView_Photo.backgroundColor = JJBRandomColor;
+        _iView_Photo.type=iCarouselTypeLinear;
+        _iView_Photo.delegate=self;
+        _iView_Photo.dataSource=self;
+        _iView_Photo.backgroundColor=COLOR_LIGHT_GRAY;
     }
     return _iView_Photo;
 }

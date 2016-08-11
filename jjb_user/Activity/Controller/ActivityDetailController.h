@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ActivityDetailController : UIViewController
-
+@property (nonatomic,assign) NSInteger activity_id;
 @end
