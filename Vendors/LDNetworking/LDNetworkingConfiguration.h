@@ -20,10 +20,10 @@ typedef NS_ENUM(NSUInteger, LDURLResponseStatus) {
 static NSTimeInterval kLDNetworkingTimeoutSeconds = 20.0f;
 
 static BOOL kLDShouldCache = YES;
-static NSTimeInterval kLDCacheOutdateTimeSeconds = 300; // 5分钟的cache过期时间
+static NSTimeInterval kLDCacheOutdateTimeSeconds = 0; // 5分钟的cache过期时间
 static NSUInteger kLDCacheCountLimit = 1000;            // 最多1000条cache
 
-//光影日记
+//用户端
 extern NSString *const kLDServiceJJBUser;
 
 #endif

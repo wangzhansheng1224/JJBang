@@ -29,12 +29,12 @@ NSString *const kActivityRegisterListMedal=@"ActivityRegisterListMedal";
         for (NSInteger i=0; i< [arrData count]; i++) {
             
             NSDictionary *itemData=@{
-//                                     kActivityRegisterListUserID:arrData[i][@"id"],
-                                     kActivityRegisterListNickName:arrData[i][@"nickname"],
-                                     kActivityRegisterListUserFace:arrData[i][@"userface"],
-                                     kActivityRegisterListSex:arrData[i][@"sex"],
-                                     kActivityRegisterListRemark:arrData[i][@"remark"],
-                                     kActivityRegisterListMedal:arrData[i][@"medal"]
+                                     kActivityRegisterListUserID:(arrData[i][@"user_id"]!=[NSNull null])?arrData[i][@"user_id"]:0,
+                                     kActivityRegisterListNickName:(arrData[i][@"nickname"]!=[NSNull null])?arrData[i][@"nickname"]:@" ",
+                                     kActivityRegisterListUserFace:(arrData[i][@"userface"]!=[NSNull null])?arrData[i][@"userface"]:@" ",
+                                     kActivityRegisterListSex:(arrData[i][@"sex"]!=[NSNull null])?arrData[i][@"sex"]:@"0",
+                                     kActivityRegisterListRemark:(arrData[i][@"remark"]!=[NSNull null])?arrData[i][@"remark"]:@" ",
+                                     kActivityRegisterListMedal:(arrData[i][@"medal"]!=[NSNull null])?arrData[i][@"medal"]:@"0"
                                      };
             [arrResult addObject:itemData];
         }

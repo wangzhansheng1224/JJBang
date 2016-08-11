@@ -21,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"activity/selectActivityDetail";
+        _methodName = @"activity/saveRegistActivity";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -33,7 +33,11 @@
 #pragma mark - LDAPIManagerValidator
 - (BOOL)manager:(LDAPIBaseManager *)manager
 isCorrectWithCallBackData:(NSDictionary *)data {
-    return YES;
+    
+    if ([data[@"code"] isEqualToString:@"200"]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL)manager:(LDAPIBaseManager *)manager

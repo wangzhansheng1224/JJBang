@@ -8,9 +8,10 @@
 
 #import "ActivityDetailHeader.h"
 #import "HMSegmentedControl.h"
+#import "ActivityRegisterAPIManager.h"
 #import "ActivityDetailKey.h"
 
-@interface ActivityDetailHeader()<iCarouselDelegate,iCarouselDataSource>
+@interface ActivityDetailHeader()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,iCarouselDelegate,iCarouselDataSource>
 
 @property (nonatomic,copy) iCarousel *iView_Photo;
 @property (nonatomic,strong) UILabel *label_status;
@@ -19,7 +20,11 @@
 @property (nonatomic,strong) UILabel *label_location;
 @property (nonatomic,strong) UIImageView *imageView_time;
 @property (nonatomic,strong) UILabel *label_time;
+@property (nonatomic,strong) UIButton *signupButton;
 @property (nonatomic,strong) UIView *view_line;
+@property (nonatomic,assign) NSInteger activity_id;
+@property (nonatomic,strong) NSMutableDictionary *data;
+@property (nonatomic,strong) ActivityRegisterAPIManager *registerAPIManager;
 @end
 
 @implementation ActivityDetailHeader
@@ -34,6 +39,7 @@
         [self addSubview:self.label_location];
         [self addSubview:self.imageView_time];
         [self addSubview:self.label_time];
+        [self addSubview:self.signupButton];
         [self addSubview:self.view_line];
         [self layoutPageSubviews];
     }
@@ -88,6 +94,12 @@
         make.left.equalTo(_imageView_time.mas_right).with.offset(8);
     }];
     
+    [_signupButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_label_location.mas_top);
+        make.size.mas_equalTo(CGSizeMake(150, 40));
+        make.right.equalTo(superView.mas_right).offset(-10);
+    }];
+    
     [_view_line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_label_time.mas_bottom).with.offset(8);
         make.left.equalTo(superView.mas_left);
@@ -99,10 +111,28 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
+    self.data=[[NSMutableDictionary alloc] initWithDictionary:data];
+    self.activity_id=[data[kActivityDetailID] integerValue];
     [self.label_title setText:data[kActivityDetailTitle]];
     [self.label_location setText:data[kActivityDetailAddress]];
     [self.label_status setText:data[kActivityDetailState]];
     [self.label_time setText:data[kActivityDetailTime]];
+    
+    if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
+        [self.signupButton setEnabled:NO];
+        [self.signupButton setTitle:@"已报名" forState:UIControlStateNormal];
+        [self.signupButton setBackgroundColor:COLOR_GRAY];
+    } else {
+        [self.signupButton setEnabled:YES];
+        [self.signupButton setTitle:@"立即报名" forState:UIControlStateNormal];
+        [self.signupButton setBackgroundColor:COLOR_ORANGE];
+    }
+}
+
+#pragma -
+#pragma mark - Event
+- (void) signUpClick:(id)sender{
+    [self.registerAPIManager loadData];
 }
 
 #pragma -
@@ -119,6 +149,7 @@
     {
         NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,@"/weixin/icon/banner11.jpg"]];
         UIImageView  *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 100.0f)];
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
         
         [imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
 
@@ -134,11 +165,33 @@
     }
     else
     {
-        //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
 
     return view;
+}
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    [self makeToast:@"报名成功！"];
+    [_data setValue:@(1) forKey:kActivityDetailIsRegist];
+    [self configWithData:self.data];
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+    NSDictionary *data=[manager fetchDataWithReformer:nil];
+    [self makeToast:data[@"message"]];
+}
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+        return @{
+                 @"activity_id":@(self.activity_id),
+                 @"user_id":@([UserModel currentUser].userID)
+                 };
 }
 
 #pragma -
@@ -224,12 +277,31 @@
     return _label_time;
 }
 
+-(UIButton*)signupButton{
+    
+    if (!_signupButton) {
+        _signupButton=[[UIButton alloc] init];
+        [_signupButton setTitle:@"立即报名" forState:UIControlStateNormal];
+        [_signupButton addTarget:self action:@selector(signUpClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _signupButton;
+}
+
 -(UIView *)view_line{
     if (!_view_line) {
         _view_line=[[UIView alloc] init];
         _view_line.backgroundColor=COLOR_LIGHT_GRAY;
     }
     return _view_line;
+}
+
+-(ActivityRegisterAPIManager*) registerAPIManager{
+    if (!_registerAPIManager) {
+        _registerAPIManager=[ActivityRegisterAPIManager sharedInstance];
+        _registerAPIManager.delegate=self;
+        _registerAPIManager.paramSource=self;
+    }
+    return _registerAPIManager;
 }
 
 @end

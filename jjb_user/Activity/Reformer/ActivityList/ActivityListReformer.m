@@ -32,15 +32,19 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
             
             NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"endtime"] doubleValue]/1000];
             NSString *strTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+            NSURL *url;
+            if (arrData[i][@"image"]!=[NSNull null]) {
+                url=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]];
+            }
             
             NSDictionary *itemData=@{
-                                     kActivityListID:arrData[i][@"id"],
-                                     kActivityListTitle:arrData[i][@"title"],
+                                     kActivityListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:0,
+                                     kActivityListTitle:arrData[i][@"title"]!=[NSNull null]?arrData[i][@"title"]:@" ",
                                      kActivityListDate:strTime,
-                                     kActivityListAddress:arrData[i][@"address"],
-                                     kActivityListState:arrData[i][@"state"],
-                                     kActivityListImageURL:[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]],
-                                     kActivityListIsRegist:arrData[i][@"isRegist"]
+                                     kActivityListAddress:arrData[i][@"address"]!=[NSNull null]?arrData[i][@"address"]:@" ",
+                                     kActivityListState:arrData[i][@"state"]!=[NSNull null]?arrData[i][@"state"]:@" ",
+                                     kActivityListImageURL:url?:@"",
+                                     kActivityListIsRegist:arrData[i][@"isRegist"]!=[NSNull null]?arrData[i][@"isRegist"]:@" "
                                      };
             [arrResult addObject:itemData];
         }
