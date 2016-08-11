@@ -126,6 +126,8 @@
 		73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
+		AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7421981D5B2F9E00E4353A /* MyRechargeController.m */; };
+		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
@@ -141,6 +143,7 @@
 		BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A631D5704240078D083 /* MBStarTeacherCell.m */; };
 		BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A661D5704380078D083 /* MBStarCouseCell.m */; };
 		BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */; };
+		BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BB223E1A1D5B0E7A003D3703 /* StreetControl.m */; };
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
@@ -419,6 +422,10 @@
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		73ED4F161D4EFA410022BF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7421971D5B2F9E00E4353A /* MyRechargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRechargeController.h; sourceTree = "<group>"; };
+		AC7421981D5B2F9E00E4353A /* MyRechargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeController.m; sourceTree = "<group>"; };
+		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
+		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
 		BB1294251D50A6B10048927D /* MBAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAdViewController.m; sourceTree = "<group>"; };
 		BB1294271D50A8D60048927D /* MBAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdItem.h; sourceTree = "<group>"; };
@@ -450,6 +457,8 @@
 		BB1E8A661D5704380078D083 /* MBStarCouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBStarCouseCell.m; path = jjb_user/Shop/Controller/MBStarCouseCell.m; sourceTree = SOURCE_ROOT; };
 		BB1E8A681D57055D0078D083 /* MBNewActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNewActivityModel.h; sourceTree = "<group>"; };
 		BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewActivityModel.m; sourceTree = "<group>"; };
+		BB223E191D5B0E7A003D3703 /* StreetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetControl.h; sourceTree = "<group>"; };
+		BB223E1A1D5B0E7A003D3703 /* StreetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetControl.m; sourceTree = "<group>"; };
 		BB4C13111D52E23E002C13FA /* LoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterView.h; sourceTree = "<group>"; };
 		BB4C13121D52E23E002C13FA /* LoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterView.m; sourceTree = "<group>"; };
 		BB4C13141D53303E002C13FA /* FindPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPassWordViewController.h; sourceTree = "<group>"; };
@@ -567,6 +576,8 @@
 				BB4E4EFE1D54838C000A0855 /* ScanResultViewController.m */,
 				73575F401D54D07B0037F697 /* ShopListController.h */,
 				73575F411D54D07B0037F697 /* ShopListController.m */,
+				BB223E191D5B0E7A003D3703 /* StreetControl.h */,
+				BB223E1A1D5B0E7A003D3703 /* StreetControl.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1167,6 +1178,10 @@
 				517F99361D57A957002609E5 /* MySettingDetailController.m */,
 				731FDD191D586F3200A18534 /* MyOrderDetailController.h */,
 				731FDD1A1D586F3200A18534 /* MyOrderDetailController.m */,
+				AC7421971D5B2F9E00E4353A /* MyRechargeController.h */,
+				AC7421981D5B2F9E00E4353A /* MyRechargeController.m */,
+				ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */,
+				ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1676,7 +1691,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 972SEJPPZB;
+						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -1834,6 +1849,7 @@
 				731091FF1D520F280031B443 /* MyPublishAPIManager.m in Sources */,
 				734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
+				BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */,
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */,
 				73575F6B1D54D5FA0037F697 /* StudentController.m in Sources */,
@@ -1879,6 +1895,7 @@
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
 				51D3489E1D57691B002D761C /* MyOrderController.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
+				AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */,
 				BB613ACF1D598B42004DE299 /* ClerkController.m in Sources */,
 				734CC3D01D5AC625000AAA27 /* Target_Org.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
@@ -1887,6 +1904,7 @@
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
+				ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */,
 				BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */,
 				517F99341D57A87B002609E5 /* MySettingCell.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,

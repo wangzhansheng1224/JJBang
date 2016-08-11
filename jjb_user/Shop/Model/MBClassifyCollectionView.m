@@ -16,6 +16,7 @@
 #import "ActivityController.h"
 #import "ClerkListController.h"
 #import "TeacherListController.h"
+#import "StreetControl.h"
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
 @property(nonatomic,assign) CGSize itemSize;
@@ -80,59 +81,61 @@ static NSString * const cellID = @"cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     JJBLog(@"点击了%ld行，第%ld列",indexPath.section,indexPath.row);
+    UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+    UINavigationController * navControler = (UINavigationController *)[tabControler selectedViewController];
+
     if (indexPath.row == 0) {
         
         //课程
         CourseListController * couseListVC = [[CourseListController alloc]init];
-        UITabBarController *controller=(UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        UINavigationController *navController= (UINavigationController*)[controller selectedViewController];
-        [navController pushViewController:couseListVC animated:YES];
-        
+        [navControler pushViewController:couseListVC animated:YES];
         
     }else if (indexPath.row == 1)
     {
         //活动
-        ActivityController * activityVC = [[ActivityController alloc]init];
+//        ActivityController * activityVC = [[ActivityController alloc]init];
+//        [navControler pushViewController:activityVC animated:YES];
+        ClerkListController * clerkListVC = [[ClerkListController alloc]init];
+        [navControler pushViewController:clerkListVC animated:YES];
         
     }else if(indexPath.row == 2)
     {
         //店员
 //        ClerkListController * clerkListVC = [];
         ClerkListController * clerkListVC = [[ClerkListController alloc]init];
-        
+        [navControler pushViewController:clerkListVC animated:YES];
         
     }else if(indexPath.row == 3)
     {
         //老师
         TeacherListController * teacherListVC = [[TeacherListController alloc]init];
-        
+        [navControler pushViewController:teacherListVC animated:YES];
         
     }else if(indexPath.row == 4)
     {
         //街区
         
+        StreetControl * streetVC = [[StreetControl alloc]init];
+        [navControler pushViewController:streetVC animated:YES];
+        
     }else if(indexPath.row == 5)
     {
         //儿童成长
+        StreetControl * streetVC = [[StreetControl alloc]init];
+        [navControler pushViewController:streetVC animated:YES];
+        
         
     }else if(indexPath.row == 6)
     {
         //社区商城
+        StreetControl * streetVC = [[StreetControl alloc]init];
+        [navControler pushViewController:streetVC animated:YES];
         
     }else if(indexPath.row == 7)
     {
         //机构
         OrgListController * orgListVC = [OrgListController alloc];
-//        UINavigationController * navControl = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        
-        
-        
-//        UIApplication * app = [[UIApplication sharedApplication]delegate];
-//        UINavigationController * nav = app.navController;
-//    UINavigationController * navControl  =  [(AppDelegate *)[[UIApplication sharedApplication]delegate]navControl];
-        AppDelegate * nav = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-        
-        [nav.navController  pushViewController:orgListVC animated:YES];
+        [navControler pushViewController:orgListVC animated:YES];
 
     }
     

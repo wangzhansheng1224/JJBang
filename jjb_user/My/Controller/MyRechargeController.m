@@ -1,38 +1,33 @@
 //
-//  ClerkListController.m
+//  MyRechargeController.m
 //  jjb_user
 //
-//  Created by Maybe on 16/8/9.
+//  Created by Maybe on 16/8/10.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "ClerkListController.h"
+
+#import "MyRechargeController.h"
+#import "MyBalanceViewController.h"
 /**
- *  店员列表界面
+ *  充值界面
  */
-@interface ClerkListController ()
+@interface MyRechargeController ()
 
 @end
 
-@implementation ClerkListController
+@implementation MyRechargeController
 
-
-#pragma
-#pragma mark - life cycle
--(void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    [self setupNav];
+    self.navigationItem.title = @"充值";
 }
 
 
-
-#pragma
-#pragma mark - private methods
--(void)setupNav
-{
-    self.navigationItem.title = @"所有店员";
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*
