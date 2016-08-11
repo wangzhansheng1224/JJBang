@@ -20,7 +20,6 @@
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
 @property (nonatomic,strong) UIView *view_image;
-@property (nonatomic,strong) NSMutableArray *imageArr;
 @property (nonatomic,strong) UITapGestureRecognizer *tapGR;
 
 
@@ -37,7 +36,6 @@
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.timeLabel];
-        //        [self.contentView addSubview:self.picView];
         [self.contentView addSubview:self.view_image];
         [self.contentView addSubview:self.moodLabel];
         [self.contentView addSubview:self.locView];
@@ -108,16 +106,10 @@
     [self.moodLabel setText:data[kGrowingTreeListContent]];
     [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
     
-//    for (UIView * view in self.view_image.subviews) {
-//        
-//        if ([view isKindOfClass:[UIImageView class]]) {
-//
-//            [view removeFromSuperview];
-//        }
-//    }
-    [self.imageArr setArray:data[kGrowingTreeListImages]];
     float width = 119 - 8;
-    for (int i = 0; i < self.imageArr.count; i++) {
+
+    NSArray * imageArr = data[kGrowingTreeListImages];
+    for (int i = 0; i < imageArr.count; i++) {
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
         
@@ -128,6 +120,7 @@
         
         [self.view_image addSubview:imageView];
     }
+    NSLog(@"%@",data);
 }
 
 #pragma -
@@ -140,7 +133,6 @@
     //    picVC.index = index;
     //
     //    picVC.photos = self.imageArr;
-    
 }
 
 #pragma -
@@ -176,9 +168,6 @@
         _timeLabel.textColor = COLOR_GRAY;
         [_timeLabel sizeToFit];
         _timeLabel.textAlignment = NSTextAlignmentRight;
-        _timeLabel.backgroundColor = COLOR_ORANGE;
-        
-        
     }
     return _timeLabel;
 }
@@ -189,8 +178,6 @@
         
         _moodLabel = [[UILabel alloc] init];
         _moodLabel.font = H2;
-        _moodLabel.backgroundColor = COLOR_ORANGE;
-        
     }
     return _moodLabel;
 }
@@ -200,8 +187,7 @@
     if (!_locView) {
         
         _locView = [[UIImageView alloc] init];
-        _locView.image = [UIImage imageNamed:@""];  //mark
-        _locView.backgroundColor = JJBRandomColor;
+        _locView.image = [UIImage imageNamed:@"growing_loc"];  
     }
     return _locView;
 }
@@ -213,7 +199,6 @@
         _locLabel.text = @"来自北京，望湖公园店";
         _locLabel.textColor = COLOR_ORANGE;
         _locLabel.font = H4;
-        _locLabel.backgroundColor = COLOR_ORANGE;
     }
     return _locLabel;
 }
@@ -236,14 +221,6 @@
     return _tapGR;
 }
 
-- (NSMutableArray *)imageArr {
-    
-    if (!_imageArr) {
-        
-        _imageArr = [[NSMutableArray alloc] init];
-    }
-    return _imageArr;
-}
 
 
 @end

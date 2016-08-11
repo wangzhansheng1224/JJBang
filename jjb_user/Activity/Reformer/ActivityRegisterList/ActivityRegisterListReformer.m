@@ -29,7 +29,7 @@ NSString *const kActivityRegisterListMedal=@"ActivityRegisterListMedal";
         for (NSInteger i=0; i< [arrData count]; i++) {
             
             NSDictionary *itemData=@{
-                                     kActivityRegisterListUserID:(arrData[i][@"user_id"]!=[NSNull null])?arrData[i][@"user_id"]:0,
+                                     kActivityRegisterListUserID:(arrData[i][@"user_id"]!=[NSNull null])?arrData[i][@"user_id"]:@"0",
                                      kActivityRegisterListNickName:(arrData[i][@"nickname"]!=[NSNull null])?arrData[i][@"nickname"]:@" ",
                                      kActivityRegisterListUserFace:(arrData[i][@"userface"]!=[NSNull null])?arrData[i][@"userface"]:@" ",
                                      kActivityRegisterListSex:(arrData[i][@"sex"]!=[NSNull null])?arrData[i][@"sex"]:@"0",

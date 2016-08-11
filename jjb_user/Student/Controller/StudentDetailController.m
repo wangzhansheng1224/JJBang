@@ -202,11 +202,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.tableFooterView = [[UIView alloc]init];
-//        _tableView.rowHeight = UITableViewAutomaticDimension;
-//        _tableView.estimatedRowHeight = 44.0;
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CELL"];
-//        _tableView.contentInset = UIEdgeInsetsMake(202, 0, 0, 0);
         _tableView.contentOffset = CGPointMake(0, -202);
     }
     return _tableView;

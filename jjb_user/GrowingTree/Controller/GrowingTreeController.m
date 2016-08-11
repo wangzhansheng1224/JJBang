@@ -97,9 +97,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
     NSDictionary * dic = self.arrData[indexPath.row];
     
-    NSArray * array = dic[@"imageArr"];
+    NSArray * imageArr = dic[kGrowingTreeListImages];
     
-    return ((array.count-1)/3 + 1) * 85 + 109;
+    if (imageArr.count == 0) {
+        return 109;
+    }else {
+    
+        return (imageArr.count+2)/3 *85 +109;
+    }
 }
 
 #pragma -
@@ -109,13 +114,20 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    if (self.tableView.contentOffset.y > Screen_Height) {
+//        [self.tableView.mj_footer endRefreshing];
+        
+        self.tableView.tableFooterView.hidden = YES;
+    }
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    
+    if (self.tableView.contentOffset.y > Screen_Height) {
+        [self.tableView.mj_footer endRefreshing];
+    }
     [self.tableView reloadData];
 }
 
@@ -144,12 +156,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
             [self.growingTreeListAPIManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.growingTreeListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.growingTreeListAPIManager loadData];
         }];
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }

@@ -105,13 +105,13 @@
     
     MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 276)];
         
-    headerView.topImageView = @"";
+    headerView.topImageView = @"BG";
     
     headerView.emailButton = @"my_email";
     
     headerView.setButton = @"my_setting";
     
-    headerView.itemImageView = @"";
+    headerView.itemImageView = @"student_icon";
     
     headerView.name = @"亓凯";
     
