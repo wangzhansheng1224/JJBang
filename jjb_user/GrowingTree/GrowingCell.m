@@ -10,22 +10,18 @@
 #import "GrowingTreeListKey.h"
 
 
-
 @interface GrowingCell ()
 
 
 @property (nonatomic,strong) UILabel *nameLabel;
 @property (nonatomic,strong) UILabel *timeLabel;
 @property (nonatomic,strong) UIImageView *iconView;
-@property (nonatomic,strong) UIImageView *picView;
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
-@property (nonatomic,strong) UIScrollView *scrollView_pic;
-
-//@property (nonatomic,strong) UIButton *issueBtn;
-
-//@property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) UIView *view_image;
+@property (nonatomic,strong) NSMutableArray *imageArr;
+@property (nonatomic,strong) UITapGestureRecognizer *tapGR;
 
 
 @end
@@ -41,11 +37,11 @@
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.timeLabel];
-        [self.contentView addSubview:self.picView];
+        //        [self.contentView addSubview:self.picView];
+        [self.contentView addSubview:self.view_image];
         [self.contentView addSubview:self.moodLabel];
         [self.contentView addSubview:self.locView];
         [self.contentView addSubview:self.locLabel];
-        
         [self layoutPageSubviews];
     }
     return self;
@@ -54,56 +50,56 @@
 #pragma -
 #pragma mark -- layoutPageSubviews
 - (void)layoutPageSubviews {
-
+    
     [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.contentView.mas_top).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(50, 50));//mark
+        make.size.mas_equalTo(CGSizeMake(34, 34));
         make.left.equalTo(self.contentView.mas_left).with.offset(8);
     }];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(100, 20));      //mark
-        make.top.equalTo(self.mas_top).with.offset(25);  //mark
+        make.size.mas_equalTo(CGSizeMake(50, 16));
+        make.top.equalTo(self.mas_top).with.offset(19);
         make.left.equalTo(_iconView.mas_right).with.offset(8);
     }];
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(100, 20));//mark
+        make.size.mas_equalTo(CGSizeMake(80, 14));
         make.top.equalTo(self.mas_top).with.offset(19);
         make.right.equalTo(self.mas_right).with.offset(-16);
     }];
-    [_picView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_view_image mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(119, 77));
-        make.top.mas_equalTo(_iconView.mas_bottom).with.offset(8);
-        make.left.mas_equalTo(self.mas_left).with.offset(8);
+        //        make.size.mas_equalTo(CGSizeMake(Screen_Width, ));
+        make.bottom.equalTo(_moodLabel.mas_top).with.offset(-8);
+        make.top.equalTo(_iconView.mas_bottom).with.offset(8);
+        make.left.equalTo(self.mas_left).with.offset(8);
+        make.right.equalTo(self.mas_right).with.offset(-8);
     }];
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width-20, 21));//mark
-        make.top.equalTo(_picView.mas_bottom).with.offset(8);
+        make.height.equalTo(@17);
+        make.bottom.equalTo(_locView.mas_top).with.offset(-6);
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
-        
     }];
     [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(12, 16));
-        make.top.equalTo(_moodLabel.mas_bottom).with.offset(6);
+        make.centerY.equalTo(_locLabel.mas_centerY);
         make.left.equalTo(self.mas_left).with.offset(8);
     }];
     [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 20));//mark
-        make.bottom.equalTo(self.mas_bottom).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(200, 14));
+        make.bottom.equalTo(@-10);
         make.left.equalTo(_locView.mas_right).with.offset(8);
     }];
 }
 
 #pragma -
 #pragma mark - configWithData
-
 - (void)configWithData:(NSDictionary *)data{
     
     [self.nameLabel setText:data[kGrowingTreeListFromUserName]];
@@ -111,6 +107,40 @@
     [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
     [self.moodLabel setText:data[kGrowingTreeListContent]];
     [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+    
+//    for (UIView * view in self.view_image.subviews) {
+//        
+//        if ([view isKindOfClass:[UIImageView class]]) {
+//
+//            [view removeFromSuperview];
+//        }
+//    }
+    [self.imageArr setArray:data[kGrowingTreeListImages]];
+    float width = 119 - 8;
+    for (int i = 0; i < self.imageArr.count; i++) {
+        
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+        
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.backgroundColor = JJBRandomColor;
+        imageView.tag = 2016 + i;
+        [imageView addGestureRecognizer:self.tapGR];
+        
+        [self.view_image addSubview:imageView];
+    }
+}
+
+#pragma -
+#pragma mark - event response
+- (void)tapGR:(UITapGestureRecognizer *)click {
+    
+    //    NSInteger index = self.imageView.tag - 2016;
+    //
+    //    GrowingPicController *picVC = [[GrowingPicController alloc] init];
+    //    picVC.index = index;
+    //
+    //    picVC.photos = self.imageArr;
+    
 }
 
 #pragma -
@@ -119,8 +149,9 @@
     
     if (!_iconView) {
         _iconView = [[UIImageView alloc] init];
-        _iconView.layer.cornerRadius = 25;
+        _iconView.layer.cornerRadius = 17;
         _iconView.clipsToBounds = YES;
+        _iconView.image = [UIImage imageNamed:@"student_icon"];
     }
     return _iconView;
 }
@@ -129,8 +160,8 @@
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.text = @"王老师";
-        _nameLabel.font = [UIFont systemFontOfSize:12];
-        _nameLabel.textColor = [UIColor darkGrayColor];
+        _nameLabel.font = H3;
+        [_nameLabel sizeToFit];
     }
     return _nameLabel;
 }
@@ -141,21 +172,15 @@
         
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.text = @"5小时";
-        _timeLabel.font = [UIFont systemFontOfSize:10];
-        _timeLabel.textColor = [UIColor darkGrayColor];
+        _timeLabel.font = H4;
+        _timeLabel.textColor = COLOR_GRAY;
+        [_timeLabel sizeToFit];
         _timeLabel.textAlignment = NSTextAlignmentRight;
+        _timeLabel.backgroundColor = COLOR_ORANGE;
+        
+        
     }
     return _timeLabel;
-}
-
-- (UIImageView *)picView {
-    
-    if (!_picView) {
-        
-        _picView = [[UIImageView alloc] init];
-        _picView.backgroundColor = JJBRandomColor;
-    }
-    return _picView;
 }
 
 - (UILabel *)moodLabel {
@@ -163,7 +188,9 @@
     if (!_moodLabel) {
         
         _moodLabel = [[UILabel alloc] init];
-        _moodLabel.font = [UIFont systemFontOfSize:14];
+        _moodLabel.font = H2;
+        _moodLabel.backgroundColor = COLOR_ORANGE;
+        
     }
     return _moodLabel;
 }
@@ -183,29 +210,40 @@
     
     if (!_locLabel) {
         _locLabel = [[UILabel alloc] init];
-        _locLabel.backgroundColor = JJBRandomColor;
-        _locLabel.text = @"来自北京，望湖公园店";  //mark
-        _locLabel.font = [UIFont systemFontOfSize:14];//mark
+        _locLabel.text = @"来自北京，望湖公园店";
+        _locLabel.textColor = COLOR_ORANGE;
+        _locLabel.font = H4;
+        _locLabel.backgroundColor = COLOR_ORANGE;
     }
     return _locLabel;
 }
 
-- (UIScrollView *)scrollView_pic {
-
-    if (!_scrollView_pic) {
+- (UIView *)view_image {
+    
+    if (!_view_image) {
         
-        _scrollView_pic = [[UIScrollView alloc] init];
+        _view_image = [[UIView alloc] initWithFrame:CGRectMake(0, 10, Screen_Width, self.frame.size.height - 20)];
     }
-    return _scrollView_pic;
+    return _view_image;
 }
 
+- (UITapGestureRecognizer *)tapGR {
+    
+    if (!_tapGR) {
+        
+        _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
+    }
+    return _tapGR;
+}
 
-
-
-
-
-
-
+- (NSMutableArray *)imageArr {
+    
+    if (!_imageArr) {
+        
+        _imageArr = [[NSMutableArray alloc] init];
+    }
+    return _imageArr;
+}
 
 
 @end

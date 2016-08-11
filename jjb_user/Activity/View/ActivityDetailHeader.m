@@ -113,7 +113,7 @@
 }
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
     UILabel *label = nil;
-    
+
     //create new view if no view is available for recycling
     if (view == nil)
     {
