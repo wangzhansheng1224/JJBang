@@ -38,7 +38,7 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
             }
             
             NSDictionary *itemData=@{
-                                     kActivityListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:0,
+                                     kActivityListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:@" ",
                                      kActivityListTitle:arrData[i][@"title"]!=[NSNull null]?arrData[i][@"title"]:@" ",
                                      kActivityListDate:strTime,
                                      kActivityListAddress:arrData[i][@"address"]!=[NSNull null]?arrData[i][@"address"]:@" ",
