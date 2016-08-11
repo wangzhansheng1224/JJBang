@@ -75,7 +75,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.detail.hidesBottomBarWhenPushed = YES;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *item=_arrData[indexPath.row];
+    self.detail.activity_id=[item[kActivityListID] integerValue];
     [self.navigationController pushViewController:self.detail animated:YES];
 }
 
