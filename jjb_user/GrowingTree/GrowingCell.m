@@ -109,18 +109,17 @@
     float width = 119 - 8;
 
     NSArray * imageArr = data[kGrowingTreeListImages];
+     [self.view_image.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (int i = 0; i < imageArr.count; i++) {
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
-        
+        [imageView sd_setImageWithURL:[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = JJBRandomColor;
         imageView.tag = 2016 + i;
         [imageView addGestureRecognizer:self.tapGR];
         
         [self.view_image addSubview:imageView];
     }
-    NSLog(@"%@",data);
 }
 
 #pragma -
