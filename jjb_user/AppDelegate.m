@@ -10,7 +10,8 @@
 #import "BaseTabBarController.h"
 #import "MBGuideTool.h"
 #import "MBAdViewController.h"
-@interface AppDelegate ()
+#import "WXApi.h"
+@interface AppDelegate ()<WXApiDelegate>
 
 
 @end
@@ -46,7 +47,39 @@
 //    self.window.rootViewController = tab;
 //    [self.window makeKeyAndVisible];
     
+    /**
+     *  注册微信支付
+     */
+    [WXApi registerApp:@"wx8775f0d9d378c50e"];
+    
+    
+    
     return YES;
+}
+
+- (void)onResp:(BaseResp *)resp {
+if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+        
+        switch (resp.errCode) {
+            case WXSuccess:
+                strMsg = @"支付结果：成功！";
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+                
+            default:
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -74,6 +107,8 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
 {
     return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
+
 }
+
 
 @end

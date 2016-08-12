@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>DACircularProgress.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -49,10 +54,25 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>11</integer>
+		</dict>
+		<key>MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+		<key>MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
@@ -137,6 +157,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5813251FEA21E4AEE97385709F1912DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5B60301962E39F44B65EC2CEE50D12D7</key>
 		<dict>
 			<key>primary</key>
@@ -147,7 +172,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>802EBB4F98D5796CA2AF2BA80B47AC2E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8B97498F588C52288DC7E25633615FE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9775596B3CA16905FC8F66DA8E2A3C67</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,6 +197,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AED035B91A432418DA1E8580D7CD877D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B39DB914782995CA0FA4DD75B96BDADF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0827BEDC659D0E4CB826F54AB62D96C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D53E4849A405C96B131F44AA0E21D672</key>
 		<dict>
 			<key>primary</key>
@@ -172,7 +222,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DE3B07ED7FF04F506B0C5E00F4973589</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2FE87384A67337831E53490EEA8BF11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E65B212052AC8406BABEC0E4B0B648D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

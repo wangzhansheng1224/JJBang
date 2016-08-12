@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UIButton *btn_face;
 @property (nonatomic,strong) UIButton *btn_more;
 @property (nonatomic,strong) UIButton *btn_camera;
+@property (nonatomic,strong) UILabel *label_placehold;
 
 @end
 
@@ -32,6 +33,7 @@
     [self.view addSubview:self.btn_face];
     [self.view addSubview:self.btn_more];
     [self.view addSubview:self.textView];
+    [self.view addSubview:self.label_placehold];
     [self.view bringSubviewToFront:self.btn_camera];
     [self.view bringSubviewToFront:self.btn_face];
     [self.view bringSubviewToFront:self.btn_video];
@@ -39,10 +41,19 @@
     [self layoutPageSubviews];
 }
 
+#pragma -
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    [self.textView reloadInputViews];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+
+    [super viewDidDisappear:animated];
+    
+    self.textView.text = @"";
+    self.label_placehold.text = @"此时此地，想和大家分享什么";
 }
 
 #pragma
@@ -53,6 +64,13 @@
         make.top.equalTo(@0);
         make.height.equalTo(@283);
         make.left.right.equalTo(@0);
+    }];
+    
+    [self.label_placehold mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.left.equalTo(@7);
+        make.height.equalTo(@24);
+        make.right.equalTo(@-7);
     }];
 
     [self.btn_camera mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,6 +199,15 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
+-(void)textViewDidChange:(UITextView *)textView
+{
+    self.textView.text = textView.text;
+    if (textView.text.length == 0) {
+        self.label_placehold.text = @"此时此地，想和大家分享什么";
+    }else{
+        self.label_placehold.text = @"";
+    } 
+}
 
 #pragma
 #pragma mark - event response
@@ -236,7 +263,6 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
         _textView = [[UITextView alloc] init];
         _textView.font = H2;
-        _textView.text = @"此时此地，想和大家分享什么";
         _textView.textAlignment = NSTextAlignmentLeft;
         _textView.returnKeyType = UIReturnKeyDefault;
         _textView.keyboardType = UIKeyboardTypeDefault;
@@ -303,6 +329,20 @@
         [_btn_more addTarget:self action:@selector(btn_moreClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _btn_more;
+}
+
+- (UILabel *)label_placehold {
+
+    if (!_label_placehold) {
+        
+        _label_placehold = [[UILabel alloc] init];
+        _label_placehold.text = @"此时此地，想和大家分享什么";
+        _label_placehold.backgroundColor = [UIColor clearColor];
+        _label_placehold.enabled = NO;
+        _label_placehold.font = H2;
+        [_label_placehold sizeToFit];
+    }
+    return _label_placehold;
 }
 
 

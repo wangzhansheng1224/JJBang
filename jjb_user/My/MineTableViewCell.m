@@ -53,9 +53,6 @@
     if (!_headerImageView) {
         
         _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 30, 30)];
-        
-//        _headerImageView.backgroundColor = JJBRandomColor;
-        
         _headerImageView.center = CGPointMake(_headerImageView.center.x, self.center.y);
         
         _headerImageView.contentMode = UIViewContentModeScaleAspectFit;
