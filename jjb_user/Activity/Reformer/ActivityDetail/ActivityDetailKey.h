@@ -9,9 +9,13 @@
 #ifndef ActivityDetailKey_h
 #define ActivityDetailKey_h
 extern NSString *const kActivityDetailID;
-extern NSString *const kActivityDetailName;
-extern NSString *const kActivityDetailImg;
-extern NSString *const kActivityDetailPrice;
-extern NSString *const kActivityDetailNum;
-extern NSString *const kActivityDetailStar;
+extern NSString *const kActivityDetailTitle;
+extern NSString *const kActivityDetailTime;
+extern NSString *const kActivityDetailContent;
+extern NSString *const kActivityDetailIntro;
+extern NSString *const kActivityDetailRegistCount;
+extern NSString *const kActivityDetailImages;
+extern NSString *const kActivityDetailIsRegist;
+extern NSString *const kActivityDetailState;
+extern NSString *const kActivityDetailAddress;
 #endif /* ActivityDetailKey_h */

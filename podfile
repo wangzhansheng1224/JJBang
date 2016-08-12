@@ -12,6 +12,7 @@ target 'jjb_user' do
     pod 'JLRoutes'  #路由
     pod 'DateTools'
     pod 'HMSegmentedControl'
+    pod 'MWPhotoBrowser'
     pod 'AliyunOSSiOS', '~> 2.5.0' #阿里云的oss图片上传
     pod 'LBXScan',git:'https://github.com/MxABC/LBXScan.git'
 #    pod 'RAMAnimatedTabBarController'

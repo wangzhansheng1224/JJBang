@@ -34,7 +34,9 @@
     //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
     [[UITableViewCell appearance] setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
+    //设置通用按钮样式
+    [[UIButton appearance] setBackgroundColor:COLOR_ORANGE];
+    [[UIButton appearance] setTintColor:COLOR_WHITE];
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];

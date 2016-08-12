@@ -8,6 +8,7 @@
 
 #import "StudentController.h"
 #import "StudentListCell.h"
+#import "StudentDetailController.h"
 
 static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
@@ -23,8 +24,9 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 #pragma -
 #pragma mark - life cycle
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
+    self.navigationItem.title = @"明星学员";
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = COLOR_WHITE;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -33,11 +35,10 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
     [self layoutPageSubviews];
 }
 
-
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
@@ -50,26 +51,31 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     StudentListCell *cell = [tableView dequeueReusableCellWithIdentifier:StudentListCellIdentifier forIndexPath:indexPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     return 94;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.navigationController pushViewController:[[StudentDetailController alloc] init] animated:YES];
 }
 
 #pragma -
 #pragma mark - getters and setters
 - (UITableView *)tableView {
-
+    
     if (!_tableView) {
         
         _tableView = [[UITableView alloc] init];
@@ -81,7 +87,7 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 }
 
 - (NSMutableArray *)array_data {
-
+    
     if (!_array_data) {
         
         _array_data = [[NSMutableArray alloc] init];

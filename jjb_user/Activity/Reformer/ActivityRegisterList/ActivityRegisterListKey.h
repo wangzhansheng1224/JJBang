@@ -8,10 +8,11 @@
 
 #ifndef ActivityRegisterListKey_h
 #define ActivityRegisterListKey_h
-extern NSString *const kActivityRegisterListID;
-extern NSString *const kActivityRegisterListName;
-extern NSString *const kActivityRegisterListImg;
-extern NSString *const kActivityRegisterListPrice;
-extern NSString *const kActivityRegisterListNum;
-extern NSString *const kActivityRegisterListStar;
+extern NSString *const kActivityRegisterListUserID;
+extern NSString *const kActivityRegisterListNickName;
+extern NSString *const kActivityRegisterListUserFace;
+extern NSString *const kActivityRegisterListSex;
+extern NSString *const kActivityRegisterListRemark;
+extern NSString *const kActivityRegisterListMedal;
 #endif /* ActivityRegisterListKey_h */
+

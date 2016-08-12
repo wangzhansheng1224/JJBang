@@ -33,6 +33,19 @@ NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
         
         for (NSInteger i=0; i< [arrData count]; i++) {
             
+            //当前时间
+            NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+            
+            NSTimeInterval a=[dat timeIntervalSince1970];
+            
+            NSString*timeString = [NSString stringWithFormat:@"%0.f", a];
+            //后台时间
+            
+            int oldTime = [arrData[i][@"create_time"] doubleValue]/1000;
+            int newTime = [timeString intValue];
+            
+            NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow: oldTime -newTime];
+            
             NSDictionary *itemData=@{
                                      kGrowingTreeListID:arrData[i][@"id"],
                                      kGrowingTreeListContent:arrData[i][@"content"],
@@ -43,7 +56,7 @@ NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
                                      kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
                                      kGrowingTreeListFromUserName:arrData[i][@"fromUser"],
                                      kGrowingTreeListAddress:arrData[i][@"address"],
-                                     kGrowingTreeListCreateTime:arrData[i][@"create_time"] ,
+                                     kGrowingTreeListCreateTime:timeAgoDate.timeAgoSinceNow ,
                                      kGrowingTreeListImages:arrData[i][@"images"]
                                      };
             [arrResult addObject:itemData];

@@ -81,8 +81,6 @@ alpha:(a)]
 #define JJBWeakSelf __weak typeof(self) weakSelf = self;
 
 
-
-
 #import "UIColor+MBHex.h"
 #import "LDNetworking.h"
 #import "UIView+MBFrame.h"
@@ -97,5 +95,6 @@ alpha:(a)]
 #import "CTMediator+CTMediatorSystemActions.h"
 #import "NSDate+NSString.h"
 #import "DateTools.h"
+#import <MWPhotoBrowser.h>
 
 #endif

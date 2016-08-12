@@ -143,9 +143,7 @@
     
     _topImage = [[UIImageView alloc] init];
     
-    _topImage.contentMode = UIViewContentModeScaleAspectFit;
-    
-    _topImage.backgroundColor = COLOR_DARK_GRAY;
+    _topImage.contentMode = UIViewContentModeScaleAspectFill;
     
     [self addSubview:_topImage];
 }
@@ -160,17 +158,12 @@
 - (void)createSetBtn {
     
     _setBtn = [[UIButton alloc] init];
-    
-    _setBtn.backgroundColor = COLOR_DARK_GRAY;
-    
-    _setBtn.layer.cornerRadius = _setBtn.width/2.0;
-    
+    _setBtn.backgroundColor = COLOR_GRAY;
+    _setBtn.layer.cornerRadius = 15;
     _setBtn.clipsToBounds = YES;
-    
     _setBtn.center = CGPointMake(SCREEN_W - 35, 35);
     
     [self addSubview:_setBtn];
-    
 }
 
 - (void)setSetButton:(NSString *)setButton {
@@ -187,15 +180,10 @@
 - (void)createEmailBtn {
     
     _emailBtn = [[UIButton alloc] init];
-    
-    _emailBtn.backgroundColor = COLOR_DARK_GRAY;
-    
-    _emailBtn.layer.cornerRadius = _emailBtn.width/2.0;
-    
+    _emailBtn.backgroundColor = COLOR_GRAY;
+    _emailBtn.layer.cornerRadius = 15;
     _emailBtn.clipsToBounds = YES;
-    
     [self addSubview:_emailBtn];
-    
 }
 
 - (void)setEmailButton:(NSString *)emailButton {
@@ -212,14 +200,9 @@
 - (void)createItemImageView {
     
     _itemImage = [[UIImageView alloc] init];
-    
     _itemImage.layer.cornerRadius = 39;
     _itemImage.layer.masksToBounds = YES;
-    
     _itemImage.contentMode = UIViewContentModeScaleAspectFit;
-    
-    _itemImage.backgroundColor = [UIColor redColor];
-    
     [self addSubview:_itemImage];
 }
 
