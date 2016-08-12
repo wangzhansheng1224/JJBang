@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBStarTeacherCell : UICollectionViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end

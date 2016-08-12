@@ -71,6 +71,10 @@
 		731FDD1B1D586F3200A18534 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1A1D586F3200A18534 /* MyOrderDetailController.m */; };
 		731FDD201D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */; };
 		731FDD241D58767700A18534 /* Target_My.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FDD231D58767700A18534 /* Target_My.m */; };
+		732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96961D5D3C6D00BE5800 /* TitleBar.m */; };
+		732A969C1D5D7B7200BE5800 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A969B1D5D7B7200BE5800 /* StarView.m */; };
+		732A96A31D5DACC600BE5800 /* img_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 732A96A21D5DACC600BE5800 /* img_default@3x.png */; };
+		732A96A61D5DB9F600BE5800 /* NSURL+OSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */; };
 		734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C51D59A081000AAA27 /* iCarousel.m */; };
 		734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C81D59AA96000AAA27 /* ActivityDetailHeader.m */; };
 		734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3CB1D5AC591000AAA27 /* ActivityRegistrationCell.m */; };
@@ -304,6 +308,13 @@
 		731FDD1F1D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorMyActions.m"; path = "My/CTMediator+CTMediatorMyActions.m"; sourceTree = "<group>"; };
 		731FDD221D58767700A18534 /* Target_My.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_My.h; path = Actions/Target_My.h; sourceTree = "<group>"; };
 		731FDD231D58767700A18534 /* Target_My.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_My.m; path = Actions/Target_My.m; sourceTree = "<group>"; };
+		732A96951D5D3C6D00BE5800 /* TitleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBar.h; sourceTree = "<group>"; };
+		732A96961D5D3C6D00BE5800 /* TitleBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBar.m; sourceTree = "<group>"; };
+		732A969A1D5D7B7200BE5800 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		732A969B1D5D7B7200BE5800 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
+		732A96A21D5DACC600BE5800 /* img_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_default@3x.png"; sourceTree = "<group>"; };
+		732A96A41D5DB9F600BE5800 /* NSURL+OSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OSS.h"; sourceTree = "<group>"; };
+		732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OSS.m"; sourceTree = "<group>"; };
 		734CC3C41D59A081000AAA27 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		734CC3C51D59A081000AAA27 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		734CC3C71D59AA96000AAA27 /* ActivityDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailHeader.h; sourceTree = "<group>"; };
@@ -628,6 +639,10 @@
 				BBC572F41D59C3AE00848F5F /* MBStarStudentCollectionView.m */,
 				BBC572F61D59CD0F00848F5F /* MBStarTeacherCollectionView.h */,
 				BBC572F71D59CD0F00848F5F /* MBStarTeacherCollectionView.m */,
+				732A96951D5D3C6D00BE5800 /* TitleBar.h */,
+				732A96961D5D3C6D00BE5800 /* TitleBar.m */,
+				732A969A1D5D7B7200BE5800 /* StarView.h */,
+				732A969B1D5D7B7200BE5800 /* StarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -896,6 +911,22 @@
 				731FDD231D58767700A18534 /* Target_My.m */,
 			);
 			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96A01D5DACC600BE5800 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				732A96A11D5DACC600BE5800 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		732A96A11D5DACC600BE5800 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				732A96A21D5DACC600BE5800 /* img_default@3x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		734CC3C31D59A081000AAA27 /* iCarousel */ = {
@@ -1395,6 +1426,7 @@
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
+				732A96A01D5DACC600BE5800 /* Resources */,
 				BB159CB01D4F473200F46F09 /* Vendors */,
 				73ED4F061D4EFA410022BF79 /* jjb_user */,
 				73ED4F051D4EFA410022BF79 /* Products */,
@@ -1510,6 +1542,8 @@
 				BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */,
 				BB8843001D51E02100A537D8 /* UIImage+image.h */,
 				BB8843011D51E02100A537D8 /* UIImage+image.m */,
+				732A96A41D5DB9F600BE5800 /* NSURL+OSS.h */,
+				732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1724,6 +1758,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB5679F41D58991800C2B61D /* shopClassify.plist in Resources */,
+				732A96A31D5DACC600BE5800 /* img_default@3x.png in Resources */,
 				5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */,
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1810,6 +1845,7 @@
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
+				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
@@ -1877,6 +1913,7 @@
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
 				BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */,
+				732A96A61D5DB9F600BE5800 /* NSURL+OSS.m in Sources */,
 				73575F3F1D54A2780037F697 /* UserReformer.m in Sources */,
 				731091BB1D51A6CD0031B443 /* CourseCommentAPIManager.m in Sources */,
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
@@ -1926,6 +1963,7 @@
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
 				73575F551D54D4950037F697 /* TeacherController.m in Sources */,
+				732A969C1D5D7B7200BE5800 /* StarView.m in Sources */,
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,

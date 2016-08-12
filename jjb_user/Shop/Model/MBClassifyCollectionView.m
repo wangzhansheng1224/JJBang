@@ -25,19 +25,15 @@
 @end
 @implementation MBClassifyCollectionView
 
-
-
-
-
 static NSInteger const cols = 4;
-static CGFloat const margin = 1;
+static CGFloat const margin = 0;
 static NSString * const cellID = @"cell";
 #define  cellWH  ((Screen_Width - (cols - 1) * margin) / cols)
 -(UICollectionViewFlowLayout *)layout
 {
     if (_layout == nil) {
         UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.itemSize = CGSizeMake(cellWH, cellWH-10);
+        layout.itemSize = CGSizeMake(cellWH, cellWH);
         layout.minimumInteritemSpacing = margin ;
         layout.minimumLineSpacing = margin;
         _layout = layout;

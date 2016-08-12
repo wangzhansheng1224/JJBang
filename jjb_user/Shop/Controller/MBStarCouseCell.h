@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBStarCouseCell : UITableViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end

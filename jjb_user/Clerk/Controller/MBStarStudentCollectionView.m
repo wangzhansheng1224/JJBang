@@ -20,7 +20,7 @@ static CGFloat const margin = 1.0;
 @interface MBStarStudentCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property(nonatomic,strong) NSMutableArray * starStudentsArray;
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
-
+@property(nonatomic,strong) NSArray * data;
 @end
 @implementation MBStarStudentCollectionView
 
@@ -40,16 +40,24 @@ static CGFloat const margin = 1.0;
 }
 
 
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSArray *)data{
+    self.data=data;
+}
+
+
 #pragma mark 
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 //    return self.starStudentsArray;
-    return 2;
+    return [self.data count];
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MBStarStudentCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
+    [cell configWithData:self.data[indexPath.row]];
     return cell;
 }
 

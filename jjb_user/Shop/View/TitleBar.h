@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TitleBar : UIView
-
+-(id) initWithTitle:(NSString*)title;
 @end

@@ -10,12 +10,26 @@
 
 @implementation StarView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(id) init{
+    self=[super init];
+    if (self) {
+        
+    }
+    return self;
 }
-*/
 
+#pragma -
+#pragma mark - drawRect
+
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    
+    for (NSInteger i=0; i<self.score; i++) {
+        
+        UIImage *star=[UIImage imageNamed:@"star_solid"];
+        [star drawAtPoint:CGPointMake(i*13+5,(rect.size.height-13)/2.0)];
+        
+    }
+
+}
 @end

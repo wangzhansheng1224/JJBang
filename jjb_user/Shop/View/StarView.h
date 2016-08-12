@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface StarView : UIView
-
+@property (nonatomic,assign) float score;
 @end

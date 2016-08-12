@@ -207,6 +207,7 @@
 
 - (HMSegmentedControl *) tabbarControl
 {
+    
     if (!_tabbarControl) {
         _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动详情",@"报名信息"]];
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;

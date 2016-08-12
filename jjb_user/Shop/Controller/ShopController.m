@@ -8,7 +8,9 @@
 
 #import "ShopController.h"
 #import "SHopIndexAPIManager.h"
+#import "ShopIndexReformer.h"
 #import "LoginViewController.h"
+#import "TitleBar.h"
 
 #import <LBXScanViewController.h>
 #import "ScanViewController.h"
@@ -29,7 +31,6 @@
  */
 
 
-#define kPageCount 3    //广告位的数量
 static NSString * const MBNewActivityCellIdentifier = @"MBNewActivityCellIdentifier";
 static NSString * const MBSaleCellIdentifier = @"MBSaleCellIdentifier";
 static NSString * const MBVideoCellIdentifier = @"MBViderCellIdentifier";
@@ -43,7 +44,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 
 
-@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIScrollViewDelegate>
+@interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 @property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
@@ -51,6 +52,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
 @property(nonatomic,weak) UICollectionView * collectionView;
+@property (nonatomic,strong) UIBarButtonItem * scanButton;
+@property (nonatomic,strong) UIBarButtonItem * loactionButton;
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) ScanViewController *scanController;
+@property(nonatomic,strong) NSDictionary *dataDic;
+
 
 @end
 
@@ -63,85 +70,24 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-
+    self.navigationItem.title=@"望湖公园店";
+    self.navigationItem.leftBarButtonItem=self.loactionButton;
+    self.navigationItem.rightBarButtonItem =self.scanButton;
+    [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
-    [self setUpNav];
-        //banner位
-    [self setUpBanner];
-    //所有的cell
-    [self setupChildViewCell];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    
+
 }
+
+
 #pragma -
-#pragma mark - private methods
-//自定义导航栏
--(void)setUpNav
+#pragma mark - Events
+//扫一扫
+-(void)gotoScan:(id)sender
 {
-    UIBarButtonItem * scanButton = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"scan"] highImage:[UIImage imageNamed:@"scan"] target:self action:@selector(gotoScan)];
-    self.navigationItem.rightBarButtonItem = scanButton;
-    
-    UIBarButtonItem * loactionButton =[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStyleBordered target:self action:@selector(gotoLocation)];
-    self.navigationItem.leftBarButtonItem=loactionButton;
-    self.navigationItem.leftBarButtonItem = loactionButton;
-    self.navigationItem.title = @"望湖公园店";
-}
-
--(void)setupChildViewCell
-{
-    [self.tableView registerClass:[MBNewActivityCell class] forCellReuseIdentifier:MBNewActivityCellIdentifier];
-//    [self.tableView registerClass:[MBSaleCell class] forCellReuseIdentifier:MBSaleCellIdentifier];
-    [self.tableView registerClass:[MBVideoCell class] forCellReuseIdentifier:MBVideoCellIdentifier];
-//    [self.tableView registerClass:[MBStarStudentCell class] forCellReuseIdentifier:MBStarStudentCellIdentifier];
-//    [self.tableView registerClass:[MBStarTeacherCell class] forCellReuseIdentifier:MBStarTeacherCellIdentifier];
-    [self.tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:MBStarCouseCellIdentifier];
-    
-}
-//扫描
--(void)gotoScan
-{
-
-    [self setUpScanStyle];
-}
-
--(void)setUpScanStyle
-{
-    //设置扫码区域参数设置
-    
-    //创建参数对象
-    LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
-    
-    //矩形区域中心上移，默认中心点为屏幕中心点
-    style.centerUpOffset = 44;
-    
-    //扫码框周围4个角的类型,设置为外挂式
-    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
-    
-    //扫码框周围4个角绘制的线条宽度
-    style.photoframeLineW = 6;
-    
-    //扫码框周围4个角的宽度
-    style.photoframeAngleW = 24;
-    
-    //扫码框周围4个角的高度
-    style.photoframeAngleH = 24;
-    
-    //扫码框内 动画类型 --线条上下移动
-    style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
-    
-    //线条上下移动图片
-    style.animationImage = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_light_green"];
-    
-    //添加一些扫码或相册结果处理
-    ScanViewController *vc = [ScanViewController new];
-    vc.style = style;
-    
-    vc.isQQSimulator = YES;
-    vc.isVideoZoom = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:self.scanController animated:YES];
 }
 //定位
--(void)gotoLocation
+-(void)gotoLocation:(id)sender
 {
     JJBLog(@"%s",__func__);
 
@@ -151,24 +97,24 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     CGFloat width = self.scrollView.width;
     CGFloat height = self.scrollView.height;
-    
-    for(int i = 0 ; i <kPageCount; i++)
+    NSArray *imgArr=self.dataDic[kShopIndexActImg];
+    for(int i = 0 ; i <[imgArr count]; i++)
     {
+        NSDictionary *imgDic=imgArr[i];
         UIImageView * imageView  = [[UIImageView alloc]init];
         imageView.frame = CGRectMake(width * i, 0, width, height);
-        NSString * imageName = [NSString stringWithFormat:@"ima%d",i];
-       
-//        imageView .image = [UIImage imageNamed:imageName];
-        imageView.image = [UIImage imageNamed:@"img_default"];
+            [imageView sd_setImageWithURL:[NSURL initWithImageURL:imgDic[kShopIndexActImgImagePath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
         [self.scrollView addSubview:imageView];
     }
-    self.scrollView.contentSize= CGSizeMake(kPageCount * width, 0);
-    self.pageControl.numberOfPages = kPageCount;
+    self.scrollView.contentSize= CGSizeMake([imgArr count] * width, height);
+
+    
+    self.pageControl.numberOfPages = [imgArr count];
     self.pageControl.currentPageIndicatorTintColor = COLOR_ORANGE;
     [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
 //        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-5);
-        make.top.equalTo(self.view.mas_top).offset(100);
+        make.top.equalTo(self.scrollView.mas_bottom).offset(-30);
         
     }];
 //    self.pageControl.frame = CGRectMake(100, 100, 200, 30);
@@ -195,7 +141,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     //获取当前的页码
     NSInteger currentPageIndex = self.pageControl.currentPage;
     currentPageIndex++;
-    if (currentPageIndex >= kPageCount) {
+    NSArray *imgArr=self.dataDic[kShopIndexActImg];
+    if (currentPageIndex >= [imgArr count]) {
         currentPageIndex = 0;
     }
     CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
@@ -209,53 +156,34 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 #pragma 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 7;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section==6) {
+        NSArray* arrData=self.dataDic[kShopIndexCourseList];
+        if (arrData) {
+            return [arrData count];
+        }
+        return 0;
+    }
     return 1;
 }
-/*
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return @"最新活动";
-    }else if(section == 1)
-    {
-        return @"优惠商品";
-    }else if (section == 2)
-    {
-        return @"直播间";
-    }else if(section == 3)
-    {
-        return @"明星学员";
-    }else if(section == 4)
-    {
-        return @"明星老师";
-    }else
-    {
-        return @"热门课程";
-    }
-    
-    
-    
-}*/
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.section == 0)
-//    {
-//        MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//        UITableViewCell * cell = [[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 170) collectionViewItemSize:CGSizeMake(0, 0)];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ShopClassifyCellIdentifier forIndexPath:indexPath];
+        cell.backgroundColor=[UIColor clearColor];
+        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, Screen_Width/2.0) collectionViewItemSize:CGSizeMake(0, 0)];
         [cell.contentView addSubview:collectionView];
         return cell;
-
     }
     else if(indexPath.section== 1)
     {
@@ -264,11 +192,18 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     else if(indexPath.section == 2)
     {
-//        MBSaleCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
-//        return cell;
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200) collectionViewItemSize:CGSizeMake(0, 0)];
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
+        TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"优惠商品"];
+        titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
+        [cell.contentView addSubview:titleBar];
+        MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, (Screen_Width-40.0f)/2.0f+30.0f) collectionViewItemSize:CGSizeMake(0, 0)];
+        [saleCollectionView configWithData:self.dataDic[kShopIndexGoodsList]];
         [cell.contentView addSubview:saleCollectionView];
+        
+        UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, (Screen_Width-40.0f)/2.0f+30.0f+30.0f, Screen_Width, 10)];
+        lineView.backgroundColor=COLOR_LIGHT_GRAY;
+        [cell.contentView addSubview:lineView];
+        
         return cell;
     }
     else if(indexPath.section ==3)
@@ -278,70 +213,73 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     else if(indexPath.section == 4)
     {
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200)];
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
+        TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星学员"];
+        titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
+        [cell.contentView addSubview:titleBar];
+       
+        MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, Screen_Width/2.0f)];
+        [starStudentView configWithData:self.dataDic[kShopIndexSdtList]];
         [cell.contentView addSubview:starStudentView];
+        UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, Screen_Width/2.0f+30, Screen_Width, 10)];
+        lineView.backgroundColor=COLOR_LIGHT_GRAY;
+        [cell.contentView addSubview:lineView];
         return cell;
         
     }
     else if(indexPath.section == 5)
     {
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-        MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, 200)];
+        
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarTeacherCellIdentifier forIndexPath:indexPath];
+        TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星老师"];
+        titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
+        [cell.contentView addSubview:titleBar];
+        
+        MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, Screen_Width/2.0f)];
+        [starTeacherView configWithData:self.dataDic[kShopIndexTechList]];
+        
         [cell.contentView addSubview:starTeacherView];
+        UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, Screen_Width/2.0f+30, Screen_Width, 10)];
+        lineView.backgroundColor=COLOR_LIGHT_GRAY;
+        [cell.contentView addSubview:lineView];
+        
+        TitleBar * nextBar=[[TitleBar alloc] initWithTitle:@"热门课程"];
+        nextBar.frame=CGRectMake(0, Screen_Width/2.0f+40,Screen_Width,30);
+        [cell.contentView addSubview:nextBar];
         return cell;
         
     }else
     {
         MBStarCouseCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarCouseCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.dataDic[kShopIndexCourseList][indexPath.row]];
         return cell;
     }
 
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180.0f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 30.0f;
-}
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView * sectionView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 30)];
-    sectionView.backgroundColor = [UIColor whiteColor];
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"更多" forState:UIControlStateNormal];
-    [button setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
-    button.titleLabel.font = H4;
-    [button sizeToFit];
-    [button addTarget:self action:@selector(buttonMoreClick:) forControlEvents:UIControlEventTouchUpInside];
-    [sectionView addSubview:button];
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(sectionView.mas_top);
-        make.right.equalTo(sectionView.mas_right).offset(-16);
-        make.bottom.equalTo(sectionView.mas_bottom);
-    }];
-    UILabel * label = [[UILabel alloc]init];
-    label.text = @"最新活动";
-    label.textAlignment = NSTextAlignmentLeft;
-    [sectionView addSubview:label];
-    [label sizeToFit];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(button.mas_centerY);
-        make.left.equalTo(sectionView.mas_left).offset(20);
-    }];
-    
-
-    
-    return sectionView;
-
+    if (indexPath.section==0) {
+          return Screen_Width/2.0f+10;
+    }
+    if (indexPath.section==1) {
+          return Screen_Width*2.0f/3.0f+90.0f;
+    }
+    if (indexPath.section==2) {
+        return (Screen_Width-40.0f)/2.0f+30.0f+40.0f;
+    }
+    if (indexPath.section==3) {
+        return Screen_Width*2.0f/3.0f+90.0f;
+    }
+    if(indexPath.section==4)
+    {
+        return Screen_Width/2.0f+30.0f+10.f;
+    }
+    if(indexPath.section==5)
+    {
+        return Screen_Width/2.0f+30.0f+10.f+30.0f;
+    }
+      return Screen_Width/3.0f;
 }
 
 #pragma mark
@@ -364,7 +302,9 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSDictionary *reformedShopIndexData = [manager fetchDataWithReformer:self.shopIndexReformer];
+    self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
+    [self setUpBanner];
+    [self.tableView reloadData];
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     
@@ -372,7 +312,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@"117.10",@"lat":@"40.13"};
+    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
 }
 
 #pragma -
@@ -385,12 +325,20 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     return _shopIndexAPIManager;
 }
+
+-(id<ReformerProtocol>) shopIndexReformer
+{
+    if (!_shopIndexReformer) {
+        _shopIndexReformer=[[ShopIndexReformer alloc] init];
+    }
+    return _shopIndexReformer;
+}
 //banner位
 -(UIScrollView *)scrollView
 {
     if (_scrollView == nil) {
     //保持宽高比
-        UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width * 0.336)];
+        UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f)];
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.pagingEnabled = YES;
 //        [self.view addSubview:scrollView];
@@ -404,13 +352,11 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(UIPageControl *)pageControl
 {
     if (_pageControl == nil) {
-        UIPageControl * pageControl = [[UIPageControl alloc]init];
-        pageControl.currentPage = 0;
-        pageControl.hidesForSinglePage = YES;
-        pageControl.userInteractionEnabled = NO;
-        [self.view addSubview:pageControl];
-        _pageControl  =  pageControl;
-        
+        _pageControl = [[UIPageControl alloc]init];
+        _pageControl.currentPage = 0;
+        _pageControl.hidesForSinglePage = YES;
+        _pageControl.userInteractionEnabled = NO;
+        [self.tableView addSubview:_pageControl];
     }
     return _pageControl;
 }
@@ -425,8 +371,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     if (_collectionView == nil) {
         UICollectionView * collectionView = [[UICollectionView alloc]init];
-        collectionView.delegate = self;
-        collectionView.dataSource = self;
         collectionView.scrollEnabled = NO; //不允许滚动
         collectionView.bounces = NO;
         _collectionView = collectionView;
@@ -434,5 +378,82 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
     }
     return _collectionView;
+}
+
+- (UIBarButtonItem *) scanButton{
+    if (_scanButton==nil) {
+        _scanButton=[UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"scan"] highImage:[UIImage imageNamed:@"scan"] target:self action:@selector(gotoScan:)];
+    }
+    return _scanButton;
+}
+
+- (UIBarButtonItem *) loactionButton{
+    if (_loactionButton==nil) {
+        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStyleBordered target:self action:@selector(gotoLocation:)];
+    }
+    return _loactionButton;
+}
+
+-(UITableView*)tableView{
+    
+    if (_tableView==nil) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height - 49-44-20) style:UITableViewStylePlain];
+        _tableView.backgroundColor=COLOR_LIGHT_GRAY;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[MBNewActivityCell class] forCellReuseIdentifier:MBNewActivityCellIdentifier];
+        [_tableView registerClass:[MBVideoCell class] forCellReuseIdentifier:MBVideoCellIdentifier];
+        [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:MBStarCouseCellIdentifier];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ShopClassifyCellIdentifier];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MBStarTeacherCellIdentifier];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MBStarStudentCellIdentifier];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MBSaleCellIdentifier];
+        
+    }
+    return _tableView;
+}
+
+- (ScanViewController*)scanController
+{
+    if (_scanController==nil) {
+        _scanController=[[ScanViewController alloc] init];
+        //设置扫码区域参数设置
+        //创建参数对象
+        LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+        
+        //矩形区域中心上移，默认中心点为屏幕中心点
+        style.centerUpOffset = 44;
+        
+        //扫码框周围4个角的类型,设置为外挂式
+        style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
+        
+        //扫码框周围4个角绘制的线条宽度
+        style.photoframeLineW = 6;
+        
+        //扫码框周围4个角的宽度
+        style.photoframeAngleW = 24;
+        
+        //扫码框周围4个角的高度
+        style.photoframeAngleH = 24;
+        
+        //扫码框内 动画类型 --线条上下移动
+        style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
+        
+        //线条上下移动图片
+        style.animationImage = [UIImage imageNamed:@"qrcode_scan_light_green"];
+        
+        _scanController.style = style;
+        
+        _scanController.isQQSimulator = YES;
+        _scanController.isVideoZoom = YES;
+    }
+   return _scanController;
+}
+
+-(NSDictionary *) dataDic{
+    if (!_dataDic) {
+        _dataDic=[[NSDictionary alloc] init];
+    }
+    return _dataDic;
 }
 @end

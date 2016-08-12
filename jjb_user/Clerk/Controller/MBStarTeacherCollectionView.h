@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBStarTeacherCollectionView : UICollectionView
-
+- (void)configWithData:(NSArray *)data;
 @end

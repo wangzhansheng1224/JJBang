@@ -56,6 +56,7 @@ alpha:(a)]
 
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_Height [UIScreen mainScreen].bounds.size.height
+#define Screen_Scale [UIScreen mainScreen].scale
 
 #define StatusHeight 20
 #define TabBarHeight 49
@@ -96,5 +97,6 @@ alpha:(a)]
 #import "NSDate+NSString.h"
 #import "DateTools.h"
 #import <MWPhotoBrowser.h>
+#import "NSURL+OSS.h"
 
 #endif

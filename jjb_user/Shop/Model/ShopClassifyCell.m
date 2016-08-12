@@ -31,14 +31,14 @@
 -(void)addsubViewConstaint
 {
     [self.classifyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
+        make.top.equalTo(self.contentView.mas_top).offset(10);
         make.centerX.equalTo(self.contentView.mas_centerX);
         make.width.mas_equalTo(@50);
         make.height.mas_equalTo(@49);
     }];
     [self.classifyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.classifyImageView.mas_bottom).offset(-8);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(8);
+        make.top.equalTo(self.classifyImageView.mas_bottom).offset(5);
+        make.height.equalTo(@(20));
         make.centerX.equalTo(self.contentView.mas_centerX);
     }];
     

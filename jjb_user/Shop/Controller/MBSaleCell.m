@@ -7,6 +7,7 @@
 //
 
 #import "MBSaleCell.h"
+#import "ShopIndexKeys.h"
 
 @interface MBSaleCell ()
 /**
@@ -26,12 +27,8 @@
 @implementation MBSaleCell
 
 
-#pragma
+#pragma -
 #pragma mark - life cycle
-
-- (void)awakeFromNib {
-    // Initialization code
-}
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -45,13 +42,23 @@
     return self;
 
 }
-#pragma 
+
+#pragma -
+#pragma mark - private methods
+- (void)configWithData:(NSDictionary *)data
+{
+    self.scaleTitleLabel.text=data[kShopIndexGoodsListName];
+    self.scalePriceLabel.text=[NSString stringWithFormat:@"%@",data[kShopIndexGoodsListPrice]] ;
+    [self.scaleImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexGoodsListImage] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
+
+#pragma -
 #pragma mark - private methods
 -(void)addAllChildViewConstaint
 {
     [self.scaleImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-40);
         make.left.equalTo(self.contentView.mas_left).offset(10);
         make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
@@ -99,8 +106,9 @@
 {
     if (_scalePriceLabel == nil) {
         UILabel * scalePriceLabel = [[UILabel alloc]init];
-        scalePriceLabel.text = @"价格测试";
+        scalePriceLabel.text = @"￥ 289";
         scalePriceLabel.font = H4;
+        scalePriceLabel.textColor=COLOR_ORANGE;
         [self.contentView addSubview:scalePriceLabel];
         _scalePriceLabel = scalePriceLabel;
     }

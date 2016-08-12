@@ -52,9 +52,10 @@
     
     UIView* superView=self;
     [_iView_Photo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superView.mas_top);
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 178));
-        make.left.equalTo(superView.mas_left).with.offset(0);
+        make.top.mas_equalTo(superView.mas_top);
+        make.bottom.mas_equalTo(superView.mas_bottom).offset(-100);
+        make.left.mas_equalTo(superView.mas_left);
+        make.right.mas_equalTo(superView.mas_right);
     }];
     [_label_status mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -63,17 +64,15 @@
         make.left.equalTo(@0);
     }];
     [_label_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(_iView_Photo.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(Screen_Width - 10, 20));
-        make.left.equalTo(@16);
-        make.right.equalTo(@-16);
+        make.top.mas_equalTo(_iView_Photo.mas_bottom).with.offset(10);
+        make.height.mas_equalTo(@30);
+        make.left.mas_equalTo(superView.mas_left).offset(10);
+        make.right.mas_equalTo(superView.mas_right).offset(-10);
     }];
     [_imageView_location mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(_label_title.mas_bottom).with.offset(8);
+        make.top.mas_equalTo(_label_title.mas_bottom).with.offset(10);
         make.size.mas_equalTo(CGSizeMake(17, 17));
-        make.left.equalTo(@16);
+        make.left.mas_equalTo(superView.mas_left).offset(10);
     }];
     [_label_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -85,7 +84,7 @@
         
         make.top.equalTo(_imageView_location.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(17, 17));
-        make.left.equalTo(@16);
+        make.left.mas_equalTo(superView.mas_left).offset(10);
     }];
     [_label_time mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -142,30 +141,13 @@
     return 10;
 }
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
-    UILabel *label = nil;
 
-    //create new view if no view is available for recycling
     if (view == nil)
     {
-        NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,@"/weixin/icon/banner11.jpg"]];
-        UIImageView  *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 100.0f)];
-        imgView.contentMode = UIViewContentModeScaleAspectFit;
-        
-        [imgView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
-
-        view=imgView;
-        view.contentMode = UIViewContentModeCenter;
-        
-        label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];
-    }
-    else
-    {
-        label = (UILabel *)[view viewWithTag:1];
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width/2)];
+        [((UIImageView *)view) sd_setImageWithURL:[NSURL initWithImageURL:@"/weixin/icon/banner1.jpg" Width:Screen_Width Height:Screen_Width/2] placeholderImage:[UIImage imageNamed:@"img_default"]];
+        view.contentMode = UIViewContentModeScaleAspectFit;
+ 
     }
 
     return view;

@@ -10,13 +10,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "jjb_user/Activity/View/ActivityDetailHeader.m"
-            timestampString = "492589619.09727"
+            timestampString = "492709792.296628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-apiManagerCallDidSuccess:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

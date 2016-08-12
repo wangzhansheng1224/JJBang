@@ -8,14 +8,85 @@
 
 #import "TitleBar.h"
 
+@interface TitleBar ()
+@property(nonatomic,strong) UIView *orangeView;
+@property(nonatomic,strong) UILabel *titleLabel;
+@property(nonatomic,strong) UILabel *moreLabel;
+@end
+
 @implementation TitleBar
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(id) initWithTitle:(NSString*)title{
+    self=[super init];
+    if (self) {
+        [self addSubview:self.orangeView];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.moreLabel];
+        [self.titleLabel setText:title];
+        [self layoutPageSubviews];
+    }
+    return self;
 }
-*/
 
+#pragma -
+#pragma mark - layoutPageSubviews
+- (void)layoutPageSubviews {
+    
+    UIView *superView=self;
+    [self.orangeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top).offset(5);
+        make.left.equalTo(superView.mas_left);
+        make.height.equalTo(@(20));
+        make.width.equalTo(@(10));
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top);
+        make.left.equalTo(superView.mas_left).offset(15);
+        make.right.equalTo(_moreLabel.mas_left);
+        make.height.equalTo(@(30));
+    }];
+    
+    [self.moreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top);
+        make.width.equalTo(@(100));
+        make.right.equalTo(superView.mas_right).offset(-10);
+        make.height.equalTo(@(30));
+    }];
+
+}
+
+#pragma -
+#pragma mark - getter and setter
+-(UILabel*) titleLabel{
+    
+    if (!_titleLabel) {
+        _titleLabel=[[UILabel alloc] init];
+        _titleLabel.text = @"最新活动";
+        _titleLabel.font = H3;
+        [_titleLabel sizeToFit];
+    }
+    return _titleLabel;
+}
+
+-(UILabel*) moreLabel{
+    
+    if (!_moreLabel) {
+        _moreLabel=[[UILabel alloc] init];
+        _moreLabel.text = @"更多";
+        _moreLabel.textColor=COLOR_GRAY;
+        _moreLabel.font = H4;
+        _moreLabel.textAlignment=NSTextAlignmentRight;
+        [_moreLabel sizeToFit];
+    }
+    return _moreLabel;
+}
+
+-(UIView*) orangeView{
+    if (!_orangeView) {
+        _orangeView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+        _orangeView.backgroundColor=COLOR_ORANGE;
+    }
+    return _orangeView;
+}
 @end

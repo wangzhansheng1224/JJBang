@@ -32,6 +32,7 @@
     [UITabBar appearance].translucent = NO;
     //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
+    [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [[UITableViewCell appearance] setSelectionStyle:UITableViewCellSelectionStyleNone];
     //设置通用按钮样式
     [[UIButton appearance] setBackgroundColor:COLOR_ORANGE];

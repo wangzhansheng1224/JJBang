@@ -7,13 +7,16 @@
 //
 
 #import "MBVideoCell.h"
+#import "TitleBar.h"
 /**
  * 直播间
  */
 @interface MBVideoCell ()
-@property(nonatomic,weak) UIImageView * videoImageView;
-@property(nonatomic,weak) UILabel * videoTitleLabel;
-@property(nonatomic,weak) UIButton * videoButton;
+@property(nonatomic,strong) TitleBar *titleBar;
+@property(nonatomic,strong) UIImageView * videoImageView;
+@property(nonatomic,strong) UILabel * videoTitleLabel;
+@property(nonatomic,strong) UIButton * videoButton;
+@property(nonatomic,strong) UIView * lineView;
 
 @end
 @implementation MBVideoCell
@@ -33,9 +36,11 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//        [self.contentView addSubview:self.videoImageView];
-//        [self.contentView addSubview:self.videoTitleLabel];
-//        [self.contentView addSubview:self.videoButton];
+        [self.contentView addSubview:self.titleBar];
+        [self.contentView addSubview:self.videoImageView];
+        [self.contentView addSubview:self.videoTitleLabel];
+        [self.contentView addSubview:self.videoButton];
+        [self.contentView addSubview:self.lineView];
         [self addSubviewConstraint];
     }
     return self;
@@ -45,18 +50,26 @@
 #pragma mark - private methods
 -(void)addSubviewConstraint
 {
+    UIView* superView=self.contentView;
+    
+    [self.titleBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top);
+        make.height.equalTo(@(30));
+        make.left.equalTo(superView.mas_left);
+        make.right.equalTo(superView.mas_right);
+    }];
+    
     [self.videoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
+        make.top.equalTo(self.titleBar.mas_bottom);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-60);
         make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
-        
     }];
     [self.videoTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.videoImageView.mas_bottom).offset(10);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
-        make.left.equalTo(self.contentView.mas_left).offset(30);
-        make.right.equalTo(self.contentView.mas_right);
+        make.left.equalTo(self.contentView.mas_left).offset(15);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     
     [self.videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -64,6 +77,12 @@
         make.centerY.equalTo(self.videoImageView.mas_centerY);
         make.width.mas_equalTo(@44);
         make.height.equalTo(self.videoButton.mas_width);
+    }];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_videoTitleLabel.mas_bottom);
+        make.left.equalTo(superView.mas_left);
+        make.right.equalTo(superView.mas_right);
+        make.height.equalTo(@(10));
     }];
 }
 
@@ -100,5 +119,19 @@
         _videoButton = button;
     }
     return _videoButton;
+}
+
+-(TitleBar*) titleBar{
+    if (!_titleBar) {
+        _titleBar=[[TitleBar alloc] initWithTitle:@"直播间"];
+    }
+    return _titleBar;
+}
+-(UIView*) lineView{
+    if (!_lineView) {
+        _lineView=[[UIView alloc] init];
+        _lineView.backgroundColor=COLOR_LIGHT_GRAY;
+    }
+    return _lineView;
 }
 @end
