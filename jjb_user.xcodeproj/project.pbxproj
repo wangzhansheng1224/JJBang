@@ -74,6 +74,18 @@
 		732A969C1D5D7B7200BE5800 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A969B1D5D7B7200BE5800 /* StarView.m */; };
 		732A96A31D5DACC600BE5800 /* img_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 732A96A21D5DACC600BE5800 /* img_default@3x.png */; };
 		732A96A61D5DB9F600BE5800 /* NSURL+OSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */; };
+		732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96A91D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m */; };
+		732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96B01D5E9D4B00BE5800 /* Target_Activity.m */; };
+		732A96BA1D5E9FFA00BE5800 /* GoodsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96B91D5E9FFA00BE5800 /* GoodsListController.m */; };
+		732A96BD1D5EA01300BE5800 /* GoodsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96BC1D5EA01300BE5800 /* GoodsDetailController.m */; };
+		732A96C11D5EA07E00BE5800 /* Target_Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96C01D5EA07E00BE5800 /* Target_Goods.m */; };
+		732A96C51D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96C41D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m */; };
+		732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96C81D5EB25400BE5800 /* Target_Course.m */; };
+		732A96D01D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96CF1D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m */; };
+		732A96D41D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96D31D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m */; };
+		732A96D81D5EBD5700BE5800 /* Target_Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96D71D5EBD5700BE5800 /* Target_Teacher.m */; };
+		732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96DB1D5EC04F00BE5800 /* Target_Student.m */; };
+		732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96DF1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m */; };
 		734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C51D59A081000AAA27 /* iCarousel.m */; };
 		734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C81D59AA96000AAA27 /* ActivityDetailHeader.m */; };
 		734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3CB1D5AC591000AAA27 /* ActivityRegistrationCell.m */; };
@@ -326,6 +338,30 @@
 		732A96A21D5DACC600BE5800 /* img_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_default@3x.png"; sourceTree = "<group>"; };
 		732A96A41D5DB9F600BE5800 /* NSURL+OSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OSS.h"; sourceTree = "<group>"; };
 		732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OSS.m"; sourceTree = "<group>"; };
+		732A96A81D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorActivityActions.h"; path = "Activity/CTMediator+CTMediatorActivityActions.h"; sourceTree = "<group>"; };
+		732A96A91D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorActivityActions.m"; path = "Activity/CTMediator+CTMediatorActivityActions.m"; sourceTree = "<group>"; };
+		732A96AF1D5E9D4B00BE5800 /* Target_Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_Activity.h; path = Actions/Target_Activity.h; sourceTree = "<group>"; };
+		732A96B01D5E9D4B00BE5800 /* Target_Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Activity.m; path = Actions/Target_Activity.m; sourceTree = "<group>"; };
+		732A96B81D5E9FFA00BE5800 /* GoodsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListController.h; sourceTree = "<group>"; };
+		732A96B91D5E9FFA00BE5800 /* GoodsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListController.m; sourceTree = "<group>"; };
+		732A96BB1D5EA01300BE5800 /* GoodsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailController.h; sourceTree = "<group>"; };
+		732A96BC1D5EA01300BE5800 /* GoodsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailController.m; sourceTree = "<group>"; };
+		732A96BF1D5EA07E00BE5800 /* Target_Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_Goods.h; path = Actions/Target_Goods.h; sourceTree = "<group>"; };
+		732A96C01D5EA07E00BE5800 /* Target_Goods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Goods.m; path = Actions/Target_Goods.m; sourceTree = "<group>"; };
+		732A96C31D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorGoodsActions.h"; path = "Goods/CTMediator+CTMediatorGoodsActions.h"; sourceTree = "<group>"; };
+		732A96C41D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorGoodsActions.m"; path = "Goods/CTMediator+CTMediatorGoodsActions.m"; sourceTree = "<group>"; };
+		732A96C71D5EB25400BE5800 /* Target_Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_Course.h; path = Actions/Target_Course.h; sourceTree = "<group>"; };
+		732A96C81D5EB25400BE5800 /* Target_Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Course.m; path = Actions/Target_Course.m; sourceTree = "<group>"; };
+		732A96CE1D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorCourseActions.h"; path = "Course/CTMediator+CTMediatorCourseActions.h"; sourceTree = "<group>"; };
+		732A96CF1D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorCourseActions.m"; path = "Course/CTMediator+CTMediatorCourseActions.m"; sourceTree = "<group>"; };
+		732A96D21D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorTeacherActions.h"; path = "Teacher/CTMediator+CTMediatorTeacherActions.h"; sourceTree = "<group>"; };
+		732A96D31D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorTeacherActions.m"; path = "Teacher/CTMediator+CTMediatorTeacherActions.m"; sourceTree = "<group>"; };
+		732A96D61D5EBD5700BE5800 /* Target_Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_Teacher.h; path = Actions/Target_Teacher.h; sourceTree = "<group>"; };
+		732A96D71D5EBD5700BE5800 /* Target_Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Teacher.m; path = Actions/Target_Teacher.m; sourceTree = "<group>"; };
+		732A96DA1D5EC04F00BE5800 /* Target_Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_Student.h; path = Actions/Target_Student.h; sourceTree = "<group>"; };
+		732A96DB1D5EC04F00BE5800 /* Target_Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Student.m; path = Actions/Target_Student.m; sourceTree = "<group>"; };
+		732A96DE1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorStudentActions.h"; path = "Student/CTMediator+CTMediatorStudentActions.h"; sourceTree = "<group>"; };
+		732A96DF1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorStudentActions.m"; path = "Student/CTMediator+CTMediatorStudentActions.m"; sourceTree = "<group>"; };
 		734CC3C41D59A081000AAA27 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		734CC3C51D59A081000AAA27 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		734CC3C71D59AA96000AAA27 /* ActivityDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailHeader.h; sourceTree = "<group>"; };
@@ -758,6 +794,7 @@
 		731091A61D51A52C0031B443 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				732A96C61D5EB22100BE5800 /* Actions */,
 				731091A71D51A52C0031B443 /* APIManager */,
 				731091A81D51A52C0031B443 /* Controller */,
 				731091A91D51A52C0031B443 /* Reformer */,
@@ -811,6 +848,7 @@
 		731091AB1D51A5F20031B443 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				732A96D51D5EBD3900BE5800 /* Actions */,
 				731091AC1D51A5F20031B443 /* APIManager */,
 				731091AD1D51A5F20031B443 /* Controller */,
 				731091AE1D51A5F20031B443 /* Reformer */,
@@ -971,6 +1009,140 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		732A96A71D5E953800BE5800 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				732A96A81D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.h */,
+				732A96A91D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		732A96AB1D5E970600BE5800 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				732A96AF1D5E9D4B00BE5800 /* Target_Activity.h */,
+				732A96B01D5E9D4B00BE5800 /* Target_Activity.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96B31D5E9E8300BE5800 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				732A96BE1D5EA05700BE5800 /* Actions */,
+				732A96B41D5E9E8300BE5800 /* APIManager */,
+				732A96B51D5E9E8300BE5800 /* Controller */,
+				732A96B61D5E9E8300BE5800 /* Reformer */,
+				732A96B71D5E9E8300BE5800 /* View */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
+		732A96B41D5E9E8300BE5800 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		732A96B51D5E9E8300BE5800 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				732A96B81D5E9FFA00BE5800 /* GoodsListController.h */,
+				732A96B91D5E9FFA00BE5800 /* GoodsListController.m */,
+				732A96BB1D5EA01300BE5800 /* GoodsDetailController.h */,
+				732A96BC1D5EA01300BE5800 /* GoodsDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		732A96B61D5E9E8300BE5800 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
+		732A96B71D5E9E8300BE5800 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		732A96BE1D5EA05700BE5800 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				732A96BF1D5EA07E00BE5800 /* Target_Goods.h */,
+				732A96C01D5EA07E00BE5800 /* Target_Goods.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96C21D5EA11200BE5800 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				732A96C31D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.h */,
+				732A96C41D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m */,
+			);
+			name = Goods;
+			sourceTree = "<group>";
+		};
+		732A96C61D5EB22100BE5800 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				732A96C71D5EB25400BE5800 /* Target_Course.h */,
+				732A96C81D5EB25400BE5800 /* Target_Course.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96CA1D5EB55900BE5800 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				732A96CE1D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.h */,
+				732A96CF1D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
+		732A96D11D5EBC7500BE5800 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				732A96D21D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.h */,
+				732A96D31D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m */,
+			);
+			name = Teacher;
+			sourceTree = "<group>";
+		};
+		732A96D51D5EBD3900BE5800 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				732A96D61D5EBD5700BE5800 /* Target_Teacher.h */,
+				732A96D71D5EBD5700BE5800 /* Target_Teacher.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96D91D5EC01D00BE5800 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				732A96DA1D5EC04F00BE5800 /* Target_Student.h */,
+				732A96DB1D5EC04F00BE5800 /* Target_Student.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		732A96DD1D5EC0E200BE5800 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				732A96DE1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.h */,
+				732A96DF1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m */,
+			);
+			name = Student;
+			sourceTree = "<group>";
+		};
 		734CC3C31D59A081000AAA27 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1041,6 +1213,7 @@
 		73575F5C1D54D5FA0037F697 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				732A96D91D5EC01D00BE5800 /* Actions */,
 				73575F5D1D54D5FA0037F697 /* APIManager */,
 				73575F621D54D5FA0037F697 /* Controller */,
 				73575F671D54D5FA0037F697 /* Reformer */,
@@ -1096,6 +1269,11 @@
 		73575F711D54EEA00037F697 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				732A96DD1D5EC0E200BE5800 /* Student */,
+				732A96D11D5EBC7500BE5800 /* Teacher */,
+				732A96CA1D5EB55900BE5800 /* Course */,
+				732A96C21D5EA11200BE5800 /* Goods */,
+				732A96A71D5E953800BE5800 /* Activity */,
 				731FDD1D1D586F5200A18534 /* My */,
 				73575F791D553B4A0037F697 /* System */,
 			);
@@ -1123,8 +1301,12 @@
 		73886CB91D4F237600643BBA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				732A96AB1D5E970600BE5800 /* Actions */,
 				73886D5B1D50841700643BBA /* APIManager */,
+				73886CBA1D4F237600643BBA /* Controller */,
+				73886CBD1D4F237600643BBA /* Model */,
 				73886D601D50841700643BBA /* Reformer */,
+				73886CBE1D4F237600643BBA /* View */,
 				51B875CC1D503DB20082558D /* RHHeader.h */,
 				51B875CD1D503DB20082558D /* RHMenuButtonItem.h */,
 				51B875CE1D503DB20082558D /* RHMenuButtonItem.m */,
@@ -1132,9 +1314,6 @@
 				51B875D01D503DB20082558D /* RHMenuView.m */,
 				51B875D11D503DB20082558D /* RHMenuViewController.h */,
 				51B875D21D503DB20082558D /* RHMenuViewController.m */,
-				73886CBA1D4F237600643BBA /* Controller */,
-				73886CBD1D4F237600643BBA /* Model */,
-				73886CBE1D4F237600643BBA /* View */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -1494,6 +1673,7 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
+				732A96B31D5E9E8300BE5800 /* Goods */,
 				BB613ACA1D598B0E004DE299 /* Clerk */,
 				73575F5C1D54D5FA0037F697 /* Student */,
 				731091AB1D51A5F20031B443 /* Teacher */,
@@ -1903,11 +2083,13 @@
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
 				BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
+				732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */,
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
+				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
 				AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
@@ -1921,6 +2103,7 @@
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
+				732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */,
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */,
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
@@ -1940,6 +2123,7 @@
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */,
+				732A96D41D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
@@ -1954,6 +2138,8 @@
 				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
+				732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */,
+				732A96C51D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
 				731091851D51991E0031B443 /* MyCourseController.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
@@ -1978,7 +2164,9 @@
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
+				732A96D01D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m in Sources */,
 				AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */,
+				732A96BA1D5E9FFA00BE5800 /* GoodsListController.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
 				731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */,
@@ -1986,6 +2174,7 @@
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
 				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,
 				BB1294291D50A8D60048927D /* MBAdItem.m in Sources */,
+				732A96C11D5EA07E00BE5800 /* Target_Goods.m in Sources */,
 				5175745C1D548203009894D7 /* main.m in Sources */,
 				51B875E11D503E880082558D /* ActivityListCell.m in Sources */,
 				73886D261D4F735D00643BBA /* NSString+LDNetworkingMethods.m in Sources */,
@@ -2015,6 +2204,7 @@
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
+				732A96D81D5EBD5700BE5800 /* Target_Teacher.m in Sources */,
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
 				51D3489E1D57691B002D761C /* MyOrderController.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
@@ -2024,6 +2214,7 @@
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
+				732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				BB68C9711D506E580037DA9F /* UIView+MBFrame.m in Sources */,
 				BB159CC11D4F473200F46F09 /* UIColor+MBHex.m in Sources */,
@@ -2058,10 +2249,8 @@
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
 				512F23461D517FD800E33A92 /* LevelButton.m in Sources */,
-
-				731FDD1B1D586F3200A18534 /* MyOrderDetailController.m in Sources */,
 				734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */,
-
+				732A96BD1D5EA01300BE5800 /* GoodsDetailController.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
 				731FDD241D58767700A18534 /* Target_My.m in Sources */,

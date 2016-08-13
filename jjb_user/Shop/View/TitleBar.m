@@ -12,6 +12,7 @@
 @property(nonatomic,strong) UIView *orangeView;
 @property(nonatomic,strong) UILabel *titleLabel;
 @property(nonatomic,strong) UILabel *moreLabel;
+@property(nonatomic,strong) MoreButtonClickBlock moreClickBlock;
 @end
 
 @implementation TitleBar
@@ -26,6 +27,16 @@
         [self layoutPageSubviews];
     }
     return self;
+}
+
+-(void) moreButtonClick:(MoreButtonClickBlock) block{
+    self.moreClickBlock=block;
+}
+
+-(void) moreLabelClick:(UITapGestureRecognizer *)recognizer{
+    if (self.moreClickBlock) {
+        self.moreClickBlock(self);
+    }
 }
 
 #pragma -
@@ -73,6 +84,9 @@
     
     if (!_moreLabel) {
         _moreLabel=[[UILabel alloc] init];
+        _moreLabel.userInteractionEnabled=YES;
+        UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(moreLabelClick:)];
+        [_moreLabel addGestureRecognizer:labelTapGestureRecognizer];
         _moreLabel.text = @"更多";
         _moreLabel.textColor=COLOR_GRAY;
         _moreLabel.font = H4;

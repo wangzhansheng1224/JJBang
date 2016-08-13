@@ -14,22 +14,14 @@
 @implementation CourseListController
 
 
-#pragma
+#pragma -
 #pragma mark - life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    [self setupNav];
+    self.navigationItem.title = @"课程列表";
 }
 
-
-
-#pragma
-#pragma mark - private methods
--(void)setupNav
-{
-    self.navigationItem.title = @"所有课程";
-}
 
 @end

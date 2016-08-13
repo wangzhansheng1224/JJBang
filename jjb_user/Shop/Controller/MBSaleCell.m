@@ -48,7 +48,7 @@
 - (void)configWithData:(NSDictionary *)data
 {
     self.scaleTitleLabel.text=data[kShopIndexGoodsListName];
-    self.scalePriceLabel.text=[NSString stringWithFormat:@"%@",data[kShopIndexGoodsListPrice]] ;
+    self.scalePriceLabel.text=[NSString stringWithFormat:@"￥ %@",data[kShopIndexGoodsListPrice]] ;
     [self.scaleImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexGoodsListImage] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 

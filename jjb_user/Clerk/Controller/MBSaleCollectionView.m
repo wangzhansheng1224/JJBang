@@ -8,6 +8,8 @@
 
 #import "MBSaleCollectionView.h"
 #import "MBSaleCell.h"
+#import "ShopIndexKeys.h"
+
 @interface MBSaleCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 //所有的数据
 @property(nonatomic,strong) NSMutableArray * listArray;
@@ -62,13 +64,12 @@ static CGFloat const margin = 0;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        JJBLog(@"点击1");
-    }
-    else
-    {
-        JJBLog(@"点击2");
-    }
+    
+    NSDictionary *dataDic=self.data[indexPath.row];
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_GoodsDetail:@{@"goodsID":dataDic[kShopIndexGoodsListID]}];
+    [navController pushViewController:controller animated:YES];
 }
 
 

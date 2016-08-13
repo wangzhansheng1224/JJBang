@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TitleBar;
+typedef void(^MoreButtonClickBlock)(TitleBar* sender);
+
 @interface TitleBar : UIView
 -(id) initWithTitle:(NSString*)title;
+-(void) moreButtonClick:(MoreButtonClickBlock) block;
 @end

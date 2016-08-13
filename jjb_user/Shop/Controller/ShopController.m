@@ -102,6 +102,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     {
         NSDictionary *imgDic=imgArr[i];
         UIImageView * imageView  = [[UIImageView alloc]init];
+        imageView.userInteractionEnabled=YES;
+        UITapGestureRecognizer *clickTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(activityClick:)];
+        [imageView addGestureRecognizer:clickTapGestureRecognizer];
+        imageView.tag=[imgDic[kShopIndexActImgID] integerValue];
         imageView.frame = CGRectMake(width * i, 0, width, height);
             [imageView sd_setImageWithURL:[NSURL initWithImageURL:imgDic[kShopIndexActImgImagePath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
         [self.scrollView addSubview:imageView];
@@ -148,15 +152,24 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
     [self.scrollView setContentOffset:offset animated:YES];
 }
-//更多按钮点击事件
--(void)buttonMoreClick:(UIButton *)btn
-{
-    JJBLog(@"%s",__func__);
+
+-(void)activityClick:(UITapGestureRecognizer*)sender{
+    
+   UIViewController *controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":@(sender.view.tag)}];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==6) {
+        NSArray* arrData=self.dataDic[kShopIndexCourseList];
+        NSDictionary *dataDic=arrData[indexPath.row];
+        UIViewController* controller=[[CTMediator sharedInstance] CTMediator_CourseDetail:@{@"courseID":dataDic[kShopIndexCourseListID]}];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -196,6 +209,11 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"优惠商品"];
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
+        [titleBar moreButtonClick:^(TitleBar *sender) {
+          UIViewController *goodsList=  [[CTMediator sharedInstance] CTMediator_GoodsList:nil];
+            [self.navigationController pushViewController:goodsList animated:YES];
+        }];
+        
         MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, (Screen_Width-40.0f)/2.0f+30.0f) collectionViewItemSize:CGSizeMake(0, 0)];
         [saleCollectionView configWithData:self.dataDic[kShopIndexGoodsList]];
         [cell.contentView addSubview:saleCollectionView];
@@ -217,6 +235,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星学员"];
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
+        [titleBar moreButtonClick:^(TitleBar *sender) {
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_StudentList:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+        }];
        
         MBStarStudentCollectionView * starStudentView = [[MBStarStudentCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, Screen_Width/2.0f)];
         [starStudentView configWithData:self.dataDic[kShopIndexSdtList]];
@@ -234,6 +256,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星老师"];
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
+        [titleBar moreButtonClick:^(TitleBar *sender) {
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_TeacherList:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+        }];
         
         MBStarTeacherCollectionView * starTeacherView = [[MBStarTeacherCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, Screen_Width/2.0f)];
         [starTeacherView configWithData:self.dataDic[kShopIndexTechList]];
@@ -244,6 +270,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [cell.contentView addSubview:lineView];
         
         TitleBar * nextBar=[[TitleBar alloc] initWithTitle:@"热门课程"];
+        [nextBar moreButtonClick:^(TitleBar *sender) {
+          UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CourseList:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+        }];
         nextBar.frame=CGRectMake(0, Screen_Width/2.0f+40,Screen_Width,30);
         [cell.contentView addSubview:nextBar];
         return cell;
@@ -312,7 +342,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
+    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"1"};
 }
 
 #pragma -
@@ -389,7 +419,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 - (UIBarButtonItem *) loactionButton{
     if (_loactionButton==nil) {
-        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStyleBordered target:self action:@selector(gotoLocation:)];
+        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStylePlain target:self action:@selector(gotoLocation:)];
+        [_loactionButton setTintColor:COLOR_WHITE];
     }
     return _loactionButton;
 }

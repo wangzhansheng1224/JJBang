@@ -38,6 +38,8 @@
     //设置通用按钮样式
     [[UIButton appearance] setBackgroundColor:COLOR_ORANGE];
     [[UIButton appearance] setTintColor:COLOR_WHITE];
+    
+    [[UIBarButtonItem appearance] setTintColor:COLOR_WHITE];
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];
@@ -110,5 +112,13 @@ if([resp isKindOfClass:[PayResp class]]){
 
 }
 
+
+-(UINavigationController *)navController{
+    if (!_navController) {
+        UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+        _navController= (UINavigationController *)[tabControler selectedViewController];
+    }
+    return _navController;
+}
 
 @end

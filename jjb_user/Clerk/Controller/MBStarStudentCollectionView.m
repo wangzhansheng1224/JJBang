@@ -8,7 +8,7 @@
 
 #import "MBStarStudentCollectionView.h"
 #import "MBStarStudentCell.h"
-
+#import "ShopIndexKeys.h"
 
 
 static NSString * const MBStarStudentCellIdentifier = @"MBStarStudentCellIdentifier";
@@ -63,13 +63,11 @@ static CGFloat const margin = 1.0;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        JJBLog(@"%s",__func__);
-        
-    }else if (indexPath.row == 1)
-    {
-        JJBLog(@"%s",__func__);
-    }
+    NSDictionary *dataDic=self.data[indexPath.row];
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_StudentDetail:@{@"studentID":dataDic[kShopIndexSdtListID]}];
+    [navController pushViewController:controller animated:YES];
     
 }
 

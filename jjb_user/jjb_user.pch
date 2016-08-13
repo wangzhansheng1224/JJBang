@@ -94,9 +94,17 @@ alpha:(a)]
 #import "iCarousel.h"
 #import "CTMediator.h"
 #import "CTMediator+CTMediatorSystemActions.h"
+#import "CTMediator+CTMediatorMyActions.h"
+#import "CTMediator+CTMediatorActivityActions.h"
+#import "CTMediator+CTMediatorGoodsActions.h"
+#import "CTMediator+CTMediatorCourseActions.h"
+#import "CTMediator+CTMediatorTeacherActions.h"
+#import "CTMediator+CTMediatorStudentActions.h"
 #import "NSDate+NSString.h"
 #import "DateTools.h"
 #import <MWPhotoBrowser.h>
 #import "NSURL+OSS.h"
+#import "AppDelegate.h"
+
 
 #endif
