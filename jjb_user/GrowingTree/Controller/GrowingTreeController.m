@@ -12,19 +12,17 @@
 #import "GrowingTreeListAPIManager.h"
 #import "GrowingTreeListReformer.h"
 
-
-
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
-@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,MWPhotoBrowserDelegate>
+@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
-//@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) IssueController *issueVC;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
+@property (nonatomic,strong) NSArray *imageArr;
 
 @end
 
@@ -44,7 +42,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self setNav];
     
 //    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    
+//        
 //    //设置当前要显示的图片
 //    [browser setCurrentPhotoIndex:indexPath.item];
 //    
@@ -70,7 +68,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - custom methods
+#pragma mark - set Nav
 - (void)setNav {
     
     UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"growing_issue"] highImage:[UIImage imageNamed:@"growing_issue"] target:self action:@selector(itemClick)];
@@ -78,7 +76,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - UITableViewDelegate
+#pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.arrData count];
 }
@@ -89,21 +87,54 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
-    [cell configWithData:self.arrData[indexPath.row]];
+    
+    NSDictionary * dic = self.arrData[indexPath.row];
+    
+    [cell configWithData:dic];
+    
+    float width = 119 - 8;
+    
+    NSArray * imageArr = dic[kGrowingTreeListImages];
+    
+    for (int i = 0; i < imageArr.count; i++) {
+        
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+        
+        imageView.userInteractionEnabled = YES;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.backgroundColor = JJBRandomColor;
+        imageView.tag = 2016 + i;
+        
+        UITapGestureRecognizer * tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
+        
+        [imageView addGestureRecognizer:tapGR];
+        
+        [cell.view_image addSubview:imageView];
+    }
+    
     return cell;
+}
+
+- (void)tapGR:(UITapGestureRecognizer *)tap {
+    
+    UIImageView * imageV = (UIImageView *)tap.view;
+    
+    NSInteger index = imageV.tag - 2016;
+    
+    NSLog(@"%lu", index);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary * dic = self.arrData[indexPath.row];
+    self.imageArr = dic[kGrowingTreeListImages];
     
-    NSArray * imageArr = dic[kGrowingTreeListImages];
-    
-    if (imageArr.count == 0) {
+    if (self.imageArr.count == 0) {
+        
         return 109;
+        
     }else {
-    
-        return (imageArr.count+2)/3 *85 +109;
+        return (self.imageArr.count+2)/3 *85 +109;
     }
 }
 
@@ -114,20 +145,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    if (self.tableView.contentOffset.y > Screen_Height) {
-//        [self.tableView.mj_footer endRefreshing];
-        
-        self.tableView.tableFooterView.hidden = YES;
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    
-    if (self.tableView.contentOffset.y > Screen_Height) {
-        [self.tableView.mj_footer endRefreshing];
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
@@ -178,8 +202,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return _arrData;
 }
 
-
-
 - (IssueController *)issueVC {
     if (!_issueVC) {
         _issueVC = [[IssueController alloc] init];
@@ -203,4 +225,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }
     return _growingTreeListReformer;
 }
+
+- (NSArray *)imageArr {
+
+    if (!_imageArr) {
+        
+        _imageArr = [[NSArray alloc] init];
+    }
+    return _imageArr;
+}
+
 @end

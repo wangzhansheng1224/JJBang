@@ -8,10 +8,9 @@
 
 #import "GrowingCell.h"
 #import "GrowingTreeListKey.h"
-
+#import "GrowingPicController.h"
 
 @interface GrowingCell ()
-
 
 @property (nonatomic,strong) UILabel *nameLabel;
 @property (nonatomic,strong) UILabel *timeLabel;
@@ -19,9 +18,9 @@
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
-@property (nonatomic,strong) UIView *view_image;
+//@property (nonatomic,strong) UIView *view_image;
 @property (nonatomic,strong) UITapGestureRecognizer *tapGR;
-
+@property (nonatomic,strong) NSMutableArray *imageArr;
 
 @end
 
@@ -106,20 +105,20 @@
     [self.moodLabel setText:data[kGrowingTreeListContent]];
     [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
     
-    float width = 119 - 8;
-
-    NSArray * imageArr = data[kGrowingTreeListImages];
-    for (int i = 0; i < imageArr.count; i++) {
-        
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
-        
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = JJBRandomColor;
-        imageView.tag = 2016 + i;
-        [imageView addGestureRecognizer:self.tapGR];
-        
-        [self.view_image addSubview:imageView];
-    }
+//    float width = 119 - 8;
+//
+//    self.imageArr = data[kGrowingTreeListImages];
+//    for (int i = 0; i < self.imageArr.count; i++) {
+//        
+//        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+//        
+//        imageView.contentMode = UIViewContentModeScaleAspectFit;
+//        imageView.backgroundColor = JJBRandomColor;
+//        imageView.tag = 2016 + i;
+//        [imageView addGestureRecognizer:self.tapGR];
+//        
+//        [self.view_image addSubview:imageView];
+//    }
     NSLog(@"%@",data);
 }
 
@@ -127,12 +126,28 @@
 #pragma mark - event response
 - (void)tapGR:(UITapGestureRecognizer *)click {
     
-    //    NSInteger index = self.imageView.tag - 2016;
-    //
-    //    GrowingPicController *picVC = [[GrowingPicController alloc] init];
-    //    picVC.index = index;
-    //
-    //    picVC.photos = self.imageArr;
+    NSInteger index = self.imageView.tag - 2016;
+    GrowingPicController *picVC = [[GrowingPicController alloc] init];
+    picVC.index = index;
+    picVC.photos = self.imageArr;
+    
+//    UIViewController * vc = (UIViewController *)[UIApplication sharedApplication].keyWindow. ;
+    
+//    UIViewController *viewController = ((AppDelegate *)[[UIApplication sharedApplication].delegate).nav.visibleViewController;
+    
+//    self.superview
+}
+
+- (UIViewController *)viewController
+{
+    UIResponder *responder = self.nextResponder;
+    do {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = responder.nextResponder;
+    } while (responder);
+    return nil;
 }
 
 #pragma -
@@ -220,7 +235,5 @@
     }
     return _tapGR;
 }
-
-
 
 @end

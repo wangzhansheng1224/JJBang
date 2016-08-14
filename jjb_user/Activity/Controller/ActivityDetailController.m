@@ -119,7 +119,6 @@
     }
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     return 44;
@@ -153,9 +152,9 @@
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
 }
+
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
-
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
       if ([manager isKindOfClass:[ActivityDetailAPIManager class]]) {
@@ -173,11 +172,8 @@
         return nil;
 }
 
-
-
 #pragma -
 #pragma mark - event response
-
 - (void) tabbarControllChangeValue:(id)sender{
     if (self.tabbarControl.selectedSegmentIndex==1) {
         [self.arrRegistrationData removeAllObjects];
@@ -187,16 +183,13 @@
     [self.tableView reloadData];
 }
 
-
 - (void)joinClick {
 
     NSLog(@"------立即报名------");
 }
 
-
 #pragma -
 #pragma mark - getters and setters
-
 - (ActivityDetailHeader *) headerView{
     if (!_headerView) {
         _headerView=[[ActivityDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 273)];
@@ -228,11 +221,9 @@
 
         [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailCell"];
         [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:@"ActivityRegistrationCell"];
-        
     }
     return _tableView;
 }
-
 
 - (NSMutableArray *)arrRegistrationData {
     
@@ -269,8 +260,6 @@
     }
     return _signUpAPIManager;
 }
-
-
 
 - (id<ReformerProtocol>) activityRegisterListReformer{
     

@@ -102,9 +102,6 @@
     }];
 }
 
-#pragma 
-#pragma mark - custom methods
-
 #pragma
 #pragma mark - 保存图片至沙盒
 - (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
@@ -120,7 +117,6 @@
 
 #pragma
 #pragma mark - UITextViewDelegate
-
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
@@ -194,6 +190,7 @@
 //    _view_pic.image = savedImage;
     
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:^{}];
@@ -236,8 +233,6 @@
     [sheet showInView:self.view];
 }
 
-
-
 - (void)btn_videoClick {
     
     NSLog(@"视频");
@@ -252,7 +247,6 @@
     
     NSLog(@"更多");
 }
-
 
 #pragma
 #pragma mark - getter and setter
@@ -344,6 +338,5 @@
     }
     return _label_placehold;
 }
-
 
 @end

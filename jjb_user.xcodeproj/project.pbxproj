@@ -19,6 +19,9 @@
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
 		512F23461D517FD800E33A92 /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23431D517FD800E33A92 /* LevelButton.m */; };
 		512F23471D517FD800E33A92 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23451D517FD800E33A92 /* MyButton.m */; };
+		513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447BC1D5DBDC200E72F1B /* StudentDetailHeader.m */; };
+		513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */; };
+		513447C31D5DE85200E72F1B /* StudentSignClassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447C21D5DE85200E72F1B /* StudentSignClassController.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
@@ -39,6 +42,7 @@
 		51D3489E1D57691B002D761C /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3489C1D57691B002D761C /* MyOrderController.m */; };
 		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
 		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
+		51D4B3B41D5D7F2100001536 /* GrowingPicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4B3B31D5D7F2100001536 /* GrowingPicController.m */; };
 		51EB73141D546E69009D08FE /* MyMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73131D546E69009D08FE /* MyMoreController.m */; };
 		51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73161D547DAC009D08FE /* MyMoreCell.m */; };
 		7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091671D5198C60031B443 /* ShopIndexAPIManager.m */; };
@@ -196,6 +200,12 @@
 		512F23431D517FD800E33A92 /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelButton.m; path = jjb_user/My/LevelButton.m; sourceTree = SOURCE_ROOT; };
 		512F23441D517FD800E33A92 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyButton.h; path = jjb_user/My/MyButton.h; sourceTree = SOURCE_ROOT; };
 		512F23451D517FD800E33A92 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyButton.m; path = jjb_user/My/MyButton.m; sourceTree = SOURCE_ROOT; };
+		513447BB1D5DBDC200E72F1B /* StudentDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailHeader.h; sourceTree = "<group>"; };
+		513447BC1D5DBDC200E72F1B /* StudentDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailHeader.m; sourceTree = "<group>"; };
+		513447BE1D5DE7F600E72F1B /* StudentMyGrowingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentMyGrowingController.h; sourceTree = "<group>"; };
+		513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentMyGrowingController.m; sourceTree = "<group>"; };
+		513447C11D5DE85200E72F1B /* StudentSignClassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSignClassController.h; sourceTree = "<group>"; };
+		513447C21D5DE85200E72F1B /* StudentSignClassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignClassController.m; sourceTree = "<group>"; };
 		514AD59E1D50A9F500E196FE /* ActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailController.h; sourceTree = "<group>"; };
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
@@ -236,6 +246,8 @@
 		51D348A01D57924E002D761C /* MyHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHelpCell.m; path = jjb_user/My/MyHelpCell.m; sourceTree = SOURCE_ROOT; };
 		51D348A21D5797E3002D761C /* MyMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMemberController.h; sourceTree = "<group>"; };
 		51D348A31D5797E3002D761C /* MyMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMemberController.m; sourceTree = "<group>"; };
+		51D4B3B21D5D7F2100001536 /* GrowingPicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingPicController.h; sourceTree = "<group>"; };
+		51D4B3B31D5D7F2100001536 /* GrowingPicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingPicController.m; sourceTree = "<group>"; };
 		51EB73121D546E69009D08FE /* MyMoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoreController.h; sourceTree = "<group>"; };
 		51EB73131D546E69009D08FE /* MyMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoreController.m; sourceTree = "<group>"; };
 		51EB73151D547DAC009D08FE /* MyMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMoreCell.h; path = jjb_user/My/MyMoreCell.h; sourceTree = SOURCE_ROOT; };
@@ -990,6 +1002,10 @@
 				73575F641D54D5FA0037F697 /* StudentController.m */,
 				51AA22AB1D5C22F000851626 /* StudentDetailController.h */,
 				51AA22AC1D5C22F000851626 /* StudentDetailController.m */,
+				513447BE1D5DE7F600E72F1B /* StudentMyGrowingController.h */,
+				513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */,
+				513447C11D5DE85200E72F1B /* StudentSignClassController.h */,
+				513447C21D5DE85200E72F1B /* StudentSignClassController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1006,6 +1022,8 @@
 			children = (
 				5155CE6F1D581F0B00306150 /* StudentListCell.h */,
 				5155CE701D581F0B00306150 /* StudentListCell.m */,
+				513447BB1D5DBDC200E72F1B /* StudentDetailHeader.h */,
+				513447BC1D5DBDC200E72F1B /* StudentDetailHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1117,7 +1135,6 @@
 				731091C31D51B02A0031B443 /* APIManager */,
 				731091C21D51AA870031B443 /* Reformer */,
 				73886CC11D4F239500643BBA /* Controller */,
-				73886CC41D4F239500643BBA /* Model */,
 				73886CC51D4F239500643BBA /* View */,
 			);
 			path = GrowingTree;
@@ -1130,15 +1147,10 @@
 				511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */,
 				514E9B4D1D5086020064EEFD /* IssueController.h */,
 				514E9B4E1D5086020064EEFD /* IssueController.m */,
+				51D4B3B21D5D7F2100001536 /* GrowingPicController.h */,
+				51D4B3B31D5D7F2100001536 /* GrowingPicController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73886CC41D4F239500643BBA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73886CC51D4F239500643BBA /* View */ = {
@@ -1813,6 +1825,7 @@
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
+				513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				73575F361D549C7C0037F697 /* FileCache.m in Sources */,
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
@@ -1858,6 +1871,7 @@
 				BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */,
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */,
+				513447C31D5DE85200E72F1B /* StudentSignClassController.m in Sources */,
 				73575F6B1D54D5FA0037F697 /* StudentController.m in Sources */,
 				731FDD181D586BEF00A18534 /* ErrorController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
@@ -1882,6 +1896,7 @@
 				BB159CA71D4F3AE900F46F09 /* ActivityController.m in Sources */,
 				737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */,
 				BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */,
+				513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
@@ -1922,6 +1937,7 @@
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
 				BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */,
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
+				51D4B3B41D5D7F2100001536 /* GrowingPicController.m in Sources */,
 				737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
