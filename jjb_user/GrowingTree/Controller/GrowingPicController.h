@@ -11,6 +11,6 @@
 @interface GrowingPicController : UIViewController
 
 @property (nonatomic,assign) NSInteger index;
-@property (nonatomic,strong) NSMutableArray *photos;
+@property (nonatomic,strong) NSArray *photos;
 
 @end

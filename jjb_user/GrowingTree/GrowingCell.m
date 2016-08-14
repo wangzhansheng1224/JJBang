@@ -18,9 +18,6 @@
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
-//@property (nonatomic,strong) UIView *view_image;
-@property (nonatomic,strong) UITapGestureRecognizer *tapGR;
-@property (nonatomic,strong) NSMutableArray *imageArr;
 
 @end
 
@@ -68,7 +65,6 @@
     }];
     [_view_image mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        //        make.size.mas_equalTo(CGSizeMake(Screen_Width, ));
         make.bottom.equalTo(_moodLabel.mas_top).with.offset(-8);
         make.top.equalTo(_iconView.mas_bottom).with.offset(8);
         make.left.equalTo(self.mas_left).with.offset(8);
@@ -76,7 +72,7 @@
     }];
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.equalTo(@17);
+        make.height.equalTo(@0);
         make.bottom.equalTo(_locView.mas_top).with.offset(-6);
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
@@ -104,50 +100,23 @@
     [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
     [self.moodLabel setText:data[kGrowingTreeListContent]];
     [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
-    
-//    float width = 119 - 8;
-//
-//    self.imageArr = data[kGrowingTreeListImages];
-//    for (int i = 0; i < self.imageArr.count; i++) {
-//        
-//        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
-//        
-//        imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        imageView.backgroundColor = JJBRandomColor;
-//        imageView.tag = 2016 + i;
-//        [imageView addGestureRecognizer:self.tapGR];
-//        
-//        [self.view_image addSubview:imageView];
-//    }
-    NSLog(@"%@",data);
-}
 
-#pragma -
-#pragma mark - event response
-- (void)tapGR:(UITapGestureRecognizer *)click {
+     CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
-    NSInteger index = self.imageView.tag - 2016;
-    GrowingPicController *picVC = [[GrowingPicController alloc] init];
-    picVC.index = index;
-    picVC.photos = self.imageArr;
+    float height = size.height;
     
-//    UIViewController * vc = (UIViewController *)[UIApplication sharedApplication].keyWindow. ;
+    if ([data[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
     
-//    UIViewController *viewController = ((AppDelegate *)[[UIApplication sharedApplication].delegate).nav.visibleViewController;
-    
-//    self.superview
-}
-
-- (UIViewController *)viewController
-{
-    UIResponder *responder = self.nextResponder;
-    do {
-        if ([responder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)responder;
-        }
-        responder = responder.nextResponder;
-    } while (responder);
-    return nil;
+    [_moodLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.equalTo(@(height));
+        make.bottom.equalTo(_locView.mas_top).with.offset(-6);
+        make.right.equalTo(self.mas_right).with.offset(-8);
+        make.left.equalTo(self.mas_left).with.offset(8);
+    }];
 }
 
 #pragma -
@@ -193,6 +162,8 @@
         
         _moodLabel = [[UILabel alloc] init];
         _moodLabel.font = H2;
+        _moodLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _moodLabel.numberOfLines = 0;
     }
     return _moodLabel;
 }
@@ -225,15 +196,6 @@
         _view_image = [[UIView alloc] initWithFrame:CGRectMake(0, 10, Screen_Width, self.frame.size.height - 20)];
     }
     return _view_image;
-}
-
-- (UITapGestureRecognizer *)tapGR {
-    
-    if (!_tapGR) {
-        
-        _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
-    }
-    return _tapGR;
 }
 
 @end

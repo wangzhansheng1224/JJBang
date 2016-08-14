@@ -45,6 +45,8 @@
 		51D4B3B41D5D7F2100001536 /* GrowingPicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4B3B31D5D7F2100001536 /* GrowingPicController.m */; };
 		51EB73141D546E69009D08FE /* MyMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73131D546E69009D08FE /* MyMoreController.m */; };
 		51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73161D547DAC009D08FE /* MyMoreCell.m */; };
+		51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F6944B1D609FE20099909A /* StarTeacherController.m */; };
+		51F6944F1D60A0870099909A /* StarTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F6944E1D60A0870099909A /* StarTeacherCell.m */; };
 		7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731091671D5198C60031B443 /* ShopIndexAPIManager.m */; };
 		7310917F1D5198C60031B443 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310916C1D5198C60031B443 /* ShopController.m */; };
 		731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310917A1D5198C60031B443 /* ShopIndexReformer.m */; };
@@ -252,6 +254,10 @@
 		51EB73131D546E69009D08FE /* MyMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoreController.m; sourceTree = "<group>"; };
 		51EB73151D547DAC009D08FE /* MyMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMoreCell.h; path = jjb_user/My/MyMoreCell.h; sourceTree = SOURCE_ROOT; };
 		51EB73161D547DAC009D08FE /* MyMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMoreCell.m; path = jjb_user/My/MyMoreCell.m; sourceTree = SOURCE_ROOT; };
+		51F6944A1D609FE20099909A /* StarTeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarTeacherController.h; sourceTree = "<group>"; };
+		51F6944B1D609FE20099909A /* StarTeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarTeacherController.m; sourceTree = "<group>"; };
+		51F6944D1D60A0870099909A /* StarTeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarTeacherCell.h; sourceTree = "<group>"; };
+		51F6944E1D60A0870099909A /* StarTeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarTeacherCell.m; sourceTree = "<group>"; };
 		58CDB781EB3E3BF78DB11BFB /* libPods-jjb_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jjb_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		731091661D5198C60031B443 /* ShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopIndexAPIManager.h; sourceTree = "<group>"; };
 		731091671D5198C60031B443 /* ShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopIndexAPIManager.m; sourceTree = "<group>"; };
@@ -792,6 +798,8 @@
 				73575F511D54D4430037F697 /* TeacherListController.m */,
 				73575F531D54D4950037F697 /* TeacherController.h */,
 				73575F541D54D4950037F697 /* TeacherController.m */,
+				51F6944A1D609FE20099909A /* StarTeacherController.h */,
+				51F6944B1D609FE20099909A /* StarTeacherController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -806,6 +814,8 @@
 		731091AF1D51A5F20031B443 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51F6944D1D60A0870099909A /* StarTeacherCell.h */,
+				51F6944E1D60A0870099909A /* StarTeacherCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1812,6 +1822,7 @@
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
+				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
 				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
@@ -1877,6 +1888,7 @@
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
+				51F6944F1D60A0870099909A /* StarTeacherCell.m in Sources */,
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,

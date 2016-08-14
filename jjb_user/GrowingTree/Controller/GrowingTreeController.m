@@ -11,6 +11,7 @@
 #import "IssueController.h"
 #import "GrowingTreeListAPIManager.h"
 #import "GrowingTreeListReformer.h"
+#import "GrowingPicController.h"
 
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
@@ -23,6 +24,9 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSArray *imageArr;
+
+@property (nonatomic,strong) NSArray *imageArray;
+
 
 @end
 
@@ -41,13 +45,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.growingTreeListAPIManager loadData];
     [self setNav];
     
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//        
-//    //设置当前要显示的图片
-//    [browser setCurrentPhotoIndex:indexPath.item];
-//    
-//    //push到MWPhotoBrowser
-//    [self.navigationController pushViewController:browser animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,6 +72,29 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
+#pragma - 
+#pragma mark - event respone
+- (void)tapGR:(UITapGestureRecognizer *)tap {
+    
+    UIImageView * imageV = (UIImageView *)tap.view;
+    NSInteger index = imageV.tag - 2016;
+    
+    NSLog(@"%lu", index);
+    
+    GrowingPicController *pic = [[GrowingPicController alloc] init];
+    pic.photos = _imageArray;
+    pic.index = index;
+    
+    NSLog(@"%lu=======",_imageArray.count);
+    CATransition *transition = [CATransition animation];
+    transition.type = @"moveIn";
+    transition.subtype = @"fromCenter";
+    transition.duration = 1;
+    [self.view.window.layer addAnimation:transition forKey:nil];
+
+    [self presentViewController:pic animated:YES completion:nil];
+}
+
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,6 +115,11 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     float width = 119 - 8;
     
     NSArray * imageArr = dic[kGrowingTreeListImages];
+    NSLog(@"%lu++++++++++",imageArr.count);
+    if (imageArr.count > 0) {
+        
+        _imageArray = imageArr;
+    }
     
     for (int i = 0; i < imageArr.count; i++) {
         
@@ -115,26 +140,27 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return cell;
 }
 
-- (void)tapGR:(UITapGestureRecognizer *)tap {
-    
-    UIImageView * imageV = (UIImageView *)tap.view;
-    
-    NSInteger index = imageV.tag - 2016;
-    
-    NSLog(@"%lu", index);
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary * dic = self.arrData[indexPath.row];
     self.imageArr = dic[kGrowingTreeListImages];
     
+    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
+    
+    float height = size.height;
+    
+    if ([dic[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
+    
     if (self.imageArr.count == 0) {
         
-        return 109;
+        return 92 + height;
         
     }else {
-        return (self.imageArr.count+2)/3 *85 +109;
+        
+        return (self.imageArr.count+2)/3 *85 +92 + height;
     }
 }
 
@@ -226,13 +252,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return _growingTreeListReformer;
 }
 
-- (NSArray *)imageArr {
-
-    if (!_imageArr) {
-        
-        _imageArr = [[NSArray alloc] init];
-    }
-    return _imageArr;
-}
+//- (NSArray *)imageArr {
+//
+//    if (!_imageArr) {
+//        
+//        _imageArr = [[NSMutableArray alloc] init];
+//        
+//    }
+//    return _imageArr;
+//}
 
 @end
