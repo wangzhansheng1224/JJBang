@@ -61,8 +61,7 @@ static OSSManager* ossManager;
     
     NSString* fileType = [model.imgpath pathExtension];
     NSDate* now = [NSDate date];
-    NSString* targetStr = [NSString stringWithFormat:@"%@/%ld/%ld/%@.%@", aSubStr, (long)[now year], (long)[now month], [self currentTimeByJava], fileType];
-    // required fields
+    NSString* targetStr = [NSString stringWithFormat:@"%@/%ld/%ld/%@.%@", aSubStr, (long)[now year], (long)[now month], [[NSUUID UUID] UUIDString], fileType];
     put.bucketName = OSSBucketName;
     put.objectKey = targetStr;
     put.uploadingFileURL = [NSURL fileURLWithPath:model.imgpath];
@@ -92,20 +91,16 @@ static OSSManager* ossManager;
 {
     __block NSInteger imgCount = 0;
     
-    NSLock *theLock = [[NSLock alloc] init];
     for (ImgModel* model in imgArr) {
-        [theLock lock];
         [self uploadFile:model
        withTargetSubPath:aSubStr
                withBlock:^(BOOL status, NSString* alocalPathStr, NSString* aSubStr, NSString* resourceURLStr) {
-                   [theLock unlock];
                    imgCount++;
                    model.status=status;
                    model.imagename = resourceURLStr;
                    if (imgCount == [imgArr count]) {
                        ossManagerMutiUploadBlock();
                    }
-
                }];
     }
 }
