@@ -1,6 +1,6 @@
 //
 //  StudentDetailController.m
-//  jjb_user
+//  jjb_user    学员详情
 //
 //  Created by Check on 16/8/8.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.

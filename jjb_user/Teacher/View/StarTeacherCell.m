@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UIImageView *locImageV;
 @property (nonatomic,strong) UILabel *locLabel;
 @property (nonatomic,strong) UIImageView *starImageV;
+@property (nonatomic,strong) UILabel *line;
 
 @end
 
@@ -31,7 +32,7 @@
         [self.contentView addSubview:self.locImageV];
         [self.contentView addSubview:self.locLabel];
         [self.contentView addSubview:self.starImageV];
-        
+        [self.contentView addSubview:self.line];
         [self layoutPageSubviews];
     }
     return self;
@@ -69,6 +70,12 @@
         make.size.mas_equalTo(CGSizeMake(78, 14));
         make.top.equalTo(@24);
         make.right.equalTo(@-8);
+    }];
+    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.equalTo(@4);
+        make.bottom.equalTo(@-4);
+        make.left.right.equalTo(@0);
     }];
 }
 
@@ -119,4 +126,16 @@
     }
     return _starImageV;
 }
+
+- (UILabel *)line {
+
+    if (!_line) {
+        
+        _line = [[UILabel alloc] init];
+        _line.backgroundColor = COLOR_GRAY;
+    }
+    return _line;
+    
+}
+
 @end
