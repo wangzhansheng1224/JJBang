@@ -84,7 +84,7 @@
 #pragma
 #pragma mark - event response
 - (void)itemClick {
-    [self.view makeToastActivity:CSToastPositionCenter];
+
     if (_tileView.dataList.count == 0) {
         [self.view makeToast:@"请选择要上传的图片！"];
         return;
@@ -93,6 +93,7 @@
         [self.view makeToast:@"请选择输入内容！"];
         return;
     }
+    [self.view makeToastActivity:CSToastPositionCenter];
     _arrImgs = [[NSMutableArray alloc] initWithCapacity:0];
     for (int i = 0; i < [_tileView.dataList count]; i++) {
         ALAsset* asset = _tileView.dataList[i];
