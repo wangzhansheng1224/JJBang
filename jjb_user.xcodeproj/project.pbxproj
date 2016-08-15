@@ -140,6 +140,12 @@
 		73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D831D508B0200643BBA /* ActivityRegisterListReformer.m */; };
 		73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */; };
 		73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */; };
+		738B82061D5F485D00765F6F /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82051D5F485D00765F6F /* TileView.m */; };
+		738B82091D5F48B500765F6F /* TileViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82081D5F48B500765F6F /* TileViewItem.m */; };
+		738B820E1D5F741D00765F6F /* AlbumImageTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B820B1D5F741D00765F6F /* AlbumImageTileView.m */; };
+		738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B820D1D5F741D00765F6F /* PublishAlbumTopView.m */; };
+		738B82161D5FE67200765F6F /* ImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82151D5FE67200765F6F /* ImgModel.m */; };
+		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
@@ -478,6 +484,18 @@
 		73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterAPIManager.m; sourceTree = "<group>"; };
 		73886D881D508B7D00643BBA /* ActivityRegisterListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityRegisterListAPIManager.h; sourceTree = "<group>"; };
 		73886D891D508B7D00643BBA /* ActivityRegisterListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityRegisterListAPIManager.m; sourceTree = "<group>"; };
+		738B82041D5F485D00765F6F /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
+		738B82051D5F485D00765F6F /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
+		738B82071D5F48B500765F6F /* TileViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewItem.h; sourceTree = "<group>"; };
+		738B82081D5F48B500765F6F /* TileViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileViewItem.m; sourceTree = "<group>"; };
+		738B820A1D5F741D00765F6F /* AlbumImageTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumImageTileView.h; sourceTree = "<group>"; };
+		738B820B1D5F741D00765F6F /* AlbumImageTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumImageTileView.m; sourceTree = "<group>"; };
+		738B820C1D5F741D00765F6F /* PublishAlbumTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishAlbumTopView.h; sourceTree = "<group>"; };
+		738B820D1D5F741D00765F6F /* PublishAlbumTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishAlbumTopView.m; sourceTree = "<group>"; };
+		738B82141D5FE67200765F6F /* ImgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgModel.h; sourceTree = "<group>"; };
+		738B82151D5FE67200765F6F /* ImgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgModel.m; sourceTree = "<group>"; };
+		738B82171D5FE90800765F6F /* OSSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSManager.h; sourceTree = "<group>"; };
+		738B82181D5FE90800765F6F /* OSSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSManager.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1396,8 +1414,16 @@
 		73886CC51D4F239500643BBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				738B820A1D5F741D00765F6F /* AlbumImageTileView.h */,
+				738B820B1D5F741D00765F6F /* AlbumImageTileView.m */,
+				738B820C1D5F741D00765F6F /* PublishAlbumTopView.h */,
+				738B820D1D5F741D00765F6F /* PublishAlbumTopView.m */,
 				51B875C91D5033D30082558D /* GrowingCell.h */,
 				51B875CA1D5033D30082558D /* GrowingCell.m */,
+				738B82041D5F485D00765F6F /* TileView.h */,
+				738B82051D5F485D00765F6F /* TileView.m */,
+				738B82071D5F48B500765F6F /* TileViewItem.h */,
+				738B82081D5F48B500765F6F /* TileViewItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1650,6 +1676,15 @@
 			path = ActivityRegisterList;
 			sourceTree = "<group>";
 		};
+		738B82101D5FE5A100765F6F /* OSS */ = {
+			isa = PBXGroup;
+			children = (
+				738B82171D5FE90800765F6F /* OSSManager.h */,
+				738B82181D5FE90800765F6F /* OSSManager.m */,
+			);
+			path = OSS;
+			sourceTree = "<group>";
+		};
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
@@ -1768,6 +1803,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				738B82101D5FE5A100765F6F /* OSS */,
 				AC6E137B1D5D8E1100A7C71D /* WeChatPay */,
 				734CC3C31D59A081000AAA27 /* iCarousel */,
 				73575F701D54EEA00037F697 /* CTMediator */,
@@ -1931,6 +1967,8 @@
 				BB82A0C11D520BEC006739A5 /* otherButtonModel.m */,
 				731092301D5483600031B443 /* UserModel.h */,
 				731092311D5483600031B443 /* UserModel.m */,
+				738B82141D5FE67200765F6F /* ImgModel.h */,
+				738B82151D5FE67200765F6F /* ImgModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2075,6 +2113,7 @@
 			files = (
 				BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */,
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
+				738B82061D5F485D00765F6F /* TileView.m in Sources */,
 				731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */,
 				73886D251D4F735D00643BBA /* NSObject+LDNetworkingMethods.m in Sources */,
 				73886D2A1D4F735D00643BBA /* LDCachedObject.m in Sources */,
@@ -2089,6 +2128,7 @@
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
+				738B82091D5F48B500765F6F /* TileViewItem.m in Sources */,
 				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
 				AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
@@ -2138,6 +2178,7 @@
 				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
+				738B82161D5FE67200765F6F /* ImgModel.m in Sources */,
 				732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */,
 				732A96C51D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m in Sources */,
 				51B875D41D503DB20082558D /* RHMenuView.m in Sources */,
@@ -2157,6 +2198,7 @@
 				514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */,
 				731091F51D51C8840031B443 /* GetCodeAPIManager.m in Sources */,
 				73575F6B1D54D5FA0037F697 /* StudentController.m in Sources */,
+				738B82191D5FE90800765F6F /* OSSManager.m in Sources */,
 				731FDD181D586BEF00A18534 /* ErrorController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
@@ -2233,6 +2275,7 @@
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
 				737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
+				738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
 				73575F551D54D4950037F697 /* TeacherController.m in Sources */,
 				732A969C1D5D7B7200BE5800 /* StarView.m in Sources */,
@@ -2242,6 +2285,7 @@
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
+				738B820E1D5F741D00765F6F /* AlbumImageTileView.m in Sources */,
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,

@@ -34,7 +34,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"社区动态";
+    self.navigationItem.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.pageIndex=0;
     self.pageSize=20;
@@ -42,14 +42,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
     [self setNav];
-    
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    
-//    //设置当前要显示的图片
-//    [browser setCurrentPhotoIndex:indexPath.item];
-//    
-//    //push到MWPhotoBrowser
-//    [self.navigationController pushViewController:browser animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,8 +136,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 #pragma -
 #pragma mark - event response
 - (void)itemClick {
-    
-    [self.navigationController pushViewController:self.issueVC animated:YES];
+    IssueController *controller= [[IssueController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma -
