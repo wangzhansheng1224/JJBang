@@ -65,8 +65,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
-
-
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -190,5 +188,4 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }
     return _growingTreeListReformer;
 }
-
 @end
