@@ -7,6 +7,7 @@
 //
 
 #import "MBStarTeacherCell.h"
+#import "ShopIndexKeys.h"
 
 @interface MBStarTeacherCell ()
 @property(nonatomic,weak) UIImageView * starTeacherImageView;
@@ -56,6 +57,14 @@
     }];
 }
 
+#pragma -
+#pragma mark - private methods
+- (void)configWithData:(NSDictionary *)data
+{
+    self.starTeacherNameLabel.text=data[kShopIndexTechListName];
+    [self.starTeacherImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexTechListPhoto] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
+
 #pragma 
 #pragma mark - getter and setter
 -(UIImageView *)starTeacherImageView
@@ -72,10 +81,9 @@
 {
     if (_starTeacherNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"老师名字测试";
+        label.text = @"亓凯";
         label.font = H4;
         label.textAlignment  = NSTextAlignmentLeft;
-        label.font = FONT_SIZE(13);
         
         [label sizeToFit];
         _starTeacherNameLabel = label;

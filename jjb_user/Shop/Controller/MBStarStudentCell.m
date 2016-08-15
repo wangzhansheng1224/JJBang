@@ -7,20 +7,21 @@
 //
 
 #import "MBStarStudentCell.h"
+#import "ShopIndexKeys.h"
 
 @interface MBStarStudentCell ()
 /**
  * 学员图
  */
-@property(nonatomic,weak) UIImageView * starStudentImageView;
+@property(nonatomic,strong) UIImageView * starStudentImageView;
 /**
  *  学员名
  */
-@property(nonatomic,weak) UILabel * starStudentNameLabel;
+@property(nonatomic,strong) UILabel * starStudentNameLabel;
 /**
  *  成长值
  */
-@property(nonatomic,weak) UILabel * starStudentGrowLabel;
+@property(nonatomic,strong) UILabel * starStudentGrowLabel;
 
 @end
 @implementation MBStarStudentCell
@@ -34,11 +35,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self.contentView addSubview:self.starStudentImageView];
+        [self.contentView addSubview:self.starStudentNameLabel];
+        [self.contentView addSubview:self.starStudentGrowLabel];
         [self addSubviewConstraint];
     }
-    
-    
-    
     return self;
 }
 -(void)addSubviewConstraint
@@ -51,7 +52,7 @@
     }];
     [self.starStudentNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.starStudentImageView.mas_bottom).offset(10);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(10);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
         make.left.equalTo(self.starStudentImageView.mas_left);
         make.right.equalTo(self.contentView.mas_centerX);
     }];
@@ -62,6 +63,15 @@
     }];
 }
 
+#pragma -
+#pragma mark - private methods
+- (void)configWithData:(NSDictionary *)data
+{
+    self.starStudentNameLabel.text=data[kShopIndexSdtListName];
+    [self.starStudentImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexSdtListPhoto] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
+
+
 #pragma 
 #pragma mark - getter and setter
 -(UIImageView *)starStudentImageView
@@ -69,9 +79,7 @@
     if (_starStudentImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
-        
         _starStudentImageView = imageView;
-        [self.contentView addSubview:imageView];
     }
     return _starStudentImageView;
 }
@@ -79,25 +87,21 @@
 -(UILabel *)starStudentNameLabel
 {
     if (_starStudentNameLabel == nil) {
-        UILabel * label = [[UILabel alloc]init];
-        label.text = @"明星学员测试";
-        label.font = H4;
-        label.textAlignment = NSTextAlignmentLeft;
-        _starStudentNameLabel = label;
-        [self.contentView addSubview:label];
+        _starStudentNameLabel = [[UILabel alloc]init];
+        _starStudentNameLabel.text = @"刘银祥";
+        _starStudentNameLabel.font = H4;
+        _starStudentNameLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _starStudentNameLabel;
 }
 -(UILabel *)starStudentGrowLabel
 {
     if (_starStudentGrowLabel == nil) {
-        UILabel * label = [[UILabel alloc]init];
-//        NSString * string = [NSString stringWithFormat:@"%@成长值",];
-        label.text = @"成长值测试";
-        label.font = H4;
-        label.textAlignment = NSTextAlignmentRight;
-        _starStudentGrowLabel = label;
-        [self.contentView addSubview:label];
+        _starStudentGrowLabel = [[UILabel alloc]init];
+        _starStudentGrowLabel.text = @"45成长";
+        _starStudentGrowLabel.font = H4;
+        _starStudentGrowLabel.textColor=COLOR_GRAY;
+        _starStudentGrowLabel.textAlignment = NSTextAlignmentRight;
     }
     return _starStudentGrowLabel;
     

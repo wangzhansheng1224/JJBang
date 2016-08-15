@@ -8,6 +8,7 @@
 
 #import "MBStarTeacherCollectionView.h"
 #import "MBStarTeacherCell.h"
+#import "ShopIndexKeys.h"
 
 static NSString * const MBStarTeacherCellIdentifier = @"MBStarTeacherCellIdentifier";
 static NSInteger const cols = 2;
@@ -18,10 +19,11 @@ static CGFloat const margin = 1.0;
 
 @property(nonatomic,strong) NSMutableArray * starStudentArray;
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
+@property(nonatomic,strong) NSArray* data;
 @end
 @implementation MBStarTeacherCollectionView
 
-#pragma 
+#pragma -
 #pragma mark - life cycle
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -36,27 +38,32 @@ static CGFloat const margin = 1.0;
     return self;
 }
 
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSArray *)data{
+    self.data=data;
+}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return self.starStudentArray.count;
-    return 2;
+    return [self.data count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MBStarTeacherCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:MBStarTeacherCellIdentifier forIndexPath:indexPath];
+    [cell configWithData:self.data[indexPath.row]];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        JJBLog(@"%s",__func__);
-        
-    }else if (indexPath.row == 1)
-    {
-        JJBLog(@"%s",__func__);
-    }
+    NSDictionary *dataDic=self.data[indexPath.row];
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_TeacherDetail:@{@"teacherID":dataDic[kShopIndexTechListID]}];
+    [navController pushViewController:controller animated:YES];
+
     
 }
 #pragma 

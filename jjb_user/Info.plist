@@ -20,21 +20,38 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>jiajiabang</string>
 			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<string>weixinPay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx8775f0d9d378c50e</string>
+			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>wechat</string>
+		<string>weixin</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

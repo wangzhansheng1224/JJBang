@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MBSaleCollectionView : UICollectionView
-
+- (void)configWithData:(NSArray *)data;
 -(instancetype)initWithFrame:(CGRect)frame collectionViewItemSize:(CGSize)itemSize;
 @end

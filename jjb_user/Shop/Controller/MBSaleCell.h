@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBSaleCell : UICollectionViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end

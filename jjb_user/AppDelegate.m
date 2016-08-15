@@ -10,7 +10,8 @@
 #import "BaseTabBarController.h"
 #import "MBGuideTool.h"
 #import "MBAdViewController.h"
-@interface AppDelegate ()
+#import "WXApi.h"
+@interface AppDelegate ()<WXApiDelegate>
 
 
 @end
@@ -32,10 +33,13 @@
     [UITabBar appearance].translucent = NO;
     //设置表格的背景色
     [[UITableView appearance] setBackgroundColor:COLOR_LIGHT_GRAY];
+    [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [[UITableViewCell appearance] setSelectionStyle:UITableViewCellSelectionStyleNone];
     //设置通用按钮样式
     [[UIButton appearance] setBackgroundColor:COLOR_ORANGE];
     [[UIButton appearance] setTintColor:COLOR_WHITE];
+    
+    [[UIBarButtonItem appearance] setTintColor:COLOR_WHITE];
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];
@@ -45,7 +49,39 @@
 //    self.window.rootViewController = tab;
 //    [self.window makeKeyAndVisible];
     
+    /**
+     *  注册微信支付
+     */
+    [WXApi registerApp:@"wx8775f0d9d378c50e"];
+    
+    
+    
     return YES;
+}
+
+- (void)onResp:(BaseResp *)resp {
+if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+        
+        switch (resp.errCode) {
+            case WXSuccess:
+                strMsg = @"支付结果：成功！";
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+                
+            default:
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -73,6 +109,16 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
 {
     return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
+
+}
+
+
+-(UINavigationController *)navController{
+    if (!_navController) {
+        UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+        _navController= (UINavigationController *)[tabControler selectedViewController];
+    }
+    return _navController;
 }
 
 @end

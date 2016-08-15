@@ -8,7 +8,7 @@
 
 #import "MBStarStudentCollectionView.h"
 #import "MBStarStudentCell.h"
-
+#import "ShopIndexKeys.h"
 
 
 static NSString * const MBStarStudentCellIdentifier = @"MBStarStudentCellIdentifier";
@@ -20,7 +20,7 @@ static CGFloat const margin = 1.0;
 @interface MBStarStudentCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property(nonatomic,strong) NSMutableArray * starStudentsArray;
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
-
+@property(nonatomic,strong) NSArray * data;
 @end
 @implementation MBStarStudentCollectionView
 
@@ -40,28 +40,34 @@ static CGFloat const margin = 1.0;
 }
 
 
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSArray *)data{
+    self.data=data;
+}
+
+
 #pragma mark 
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 //    return self.starStudentsArray;
-    return 2;
+    return [self.data count];
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MBStarStudentCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
+    [cell configWithData:self.data[indexPath.row]];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        JJBLog(@"%s",__func__);
-        
-    }else if (indexPath.row == 1)
-    {
-        JJBLog(@"%s",__func__);
-    }
+    NSDictionary *dataDic=self.data[indexPath.row];
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_StudentDetail:@{@"studentID":dataDic[kShopIndexSdtListID]}];
+    [navController pushViewController:controller animated:YES];
     
 }
 

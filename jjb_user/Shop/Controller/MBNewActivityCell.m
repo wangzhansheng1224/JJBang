@@ -7,34 +7,28 @@
 //
 
 #import "MBNewActivityCell.h"
+#import "TitleBar.h"
 
 #import "ShopIndexKeys.h"
 @interface MBNewActivityCell ()
-//
-@property(nonatomic,weak) UIImageView * ActivityImageView;
-@property(nonatomic,weak) UILabel * ActivityTitleLabel;
-
+@property(nonatomic,strong) TitleBar *titleBar;
+@property(nonatomic,strong) UIImageView * ActivityImageView;
+@property(nonatomic,strong) UILabel * ActivityTitleLabel;
+@property(nonatomic,strong) UIView * lineView;
 @end
 @implementation MBNewActivityCell
 #pragma 
 #pragma mark - life cycle
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        [self.contentView addSubview:self.titleBar];
+        [self.contentView addSubview:self.ActivityImageView];
+        [self.contentView addSubview:self.ActivityTitleLabel];
+        [self.contentView addSubview:self.lineView];
         [self addSubViewContaints];
-       
-        
     }
     return self;
 }
@@ -55,17 +49,32 @@
 #pragma private methods
 -(void)addSubViewContaints
 {
+    UIView *superView=self.contentView;
+    
+    [self.titleBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top);
+        make.left.equalTo(superView.mas_left);
+        make.right.equalTo(superView.mas_right);
+        make.height.equalTo(@(30));
+    }];
+
     [self.ActivityImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.right.equalTo(self.contentView.mas_right);
+        make.top.equalTo(_titleBar.mas_bottom);
+        make.left.equalTo(superView.mas_left);
+        make.bottom.equalTo(superView.mas_bottom).offset(-60);
+        make.right.equalTo(superView.mas_right);
     }];
     [self.ActivityTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.ActivityImageView.mas_bottom).offset(-10);
-        make.left.equalTo(self.contentView.mas_left).offset(30);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(10);
-
+        make.top.equalTo(self.ActivityImageView.mas_bottom);
+        make.left.equalTo(superView.mas_left).offset(15);
+        make.right.equalTo(superView.mas_right).offset(-15);
+        make.bottom.equalTo(superView.mas_bottom).offset(-10);
+    }];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_ActivityTitleLabel.mas_bottom);
+        make.left.equalTo(superView.mas_left);
+        make.right.equalTo(superView.mas_right);
+        make.height.equalTo(@(10));
     }];
     
 }
@@ -75,14 +84,20 @@
     
 }
 
-#pragma 
+#pragma -
 #pragma mark - getter and setter
+
+-(TitleBar *)titleBar{
+    if (!_titleBar) {
+        _titleBar=[[TitleBar alloc] initWithTitle:@"最新活动"];
+    }
+    return _titleBar;
+}
 -(UIImageView *)ActivityImageView
 {
     if (_ActivityImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
-        [self.contentView addSubview:imageView];
         _ActivityImageView = imageView;
     }
     return _ActivityImageView;
@@ -90,14 +105,19 @@
 -(UILabel *)ActivityTitleLabel
 {
     if (_ActivityTitleLabel == nil) {
-        
-        UILabel * activityTitleLabel = [[UILabel alloc]init];
-        activityTitleLabel.text = @"活动测试";
-        activityTitleLabel.font = H4;
-        [activityTitleLabel sizeToFit];
-        [self.contentView addSubview:activityTitleLabel];
-        self.ActivityTitleLabel = activityTitleLabel;
+        _ActivityTitleLabel = [[UILabel alloc]init];
+        _ActivityTitleLabel.text = @"活动测试";
+        _ActivityTitleLabel.font = H3;
+        [_ActivityTitleLabel sizeToFit];
     }
     return _ActivityTitleLabel;
+}
+
+-(UIView*) lineView{
+    if (!_lineView) {
+        _lineView=[[UIView alloc] init];
+        _lineView.backgroundColor=COLOR_LIGHT_GRAY;
+    }
+    return _lineView;
 }
 @end
