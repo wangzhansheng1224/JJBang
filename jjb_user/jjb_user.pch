@@ -109,6 +109,7 @@ alpha:(a)]
 #import "NSDate+NSString.h"
 #import "DateTools.h"
 #import <MWPhotoBrowser.h>
+#import <HMSegmentedControl.h>
 #import "NSURL+OSS.h"
 #import "AppDelegate.h"
 

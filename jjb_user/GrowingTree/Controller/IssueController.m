@@ -58,7 +58,6 @@
 
 #pragma
 #pragma mark - UITextViewDelegate
-
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
@@ -228,7 +227,6 @@
     return _label_placehold;
 }
 
-
 -(PublishAlbumTopView *)tileView
 {
     if (!_tileView) {
@@ -248,5 +246,4 @@
     }
    return _publishAPIManager;
 }
-
 @end

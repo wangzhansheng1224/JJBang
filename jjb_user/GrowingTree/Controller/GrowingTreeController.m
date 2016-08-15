@@ -11,8 +11,7 @@
 #import "IssueController.h"
 #import "GrowingTreeListAPIManager.h"
 #import "GrowingTreeListReformer.h"
-
-
+#import "GrowingPicController.h"
 
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
@@ -20,12 +19,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
-//@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 @property (nonatomic,strong) NSMutableArray *arrData;
-@property (nonatomic,strong) IssueController *issueVC;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-
+@property (nonatomic,strong) NSArray *imageArr;
+@property (nonatomic,strong) NSArray *imageArray;
+@property (nonatomic,strong) NSMutableArray *photos;
 @end
 
 @implementation GrowingTreeController
@@ -62,7 +61,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - custom methods
+#pragma mark - set Nav
 - (void)setNav {
     
     UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"growing_issue"] highImage:[UIImage imageNamed:@"growing_issue"] target:self action:@selector(itemClick)];
@@ -70,7 +69,29 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - UITableViewDelegate
+#pragma mark - MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    
+    return  [self.photos count];
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+#pragma - 
+#pragma mark - event respone
+- (void)tapGR:(UITapGestureRecognizer *)tap {
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    [self.navigationController pushViewController:browser animated:YES];
+    
+}
+
+#pragma -
+#pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.arrData count];
 }
@@ -81,21 +102,64 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
-    [cell configWithData:self.arrData[indexPath.row]];
+    
+    NSDictionary * dic = self.arrData[indexPath.row];
+    
+    [cell configWithData:dic];
+    
+    float width = 119 - 8;
+    
+    NSArray * imageArr = dic[kGrowingTreeListImages];
+    if (imageArr.count > 0) {
+        
+        _imageArray = imageArr;
+    }
+    
+    for (int i = 0; i < imageArr.count; i++) {
+        
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:self.view.frame.size]];
+        [self.photos addObject:photo];
+        
+        
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+        
+        imageView.userInteractionEnabled = YES;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.tag = 2016 + i;
+        
+        NSURL *url=[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size];
+        
+        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+        
+        UITapGestureRecognizer * tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
+        [imageView addGestureRecognizer:tapGR];
+        [cell.view_image addSubview:imageView];
+    }
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary * dic = self.arrData[indexPath.row];
+    self.imageArr = dic[kGrowingTreeListImages];
     
-    NSArray * imageArr = dic[kGrowingTreeListImages];
+    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
-    if (imageArr.count == 0) {
-        return 109;
+    float height = size.height;
+    
+    if ([dic[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
+    
+    if (self.imageArr.count == 0) {
+        
+        return 92 + height;
+        
     }else {
-    
-        return (imageArr.count+2)/3 *85 +109;
+        
+        return (self.imageArr.count+2)/3 *85 +92 + height;
     }
 }
 
@@ -106,20 +170,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    if (self.tableView.contentOffset.y > Screen_Height) {
-//        [self.tableView.mj_footer endRefreshing];
-        
-        self.tableView.tableFooterView.hidden = YES;
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    
-    if (self.tableView.contentOffset.y > Screen_Height) {
-        [self.tableView.mj_footer endRefreshing];
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
@@ -171,14 +228,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 
-
-- (IssueController *)issueVC {
-    if (!_issueVC) {
-        _issueVC = [[IssueController alloc] init];
-    }
-    return _issueVC;
-}
-
 - (LDAPIBaseManager *)growingTreeListAPIManager {
     if (_growingTreeListAPIManager == nil) {
         _growingTreeListAPIManager = [GrowingTreeListAPIManager  sharedInstance];
@@ -195,4 +244,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }
     return _growingTreeListReformer;
 }
+
+
+- (NSMutableArray *)photos{
+    if (!_photos) {
+        _photos=[[NSMutableArray alloc] initWithCapacity:0];
+    }
+    return _photos;
+}
+
 @end

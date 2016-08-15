@@ -1,32 +1,31 @@
 //
-//  TeacherController.m
-//  jjb_user    学员
+//  StarTeacherController.m
+//  jjb_user
 //
-//  Created by Aimee on 16/8/5.
+//  Created by Check on 16/8/14.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "StudentController.h"
-#import "StudentListCell.h"
-#import "StudentDetailController.h"
+#import "StarTeacherController.h"
+#import "StarTeacherCell.h"
 
-static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
+static NSString  *const StarTeacherCellIdentifier=@"StarTeacherCellIdentifier";
 
-@interface StudentController ()<UITableViewDelegate,UITableViewDataSource>
+@interface StarTeacherController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *array_data;
 
 @end
 
-@implementation StudentController
+@implementation StarTeacherController
 
 #pragma -
 #pragma mark - life cycle
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.navigationItem.title = @"明星学员";
+    self.navigationItem.title = @"明星老师";
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = COLOR_WHITE;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -57,7 +56,7 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    StudentListCell *cell = [tableView dequeueReusableCellWithIdentifier:StudentListCellIdentifier forIndexPath:indexPath];
+    StarTeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:StarTeacherCellIdentifier forIndexPath:indexPath];
     
     return cell;
 }
@@ -69,7 +68,6 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[[StudentDetailController alloc] init] animated:YES];
 }
 
 #pragma -
@@ -81,7 +79,7 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        [_tableView registerClass:[StudentListCell class] forCellReuseIdentifier:StudentListCellIdentifier];
+        [_tableView registerClass:[StarTeacherCell class] forCellReuseIdentifier:StarTeacherCellIdentifier];
     }
     return _tableView;
 }

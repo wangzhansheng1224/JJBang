@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface GrowingCell : UITableViewCell
+
+@property (nonatomic,strong) UIView *view_image;
+
 - (void)configWithData:(NSDictionary *)data;
+
 @end

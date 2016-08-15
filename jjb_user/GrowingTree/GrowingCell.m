@@ -8,10 +8,9 @@
 
 #import "GrowingCell.h"
 #import "GrowingTreeListKey.h"
-
+#import "GrowingPicController.h"
 
 @interface GrowingCell ()
-
 
 @property (nonatomic,strong) UILabel *nameLabel;
 @property (nonatomic,strong) UILabel *timeLabel;
@@ -19,9 +18,6 @@
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
-@property (nonatomic,strong) UIView *view_image;
-@property (nonatomic,strong) UITapGestureRecognizer *tapGR;
-
 
 @end
 
@@ -69,7 +65,6 @@
     }];
     [_view_image mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        //        make.size.mas_equalTo(CGSizeMake(Screen_Width, ));
         make.bottom.equalTo(_moodLabel.mas_top).with.offset(-8);
         make.top.equalTo(_iconView.mas_bottom).with.offset(8);
         make.left.equalTo(self.mas_left).with.offset(8);
@@ -77,7 +72,7 @@
     }];
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.equalTo(@17);
+        make.height.equalTo(@0);
         make.bottom.equalTo(_locView.mas_top).with.offset(-6);
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
@@ -108,32 +103,22 @@
     NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Size:self.iconView.frame.size];
     [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     
-    float width = 119 - 8;
-
-    NSArray * imageArr = data[kGrowingTreeListImages];
-     [self.view_image.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    for (int i = 0; i < imageArr.count; i++) {
-        
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
-        [imageView sd_setImageWithURL:[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.tag = 2016 + i;
-        [imageView addGestureRecognizer:self.tapGR];
-        
-        [self.view_image addSubview:imageView];
-    }
-}
-
-#pragma -
-#pragma mark - event response
-- (void)tapGR:(UITapGestureRecognizer *)click {
+    CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
-    //    NSInteger index = self.imageView.tag - 2016;
-    //
-    //    GrowingPicController *picVC = [[GrowingPicController alloc] init];
-    //    picVC.index = index;
-    //
-    //    picVC.photos = self.imageArr;
+    float height = size.height;
+    
+    if ([data[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
+    
+    [_moodLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.equalTo(@(height));
+        make.bottom.equalTo(_locView.mas_top).with.offset(-6);
+        make.right.equalTo(self.mas_right).with.offset(-8);
+        make.left.equalTo(self.mas_left).with.offset(8);
+    }];
 }
 
 #pragma -
@@ -179,6 +164,8 @@
         
         _moodLabel = [[UILabel alloc] init];
         _moodLabel.font = H2;
+        _moodLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _moodLabel.numberOfLines = 0;
     }
     return _moodLabel;
 }
@@ -188,7 +175,7 @@
     if (!_locView) {
         
         _locView = [[UIImageView alloc] init];
-        _locView.image = [UIImage imageNamed:@"growing_loc"];  
+        _locView.image = [UIImage imageNamed:@"growing_loc"];
     }
     return _locView;
 }
@@ -212,16 +199,5 @@
     }
     return _view_image;
 }
-
-- (UITapGestureRecognizer *)tapGR {
-    
-    if (!_tapGR) {
-        
-        _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
-    }
-    return _tapGR;
-}
-
-
 
 @end
