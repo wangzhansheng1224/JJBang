@@ -79,13 +79,10 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     UIImageView * imageV = (UIImageView *)tap.view;
     NSInteger index = imageV.tag - 2016;
     
-    NSLog(@"%lu", index);
-    
     GrowingPicController *pic = [[GrowingPicController alloc] init];
     pic.photos = _imageArray;
     pic.index = index;
     
-    NSLog(@"%lu=======",_imageArray.count);
     CATransition *transition = [CATransition animation];
     transition.type = @"moveIn";
     transition.subtype = @"fromCenter";
@@ -115,7 +112,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     float width = 119 - 8;
     
     NSArray * imageArr = dic[kGrowingTreeListImages];
-    NSLog(@"%lu++++++++++",imageArr.count);
     if (imageArr.count > 0) {
         
         _imageArray = imageArr;
