@@ -1,6 +1,6 @@
 //
 //  TeacherController.m
-//  jjb_user
+//  jjb_user    学员
 //
 //  Created by Aimee on 16/8/5.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.

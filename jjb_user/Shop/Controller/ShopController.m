@@ -342,7 +342,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"1"};
+    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
 }
 
 #pragma -

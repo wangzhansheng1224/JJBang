@@ -53,7 +53,7 @@ NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
             for (NSInteger i=0; i<[imagesArray count]; i++) {
                 [imagesMArray addObject:@{
                                           kGrowingTreeListImagesOrderNum:@(i),
-                                          kGrowingTreeListImagesPath:imagesArray[0][@"image_path"]
+                                          kGrowingTreeListImagesPath:imagesArray[i][@"image_path"]
                                           }];
             }
         

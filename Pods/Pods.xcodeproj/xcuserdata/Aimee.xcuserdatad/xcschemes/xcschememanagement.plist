@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CTAssetsPickerController-CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CTPersistance.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -94,6 +104,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UzysAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XLForm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,6 +127,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>11D66316DB71B2CF9E2A272E85BA5C6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
@@ -127,6 +147,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3F6CF7521B200DB021681D83A0960ADE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40A045DF8C21A467D0092F6642949199</key>
 		<dict>
 			<key>primary</key>
@@ -137,7 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4B4A0C8DD59FFA2C76D71A25D33B6B01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4C92304D7238AFB97C1D3B7A76C26609</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52E8520EEB3CD4AEB0283BD08ECB551A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +192,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>802EBB4F98D5796CA2AF2BA80B47AC2E</key>
+		<key>7866B7934C24D6989EA635D75423E0C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,22 +207,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A9DD0511E7BEB30672D6697BC3398ABB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC6C573058237B97B1BEE20322865172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AED035B91A432418DA1E8580D7CD877D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B39DB914782995CA0FA4DD75B96BDADF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C0827BEDC659D0E4CB826F54AB62D96C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -208,6 +233,11 @@
 			<true/>
 		</dict>
 		<key>E2FE87384A67337831E53490EEA8BF11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F907F9FF2B4203B7482E6C613B87781F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -12,20 +12,16 @@
 #import "GrowingTreeListAPIManager.h"
 #import "GrowingTreeListReformer.h"
 
-
-
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
-@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,MWPhotoBrowserDelegate>
+@interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
-//@property (nonatomic,strong) UIBarButtonItem *btn_issue;
 @property (nonatomic,strong) NSMutableArray *arrData;
-@property (nonatomic,strong) IssueController *issueVC;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-
+@property (nonatomic,strong) NSArray *imageArr;
 @end
 
 @implementation GrowingTreeController
@@ -34,7 +30,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"社区动态";
+    self.navigationItem.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.pageIndex=0;
     self.pageSize=20;
@@ -42,14 +38,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
     [self setNav];
-    
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    
-//    //设置当前要显示的图片
-//    [browser setCurrentPhotoIndex:indexPath.item];
-//    
-//    //push到MWPhotoBrowser
-//    [self.navigationController pushViewController:browser animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +58,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - custom methods
+#pragma mark - set Nav
 - (void)setNav {
     
     UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"growing_issue"] highImage:[UIImage imageNamed:@"growing_issue"] target:self action:@selector(itemClick)];
@@ -78,7 +66,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - UITableViewDelegate
+#pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.arrData count];
 }
@@ -89,21 +77,33 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
-    [cell configWithData:self.arrData[indexPath.row]];
+    
+    NSDictionary * dic = self.arrData[indexPath.row];
+    
+    [cell configWithData:dic];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary * dic = self.arrData[indexPath.row];
+    self.imageArr = dic[kGrowingTreeListImages];
     
-    NSArray * imageArr = dic[kGrowingTreeListImages];
+    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
-    if (imageArr.count == 0) {
-        return 109;
+    float height = size.height;
+    
+    if ([dic[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
+    
+    if (self.imageArr.count == 0) {
+        
+        return 92 + height;
+        
     }else {
-    
-        return (imageArr.count+2)/3 *85 +109;
+        return (self.imageArr.count+2)/3 *85 +92 + height;
     }
 }
 
@@ -114,20 +114,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    if (self.tableView.contentOffset.y > Screen_Height) {
-//        [self.tableView.mj_footer endRefreshing];
-        
-        self.tableView.tableFooterView.hidden = YES;
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    
-    if (self.tableView.contentOffset.y > Screen_Height) {
-        [self.tableView.mj_footer endRefreshing];
-    }
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
@@ -144,8 +137,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 #pragma -
 #pragma mark - event response
 - (void)itemClick {
-    
-    [self.navigationController pushViewController:self.issueVC animated:YES];
+    IssueController *controller= [[IssueController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma -
@@ -178,14 +171,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return _arrData;
 }
 
-
-
-- (IssueController *)issueVC {
-    if (!_issueVC) {
-        _issueVC = [[IssueController alloc] init];
-    }
-    return _issueVC;
-}
 
 - (LDAPIBaseManager *)growingTreeListAPIManager {
     if (_growingTreeListAPIManager == nil) {

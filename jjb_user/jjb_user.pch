@@ -61,6 +61,12 @@ alpha:(a)]
 #define StatusHeight 20
 #define TabBarHeight 49
 #define NavBarHeight 64
+//发布
+#define PublishImageTileWidth 78
+#define PublishImageTileHeight 78
+
+#define MSG_Img_Dir_Name @"MSGImgDirName"
+#define OSSMessagePath @"Message"
 
 #define ImageServer @"http://image.happycity777.com/"
 
@@ -103,6 +109,7 @@ alpha:(a)]
 #import "NSDate+NSString.h"
 #import "DateTools.h"
 #import <MWPhotoBrowser.h>
+#import <HMSegmentedControl.h>
 #import "NSURL+OSS.h"
 #import "AppDelegate.h"
 
