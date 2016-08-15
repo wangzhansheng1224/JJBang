@@ -21,7 +21,7 @@
 @property (nonatomic,strong) UIBarButtonItem *item_issue;
 @property (nonatomic,strong) UILabel *label_placehold;
 @property (nonatomic,strong) PublishAlbumTopView *tileView;
-@property(nonatomic,strong)     NSMutableArray* arrImgs;
+@property(nonatomic,strong)  NSMutableArray* arrImgs;
 @property (nonatomic,strong) LDAPIBaseManager *publishAPIManager;
 @end
 
@@ -84,7 +84,7 @@
 #pragma
 #pragma mark - event response
 - (void)itemClick {
-    
+    [self.view makeToastActivity:CSToastPositionCenter];
     if (_tileView.dataList.count == 0) {
         [self.view makeToast:@"请选择要上传的图片！"];
         return;
@@ -109,7 +109,6 @@
         model.status=NO;
         [_arrImgs addObject:model];
     }
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [[OSSManager shareInstance] uploadFiles:_arrImgs withTargetSubPath:OSSMessagePath withBlock:^() {
         [self.publishAPIManager loadData];
     }];
@@ -122,12 +121,14 @@
     if ([resultDic[@"code"] isEqualToString:@"200"]) {
         [self.navigationController popViewControllerAnimated:YES];
     }
+     [self.view hideToastActivity];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     
     NSDictionary *resultDic = [manager fetchDataWithReformer:nil];
     [self.view makeToast:resultDic[@"message"]];
+    [self.view hideToastActivity];
 }
 
 #pragma -

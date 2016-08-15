@@ -8,9 +8,9 @@
 
 #import "GrowingCell.h"
 #import "GrowingTreeListKey.h"
-#import "GrowingPicController.h"
+#import "AppDelegate.h"
 
-@interface GrowingCell ()
+@interface GrowingCell ()<MWPhotoBrowserDelegate>
 
 @property (nonatomic,strong) UILabel *nameLabel;
 @property (nonatomic,strong) UILabel *timeLabel;
@@ -18,7 +18,7 @@
 @property (nonatomic,strong) UILabel *moodLabel;
 @property (nonatomic,strong) UIImageView *locView;
 @property (nonatomic,strong) UILabel *locLabel;
-
+@property (nonatomic,strong) NSMutableArray *photos;
 @end
 
 @implementation GrowingCell
@@ -103,6 +103,28 @@
     NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Size:self.iconView.frame.size];
     [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     
+    float width = 119 - 8;
+    
+    NSArray * imageArr = data[kGrowingTreeListImages];
+    self.photos=[[NSMutableArray alloc] initWithCapacity:0];
+    [self.view_image.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    for (int i = 0; i < imageArr.count; i++) {
+        
+        NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,imageArr[i][kGrowingTreeListImagesPath]]];
+        MWPhoto *photo = [MWPhoto photoWithURL:url];
+        [self.photos addObject:photo];
+        
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+        imageView.userInteractionEnabled=YES;
+        [imageView sd_setImageWithURL:[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.tag = 2016 + i;
+        UITapGestureRecognizer  *tapGR=  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
+        [imageView addGestureRecognizer:tapGR];
+        
+        [self.view_image addSubview:imageView];
+    }
+    
     CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
     float height = size.height;
@@ -119,6 +141,30 @@
         make.right.equalTo(self.mas_right).with.offset(-8);
         make.left.equalTo(self.mas_left).with.offset(8);
     }];
+}
+
+
+#pragma -
+#pragma mark - MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    
+    return  [self.photos count];
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+#pragma -
+#pragma mark - event respone
+- (void)tapGR:(UITapGestureRecognizer *)tap {
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    UIImageView *imgView=(UIImageView*)tap.view;
+    [browser setCurrentPhotoIndex:imgView.tag-2016];
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    [navController pushViewController:browser animated:YES];
 }
 
 #pragma -
@@ -199,5 +245,4 @@
     }
     return _view_image;
 }
-
 @end
