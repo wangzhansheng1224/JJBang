@@ -19,6 +19,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>CTAssetsPickerController-CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
+		<key>CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
 		<key>CTPersistance.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -94,6 +104,11 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>UzysAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>XLForm.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -118,6 +133,11 @@
 			<true/>
 		</dict>
 		<key>0E56B1064A710A2C47730D11A6638AFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>11D66316DB71B2CF9E2A272E85BA5C6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,6 +167,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3F6CF7521B200DB021681D83A0960ADE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40A045DF8C21A467D0092F6642949199</key>
 		<dict>
 			<key>primary</key>
@@ -162,12 +187,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4B4A0C8DD59FFA2C76D71A25D33B6B01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4BFB7DE07FDDD2FDB599A3CE8C86CF6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4C92304D7238AFB97C1D3B7A76C26609</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52E8520EEB3CD4AEB0283BD08ECB551A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -227,6 +262,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7866B7934C24D6989EA635D75423E0C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>802EBB4F98D5796CA2AF2BA80B47AC2E</key>
 		<dict>
 			<key>primary</key>
@@ -258,6 +298,11 @@
 			<true/>
 		</dict>
 		<key>A98C138EC14572F9D888F351A226FA14</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9DD0511E7BEB30672D6697BC3398ABB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -318,6 +363,11 @@
 			<true/>
 		</dict>
 		<key>EE47A2B0C7A8CC96D52FF0363E486688</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F907F9FF2B4203B7482E6C613B87781F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

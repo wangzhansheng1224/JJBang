@@ -99,7 +99,9 @@
     [self.locLabel setText:data[kGrowingTreeListAddress]];
     [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
     [self.moodLabel setText:data[kGrowingTreeListContent]];
-    [self.iconView sd_setImageWithURL:data[kGrowingTreeListFromUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+    
+    NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Size:self.iconView.frame.size];
+    [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     
     CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     

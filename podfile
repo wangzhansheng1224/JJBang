@@ -8,6 +8,8 @@ target 'jjb_user' do
     pod 'CocoaLumberjack' #写日志
     pod 'pop', '~> 1.0' #facebook 的动画组件
     pod 'XLForm' #灵活、强大的表单组件
+    pod 'CTAssetsPickerController'
+    pod 'UzysAssetsPickerController'
     pod 'CTPersistance' #数据库操作、和框架有关
     pod 'JLRoutes'  #路由
     pod 'DateTools'
