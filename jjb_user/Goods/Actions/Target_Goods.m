@@ -15,6 +15,7 @@
     GoodsListController *list = [[GoodsListController alloc] init];
     return list;
 }
+
 - (id)Action_GoodsDetail:(NSDictionary *)params{
     GoodsDetailController *detail = [[GoodsDetailController alloc] init];
     detail.goodsID=[params[@"goodsID"] integerValue];
