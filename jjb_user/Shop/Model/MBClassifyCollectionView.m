@@ -17,10 +17,13 @@
 #import "ClerkListController.h"
 #import "TeacherListController.h"
 #import "StreetControl.h"
+#import "ShopIndexReformer.h"
+
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
 @property(nonatomic,assign) CGSize itemSize;
 @property(nonatomic,strong) NSMutableArray * shopClassifyArray;
+@property (nonatomic,strong) NSDictionary *dataDic;
 
 @end
 @implementation MBClassifyCollectionView
@@ -121,8 +124,8 @@ static NSString * const cellID = @"cell";
     }else if(indexPath.row == 6)
     {
         //社区商城
-        StreetControl * streetVC = [[StreetControl alloc]init];
-        [navControler pushViewController:streetVC animated:YES];
+        UIViewController* controller=[[CTMediator sharedInstance] CTMediator_GoodsList:@{}];
+        [navControler pushViewController:controller animated:YES];
         
     }else if(indexPath.row == 7)
     {
@@ -149,5 +152,13 @@ static NSString * const cellID = @"cell";
     }
     return _shopClassifyArray;
 }
+
+-(NSDictionary *) dataDic{
+    if (!_dataDic) {
+        _dataDic=[[NSDictionary alloc] init];
+    }
+    return _dataDic;
+}
+
 @end
 
