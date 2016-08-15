@@ -8,16 +8,19 @@
 
 #import "MBSaleCollectionView.h"
 #import "MBSaleCell.h"
+#import "ShopIndexKeys.h"
+
 @interface MBSaleCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 //所有的数据
 @property(nonatomic,strong) NSMutableArray * listArray;
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
+@property(nonatomic,strong)NSArray* data;
 @end
 @implementation MBSaleCollectionView
 
 static NSString * const MBSaleCellIdentifier = @"MBSaleCellIdentifier";
 static NSInteger const cols = 2;
-static CGFloat const margin = 1.0;
+static CGFloat const margin = 0;
 
 #define cellWh ((Screen_Width -(cols -1) * margin)/cols)
 
@@ -39,29 +42,34 @@ static CGFloat const margin = 1.0;
     return self;
 }
 
-#pragma 
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSArray *)data{
+    self.data=data;
+}
+
+#pragma -
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return self.listArray.count;
-    return 2;
+    return [self.data count];
     
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MBSaleCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:MBSaleCellIdentifier forIndexPath:indexPath];
+    [cell configWithData:self.data[indexPath.row]];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        JJBLog(@"点击1");
-    }
-    else
-    {
-        JJBLog(@"点击2");
-    }
+    
+    NSDictionary *dataDic=self.data[indexPath.row];
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_GoodsDetail:@{@"goodsID":dataDic[kShopIndexGoodsListID]}];
+    [navController pushViewController:controller animated:YES];
 }
 
 
@@ -80,7 +88,7 @@ static CGFloat const margin = 1.0;
 {
     if (_layout == nil) {
         UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.itemSize = CGSizeMake(cellWh, cellWh - 20);
+        layout.itemSize = CGSizeMake(cellWh, cellWh);
         JJBLog(@"大小%@",NSStringFromCGSize(layout.itemSize));
         layout.minimumInteritemSpacing = margin;
         layout.minimumLineSpacing = margin;

@@ -19,4 +19,6 @@ extern NSString *const kGrowingTreeListFromUserFace;
 extern NSString *const kGrowingTreeListAddress;
 extern NSString *const kGrowingTreeListCreateTime;
 extern NSString *const kGrowingTreeListImages;
+extern NSString *const kGrowingTreeListImagesOrderNum;
+extern NSString *const kGrowingTreeListImagesPath;
 #endif /* GrowingTreeListKey_h */

@@ -20,6 +20,8 @@ NSString *const kGrowingTreeListFromUserFace=@"GrowingTreeListFromUserFace";
 NSString *const kGrowingTreeListAddress=@"GrowingTreeListAddress";
 NSString *const kGrowingTreeListCreateTime=@"GrowingTreeListCreateTime";
 NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
+NSString *const kGrowingTreeListImagesOrderNum=@"GrowingTreeListImagesOrderNum";
+NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
 
 @implementation GrowingTreeListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
@@ -46,6 +48,16 @@ NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
             
             NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow: oldTime -newTime];
             
+            NSArray* imagesArray= arrData[i][@"images"];
+            NSMutableArray* imagesMArray=[[NSMutableArray alloc] initWithCapacity:0];
+            for (NSInteger i=0; i<[imagesArray count]; i++) {
+                [imagesMArray addObject:@{
+                                          kGrowingTreeListImagesOrderNum:@(i),
+                                          kGrowingTreeListImagesPath:imagesArray[0][@"image_path"]
+                                          }];
+            }
+        
+            
             NSDictionary *itemData=@{
                                      kGrowingTreeListID:arrData[i][@"id"],
                                      kGrowingTreeListContent:arrData[i][@"content"],
@@ -56,8 +68,8 @@ NSString *const kGrowingTreeListImages=@"GrowingTreeListImages";
                                      kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
                                      kGrowingTreeListFromUserName:arrData[i][@"fromUser"],
                                      kGrowingTreeListAddress:arrData[i][@"address"],
-                                     kGrowingTreeListCreateTime:timeAgoDate.timeAgoSinceNow ,
-                                     kGrowingTreeListImages:arrData[i][@"images"]
+                                     kGrowingTreeListCreateTime:timeAgoDate.timeAgoSinceNow,
+                                     kGrowingTreeListImages:imagesMArray
                                      };
             [arrResult addObject:itemData];
         }

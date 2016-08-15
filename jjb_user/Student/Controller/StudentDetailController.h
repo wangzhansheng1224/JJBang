@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface StudentDetailController : UIViewController
-
+@property (nonatomic,assign) NSInteger studentID;
 @end

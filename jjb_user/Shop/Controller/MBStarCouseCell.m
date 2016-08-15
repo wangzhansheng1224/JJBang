@@ -7,37 +7,35 @@
 //
 
 #import "MBStarCouseCell.h"
+#import "StarView.h"
+#import "SHopIndexKeys.h"
 
 @interface MBStarCouseCell ()
 /**
  *  课程图片
  */
-@property(nonatomic,weak) UIImageView * couseImageView;
+@property(nonatomic,strong) UIImageView * couseImageView;
 /**
  *  课程名
  */
-@property(nonatomic,weak) UILabel * couseNameLabel;
+@property(nonatomic,strong) UILabel * couseNameLabel;
 /**
  *  已报名人数
  */
-@property(nonatomic,weak) UILabel * numbercouseLabel;
+@property(nonatomic,strong) UILabel * numbercouseLabel;
 /**
  *  星星图
  */
-@property(nonatomic,weak) UIView * starView;
-/**
- *  老师名字
- */
-@property(nonatomic,weak) UILabel * couseTeacherNameLabel;
+@property(nonatomic,strong) StarView * starView;
 /**
  *  课程价格
  */
-@property(nonatomic,weak) UILabel * cousePriceLabel;
+@property(nonatomic,strong) UILabel * cousePriceLabel;
 
 /**
  *  线
  */
-@property(nonatomic,weak) UIView * lineView;
+@property(nonatomic,strong) UIView * lineView;
 
 @end
 @implementation MBStarCouseCell
@@ -45,19 +43,16 @@
 #pragma 
 #pragma mark - lefe cycle
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        [self.contentView addSubview:self.couseImageView];
+        [self.contentView addSubview:self.couseNameLabel];
+        [self.contentView addSubview:self.numbercouseLabel];
+        [self.contentView addSubview:self.starView];
+        [self.contentView addSubview:self.cousePriceLabel];
+        [self.contentView addSubview:self.lineView];
         [self addSubviewConstraint];
     }
     return self;
@@ -68,53 +63,57 @@
 -(void)addSubviewConstraint
 {
     [self.couseImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left).offset(16);
-//        make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
-        make.width.mas_equalTo(@150);
-        make.height.mas_equalTo(@120);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+        make.width.mas_equalTo((Screen_Width-40)/2.0);
+        make.height.mas_equalTo((Screen_Width-40)/3.0);
     
     }];
     [self.couseNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.couseImageView.mas_top).offset(8);
-        make.left.equalTo(self.couseImageView.mas_right).offset(16);
-        make.right.equalTo(self.contentView.mas_right).offset(100);
-        make.height.mas_equalTo(@20);
+        make.top.equalTo(self.couseImageView.mas_top);
+        make.left.equalTo(self.couseImageView.mas_right).offset(10);
+        make.right.equalTo(self.numbercouseLabel.mas_left);
+        make.height.mas_equalTo(@30);
     }];
     [self.numbercouseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.couseNameLabel.mas_bottom);
         make.top.equalTo(self.couseNameLabel.mas_top);
-//        make.left.equalTo(self.couseNameLabel.mas_right).offset(20);
-        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.height.mas_equalTo(@30);
+        make.width.mas_equalTo(@100);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.couseNameLabel.mas_bottom).offset(8);
         make.left.equalTo(self.couseNameLabel.mas_left);
-        make.height.mas_equalTo(@14);
-        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.height.mas_equalTo(@30);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
-    [self.couseTeacherNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.couseNameLabel.mas_left);
-        make.right.equalTo(self.couseNameLabel.mas_right);
-        make.top.equalTo(self.starView.mas_bottom).offset(8);
-        make.height.mas_equalTo(@14);
-    }];
+
     
-        [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.couseNameLabel.mas_left);
-        make.top.equalTo(self.couseTeacherNameLabel.mas_bottom).offset(34);
-        make.right.equalTo(self.contentView.mas_right);
-        make.height.equalTo(@2);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-40);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
+        make.height.equalTo(@1);
     }];
     [self.cousePriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.contentView.mas_right);
-        make.top.equalTo(self.lineView.mas_bottom).offset(12);
-        make.right.equalTo(self.contentView.mas_right).offset(-16);
-        make.height.mas_equalTo(@16);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
+        make.height.mas_equalTo(@30);
     }];
     
     
 }
+
+#pragma -
+#pragma mark - private methods
+- (void)configWithData:(NSDictionary *)data
+{
+    self.couseNameLabel.text=data[kShopIndexCourseListName];
+    self.numbercouseLabel.text=[NSString stringWithFormat:@"%@人报名",data[kShopIndexCourseListNum]];
+    self.cousePriceLabel.text=[NSString stringWithFormat:@"￥%@",data[kShopIndexCourseListNum]] ;
+    [self.couseImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexCourseListImg] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
+
 #pragma 
 #pragma mark - getter and setter
 -(UIImageView *)couseImageView
@@ -123,7 +122,7 @@
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
         _couseImageView = imageView;
-        [self.contentView addSubview:imageView];
+
     }
     return _couseImageView;
 }
@@ -131,59 +130,38 @@
 -(UILabel *)couseNameLabel
 {
     if (_couseNameLabel == nil) {
-        UILabel * label = [[UILabel alloc]init];
-        label.text = @"少儿美术";
-        label.font = H4;
-        _couseNameLabel = label;
-        [label sizeToFit];
-        [self.contentView addSubview:label];
+        _couseNameLabel = [[UILabel alloc]init];
+        _couseNameLabel.text = @"少儿美术";
+        _couseNameLabel.font = H2;
+        [_couseNameLabel sizeToFit];
     }
     return _couseNameLabel;
 }
 -(UILabel *)numbercouseLabel
 {
     if (_numbercouseLabel == nil) {
-        UILabel * label = [[UILabel alloc]init];
-        label.text = @"98人已报名";
-        label.font = H4;
-        
-        _numbercouseLabel = label;
-        [label sizeToFit];
-        [self.contentView addSubview:label];
+        _numbercouseLabel = [[UILabel alloc]init];
+        _numbercouseLabel.text = @"98人报名";
+        _numbercouseLabel.font = H3;
+        _numbercouseLabel.textAlignment=NSTextAlignmentRight;
+        [_numbercouseLabel sizeToFit];
     }
     return _numbercouseLabel;
 }
 -(UIView *)starView
 {
     if (_starView == nil) {
-        UIView * view = [[UIView alloc]init];
-        view.backgroundColor = [UIColor redColor];
-        _starView = view;
-        [self.contentView addSubview:view];
+        _starView= [[StarView alloc]init];
+        _starView.backgroundColor=[UIColor clearColor];
+        _starView.score=5.0f;
     }
     return _starView;
-}
--(UILabel *)couseTeacherNameLabel
-{
-    if (_couseTeacherNameLabel == nil) {
-        UILabel * label = [[UILabel alloc]init];
-        label.text = @"王蒙老师";
-        label.font = H4;
-        label.textAlignment = NSTextAlignmentLeft;
-        
-        [label sizeToFit];
-        [self.contentView addSubview:label];
-        _couseTeacherNameLabel = label;
-    }
-    return _couseTeacherNameLabel;
 }
 -(UIView *)lineView
 {
     if (_lineView == nil) {
-        UIView * line = [[UIView alloc]init];
-        line.backgroundColor = [UIColor lightGrayColor];
-        [self.contentView addSubview:line];
-        _lineView = line;
+        _lineView = [[UIView alloc]init];
+        _lineView.backgroundColor = COLOR_LIGHT_GRAY;
         
     }
     return _lineView;
@@ -192,13 +170,12 @@
 {
     if(_cousePriceLabel == nil)
     {
-        UILabel * label = [[UILabel alloc]init];
-        label.text = @"￥1080";
-        label.font = H4;
-        label.textAlignment = NSTextAlignmentRight;
-        [label sizeToFit];
-        [self.contentView addSubview:label];
-        _cousePriceLabel = label;
+        _cousePriceLabel = [[UILabel alloc]init];
+        _cousePriceLabel.text = @"￥1080";
+        _cousePriceLabel.font = H3;
+        _cousePriceLabel.textColor=COLOR_ORANGE;
+        _cousePriceLabel.textAlignment = NSTextAlignmentRight;
+        [_cousePriceLabel sizeToFit];
     }
     return _cousePriceLabel;
 }

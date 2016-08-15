@@ -18,18 +18,9 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNav];
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
+    self.navigationItem.title = @"课程详情";
 }
-
-
-
-#pragma
-#pragma mark - private methods
--(void)setupNav
-{
-    self.navigationItem.title = @"课程";
-}
-
 
 
 @end

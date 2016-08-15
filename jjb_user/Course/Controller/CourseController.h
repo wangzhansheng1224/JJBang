@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CourseController : UIViewController
-
+@property (nonatomic,assign) NSInteger courseID;
 @end

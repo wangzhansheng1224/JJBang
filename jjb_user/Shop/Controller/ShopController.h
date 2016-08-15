@@ -16,7 +16,7 @@
 //-(void)classViewCell:(Cla)
 
 @end
-@interface ShopController : UITableViewController
+@interface ShopController : UIViewController
 
 @property(nonatomic,strong) NSMutableArray * groupsArray;
 
