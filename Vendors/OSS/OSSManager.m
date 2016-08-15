@@ -62,7 +62,6 @@ static OSSManager* ossManager;
     NSString* fileType = [model.imgpath pathExtension];
     NSDate* now = [NSDate date];
     NSString* targetStr = [NSString stringWithFormat:@"%@/%ld/%ld/%@.%@", aSubStr, (long)[now year], (long)[now month], [self currentTimeByJava], fileType];
-    
     // required fields
     put.bucketName = OSSBucketName;
     put.objectKey = targetStr;
@@ -75,6 +74,7 @@ static OSSManager* ossManager;
     put.contentMd5 = @"";
     put.contentEncoding = @"";
     put.contentDisposition = @"";
+    put.callbackParam=@{};
     
     OSSTask * putTask = [_client putObject:put];
     
@@ -91,16 +91,21 @@ static OSSManager* ossManager;
 - (void)uploadFiles:(NSArray*)imgArr withTargetSubPath:(NSString*)aSubStr withBlock:(OSSManagerMutiUploadBlock)ossManagerMutiUploadBlock
 {
     __block NSInteger imgCount = 0;
+    
+    NSLock *theLock = [[NSLock alloc] init];
     for (ImgModel* model in imgArr) {
+        [theLock lock];
         [self uploadFile:model
        withTargetSubPath:aSubStr
                withBlock:^(BOOL status, NSString* alocalPathStr, NSString* aSubStr, NSString* resourceURLStr) {
+                   [theLock unlock];
                    imgCount++;
                    model.status=status;
                    model.imagename = resourceURLStr;
                    if (imgCount == [imgArr count]) {
                        ossManagerMutiUploadBlock();
                    }
+
                }];
     }
 }
