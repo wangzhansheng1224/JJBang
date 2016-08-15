@@ -72,13 +72,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
-#pragma - 
+#pragma -
 #pragma mark - event respone
 - (void)tapGR:(UITapGestureRecognizer *)tap {
     
     UIImageView * imageV = (UIImageView *)tap.view;
     NSInteger index = imageV.tag - 2016;
-    
+        
     GrowingPicController *pic = [[GrowingPicController alloc] init];
     pic.photos = _imageArray;
     pic.index = index;
@@ -88,7 +88,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     transition.subtype = @"fromCenter";
     transition.duration = 1;
     [self.view.window.layer addAnimation:transition forKey:nil];
-
+    
     [self presentViewController:pic animated:YES completion:nil];
 }
 
@@ -251,9 +251,9 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 //- (NSArray *)imageArr {
 //
 //    if (!_imageArr) {
-//        
+//
 //        _imageArr = [[NSMutableArray alloc] init];
-//        
+//
 //    }
 //    return _imageArr;
 //}

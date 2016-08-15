@@ -14,6 +14,7 @@
 		5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5126C1F71D562279005D23F3 /* Assets.xcassets */; };
 		5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */; };
 		5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */; };
+		512763631D6174C5005A241A /* HomePageActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512763621D6174C5005A241A /* HomePageActivityController.m */; };
 		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
 		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
@@ -222,6 +223,8 @@
 		5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderPayController.m; sourceTree = "<group>"; };
 		5126C1FC1D56EBC9005D23F3 /* MyOrderPayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderPayCell.h; path = jjb_user/My/Controller/MyOrderPayCell.h; sourceTree = SOURCE_ROOT; };
 		5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderPayCell.m; path = jjb_user/My/Controller/MyOrderPayCell.m; sourceTree = SOURCE_ROOT; };
+		512763611D6174C5005A241A /* HomePageActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageActivityController.h; sourceTree = "<group>"; };
+		512763621D6174C5005A241A /* HomePageActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageActivityController.m; sourceTree = "<group>"; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
@@ -1332,7 +1335,6 @@
 				732A96AB1D5E970600BE5800 /* Actions */,
 				73886D5B1D50841700643BBA /* APIManager */,
 				73886CBA1D4F237600643BBA /* Controller */,
-				73886CBD1D4F237600643BBA /* Model */,
 				73886D601D50841700643BBA /* Reformer */,
 				73886CBE1D4F237600643BBA /* View */,
 				51B875CC1D503DB20082558D /* RHHeader.h */,
@@ -1363,15 +1365,10 @@
 				737C00271D5ACD3A006A8636 /* ActivityIndexController.m */,
 				737C00291D5ADC32006A8636 /* ActivityRegistrationController.h */,
 				737C002A1D5ADC32006A8636 /* ActivityRegistrationController.m */,
+				512763611D6174C5005A241A /* HomePageActivityController.h */,
+				512763621D6174C5005A241A /* HomePageActivityController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		73886CBD1D4F237600643BBA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73886CBE1D4F237600643BBA /* View */ = {
@@ -2124,6 +2121,7 @@
 				51D348A41D5797E3002D761C /* MyMemberController.m in Sources */,
 				73886D1E1D4F735D00643BBA /* LDCommonParamsGenerator.m in Sources */,
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
+				512763631D6174C5005A241A /* HomePageActivityController.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
 				732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */,
@@ -2212,7 +2210,7 @@
 				737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */,
 				BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */,
 				513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */,
-                ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
+				ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,

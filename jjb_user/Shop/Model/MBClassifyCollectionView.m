@@ -13,7 +13,7 @@
 #import "BaseNavigationController.h"
 #import "AppDelegate.h"
 #import "CourseListController.h"
-#import "ActivityController.h"
+#import "HomePageActivityController.h"
 #import "ClerkListController.h"
 #import "TeacherListController.h"
 #import "StreetControl.h"
@@ -86,10 +86,10 @@ static NSString * const cellID = @"cell";
     }else if (indexPath.row == 1)
     {
         //活动
-//        ActivityController * activityVC = [[ActivityController alloc]init];
-//        [navControler pushViewController:activityVC animated:YES];
-        ClerkListController * clerkListVC = [[ClerkListController alloc]init];
-        [navControler pushViewController:clerkListVC animated:YES];
+        HomePageActivityController * activityVC = [[HomePageActivityController alloc]init];
+        [navControler pushViewController:activityVC animated:YES];
+//        ClerkListController * clerkListVC = [[ClerkListController alloc]init];
+//        [navControler pushViewController:clerkListVC animated:YES];
         
     }else if(indexPath.row == 2)
     {
