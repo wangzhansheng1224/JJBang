@@ -8,7 +8,7 @@
 
 #import "MBStarCouseCell.h"
 #import "StarView.h"
-#import "SHopIndexKeys.h"
+#import "CourseKeys.h"
 
 @interface MBStarCouseCell ()
 /**
@@ -108,10 +108,19 @@
 #pragma mark - private methods
 - (void)configWithData:(NSDictionary *)data
 {
-    self.couseNameLabel.text=data[kShopIndexCourseListName];
-    self.numbercouseLabel.text=[NSString stringWithFormat:@"%@人报名",data[kShopIndexCourseListNum]];
-    self.cousePriceLabel.text=[NSString stringWithFormat:@"￥%@",data[kShopIndexCourseListNum]] ;
-    [self.couseImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexCourseListImg] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+    self.couseNameLabel.text=data[kCourseName];
+    
+    NSInteger num=0;
+    if (data[kCourseNum]==[NSNull null]) {
+        num=0;
+    }
+    else{
+        num=[data[kCourseNum] integerValue];
+    }
+    self.numbercouseLabel.text=[NSString stringWithFormat:@"%ld人报名",num];
+    
+    self.cousePriceLabel.text=[NSString stringWithFormat:@"￥%@",data[kCoursePrice]] ;
+    [self.couseImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kCourseImg] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 
 #pragma 

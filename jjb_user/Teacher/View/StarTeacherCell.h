@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface StarTeacherCell : UITableViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end

@@ -15,6 +15,7 @@
 @property(nonatomic,strong) UIImageView * ActivityImageView;
 @property(nonatomic,strong) UILabel * ActivityTitleLabel;
 @property(nonatomic,strong) UIView * lineView;
+@property(nonatomic,strong) NSDictionary *dataDic;
 @end
 @implementation MBNewActivityCell
 #pragma 
@@ -81,7 +82,10 @@
 
 -(void)configWithData:(NSDictionary *)data
 {
-    
+    self.dataDic=data;
+    self.ActivityTitleLabel.text=data[kShopIndexActTitle];
+    NSURL *url=[NSURL initWithImageURL:data[kShopIndexActImage] Width:Screen_Width Height:Screen_Width*2/3.0f];
+    [self.ActivityImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 
 #pragma -
@@ -90,6 +94,14 @@
 -(TitleBar *)titleBar{
     if (!_titleBar) {
         _titleBar=[[TitleBar alloc] initWithTitle:@"最新活动"];
+        [_titleBar moreButtonClick:^(TitleBar *sender) {
+            
+            UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+            //社区商城
+            UIViewController* controller=[[CTMediator sharedInstance] CTMediator_ActivityList:@{}];
+            [navController pushViewController:controller animated:YES];
+            
+        }];
     }
     return _titleBar;
 }

@@ -1,20 +1,20 @@
 //
-//  CourseListAPIManager.m
+//  ClerkListAPIManager.m
 //  jjb_user
 //
-//  Created by Aimee on 16/8/2.
+//  Created by Aimee on 16/8/16.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "CourseListAPIManager.h"
+#import "ClerkListAPIManager.h"
 
-@interface CourseListAPIManager ()
+@interface ClerkListAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation CourseListAPIManager
+@implementation ClerkListAPIManager
 
 
 #pragma mark - life cycle
@@ -42,10 +42,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t ShopIndexAPIManagerOnceToken;
-    static CourseListAPIManager *sharedInstance = nil;
-    dispatch_once(&ShopIndexAPIManagerOnceToken, ^{
-        sharedInstance = [[CourseListAPIManager alloc] init];
+    static dispatch_once_t ClerkListAPIManagerOnceToken;
+    static ClerkListAPIManager *sharedInstance = nil;
+    dispatch_once(&ClerkListAPIManagerOnceToken, ^{
+        sharedInstance = [[ClerkListAPIManager alloc] init];
     });
     return sharedInstance;
 }

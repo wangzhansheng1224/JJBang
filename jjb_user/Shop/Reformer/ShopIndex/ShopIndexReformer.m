@@ -8,11 +8,13 @@
 
 #import "ShopIndexReformer.h"
 #import "ShopIndexAPIManager.h"
+#import "CourseKeys.h"
 
 @implementation ShopIndexReformer
 
 NSString *const kShopIndexShopList=@"ShopList";
 NSString *const kShopIndexActImg=@"ActImg";
+NSString *const kShopIndexActList=@"actList";
 NSString *const kShopIndexGoodsList=@"GoodsList";
 NSString *const kShopIndexSdtList=@"SdtList";
 NSString *const kShopIndexTechList=@"TechList";
@@ -39,13 +41,9 @@ NSString *const kShopIndexSdtListPhoto=@"ShopIndexSdtListPhoto";
 NSString *const kShopIndexSdtListName=@"ShopIndexSdtListName";
 NSString *const kShopIndexSdtListNum=@"ShopIndexSdtListNum";
 
-
-NSString *const kShopIndexCourseListID=@"ShopIndexCourseListID";
-NSString *const kShopIndexCourseListImg=@"ShopIndexCourseListImg";
-NSString *const kShopIndexCourseListName=@"ShopIndexCourseListName";
-NSString *const kShopIndexCourseListPrice=@"ShopIndexCourseListPrice";
-NSString *const kShopIndexCourseListNum=@"ShopIndexCourseListNum";
-NSString *const kShopIndexCourseListStar=@"ShopIndexCourseListStar";
+NSString *const kShopIndexActID=@"ShopIndexActID";
+NSString *const kShopIndexActImage=@"ShopIndexActImage";
+NSString *const kShopIndexActTitle=@"ShopIndexActTitle";
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
@@ -97,20 +95,33 @@ NSString *const kShopIndexCourseListStar=@"ShopIndexCourseListStar";
         
         for (NSInteger i=0; i<[courseList count]; i++) {
             [courseMArrary addObject:@{
-                                    kShopIndexCourseListID:courseList[i][@"id"]!= [NSNull null]?courseList[i][@"id"]:@" ",
-                                    kShopIndexCourseListImg:courseList[i][@"img"]!= [NSNull null]?courseList[i][@"img"]:@" ",
-                                    kShopIndexCourseListName:courseList[i][@"name"]!= [NSNull null]?courseList[i][@"name"]:@" ",
-                                    kShopIndexCourseListPrice:courseList[i][@"price"]!= [NSNull null]?courseList[i][@"price"]:@" ",
-                                    kShopIndexCourseListNum:courseList[i][@"num"]!= [NSNull null]?courseList[i][@"num"]:@" ",
-                                    kShopIndexCourseListStar:courseList[i][@"star"]!= [NSNull null]?courseList[i][@"star"]:@" ",
+                                    kCourseID:courseList[i][@"id"]!= [NSNull null]?courseList[i][@"id"]:@" ",
+                                    kCourseImg:courseList[i][@"img"]!= [NSNull null]?courseList[i][@"img"]:@" ",
+                                    kCourseName:courseList[i][@"name"]!= [NSNull null]?courseList[i][@"name"]:@" ",
+                                    kCoursePrice:courseList[i][@"price"]!= [NSNull null]?courseList[i][@"price"]:@" ",
+                                    kCourseNum:courseList[i][@"num"]!= [NSNull null]?courseList[i][@"num"]:@" ",
+                                    kCourseStar:courseList[i][@"star"]!= [NSNull null]?courseList[i][@"star"]:@" ",
                                     }];
         }
+        
+    
+      NSDictionary *dic=indexData[@"actList"];
+        NSDictionary *actDic=[[NSDictionary alloc] init];
+        if (dic!=nil) {
+            actDic=@{
+                     kShopIndexActID:(dic[@"id"]!=[NSNull null])?dic[@"id"]:@(0),
+                     kShopIndexActImage:[dic objectForKey:@"image"]!=[NSNull null]?[dic objectForKey:@"image"]:@"",
+                     kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@""
+                     };
+        }
+        
         return @{
                  kShopIndexShopList : indexData[@"shopList"] != [NSNull null]
                  ? indexData[@"shopList"]
                  : @"",
                  kShopIndexActImg: actImgMArray,
                  kShopIndexGoodsList : goodsMArrary,
+                 kShopIndexActList:actDic,
                  kShopIndexSdtList : sdtMArrary,
                  kShopIndexCourseList : courseMArrary,
                  kShopIndexRadioList : indexData[@"radioList"] != [NSNull null]

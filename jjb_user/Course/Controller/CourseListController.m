@@ -12,11 +12,11 @@
  *  课程列表
  */
 
-#import "MyCourseCell.h"
+#import "MBStarCouseCell.h"
 #import "CourseListAPIManager.h"
 #import "CourseListReformer.h"
 
-static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
+static NSString  *const CourseListCellIdentifier=@"CourseListCellIdentifier";
 @interface CourseListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -71,9 +71,9 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MyCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:MyCourseCellIdentifier forIndexPath:indexPath];
+    MBStarCouseCell *cell = [tableView dequeueReusableCellWithIdentifier:CourseListCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyCourseCellIdentifier];
+        cell = [[MBStarCouseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CourseListCellIdentifier];
     }
     [cell configWithData:self.arrData[indexPath.row]];
     return cell;
@@ -104,7 +104,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"user_id":@([UserModel currentUser].userID),
+             @"shop_id":@(1),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };
@@ -145,7 +145,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
         }];
         _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.CourseListAPIManager loadData];
         }];
-        [_tableView registerClass:[MyCourseCell class] forCellReuseIdentifier:MyCourseCellIdentifier];
+        [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:CourseListCellIdentifier];
     }
     return _tableView;
 }

@@ -10,6 +10,7 @@
 #define ShopIndexKeys_h
 extern NSString *const kShopIndexShopList;
 extern NSString *const kShopIndexActImg;
+extern NSString *const kShopIndexActList;
 extern NSString *const kShopIndexGoodsList;
 extern NSString *const kShopIndexSdtList;
 extern NSString *const kShopIndexTechList;
@@ -35,11 +36,8 @@ extern NSString *const kShopIndexSdtListPhoto;
 extern NSString *const kShopIndexSdtListName;
 extern NSString *const kShopIndexSdtListNum;
 
-extern NSString *const kShopIndexCourseListID;
-extern NSString *const kShopIndexCourseListImg;
-extern NSString *const kShopIndexCourseListName;
-extern NSString *const kShopIndexCourseListPrice;
-extern NSString *const kShopIndexCourseListNum;
-extern NSString *const kShopIndexCourseListStar;
+extern NSString *const kShopIndexActID;
+extern NSString *const kShopIndexActImage;
+extern NSString *const kShopIndexActTitle;
 
 #endif /* ShopIndexKeys_h */

@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        
+        self.backgroundColor=[UIColor redColor];
         [self.contentView addSubview:self.picImageV];
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.locImageV];
@@ -36,6 +36,12 @@
         [self layoutPageSubviews];
     }
     return self;
+}
+
+#pragma -
+#pragma mark - layoutPageSubviews
+- (void)configWithData:(NSDictionary *)data{
+    
 }
 
 #pragma -
