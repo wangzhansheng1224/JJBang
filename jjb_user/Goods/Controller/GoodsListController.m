@@ -8,13 +8,21 @@
 
 #import "GoodsListController.h"
 #import "GoodsListCell.h"
+#import "GoodsListAPIManager.h"
+#import "GoodsListReformer.h"
+#import "GoodsDetailController.h"
 
 static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 
 @interface GoodsListController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,strong) LDAPIBaseManager *GoodsListAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> GoodsListReformer;
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *array_data;
+@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
+@property (nonatomic,strong) GoodsDetailController *goodsDetailVC;
 
 @end
 
@@ -29,7 +37,6 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     self.view.backgroundColor = COLOR_WHITE;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
-    NSLog(@"伤筋动骨就流口水就高考了圣诞节快乐过就开始了第几个");
     [self layoutPageSubviews];
 }
 
@@ -65,6 +72,38 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     return 107;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [self.navigationController pushViewController:self.goodsDetailVC animated:YES];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSArray *resultData = [manager fetchDataWithReformer:self.GoodsListReformer];
+    [self.dataArr addObjectsFromArray:resultData];
+    self.pageIndex=[self.dataArr count];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"shop_id":@"1",
+             @"start":@(self.pageIndex),
+             @"count":@(self.pageSize)
+             };
+}
+
 
 #pragma -
 #pragma mark - getters and setters
@@ -80,14 +119,39 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     return _tableView;
 }
 
-- (NSMutableArray *)array_data {
+- (NSMutableArray *)dataArr {
     
-    if (!_array_data) {
+    if (!_dataArr) {
         
-        _array_data = [[NSMutableArray alloc] init];
+        _dataArr = [[NSMutableArray alloc] init];
     }
-    return _array_data;
+    return _dataArr;
 }
 
+- (LDAPIBaseManager *)GoodsListAPIManager {
+    if (_GoodsListAPIManager == nil) {
+        _GoodsListAPIManager = [GoodsListAPIManager  sharedInstance];
+        _GoodsListAPIManager.delegate=self;
+        _GoodsListAPIManager.paramSource=self;
+    }
+    return _GoodsListAPIManager;
+}
+
+- (id<ReformerProtocol>) GoodsListReformer{
+    
+    if (!_GoodsListReformer) {
+        _GoodsListReformer=[[GoodsListReformer alloc] init];
+    }
+    return _GoodsListReformer;
+}
+
+- (GoodsDetailController *)goodsDetailVC {
+
+    if (!_goodsDetailVC) {
+        
+        _goodsDetailVC = [[GoodsDetailController alloc] init];
+    }
+    return _goodsDetailVC;
+}
 
 @end

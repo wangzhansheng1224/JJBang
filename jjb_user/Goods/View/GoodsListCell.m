@@ -7,6 +7,8 @@
 //
 
 #import "GoodsListCell.h"
+#import "GoodsListKey.h"
+
 
 @interface GoodsListCell ()
 
@@ -70,6 +72,17 @@
         make.bottom.equalTo(@1);
     }];
     
+}
+
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSDictionary *)data{
+    
+    [self.titleLabel setText:data[kGoodsListToName]];
+//    [self.salesLabel setText:data[kGrowingTreeListAddress]];
+    [self.priceLabel setText:data[kGoodsListToPrice]];
+//    [self.picImageV sd_setImageWithURL:data[kGoodsListImageUrl] placeholderImage:[UIImage imageNamed:@"img_default"]];
+
 }
 
 #pragma -
