@@ -7,7 +7,7 @@
 //
 
 #import "MyCourseCell.h"
-#import "CourseListKey.h"
+#import "CourseKeys.h"
 
 @interface MyCourseCell ()
 
@@ -52,7 +52,7 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-    [self.label_title setText:data[kCourseListName]];
+    [self.label_title setText:data[kCourseName]];
 }
 
 #pragma -

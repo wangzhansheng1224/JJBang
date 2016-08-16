@@ -74,7 +74,7 @@
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_picImageV.mas_bottom).with.offset(8);
         make.left.right.equalTo(@0);
-        make.height.equalTo(@(10));
+        make.height.equalTo(@10);
     }];
 }
 

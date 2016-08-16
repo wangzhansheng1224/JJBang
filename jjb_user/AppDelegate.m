@@ -57,8 +57,6 @@
      */
     [WXApi registerApp:@"wx8775f0d9d378c50e"];
     
-    
-    
     return YES;
 }
 
@@ -193,14 +191,11 @@ if([resp isKindOfClass:[PayResp class]]){
         }];
     }
     return YES;
-
 }
+
 -(UINavigationController *)navController{
-    if (!_navController) {
         UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
-        _navController= (UINavigationController *)[tabControler selectedViewController];
-    }
-    return _navController;
+      return  (UINavigationController *)[tabControler selectedViewController];
 }
 
 @end

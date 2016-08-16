@@ -10,4 +10,5 @@
 
 @interface Target_Activity : NSObject
 - (id)Action_ActivityDetail:(NSDictionary *)params;
+- (id)Action_ActivityList:(NSDictionary *)params;
 @end

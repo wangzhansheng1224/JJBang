@@ -8,6 +8,7 @@
 
 #import "GrowingTreeListReformer.h"
 #import "GrowingTreeListAPIManager.h"
+#import "MyGrowingAPIManager.h"
 
 NSString *const kGrowingTreeListID=@"GrowingTreeListID";
 NSString *const kGrowingTreeListContent=@"GrowingTreeListContent";
@@ -27,7 +28,7 @@ NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
     
-    if ([manager isKindOfClass:[GrowingTreeListAPIManager class]]) {
+    if ([manager isKindOfClass:[GrowingTreeListAPIManager class]]||[manager isKindOfClass:[MyGrowingAPIManager class]]) {
         
         NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
         
@@ -43,7 +44,7 @@ NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
             NSString*timeString = [NSString stringWithFormat:@"%0.f", a];
             //后台时间
             
-            int oldTime = [arrData[i][@"create_time"] doubleValue]/1000;
+            int oldTime = [arrData[i][@"create_time"]!=[NSNull null]?arrData[i][@"create_time"]:@" " doubleValue]/1000;
             int newTime = [timeString intValue];
             
             NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow: oldTime -newTime];
@@ -56,18 +57,16 @@ NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
                                           kGrowingTreeListImagesPath:imagesArray[i][@"image_path"]
                                           }];
             }
-        
-            
             NSDictionary *itemData=@{
-                                     kGrowingTreeListID:arrData[i][@"id"],
-                                     kGrowingTreeListContent:arrData[i][@"content"],
-                                     kGrowingTreeListToUserID:arrData[i][@"stuId"],
-                                     kGrowingTreeListToUserFace:arrData[i][@"stuUserface"],
-                                     kGrowingTreeListToUserName:arrData[i][@"stuName"],
-                                     kGrowingTreeListFromUserID:arrData[i][@"fromUserId"],
-                                     kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
-                                     kGrowingTreeListFromUserName:arrData[i][@"fromUser"],
-                                     kGrowingTreeListAddress:arrData[i][@"address"],
+                                     kGrowingTreeListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:@" ",
+                                     kGrowingTreeListContent:arrData[i][@"content"]!=[NSNull null]?arrData[i][@"content"]:@" ",
+                                     kGrowingTreeListToUserID:arrData[i][@"stuId"]!=[NSNull null]?arrData[i][@"stuId"]:@" ",
+                                     kGrowingTreeListToUserFace:arrData[i][@"stuUserface"]!=[NSNull null]?arrData[i][@"stuUserface"]:@" ",
+                                     kGrowingTreeListToUserName:arrData[i][@"stuName"]!=[NSNull null]?arrData[i][@"stuName"]:@" ",
+                                     kGrowingTreeListFromUserID:arrData[i][@"fromUserId"]!=[NSNull null]?arrData[i][@"fromUserId"]:@" ",
+                                     kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"]!=[NSNull null]?arrData[i][@"fromUserface"]:@" ",
+                                     kGrowingTreeListFromUserName:arrData[i][@"fromUser"]!=[NSNull null]?arrData[i][@"fromUser"]:@" ",
+                                     kGrowingTreeListAddress:arrData[i][@"address"]!=[NSNull null]?arrData[i][@"address"]:@" ",
                                      kGrowingTreeListCreateTime:timeAgoDate.timeAgoSinceNow,
                                      kGrowingTreeListImages:imagesMArray
                                      };

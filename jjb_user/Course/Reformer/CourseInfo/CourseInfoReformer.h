@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CourseInfoKey.h"
+#import "CourseKeys.h"
 
 @interface CourseInfoReformer : NSObject<ReformerProtocol>
 

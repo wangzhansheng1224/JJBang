@@ -8,11 +8,17 @@
 
 #import "Target_Activity.h"
 #import "ActivityDetailController.h"
+#import "HomePageActivityController.h"
 
 @implementation Target_Activity
 - (id)Action_ActivityDetail:(NSDictionary *)params{
     ActivityDetailController *detail = [[ActivityDetailController alloc] init];
     detail.activity_id=[params[@"activityID"] integerValue];
     return detail;
+}
+
+- (id)Action_ActivityList:(NSDictionary *)params{
+    HomePageActivityController *list = [[HomePageActivityController alloc] init];
+    return list;
 }
 @end

@@ -106,13 +106,13 @@
     float width = 119 - 8;
     
     NSArray * imageArr = data[kGrowingTreeListImages];
-    self.photos=[[NSMutableArray alloc] initWithCapacity:0];
+    _photos=[[NSMutableArray alloc] initWithCapacity:0];
     [self.view_image.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (int i = 0; i < imageArr.count; i++) {
         
         NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,imageArr[i][kGrowingTreeListImagesPath]]];
         MWPhoto *photo = [MWPhoto photoWithURL:url];
-        [self.photos addObject:photo];
+        [_photos addObject:photo];
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
         imageView.userInteractionEnabled=YES;
@@ -148,7 +148,7 @@
 #pragma mark - MWPhotoBrowserDelegate
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
     
-    return  [self.photos count];
+    return  [_photos count];
 }
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
     

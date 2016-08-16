@@ -25,6 +25,7 @@
 #import "MBSaleCollectionView.h"
 #import "MBStarStudentCollectionView.h"
 #import "MBStarTeacherCollectionView.h"
+#import "CourseKeys.h"
 
 /**
  *  首页主控制器
@@ -70,7 +71,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.navigationItem.rightBarButtonItem =self.scanButton;
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
-
 }
 
 
@@ -158,29 +158,36 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==6) {
+    if (indexPath.section==5) {
         NSArray* arrData=self.dataDic[kShopIndexCourseList];
         NSDictionary *dataDic=arrData[indexPath.row];
-        UIViewController* controller=[[CTMediator sharedInstance] CTMediator_CourseDetail:@{@"courseID":dataDic[kShopIndexCourseListID]}];
+        UIViewController* controller=[[CTMediator sharedInstance] CTMediator_CourseDetail:@{@"courseID":dataDic[kCourseID]}];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    if (indexPath.section==1) {
+        NSDictionary *actDic=self.dataDic[kShopIndexActList];
+        UIViewController* controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":actDic[kShopIndexActID]}];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 7;
+    return 6;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==6) {
+    if (section==5) {
         NSArray* arrData=self.dataDic[kShopIndexCourseList];
         if (arrData) {
             return [arrData count];
         }
         return 0;
+    } else{
+        return 1;
     }
-    return 1;
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -196,6 +203,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section== 1)
     {
         MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.dataDic[kShopIndexActList]];
         return cell;
     }
     else if(indexPath.section == 2)
@@ -219,12 +227,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         return cell;
     }
-    else if(indexPath.section ==3)
-    {
-        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
-        return cell;
-    }
-    else if(indexPath.section == 4)
+//    else if(indexPath.section ==3)
+//    {
+//        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
+//        return cell;
+//    }
+    else if(indexPath.section == 3)
     {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星学员"];
@@ -244,7 +252,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         return cell;
         
     }
-    else if(indexPath.section == 5)
+    else if(indexPath.section == 4)
     {
         
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarTeacherCellIdentifier forIndexPath:indexPath];
@@ -293,14 +301,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (indexPath.section==2) {
         return (Screen_Width-40.0f)/2.0f+30.0f+40.0f;
     }
-    if (indexPath.section==3) {
-        return Screen_Width*2.0f/3.0f+90.0f;
-    }
-    if(indexPath.section==4)
+//    if (indexPath.section==3) {
+//        return Screen_Width*2.0f/3.0f+90.0f;
+//    }
+    if(indexPath.section==3)
     {
         return Screen_Width/2.0f+30.0f+10.f;
     }
-    if(indexPath.section==5)
+    if(indexPath.section==4)
     {
         return Screen_Width/2.0f+30.0f+10.f+30.0f;
     }
@@ -327,13 +335,16 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
     self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
     [self setUpBanner];
     [self.tableView reloadData];
 }
+
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    
+      [self.tableView.mj_header endRefreshing];
 }
+
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
@@ -427,6 +438,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         _tableView.backgroundColor=COLOR_LIGHT_GRAY;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.shopIndexAPIManager loadData];
+        }];
+        
         [_tableView registerClass:[MBNewActivityCell class] forCellReuseIdentifier:MBNewActivityCellIdentifier];
         [_tableView registerClass:[MBVideoCell class] forCellReuseIdentifier:MBVideoCellIdentifier];
         [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:MBStarCouseCellIdentifier];
@@ -482,4 +497,5 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     return _dataDic;
 }
+
 @end

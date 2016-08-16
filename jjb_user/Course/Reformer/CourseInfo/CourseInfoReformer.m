@@ -8,13 +8,16 @@
 
 #import "CourseInfoReformer.h"
 
-NSString *const kCourseInfoID=@"CourseInfoID";
-NSString *const kCourseInfoName=@"CourseInfoName";
-NSString *const kCourseInfoImg=@"CourseInfoImg";
-NSString *const kCourseInfoPrice=@"CourseInfoPrice";
-NSString *const kCourseInfoNum=@"CourseInfoNum";
-NSString *const kCourseInfoStar=@"CourseInfoStar";
+NSString *const kCourseID=@"CourseID";
+NSString *const kCourseName=@"CourseName";
+NSString *const kCourseImg=@"CourseImg";
+NSString *const kCoursePrice=@"CoursePrice";
+NSString *const kCourseNum=@"CourseNum";
+NSString *const kCourseStar=@"CourseStar";
 
+NSString *const kCourseLevelName=@"CourseLevelName";
+NSString *const kCourseTypeName=@"CourseTypeName";
+NSString *const kCourseDescribe=@"CourseDescribe";
 @implementation CourseInfoReformer
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data

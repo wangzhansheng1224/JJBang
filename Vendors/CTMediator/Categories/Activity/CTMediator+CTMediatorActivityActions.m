@@ -10,12 +10,19 @@
 
 NSString * const kCTMediatorActivityTarget = @"Activity";
 NSString * const kCTMediatorActionNativeActivityDetail = @"ActivityDetail";
-
+NSString * const kCTMediatorActionNativeActivityList = @"ActivityList";
 @implementation CTMediator (CTMediatorActivityActions)
 - (UIViewController *)CTMediator_ActivityDetail:(NSDictionary *)params{
     
     return [self performTarget:kCTMediatorActivityTarget
                         action:kCTMediatorActionNativeActivityDetail
+                        params:params];
+}
+
+- (UIViewController *)CTMediator_ActivityList:(NSDictionary *)params{
+    
+    return [self performTarget:kCTMediatorActivityTarget
+                        action:kCTMediatorActionNativeActivityList
                         params:params];
 }
 @end

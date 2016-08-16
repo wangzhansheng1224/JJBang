@@ -10,4 +10,5 @@
 
 @interface CTMediator (CTMediatorActivityActions)
 - (UIViewController *)CTMediator_ActivityDetail:(NSDictionary *)params;
+- (UIViewController *)CTMediator_ActivityList:(NSDictionary *)params;
 @end
