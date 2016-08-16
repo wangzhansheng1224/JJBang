@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class RechargeWeChatAndAliCell;
+typedef void (^SelectButtonBlock)(RechargeWeChatAndAliCell * sender);
 @interface RechargeWeChatAndAliCell : UIView
 -(instancetype)initWithImage:(UIImage *)iconImage title:(NSString *)title;
+-(void)selectButton:(SelectButtonBlock)block;
+
+
 @end
