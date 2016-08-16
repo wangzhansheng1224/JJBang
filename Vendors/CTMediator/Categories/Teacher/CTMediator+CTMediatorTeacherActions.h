@@ -11,4 +11,5 @@
 @interface CTMediator (CTMediatorTeacherActions)
 - (UIViewController *)CTMediator_TeacherDetail:(NSDictionary *)params;
 - (UIViewController *)CTMediator_TeacherList:(NSDictionary *)params;
+- (UIViewController *)CTMediator_StarTeacherList:(NSDictionary *)params;
 @end

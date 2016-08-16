@@ -10,6 +10,7 @@
 NSString * const kCTMediatorTeacherTarget = @"Teacher";
 NSString * const kCTMediatorActionNativeTeacherDetail = @"TeacherDetail";
 NSString * const kCTMediatorActionNativeTeacherList = @"TeacherList";
+NSString * const kCTMediatorActionNativeStarTeacherList = @"StrTeacherList";
 
 @implementation CTMediator (CTMediatorTeacherActions)
 - (UIViewController *)CTMediator_TeacherDetail:(NSDictionary *)params{
@@ -20,6 +21,11 @@ NSString * const kCTMediatorActionNativeTeacherList = @"TeacherList";
 - (UIViewController *)CTMediator_TeacherList:(NSDictionary *)params{
     return [self performTarget:kCTMediatorTeacherTarget
                         action:kCTMediatorActionNativeTeacherList
+                        params:params];
+}
+- (UIViewController *)CTMediator_StarTeacherList:(NSDictionary *)params{
+    return [self performTarget:kCTMediatorTeacherTarget
+                        action:kCTMediatorActionNativeStarTeacherList
                         params:params];
 }
 @end
