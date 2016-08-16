@@ -17,5 +17,6 @@ target 'jjb_user' do
     pod 'MWPhotoBrowser'
     pod 'AliyunOSSiOS', '~> 2.5.0' #阿里云的oss图片上传
     pod 'LBXScan',git:'https://github.com/MxABC/LBXScan.git'
+    pod 'AMapLocation' #高德地图
 #    pod 'RAMAnimatedTabBarController'
 end

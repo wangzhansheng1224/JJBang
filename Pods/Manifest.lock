@@ -21,6 +21,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AliyunOSSiOS (2.5.1)
+  - AMapFoundation (1.1.0)
+  - AMapLocation (2.1.0):
+    - AMapFoundation (~> 1.1)
   - Aspects (1.4.1)
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
@@ -59,6 +62,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - AliyunOSSiOS (~> 2.5.0)
+  - AMapLocation
   - Aspects
   - CocoaLumberjack
   - CTAssetsPickerController
@@ -88,6 +92,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AliyunOSSiOS: 0366ab7e52ef663cd1c950d63584ebb96b717c72
+  AMapFoundation: 15db20567e6512422a086a01b42a88b145bc2500
+  AMapLocation: 343abc9ccd971ad27e459f38b5b082eabebf8792
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CTAssetsPickerController: b413fece2194ae3dbf22fbc544cf6f2a6d516a4d
@@ -108,6 +114,6 @@ SPEC CHECKSUMS:
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: c6734c778a176c252e624e9722a2cf9f920eadc5
+PODFILE CHECKSUM: 0ee02ef7182904c4429a46efcf7349866ac6503e
 
 COCOAPODS: 1.0.1
