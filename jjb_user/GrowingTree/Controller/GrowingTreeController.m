@@ -15,6 +15,7 @@
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 @interface GrowingTreeController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
+
 @property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
@@ -22,6 +23,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSArray *imageArr;
+
 @end
 
 @implementation GrowingTreeController

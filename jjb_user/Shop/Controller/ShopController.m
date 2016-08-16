@@ -75,7 +75,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.navigationItem.rightBarButtonItem =self.scanButton;
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
-
 }
 
 
@@ -336,9 +335,11 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self setUpBanner];
     [self.tableView reloadData];
 }
+
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     
 }
+
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
@@ -487,4 +488,5 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     return _dataDic;
 }
+
 @end

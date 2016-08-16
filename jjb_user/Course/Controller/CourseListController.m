@@ -87,7 +87,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSArray *resultData = [manager fetchDataWithReformer:self.myCourseReformer];
+    NSArray *resultData = [manager fetchDataWithReformer:self.CourseListReformer];
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
@@ -122,7 +122,7 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
     return _CourseListAPIManager;
 }
 
-- (id<ReformerProtocol>) myCourseReformer{
+- (id<ReformerProtocol>) CourseListReformer{
     
     if (!_CourseListReformer) {
         _CourseListReformer=[[CourseListReformer alloc] init];

@@ -21,7 +21,7 @@ NSString * const kCTMediatorActionNativeGoodsList = @"GoodsList";
 - (UIViewController *)CTMediator_GoodsList:(NSDictionary *)params{
     
     return [self performTarget:kCTMediatorGoodsTarget
-                        action:kCTMediatorActionNativeGoodsDetail
+                        action:kCTMediatorActionNativeGoodsList
                         params:params];
 }
 @end

@@ -15,6 +15,8 @@
 		5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FA1D56E70D005D23F3 /* MyOrderPayController.m */; };
 		5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */; };
 		512763631D6174C5005A241A /* HomePageActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512763621D6174C5005A241A /* HomePageActivityController.m */; };
+		512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D16DA1D61D19100574307 /* GoodsListAPIManager.m */; };
+		512D16DF1D61DD8B00574307 /* GoodsListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 512D16DE1D61DD8B00574307 /* GoodsListReformer.m */; };
 		512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233A1D5172ED00E33A92 /* MineHeaderView.m */; };
 		512F233E1D51766000E33A92 /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F233D1D51766000E33A92 /* MineModel.m */; };
 		512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 512F23401D51773500E33A92 /* MineTableViewCell.m */; };
@@ -41,6 +43,7 @@
 		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
+		51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */; };
 		51D3489E1D57691B002D761C /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3489C1D57691B002D761C /* MyOrderController.m */; };
 		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
 		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
@@ -232,6 +235,11 @@
 		5126C1FD1D56EBC9005D23F3 /* MyOrderPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderPayCell.m; path = jjb_user/My/Controller/MyOrderPayCell.m; sourceTree = SOURCE_ROOT; };
 		512763611D6174C5005A241A /* HomePageActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageActivityController.h; sourceTree = "<group>"; };
 		512763621D6174C5005A241A /* HomePageActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageActivityController.m; sourceTree = "<group>"; };
+		512D16D91D61D19100574307 /* GoodsListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListAPIManager.h; sourceTree = "<group>"; };
+		512D16DA1D61D19100574307 /* GoodsListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListAPIManager.m; sourceTree = "<group>"; };
+		512D16DC1D61D85A00574307 /* GoodsListKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListKey.h; sourceTree = "<group>"; };
+		512D16DD1D61DD8B00574307 /* GoodsListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListReformer.h; sourceTree = "<group>"; };
+		512D16DE1D61DD8B00574307 /* GoodsListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListReformer.m; sourceTree = "<group>"; };
 		512F23391D5172ED00E33A92 /* MineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineHeaderView.h; path = jjb_user/My/MineHeaderView.h; sourceTree = SOURCE_ROOT; };
 		512F233A1D5172ED00E33A92 /* MineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineHeaderView.m; path = jjb_user/My/MineHeaderView.m; sourceTree = SOURCE_ROOT; };
 		512F233D1D51766000E33A92 /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineModel.m; path = jjb_user/My/MineModel.m; sourceTree = SOURCE_ROOT; };
@@ -283,6 +291,8 @@
 		51B875DB1D503DD80082558D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
 		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
+		51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGrowingAPIManager.h; path = jjb_user/APIManager/MyGrowingAPIManager.h; sourceTree = SOURCE_ROOT; };
+		51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingAPIManager.m; path = jjb_user/APIManager/MyGrowingAPIManager.m; sourceTree = SOURCE_ROOT; };
 		51D3489C1D57691B002D761C /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
 		51D3489D1D57691B002D761C /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
 		51D3489F1D57924E002D761C /* MyHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHelpCell.h; path = jjb_user/My/MyHelpCell.h; sourceTree = SOURCE_ROOT; };
@@ -902,8 +912,8 @@
 		731091AC1D51A5F20031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
 				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
+				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
 				731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */,
 				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
 			);
@@ -1090,6 +1100,8 @@
 		732A96B41D5E9E8300BE5800 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				512D16D91D61D19100574307 /* GoodsListAPIManager.h */,
+				512D16DA1D61D19100574307 /* GoodsListAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -1108,6 +1120,9 @@
 		732A96B61D5E9E8300BE5800 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				512D16DC1D61D85A00574307 /* GoodsListKey.h */,
+				512D16DD1D61DD8B00574307 /* GoodsListReformer.h */,
+				512D16DE1D61DD8B00574307 /* GoodsListReformer.m */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -1275,6 +1290,8 @@
 		73575F5D1D54D5FA0037F697 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */,
+				51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -2235,6 +2252,7 @@
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
+				51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */,
 				732A96D01D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m in Sources */,
 				AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */,
 				732A96BA1D5E9FFA00BE5800 /* GoodsListController.m in Sources */,
@@ -2279,6 +2297,7 @@
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
 				732A96D81D5EBD5700BE5800 /* Target_Teacher.m in Sources */,
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
+				512D16DF1D61DD8B00574307 /* GoodsListReformer.m in Sources */,
 				51D3489E1D57691B002D761C /* MyOrderController.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
 				AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */,
@@ -2286,6 +2305,7 @@
 				734CC3D01D5AC625000AAA27 /* Target_Org.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
+				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
 				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
 				732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
