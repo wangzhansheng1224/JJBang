@@ -2424,7 +2424,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 59V932RQGA;
+						DevelopmentTeam = 972SEJPPZB;
 					};
 				};
 			};
@@ -2686,11 +2686,8 @@
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				AC540AE21D61B640007636CE /* RSADataVerifier.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
-
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
-
 				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
-
 				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
 				732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,

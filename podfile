@@ -1,3 +1,4 @@
+platform :ios, '8.0'
 target 'jjb_user' do
     pod 'AFNetworking', '~> 2.6.3' #网络请求
     pod 'Masonry' #界面布局
@@ -13,6 +14,7 @@ target 'jjb_user' do
     pod 'CTPersistance' #数据库操作、和框架有关
     pod 'JLRoutes'  #路由
     pod 'DateTools'
+    pod 'NSDictionary-NilSafe'
     pod 'HMSegmentedControl'
     pod 'MWPhotoBrowser'
     pod 'AliyunOSSiOS', '~> 2.5.0' #阿里云的oss图片上传

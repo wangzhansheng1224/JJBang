@@ -48,6 +48,7 @@ PODS:
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
+  - NSDictionary-NilSafe (0.1.0)
   - pop (1.0.9)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh
   - MWPhotoBrowser
+  - NSDictionary-NilSafe
   - pop (~> 1.0)
   - SDWebImage
   - Toast
@@ -107,6 +109,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  NSDictionary-NilSafe: ded11f8b09371306f99ac5da58be07a31041ac85
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
@@ -114,6 +117,6 @@ SPEC CHECKSUMS:
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: 0ee02ef7182904c4429a46efcf7349866ac6503e
+PODFILE CHECKSUM: 56f7ef85db62f678f94993630810cb663de1b535
 
 COCOAPODS: 1.0.1
