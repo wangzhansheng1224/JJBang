@@ -277,7 +277,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         
         RechargeWeChatAndAliCell* AliPayCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_rechargeAli"] title:@"支付宝支付"];
         AliPayCell.tag=0;
-        RechargeWeChatAndAliCell* WeChatCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_rechargeAli"] title:@"支付宝支付"];
+        RechargeWeChatAndAliCell* WeChatCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_weChat"] title:@"微信支付"];
         WeChatCell.tag=1;
         NSArray * item =@[AliPayCell,WeChatCell];
         RechargeWeChatAndAliView * view = [[RechargeWeChatAndAliView alloc]initWithItems:item];
