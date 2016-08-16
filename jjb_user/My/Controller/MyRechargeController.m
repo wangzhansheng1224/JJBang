@@ -144,19 +144,20 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSDictionary * dict = [manager fetchDataWithReformer:nil];
     
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
     NSDictionary * dictData = [dict objectForKey:@"data"];
-//    NSString * strPrePayID = [dictData objectForKey:@"prepayid"];
-    self.order = [dictData objectForKey:@"order"];
- self.notifyURL= [dictData objectForKey:@"notify_url"];
-//    [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
-//    [MBAliPayManger aliPayWithParamDictonary:dictData];
-    if (self.RechargeWeChatAndAliView.selectIndex==0) {
-         [self jumpAliPay];
+
+    if ([manager isKindOfClass:[self.AliPayprepayIdManager class]]
+) {
+        
+        self.order = [dictData objectForKey:@"order"];
+        self.notifyURL= [dictData objectForKey:@"notify_url"];
+        [self jumpAliPay];
     }
+    
     else{
-//        [self jumpAliPay];
+        
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
     }
    
