@@ -11,6 +11,8 @@
 #import "MBGuideTool.h"
 #import "MBAdViewController.h"
 #import "WXApi.h"
+
+const static NSString *GAODEAPIKey = @"971d2c7badeca69b622d264bc7eeee47";
 @interface AppDelegate ()<WXApiDelegate>
 
 
@@ -54,8 +56,6 @@
      *  注册微信支付
      */
     [WXApi registerApp:@"wx8775f0d9d378c50e"];
-    
-    
     
     return YES;
 }
@@ -114,12 +114,10 @@ if([resp isKindOfClass:[PayResp class]]){
 }
 
 
+
 -(UINavigationController *)navController{
-    if (!_navController) {
         UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
-        _navController= (UINavigationController *)[tabControler selectedViewController];
-    }
-    return _navController;
+      return  (UINavigationController *)[tabControler selectedViewController];
 }
 
 @end

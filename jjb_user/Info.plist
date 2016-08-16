@@ -81,5 +81,10 @@
 		<string>en</string>
 		<string>zh_CN</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
