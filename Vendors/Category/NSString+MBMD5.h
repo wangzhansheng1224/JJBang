@@ -10,5 +10,5 @@
 
 @interface NSString (MBMD5)
 +(NSString *)md5String:(NSString *)inputString;
-
++(NSString*)md5:(NSString *)string;
 @end

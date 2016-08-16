@@ -23,7 +23,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"gateway/1/unifiedorder";
+        _methodName = @"gateway/0/unifiedorder";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
