@@ -11,4 +11,5 @@
 @interface Target_Teacher : NSObject
 - (id)Action_TeacherList:(NSDictionary *)params;
 - (id)Action_TeacherDetail:(NSDictionary *)params;
+- (id)Action_StarTeacherList:(NSDictionary *)params;
 @end

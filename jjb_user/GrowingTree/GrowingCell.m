@@ -110,11 +110,15 @@
     [self.view_image.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (int i = 0; i < imageArr.count; i++) {
         
-        NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,imageArr[i][kGrowingTreeListImagesPath]]];
+        
+                UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+        
+        NSURL *url=[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size];
+        
         MWPhoto *photo = [MWPhoto photoWithURL:url];
         [_photos addObject:photo];
         
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
+
         imageView.userInteractionEnabled=YES;
         [imageView sd_setImageWithURL:[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
