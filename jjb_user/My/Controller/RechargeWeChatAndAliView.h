@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class RechargeWeChatAndAliCell;
 @interface RechargeWeChatAndAliView : UIView
+@property (nonatomic,assign) NSInteger selectIndex;
 -(instancetype)initWithItems:(NSArray *)items;
+
 @end

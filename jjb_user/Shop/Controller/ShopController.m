@@ -38,11 +38,6 @@ static NSString * const MBStarStudentCellIdentifier = @"MBStarStudentCellIdentif
 static NSString * const MBStarTeacherCellIdentifier = @"MBStarTeacherCellIdentifier";
 static NSString * const MBStarCouseCellIdentifier = @"MBStarCouseCellIdentifier";
 static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifier";
-//static NSInteger const cols = 4;
-//static CGFloat const margin = 20.0f;
-//#define classCellWidth =  ((Screen_Width -(cols -1) * margin)/cols)
-
-
 
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;

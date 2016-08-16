@@ -7,12 +7,13 @@
 //
 
 #import "RechargeWeChatAndAliCell.h"
-
+#import "MyRechargeController.h"
 @interface RechargeWeChatAndAliCell ()
 @property(nonatomic,weak) UIImageView * iconImageView;
 @property(nonatomic,weak) UILabel * nameLabel;
 @property(nonatomic,weak) UIButton * choiceButton;
 @property(nonatomic,weak) UIView * lineView;
+@property(nonatomic,copy) SelectButtonBlock selectBlock;
 
 @end
 @implementation RechargeWeChatAndAliCell
@@ -59,13 +60,43 @@
     }];
 }
 
+-(void)selectButton:(SelectButtonBlock)block
+{
+    
+    self.selectBlock = block;
+}
+
+
 -(void)selectBtn:(UIButton * )btn
 {
     JJBLog(@"%s",__func__);
     btn.selected = !btn.selected;
+    JJBLog(@"$$$$$$$$%ld",btn.tag);
+//    JJBWeakSelf;
+    if(self.selectBlock)
+    {
+        self.selectBlock(self);
+    }
+//    if ([self.nameLabel.text rangeOfString:@"支付宝"].location != NSNotFound) {
+//        JJBLog(@"支付宝支付");
+//    }
+//    else
+//    {
+//        JJBLog(@"微信支付");
+//    }
+//    NSDictionary * dict = [NSDictionary dictionary];
+   
+//    dict = [NSDictionary dictionaryWithObject:self.nameLabel.text forKey:@"isAliPaySelect"];
+    
+        
+//    NSNotification * notification = [NSNotification notificationWithName:@"gotoPay" object:nil userInfo:@{@"PaySelect":self.nameLabel.text}];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    
+//    BOOL select = [self.choiceButton valueForKeyPath:@"selected"];
+
 }
 
-#pragma 
+#pragma
 #pragma mark getter and setter
 -(UIImageView *)iconImageView
 {

@@ -1,17 +1,18 @@
 //
-//  MyRechargeAPIManager.m
+//  MyRechargeWeChatAPIManager.m
 //  jjb_user
 //
-//  Created by Maybe on 16/8/12.
+//  Created by Maybe on 16/8/16.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-
-#import "MyRechargeAPIManager.h"
+#import "MyRechargeWeChatAPIManager.h"
 /**
- *  支付宝充值接口
+ *  微信充值接口
  */
-@interface MyRechargeAPIManager ()
+
+
+@interface MyRechargeWeChatAPIManager ()
 
 
 @property(nonatomic, copy, readwrite) NSString *methodName;
@@ -19,14 +20,14 @@
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation MyRechargeAPIManager
+@implementation MyRechargeWeChatAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"gateway/0/unifiedorder";
+        _methodName = @"gateway/1/unifiedorder";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -47,12 +48,13 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t MyRechargeAPIManagerOnceToken;
-    static MyRechargeAPIManager *sharedInstance = nil;
-    dispatch_once(&MyRechargeAPIManagerOnceToken, ^{
-        sharedInstance = [[MyRechargeAPIManager alloc] init];
+    static dispatch_once_t MyRechargeWeChatAPIManagerOnceToken;
+    static MyRechargeWeChatAPIManager *sharedInstance = nil;
+    dispatch_once(&MyRechargeWeChatAPIManagerOnceToken, ^{
+        sharedInstance = [[MyRechargeWeChatAPIManager alloc] init];
     });
     return sharedInstance;
 }
+
 
 @end
