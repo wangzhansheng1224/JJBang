@@ -109,7 +109,6 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                                     }];
         }
         
-        
         NSArray *actListArray=indexData[@"actList"];
         NSMutableArray *actListMArray=[[NSMutableArray alloc] initWithCapacity:0];
         
