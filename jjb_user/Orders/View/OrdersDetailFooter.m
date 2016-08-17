@@ -78,9 +78,29 @@
         make.left.right.equalTo(@0);
         make.height.equalTo(@1);
     }];
+    [_payingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_line.mas_bottom).with.offset(8);
+        make.right.equalTo(@-16);
+        make.size.mas_equalTo(CGSizeMake(64, 16));
+    }];
     [_label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_line.mas_bottom).with.offset(8);
+        make.right.equalTo(_payingLabel.mas_left).with.offset(-8);
+        make.size.mas_equalTo(CGSizeMake(64, 16));
+    }];
+    [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_payingLabel.mas_bottom).with.offset(8);
+        make.right.equalTo(@-8);
+        make.size.mas_equalTo(CGSizeMake(120, 12));
+    }];
+    [_label4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.right.equalTo(_timeLabel.mas_left).with.offset(-8);
+        make.centerY.equalTo(_timeLabel.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(60, 12));
     }];
 }
 
