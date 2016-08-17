@@ -1,14 +1,14 @@
 //
-//  GoodsListAPIManager.m
+//  GoodsDetailAPIManager.m
 //  jjb_user
 //
-//  Created by Check on 16/8/15.
+//  Created by Check on 16/8/17.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "GoodsListAPIManager.h"
+#import "GoodsDetailAPIManager.h"
 
-@interface GoodsListAPIManager ()
+@interface GoodsDetailAPIManager ()
 
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
@@ -16,13 +16,13 @@
 
 @end
 
-@implementation GoodsListAPIManager
+@implementation GoodsDetailAPIManager
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"goods/selectGoodsPage";
+        _methodName = @"goods/selectGoodsDetail";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -43,10 +43,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t GoodsListAPIManagerOnceToken;
-    static GoodsListAPIManager *sharedInstance = nil;
-    dispatch_once(&GoodsListAPIManagerOnceToken, ^{
-        sharedInstance = [[GoodsListAPIManager alloc] init];
+    static dispatch_once_t GoodsDetailAPIManagerOnceToken;
+    static GoodsDetailAPIManager *sharedInstance = nil;
+    dispatch_once(&GoodsDetailAPIManagerOnceToken, ^{
+        sharedInstance = [[GoodsDetailAPIManager alloc] init];
     });
     return sharedInstance;
 }

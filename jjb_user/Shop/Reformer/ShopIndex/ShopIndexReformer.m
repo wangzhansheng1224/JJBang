@@ -109,15 +109,13 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                                     }];
         }
         
-        
-    
-      NSDictionary *dic=indexData[@"actList"];
+        NSDictionary *dic=(indexData[@"actList"]!=[NSNull null])?indexData[@"actList"]:@" ";
         NSDictionary *actDic=[[NSDictionary alloc] init];
         if (dic!=nil) {
             actDic=@{
-                     kShopIndexActID:dic[@"id"],
+                     kShopIndexActID:(dic[@"id"]!=[NSNull null])?dic[@"id"]:@(0),
                      kShopIndexActImage:[dic objectForKey:@"image"],
-                     kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@""
+                     kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@" "
                      };
         }
         

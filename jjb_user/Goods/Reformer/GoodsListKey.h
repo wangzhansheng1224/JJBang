@@ -14,5 +14,4 @@ extern NSString *const kGoodsListImageUrl;
 extern NSString *const kGoodsListToName;
 extern NSString *const kGoodsListToPrice;
 
-
 #endif /* GoodsListKey_h */

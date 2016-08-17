@@ -14,7 +14,7 @@
 
 static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 
-@interface GoodsListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface GoodsListController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) LDAPIBaseManager *GoodsListAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> GoodsListReformer;
