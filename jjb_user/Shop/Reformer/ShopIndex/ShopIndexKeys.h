@@ -40,4 +40,7 @@ extern NSString *const kShopIndexActID;
 extern NSString *const kShopIndexActImage;
 extern NSString *const kShopIndexActTitle;
 
+//门店列表
+extern NSString *const kShopIndexShopListID;
+extern NSString *const kShopIndexShopListName;
 #endif /* ShopIndexKeys_h */

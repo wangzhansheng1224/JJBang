@@ -169,6 +169,7 @@
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
+		AC3D77D61D63322200AAA3A0 /* ShopListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D51D63322200AAA3A0 /* ShopListCell.m */; };
 		AC3E15FF1D5D7F59006FD1D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */; };
 		AC3E16011D5D7F7A006FD1D7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16001D5D7F7A006FD1D7 /* libz.tbd */; };
 		AC3E16031D5D7F92006FD1D7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */; };
@@ -588,6 +589,8 @@
 		AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeWeChatAndAliCell.m; path = jjb_user/My/Controller/RechargeWeChatAndAliCell.m; sourceTree = SOURCE_ROOT; };
 		AC3D77D11D63276000AAA3A0 /* MyRechargeWeChatAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRechargeWeChatAPIManager.h; sourceTree = "<group>"; };
 		AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeWeChatAPIManager.m; sourceTree = "<group>"; };
+		AC3D77D41D63322200AAA3A0 /* ShopListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListCell.h; sourceTree = "<group>"; };
+		AC3D77D51D63322200AAA3A0 /* ShopListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListCell.m; sourceTree = "<group>"; };
 		AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC3E16001D5D7F7A006FD1D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -958,6 +961,8 @@
 				732A969B1D5D7B7200BE5800 /* StarView.m */,
 				AC540AE81D62A54D007636CE /* MBScanButton.h */,
 				AC540AE91D62A54D007636CE /* MBScanButton.m */,
+				AC3D77D41D63322200AAA3A0 /* ShopListCell.h */,
+				AC3D77D51D63322200AAA3A0 /* ShopListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1608,8 +1613,8 @@
 				51B875D71D503DD80082558D /* ActivityListController.m */,
 				51B875D81D503DD80082558D /* ParticipationController.h */,
 				51B875D91D503DD80082558D /* ParticipationController.m */,
-				51B875DA1D503DD80082558D /* SponsorViewController.h */,
 				51B875DB1D503DD80082558D /* SponsorViewController.m */,
+				51B875DA1D503DD80082558D /* SponsorViewController.h */,
 				514AD59E1D50A9F500E196FE /* ActivityDetailController.h */,
 				514AD59F1D50A9F500E196FE /* ActivityDetailController.m */,
 				737C00261D5ACD3A006A8636 /* ActivityIndexController.h */,
@@ -2686,11 +2691,8 @@
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				AC540AE21D61B640007636CE /* RSADataVerifier.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
-
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
-
 				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
-
 				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
 				732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
@@ -2702,6 +2704,7 @@
 				5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */,
 				517F99341D57A87B002609E5 /* MySettingCell.m in Sources */,
 				73886D8A1D508B7D00643BBA /* ActivityRegisterAPIManager.m in Sources */,
+				AC3D77D61D63322200AAA3A0 /* ShopListCell.m in Sources */,
 				BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */,
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				731FDD201D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m in Sources */,
