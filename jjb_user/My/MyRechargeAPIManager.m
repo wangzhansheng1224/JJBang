@@ -6,8 +6,11 @@
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MyRechargeAPIManager.h"
 
+#import "MyRechargeAPIManager.h"
+/**
+ *  支付宝充值接口
+ */
 @interface MyRechargeAPIManager ()
 
 

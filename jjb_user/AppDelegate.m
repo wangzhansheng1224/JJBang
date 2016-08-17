@@ -12,6 +12,7 @@
 #import "MBAdViewController.h"
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "DataVerifier.h"
 @interface AppDelegate ()<WXApiDelegate>
 
 
@@ -106,32 +107,51 @@ if([resp isKindOfClass:[PayResp class]]){
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//after ios9
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
 {
     
 //    return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
     if ([url.host isEqualToString:@"safepay"]) {
         // 支付跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-        }];
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"result = %@",resultDic);
+//        }];
         
         // 授权跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            // 解析 auth code
-            NSString *result = resultDic[@"result"];
-            NSString *authCode = nil;
-            if (result.length>0) {
-                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
-                for (NSString *subResult in resultArr) {
-                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
-                        authCode = [subResult substringFromIndex:10];
-                        break;
-                    }
-                }
+//        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"result = %@",resultDic);
+//            // 解析 auth code
+//            NSString *result = resultDic[@"result"];
+//            NSString *authCode = nil;
+//            if (result.length>0) {
+//                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+//                for (NSString *subResult in resultArr) {
+//                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+//                        authCode = [subResult substringFromIndex:10];
+//                        break;
+//                    }
+//                }
+//            }
+//            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+//        }];
+        
+        //最新写法
+        [[AlipaySDK defaultService]processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+            NSString * str = resultDic[@"result"];
+            NSLog(@"result = %@",str);
+        }];
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            id<DataVerifier> dataVeri = CreateRSADataVerifier(@"public");
+            //验证签名是否一致
+            if ([dataVeri verifyString:@"22" withSign:@"ee"]) {
+                
             }
-            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+            NSLog(@"result = %@",resultDic);
+            NSString * str = resultDic[@"memo"];
+            NSLog(@"memo = %@",str);
+            
         }];
         return YES;
     }

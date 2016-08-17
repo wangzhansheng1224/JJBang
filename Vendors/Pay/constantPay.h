@@ -16,7 +16,7 @@
 
 #define WeChatAppID      @"wx8775f0d9d378c50e"    //appID
 #define WeChatPartnerID  @"1374304702"    //商户ID
-#define WeChatAppSecret  @"ae81f6758804a5fe232d445f5c8ef10e" //AppSecret
+#define WeChatAppSecret  @"ae81f6758804a5fe232d445f5c8ef10e" //AppSecret  这个东西用来移动端自己请求订单编号的
 #define WeChatPrivateKey @"1qazWSX3edcRFV5tgbYHN7ujmIK9ol0p" //秘钥
 
 

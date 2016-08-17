@@ -9,6 +9,7 @@
 #import "Target_Teacher.h"
 #import "TeacherListController.h"
 #import "TeacherController.h"
+#import "StarTeacherController.h"
 
 @implementation Target_Teacher
 - (id)Action_TeacherList:(NSDictionary *)params{
@@ -19,5 +20,10 @@
     TeacherController *detail=[[TeacherController alloc] init];
     detail.teacherID=[params[@"teacherID"] integerValue];
     return detail;
+}
+
+- (id)Action_StarTeacherList:(NSDictionary *)params{
+    StarTeacherController *list=[[StarTeacherController alloc] init];
+    return list;
 }
 @end

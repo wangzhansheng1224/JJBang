@@ -30,11 +30,10 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"明星老师";
+    self.title = @"明星老师111";
     self.view.backgroundColor=JJBRandomColor;
     self.pageSize=10;
     self.pageIndex=0;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
     [self.apiManager loadData];

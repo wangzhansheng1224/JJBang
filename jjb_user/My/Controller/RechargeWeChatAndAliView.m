@@ -10,7 +10,6 @@
 #import "RechargeWeChatAndAliCell.h"
 
 @interface RechargeWeChatAndAliView ()
-
 @end
 @implementation RechargeWeChatAndAliView
 
@@ -19,7 +18,10 @@
     if (self) {
         self.userInteractionEnabled = YES;
         for (NSInteger i=0; i<[items count]; i++) {
-            RechargeWeChatAndAliCell *cell=(RechargeWeChatAndAliCell*)items[i];
+            RechargeWeChatAndAliCell * cell=(RechargeWeChatAndAliCell*)items[i];
+             [cell selectButton:^(RechargeWeChatAndAliCell *sender) {
+                 self.selectIndex=cell.tag;
+             }];
             cell.frame=CGRectMake(0, i*60, Screen_Width, 60);
             [self addSubview:cell];
             
