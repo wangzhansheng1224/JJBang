@@ -16,6 +16,9 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) OrdersDetailHeader *headerView;
 @property (nonatomic,strong) OrdersDetailFooter *footerView;
+@property (nonatomic,strong) UIView *bottomView;
+@property (nonatomic,strong) UIButton *payBtn;
+@property (nonatomic,strong) UILabel *line;
 
 @end
 
@@ -25,9 +28,11 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = JJBRandomColor;
     self.navigationItem.title = @"订单详情";
     [self.view addSubview:self.tableView];
+    [self.bottomView addSubview:self.payBtn];
+    [self.view addSubview:self.line];
+    [self.view addSubview:self.bottomView];
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
 }
@@ -42,6 +47,30 @@
         make.right.mas_equalTo(self.view.mas_right);
         make.bottom.mas_equalTo(self.view.mas_bottom);
     }];
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.bottom.left.right.equalTo(@0);
+        make.height.equalTo(@60);
+    }];
+    [_payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(120, 34));
+        make.right.equalTo(@-20);
+        make.centerY.equalTo(_bottomView.mas_centerY);
+    }];
+    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.equalTo(@1);
+        make.left.right.equalTo(@0);
+        make.top.equalTo(_bottomView.mas_top).with.offset(0);
+    }];
+}
+
+#pragma -
+#pragma mark - event respone
+- (void)payBtnClick:(UIButton *)click {
+
+    NSLog(@"============支付=============");
 }
 
 #pragma -
@@ -92,6 +121,40 @@
         _footerView.backgroundColor = COLOR_DARK_GRAY;
     }
     return _footerView;
+}
+
+- (UIView *)bottomView {
+
+    if (!_bottomView) {
+        
+        _bottomView = [[UIView alloc] init];
+    }
+    return _bottomView;
+}
+
+- (UIButton *)payBtn {
+
+    if (!_payBtn) {
+        
+        _payBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _payBtn.backgroundColor = COLOR_ORANGE;
+        _payBtn.layer.cornerRadius = 2.0;
+        _payBtn.clipsToBounds = YES;
+        [_payBtn setTitle:@"立即支付" forState:UIControlStateNormal];
+        [_payBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
+        [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _payBtn;
+}
+
+- (UILabel *)line {
+    
+    if (!_line) {
+        
+        _line = [[UILabel alloc] init];
+        _line.backgroundColor = COLOR_GRAY;
+    }
+    return _line;
 }
 
 
