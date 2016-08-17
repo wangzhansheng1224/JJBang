@@ -26,6 +26,7 @@
 #import "MBStarStudentCollectionView.h"
 #import "MBStarTeacherCollectionView.h"
 #import "CourseKeys.h"
+#import "ShopListController.h"
 
 /**
  *  首页主控制器
@@ -43,7 +44,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
-@property(nonatomic,strong) UIButton * LoginButton;      //点击登录测试按钮
 @property(nonatomic,strong) UIScrollView * scrollView;  //banner位
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
@@ -72,7 +72,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+}
 
 #pragma -
 #pragma mark - Events
@@ -85,6 +88,9 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(void)gotoLocation:(id)sender
 {
     JJBLog(@"%s",__func__);
+    ShopListController * shopListVC = [[ShopListController alloc]init];
+    shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
+    [self presentViewController:shopListVC animated:YES completion:nil];
 
 }
 //banner位

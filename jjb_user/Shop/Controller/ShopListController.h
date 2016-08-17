@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopListController : UIViewController
+@property(nonatomic,strong)NSMutableArray * shopListArray; //数据源
 
 @end
