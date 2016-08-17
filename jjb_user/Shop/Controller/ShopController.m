@@ -55,6 +55,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
 @property(nonatomic,strong) NSDictionary *dataDic;
+@property(nonatomic,assign) double currentLongitude;
+@property(nonatomic,assign) double currentLatitude;
 
 
 @end
@@ -77,20 +79,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     MBLocation * location =[MBLocation shareMBLocation];
     [location getAuthorization]; //取得授权
     [location startLocation];  //开始定位
-    [location reverseGeoCodesuccess:^(NSDictionary *adress) {
-        NSDictionary * dict = adress;
-        JJBLog(@"%@",dict);
-    } failure:^{
-        JJBLog(@"定位失败");
-    }];
-    
-//    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-//        NSDictionary * dict = adress;
-//        JJBLog(@"%@",dict);
-//
-//    } failure:^{
-//                JJBLog(@"定位失败");
-//    }
     
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -98,6 +86,18 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [super viewWillAppear:YES];
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(changeName:) name:@"changeShopName" object:nil];
+    
+    [[MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
+        NSDictionary * dict = adress;
+        JJBLog(@"%@",dict);
+        self.currentLongitude = [dict[@"longitude"] doubleValue];
+        self.currentLatitude  = [dict [@"latitude"] doubleValue];
+       
+        [self.loactionButton setTitle:dict[@"city"]];
+    } failure:^{
+        JJBLog(@"定位失败");
+    }];
+
     }
 
 -(void)dealloc
@@ -397,7 +397,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
+    return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude)};
 }
 
 #pragma -

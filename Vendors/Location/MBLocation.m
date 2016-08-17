@@ -11,6 +11,7 @@
 
 @interface MBLocation ()
 @property(nonatomic,strong) CLGeocoder * geocoder;
+
 @end
 @implementation MBLocation
 SingleM(MBLocation);
@@ -57,29 +58,34 @@ SingleM(MBLocation);
     self.longitude = coordnate.longitude; //经度
     self.latitude = coordnate.latitude;  //纬度
     JJBLog(@"经度=%lf纬度=%lf",self.longitude,self.latitude);
-//    if (self.LocationBlock) {
-//        self.LocationBlock(self.longitude,self.latitude);
-//    }
-//    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-//        if (error) {
-//            JJBLog(@"%@",error.description);
-//        }
-//        else
-//        {
-//            if ([placemarks count]>0) {
-//                CLPlacemark * pm = [placemarks firstObject];
-//                //获取城市
-//                NSString * city = pm.addressDictionary[@"City"];
-//                NSString * subLocality = pm.addressDictionary[@"SubLocality"];
-//                NSString * street = pm.addressDictionary[@"Street"];
-//                NSString * adress = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
-//                  JJBLog(@"定位的城市%@",adress);
-//            }else if([placemarks count] == 0 )
-//            {
-//                [self alertOpenLocationSwitch:@"提示" messgae:@"定位城市失败"];
-//            }
-//        }
-//    }];
+    if (self.LocationBlock) {
+        self.LocationBlock(self.longitude,self.latitude);
+    }
+    /*
+    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (error) {
+            JJBLog(@"%@",error.description);
+        }
+        else
+        {
+            if ([placemarks count]>0) {
+                CLPlacemark * pm = [placemarks firstObject];
+                //获取城市
+                NSString * city = pm.addressDictionary[@"City"];
+                NSString * subLocality = pm.addressDictionary[@"SubLocality"];
+                NSString * street = pm.addressDictionary[@"Street"];
+                NSString * adress = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
+                  JJBLog(@"定位的城市%@",adress);
+                
+                self.city = city;
+                self.address = adress;
+            }else if([placemarks count] == 0 )
+            {
+                [self alertOpenLocationSwitch:@"提示" messgae:@"定位城市失败"];
+            }
+        }
+    }];
+     */
     
     
     [self.locationManager stopUpdatingLocation];
@@ -130,6 +136,7 @@ SingleM(MBLocation);
 
 
 }
+ 
 #pragma -
 #pragma mark - getter and setter
 -(CLLocationManager *)locationManager
@@ -148,6 +155,22 @@ SingleM(MBLocation);
         _geocoder = [[CLGeocoder alloc]init];
     }
     return _geocoder;
+}
+
+-(NSString *)city
+{
+    if (_city == nil) {
+        _city = [[NSString alloc]init];
+    }
+    return _city;
+}
+
+-(NSString *)address
+{
+    if (_address == nil) {
+        _address = [[NSString alloc]init];
+    }
+    return _address;
 }
 
 @end

@@ -14,6 +14,8 @@ SingleH(MBLocation);
 @property(nonatomic,strong) CLLocationManager * locationManager;
 @property(nonatomic,assign) double longitude; //经度
 @property(nonatomic,assign) double latitude; //纬度
+@property(nonatomic,copy) NSString * city ; //城市名
+@property(nonatomic,copy) NSString * address ;  // 详细地址
 //定位结束回调
 @property(nonatomic,copy) void (^LocationBlock)(double longitude,double latitude);
 
