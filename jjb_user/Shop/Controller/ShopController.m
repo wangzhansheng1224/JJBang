@@ -84,13 +84,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         JJBLog(@"定位失败");
     }];
     
-    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-        NSDictionary * dict = adress;
-        JJBLog(@"%@",dict);
-
-    } failure:^{
-                JJBLog(@"定位失败");
-    }
+//    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
+//        NSDictionary * dict = adress;
+//        JJBLog(@"%@",dict);
+//
+//    } failure:^{
+//                JJBLog(@"定位失败");
+//    }
     
 }
 -(void)viewWillAppear:(BOOL)animated

@@ -43,9 +43,9 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t TeacherListAPIManagerOnceToken;
+    static dispatch_once_t GoodsListAPIManagerOnceToken;
     static GoodsListAPIManager *sharedInstance = nil;
-    dispatch_once(&TeacherListAPIManagerOnceToken, ^{
+    dispatch_once(&GoodsListAPIManagerOnceToken, ^{
         sharedInstance = [[GoodsListAPIManager alloc] init];
     });
     return sharedInstance;

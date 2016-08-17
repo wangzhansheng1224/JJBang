@@ -7,6 +7,7 @@
 //
 
 #import "CourseInfoReformer.h"
+#import "CourseDetailAPIManager.h"
 
 NSString *const kCourseID=@"CourseID";
 NSString *const kCourseName=@"CourseName";
@@ -22,6 +23,18 @@ NSString *const kCourseDescribe=@"CourseDescribe";
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
+    if ([manager isKindOfClass:[CourseDetailAPIManager class]]) {
+            NSDictionary *dicData=data[@"data"];
+            return  @{
+                      kCourseID:dicData[@"id"],
+                      kCourseName:dicData[@"name"],
+                      kCourseImg:dicData[@"image"],
+                      kCoursePrice:dicData[@"price"],
+                      kCourseNum:dicData[@"registCount"],
+                      kCourseStar:dicData[@"star"],
+                      kCourseDescribe:dicData[@"describe"]
+                      };
+    }
     return nil;
 }
 

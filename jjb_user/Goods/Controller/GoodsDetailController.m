@@ -11,8 +11,11 @@
 #import "GoodsDetailHeader.h"
 #import "ActivityDetailCell.h"
 #import "GoodsParameterCell.h"
+#import "GoodsDetailAPIManager.h"
+#import "GoodsDetailReformer.h"
+#import "OrdersDetailController.h"
 
-@interface GoodsDetailController ()<UITableViewDataSource,UITableViewDelegate>
+@interface GoodsDetailController ()<UITableViewDataSource,UITableViewDelegate,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) GoodsDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
@@ -21,6 +24,10 @@
 @property (nonatomic,strong) UILabel *priceLabel;
 @property (nonatomic,strong) UIButton *payBtn;
 @property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) LDAPIBaseManager *GoodsDetailAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> GoodsDetailReformer;
+@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) NSMutableDictionary *dataDic;
 
 @end
 
@@ -91,7 +98,8 @@
 
 - (void)payBtnClick:(UIButton *)click {
 
-    
+    OrdersDetailController *orderDetail = [[OrdersDetailController alloc] init];
+    [self.navigationController pushViewController:orderDetail animated:YES];
 }
 
 #pragma -
@@ -107,9 +115,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        //活动详情
+        //商品详情
         ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailCell" forIndexPath:indexPath];
-//        [cell configWithData:self.detailData];
         return cell;
     }else {
         GoodsParameterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsParameterCell" forIndexPath:indexPath];
@@ -130,6 +137,41 @@
 
     return self.tabbarControl;
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
+        self.dataDic=[manager fetchDataWithReformer:self.GoodsDetailReformer];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+    }
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
+        return @{};
+    }
+    else{
+        return @{};
+    }
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+//- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+//    
+//}
 
 #pragma -
 #pragma mark - getters and setters
@@ -214,5 +256,39 @@
     return _line;
 }
 
+- (LDAPIBaseManager *)GoodsDetailAPIManager {
+    if (_GoodsDetailAPIManager == nil) {
+        _GoodsDetailAPIManager = [GoodsDetailAPIManager  sharedInstance];
+        _GoodsDetailAPIManager.delegate=self;
+        _GoodsDetailAPIManager.paramSource=self;
+    }
+    return _GoodsDetailAPIManager;
+}
+
+- (id<ReformerProtocol>) GoodsDetailReformer{
+    
+    if (!_GoodsDetailReformer) {
+        _GoodsDetailReformer=[[GoodsDetailReformer alloc] init];
+    }
+    return _GoodsDetailReformer;
+}
+
+- (NSMutableArray *)dataArr {
+
+    if (!_dataArr) {
+        
+        _dataArr = [[NSMutableArray alloc] init];
+    }
+    return _dataArr;
+}
+
+- (NSMutableDictionary *)dataDic {
+
+    if (!_dataDic) {
+        
+        _dataDic = [[NSMutableDictionary alloc] init];
+    }
+    return _dataDic;
+}
 
 @end
