@@ -58,15 +58,15 @@ NSString *const kGrowingTreeListImagesPath=@"GrowingTreeListImagesPath";
                                           }];
             }
             NSDictionary *itemData=@{
-                                     kGrowingTreeListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:@" ",
-                                     kGrowingTreeListContent:arrData[i][@"content"]!=[NSNull null]?arrData[i][@"content"]:@" ",
-                                     kGrowingTreeListToUserID:arrData[i][@"stuId"]!=[NSNull null]?arrData[i][@"stuId"]:@" ",
-                                     kGrowingTreeListToUserFace:arrData[i][@"stuUserface"]!=[NSNull null]?arrData[i][@"stuUserface"]:@" ",
-                                     kGrowingTreeListToUserName:arrData[i][@"stuName"]!=[NSNull null]?arrData[i][@"stuName"]:@" ",
-                                     kGrowingTreeListFromUserID:arrData[i][@"fromUserId"]!=[NSNull null]?arrData[i][@"fromUserId"]:@" ",
-                                     kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"]!=[NSNull null]?arrData[i][@"fromUserface"]:@" ",
-                                     kGrowingTreeListFromUserName:arrData[i][@"fromUser"]!=[NSNull null]?arrData[i][@"fromUser"]:@" ",
-                                     kGrowingTreeListAddress:arrData[i][@"address"]!=[NSNull null]?arrData[i][@"address"]:@" ",
+                                     kGrowingTreeListID:arrData[i][@"id"],
+                                     kGrowingTreeListContent:arrData[i][@"content"],
+                                     kGrowingTreeListToUserID:arrData[i][@"stuId"],
+                                     kGrowingTreeListToUserFace:arrData[i][@"stuUserface"],
+                                     kGrowingTreeListToUserName:arrData[i][@"stuName"],
+                                     kGrowingTreeListFromUserID:arrData[i][@"fromUserId"],
+                                     kGrowingTreeListFromUserFace:arrData[i][@"fromUserface"],
+                                     kGrowingTreeListFromUserName:arrData[i][@"fromUser"],
+                                     kGrowingTreeListAddress:arrData[i][@"address"],
                                      kGrowingTreeListCreateTime:timeAgoDate.timeAgoSinceNow,
                                      kGrowingTreeListImages:imagesMArray
                                      };

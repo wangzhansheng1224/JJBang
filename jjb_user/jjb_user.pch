@@ -112,6 +112,7 @@ alpha:(a)]
 #import <HMSegmentedControl.h>
 #import "NSURL+OSS.h"
 #import "AppDelegate.h"
+#import "NSDictionary+NilSafe.h"
 
 
 #endif

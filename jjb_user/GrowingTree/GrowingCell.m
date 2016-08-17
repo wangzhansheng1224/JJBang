@@ -113,7 +113,8 @@
         
                 UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (width+8), i/3 * (77+8), width, 77)];
         
-        NSURL *url=[NSURL initWithImageURL:imageArr[i][kGrowingTreeListImagesPath] Size:imageView.frame.size];
+        
+        NSURL *url=[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,imageArr[i][kGrowingTreeListImagesPath]]];
         
         MWPhoto *photo = [MWPhoto photoWithURL:url];
         [_photos addObject:photo];
