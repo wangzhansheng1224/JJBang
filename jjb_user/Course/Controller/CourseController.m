@@ -7,15 +7,15 @@
 //
 
 #import "CourseController.h"
-#import "ActivityDetailCell.h"
+#import "CourseDetailCell.h"
 #import "ActivityRegistrationCell.h"
 #import "CourseCatalogAPIManager.h"
 #import "CourseRegisterListAPIManager.h"
 #import "CourseDetailAPIManager.h"
-#import "ActivityDetailHeader.h"
+#import "CourseDetailHeader.h"
 #import "HMSegmentedControl.h"
 #import "ActivityRegisterListReformer.h"
-#import "ActivityDetailReformer.h"
+#import "CourseInfoReformer.h"
 
 /**
  *  课程控制器
@@ -30,7 +30,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 @property (nonatomic,strong) id<ReformerProtocol> detailReformer;
 @property (nonatomic,strong) id<ReformerProtocol> registerListReformer;
 @property (nonatomic,strong) id<ReformerProtocol> catalogReformer;
-@property (nonatomic,strong) ActivityDetailHeader *headerView;
+@property (nonatomic,strong) CourseDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *array_data;
@@ -88,7 +88,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        return 1;
+        return 10;
     } else if(_tabbarControl.selectedSegmentIndex == 1){
         return [self.arrRegistrationData count];
     } else{
@@ -99,7 +99,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
         //活动详情
-        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
+        CourseDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
         [cell configWithData:self.detailData];
         return cell;
         
@@ -119,7 +119,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        return Screen_Height-280;
+        return 44;
     } else if(_tabbarControl.selectedSegmentIndex == 1){
         return 80;
     } else{
@@ -140,13 +140,14 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
-    if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
-         self.detailData=[manager fetchDataWithReformer:self.catalogReformer];
+    if ([manager isKindOfClass:[CourseDetailAPIManager class]]) {
+         self.detailData=[manager fetchDataWithReformer:self.detailReformer];
          [self.headerView configWithData:_detailData];
+           self.title=_detailData[kCourseName];
     }
     if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
         self.detailData=[manager fetchDataWithReformer:self.catalogReformer];
-        self.title=_detailData[kActivityDetailTitle];
+     
         [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
@@ -185,9 +186,9 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 #pragma -
 #pragma mark - getters and setters
-- (ActivityDetailHeader *) headerView{
+- (CourseDetailHeader *) headerView{
     if (!_headerView) {
-        _headerView=[[ActivityDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 273)];
+        _headerView=[[CourseDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2/3.0+50)];
         _headerView.backgroundColor=COLOR_WHITE;
     }
     return _headerView;
@@ -197,7 +198,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 {
     
     if (!_tabbarControl) {
-        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动详情",@"报名信息"]];
+        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"课程详情",@"报名信息"]];
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
@@ -215,7 +216,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:CatalogCellIdentifier];
+        [_tableView registerClass:[CourseDetailCell class] forCellReuseIdentifier:CatalogCellIdentifier];
         [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];
     }
     return _tableView;
@@ -276,14 +277,14 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 -(id<ReformerProtocol>) catalogReformer{
     if (!_catalogReformer) {
-        _catalogReformer=[[ActivityDetailReformer alloc] init];
+        _catalogReformer=[[CourseInfoReformer alloc] init];
     }
     return _catalogReformer;
 }
 
 -(id<ReformerProtocol>) detailReformer{
     if (!_detailReformer) {
-        _detailReformer=[[ActivityDetailReformer alloc] init];
+        _detailReformer=[[CourseInfoReformer alloc] init];
     }
     return _detailReformer;
 }
