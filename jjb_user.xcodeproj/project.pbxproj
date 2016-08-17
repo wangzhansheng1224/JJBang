@@ -179,6 +179,8 @@
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
 		AC3D77D61D63322200AAA3A0 /* ShopListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D51D63322200AAA3A0 /* ShopListCell.m */; };
+		AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */; };
+		AC3D77DF1D6444CC00AAA3A0 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */; };
 		AC3E15FF1D5D7F59006FD1D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */; };
 		AC3E16011D5D7F7A006FD1D7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16001D5D7F7A006FD1D7 /* libz.tbd */; };
 		AC3E16031D5D7F92006FD1D7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */; };
@@ -619,6 +621,11 @@
 		AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeWeChatAPIManager.m; sourceTree = "<group>"; };
 		AC3D77D41D63322200AAA3A0 /* ShopListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListCell.h; sourceTree = "<group>"; };
 		AC3D77D51D63322200AAA3A0 /* ShopListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListCell.m; sourceTree = "<group>"; };
+		AC3D77D91D643D9000AAA3A0 /* single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		AC3D77DA1D643F9900AAA3A0 /* MBLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocation.h; sourceTree = "<group>"; };
+		AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocation.m; sourceTree = "<group>"; };
+		AC3D77DD1D6444CC00AAA3A0 /* MBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocationManager.h; sourceTree = "<group>"; };
+		AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
 		AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC3E16001D5D7F7A006FD1D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -2070,6 +2077,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC3D77D71D643D6600AAA3A0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D77D91D643D9000AAA3A0 /* single.h */,
+				AC3D77DA1D643F9900AAA3A0 /* MBLocation.h */,
+				AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */,
+				AC3D77DD1D6444CC00AAA3A0 /* MBLocationManager.h */,
+				AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		AC540A711D61B640007636CE /* AliPay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2277,6 +2296,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				AC3D77D71D643D6600AAA3A0 /* Location */,
 				AC540AF31D62C0FE007636CE /* Pay */,
 				738B82101D5FE5A100765F6F /* OSS */,
 				AC6E137B1D5D8E1100A7C71D /* WeChatPay */,
@@ -2500,7 +2520,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 972SEJPPZB;
+						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -2618,6 +2638,7 @@
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
+				AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */,
 				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
@@ -2662,6 +2683,7 @@
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
 				AC540B001D62C16D007636CE /* payRequsestHandler.mm in Sources */,
+				AC3D77DF1D6444CC00AAA3A0 /* MBLocationManager.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				AC540ADE1D61B640007636CE /* MD5DataSigner.m in Sources */,

@@ -13,7 +13,8 @@
  */
 @interface ShopListController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView * tableView;
-@property(nonatomic,weak) UIButton * backButton;
+@property(nonatomic,strong) UIButton * backButton;
+@property(nonatomic,weak) UIView * NavView;
 
 @end
 
@@ -26,11 +27,11 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
 {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    self.backButton.frame = CGRectMake(100, 100, 100, 100);
+    
     [self setupNav];
 //    self.tableView.height = 60.0f;
     [self.view addSubview:self.tableView];
-
+    [self.NavView addSubview:self.backButton];
 }
 
 -(void)setupNav
@@ -59,9 +60,9 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     if(cell == nil )
     {
         cell = [[ShopListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shopListCellIdentifer];
-        [cell configWithData:self.shopListArray[indexPath.row]];
-        
-    }
+            }
+    [cell configWithData:self.shopListArray[indexPath.row]];
+
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +74,7 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     NSDictionary * item = self.shopListArray[indexPath.row];
     [self dismissViewControllerAnimated:YES completion:^{
     
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"changeShopName" object:self userInfo:item];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"changeShopName" object:nil userInfo:item];
     }];
 }
 
@@ -104,13 +105,22 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
 {
     if (_backButton == nil) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"点击返回" forState:UIControlStateNormal];
-        [button setBackgroundColor:[UIColor redColor]];
-        [button setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        button.frame = CGRectMake(10, 10, 30, 30);
+        [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
+//        [self.NavView addSubview:button];
         _backButton = button;
     }
     return _backButton;
+}
+-(UIView *)NavView
+{
+    if (_NavView == nil) {
+        UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 64)];
+        view.backgroundColor = COLOR_ORANGE;
+        [self.view addSubview:view];
+        _NavView = view;
+    }
+    return _NavView;
 }
 @end
