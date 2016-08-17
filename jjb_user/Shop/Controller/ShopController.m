@@ -75,8 +75,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.shopIndexAPIManager loadData];
     
     MBLocation * location =[MBLocation shareMBLocation];
-    [location getAuthorization]; //取得授权
     [location startLocation];  //开始定位
+    
     [location reverseGeoCodesuccess:^(NSDictionary *adress) {
         NSDictionary * dict = adress;
         JJBLog(@"%@",dict);

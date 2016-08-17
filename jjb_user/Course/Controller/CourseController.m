@@ -214,7 +214,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         
         [_tableView registerClass:[CourseDetailCell class] forCellReuseIdentifier:CatalogCellIdentifier];
         [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];

@@ -33,13 +33,13 @@
 - (void)layoutPageSubviews {
     UIView *superView=self;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(superView.mas_top);
-        make.left.mas_equalTo(superView.mas_left);
+        make.top.mas_equalTo(superView.mas_top).offset(10);
+        make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(self.dropdownImageView.mas_right);
         make.bottom.mas_equalTo(superView.mas_bottom);
     }];
     [self.dropdownImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(superView.mas_top);
+        make.top.mas_equalTo(superView.mas_top).offset(10);
         make.width.mas_equalTo(@(30));
         make.right.mas_equalTo(superView.mas_right).offset(-10);
         make.bottom.mas_equalTo(superView.mas_bottom);
@@ -57,8 +57,8 @@
 - (UIImageView *)dropdownImageView {
     
     if (!_dropdownImageView) {
-        _dropdownImageView = [[UIImageView alloc] init];
-        _dropdownImageView.backgroundColor=COLOR_LIGHT_GRAY;
+        _dropdownImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"course_down"]];
+        _dropdownImageView.backgroundColor=COLOR_WHITE;
     }
     return _dropdownImageView;
 }
@@ -67,7 +67,8 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.text = @"第一节课 拉伸运动";
-        _titleLabel.font = H2;
+        _titleLabel.font = H3;
+        _titleLabel.textColor=COLOR_GRAY;
         [_titleLabel sizeToFit];
         _titleLabel.numberOfLines = 1;
     }
