@@ -45,6 +45,11 @@ NSString *const kShopIndexActID=@"ShopIndexActID";
 NSString *const kShopIndexActImage=@"ShopIndexActImage";
 NSString *const kShopIndexActTitle=@"ShopIndexActTitle";
 
+//门店列表
+NSString *const kShopIndexShopListID = @"ShopIndexShopListID";
+NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
+
+
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
     if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
@@ -104,21 +109,35 @@ NSString *const kShopIndexActTitle=@"ShopIndexActTitle";
                                     }];
         }
         
+        
     
       NSDictionary *dic=indexData[@"actList"];
         NSDictionary *actDic=[[NSDictionary alloc] init];
         if (dic!=nil) {
             actDic=@{
-                     kShopIndexActID:(dic[@"id"]!=[NSNull null])?dic[@"id"]:@(0),
-                     kShopIndexActImage:[dic objectForKey:@"image"]!=[NSNull null]?[dic objectForKey:@"image"]:@"",
+                     kShopIndexActID:dic[@"id"],
+                     kShopIndexActImage:[dic objectForKey:@"image"],
                      kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@""
                      };
         }
         
+        NSArray * shopListTmpArray = indexData[@"ShopList"];
+        NSMutableArray * shopListArray = [NSMutableArray array];
+        if (shopListTmpArray != nil) {
+            for (NSInteger i = 0; i<shopListTmpArray.count; i++) {
+                [shopListArray addObject:@{
+                                           
+                                           kShopIndexShopListID:(shopListTmpArray[i][@"id"] != [NSNull null])?shopListTmpArray[i][@"id"]:@(0),
+                                           kShopIndexShopListName:(shopListTmpArray[i][@"name"] !=[NSNull null]) ? shopListTmpArray[i][@"name"]:@""
+                                           
+                                           }];
+        }
+        }
         return @{
-                 kShopIndexShopList : indexData[@"shopList"] != [NSNull null]
-                 ? indexData[@"shopList"]
-                 : @"",
+//                 kShopIndexShopList : indexData[@"shopList"] != [NSNull null]
+//                 ? indexData[@"shopList"]
+//                 : @"",
+                 kShopIndexShopList:shopListArray,
                  kShopIndexActImg: actImgMArray,
                  kShopIndexGoodsList : goodsMArrary,
                  kShopIndexActList:actDic,
@@ -128,6 +147,7 @@ NSString *const kShopIndexActTitle=@"ShopIndexActTitle";
                  ? indexData[@"radioList"]
                  : @"",
                  kShopIndexTechList : techMArrary
+                 
                  };
     }
     
