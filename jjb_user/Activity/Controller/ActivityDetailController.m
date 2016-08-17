@@ -183,11 +183,6 @@
     [self.tableView reloadData];
 }
 
-- (void)joinClick {
-
-    NSLog(@"------立即报名------");
-}
-
 #pragma -
 #pragma mark - getters and setters
 - (ActivityDetailHeader *) headerView{
