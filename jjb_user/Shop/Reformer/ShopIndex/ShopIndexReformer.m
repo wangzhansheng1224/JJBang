@@ -110,15 +110,16 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
         }
         
         
-    
-      NSDictionary *dic=indexData[@"actList"];
-        NSDictionary *actDic=[[NSDictionary alloc] init];
-        if (dic!=nil) {
-            actDic=@{
-                     kShopIndexActID:dic[@"id"],
-                     kShopIndexActImage:[dic objectForKey:@"image"],
-                     kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@""
-                     };
+        NSArray *actListArray=indexData[@"actList"];
+        NSMutableArray *actListMArray=[[NSMutableArray alloc] initWithCapacity:0];
+        
+        for (NSInteger i=0; i<[actListArray count]; i++) {
+            NSDictionary *dic=actListArray[i];
+            [actListMArray addObject:@{
+                                        kShopIndexActID:dic[@"id"],
+                                        kShopIndexActImage:[dic objectForKey:@"image"],
+                                        kShopIndexActTitle:dic[@"title"]
+                                        }];
         }
         
         NSArray * shopListTmpArray = indexData[@"ShopList"];
@@ -140,7 +141,7 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                  kShopIndexShopList:shopListArray,
                  kShopIndexActImg: actImgMArray,
                  kShopIndexGoodsList : goodsMArrary,
-                 kShopIndexActList:actDic,
+                 kShopIndexActList:actListMArray,
                  kShopIndexSdtList : sdtMArrary,
                  kShopIndexCourseList : courseMArrary,
                  kShopIndexRadioList : indexData[@"radioList"] != [NSNull null]

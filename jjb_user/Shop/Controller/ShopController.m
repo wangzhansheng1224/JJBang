@@ -222,7 +222,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section== 1)
     {
         MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.dataDic[kShopIndexActList]];
+        [cell configWithData:self.dataDic[kShopIndexActList][indexPath.row]];
         return cell;
     }
     else if(indexPath.section == 2)
