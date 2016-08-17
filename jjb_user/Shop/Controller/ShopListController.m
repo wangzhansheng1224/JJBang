@@ -71,8 +71,10 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary * item = self.shopListArray[indexPath.row];
-    NSString * string = item[@""];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+    
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"changeShopName" object:self userInfo:item];
+    }];
 }
 
 #pragma -

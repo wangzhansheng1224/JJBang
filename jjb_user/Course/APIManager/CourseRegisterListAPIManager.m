@@ -1,27 +1,26 @@
 //
-//  CourseDetailAPIManager.m
+//  CourseRegisterListAPIManager.m
 //  jjb_user
 //
-//  Created by Aimee on 16/8/3.
+//  Created by Aimee on 16/8/17.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "CourseDetailAPIManager.h"
-
-@interface CourseDetailAPIManager ()
+#import "CourseRegisterListAPIManager.h"
+@interface CourseRegisterListAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation CourseDetailAPIManager
+@implementation CourseRegisterListAPIManager
 
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"course/selectCourseDetail";
+        _methodName = @"course/selectCourseRegistUsers";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -42,10 +41,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t CourseDetailAPIManagerOnceToken;
-    static CourseDetailAPIManager *sharedInstance = nil;
-    dispatch_once(&CourseDetailAPIManagerOnceToken, ^{
-        sharedInstance = [[CourseDetailAPIManager alloc] init];
+    static dispatch_once_t CourseRegisterListAPIManagerOnceToken;
+    static CourseRegisterListAPIManager *sharedInstance = nil;
+    dispatch_once(&CourseRegisterListAPIManagerOnceToken, ^{
+        sharedInstance = [[CourseRegisterListAPIManager alloc] init];
     });
     return sharedInstance;
 }

@@ -75,8 +75,21 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(changeName) name:@"changeShopName" object:nil];
+    
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)changeName:(NSNotification *)notification
+{
+    JJBLog(@"%@",notification);
+    
+}
 #pragma -
 #pragma mark - Events
 //扫一扫
@@ -209,7 +222,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section== 1)
     {
         MBNewActivityCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBNewActivityCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.dataDic[kShopIndexActList]];
+        [cell configWithData:self.dataDic[kShopIndexActList][indexPath.row]];
         return cell;
     }
     else if(indexPath.section == 2)

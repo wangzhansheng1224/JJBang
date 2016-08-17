@@ -129,6 +129,7 @@
 		735C3AFE1D62F5F900E4DB90 /* StarTeacherListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3AFD1D62F5F900E4DB90 /* StarTeacherListAPIManager.m */; };
 		735C3B011D62F94F00E4DB90 /* TeacherReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B001D62F94F00E4DB90 /* TeacherReformer.m */; };
 		735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B041D6302F700E4DB90 /* StudentReformer.m */; };
+		735C3B091D63F91C00E4DB90 /* CourseRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B081D63F91C00E4DB90 /* CourseRegisterListAPIManager.m */; };
 		736BBD2F1D61701800E73707 /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BBD2E1D61701800E73707 /* PhotoBrowserController.m */; };
 		737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C00271D5ACD3A006A8636 /* ActivityIndexController.m */; };
 		737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C002A1D5ADC32006A8636 /* ActivityRegistrationController.m */; };
@@ -508,6 +509,8 @@
 		735C3B031D6302F700E4DB90 /* StudentReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentReformer.h; sourceTree = "<group>"; };
 		735C3B041D6302F700E4DB90 /* StudentReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentReformer.m; sourceTree = "<group>"; };
 		735C3B061D63030900E4DB90 /* StudentKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentKeys.h; sourceTree = "<group>"; };
+		735C3B071D63F91C00E4DB90 /* CourseRegisterListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseRegisterListAPIManager.h; sourceTree = "<group>"; };
+		735C3B081D63F91C00E4DB90 /* CourseRegisterListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseRegisterListAPIManager.m; sourceTree = "<group>"; };
 		736BBD2D1D61701800E73707 /* PhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
 		736BBD2E1D61701800E73707 /* PhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
 		737C00261D5ACD3A006A8636 /* ActivityIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndexController.h; sourceTree = "<group>"; };
@@ -1078,14 +1081,16 @@
 		731091A71D51A52C0031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */,
-				731091B41D51A6CD0031B443 /* CourseListAPIManager.m */,
-				731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */,
-				731091B61D51A6CD0031B443 /* CourseDetailAPIManager.m */,
-				731091B71D51A6CD0031B443 /* CourseDetailAPIManager.h */,
-				731091B81D51A6CD0031B443 /* CourseCatalogAPIManager.m */,
 				731091B91D51A6CD0031B443 /* CourseCatalogAPIManager.h */,
+				731091B81D51A6CD0031B443 /* CourseCatalogAPIManager.m */,
+				731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */,
+				731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */,
+				731091B71D51A6CD0031B443 /* CourseDetailAPIManager.h */,
+				731091B61D51A6CD0031B443 /* CourseDetailAPIManager.m */,
 				731091BA1D51A6CD0031B443 /* CourseListAPIManager.h */,
+				731091B41D51A6CD0031B443 /* CourseListAPIManager.m */,
+				735C3B071D63F91C00E4DB90 /* CourseRegisterListAPIManager.h */,
+				735C3B081D63F91C00E4DB90 /* CourseRegisterListAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -2643,6 +2648,7 @@
 				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
+				735C3B091D63F91C00E4DB90 /* CourseRegisterListAPIManager.m in Sources */,
 				738B82161D5FE67200765F6F /* ImgModel.m in Sources */,
 				732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */,
 				732A96C51D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m in Sources */,
