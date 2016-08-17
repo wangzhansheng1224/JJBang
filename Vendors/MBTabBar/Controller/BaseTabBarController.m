@@ -77,7 +77,7 @@
     //个人中心界面
     
     MyController * myVC = [[MyController alloc]init];
-    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"tab_my_normal"] clickImage:[UIImage imageNamed:@"tab_my_selected"] title:@"个人"];
+    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"tab_my_normal"] clickImage:[UIImage imageNamed:@"tab_my_selected"] title:@"我的"];
     
 }
 

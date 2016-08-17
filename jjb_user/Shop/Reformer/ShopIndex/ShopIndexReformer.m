@@ -105,23 +105,24 @@ NSString *const kShopIndexActTitle=@"ShopIndexActTitle";
         }
         
     
-      NSDictionary *dic=indexData[@"actList"];
-        NSDictionary *actDic=[[NSDictionary alloc] init];
-        if (dic!=nil) {
-            actDic=@{
-                     kShopIndexActID:(dic[@"id"]!=[NSNull null])?dic[@"id"]:@(0),
-                     kShopIndexActImage:[dic objectForKey:@"image"]!=[NSNull null]?[dic objectForKey:@"image"]:@"",
-                     kShopIndexActTitle:(dic[@"title"]!=[NSNull null])?dic[@"title"]:@""
-                     };
-        }
+          NSArray *actListArray=indexData[@"actList"];
+        NSMutableArray *actListMArray=[[NSMutableArray alloc] initWithCapacity:0];
         
+        for (NSInteger i=0; i<[actListArray count]; i++) {
+            NSDictionary *dic=actListArray[i];
+            [actListMArray addObject:@{
+                                        kShopIndexActID:dic[@"id"],
+                                        kShopIndexActImage:[dic objectForKey:@"image"],
+                                        kShopIndexActTitle:dic[@"title"]
+                                        }];
+        }
         return @{
                  kShopIndexShopList : indexData[@"shopList"] != [NSNull null]
                  ? indexData[@"shopList"]
                  : @"",
                  kShopIndexActImg: actImgMArray,
                  kShopIndexGoodsList : goodsMArrary,
-                 kShopIndexActList:actDic,
+                 kShopIndexActList:actListMArray,
                  kShopIndexSdtList : sdtMArrary,
                  kShopIndexCourseList : courseMArrary,
                  kShopIndexRadioList : indexData[@"radioList"] != [NSNull null]
