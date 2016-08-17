@@ -27,6 +27,8 @@
 #import "MBStarTeacherCollectionView.h"
 #import "CourseKeys.h"
 #import "ShopListController.h"
+#import "MBLocation.h"
+#import "MBLocationManager.h"
 
 /**
  *  首页主控制器
@@ -71,14 +73,32 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.navigationItem.rightBarButtonItem =self.scanButton;
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
+    
+    MBLocation * location =[MBLocation shareMBLocation];
+    [location getAuthorization]; //取得授权
+    [location startLocation];  //开始定位
+    [location reverseGeoCodesuccess:^(NSDictionary *adress) {
+        NSDictionary * dict = adress;
+        JJBLog(@"%@",dict);
+    } failure:^{
+        JJBLog(@"定位失败");
+    }];
+    
+    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
+        NSDictionary * dict = adress;
+        JJBLog(@"%@",dict);
+
+    } failure:^{
+                JJBLog(@"定位失败");
+    }
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(changeName) name:@"changeShopName" object:nil];
-    
-}
+    [nc addObserver:self selector:@selector(changeName:) name:@"changeShopName" object:nil];
+    }
 
 -(void)dealloc
 {
@@ -88,6 +108,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(void)changeName:(NSNotification *)notification
 {
     JJBLog(@"%@",notification);
+    NSString * string = notification.userInfo[@"ShopIndexShopListName"];
+    self.navigationItem.title = string;
     
 }
 #pragma -
@@ -104,6 +126,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     ShopListController * shopListVC = [[ShopListController alloc]init];
     shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
     [self presentViewController:shopListVC animated:YES completion:nil];
+//    [[MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
+//        NSDictionary * dict = adress;
+//        JJBLog(@"%@",dict);
+//        
+//    } failure:^{
+//        JJBLog(@"定位失败");
+//    }];
+
 
 }
 //banner位

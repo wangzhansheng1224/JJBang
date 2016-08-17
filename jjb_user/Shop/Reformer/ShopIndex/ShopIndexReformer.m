@@ -122,7 +122,7 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                                         }];
         }
         
-        NSArray * shopListTmpArray = indexData[@"ShopList"];
+        NSArray * shopListTmpArray = indexData[@"shopList"];
         NSMutableArray * shopListArray = [NSMutableArray array];
         if (shopListTmpArray != nil) {
             for (NSInteger i = 0; i<shopListTmpArray.count; i++) {
