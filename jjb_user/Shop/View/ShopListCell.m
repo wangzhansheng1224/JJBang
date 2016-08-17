@@ -60,7 +60,8 @@
 -(void)configWithData:(NSDictionary *)data
 {
     [self.shopNameLabel setText:data[kShopIndexShopListName]];
-    [self.shopIDLabel setText:data[kShopIndexShopListID]];
+     NSString * string =  [data[kShopIndexShopListID] stringValue];
+    [self.shopIDLabel setText:string];
 }
 
 

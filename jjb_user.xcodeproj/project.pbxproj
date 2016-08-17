@@ -51,6 +51,9 @@
 		51D3489E1D57691B002D761C /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3489C1D57691B002D761C /* MyOrderController.m */; };
 		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
 		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
+		51D3D7591D6442FF0062D288 /* OrdersDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3D7581D6442FF0062D288 /* OrdersDetailCell.m */; };
+		51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3D75B1D6444D20062D288 /* OrdersDetailHeader.m */; };
+		51D3D75F1D6444E30062D288 /* OrdersDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3D75E1D6444E30062D288 /* OrdersDetailFooter.m */; };
 		51EB73141D546E69009D08FE /* MyMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73131D546E69009D08FE /* MyMoreController.m */; };
 		51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EB73161D547DAC009D08FE /* MyMoreCell.m */; };
 		51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F6944B1D609FE20099909A /* StarTeacherController.m */; };
@@ -178,6 +181,8 @@
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
 		AC3D77D61D63322200AAA3A0 /* ShopListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D51D63322200AAA3A0 /* ShopListCell.m */; };
+		AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */; };
+		AC3D77DF1D6444CC00AAA3A0 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */; };
 		AC3E15FF1D5D7F59006FD1D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */; };
 		AC3E16011D5D7F7A006FD1D7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16001D5D7F7A006FD1D7 /* libz.tbd */; };
 		AC3E16031D5D7F92006FD1D7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */; };
@@ -349,6 +354,12 @@
 		51D348A01D57924E002D761C /* MyHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHelpCell.m; path = jjb_user/My/MyHelpCell.m; sourceTree = SOURCE_ROOT; };
 		51D348A21D5797E3002D761C /* MyMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMemberController.h; sourceTree = "<group>"; };
 		51D348A31D5797E3002D761C /* MyMemberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMemberController.m; sourceTree = "<group>"; };
+		51D3D7571D6442FF0062D288 /* OrdersDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersDetailCell.h; sourceTree = "<group>"; };
+		51D3D7581D6442FF0062D288 /* OrdersDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersDetailCell.m; sourceTree = "<group>"; };
+		51D3D75A1D6444D20062D288 /* OrdersDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersDetailHeader.h; sourceTree = "<group>"; };
+		51D3D75B1D6444D20062D288 /* OrdersDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersDetailHeader.m; sourceTree = "<group>"; };
+		51D3D75D1D6444E30062D288 /* OrdersDetailFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersDetailFooter.h; sourceTree = "<group>"; };
+		51D3D75E1D6444E30062D288 /* OrdersDetailFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersDetailFooter.m; sourceTree = "<group>"; };
 		51EB73121D546E69009D08FE /* MyMoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoreController.h; sourceTree = "<group>"; };
 		51EB73131D546E69009D08FE /* MyMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoreController.m; sourceTree = "<group>"; };
 		51EB73151D547DAC009D08FE /* MyMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMoreCell.h; path = jjb_user/My/MyMoreCell.h; sourceTree = SOURCE_ROOT; };
@@ -616,6 +627,11 @@
 		AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeWeChatAPIManager.m; sourceTree = "<group>"; };
 		AC3D77D41D63322200AAA3A0 /* ShopListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListCell.h; sourceTree = "<group>"; };
 		AC3D77D51D63322200AAA3A0 /* ShopListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListCell.m; sourceTree = "<group>"; };
+		AC3D77D91D643D9000AAA3A0 /* single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		AC3D77DA1D643F9900AAA3A0 /* MBLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocation.h; sourceTree = "<group>"; };
+		AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocation.m; sourceTree = "<group>"; };
+		AC3D77DD1D6444CC00AAA3A0 /* MBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocationManager.h; sourceTree = "<group>"; };
+		AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
 		AC3E15FE1D5D7F59006FD1D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC3E16001D5D7F7A006FD1D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -876,6 +892,7 @@
 			isa = PBXGroup;
 			children = (
 				51B50F3C1D64291C001733C8 /* Controller */,
+				51D3D7561D6442FF0062D288 /* View */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -887,6 +904,19 @@
 				51B50F3E1D642953001733C8 /* OrdersDetailController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		51D3D7561D6442FF0062D288 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51D3D7571D6442FF0062D288 /* OrdersDetailCell.h */,
+				51D3D7581D6442FF0062D288 /* OrdersDetailCell.m */,
+				51D3D75A1D6444D20062D288 /* OrdersDetailHeader.h */,
+				51D3D75B1D6444D20062D288 /* OrdersDetailHeader.m */,
+				51D3D75D1D6444E30062D288 /* OrdersDetailFooter.h */,
+				51D3D75E1D6444E30062D288 /* OrdersDetailFooter.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6702D6FE0C68A85C27B5AFC6 /* Pods */ = {
@@ -2057,6 +2087,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC3D77D71D643D6600AAA3A0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D77D91D643D9000AAA3A0 /* single.h */,
+				AC3D77DA1D643F9900AAA3A0 /* MBLocation.h */,
+				AC3D77DB1D643F9900AAA3A0 /* MBLocation.m */,
+				AC3D77DD1D6444CC00AAA3A0 /* MBLocationManager.h */,
+				AC3D77DE1D6444CC00AAA3A0 /* MBLocationManager.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		AC540A711D61B640007636CE /* AliPay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2264,6 +2306,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				AC3D77D71D643D6600AAA3A0 /* Location */,
 				AC540AF31D62C0FE007636CE /* Pay */,
 				738B82101D5FE5A100765F6F /* OSS */,
 				AC6E137B1D5D8E1100A7C71D /* WeChatPay */,
@@ -2487,7 +2530,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 972SEJPPZB;
+						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -2605,6 +2648,7 @@
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
+				AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */,
 				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
@@ -2618,6 +2662,7 @@
 				512763631D6174C5005A241A /* HomePageActivityController.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
+				51D3D75F1D6444E30062D288 /* OrdersDetailFooter.m in Sources */,
 				732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */,
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */,
@@ -2648,6 +2693,7 @@
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
 				AC540B001D62C16D007636CE /* payRequsestHandler.mm in Sources */,
+				AC3D77DF1D6444CC00AAA3A0 /* MBLocationManager.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				AC540ADE1D61B640007636CE /* MD5DataSigner.m in Sources */,
@@ -2659,6 +2705,7 @@
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
 				735C3B091D63F91C00E4DB90 /* CourseRegisterListAPIManager.m in Sources */,
+				51D3D7591D6442FF0062D288 /* OrdersDetailCell.m in Sources */,
 				738B82161D5FE67200765F6F /* ImgModel.m in Sources */,
 				732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */,
 				732A96C51D5EA14200BE5800 /* CTMediator+CTMediatorGoodsActions.m in Sources */,
@@ -2792,6 +2839,7 @@
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
+				51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				738B820E1D5F741D00765F6F /* AlbumImageTileView.m in Sources */,
