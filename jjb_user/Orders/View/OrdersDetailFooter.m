@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UILabel *label4;    //下单时间
 @property (nonatomic,strong) UILabel *timeLabel;
 @property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) UILabel *topline;
 
 @end
 
@@ -39,7 +40,7 @@
         [self addSubview:self.payingLabel];
         [self addSubview:self.timeLabel];
         [self addSubview:self.line];
-        
+        [self addSubview:self.topline];
         [self layoutPageSubviews];
     }
     return self;
@@ -93,14 +94,20 @@
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_payingLabel.mas_bottom).with.offset(8);
-        make.right.equalTo(@-8);
-        make.size.mas_equalTo(CGSizeMake(120, 12));
+        make.right.equalTo(@-16);
+        make.size.mas_equalTo(CGSizeMake(100, 12));
     }];
     [_label4 mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.right.equalTo(_timeLabel.mas_left).with.offset(-8);
+        make.right.equalTo(_timeLabel.mas_left).with.offset(0);
         make.centerY.equalTo(_timeLabel.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(60, 12));
+    }];
+    [_topline mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.bottom.equalTo(_goodsPriceLabel.mas_top).with.offset(-16);
+        make.height.equalTo(@8);
+        make.left.right.equalTo(@0);
     }];
 }
 
@@ -126,6 +133,7 @@
         _goodsPriceLabel.text = @"￥1080";
         _goodsPriceLabel.textColor = COLOR_ORANGE;
         _goodsPriceLabel.font = H4;
+        _goodsPriceLabel.textAlignment = NSTextAlignmentRight;
     }
     return _goodsPriceLabel;
 }
@@ -209,9 +217,19 @@
     if (!_line) {
         
         _line = [[UILabel alloc] init];
-        _line.backgroundColor = COLOR_GRAY;
+        _line.backgroundColor = COLOR_LIGHT_GRAY;
     }
     return _line;
+}
+
+- (UILabel *)topline {
+
+    if (!_topline) {
+        
+        _topline = [[UILabel alloc] init];
+        _topline.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _topline;
 }
 
 

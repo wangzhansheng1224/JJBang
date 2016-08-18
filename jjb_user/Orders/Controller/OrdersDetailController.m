@@ -19,6 +19,9 @@
 @property (nonatomic,strong) UIView *bottomView;
 @property (nonatomic,strong) UIButton *payBtn;
 @property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) UIView *sectionView;
+@property (nonatomic,strong) UILabel *locationLabel;
+@property (nonatomic,strong) UIImageView *arrowImageV;
 
 @end
 
@@ -28,24 +31,29 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_WHITE;
     self.navigationItem.title = @"订单详情";
     [self.view addSubview:self.tableView];
     [self.bottomView addSubview:self.payBtn];
-    [self.view addSubview:self.line];
+    [self.bottomView addSubview:self.line];
     [self.view addSubview:self.bottomView];
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
+    [self.sectionView addSubview:self.locationLabel];
+    [self.sectionView addSubview:self.arrowImageV];
+    [self layoutPageSubviews];
 }
 
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_top);
-        make.left.mas_equalTo(self.view.mas_left);
-        make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
     }];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -62,7 +70,19 @@
         
         make.height.equalTo(@1);
         make.left.right.equalTo(@0);
-        make.top.equalTo(_bottomView.mas_top).with.offset(0);
+        make.top.equalTo(@0);
+    }];
+    [_locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(100, 16));
+        make.top.equalTo(@8);
+        make.left.equalTo(@16);
+    }];
+    [_arrowImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(12, 16));
+        make.top.equalTo(@8);
+        make.right.equalTo(@-16);
     }];
 }
 
@@ -77,14 +97,32 @@
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 1;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     OrdersDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrdersDetailCell" forIndexPath:indexPath];
-    
+    if (!cell) {
+        
+        cell = [[OrdersDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OrdersDetailCell"];
+    }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 95;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+
+    return self.sectionView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+
+    return 32;
 }
 
 #pragma -
@@ -97,7 +135,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 110, 0);
         [_tableView registerClass:[OrdersDetailCell class] forCellReuseIdentifier:@"OrdersDetailCell"];
     }
     return _tableView;
@@ -107,8 +145,8 @@
     
     if (!_headerView) {
         
-        _headerView = [[OrdersDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 46))];
-        _headerView.backgroundColor = COLOR_GRAY;
+        _headerView = [[OrdersDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 54))];
+        _headerView.backgroundColor = COLOR_WHITE;
     }
     return _headerView;
 }
@@ -118,7 +156,7 @@
     if (!_footerView) {
         
         _footerView = [[OrdersDetailFooter alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 68))];
-        _footerView.backgroundColor = COLOR_DARK_GRAY;
+        _footerView.backgroundColor = COLOR_WHITE;
     }
     return _footerView;
 }
@@ -128,6 +166,7 @@
     if (!_bottomView) {
         
         _bottomView = [[UIView alloc] init];
+        _bottomView.backgroundColor = COLOR_WHITE;
     }
     return _bottomView;
 }
@@ -157,5 +196,37 @@
     return _line;
 }
 
+- (UIView *)sectionView {
+
+    if (!_sectionView) {
+        
+        _sectionView = [[UIView alloc] init];
+        _sectionView.backgroundColor = COLOR_WHITE;
+    }
+    return _sectionView;
+}
+
+- (UILabel *)locationLabel {
+
+    if (!_locationLabel) {
+        
+        _locationLabel = [[UILabel alloc] init];
+        _locationLabel.text = @"望京店";
+        _locationLabel.textColor = COLOR_GRAY;
+        _locationLabel.textAlignment = NSTextAlignmentLeft;
+        _locationLabel.font = H3;
+    }
+    return _locationLabel;
+}
+
+- (UIImageView *)arrowImageV {
+
+    if (!_arrowImageV) {
+        
+        _arrowImageV = [[UIImageView alloc] init];
+        _arrowImageV.backgroundColor = JJBRandomColor;
+    }
+    return _arrowImageV;
+}
 
 @end
