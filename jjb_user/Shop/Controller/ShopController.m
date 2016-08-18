@@ -77,9 +77,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.shopIndexAPIManager loadData];
     
     MBLocation * location =[MBLocation shareMBLocation];
-    [location getAuthorization]; //取得授权
-    [location startLocation];  //开始定位
     
+    [location getCurrentLocation:^(NSDictionary * dict) {
+        JJBLog(@"%@",dict);
+    }];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -87,18 +88,19 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(changeName:) name:@"changeShopName" object:nil];
     
-    [[MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-        NSDictionary * dict = adress;
+    
+    MBLocation * location =[MBLocation shareMBLocation];
+    
+    [location getCurrentLocation:^(NSDictionary * dict) {
         JJBLog(@"%@",dict);
         self.currentLongitude = [dict[@"longitude"] doubleValue];
         self.currentLatitude  = [dict [@"latitude"] doubleValue];
-       
+        
         [self.loactionButton setTitle:dict[@"city"]];
-    } failure:^{
-        JJBLog(@"定位失败");
     }];
 
     }
+
 
 -(void)dealloc
 {
@@ -126,14 +128,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     ShopListController * shopListVC = [[ShopListController alloc]init];
     shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
     [self presentViewController:shopListVC animated:YES completion:nil];
-//    [[MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-//        NSDictionary * dict = adress;
-//        JJBLog(@"%@",dict);
-//        
-//    } failure:^{
-//        JJBLog(@"定位失败");
-//    }];
-
 
 }
 //banner位

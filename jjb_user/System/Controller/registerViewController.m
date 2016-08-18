@@ -38,7 +38,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    //退出键盘
+    [self.view endEditing:YES];
 
+}
 #pragma mark
 #pragma mark - private methods
 -(void)setupNav
@@ -71,17 +76,17 @@
         make.left.equalTo(self.view.mas_left).offset(18);
         make.right.equalTo(self.view.mas_right).offset(-20);
         make.height.mas_equalTo(@40);
-        make.top.equalTo(self.telTextfield.mas_bottom).offset(1);
+        make.top.equalTo(self.telTextfield.mas_bottom).offset(10);
     }];
     [self.passWordTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(18);
         make.right.equalTo(self.view.mas_right).offset(-20);
         make.height.mas_equalTo(@40);
-        make.top.equalTo(self.userNameTextfield.mas_bottom).offset(1);
+        make.top.equalTo(self.userNameTextfield.mas_bottom).offset(10);
     }];
     [self.codeTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(18);
-        make.top.equalTo(self.passWordTextfield.mas_bottom).offset(4);
+        make.top.equalTo(self.passWordTextfield.mas_bottom).offset(10);
         make.width.mas_equalTo(@150);
 //        make.right.equalTo(self.view.mas_right).offset(20);
        make.height.mas_equalTo(@40);
@@ -151,7 +156,7 @@
     if (_userNameTextfield == nil) {
         UITextField * textField = [[UITextField alloc]init];
         textField.translatesAutoresizingMaskIntoConstraints = NO;
-        textField.placeholder = @"用户名";
+        textField.placeholder = @"用户昵称";
         textField.backgroundColor = [UIColor whiteColor];
         textField.font = [UIFont systemFontOfSize:17];
 //        textField.borderStyle = UITextBorderStyleLine;
@@ -200,7 +205,7 @@
         [button setTitle:@"获取验证码" forState:UIControlStateNormal];
         [button setTitle:@"60(s)" forState:UIControlStateSelected];
         [button.layer setMasksToBounds:YES];
-        [button.layer setCornerRadius:2.0];
+        [button.layer setCornerRadius:5.0];
         [button addTarget:self action:@selector(gotoCode) forControlEvents:UIControlEventTouchUpInside];
         
         _codeButton = button;
@@ -227,8 +232,8 @@
     if (_agreeButton == nil) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.translatesAutoresizingMaskIntoConstraints = NO;
-        [button setBackgroundImage:[UIImage imageNamed:@"login_normal"]forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"login_select"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:@"login_select"]forState:UIControlStateNormal];
+//        [button setBackgroundImage:[UIImage imageNamed:@"login_select"] forState:UIControlStateHighlighted];
         [button sizeToFit];
         _agreeButton = button;
     }

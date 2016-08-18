@@ -13,8 +13,9 @@
 #import "OSSManager.h"
 #import "ImgModel.h"
 #import "GrowingTreePublishAPIManager.h"
-
-
+#import "issueLocationView.h"
+#import "issueLocationController.h"
+#import "MBLocation.h"
 @interface IssueController ()<UITextViewDelegate,UzysAssetsPickerControllerDelegate,PublishAlbumTopViewDelegate,LDAPIManagerParamSourceDelegate,LDAPIManagerApiCallBackDelegate>
 
 @property (nonatomic,strong) UITextView *textView;
@@ -23,6 +24,10 @@
 @property (nonatomic,strong) PublishAlbumTopView *tileView;
 @property(nonatomic,strong)  NSMutableArray* arrImgs;
 @property (nonatomic,strong) LDAPIBaseManager *publishAPIManager;
+@property(nonatomic,strong) issueLocationView * issueLocationView;
+@property(nonatomic,assign)  double longitude;
+@property(nonatomic,assign)  double  latitude;
+@property(nonatomic,copy)  NSString * address;
 @end
 
 @implementation IssueController
@@ -31,13 +36,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"发布成长";
-    self.view.backgroundColor = COLOR_WHITE;
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.rightBarButtonItem = self.issueItem;
  
     [self.view addSubview:self.textView];
     [self.view addSubview:self.label_placehold];
     [self.view addSubview:self.tileView];
     [self.view bringSubviewToFront:self.tileView];
+    [self.view addSubview:self.issueLocationView];
+//    issueLocationView * issView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, 400, Screen_Width, 60)];
+   
 }
 
 #pragma -
@@ -45,6 +53,17 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+    [[MBLocation shareMBLocation] getCurrentLocation:^(NSDictionary *dict) {
+//            self.currentLongitude = [dict[@"longitude"] doubleValue];
+//            self.currentLatitude  = [dict [@"latitude"] doubleValue];
+        _issueLocationView.locationLabel.text = dict[@"address"];
+        self.longitude = [dict[@"longitude"] doubleValue];
+        self.latitude =  [dict[@"latitude"] doubleValue];
+        self.address = dict[@"address"];
+        JJBLog(@"%@",dict);
+        
+        }];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -147,9 +166,9 @@
              @"from_user_id":@"4",
              @"shop_id":@"1",
              @"content":_textView.text,
-             @"longitude":@"40.69847032728747",
-             @"latitude":@"40.69847032728747",
-             @"address":@"北京",
+             @"longitude":@(self.longitude),
+             @"latitude":@(self.latitude),
+             @"address": self.address,
              @"images":imgStrings
              };
 }
@@ -189,6 +208,8 @@
         [_tileView addImgUrls:assets];
     }
 }
+
+
 
 #pragma
 #pragma mark - getter and setter
@@ -232,7 +253,7 @@
 -(PublishAlbumTopView *)tileView
 {
     if (!_tileView) {
-          _tileView = [[PublishAlbumTopView alloc] initWithFrame:CGRectMake(0, 150, Screen_Width, 3*PublishImageTileHeight + 40)];
+          _tileView = [[PublishAlbumTopView alloc] initWithFrame:CGRectMake(0, 150, Screen_Width, 3*PublishImageTileHeight + 40-150)];
         _tileView.imageMaxCount=9;
         _tileView.delegate = self;
         [_tileView setViewDefault];
@@ -247,5 +268,14 @@
         _publishAPIManager.delegate=self;
     }
    return _publishAPIManager;
+}
+-(issueLocationView *)issueLocationView
+{
+    if (_issueLocationView == nil) {
+        _issueLocationView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, self.tileView.frame.origin.y+self.tileView.frame.size.height + 5, Screen_Width, 40)];
+        
+        
+}
+    return _issueLocationView;
 }
 @end

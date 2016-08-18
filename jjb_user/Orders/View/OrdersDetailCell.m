@@ -8,17 +8,61 @@
 
 #import "OrdersDetailCell.h"
 
+@interface OrdersDetailCell ()
+
+@property (nonatomic,strong) UIImageView *picImageV;
+@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,strong) UILabel *describeLabel;    //商品描述
+@property (nonatomic,strong) UILabel *priceLabel;
+
+@end
+
 @implementation OrdersDetailCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self) {
+        
+        
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma -
+#pragma mark - getters and setters
+- (UIImageView *)picImageV {
 
-    // Configure the view for the selected state
+    if (!_picImageV) {
+        
+        _picImageV = [[UIImageView alloc] init];
+        _picImageV.backgroundColor = JJBRandomColor;
+    }
+    return _picImageV;
+}
+
+- (UILabel *)titleLabel {
+
+    if (!_titleLabel) {
+        
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.text = @"商品名称";
+        _titleLabel.font = H2;
+    }
+    return _titleLabel;
+}
+
+- (UILabel *)describeLabel {
+
+    if (!_describeLabel) {
+        
+        _describeLabel = [[UILabel alloc] init];
+        _describeLabel.text = @"商品描述";
+        _describeLabel.font = H4;
+        _describeLabel.textColor = COLOR_GRAY;
+    }
+    return _describeLabel;
 }
 
 @end

@@ -46,8 +46,23 @@ SingleM(MBLocation);
 -(void)startLocation
 {
     [self.locationManager startUpdatingLocation];
+    [self getAuthorization];
 }
-
+- (void)getCurrentLocation:(ResultBlock)block
+{
+    // 记录代码块
+    self.resultBlock = block;
+    
+    // 获取用户位置信息
+    if([CLLocationManager locationServicesEnabled])
+    {
+        [self getAuthorization];
+        [self.locationManager startUpdatingLocation];
+    }else
+    {
+        self.resultBlock(nil);
+    }
+}
 #pragma -
 #pragma mark  - CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
@@ -58,10 +73,7 @@ SingleM(MBLocation);
     self.longitude = coordnate.longitude; //经度
     self.latitude = coordnate.latitude;  //纬度
     JJBLog(@"经度=%lf纬度=%lf",self.longitude,self.latitude);
-    if (self.LocationBlock) {
-        self.LocationBlock(self.longitude,self.latitude);
-    }
-    /*
+    
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
             JJBLog(@"%@",error.description);
@@ -74,69 +86,29 @@ SingleM(MBLocation);
                 NSString * city = pm.addressDictionary[@"City"];
                 NSString * subLocality = pm.addressDictionary[@"SubLocality"];
                 NSString * street = pm.addressDictionary[@"Street"];
-                NSString * adress = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
-                  JJBLog(@"定位的城市%@",adress);
+                NSString * address = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
                 
-                self.city = city;
-                self.address = adress;
+                NSDictionary * infoDict = @{
+                                            @"city":city,
+                                            @"address":address,
+                                            @"longitude":@(self.longitude),
+                                            @"latitude":@(self.latitude)
+                                            };
+                JJBLog(@"定位的城市%@",infoDict);
+                self.resultBlock(infoDict);
             }else if([placemarks count] == 0 )
             {
                 [self alertOpenLocationSwitch:@"提示" messgae:@"定位城市失败"];
             }
         }
     }];
-     */
+    
     
     
     [self.locationManager stopUpdatingLocation];
     
 }
 
-
--(void)reverseGeoCodesuccess:(void(^)(NSDictionary * adress))success failure:(void(^)())failure
-{
-    
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        CLLocation * location = [[CLLocation alloc]initWithLatitude:self.latitude  longitude:self.longitude];
-        [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-            if (error) {
-                JJBLog(@"%@",error.description);
-                if (failure) {
-                    failure();
-                }
-            }
-            else
-            {
-                if ([placemarks count]>0)
-                {
-                    CLPlacemark * pm = [placemarks firstObject];
-                    //获取城市
-                    NSString * city = pm.addressDictionary[@"City"];
-                    NSString * subLocality = pm.addressDictionary[@"SubLocality"];
-                    NSString * street = pm.addressDictionary[@"Street"];
-                    NSString * address = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
-                    
-                    NSDictionary * infoDict = @{
-                                                @"city":city,
-                                                @"address":address,
-                                                @"longitude":@(self.longitude),
-                                                @"latitude":@(self.latitude)
-                                                };
-                    JJBLog(@"定位的城市%@",infoDict);
-                    if (success) {
-                        success(infoDict);
-                    }
-                    
-                }
-            }
-        }];
-    });
-
-
-}
- 
 #pragma -
 #pragma mark - getter and setter
 -(CLLocationManager *)locationManager

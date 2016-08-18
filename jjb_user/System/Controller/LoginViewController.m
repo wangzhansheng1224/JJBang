@@ -165,7 +165,7 @@
         make.left.equalTo(self.view.mas_left).offset(18);
         make.right.equalTo(self.view.mas_right).offset(-20);
         make.height.mas_equalTo(@40);
-        make.top.equalTo(self.telTextField.mas_bottom).offset(1);
+        make.top.equalTo(self.telTextField.mas_bottom).offset(10);
     }];
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
@@ -231,7 +231,7 @@
        UITextField * textField = [[UITextField alloc]init];
         //去除约束
         textField.translatesAutoresizingMaskIntoConstraints = NO;
-        textField.placeholder = @"用户名/手机号/电子邮箱";
+        textField.placeholder = @"手机号";
         textField.backgroundColor = [UIColor whiteColor];
         textField.font = [UIFont systemFontOfSize:17];
         textField.keyboardType = UIKeyboardTypeNumberPad;
