@@ -68,6 +68,7 @@
 - (void)configWithData:(NSDictionary *)data{
     self.data=[[NSMutableDictionary alloc] initWithDictionary:data];
     [self.label_title setText:data[kCourseName]];
+    [self.label_num setText:[NSString stringWithFormat:@"%@人报名",data[kCourseNum]]];
     NSURL *url=[NSURL initWithImageURL:data[kCourseImg] Width:Screen_Width Height:Screen_Width*2.0/3];
     [self.iView_Photo sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
