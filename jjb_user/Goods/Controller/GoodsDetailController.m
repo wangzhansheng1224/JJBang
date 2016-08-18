@@ -9,7 +9,7 @@
 #import "GoodsDetailController.h"
 #import "HMSegmentedControl.h"
 #import "GoodsDetailHeader.h"
-#import "ActivityDetailCell.h"
+#import "GoodsDetailCell.h"
 #import "GoodsParameterCell.h"
 #import "GoodsDetailAPIManager.h"
 #import "GoodsDetailReformer.h"
@@ -116,7 +116,7 @@
 
     if (_tabbarControl.selectedSegmentIndex == 0) {
         //商品详情
-        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityDetailCell" forIndexPath:indexPath];
+        GoodsDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsDetailCell" forIndexPath:indexPath];
         return cell;
     }else {
         GoodsParameterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsParameterCell" forIndexPath:indexPath];
@@ -126,11 +126,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    if (_tabbarControl.selectedSegmentIndex == 0) {
-        return Screen_Height - 304;
-    }else {
-        return 64;
-    }
+    return 32;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -169,9 +165,8 @@
 
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
-//- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-//    
-//}
+
+
 
 #pragma -
 #pragma mark - getters and setters
@@ -205,7 +200,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         [_tableView registerClass:[GoodsParameterCell class] forCellReuseIdentifier:@"GoodsParameterCell"];
-        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailCell"];
+        [_tableView registerClass:[GoodsDetailCell class] forCellReuseIdentifier:@"GoodsDetailCell"];
     }
     return _tableView;
 }

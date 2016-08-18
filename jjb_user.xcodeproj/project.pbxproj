@@ -29,6 +29,7 @@
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
+		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
@@ -133,6 +134,12 @@
 		735C3B011D62F94F00E4DB90 /* TeacherReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B001D62F94F00E4DB90 /* TeacherReformer.m */; };
 		735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B041D6302F700E4DB90 /* StudentReformer.m */; };
 		735C3B091D63F91C00E4DB90 /* CourseRegisterListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B081D63F91C00E4DB90 /* CourseRegisterListAPIManager.m */; };
+		735C3B0C1D643D0D00E4DB90 /* CourseDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B0B1D643D0C00E4DB90 /* CourseDetailHeader.m */; };
+		735C3B0F1D64556100E4DB90 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B0E1D64556100E4DB90 /* CourseDetailCell.m */; };
+		735C3B121D654C9200E4DB90 /* CourseCatalogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B111D654C9200E4DB90 /* CourseCatalogCell.m */; };
+		735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B141D655A5000E4DB90 /* CourseRegistrationCell.m */; };
+		735C3B1A1D65690400E4DB90 /* CourseCatalogReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B191D65690400E4DB90 /* CourseCatalogReformer.m */; };
+		735C3B1D1D658DCD00E4DB90 /* CourseCatalogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */; };
 		736BBD2F1D61701800E73707 /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BBD2E1D61701800E73707 /* PhotoBrowserController.m */; };
 		737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C00271D5ACD3A006A8636 /* ActivityIndexController.m */; };
 		737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C002A1D5ADC32006A8636 /* ActivityRegistrationController.m */; };
@@ -309,6 +316,8 @@
 		5155CE701D581F0B00306150 /* StudentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentListCell.m; path = jjb_user/Student/StudentListCell.m; sourceTree = SOURCE_ROOT; };
 		5158BE2B1D61C57900105473 /* GoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListCell.h; sourceTree = "<group>"; };
 		5158BE2C1D61C57900105473 /* GoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListCell.m; sourceTree = "<group>"; };
+		5174E5171D6594F200C92E24 /* GoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
+		5174E5181D6594F200C92E24 /* GoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		517F992F1D57A6FB002609E5 /* MySettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingController.h; sourceTree = "<group>"; };
 		517F99301D57A6FB002609E5 /* MySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingController.m; sourceTree = "<group>"; };
@@ -524,6 +533,19 @@
 		735C3B061D63030900E4DB90 /* StudentKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentKeys.h; sourceTree = "<group>"; };
 		735C3B071D63F91C00E4DB90 /* CourseRegisterListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseRegisterListAPIManager.h; sourceTree = "<group>"; };
 		735C3B081D63F91C00E4DB90 /* CourseRegisterListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseRegisterListAPIManager.m; sourceTree = "<group>"; };
+		735C3B0A1D643D0C00E4DB90 /* CourseDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailHeader.h; sourceTree = "<group>"; };
+		735C3B0B1D643D0C00E4DB90 /* CourseDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailHeader.m; sourceTree = "<group>"; };
+		735C3B0D1D64556100E4DB90 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
+		735C3B0E1D64556100E4DB90 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
+		735C3B101D654C9200E4DB90 /* CourseCatalogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCatalogCell.h; sourceTree = "<group>"; };
+		735C3B111D654C9200E4DB90 /* CourseCatalogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCatalogCell.m; sourceTree = "<group>"; };
+		735C3B131D655A5000E4DB90 /* CourseRegistrationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseRegistrationCell.h; sourceTree = "<group>"; };
+		735C3B141D655A5000E4DB90 /* CourseRegistrationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseRegistrationCell.m; sourceTree = "<group>"; };
+		735C3B171D65689E00E4DB90 /* CourseCatalogKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CourseCatalogKeys.h; path = CourseCatalog/CourseCatalogKeys.h; sourceTree = "<group>"; };
+		735C3B181D65690400E4DB90 /* CourseCatalogReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseCatalogReformer.h; path = CourseCatalog/CourseCatalogReformer.h; sourceTree = "<group>"; };
+		735C3B191D65690400E4DB90 /* CourseCatalogReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseCatalogReformer.m; path = CourseCatalog/CourseCatalogReformer.m; sourceTree = "<group>"; };
+		735C3B1B1D658DCD00E4DB90 /* CourseCatalogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCatalogView.h; sourceTree = "<group>"; };
+		735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCatalogView.m; sourceTree = "<group>"; };
 		736BBD2D1D61701800E73707 /* PhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
 		736BBD2E1D61701800E73707 /* PhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
 		737C00261D5ACD3A006A8636 /* ActivityIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndexController.h; sourceTree = "<group>"; };
@@ -1145,6 +1167,7 @@
 		731091A91D51A52C0031B443 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				735C3B161D65687100E4DB90 /* CourseCatalog */,
 				73575F4B1D54D2D10037F697 /* CourseInfo */,
 				73575F461D54D2B70037F697 /* CourseList */,
 				735C3AED1D62B97900E4DB90 /* CourseKeys.h */,
@@ -1155,6 +1178,16 @@
 		731091AA1D51A52C0031B443 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				735C3B0A1D643D0C00E4DB90 /* CourseDetailHeader.h */,
+				735C3B0B1D643D0C00E4DB90 /* CourseDetailHeader.m */,
+				735C3B0D1D64556100E4DB90 /* CourseDetailCell.h */,
+				735C3B0E1D64556100E4DB90 /* CourseDetailCell.m */,
+				735C3B101D654C9200E4DB90 /* CourseCatalogCell.h */,
+				735C3B111D654C9200E4DB90 /* CourseCatalogCell.m */,
+				735C3B131D655A5000E4DB90 /* CourseRegistrationCell.h */,
+				735C3B141D655A5000E4DB90 /* CourseRegistrationCell.m */,
+				735C3B1B1D658DCD00E4DB90 /* CourseCatalogView.h */,
+				735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1408,6 +1441,8 @@
 				51FB77141D632EC80040D9B6 /* GoodsDetailHeader.m */,
 				51ACDDF01D640675001604A6 /* GoodsParameterCell.h */,
 				51ACDDF11D640675001604A6 /* GoodsParameterCell.m */,
+				5174E5171D6594F200C92E24 /* GoodsDetailCell.h */,
+				5174E5181D6594F200C92E24 /* GoodsDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1666,6 +1701,16 @@
 				735C3AF71D62F2DC00E4DB90 /* ClerkListReformer.m */,
 			);
 			name = Reformer;
+			sourceTree = "<group>";
+		};
+		735C3B161D65687100E4DB90 /* CourseCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				735C3B171D65689E00E4DB90 /* CourseCatalogKeys.h */,
+				735C3B181D65690400E4DB90 /* CourseCatalogReformer.h */,
+				735C3B191D65690400E4DB90 /* CourseCatalogReformer.m */,
+			);
+			name = CourseCatalog;
 			sourceTree = "<group>";
 		};
 		73886CB91D4F237600643BBA /* Activity */ = {
@@ -2530,6 +2575,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+
 					};
 				};
 			};
@@ -2635,6 +2681,7 @@
 				BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */,
+				5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */,
 				AC540AE01D61B640007636CE /* openssl_wrapper.m in Sources */,
 				512F23471D517FD800E33A92 /* MyButton.m in Sources */,
 				BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */,
@@ -2674,6 +2721,7 @@
 				514E9B4F1D5086020064EEFD /* IssueController.m in Sources */,
 				735C3AFB1D62F59F00E4DB90 /* StarStudentListAPIManger.m in Sources */,
 				73575F6F1D54D75D0037F697 /* CourseController.m in Sources */,
+				735C3B1D1D658DCD00E4DB90 /* CourseCatalogView.m in Sources */,
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
 				73575F861D5546B80037F697 /* Target_System.m in Sources */,
@@ -2717,6 +2765,7 @@
 				AC540ADC1D61B640007636CE /* DataSigner.m in Sources */,
 				BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
+				735C3B1A1D65690400E4DB90 /* CourseCatalogReformer.m in Sources */,
 				735C3B011D62F94F00E4DB90 /* TeacherReformer.m in Sources */,
 				73575F371D549C7C0037F697 /* PathHelper.m in Sources */,
 				51EB73171D547DAC009D08FE /* MyMoreCell.m in Sources */,
@@ -2740,6 +2789,7 @@
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				51F6944F1D60A0870099909A /* StarTeacherCell.m in Sources */,
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
+				735C3B0F1D64556100E4DB90 /* CourseDetailCell.m in Sources */,
 				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
 				51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */,
@@ -2749,6 +2799,7 @@
 				735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
+				735C3B121D654C9200E4DB90 /* CourseCatalogCell.m in Sources */,
 				51B50F3A1D64193A001733C8 /* GoodsDetailAPIManager.m in Sources */,
 				731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */,
 				51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */,
@@ -2769,10 +2820,12 @@
 				737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */,
 				BB5679F21D5889C000C2B61D /* ShopClassifyModel.m in Sources */,
 				513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */,
+				735C3B0C1D643D0D00E4DB90 /* CourseDetailHeader.m in Sources */,
 				ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
+				735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
@@ -2914,6 +2967,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2937,6 +2991,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2952,6 +3007,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2964,7 +3020,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3022,7 +3077,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
 			};
 			name = Debug;
 		};
@@ -3031,8 +3086,8 @@
 			baseConfigurationReference = 30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3074,7 +3129,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
 			};
 			name = Release;
 		};

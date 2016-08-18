@@ -76,11 +76,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     
-    MBLocation * location =[MBLocation shareMBLocation];
-    
-    [location getCurrentLocation:^(NSDictionary * dict) {
-        JJBLog(@"%@",dict);
-    }];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

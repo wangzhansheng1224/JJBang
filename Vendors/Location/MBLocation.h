@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "single.h"
 #import <CoreLocation/CoreLocation.h>
-typedef void (^ResultBlock)(NSDictionary *);
+
+typedef void (^ResultBlock)(NSDictionary *dic);
 
 @interface MBLocation : NSObject<CLLocationManagerDelegate>
 SingleH(MBLocation);
@@ -23,6 +24,7 @@ SingleH(MBLocation);
 
 -(void)startLocation; // 开始定位
 
--(void)reverseGeoCodesuccess:(void(^)(NSDictionary * adress))success failure:(void(^)())failure;
 -(void)getCurrentLocation:(ResultBlock)block;
+//-(void) locationSuccess:(LocationBlock) block;
+
 @end

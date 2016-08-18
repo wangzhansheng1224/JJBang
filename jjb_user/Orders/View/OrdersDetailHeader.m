@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) UILabel *ordersNumLabel;
 @property (nonatomic,strong) UILabel *statusLabel;
+@property (nonatomic,strong) UILabel *line;
 
 @end
 
@@ -25,7 +26,7 @@
         
         [self addSubview:self.ordersNumLabel];
         [self addSubview:self.statusLabel];
-        
+        [self addSubview:self.line];
         [self layoutPageSubviews];
     }
     return self;
@@ -37,15 +38,21 @@
 
     [_ordersNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 14));
+        make.size.mas_equalTo(CGSizeMake(200, 14));
         make.left.equalTo(@16);
-        make.centerY.equalTo(self.mas_centerY);
+        make.top.equalTo(@16);
     }];
     [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(60, 14));
         make.right.equalTo(@-16);
-        make.centerY.equalTo(self.mas_centerY);
+        make.top.equalTo(@16);
+    }];
+    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.equalTo(@8);
+        make.left.right.equalTo(@0);
+        make.top.equalTo(_ordersNumLabel.mas_bottom).with.offset(16);
     }];
 }
 
@@ -58,6 +65,7 @@
         _ordersNumLabel = [[UILabel alloc] init];
         _ordersNumLabel.text = @"订单编号：201506072921";
         _ordersNumLabel.font = H4;
+        _ordersNumLabel.textColor = COLOR_GRAY;
     }
     return _ordersNumLabel;
 }
@@ -73,6 +81,16 @@
         _statusLabel.textColor = COLOR_ORANGE;
     }
     return _statusLabel;
+}
+
+- (UILabel *)line {
+
+    if (!_line) {
+        
+        _line = [[UILabel alloc] init];
+        _line.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _line;
 }
 
 @end
