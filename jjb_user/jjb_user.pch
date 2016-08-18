@@ -85,7 +85,7 @@ alpha:(a)]
 #define FILEHOMENAME @"File_cache" 
 
 //self的弱引用
-#define JJBWeakSelf __weak typeof(self) weakSelf = self;
+#define JJBWeakSelf __weak typeof(self)weakSelf = self
 
 
 #import "UIColor+MBHex.h"
