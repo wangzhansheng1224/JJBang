@@ -7,15 +7,17 @@
 //
 
 #import "CourseController.h"
-#import "ActivityDetailCell.h"
-#import "ActivityRegistrationCell.h"
+#import "CourseCatalogCell.h"
+#import "CourseRegistrationCell.h"
 #import "CourseCatalogAPIManager.h"
 #import "CourseRegisterListAPIManager.h"
 #import "CourseDetailAPIManager.h"
-#import "ActivityDetailHeader.h"
+#import "CourseDetailHeader.h"
 #import "HMSegmentedControl.h"
 #import "ActivityRegisterListReformer.h"
-#import "ActivityDetailReformer.h"
+#import "CourseInfoReformer.h"
+#import "CourseCatalogReformer.h"
+#import "CourseCatalogView.h"
 
 /**
  *  课程控制器
@@ -30,15 +32,15 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 @property (nonatomic,strong) id<ReformerProtocol> detailReformer;
 @property (nonatomic,strong) id<ReformerProtocol> registerListReformer;
 @property (nonatomic,strong) id<ReformerProtocol> catalogReformer;
-@property (nonatomic,strong) ActivityDetailHeader *headerView;
+@property (nonatomic,strong) CourseDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *array_data;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-@property (nonatomic,strong) NSMutableArray *arrRegistrationData;
+@property (nonatomic,strong) NSMutableArray *registrationData;
 @property (nonatomic,copy) NSDictionary *detailData;
-
+@property (nonatomic,copy) NSMutableArray *catalogData;
 @end
 
 @implementation CourseController
@@ -85,33 +87,37 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 #pragma -
 #pragma mark - tableView delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (_tabbarControl.selectedSegmentIndex == 0) {
-        return 1;
-    } else if(_tabbarControl.selectedSegmentIndex == 1){
-        return [self.arrRegistrationData count];
-    } else{
-        return 10;
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.tabbarControl.selectedSegmentIndex==0) {
+        return self.dataSource.count;
     }
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.tabbarControl.selectedSegmentIndex==0) {
+        return 1;
+    }
+    return  [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        //活动详情
-        ActivityDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.detailData];
+        //课程目录
+        CourseCatalogCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.catalogData[indexPath.row]];
         return cell;
         
     }
     else if (_tabbarControl.selectedSegmentIndex==1) {
         //报名信息
-        ActivityRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.arrRegistrationData[indexPath.row]];
+        CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
+       // [cell configWithData:self.registrationData[indexPath.row]];
         return cell;
     } else {
         //报名信息
-        ActivityRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
+        CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     
@@ -119,7 +125,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        return Screen_Height-280;
+        return 200;
     } else if(_tabbarControl.selectedSegmentIndex == 1){
         return 80;
     } else{
@@ -133,6 +139,15 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.tabbarControl.selectedSegmentIndex==0) {
+        if (section==0) {
+            return  self.tabbarControl;
+        }else{
+            CourseCatalogView *view=[[CourseCatalogView alloc] init];
+            [view configWithData:self.dataSource[section-1]];
+            return view;
+        }
+    }
     return self.tabbarControl;
 }
 
@@ -140,23 +155,34 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
-    if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
-         self.detailData=[manager fetchDataWithReformer:self.catalogReformer];
+    if ([manager isKindOfClass:[CourseDetailAPIManager class]]) {
+         self.detailData=[manager fetchDataWithReformer:self.detailReformer];
          [self.headerView configWithData:_detailData];
+           self.title=_detailData[kCourseName];
     }
     if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
-        self.detailData=[manager fetchDataWithReformer:self.catalogReformer];
-        self.title=_detailData[kActivityDetailTitle];
-        [self.tableView reloadData];
-    }
-    if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
-        NSArray *resultData = [manager fetchDataWithReformer:self.registerListReformer];
-        [self.arrRegistrationData addObjectsFromArray:resultData];
-        self.pageIndex=[self.arrRegistrationData count];
+        NSArray *resultData = [manager fetchDataWithReformer:self.catalogReformer];
+        [self.catalogData addObjectsFromArray:resultData];
+        if (self.tabbarControl.selectedSegmentIndex==0) {
+            self.dataSource=self.catalogData;
+        }
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }
+    if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
+        NSArray *resultData = [manager fetchDataWithReformer:self.registerListReformer];
+        [self.registrationData addObjectsFromArray:resultData];
+        if (self.tabbarControl.selectedSegmentIndex==1) {
+            self.dataSource=self.registrationData;
+        }
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+        
+    }
+
+
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -175,19 +201,24 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma -
 #pragma mark - event response
 - (void) tabbarControllChangeValue:(id)sender{
-    if (self.tabbarControl.selectedSegmentIndex==1) {
-        [self.arrRegistrationData removeAllObjects];
-        self.pageIndex=0;
-        [self loadData];
+    
+    if (self.tabbarControl.selectedSegmentIndex==0) {
+        self.dataSource=self.catalogData;
+        self.pageIndex=[self.dataSource count];
     }
-    [self.tableView reloadData];
+    else
+    {
+        self.dataSource=self.registrationData;
+        self.pageIndex=[self.dataSource count];
+    }
+        [self.tableView reloadData];
 }
 
 #pragma -
 #pragma mark - getters and setters
-- (ActivityDetailHeader *) headerView{
+- (CourseDetailHeader *) headerView{
     if (!_headerView) {
-        _headerView=[[ActivityDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 273)];
+        _headerView=[[CourseDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2/3.0+50)];
         _headerView.backgroundColor=COLOR_WHITE;
     }
     return _headerView;
@@ -195,9 +226,8 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (HMSegmentedControl *) tabbarControl
 {
-    
     if (!_tabbarControl) {
-        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动详情",@"报名信息"]];
+        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"课程详情",@"报名信息"]];
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
@@ -213,31 +243,44 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.dataSource removeAllObjects];
+            self.pageIndex=0;
+            [self loadData];
+        }];
         
-        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:CatalogCellIdentifier];
-        [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];
+        [_tableView registerClass:[CourseCatalogCell class] forCellReuseIdentifier:CatalogCellIdentifier];
+        [_tableView registerClass:[CourseRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];
     }
     return _tableView;
 }
 
-- (NSMutableArray *)arrRegistrationData {
+- (NSMutableArray *)registrationData {
     
-    if (!_arrRegistrationData) {
+    if (!_registrationData) {
         
-        _arrRegistrationData = [[NSMutableArray alloc] init];
+        _registrationData = [[NSMutableArray alloc] init];
     }
-    return _arrRegistrationData;
+    return _registrationData;
 }
 
-- (NSMutableArray *)array_data {
+- (NSMutableArray *)dataSource {
     
-    if (!_array_data) {
-        
-        _array_data = [[NSMutableArray alloc] init];
+    if (!_dataSource) {
+        _dataSource = [[NSMutableArray alloc] init];
     }
-    return _array_data;
+    return _dataSource;
 }
+
+- (NSMutableArray *)catalogData {
+    
+    if (!_catalogData) {
+        _catalogData = [[NSMutableArray alloc] init];
+    }
+    return _catalogData;
+}
+
 
 - (LDAPIBaseManager *)catalogAPIManager {
     if (_catalogAPIManager == nil) {
@@ -276,14 +319,14 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 -(id<ReformerProtocol>) catalogReformer{
     if (!_catalogReformer) {
-        _catalogReformer=[[ActivityDetailReformer alloc] init];
+        _catalogReformer=[[CourseCatalogReformer alloc] init];
     }
     return _catalogReformer;
 }
 
 -(id<ReformerProtocol>) detailReformer{
     if (!_detailReformer) {
-        _detailReformer=[[ActivityDetailReformer alloc] init];
+        _detailReformer=[[CourseInfoReformer alloc] init];
     }
     return _detailReformer;
 }

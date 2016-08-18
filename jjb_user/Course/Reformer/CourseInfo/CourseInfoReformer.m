@@ -34,6 +34,7 @@ NSString *const kCourseDescribe=@"CourseDescribe";
                       kCourseStar:dicData[@"star"],
                       kCourseDescribe:dicData[@"describe"]
                       };
+        return dicData;
     }
     return nil;
 }
