@@ -44,26 +44,26 @@
     [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(90, 90));
-        make.top.equalTo(@8);
-        make.left.equalTo(@16);
+        make.top.equalTo(@10);
+        make.left.equalTo(@10);
     }];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(90, 17));
-        make.left.equalTo(_picImageV.mas_right).with.offset(8);
-        make.top.equalTo(_picImageV.mas_top).with.offset(8);
+        make.left.equalTo(_picImageV.mas_right).with.offset(10);
+        make.top.equalTo(_picImageV.mas_top).with.offset(10);
     }];
     [_salesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(90, 14));
-        make.left.equalTo(_picImageV.mas_right).with.offset(8);
-        make.top.equalTo(_titleLabel.mas_bottom).with.offset(8);
+        make.left.equalTo(_picImageV.mas_right).with.offset(10);
+        make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
     }];
     [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(80, 20));
-        make.top.equalTo(_salesLabel.mas_bottom).with.offset(12);
-        make.right.equalTo(@-24);
+        make.top.equalTo(_salesLabel.mas_bottom).with.offset(10);
+        make.right.equalTo(@-10);
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -79,9 +79,9 @@
 - (void)configWithData:(NSDictionary *)data{
     
     [self.titleLabel setText:data[kGoodsListToName]];
-//    [self.salesLabel setText:data[kGrowingTreeListAddress]];
-    [self.priceLabel setText:data[kGoodsListToPrice]];
-//    [self.picImageV sd_setImageWithURL:data[kGoodsListImageUrl] placeholderImage:[UIImage imageNamed:@"img_default"]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kGoodsListToPrice]]];
+    NSURL *url=[NSURL initWithImageURL:data[kGoodsListImageUrl] Size:self.picImageV.frame.size];
+    [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
 
 }
 
@@ -90,9 +90,7 @@
 - (UIImageView *)picImageV {
     
     if (!_picImageV) {
-        
         _picImageV = [[UIImageView alloc] init];
-        _picImageV.backgroundColor = JJBRandomColor;
     }
     return _picImageV;
 }
@@ -138,7 +136,7 @@
     if (!_line) {
         
         _line = [[UILabel alloc] init];
-        _line.backgroundColor = COLOR_GRAY;
+        _line.backgroundColor = COLOR_LIGHT_GRAY;
     }
     return _line;
 }

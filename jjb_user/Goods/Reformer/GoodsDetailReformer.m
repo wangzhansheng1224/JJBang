@@ -21,29 +21,16 @@ NSString *const kGoodsDetailImages=@"GoodsDetailImages";
 {
     
     if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
-        
-        NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
-        
-        NSArray *arrData=data[@"data"];
-        
-        for (NSInteger i=0; i< [arrData count]; i++) {
-            
-//            NSURL *url;
-//            if (arrData[i][@"image"]!=[NSNull null]) {
-//                url=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]];
-//            }
-            
-            NSDictionary *itemData=@{
-                                     kGoodsDetailID:arrData[i][@"id"],
-                                     kGoodsDetailName:arrData[i][@"name"],
-                                     kGoodsDetailPrice:arrData[i][@"price"],
-                                     kGoodsDetaildescribe:arrData[i][@"describe"],
-                                     kGoodsDetailCategoryName:arrData[i][@"categoryName"],
-                                     kGoodsDetailImages:arrData[i][@"images"]
+        NSDictionary *dataDic=data[@"data"];
+        return  @{
+                                     kGoodsDetailID:dataDic[@"id"],
+                                     kGoodsDetailName:dataDic[@"name"],
+                                     kGoodsDetailPrice:dataDic[@"price"],
+                                     kGoodsDetaildescribe:dataDic[@"describe"],
+                                     kGoodsDetailCategoryName:dataDic[@"categoryName"],
+                                     kGoodsDetailImages:dataDic[@"images"]
                                      };
-            [arrResult addObject:itemData];
-        }
-        return arrResult;
+
     }
     return nil;
 }

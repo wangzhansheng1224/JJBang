@@ -14,20 +14,19 @@
 #import "GoodsDetailAPIManager.h"
 #import "GoodsDetailReformer.h"
 #import "OrdersDetailController.h"
+#import "MakeOrderBar.h"
+#import "GoodsDetailKey.h"
 
 @interface GoodsDetailController ()<UITableViewDataSource,UITableViewDelegate,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) GoodsDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) UIView *bottomView;
-@property (nonatomic,strong) UILabel *priceLabel;
-@property (nonatomic,strong) UIButton *payBtn;
-@property (nonatomic,strong) UILabel *line;
-@property (nonatomic,strong) LDAPIBaseManager *GoodsDetailAPIManager;
+@property (nonatomic,strong) MakeOrderBar *makeOrderBar;
+@property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> GoodsDetailReformer;
 @property (nonatomic,strong) NSMutableArray *dataArr;
-@property (nonatomic,strong) NSMutableDictionary *dataDic;
+@property (nonatomic,strong) NSDictionary *dataDic;
 
 @end
 
@@ -39,12 +38,10 @@
     [super viewDidLoad];
     self.navigationItem.title = @"商品详情";
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.line];
-    [self.view addSubview:self.bottomView];
-    [self.bottomView addSubview:self.priceLabel];
-    [self.bottomView addSubview:self.payBtn];
+    [self.view addSubview:self.makeOrderBar];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
+    [self.detailAPIManager loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,32 +59,13 @@
         make.top.mas_equalTo(self.view.mas_top);
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-50);
     }];
-    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@60);
+    [_makeOrderBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@50);
         make.left.right.bottom.equalTo(@0);
     }];
-    [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(100, 20));
-        make.left.equalTo(@20);
-        make.centerY.equalTo(_bottomView.mas_centerY);
-    }];
-    [_payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(120, 34));
-        make.right.equalTo(@-20);
-        make.centerY.equalTo(_bottomView.mas_centerY);
-    }];
-    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@1);
-        make.left.right.equalTo(@0);
-        make.top.equalTo(_bottomView.mas_top).with.offset(0);
-    }];
-}
+   }
 
 #pragma -
 #pragma mark - event respone
@@ -117,6 +95,7 @@
     if (_tabbarControl.selectedSegmentIndex == 0) {
         //商品详情
         GoodsDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsDetailCell" forIndexPath:indexPath];
+        [cell configWithData:self.dataDic];
         return cell;
     }else {
         GoodsParameterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsParameterCell" forIndexPath:indexPath];
@@ -140,6 +119,8 @@
     
     if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
         self.dataDic=[manager fetchDataWithReformer:self.GoodsDetailReformer];
+        [self.headerView configWithData:self.dataDic];
+        [self.makeOrderBar configWithData:@{@"shopID":@1,@"OrderType":@0,@"objectID":_dataDic[kGoodsDetailID],@"price":_dataDic[kGoodsDetailPrice]}];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
@@ -156,15 +137,11 @@
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
-        return @{};
+        return @{@"goods_id":@(self.goodsID)};
     }
-    else{
-        return @{};
-    }
+    return @{};
 }
 
-#pragma -
-#pragma mark - LDAPIManagerParamSourceDelegate
 
 
 
@@ -172,7 +149,7 @@
 #pragma mark - getters and setters
 - (GoodsDetailHeader *)headerView {
     if (!_headerView) {
-        _headerView = [[GoodsDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 260)];
+        _headerView = [[GoodsDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f+50)];
         _headerView.backgroundColor=COLOR_WHITE;
     }
     return _headerView;
@@ -205,59 +182,25 @@
     return _tableView;
 }
 
-- (UIView *)bottomView {
+- (MakeOrderBar *)makeOrderBar {
 
-    if (!_bottomView) {
+    if (!_makeOrderBar) {
         
-        _bottomView = [[UIView alloc] init];
+        _makeOrderBar = [[MakeOrderBar alloc] init];
+        _makeOrderBar.backgroundColor=COLOR_WHITE;
     }
-    return _bottomView;
+    return _makeOrderBar;
 }
 
-- (UILabel *)priceLabel {
 
-    if (!_priceLabel) {
-        
-        _priceLabel = [[UILabel alloc] init];
-        _priceLabel.textColor = COLOR_ORANGE;
-        _priceLabel.font = H1;
-        _priceLabel.text = @"￥128";
+
+- (LDAPIBaseManager *)detailAPIManager {
+    if (_detailAPIManager == nil) {
+        _detailAPIManager = [GoodsDetailAPIManager  sharedInstance];
+        _detailAPIManager.delegate=self;
+        _detailAPIManager.paramSource=self;
     }
-    return _priceLabel;
-}
-
-- (UIButton *)payBtn {
-
-    if (!_payBtn) {
-        
-        _payBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _payBtn.backgroundColor = COLOR_ORANGE;
-        _payBtn.layer.cornerRadius = 2.0;
-        _payBtn.clipsToBounds = YES;
-        [_payBtn setTitle:@"立即支付" forState:UIControlStateNormal];
-        [_payBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
-        [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _payBtn;
-}
-
-- (UILabel *)line {
-
-    if (!_line) {
-        
-        _line = [[UILabel alloc] init];
-        _line.backgroundColor = COLOR_GRAY;
-    }
-    return _line;
-}
-
-- (LDAPIBaseManager *)GoodsDetailAPIManager {
-    if (_GoodsDetailAPIManager == nil) {
-        _GoodsDetailAPIManager = [GoodsDetailAPIManager  sharedInstance];
-        _GoodsDetailAPIManager.delegate=self;
-        _GoodsDetailAPIManager.paramSource=self;
-    }
-    return _GoodsDetailAPIManager;
+    return _detailAPIManager;
 }
 
 - (id<ReformerProtocol>) GoodsDetailReformer{
@@ -277,11 +220,11 @@
     return _dataArr;
 }
 
-- (NSMutableDictionary *)dataDic {
+- (NSDictionary *)dataDic {
 
     if (!_dataDic) {
         
-        _dataDic = [[NSMutableDictionary alloc] init];
+        _dataDic = [[NSDictionary alloc] init];
     }
     return _dataDic;
 }

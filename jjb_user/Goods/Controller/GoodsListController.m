@@ -22,7 +22,6 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-@property (nonatomic,strong) GoodsDetailController *goodsDetailVC;
 
 @end
 
@@ -37,7 +36,10 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     self.view.backgroundColor = COLOR_WHITE;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
+    self.pageSize=20;
+    self.pageIndex=0;
     [self layoutPageSubviews];
+    [self.GoodsListAPIManager loadData];
 }
 
 #pragma -
@@ -57,13 +59,13 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.dataArr count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     GoodsListCell *cell = [tableView dequeueReusableCellWithIdentifier:GoodsListCellIdentifier forIndexPath:indexPath];
-    
+    [cell configWithData:self.dataArr[indexPath.row]];
     return cell;
 }
 
@@ -73,8 +75,9 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    [self.navigationController pushViewController:self.goodsDetailVC animated:YES];
+    GoodsDetailController* detail= [[GoodsDetailController alloc] init];
+    detail.goodsID=[self.dataArr[indexPath.row][kGoodsListID] integerValue];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma -
@@ -114,6 +117,14 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.dataArr removeAllObjects];
+            self.pageIndex=0;
+            [self.GoodsListAPIManager loadData];
+        }];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.GoodsListAPIManager loadData];
+        }];
+        
         [_tableView registerClass:[GoodsListCell class] forCellReuseIdentifier:GoodsListCellIdentifier];
     }
     return _tableView;
@@ -145,13 +156,5 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     return _GoodsListReformer;
 }
 
-- (GoodsDetailController *)goodsDetailVC {
-
-    if (!_goodsDetailVC) {
-        
-        _goodsDetailVC = [[GoodsDetailController alloc] init];
-    }
-    return _goodsDetailVC;
-}
 
 @end

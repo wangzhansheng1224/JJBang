@@ -30,6 +30,7 @@
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
 		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
+		5174E51F1D669BBB00C92E24 /* RHADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E51E1D669BBB00C92E24 /* RHADScrollView.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
@@ -140,6 +141,9 @@
 		735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B141D655A5000E4DB90 /* CourseRegistrationCell.m */; };
 		735C3B1A1D65690400E4DB90 /* CourseCatalogReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B191D65690400E4DB90 /* CourseCatalogReformer.m */; };
 		735C3B1D1D658DCD00E4DB90 /* CourseCatalogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */; };
+		735C3B241D65C0EB00E4DB90 /* MakeOrderAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B231D65C0EB00E4DB90 /* MakeOrderAPIManager.m */; };
+		735C3B271D65C13000E4DB90 /* OrderDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B261D65C13000E4DB90 /* OrderDetailAPIManager.m */; };
+		735C3B2A1D65C1F300E4DB90 /* MakeOrderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3B291D65C1F300E4DB90 /* MakeOrderBar.m */; };
 		736BBD2F1D61701800E73707 /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BBD2E1D61701800E73707 /* PhotoBrowserController.m */; };
 		737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C00271D5ACD3A006A8636 /* ActivityIndexController.m */; };
 		737C002B1D5ADC32006A8636 /* ActivityRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C002A1D5ADC32006A8636 /* ActivityRegistrationController.m */; };
@@ -320,6 +324,8 @@
 		5158BE2C1D61C57900105473 /* GoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListCell.m; sourceTree = "<group>"; };
 		5174E5171D6594F200C92E24 /* GoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
 		5174E5181D6594F200C92E24 /* GoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
+		5174E51D1D669BBB00C92E24 /* RHADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHADScrollView.h; sourceTree = "<group>"; };
+		5174E51E1D669BBB00C92E24 /* RHADScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHADScrollView.m; sourceTree = "<group>"; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		517F992F1D57A6FB002609E5 /* MySettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingController.h; sourceTree = "<group>"; };
 		517F99301D57A6FB002609E5 /* MySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingController.m; sourceTree = "<group>"; };
@@ -548,6 +554,12 @@
 		735C3B191D65690400E4DB90 /* CourseCatalogReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseCatalogReformer.m; path = CourseCatalog/CourseCatalogReformer.m; sourceTree = "<group>"; };
 		735C3B1B1D658DCD00E4DB90 /* CourseCatalogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCatalogView.h; sourceTree = "<group>"; };
 		735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCatalogView.m; sourceTree = "<group>"; };
+		735C3B221D65C0EB00E4DB90 /* MakeOrderAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MakeOrderAPIManager.h; path = APIManager/MakeOrderAPIManager.h; sourceTree = "<group>"; };
+		735C3B231D65C0EB00E4DB90 /* MakeOrderAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MakeOrderAPIManager.m; path = APIManager/MakeOrderAPIManager.m; sourceTree = "<group>"; };
+		735C3B251D65C13000E4DB90 /* OrderDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailAPIManager.h; path = APIManager/OrderDetailAPIManager.h; sourceTree = "<group>"; };
+		735C3B261D65C13000E4DB90 /* OrderDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailAPIManager.m; path = APIManager/OrderDetailAPIManager.m; sourceTree = "<group>"; };
+		735C3B281D65C1F300E4DB90 /* MakeOrderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeOrderBar.h; sourceTree = "<group>"; };
+		735C3B291D65C1F300E4DB90 /* MakeOrderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeOrderBar.m; sourceTree = "<group>"; };
 		736BBD2D1D61701800E73707 /* PhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
 		736BBD2E1D61701800E73707 /* PhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
 		737C00261D5ACD3A006A8636 /* ActivityIndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndexController.h; sourceTree = "<group>"; };
@@ -919,6 +931,7 @@
 		51B50F3B1D642903001733C8 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				735C3B211D65C0A300E4DB90 /* APIManager */,
 				51B50F3C1D64291C001733C8 /* Controller */,
 				51D3D7561D6442FF0062D288 /* View */,
 			);
@@ -943,6 +956,8 @@
 				51D3D75B1D6444D20062D288 /* OrdersDetailHeader.m */,
 				51D3D75D1D6444E30062D288 /* OrdersDetailFooter.h */,
 				51D3D75E1D6444E30062D288 /* OrdersDetailFooter.m */,
+				735C3B281D65C1F300E4DB90 /* MakeOrderBar.h */,
+				735C3B291D65C1F300E4DB90 /* MakeOrderBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1719,6 +1734,17 @@
 			name = CourseCatalog;
 			sourceTree = "<group>";
 		};
+		735C3B211D65C0A300E4DB90 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				735C3B221D65C0EB00E4DB90 /* MakeOrderAPIManager.h */,
+				735C3B231D65C0EB00E4DB90 /* MakeOrderAPIManager.m */,
+				735C3B251D65C13000E4DB90 /* OrderDetailAPIManager.h */,
+				735C3B261D65C13000E4DB90 /* OrderDetailAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
 		73886CB91D4F237600643BBA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1727,6 +1753,8 @@
 				73886CBA1D4F237600643BBA /* Controller */,
 				73886D601D50841700643BBA /* Reformer */,
 				73886CBE1D4F237600643BBA /* View */,
+				5174E51D1D669BBB00C92E24 /* RHADScrollView.h */,
+				5174E51E1D669BBB00C92E24 /* RHADScrollView.m */,
 				51B875CC1D503DB20082558D /* RHHeader.h */,
 				51B875CD1D503DB20082558D /* RHMenuButtonItem.h */,
 				51B875CE1D503DB20082558D /* RHMenuButtonItem.m */,
@@ -2585,6 +2613,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 972SEJPPZB;
 					};
 				};
 			};
@@ -2709,6 +2738,7 @@
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
+				5174E51F1D669BBB00C92E24 /* RHADScrollView.m in Sources */,
 				AC540AFF1D62C16D007636CE /* ApiXml.mm in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73575F4A1D54D2B70037F697 /* CourseListReformer.m in Sources */,
@@ -2784,6 +2814,7 @@
 				734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */,
 				AC540AEA1D62A54D007636CE /* MBScanButton.m in Sources */,
 				AC540ADF1D61B640007636CE /* NSDataEx.m in Sources */,
+				735C3B241D65C0EB00E4DB90 /* MakeOrderAPIManager.m in Sources */,
 				51FB77151D632EC80040D9B6 /* GoodsDetailHeader.m in Sources */,
 				AC540AE51D61C6F4007636CE /* Order.m in Sources */,
 				731091C91D51B1190031B443 /* MyGrowingTreeAPIManager.m in Sources */,
@@ -2805,6 +2836,7 @@
 				51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */,
 				732A96D01D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m in Sources */,
 				AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */,
+				735C3B271D65C13000E4DB90 /* OrderDetailAPIManager.m in Sources */,
 				732A96BA1D5E9FFA00BE5800 /* GoodsListController.m in Sources */,
 				735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
@@ -2905,6 +2937,7 @@
 				51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
+				735C3B2A1D65C1F300E4DB90 /* MakeOrderBar.m in Sources */,
 				738B820E1D5F741D00765F6F /* AlbumImageTileView.m in Sources */,
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,

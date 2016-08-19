@@ -75,7 +75,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.navigationItem.rightBarButtonItem =self.scanButton;
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {

@@ -82,6 +82,11 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
     return 148;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    StudentDetailController *detail=[[StudentDetailController alloc] init];
+    detail.studentID=1;
+    [self.navigationController pushViewController:detail animated:YES];
+}
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{

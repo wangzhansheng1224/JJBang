@@ -41,6 +41,10 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 @property (nonatomic,strong) NSMutableArray *registrationData;
 @property (nonatomic,copy) NSDictionary *detailData;
 @property (nonatomic,copy) NSMutableArray *catalogData;
+
+@property (nonatomic,strong) NSMutableArray *boolArr;
+@property (nonatomic,strong) UIButton *btn;
+
 @end
 
 @implementation CourseController
@@ -87,7 +91,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 #pragma -
 #pragma mark - tableView delegate
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.tabbarControl.selectedSegmentIndex==0) {
         return self.dataSource.count;
@@ -108,7 +111,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         CourseCatalogCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
         [cell configWithData:self.catalogData[indexPath.row]];
         return cell;
-        
     }
     else if (_tabbarControl.selectedSegmentIndex==1) {
         //报名信息
@@ -120,7 +122,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
         return cell;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -145,6 +146,9 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         }else{
             CourseCatalogView *view=[[CourseCatalogView alloc] init];
             [view configWithData:self.dataSource[section-1]];
+            view.tag = 1000+section;
+            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
+            [view addGestureRecognizer:tap];
             return view;
         }
     }
@@ -163,6 +167,12 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
         NSArray *resultData = [manager fetchDataWithReformer:self.catalogReformer];
         [self.catalogData addObjectsFromArray:resultData];
+        
+        for (NSInteger i = 0; i < self.catalogData.count; i++) {
+            
+            [self.boolArr addObject:@NO];
+        }
+
         if (self.tabbarControl.selectedSegmentIndex==0) {
             self.dataSource=self.catalogData;
         }
@@ -179,10 +189,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
-        
     }
-
-
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -200,7 +207,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 #pragma -
 #pragma mark - event response
-- (void) tabbarControllChangeValue:(id)sender{
+- (void)tabbarControllChangeValue:(id)sender{
     
     if (self.tabbarControl.selectedSegmentIndex==0) {
         self.dataSource=self.catalogData;
@@ -212,6 +219,19 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         self.pageIndex=[self.dataSource count];
     }
         [self.tableView reloadData];
+}
+
+- (void)tapGR:(UITapGestureRecognizer *)tapGR{
+    //获取section
+    NSInteger section = tapGR.view.tag - 1000;
+    //判断改变bool值
+    if ([_boolArr[section] boolValue] == YES) {
+        [_boolArr replaceObjectAtIndex:section withObject:@NO];
+    }else {
+        [_boolArr replaceObjectAtIndex:section withObject:@YES];
+    }
+    //刷新section
+    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma -
@@ -330,5 +350,16 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _detailReformer;
 }
+
+- (NSMutableArray *)boolArr {
+
+    if (!_boolArr) {
+        
+        _boolArr = [[NSMutableArray alloc] init];
+    }
+    return _boolArr;
+}
+
+
 
 @end
