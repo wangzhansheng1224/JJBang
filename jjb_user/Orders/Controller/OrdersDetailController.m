@@ -11,7 +11,7 @@
 #import "OrdersDetailHeader.h"
 #import "OrdersDetailFooter.h"
 #import "OrderDetailAPIManager.h"
-
+#import "OrderDetailReformer.h"
 @interface OrdersDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -24,6 +24,11 @@
 @property (nonatomic,strong) UILabel *locationLabel;
 @property (nonatomic,strong) UIImageView *arrowImageV;
 @property (nonatomic,strong) LDAPIBaseManager *apiManager;
+@property (nonatomic,strong) NSMutableArray * dictArray; //数据源
+@property (nonatomic,strong) id<ReformerProtocol> OrderDetailReformer;
+@property (nonatomic,strong) NSDictionary *  orderDetailDictionary;   //
+
+
 
 @end
 
@@ -100,7 +105,8 @@
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+//    return 5;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,7 +140,10 @@
     
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
         [self.view makeToast:@"获取成功"];
-    }
+         self.orderDetailDictionary = [manager fetchDataWithReformer:self.OrderDetailReformer];
+        
+        JJBLog(@"%@",self.orderDetailDictionary);
+        }
     
 }
 
@@ -147,6 +156,7 @@
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
         ((OrderDetailAPIManager*)manager).methodName=[NSString stringWithFormat:@"gateway/orderInfo/%@",self.orderNo];
+        
     }
     return @{
              @"shop_id":@"2"
@@ -266,6 +276,28 @@
         _apiManager.paramSource=self;
     }
     return _apiManager;
+}
+-(NSMutableArray *)dictArray
+{
+    if (_dictArray == nil) {
+        _dictArray = [NSMutableArray array];
+    }
+    return _dictArray;
+}
+-(id<ReformerProtocol>)OrderDetailReformer
+{
+    if (_OrderDetailReformer == nil) {
+        _OrderDetailReformer = [[OrderDetailReformer alloc]init];
+    }
+    return _OrderDetailReformer;
+}
+-(NSDictionary *)orderDetailDictionary
+{
+    if (_orderDetailDictionary == nil) {
+        _orderDetailDictionary = [NSDictionary dictionary];
+        
+    }
+    return _orderDetailDictionary;
 }
 
 @end

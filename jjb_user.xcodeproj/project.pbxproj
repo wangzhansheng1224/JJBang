@@ -190,6 +190,7 @@
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
 		AC27CB151D66DCB500240089 /* MBButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB141D66DCB500240089 /* MBButtons.m */; };
+		AC27CB1A1D6720E400240089 /* OrderDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB191D6720E400240089 /* OrderDetailReformer.m */; };
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
@@ -659,6 +660,9 @@
 		AC27CB111D66DABC00240089 /* MBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButton.m; sourceTree = "<group>"; };
 		AC27CB131D66DCB500240089 /* MBButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButtons.h; sourceTree = "<group>"; };
 		AC27CB141D66DCB500240089 /* MBButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButtons.m; sourceTree = "<group>"; };
+		AC27CB171D671EFF00240089 /* OrdersDetailKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrdersDetailKey.h; sourceTree = "<group>"; };
+		AC27CB181D6720E400240089 /* OrderDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailReformer.h; sourceTree = "<group>"; };
+		AC27CB191D6720E400240089 /* OrderDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailReformer.m; sourceTree = "<group>"; };
 		AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailController.h; sourceTree = "<group>"; };
 		AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailController.m; sourceTree = "<group>"; };
 		AC2F2B9C1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliCell.h; path = jjb_user/My/Controller/RechargeWeChatAndAliCell.h; sourceTree = SOURCE_ROOT; };
@@ -931,6 +935,7 @@
 		51B50F3B1D642903001733C8 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				AC27CB161D671D8B00240089 /* Reformer */,
 				735C3B211D65C0A300E4DB90 /* APIManager */,
 				51B50F3C1D64291C001733C8 /* Controller */,
 				51D3D7561D6442FF0062D288 /* View */,
@@ -2166,6 +2171,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC27CB161D671D8B00240089 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				AC27CB171D671EFF00240089 /* OrdersDetailKey.h */,
+				AC27CB181D6720E400240089 /* OrderDetailReformer.h */,
+				AC27CB191D6720E400240089 /* OrderDetailReformer.m */,
+			);
+			path = Reformer;
+			sourceTree = "<group>";
+		};
 		AC3D77D71D643D6600AAA3A0 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -2841,6 +2856,7 @@
 				735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
+				AC27CB1A1D6720E400240089 /* OrderDetailReformer.m in Sources */,
 				735C3B121D654C9200E4DB90 /* CourseCatalogCell.m in Sources */,
 				51B50F3A1D64193A001733C8 /* GoodsDetailAPIManager.m in Sources */,
 				731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */,

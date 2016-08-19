@@ -65,6 +65,7 @@
         make.height.equalTo(@50);
         make.left.right.bottom.equalTo(@0);
     }];
+    
    }
 
 #pragma -
@@ -76,7 +77,6 @@
 
 - (void)payBtnClick:(UIButton *)click {
     OrdersDetailController *orderDetail = [[OrdersDetailController alloc] init];
-    [NSThread currentThread];
     [self.navigationController pushViewController:orderDetail animated:YES];
 }
 
