@@ -75,8 +75,8 @@
 }
 
 - (void)payBtnClick:(UIButton *)click {
-
     OrdersDetailController *orderDetail = [[OrdersDetailController alloc] init];
+    [NSThread currentThread];
     [self.navigationController pushViewController:orderDetail animated:YES];
 }
 

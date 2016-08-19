@@ -101,7 +101,7 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"shop_id":@"2",
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };

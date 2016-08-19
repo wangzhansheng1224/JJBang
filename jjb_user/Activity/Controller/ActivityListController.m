@@ -100,7 +100,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"shop_id":@"3",
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"user_id":@([UserModel currentUser].userID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize),

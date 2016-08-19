@@ -99,7 +99,7 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"shop_id":@(1),
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };

@@ -162,9 +162,9 @@
     [imgStrings deleteCharactersInRange:NSMakeRange(imgStrings.length-1,1)];
     
     return @{
-             @"user_id":@"2",
-             @"from_user_id":@"4",
-             @"shop_id":@"1",
+             @"user_id":@([UserModel currentUser].userID),
+             @"from_user_id":@([UserModel currentUser].userID),
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"content":_textView.text,
              @"longitude":@(self.longitude),
              @"latitude":@(self.latitude),
