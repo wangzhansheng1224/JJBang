@@ -74,15 +74,15 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     
-    MBLocation * location =[MBLocation shareMBLocation];
-    [location startLocation];  //开始定位
-    
-    [location reverseGeoCodesuccess:^(NSDictionary *adress) {
-        NSDictionary * dict = adress;
-        JJBLog(@"%@",dict);
-    } failure:^{
-        JJBLog(@"定位失败");
-    }];
+//    MBLocation * location =[MBLocation shareMBLocation];
+//    [location startLocation];  //开始定位
+//    
+//    [location reverseGeoCodesuccess:^(NSDictionary *adress) {
+//        NSDictionary * dict = adress;
+//        JJBLog(@"%@",dict);
+//    } failure:^{
+//        JJBLog(@"定位失败");
+//    }];
     
 //    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
 //        NSDictionary * dict = adress;

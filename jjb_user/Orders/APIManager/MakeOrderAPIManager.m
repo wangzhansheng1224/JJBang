@@ -1,28 +1,26 @@
 //
-//  GoodsDetailAPIManager.m
+//  MakeOrderAPIManager.m
 //  jjb_user
 //
-//  Created by Check on 16/8/17.
+//  Created by Aimee on 16/8/18.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "GoodsDetailAPIManager.h"
+#import "MakeOrderAPIManager.h"
 
-@interface GoodsDetailAPIManager ()
+@interface MakeOrderAPIManager ()
 
-@property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
-
 @end
 
-@implementation GoodsDetailAPIManager
+@implementation MakeOrderAPIManager
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"goods/selectGoodsDetail";
+        _methodName = @"gateway/makeOrder/{order_type}";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -34,10 +32,6 @@
 #pragma mark - LDAPIManagerValidator
 - (BOOL)manager:(LDAPIBaseManager *)manager
 isCorrectWithCallBackData:(NSDictionary *)data {
-    
-    if (![data[@"code"] isEqualToString:@"200"]) {
-        return NO;
-    }
     return YES;
 }
 
@@ -47,10 +41,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t GoodsDetailAPIManagerOnceToken;
-    static GoodsDetailAPIManager *sharedInstance = nil;
-    dispatch_once(&GoodsDetailAPIManagerOnceToken, ^{
-        sharedInstance = [[GoodsDetailAPIManager alloc] init];
+    static dispatch_once_t MakeOrderAPIManagerOnceToken;
+    static MakeOrderAPIManager *sharedInstance = nil;
+    dispatch_once(&MakeOrderAPIManagerOnceToken, ^{
+        sharedInstance = [[MakeOrderAPIManager alloc] init];
     });
     return sharedInstance;
 }

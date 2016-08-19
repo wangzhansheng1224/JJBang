@@ -10,8 +10,9 @@
 #import "OrdersDetailCell.h"
 #import "OrdersDetailHeader.h"
 #import "OrdersDetailFooter.h"
+#import "OrderDetailAPIManager.h"
 
-@interface OrdersDetailController ()<UITableViewDelegate,UITableViewDataSource>
+@interface OrdersDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) OrdersDetailHeader *headerView;
@@ -22,6 +23,7 @@
 @property (nonatomic,strong) UIView *sectionView;
 @property (nonatomic,strong) UILabel *locationLabel;
 @property (nonatomic,strong) UIImageView *arrowImageV;
+@property (nonatomic,strong) LDAPIBaseManager *apiManager;
 
 @end
 
@@ -42,6 +44,7 @@
     [self.sectionView addSubview:self.locationLabel];
     [self.sectionView addSubview:self.arrowImageV];
     [self layoutPageSubviews];
+    [self.apiManager loadData];
 }
 
 #pragma -
@@ -124,6 +127,32 @@
 
     return 32;
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
+        [self.view makeToast:@"获取成功"];
+    }
+    
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
+        ((OrderDetailAPIManager*)manager).methodName=[NSString stringWithFormat:@"gateway/orderInfo/%@",self.orderNo];
+    }
+    return @{
+             @"shop_id":@"2"
+             };
+}
+
 
 #pragma -
 #pragma mark - getters and setters
@@ -227,6 +256,16 @@
         _arrowImageV.backgroundColor = JJBRandomColor;
     }
     return _arrowImageV;
+}
+
+-(LDAPIBaseManager*) apiManager{
+    
+    if (!_apiManager) {
+        _apiManager=[[OrderDetailAPIManager alloc] init];
+        _apiManager.delegate=self;
+        _apiManager.paramSource=self;
+    }
+    return _apiManager;
 }
 
 @end

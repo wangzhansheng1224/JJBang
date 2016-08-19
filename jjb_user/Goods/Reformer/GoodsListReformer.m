@@ -26,16 +26,17 @@ NSString *const kGoodsListToPrice = @"GoodsListToPrice";
         
         for (NSInteger i=0; i< [arrData count]; i++) {
            
-            NSURL *url;
-            if (arrData[i][@"image"]!=[NSNull null]) {
-                url=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]];
+            NSString *imgPath;
+            NSArray *imgArr=arrData[i][@"images"];
+            if (imgArr!=nil&&[imgArr count]>0) {
+                imgPath=imgArr[0][@"image"];
             }
             
             NSDictionary *itemData=@{
                                      kGoodsListID:arrData[i][@"id"],
                                      kGoodsListToName:arrData[i][@"name"],
                                      kGoodsListToPrice:arrData[i][@"price"],
-                                     kGoodsListImageUrl:@""
+                                     kGoodsListImageUrl:imgPath
                                      };
             [arrResult addObject:itemData];
         }

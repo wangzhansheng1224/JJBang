@@ -7,14 +7,15 @@
 //
 
 #import "GoodsDetailHeader.h"
-#import "HMSegmentedControl.h"
+#import "GoodsDetailKey.h"
 
-@interface GoodsDetailHeader()
+@interface GoodsDetailHeader()<iCarouselDataSource>
 
-@property (nonatomic,strong) UIImageView *picImageV;
+@property (nonatomic,strong) iCarousel *picImageV;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *salesLabel;
-@property (nonatomic,strong) UIView *line;
+@property (nonatomic,strong) UIView *lineView;
+@property (nonatomic,strong) NSArray *imgArr;
 
 @end
 
@@ -26,7 +27,7 @@
         [self addSubview:self.picImageV];
         [self addSubview:self.titleLabel];
         [self addSubview:self.salesLabel];
-        [self addSubview:self.line];
+        [self addSubview:self.lineView];
         [self layoutPageSubviews];
     }
     return self;
@@ -37,40 +38,65 @@
 - (void)layoutPageSubviews {
     
     [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 202));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Width*2.0/3.0f));
         make.top.left.equalTo(@0);
     }];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(85, 17));
-        make.top.equalTo(_picImageV.mas_bottom).with.offset(16);
-        make.left.equalTo(@24);
+        make.height.mas_equalTo(@30);
+        make.top.mas_equalTo(_picImageV.mas_bottom).offset(10);
+        make.left.mas_equalTo(self).offset(10);
+        make.right.mas_equalTo(_salesLabel.mas_left);
     }];
     [_salesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 14));
-        make.top.equalTo(_picImageV.mas_bottom).with.offset(16);
-        make.right.equalTo(@-24);
+        make.top.mas_equalTo(_picImageV.mas_bottom).offset(10);
+        make.right.equalTo(@-10);
+        make.width.mas_equalTo(@100);
     }];
-    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
-        make.top.equalTo(_titleLabel.mas_bottom).with.offset(20);
-        make.left.equalTo(@0);
+    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_titleLabel.mas_bottom);
+        make.right.left.equalTo(@0);
+        make.width.mas_equalTo(@100);
+        make.height.mas_equalTo(@10);
     }];
+
 }
 
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-//    self.data=[[NSMutableDictionary alloc] initWithDictionary:data];
+    
+    [self.titleLabel setText:data[kGoodsDetailName]];
+    self.imgArr=data[kGoodsDetailImages];
+    [self.picImageV reloadData];
+}
+
+#pragma -
+#pragma mark - iCarouselDataSource
+
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
+    return [self.imgArr count];
+}
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
+    
+    if (view == nil)
+    {
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f)];
+        NSURL *url=[NSURL initWithImageURL:self.imgArr[index][@"image"] Size:view.frame.size];
+        [((UIImageView *)view) sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+        view.contentMode = UIViewContentModeScaleAspectFit;
+        
+    }
+    
+    return view;
 }
 
 #pragma -
 #pragma mark - getters and setters
-- (UIImageView *)picImageV {
+- (iCarousel *)picImageV {
 
     if (!_picImageV) {
-        
-        _picImageV = [[UIImageView alloc] init];
-        _picImageV.backgroundColor = JJBRandomColor;
+        _picImageV = [[iCarousel alloc] init];
+        _picImageV.dataSource=self;
     }
     return _picImageV;
 }
@@ -102,13 +128,12 @@
     return _salesLabel;
 }
 
--(UIView *)line{
-    if (!_line) {
-        
-        _line=[[UIView alloc] init];
-        _line.backgroundColor = COLOR_GRAY;
+-(UIView *)lineView{
+    if (!_lineView) {
+        _lineView=[[UIView alloc] init];
+        _lineView.backgroundColor=COLOR_LIGHT_GRAY;
     }
-    return _line;
+    return _lineView;
 }
 
 @end

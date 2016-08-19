@@ -7,6 +7,7 @@
 //
 
 #import "GoodsDetailCell.h"
+#import "GoodsDetailKey.h"
 
 @interface GoodsDetailCell ()
 
@@ -55,7 +56,7 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-
+  [self.detailWebView loadHTMLString:data[kGoodsDetaildescribe] baseURL:nil];
 }
 
 #pragma -
