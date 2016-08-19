@@ -35,6 +35,7 @@
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
 		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
+		519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519E9F3C1D66F18200129EAC /* SelectMenuController.m */; };
 		51AA22AD1D5C22F000851626 /* StudentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AA22AC1D5C22F000851626 /* StudentDetailController.m */; };
 		51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ACDDF11D640675001604A6 /* GoodsParameterCell.m */; };
 		51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2B6BB1D51F75800347E57 /* MyCourseCell.m */; };
@@ -334,6 +335,8 @@
 		517F99331D57A87B002609E5 /* MySettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingCell.m; path = jjb_user/My/MySettingCell.m; sourceTree = SOURCE_ROOT; };
 		517F99351D57A957002609E5 /* MySettingDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingDetailController.h; sourceTree = "<group>"; };
 		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
+		519E9F3B1D66F18200129EAC /* SelectMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuController.h; sourceTree = "<group>"; };
+		519E9F3C1D66F18200129EAC /* SelectMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMenuController.m; sourceTree = "<group>"; };
 		51AA22AB1D5C22F000851626 /* StudentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailController.h; sourceTree = "<group>"; };
 		51AA22AC1D5C22F000851626 /* StudentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailController.m; sourceTree = "<group>"; };
 		51ACDDF01D640675001604A6 /* GoodsParameterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsParameterCell.h; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 				73575F441D54D2A20037F697 /* CourseListController.m */,
 				73575F6D1D54D75D0037F697 /* CourseController.h */,
 				73575F6E1D54D75D0037F697 /* CourseController.m */,
+				519E9F3B1D66F18200129EAC /* SelectMenuController.h */,
+				519E9F3C1D66F18200129EAC /* SelectMenuController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2745,6 +2750,7 @@
 				738B82091D5F48B500765F6F /* TileViewItem.m in Sources */,
 				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
 				AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */,
+				519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
