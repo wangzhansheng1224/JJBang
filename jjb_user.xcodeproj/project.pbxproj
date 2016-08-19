@@ -185,6 +185,10 @@
 		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
+		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
+		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
+		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
+		AC27CB151D66DCB500240089 /* MBButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB141D66DCB500240089 /* MBButtons.m */; };
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
@@ -644,6 +648,14 @@
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		73ED4F161D4EFA410022BF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
+		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
+		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
+		AC27CB0E1D657E7800240089 /* issueLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationController.m; sourceTree = "<group>"; };
+		AC27CB101D66DABC00240089 /* MBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButton.h; sourceTree = "<group>"; };
+		AC27CB111D66DABC00240089 /* MBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButton.m; sourceTree = "<group>"; };
+		AC27CB131D66DCB500240089 /* MBButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButtons.h; sourceTree = "<group>"; };
+		AC27CB141D66DCB500240089 /* MBButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButtons.m; sourceTree = "<group>"; };
 		AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailController.h; sourceTree = "<group>"; };
 		AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailController.m; sourceTree = "<group>"; };
 		AC2F2B9C1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliCell.h; path = jjb_user/My/Controller/RechargeWeChatAndAliCell.h; sourceTree = SOURCE_ROOT; };
@@ -1807,6 +1819,8 @@
 				511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */,
 				514E9B4D1D5086020064EEFD /* IssueController.h */,
 				514E9B4E1D5086020064EEFD /* IssueController.m */,
+				AC27CB0D1D657E7800240089 /* issueLocationController.h */,
+				AC27CB0E1D657E7800240089 /* issueLocationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1824,6 +1838,8 @@
 				738B82051D5F485D00765F6F /* TileView.m */,
 				738B82071D5F48B500765F6F /* TileViewItem.h */,
 				738B82081D5F48B500765F6F /* TileViewItem.m */,
+				AC27CB0A1D65602900240089 /* issueLocationView.h */,
+				AC27CB0B1D65602900240089 /* issueLocationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2396,6 +2412,10 @@
 				BB8843011D51E02100A537D8 /* UIImage+image.m */,
 				732A96A41D5DB9F600BE5800 /* NSURL+OSS.h */,
 				732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */,
+				AC27CB101D66DABC00240089 /* MBButton.h */,
+				AC27CB111D66DABC00240089 /* MBButton.m */,
+				AC27CB131D66DCB500240089 /* MBButtons.h */,
+				AC27CB141D66DCB500240089 /* MBButtons.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2691,6 +2711,7 @@
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				731092321D5483600031B443 /* UserModel.m in Sources */,
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
+				AC27CB121D66DABC00240089 /* MBButton.m in Sources */,
 				BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */,
@@ -2726,6 +2747,7 @@
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */,
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
+				AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
 				513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
@@ -2867,6 +2889,7 @@
 				735C3AFE1D62F5F900E4DB90 /* StarTeacherListAPIManager.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				AC540AE21D61B640007636CE /* RSADataVerifier.m in Sources */,
+				AC27CB151D66DCB500240089 /* MBButtons.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
 				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
@@ -2896,6 +2919,7 @@
 				737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
 				AC540AF71D62C0FE007636CE /* MBWeChatPayManger.m in Sources */,
+				AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */,
 				738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
 				73575F551D54D4950037F697 /* TeacherController.m in Sources */,
@@ -2981,7 +3005,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
+				PROVISIONING_PROFILE = "a61303ea-3810-47c0-bddd-3d725548531d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3021,7 +3045,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
+				PROVISIONING_PROFILE = "a61303ea-3810-47c0-bddd-3d725548531d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3090,7 +3114,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabangliu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3142,7 +3166,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabangliu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

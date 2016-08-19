@@ -85,9 +85,10 @@
     }];
     [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 14));
+        make.height.equalTo(@14);
         make.bottom.equalTo(@-10);
         make.left.equalTo(_locView.mas_right).with.offset(8);
+        make.right.equalTo(@8);
     }];
 }
 

@@ -7,14 +7,16 @@
 //
 
 #import "ReplacePassWordViewController.h"
+#import "ResetPasswordAPIManager.h"
 
 //重置密码
 
-@interface ReplacePassWordViewController ()
+@interface ReplacePassWordViewController ()<LDAPIManagerParamSourceDelegate,LDAPIManagerApiCallBackDelegate>
 
 @property(nonatomic,strong) UITextField * PassWordTextfield;
 @property(nonatomic,strong) UITextField * againPassWordTextfield;
 @property(nonatomic,strong) UIButton * commitButton;
+@property(nonatomic,strong) LDAPIBaseManager * resetPassWordAPIManager;
 
 @end
 
@@ -47,7 +49,7 @@
 
 -(void)gotoTureReplacePassWord
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.resetPassWordAPIManager loadData];
 }
 
 
@@ -57,12 +59,42 @@
     [self.view addSubview:self.againPassWordTextfield];
     [self.view addSubview:self.commitButton];
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[self.resetPassWordAPIManager class]]) {
+        NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        NSString * statusString = dict[@"data"];
+        if (statusString) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }
+    
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.view makeToast:@"更改密码失败！" duration:3.0 position:CSToastPositionCenter];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    //验证码
+            return @{
+                 @"phone":self.telString,
+                 @"password":self.PassWordTextfield.text
+                 };
+}
+
+
 -(void)addChildViewContraints
 {
     [self.PassWordTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(18);
         make.right.mas_equalTo(self.view.mas_right).offset(-20);
-        make.top.mas_equalTo(self.view.mas_top).offset(84);
+        make.top.mas_equalTo(self.view.mas_top).offset(20);
         make.height.mas_equalTo(@40);
         
     }];
@@ -70,7 +102,7 @@
         make.left.equalTo(self.view.mas_left).offset(18);
         make.right.equalTo(self.view.mas_right).offset(-20);
         make.height.mas_equalTo(@40);
-        make.top.equalTo(self.PassWordTextfield.mas_bottom).offset(1);
+        make.top.equalTo(self.PassWordTextfield.mas_bottom).offset(10);
     }];
     [self.commitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
@@ -123,5 +155,14 @@
     }
     return _commitButton;
 }
+-(LDAPIBaseManager *)resetPassWordAPIManager
+{
+    if (_resetPassWordAPIManager == nil) {
+        _resetPassWordAPIManager = [ResetPasswordAPIManager sharedInstance];
+        _resetPassWordAPIManager.delegate = self;
+        _resetPassWordAPIManager.paramSource = self;
+    }
+    return _resetPassWordAPIManager;
 
+}
 @end
