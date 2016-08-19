@@ -50,14 +50,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
 @property(nonatomic,weak) UICollectionView * collectionView;
-@property (nonatomic,strong) UIBarButtonItem * scanButton;
-@property (nonatomic,strong) UIBarButtonItem * loactionButton;
+@property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
+@property (nonatomic,strong) UIBarButtonItem * loactionButton;//定位按钮
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
 @property(nonatomic,strong) NSDictionary *dataDic;
-@property(nonatomic,assign) double currentLongitude;
-@property(nonatomic,assign) double currentLatitude;
-
+@property(nonatomic,assign) double currentLongitude;  //当前经度
+@property(nonatomic,assign) double currentLatitude;    //当前纬度
+@property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
 
 @end
 
@@ -107,7 +107,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     JJBLog(@"%@",notification);
     NSString * string = notification.userInfo[@"ShopIndexShopListName"];
     self.navigationItem.title = string;
-    
+    self.currentShopID = notification.userInfo[@"ShopIndexShopListID"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentShopID forKey:@"currenShopID"];
+//    [[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"];
+    [self.shopIndexAPIManager loadData];
 }
 #pragma -
 #pragma mark - Events
@@ -222,7 +225,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
             return [arrData count];
         }
         return 0;
-    } else{
+    }
+    else if(section==1)
+    {
+        NSArray* arrData=self.dataDic[kShopIndexActList];
+        return [arrData count];
+    }
+    else{
         return 1;
     }
 
@@ -386,7 +395,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude)};
+    return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":self.currentShopID};
 }
 
 #pragma -

@@ -25,6 +25,6 @@ SingleH(MBLocation);
 -(void)startLocation; // 开始定位
 
 -(void)getCurrentLocation:(ResultBlock)block;
-//-(void) locationSuccess:(LocationBlock) block;
+
 
 @end

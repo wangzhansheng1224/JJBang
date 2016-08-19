@@ -184,6 +184,8 @@
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
+		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
+		AC27CB151D66DCB500240089 /* MBButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB141D66DCB500240089 /* MBButtons.m */; };
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
@@ -641,6 +643,10 @@
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
 		AC27CB0E1D657E7800240089 /* issueLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationController.m; sourceTree = "<group>"; };
+		AC27CB101D66DABC00240089 /* MBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButton.h; sourceTree = "<group>"; };
+		AC27CB111D66DABC00240089 /* MBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButton.m; sourceTree = "<group>"; };
+		AC27CB131D66DCB500240089 /* MBButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButtons.h; sourceTree = "<group>"; };
+		AC27CB141D66DCB500240089 /* MBButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButtons.m; sourceTree = "<group>"; };
 		AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailController.h; sourceTree = "<group>"; };
 		AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailController.m; sourceTree = "<group>"; };
 		AC2F2B9C1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliCell.h; path = jjb_user/My/Controller/RechargeWeChatAndAliCell.h; sourceTree = SOURCE_ROOT; };
@@ -2383,6 +2389,10 @@
 				BB8843011D51E02100A537D8 /* UIImage+image.m */,
 				732A96A41D5DB9F600BE5800 /* NSURL+OSS.h */,
 				732A96A51D5DB9F600BE5800 /* NSURL+OSS.m */,
+				AC27CB101D66DABC00240089 /* MBButton.h */,
+				AC27CB111D66DABC00240089 /* MBButton.m */,
+				AC27CB131D66DCB500240089 /* MBButtons.h */,
+				AC27CB141D66DCB500240089 /* MBButtons.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2677,6 +2687,7 @@
 				73886CD31D4F58D000643BBA /* ViewControllerIntercepter.m in Sources */,
 				731092321D5483600031B443 /* UserModel.m in Sources */,
 				73575F421D54D07B0037F697 /* ShopListController.m in Sources */,
+				AC27CB121D66DABC00240089 /* MBButton.m in Sources */,
 				BBC572F81D59CD0F00848F5F /* MBStarTeacherCollectionView.m in Sources */,
 				73886D2C1D4F735D00643BBA /* LDApiProxy.m in Sources */,
 				732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */,
@@ -2852,6 +2863,7 @@
 				735C3AFE1D62F5F900E4DB90 /* StarTeacherListAPIManager.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				AC540AE21D61B640007636CE /* RSADataVerifier.m in Sources */,
+				AC27CB151D66DCB500240089 /* MBButtons.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
 				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
