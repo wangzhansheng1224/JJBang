@@ -9,9 +9,11 @@
 #import "CourseDetailAPIManager.h"
 
 @interface CourseDetailAPIManager ()
+
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
+
 @end
 
 @implementation CourseDetailAPIManager

@@ -18,6 +18,7 @@
 #import "CourseInfoReformer.h"
 #import "CourseCatalogReformer.h"
 #import "CourseCatalogView.h"
+#import "SelectMenuController.h"
 
 /**
  *  课程控制器
@@ -45,6 +46,14 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 @property (nonatomic,strong) NSMutableArray *boolArr;
 @property (nonatomic,strong) UIButton *btn;
 
+/*
+ *立即报名
+ */
+@property (nonatomic,strong) UIView *bottomView;
+@property (nonatomic,strong) UIButton *payBtn;
+@property (nonatomic,strong) UIView *lineView;
+@property (nonatomic,strong) UILabel *priceLabel;
+
 @end
 
 @implementation CourseController
@@ -54,6 +63,10 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    [self.bottomView addSubview:self.lineView];
+    [self.bottomView addSubview:self.payBtn];
+    [self.bottomView addSubview:self.priceLabel];
+    [self.view addSubview:self.bottomView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
 }
@@ -86,6 +99,27 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
         make.bottom.mas_equalTo(self.view.mas_bottom);
+    }];
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.bottom.left.right.equalTo(@0);
+        make.height.equalTo(@50);
+    }];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(@0);
+        make.height.equalTo(@1);
+    }];
+    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.lineView.mas_top).offset(10);
+        make.left.mas_equalTo(self.lineView.mas_left).offset(10);
+        make.height.equalTo(@30);
+        make.width.equalTo(@100);
+    }];
+    [self.payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.lineView.mas_top).offset(10);
+        make.right.mas_equalTo(self.lineView.mas_right).offset(-10);
+        make.height.equalTo(@30);
+        make.width.equalTo(@100);
     }];
 }
 
@@ -234,6 +268,15 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
 }
 
+- (void)payBtnClick:(UIButton *)click {
+    
+    SelectMenuController *select = [[SelectMenuController alloc] init];
+    self.definesPresentationContext = YES;
+    select.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:select animated:YES completion:nil];
+}
+
 #pragma -
 #pragma mark - getters and setters
 - (CourseDetailHeader *) headerView{
@@ -360,6 +403,50 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     return _boolArr;
 }
 
+- (UIView *)bottomView {
+
+    if (!_bottomView) {
+        
+        _bottomView = [[UIView alloc] init];
+        _bottomView.backgroundColor = COLOR_WHITE;
+    }
+    return _bottomView;
+}
+
+- (UIButton *)payBtn {
+    
+    if (!_payBtn) {
+        
+        _payBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _payBtn.backgroundColor = COLOR_ORANGE;
+        _payBtn.layer.cornerRadius = 2.0;
+        _payBtn.clipsToBounds = YES;
+        [_payBtn setTitle:@"立即报名" forState:UIControlStateNormal];
+        [_payBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
+        [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _payBtn;
+}
+
+- (UIView *)lineView {
+    if (!_lineView) {
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _lineView;
+}
+
+- (UILabel *)priceLabel {
+    
+    if (!_priceLabel) {
+        
+        _priceLabel = [[UILabel alloc] init];
+        _priceLabel.textColor = COLOR_ORANGE;
+        _priceLabel.font = H1;
+        _priceLabel.text = @"￥128";
+    }
+    return _priceLabel;
+}
 
 
 @end
