@@ -11,6 +11,7 @@
 #import "IssueController.h"
 #import "GrowingTreeListAPIManager.h"
 #import "GrowingTreeListReformer.h"
+#import "LoginViewController.h"
 
 static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
@@ -139,8 +140,11 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 #pragma -
 #pragma mark - event response
 - (void)itemClick {
-    IssueController *controller= [[IssueController alloc] init];
+    IssueController *issueVC= [[IssueController alloc] init];
+//    [self.navigationController pushViewController:controller animated:YES];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:issueVC];
     [self.navigationController pushViewController:controller animated:YES];
+
 }
 
 #pragma -
