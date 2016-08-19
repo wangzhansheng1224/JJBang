@@ -85,6 +85,7 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     if (_tableView == nil) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, Screen_Width, Screen_Height - 44- 20) style:UITableViewStylePlain];
         _tableView.backgroundColor = COLOR_LIGHT_GRAY;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[ShopListCell class] forCellReuseIdentifier:shopListCellIdentifer];

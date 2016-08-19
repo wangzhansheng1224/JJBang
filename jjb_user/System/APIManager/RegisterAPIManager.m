@@ -21,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"user/register";
+        _methodName = @"user/registered";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;

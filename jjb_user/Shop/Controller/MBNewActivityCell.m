@@ -82,9 +82,6 @@
 
 -(void)configWithData:(NSDictionary *)data
 {
-    if (data==nil) {
-        return;
-    }
     self.dataDic=data;
     self.ActivityTitleLabel.text=data[kShopIndexActTitle];
     NSURL *url=[NSURL initWithImageURL:data[kShopIndexActImage] Width:Screen_Width Height:Screen_Width*2/3.0f];

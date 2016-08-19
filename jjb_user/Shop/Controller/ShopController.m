@@ -50,12 +50,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,strong) UIPageControl * pageControl;
 @property(nonatomic,weak) NSTimer * Timer;
 @property(nonatomic,weak) UICollectionView * collectionView;
-@property (nonatomic,strong) UIBarButtonItem * scanButton;
-@property (nonatomic,strong) UIBarButtonItem * loactionButton;
+@property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
+@property (nonatomic,strong) UIBarButtonItem * loactionButton;//定位按钮
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
 @property(nonatomic,strong) NSDictionary *dataDic;
-
+@property(nonatomic,assign) double currentLongitude;  //当前经度
+@property(nonatomic,assign) double currentLatitude;    //当前纬度
+@property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
 
 @end
 
@@ -74,31 +76,26 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
     
-    MBLocation * location =[MBLocation shareMBLocation];
-    [location startLocation];  //开始定位
-    
-    [location reverseGeoCodesuccess:^(NSDictionary *adress) {
-        NSDictionary * dict = adress;
-        JJBLog(@"%@",dict);
-    } failure:^{
-        JJBLog(@"定位失败");
-    }];
-    
-//    [MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-//        NSDictionary * dict = adress;
-//        JJBLog(@"%@",dict);
-//
-//    } failure:^{
-//                JJBLog(@"定位失败");
-//    }
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(changeName:) name:@"changeShopName" object:nil];
+    
+    
+    MBLocation * location =[MBLocation shareMBLocation];
+    
+    [location getCurrentLocation:^(NSDictionary * dict) {
+        JJBLog(@"%@",dict);
+        self.currentLongitude = [dict[@"longitude"] doubleValue];
+        self.currentLatitude  = [dict [@"latitude"] doubleValue];
+        
+        [self.loactionButton setTitle:dict[@"city"]];
+    }];
+
     }
+
 
 -(void)dealloc
 {
@@ -110,7 +107,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     JJBLog(@"%@",notification);
     NSString * string = notification.userInfo[@"ShopIndexShopListName"];
     self.navigationItem.title = string;
-    
+    self.currentShopID = notification.userInfo[@"ShopIndexShopListID"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentShopID forKey:@"currenShopID"];
+//    [[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"];
+    [self.shopIndexAPIManager loadData];
 }
 #pragma -
 #pragma mark - Events
@@ -126,14 +126,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     ShopListController * shopListVC = [[ShopListController alloc]init];
     shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
     [self presentViewController:shopListVC animated:YES completion:nil];
-//    [[MBLocation shareMBLocation]reverseGeoCodesuccess:^(NSDictionary *adress) {
-//        NSDictionary * dict = adress;
-//        JJBLog(@"%@",dict);
-//        
-//    } failure:^{
-//        JJBLog(@"定位失败");
-//    }];
-
 
 }
 //banner位
@@ -233,7 +225,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
             return [arrData count];
         }
         return 0;
-    } else{
+    }
+    else if(section==1)
+    {
+        NSArray* arrData=self.dataDic[kShopIndexActList];
+        return [arrData count];
+    }
+    else{
         return 1;
     }
 
@@ -397,7 +395,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
+    return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":self.currentShopID};
 }
 
 #pragma -
