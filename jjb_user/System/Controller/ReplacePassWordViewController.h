@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ReplacePassWordViewController : UIViewController
-
+@property(nonatomic,copy) NSString * telString;
 @end

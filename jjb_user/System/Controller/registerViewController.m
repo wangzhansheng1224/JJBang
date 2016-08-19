@@ -190,7 +190,8 @@
 -(void)gotoRegister
 {
     [self.verCodeAPIManager loadData]; //验证验证码
-    [self.registerAPIManager loadData]; //登陆
+    
+    
 }
 
 #pragma -
@@ -204,20 +205,39 @@
     }
     else if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
+        //验证成功则进行注册验证
         NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        NSString * string = dict[@"data"];
+        if(string)
+        {
+        [self.registerAPIManager loadData];
+        }
+
     }
     else if([manager isKindOfClass:[self.registerAPIManager class]])
     {
 //        NSDictionary * dict = [manager fetchDataWithReformer:nil];
          UserModel *user=[manager fetchDataWithReformer:self.userReformer];
          [UserModel save:user];
+        
          [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    [self.view makeToast:@"登录失败！" duration:3.0 position:CSToastPositionCenter];
+    if([manager isKindOfClass:[self.getCodeAPIManager class]])
+    {
+        [self.view makeToast:@"获取验证码失败" duration:3.0f position:CSToastPositionCenter];
+    }
+    else if([manager isKindOfClass:[self.verCodeAPIManager class]])
+    {
+        [self.view makeToast:@"验证码错误" duration:3.0f position:CSToastPositionCenter];
+    }
+    else if ([manager isKindOfClass:[self.registerAPIManager class]]) {
+        [self.view makeToast:@"注册失败！" duration:3.0f position:CSToastPositionCenter];
+
+    }
 }
 
 #pragma -
@@ -352,7 +372,6 @@
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.translatesAutoresizingMaskIntoConstraints = NO;
         [button setBackgroundImage:[UIImage imageNamed:@"login_select"]forState:UIControlStateNormal];
-//        [button setBackgroundImage:[UIImage imageNamed:@"login_select"] forState:UIControlStateHighlighted];
         [button sizeToFit];
         _agreeButton = button;
     }
