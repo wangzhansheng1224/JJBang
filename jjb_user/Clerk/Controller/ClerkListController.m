@@ -99,7 +99,7 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"user_id":@([UserModel currentUser].userID),
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };
