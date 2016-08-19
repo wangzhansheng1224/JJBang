@@ -30,6 +30,7 @@
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
 		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
+		5174E51F1D669BBB00C92E24 /* RHADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E51E1D669BBB00C92E24 /* RHADScrollView.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
@@ -323,6 +324,8 @@
 		5158BE2C1D61C57900105473 /* GoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListCell.m; sourceTree = "<group>"; };
 		5174E5171D6594F200C92E24 /* GoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
 		5174E5181D6594F200C92E24 /* GoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
+		5174E51D1D669BBB00C92E24 /* RHADScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHADScrollView.h; sourceTree = "<group>"; };
+		5174E51E1D669BBB00C92E24 /* RHADScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHADScrollView.m; sourceTree = "<group>"; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		517F992F1D57A6FB002609E5 /* MySettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingController.h; sourceTree = "<group>"; };
 		517F99301D57A6FB002609E5 /* MySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingController.m; sourceTree = "<group>"; };
@@ -1750,6 +1753,8 @@
 				73886CBA1D4F237600643BBA /* Controller */,
 				73886D601D50841700643BBA /* Reformer */,
 				73886CBE1D4F237600643BBA /* View */,
+				5174E51D1D669BBB00C92E24 /* RHADScrollView.h */,
+				5174E51E1D669BBB00C92E24 /* RHADScrollView.m */,
 				51B875CC1D503DB20082558D /* RHHeader.h */,
 				51B875CD1D503DB20082558D /* RHMenuButtonItem.h */,
 				51B875CE1D503DB20082558D /* RHMenuButtonItem.m */,
@@ -2733,6 +2738,7 @@
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
+				5174E51F1D669BBB00C92E24 /* RHADScrollView.m in Sources */,
 				AC540AFF1D62C16D007636CE /* ApiXml.mm in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73575F4A1D54D2B70037F697 /* CourseListReformer.m in Sources */,

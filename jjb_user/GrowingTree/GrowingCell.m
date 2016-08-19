@@ -104,7 +104,7 @@
     NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Size:self.iconView.frame.size];
     [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     
-    float width = 119 - 8;
+    float width = (Screen_Width - 8 * 4)/3.0;
     
     NSArray * imageArr = data[kGrowingTreeListImages];
     _photos=[[NSMutableArray alloc] initWithCapacity:0];

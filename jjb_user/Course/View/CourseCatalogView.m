@@ -7,6 +7,7 @@
 //
 
 #import "CourseCatalogView.h"
+#import "CourseCatalogKeys.h"
 
 @interface CourseCatalogView()
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -47,6 +48,7 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
+    [self.titleLabel setText:data[kCourseCatalogTitle]];
 }
 
 #pragma -

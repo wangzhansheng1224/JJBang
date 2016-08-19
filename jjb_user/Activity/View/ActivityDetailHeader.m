@@ -10,10 +10,11 @@
 #import "HMSegmentedControl.h"
 #import "ActivityRegisterAPIManager.h"
 #import "ActivityDetailKey.h"
+#import "RHADScrollView.h"
 
-@interface ActivityDetailHeader()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,iCarouselDelegate,iCarouselDataSource>
+@interface ActivityDetailHeader()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,iCarouselDelegate,iCarouselDataSource,RHADScrollViewDelegate>
 
-@property (nonatomic,copy) iCarousel *iView_Photo;
+//@property (nonatomic,copy) iCarousel *iView_Photo;
 @property (nonatomic,strong) UILabel *label_status;
 @property (nonatomic,strong) UILabel *label_title;
 @property (nonatomic,strong) UIImageView *imageView_location;
@@ -25,6 +26,8 @@
 @property (nonatomic,assign) NSInteger activity_id;
 @property (nonatomic,strong) NSMutableDictionary *data;
 @property (nonatomic,strong) ActivityRegisterAPIManager *registerAPIManager;
+@property (nonatomic,strong) RHADScrollView *adScrollView;
+
 @end
 
 @implementation ActivityDetailHeader
@@ -32,7 +35,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.iView_Photo];
+        [self addSubview:self.adScrollView];
         [self addSubview:self.label_status];
         [self addSubview:self.label_title];
         [self addSubview:self.imageView_location];
@@ -51,7 +54,7 @@
 - (void)layoutPageSubviews {
     
     UIView* superView=self;
-    [_iView_Photo mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_adScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(superView.mas_top);
         make.bottom.mas_equalTo(superView.mas_bottom).offset(-100);
         make.left.mas_equalTo(superView.mas_left);
@@ -59,12 +62,12 @@
     }];
     [_label_status mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.bottom.equalTo(_iView_Photo.mas_bottom).with.offset(-16);
+        make.bottom.equalTo(_adScrollView.mas_bottom).with.offset(-16);
         make.size.mas_equalTo(CGSizeMake(76, 30));
         make.left.equalTo(@0);
     }];
     [_label_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_iView_Photo.mas_bottom).with.offset(10);
+        make.top.mas_equalTo(_adScrollView.mas_bottom).with.offset(10);
         make.height.mas_equalTo(@30);
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
@@ -95,7 +98,7 @@
     
     [_signupButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_label_location.mas_top);
-        make.size.mas_equalTo(CGSizeMake(150, 40));
+        make.size.mas_equalTo(CGSizeMake(90, 40));
         make.right.equalTo(superView.mas_right).offset(-10);
     }];
     
@@ -116,6 +119,17 @@
     [self.label_location setText:data[kActivityDetailAddress]];
     [self.label_status setText:data[kActivityDetailState]];
     [self.label_time setText:data[kActivityDetailTime]];
+    
+    NSArray * array = data[kActivityDetailImages];
+    
+    NSMutableArray * mutArr = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < array.count; i++) {
+        
+        [mutArr addObject:array[i][@"imagePath"]];
+    }
+    
+    _adScrollView.arrPic = mutArr;
     
     if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
         [self.signupButton setEnabled:NO];
@@ -178,17 +192,30 @@
 
 #pragma -
 #pragma mark - getters and setters
-- (iCarousel *)iView_Photo {
-    
-    if (!_iView_Photo) {
-        _iView_Photo = [[iCarousel alloc] init];
-        _iView_Photo.type=iCarouselTypeLinear;
-        _iView_Photo.delegate=self;
-        _iView_Photo.dataSource=self;
-        _iView_Photo.backgroundColor=COLOR_LIGHT_GRAY;
+//- (iCarousel *)iView_Photo {
+//    
+//    if (!_iView_Photo) {
+//        _iView_Photo = [[iCarousel alloc] init];
+//        _iView_Photo.type=iCarouselTypeLinear;
+//        _iView_Photo.delegate=self;
+//        _iView_Photo.dataSource=self;
+//        _iView_Photo.backgroundColor=COLOR_LIGHT_GRAY;
+//        _iView_Photo.contentMode = UIViewContentModeScaleAspectFit;
+//        _iView_Photo.clipsToBounds = YES;
+//    }
+//    return _iView_Photo;
+//}
+- (RHADScrollView *)adScrollView {
+
+    if (!_adScrollView) {
+        
+        _adScrollView = [[RHADScrollView alloc] init];
+        
+        _adScrollView.delegate = self;
     }
-    return _iView_Photo;
+    return _adScrollView;
 }
+
 - (UILabel *)label_status {
     
     if (!_label_status) {
