@@ -8,6 +8,9 @@
 
 #ifndef StudentKeys_h
 #define StudentKeys_h
-
+extern NSString *const kStudentID;
+extern NSString *const kStudentPhoto;
+extern NSString *const kStudentName;
+extern NSString *const kStudentNum;
 
 #endif /* StudentKeys_h */

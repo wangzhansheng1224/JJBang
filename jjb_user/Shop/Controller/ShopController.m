@@ -306,7 +306,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
         [titleBar moreButtonClick:^(TitleBar *sender) {
-            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_TeacherList:nil];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_StarTeacherList:nil];
             [self.navigationController pushViewController:controller animated:YES];
         }];
         

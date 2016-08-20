@@ -1,13 +1,13 @@
 //
-//  StudentListCell.h
+//  TeacherListCell.h
 //  jjb_user
 //
-//  Created by Check on 16/8/8.
+//  Created by Aimee on 16/8/20.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface StudentListCell : UITableViewCell
+@interface TeacherListCell : UITableViewCell
 - (void)configWithData:(NSDictionary *)data;
 @end
