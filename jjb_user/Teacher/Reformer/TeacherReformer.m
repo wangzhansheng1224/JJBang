@@ -8,6 +8,7 @@
 
 #import "TeacherReformer.h"
 #import "StarTeacherListAPIManager.h"
+#import "TeacherListAPIManager.h"
 
 
 NSString * const kTeacherID = @"TeacherID";
@@ -33,6 +34,22 @@ NSString * const kTeacherStar = @"TeacherStar";
                                       kTeacherStar:(arrData[i][@"tech_star"]!=[NSNull null])?arrData[i][@"tech_star"]:@(0)
                                      };
             [arrResult addObject:itemData];
+        }
+        return arrResult;
+    }
+    
+    if ([manager isKindOfClass:[TeacherListAPIManager class]]) {
+        
+        NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
+        
+        NSArray *arrData=data[@"data"];
+        for (NSDictionary *dic in arrData) {
+            [arrResult addObject:@{
+                                   kTeacherID:dic[@"user_id"],
+                                   kTeacherName:dic[@"nickname"],
+                                   kTeacherPhoto:dic[@"userface"],
+                                   kTeacherStar:@(5)
+                                   }];
         }
         return arrResult;
     }
