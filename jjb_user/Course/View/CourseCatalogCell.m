@@ -56,9 +56,9 @@
     
     [_descLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(height));
-        make.top.mas_equalTo(self.mas_bottom).offset(10);
-        make.left.mas_equalTo(self.mas_left).offset(10);
-        make.right.mas_equalTo(self.mas_right).offset(-10);
+        make.top.mas_equalTo(@10);
+        make.left.mas_equalTo(@10);
+        make.right.mas_equalTo(@-10);
     }];
 }
 
@@ -70,10 +70,8 @@
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] init];
         _descLabel.text = @"第一节课 拉伸运动";
-        _descLabel.hidden=YES;
         _descLabel.font = H3;
-        [_descLabel sizeToFit];
-        _descLabel.backgroundColor=JJBRandomColor;
+//        _descLabel.backgroundColor=JJBRandomColor;
         _descLabel.textColor=COLOR_GRAY;
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _descLabel.numberOfLines = 0;

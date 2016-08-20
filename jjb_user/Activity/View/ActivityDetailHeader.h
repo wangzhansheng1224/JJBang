@@ -8,5 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @interface ActivityDetailHeader : UIView
+
+@property (nonatomic, assign) BOOL invalidate;
+
 - (void)configWithData:(NSDictionary *)data;
 @end

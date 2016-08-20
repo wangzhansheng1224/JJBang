@@ -49,6 +49,14 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self loadData];
+    self.headerView.invalidate = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    self.headerView.invalidate = YES;
 }
 
 -(void) loadData{
@@ -271,5 +279,9 @@
     }
    return _detailReformer;
 }
+
+
+
+
 
 @end
