@@ -13,7 +13,7 @@
 -(id) init{
     self=[super init];
     if (self) {
-        
+        self.backgroundColor=[UIColor whiteColor];
     }
     return self;
 }
@@ -27,7 +27,7 @@
     for (NSInteger i=0; i<self.score; i++) {
         
         UIImage *star=[UIImage imageNamed:@"star_solid"];
-        [star drawAtPoint:CGPointMake(i*13+5,(rect.size.height-13)/2.0)];
+        [star drawAtPoint:CGPointMake(i*13,(rect.size.height-13)/2.0)];
         
     }
 

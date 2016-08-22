@@ -126,10 +126,12 @@
     
     for (int i = 0; i < array.count; i++) {
         
-        [mutArr addObject:array[i][@"imagePath"]];
+        [mutArr addObject:[NSString stringWithFormat:@"%@%@", ImageServer, array[i][@"imagePath"]]];
     }
     
     _adScrollView.arrPic = mutArr;
+    
+    NSLog(@"%@", mutArr);
     
     if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
         [self.signupButton setEnabled:NO];
@@ -192,19 +194,7 @@
 
 #pragma -
 #pragma mark - getters and setters
-//- (iCarousel *)iView_Photo {
-//    
-//    if (!_iView_Photo) {
-//        _iView_Photo = [[iCarousel alloc] init];
-//        _iView_Photo.type=iCarouselTypeLinear;
-//        _iView_Photo.delegate=self;
-//        _iView_Photo.dataSource=self;
-//        _iView_Photo.backgroundColor=COLOR_LIGHT_GRAY;
-//        _iView_Photo.contentMode = UIViewContentModeScaleAspectFit;
-//        _iView_Photo.clipsToBounds = YES;
-//    }
-//    return _iView_Photo;
-//}
+
 - (RHADScrollView *)adScrollView {
 
     if (!_adScrollView) {
@@ -311,6 +301,11 @@
         _registerAPIManager.paramSource=self;
     }
     return _registerAPIManager;
+}
+
+- (void)setInvalidate:(BOOL)invalidate {
+    
+    _adScrollView.invalidate = invalidate;
 }
 
 @end

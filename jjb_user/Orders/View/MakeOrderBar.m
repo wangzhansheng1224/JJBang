@@ -31,26 +31,13 @@
         [self addSubview:self.lineView];
         [self addSubview:self.payBtn];
         [self addSubview:self.priceLabel];
-        [self layoutPageSubviews];
     }
     return self;
 }
 
 #pragma -
-#pragma mark - configWithData
-- (void)configWithData:(NSDictionary *)data{
-    
-    self.orderType=[data[@"orderType"] integerValue];
-    self.objectID=[data[@"objectID"] integerValue];
-    self.shopID=[data[@"shopID"] integerValue];
-    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[@"price"]]];
-    
-}
-
-#pragma -
-#pragma mark - layoutPageSubviews
-- (void)layoutPageSubviews {
-    
+#pragma mark - layoutSubviews
+- (void)layoutSubviews{
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_top);
         make.left.mas_equalTo(self.mas_left);
@@ -72,6 +59,18 @@
         make.width.equalTo(@100);
     }];
 }
+
+#pragma -
+#pragma mark - configWithData
+- (void)configWithData:(NSDictionary *)data{
+    
+    self.orderType=[data[@"orderType"] integerValue];
+    self.objectID=[data[@"objectID"] integerValue];
+    self.shopID=[data[@"shopID"] integerValue];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[@"price"]]];
+    
+}
+
 
 
 #pragma -

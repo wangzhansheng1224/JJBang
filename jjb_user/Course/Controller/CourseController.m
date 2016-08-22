@@ -127,14 +127,28 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.tabbarControl.selectedSegmentIndex==0) {
-        return self.dataSource.count;
+        return self.dataSource.count + 1;
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.tabbarControl.selectedSegmentIndex==0) {
-        return 1;
+        
+        if (section == 0) {
+            
+            return 0;
+        }else {
+            
+            if (![self.boolArr[section] boolValue]) {
+                
+                return 0;
+            }else {
+                
+                return 1;
+            }
+        }
+        
     }
     return  [self.dataSource count];
 }
@@ -160,7 +174,15 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        return 200;
+        
+        NSDictionary * dic = self.catalogData[indexPath.row];
+        
+        CGSize size = [dic[@"CourseCatalogDesc"] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+        
+        float height = size.height;
+        
+        return height + 20;
+        
     } else if(_tabbarControl.selectedSegmentIndex == 1){
         return 80;
     } else{
@@ -202,10 +224,12 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         NSArray *resultData = [manager fetchDataWithReformer:self.catalogReformer];
         [self.catalogData addObjectsFromArray:resultData];
         
-        for (NSInteger i = 0; i < self.catalogData.count; i++) {
+        for (NSInteger i = 0; i < self.catalogData.count + 1; i++) {
             
             [self.boolArr addObject:@NO];
         }
+        
+        NSLog(@"%@", _catalogData);
 
         if (self.tabbarControl.selectedSegmentIndex==0) {
             self.dataSource=self.catalogData;
@@ -272,7 +296,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     
     SelectMenuController *select = [[SelectMenuController alloc] init];
     self.definesPresentationContext = YES;
-    select.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+//    select.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:select animated:YES completion:nil];
 }

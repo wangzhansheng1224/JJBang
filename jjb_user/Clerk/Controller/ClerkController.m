@@ -22,17 +22,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNav];
+    self.view.backgroundColor=COLOR_WHITE;
+    self.title=@"店员首页";
 }
 
-
-
-#pragma
-#pragma mark - private methods
--(void)setupNav
-{
-    self.navigationItem.title = @"店员";
-}
 
 
 /*

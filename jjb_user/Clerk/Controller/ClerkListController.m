@@ -7,17 +7,18 @@
 //
 
 #import "ClerkListController.h"
-#import "MyCourseCell.h"
+#import "ClerkListCell.h"
 #import "ClerkListAPIManager.h"
 #import "ClerkListReformer.h"
+#import "ClerkController.h"
 
 static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 @interface ClerkListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
-@property (nonatomic,strong) LDAPIBaseManager *myCourseAPIManager;
-@property (nonatomic,strong) id<ReformerProtocol> myCourseReformer;
+@property (nonatomic,strong) LDAPIBaseManager *apiManager;
+@property (nonatomic,strong) id<ReformerProtocol> clerkListReformer;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 
@@ -36,7 +37,7 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
-    [self.myCourseAPIManager loadData];
+    [self.apiManager loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,9 +67,9 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MyCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:ClerkListCellIdentifier forIndexPath:indexPath];
+    ClerkListCell *cell = [tableView dequeueReusableCellWithIdentifier:ClerkListCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ClerkListCellIdentifier];
+        cell = [[ClerkListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ClerkListCellIdentifier];
     }
     [cell configWithData:self.arrData[indexPath.row]];
     return cell;
@@ -76,13 +77,18 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 148;
+    return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ClerkController *detail=[[ClerkController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSArray *resultData = [manager fetchDataWithReformer:self.myCourseReformer];
+    NSArray *resultData = [manager fetchDataWithReformer:self.clerkListReformer];
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
@@ -108,21 +114,21 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 #pragma -
 #pragma mark - getters and setters
 
-- (LDAPIBaseManager *)myCourseAPIManager {
-    if (_myCourseAPIManager == nil) {
-        _myCourseAPIManager = [ClerkListAPIManager  sharedInstance];
-        _myCourseAPIManager.delegate=self;
-        _myCourseAPIManager.paramSource=self;
+- (LDAPIBaseManager *)apiManager {
+    if (_apiManager == nil) {
+        _apiManager = [ClerkListAPIManager  sharedInstance];
+        _apiManager.delegate=self;
+        _apiManager.paramSource=self;
     }
-    return _myCourseAPIManager;
+    return _apiManager;
 }
 
-- (id<ReformerProtocol>) myCourseReformer{
+- (id<ReformerProtocol>) clerkListReformer{
     
-    if (!_myCourseReformer) {
-        _myCourseReformer=[[ClerkListReformer alloc] init];
+    if (!_clerkListReformer) {
+        _clerkListReformer=[[ClerkListReformer alloc] init];
     }
-    return _myCourseReformer;
+    return _clerkListReformer;
 }
 
 #pragma -
@@ -133,14 +139,16 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        [_tableView.mj_footer setAutomaticallyHidden:YES];
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
-            [self.myCourseAPIManager loadData];
+            [self.apiManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.myCourseAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.apiManager loadData];
         }];
-        [_tableView registerClass:[MyCourseCell class] forCellReuseIdentifier:ClerkListCellIdentifier];
+        [_tableView registerClass:[ClerkListCell class] forCellReuseIdentifier:ClerkListCellIdentifier];
     }
     return _tableView;
 }

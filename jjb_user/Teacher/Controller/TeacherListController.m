@@ -7,9 +7,10 @@
 //
 
 #import "TeacherListController.h"
-#import "StarTeacherCell.h"
-#import "StarTeacherListAPIManager.h"
+#import "TeacherListCell.h"
+#import "TeacherListAPIManager.h"
 #import "TeacherReformer.h"
+#import "TeacherController.h"
 
 static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 @interface TeacherListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -17,7 +18,7 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) LDAPIBaseManager *apiManager;
-@property (nonatomic,strong) id<ReformerProtocol> teacherReformer;
+@property (nonatomic,strong) id<ReformerProtocol> clerkListReformer;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 
@@ -30,10 +31,10 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"明星老师111";
-    self.view.backgroundColor=JJBRandomColor;
+    self.title = @"所有老师";
     self.pageSize=10;
     self.pageIndex=0;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
     [self.apiManager loadData];
@@ -61,28 +62,32 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return [self.arrData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    StarTeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:TeacherListCellIdentifier forIndexPath:indexPath];
+    TeacherListCell *cell = [tableView dequeueReusableCellWithIdentifier:TeacherListCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[StarTeacherCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TeacherListCellIdentifier];
+        cell = [[TeacherListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TeacherListCellIdentifier];
     }
-   // [cell configWithData:self.arrData[indexPath.row]];
+    [cell configWithData:self.arrData[indexPath.row]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 148;
+    return 80;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TeacherController *detail =[[TeacherController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSArray *resultData = [manager fetchDataWithReformer:self.teacherReformer];
+    NSArray *resultData = [manager fetchDataWithReformer:self.clerkListReformer];
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
@@ -110,19 +115,19 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 
 - (LDAPIBaseManager *)apiManager {
     if (_apiManager == nil) {
-        _apiManager = [StarTeacherListAPIManager  sharedInstance];
+        _apiManager = [TeacherListAPIManager  sharedInstance];
         _apiManager.delegate=self;
         _apiManager.paramSource=self;
     }
     return _apiManager;
 }
 
-- (id<ReformerProtocol>) teacherReformer{
+- (id<ReformerProtocol>) clerkListReformer{
     
-    if (!_teacherReformer) {
-        _teacherReformer=[[TeacherReformer alloc] init];
+    if (!_clerkListReformer) {
+        _clerkListReformer=[[TeacherReformer alloc] init];
     }
-    return _teacherReformer;
+    return _clerkListReformer;
 }
 
 #pragma -
@@ -130,18 +135,19 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 - (UITableView *)tableView {
     
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height-64-49)];
+        _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor=COLOR_ORANGE;
+        [_tableView.mj_footer setAutomaticallyHidden:YES];
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
             [self.apiManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.apiManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.apiManager loadData];
         }];
-        [_tableView registerClass:[StarTeacherCell class] forCellReuseIdentifier:TeacherListCellIdentifier];
+        [_tableView registerClass:[TeacherListCell class] forCellReuseIdentifier:TeacherListCellIdentifier];
     }
     return _tableView;
 }
@@ -154,4 +160,5 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
     }
     return _arrData;
 }
+
 @end

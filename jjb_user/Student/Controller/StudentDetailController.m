@@ -176,7 +176,7 @@
     
     if ([manager isKindOfClass:[MyGrowingAPIManager class]]) {
         return @{
-                 @"user_id":@"4",
+                 @"user_id":@([UserModel currentUser].userID),
                  @"start":@(self.pageIndex),
                  @"count":@(self.pageSize)
                  };
@@ -251,7 +251,7 @@
 
     if (!_headerView) {
         
-        _headerView = [[StudentDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 202))];
+        _headerView = [[StudentDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, Screen_Width*2.0/3.0f+10))];
         _headerView.backgroundColor = COLOR_WHITE;
     }
     return _headerView;

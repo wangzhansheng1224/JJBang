@@ -38,20 +38,6 @@
     return self;
 }
 
-- (instancetype)initWithPicArr:(NSArray *)picArr{
-    
-    self = [super init];
-    
-    if (self) {
-        
-        _arr_pic = [NSArray arrayWithArray:picArr];
-        _page = 0;
-        [self addSubviews];
-        [self createTimer];
-    }
-    return self;
-}
-
 #pragma mark - add subviews
 
 - (void)addSubviews {
@@ -60,14 +46,6 @@
     [self addSubview:self.pageControl];
 }
 
-#pragma mark - create timer 
-
-- (void)createTimer {
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(adAudioPlay) userInfo:nil repeats:YES];
-    NSRunLoop * runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
-}
 
 #pragma mark - scrollView add images
 
@@ -81,8 +59,13 @@
         imageView.clipsToBounds = YES;
         imageView.tag = 1000 + i;
         imageView.userInteractionEnabled = YES;
-        
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:_arr_pic[i]] placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        if (i == _arr_pic.count) {
+            
+            [imageView sd_setImageWithURL:[NSURL URLWithString:_arr_pic[0]] placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        }else {
+            
+            [imageView sd_setImageWithURL:[NSURL URLWithString:_arr_pic[i]] placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        }
         
         imageView.backgroundColor = JJBRandomColor;
         
@@ -118,13 +101,13 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     
-    self.timer.fireDate = [NSDate distantFuture];
+    _timer.fireDate = [NSDate distantFuture];
     
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
-    self.timer.fireDate = [NSDate distantPast];
+    _timer.fireDate = [NSDate distantPast];
     
 }
 
@@ -168,10 +151,7 @@
         _scrollView.bounces = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:_scrollView];
-        if (self.arr_pic.count > 0) {
-            
-            [self scrollViewAddImages];
-        }
+        
     }
     return _scrollView;
 }
@@ -187,12 +167,38 @@
     return _pageControl;
 }
 
+- (NSTimer *)timer {
+    
+    if (!_timer) {
+        
+        _timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(adAudioPlay) userInfo:nil repeats:YES];
+        NSRunLoop * runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+
+        _page = 0;
+    }
+    return _timer;
+}
+
 - (void)setArrPic:(NSArray *)arrPic {
     
     self.arr_pic = arrPic;
     _pageControl.numberOfPages = arrPic.count;
     [self scrollViewAddImages];
-    [self createTimer];
+}
+
+- (void)setInvalidate:(BOOL)invalidate {
+    
+    if (invalidate) {
+        
+        [_timer invalidate];
+        
+        _timer = nil;
+        
+    }else {
+        
+        self.timer;
+    }
 }
 
 

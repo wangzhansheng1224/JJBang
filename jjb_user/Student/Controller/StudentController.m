@@ -8,18 +8,16 @@
 
 #import "StudentController.h"
 #import "StudentListCell.h"
-#import "StudentDetailController.h"
-
-#import "MyCourseCell.h"
 #import "StarStudentListAPIManger.h"
 #import "StudentReformer.h"
+#import "StudentDetailController.h"
 
-static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
+static NSString  *const StarTeacherCellIdentifier=@"StarTeacherCellIdentifier";
 @interface StudentController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
-@property (nonatomic,strong) LDAPIBaseManager *studentListAPIManager;
+@property (nonatomic,strong) LDAPIBaseManager *apiManager;
 @property (nonatomic,strong) id<ReformerProtocol> studentReformer;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
@@ -39,7 +37,7 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
-    [self.studentListAPIManager loadData];
+    [self.apiManager loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,9 +67,9 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MyCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:StudentListCellIdentifier forIndexPath:indexPath];
+    StudentListCell *cell = [tableView dequeueReusableCellWithIdentifier:StarTeacherCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MyCourseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StudentListCellIdentifier];
+        cell = [[StudentListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StarTeacherCellIdentifier];
     }
     [cell configWithData:self.arrData[indexPath.row]];
     return cell;
@@ -79,12 +77,11 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 148;
+    return 80;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    StudentDetailController *detail=[[StudentDetailController alloc] init];
-    detail.studentID=1;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    StudentDetailController *detail =[[StudentDetailController alloc] init];
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma -
@@ -107,6 +104,7 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
+             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };
@@ -115,13 +113,13 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
 #pragma -
 #pragma mark - getters and setters
 
-- (LDAPIBaseManager *)studentListAPIManager {
-    if (_studentListAPIManager == nil) {
-        _studentListAPIManager = [StarStudentListAPIManger  sharedInstance];
-        _studentListAPIManager.delegate=self;
-        _studentListAPIManager.paramSource=self;
+- (LDAPIBaseManager *)apiManager {
+    if (_apiManager == nil) {
+        _apiManager = [StarStudentListAPIManger  sharedInstance];
+        _apiManager.delegate=self;
+        _apiManager.paramSource=self;
     }
-    return _studentListAPIManager;
+    return _apiManager;
 }
 
 - (id<ReformerProtocol>) studentReformer{
@@ -140,14 +138,16 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        [_tableView.mj_footer setAutomaticallyHidden:YES];
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
-            [self.studentListAPIManager loadData];
+            [self.apiManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.studentListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.apiManager loadData];
         }];
-        [_tableView registerClass:[MyCourseCell class] forCellReuseIdentifier:StudentListCellIdentifier];
+        [_tableView registerClass:[StudentListCell class] forCellReuseIdentifier:StarTeacherCellIdentifier];
     }
     return _tableView;
 }
@@ -160,4 +160,5 @@ static NSString  *const StudentListCellIdentifier=@"StudentListCellIdentifier";
     }
     return _arrData;
 }
+
 @end

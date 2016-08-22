@@ -1,23 +1,23 @@
 //
-//  StudentListCell.m
+//  TeacherListCell.m
 //  jjb_user
 //
-//  Created by Check on 16/8/8.
+//  Created by Aimee on 16/8/20.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "StudentListCell.h"
+#import "TeacherListCell.h"
 #import "StarView.h"
-#import "StudentKeys.h"
+#import "TeacherKeys.h"
 
-@interface StudentListCell()
+@interface TeacherListCell()
 @property (nonatomic,strong) UIView *lineView;
 @property (nonatomic,strong) UIImageView *clerkFaceIView;
 @property (nonatomic,strong) UILabel *nicknameLabel;
 @property (nonatomic,strong) StarView *starView;
 @end
 
-@implementation StudentListCell
+@implementation TeacherListCell
 
 -(instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -60,9 +60,9 @@
 
 - (void)configWithData:(NSDictionary *)data{
     
-    NSURL *url=[NSURL initWithImageURL:data[kStudentPhoto] Size:self.clerkFaceIView.frame.size];
+    NSURL *url=[NSURL initWithImageURL:data[kTeacherPhoto] Size:self.clerkFaceIView.frame.size];
     [self.clerkFaceIView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
-    [self.nicknameLabel setText:data[kStudentName]];
+    [self.nicknameLabel setText:data[kTeacherName]];
 }
 
 
