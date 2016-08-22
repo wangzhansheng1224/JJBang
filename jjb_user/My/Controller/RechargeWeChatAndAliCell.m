@@ -77,22 +77,6 @@
     {
         self.selectBlock(self);
     }
-//    if ([self.nameLabel.text rangeOfString:@"支付宝"].location != NSNotFound) {
-//        JJBLog(@"支付宝支付");
-//    }
-//    else
-//    {
-//        JJBLog(@"微信支付");
-//    }
-//    NSDictionary * dict = [NSDictionary dictionary];
-   
-//    dict = [NSDictionary dictionaryWithObject:self.nameLabel.text forKey:@"isAliPaySelect"];
-    
-        
-//    NSNotification * notification = [NSNotification notificationWithName:@"gotoPay" object:nil userInfo:@{@"PaySelect":self.nameLabel.text}];
-//    [[NSNotificationCenter defaultCenter] postNotification:notification];
-//    
-//    BOOL select = [self.choiceButton valueForKeyPath:@"selected"];
 
 }
 

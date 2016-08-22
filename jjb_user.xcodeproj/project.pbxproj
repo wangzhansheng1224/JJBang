@@ -192,6 +192,8 @@
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
 		AC27CB151D66DCB500240089 /* MBButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB141D66DCB500240089 /* MBButtons.m */; };
 		AC27CB1A1D6720E400240089 /* OrderDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB191D6720E400240089 /* OrderDetailReformer.m */; };
+		AC27CB1D1D6A968A00240089 /* MyOrderDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB1C1D6A968A00240089 /* MyOrderDetailAPIManager.m */; };
+		AC27CB211D6A98A500240089 /* MyOrderDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB201D6A98A500240089 /* MyOrderDetailReformer.m */; };
 		AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */; };
 		AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */; };
 		AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */; };
@@ -666,6 +668,11 @@
 		AC27CB171D671EFF00240089 /* OrdersDetailKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrdersDetailKey.h; sourceTree = "<group>"; };
 		AC27CB181D6720E400240089 /* OrderDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailReformer.h; sourceTree = "<group>"; };
 		AC27CB191D6720E400240089 /* OrderDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailReformer.m; sourceTree = "<group>"; };
+		AC27CB1B1D6A968A00240089 /* MyOrderDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailAPIManager.h; path = APIManager/MyOrderDetailAPIManager.h; sourceTree = "<group>"; };
+		AC27CB1C1D6A968A00240089 /* MyOrderDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderDetailAPIManager.m; path = APIManager/MyOrderDetailAPIManager.m; sourceTree = "<group>"; };
+		AC27CB1E1D6A97E900240089 /* MyOrderDetailKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailKey.h; sourceTree = "<group>"; };
+		AC27CB1F1D6A98A500240089 /* MyOrderDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailReformer.h; sourceTree = "<group>"; };
+		AC27CB201D6A98A500240089 /* MyOrderDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailReformer.m; sourceTree = "<group>"; };
 		AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailController.h; sourceTree = "<group>"; };
 		AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailController.m; sourceTree = "<group>"; };
 		AC2F2B9C1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliCell.h; path = jjb_user/My/Controller/RechargeWeChatAndAliCell.h; sourceTree = SOURCE_ROOT; };
@@ -1105,6 +1112,8 @@
 				AC6E13871D5DBEEF00A7C71D /* MyRechargeAPIManager.m */,
 				AC3D77D11D63276000AAA3A0 /* MyRechargeWeChatAPIManager.h */,
 				AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */,
+				AC27CB1B1D6A968A00240089 /* MyOrderDetailAPIManager.h */,
+				AC27CB1C1D6A968A00240089 /* MyOrderDetailAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -2363,6 +2372,9 @@
 				AC6E138A1D5DC8AB00A7C71D /* MyRechargeKey.h */,
 				AC6E138B1D5DC9A600A7C71D /* MyRechargeReformer.h */,
 				AC6E138C1D5DC9A600A7C71D /* MyRechargeReformer.m */,
+				AC27CB1E1D6A97E900240089 /* MyOrderDetailKey.h */,
+				AC27CB1F1D6A98A500240089 /* MyOrderDetailReformer.h */,
+				AC27CB201D6A98A500240089 /* MyOrderDetailReformer.m */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -2822,6 +2834,7 @@
 				731091851D51991E0031B443 /* MyCourseController.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
+				AC27CB1D1D6A968A00240089 /* MyOrderDetailAPIManager.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				AC540ADC1D61B640007636CE /* DataSigner.m in Sources */,
 				BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */,
@@ -2941,6 +2954,7 @@
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
 				AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */,
 				AC540ADD1D61B640007636CE /* DataVerifier.m in Sources */,
+				AC27CB211D6A98A500240089 /* MyOrderDetailReformer.m in Sources */,
 				51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */,
 				BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */,
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,

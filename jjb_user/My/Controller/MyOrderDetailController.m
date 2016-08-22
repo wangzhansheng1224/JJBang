@@ -8,11 +8,15 @@
 
 #import "MyOrderDetailController.h"
 #import "MyOrderDetailCell.h"
+#import "MyOrderDetailAPIManager.h"
+#import "MyOrderDetailReformer.h"
 /**
  *  明细界面
  */
-@interface MyOrderDetailController ()
+@interface MyOrderDetailController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property(nonatomic,strong) NSMutableArray * listArray;
+@property(nonatomic,strong)LDAPIBaseManager * MyOrderDetailAPIManagerx;
+@property(nonatomic,strong)id<ReformerProtocol> MyOrderReformer;
 @end
 
 static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentifier";
@@ -26,12 +30,14 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.title = @"明细";
     [self.tableView registerClass:[MyOrderDetailCell class] forCellReuseIdentifier:MyOrderDetailCellIdentifier];
-    
+    [self.MyOrderDetailAPIManagerx loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
 
 #pragma 
 #pragma mark - UITableViewDelegate and UITableViewDataSource
@@ -46,6 +52,7 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     if (cell == nil) {
         cell = [[MyOrderDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyOrderDetailCellIdentifier];
     }
+    [cell configWithData:self.listArray[indexPath.row]];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,7 +60,48 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     return 70.0f;
 }
 
-#pragma 
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+self.listArray = [manager fetchDataWithReformer:self.MyOrderReformer];
+//    self.listArray = [dict objectForKey:@"data"];
+    [self.tableView reloadData];
+}
+
+
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    JJBLog(@"加载失败");
+    
+}
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
+{
+    if([manager isKindOfClass:[MyOrderDetailAPIManager class]])
+    {
+        //用户ID/消费类型/开始条数/返回条数
+            ((MyOrderDetailAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/order/%@/%d/%@/%@",@([UserModel currentUser].userID),0,@1,@40];
+        
+    
+
+    }
+    
+    
+//    NSDictionary * dict = @{
+//                            @"user_id":@([UserModel currentUser].userID),
+//                            @"type":@1,
+//                            @"start":@1,
+//                            @"count":@1};
+    return nil;
+    
+    
+}
+
+
+
+#pragma -
 #pragma mark - getter and setter
 -(NSMutableArray *)listArray
 {
@@ -62,5 +110,20 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     }
     return _listArray;
 }
-
+-(LDAPIBaseManager *)MyOrderDetailAPIManagerx
+{
+    if (_MyOrderDetailAPIManagerx == nil) {
+        _MyOrderDetailAPIManagerx = [MyOrderDetailAPIManager sharedInstance];
+        _MyOrderDetailAPIManagerx.delegate = self;
+        _MyOrderDetailAPIManagerx.paramSource = self;
+    }
+    return _MyOrderDetailAPIManagerx;
+}
+-(id<ReformerProtocol>)MyOrderReformer
+{
+    if (_MyOrderReformer == nil) {
+        _MyOrderReformer = [[MyOrderDetailReformer alloc]init];
+    }
+    return _MyOrderReformer;
+}
 @end
