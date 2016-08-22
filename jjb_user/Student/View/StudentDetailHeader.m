@@ -44,20 +44,21 @@
 
     [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 202));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Width*2.0/3.0f));
         make.top.left.equalTo(@0);
+        make.bottom.mas_equalTo(self.mas_bottom).offset(-10);
     }];
     [_iconImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(78, 78));
-        make.bottom.equalTo(self.picImageV.mas_bottom).with.offset(4);
-        make.left.equalTo(@16);
+        make.bottom.equalTo(self.picImageV.mas_bottom).with.offset(-10);
+        make.left.equalTo(@10);
     }];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(50, 16));
-        make.top.equalTo(@137);
-        make.left.equalTo(self.iconImageV.mas_right).with.offset(14);
+        make.size.mas_equalTo(CGSizeMake(50, 20));
+        make.top.mas_equalTo(_iconImageV.mas_top);
+        make.left.equalTo(self.iconImageV.mas_right).offset(10);
     }];
     [_sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -72,10 +73,15 @@
         make.left.equalTo(self.sexLabel.mas_right).with.offset(0);
     }];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_picImageV.mas_bottom).with.offset(8);
+        make.top.equalTo(_picImageV.mas_bottom);
         make.left.right.equalTo(@0);
         make.height.equalTo(@10);
     }];
+}
+
+
+- (void)configWithData:(NSDictionary *)data{
+    
 }
 
 #pragma -

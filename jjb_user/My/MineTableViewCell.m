@@ -26,18 +26,33 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        
-       
-        
         [self.contentView addSubview:self.headerImageView];
-        
         [self.contentView addSubview:self.rightImage];
-        
         [self.contentView addSubview:self.titleLabel];
         
     }
     
     return self;
+}
+
+-(void) layoutSubviews{
+    UIView *superView=self;
+    [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.left.mas_equalTo(superView.mas_left).offset(10);
+        make.width.height.mas_equalTo(@24);
+        make.centerY.mas_equalTo(self.titleLabel.mas_centerY);
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.headerImageView.mas_right).offset(10);
+        make.top.mas_equalTo(superView.mas_top).offset(10);
+        make.height.mas_equalTo(@30);
+        make.right.mas_equalTo(self.rightImage.mas_left);
+    }];
+    [self.rightImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(superView.mas_right).offset(-10);
+        make.centerY.mas_equalTo(self.titleLabel.mas_centerY);
+    }];
 }
 
 - (void)refreshCellWithModel:(MineModel *)model {
@@ -51,11 +66,7 @@
 - (UIImageView *)headerImageView {
 
     if (!_headerImageView) {
-        
-        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 30, 30)];
-        _headerImageView.center = CGPointMake(_headerImageView.center.x, self.center.y);
-        
-        _headerImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"my_course"]];
     }
     return _headerImageView;
 }
@@ -63,9 +74,7 @@
 - (UILabel *)titleLabel {
 
     if (!_titleLabel) {
-        
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_headerImageView.frame) + 10, 0, CGRectGetMinX(_rightImage.frame)- CGRectGetMaxX(_headerImageView.frame) - 20, self.frame.size.height)];
     }
     return _titleLabel;
 }
@@ -74,13 +83,7 @@
 
     if (!_rightImage) {
         
-        _rightImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
-        
-        _rightImage.image = [UIImage imageNamed:@"my_right"];
-        
-        _rightImage.center = CGPointMake(SCREEN_W - 25, self.center.y);
-        
-        _rightImage.contentMode = UIViewContentModeScaleAspectFit;
+        _rightImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"my_right"]];
     }
     return _rightImage;
 }
