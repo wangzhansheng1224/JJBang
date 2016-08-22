@@ -7,7 +7,7 @@
 //
 
 #import "OrdersDetailCell.h"
-
+#import "OrdersDetailKey.h"
 @interface OrdersDetailCell ()
 
 @property (nonatomic,strong) UIImageView *picImageV;
@@ -71,6 +71,18 @@
         make.left.right.equalTo(@0);
     }];
 }
+
+
+- (void)configWithData:(NSDictionary *)data
+{
+    NSString * URLString = [NSString stringWithFormat:@"%@%@",ImageServer,data[kOrdersDetailImage]];
+    NSURL * imageURL = [NSURL URLWithString:URLString];
+    [self.picImageV sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"img_default"]];
+    [self.titleLabel setText:data[kOrdersDetailName]];
+    [self.describeLabel setText:data[kOrdersDetailCourseNum]];
+    [self.priceLabel setText:data[kOrdersDetailPrice] ];
+}
+
 
 #pragma -
 #pragma mark - getters and setters

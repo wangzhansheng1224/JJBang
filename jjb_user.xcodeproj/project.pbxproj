@@ -206,6 +206,7 @@
 		AC3E16031D5D7F92006FD1D7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16021D5D7F92006FD1D7 /* libsqlite3.0.tbd */; };
 		AC3E16051D5D7FA2006FD1D7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3E16041D5D7FA2006FD1D7 /* libc++.tbd */; };
 		AC441DAB1D62D28200BE5338 /* MBAliPayManger.m in Sources */ = {isa = PBXBuildFile; fileRef = AC441DAA1D62D28200BE5338 /* MBAliPayManger.m */; };
+		AC538BBB1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC538BBA1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m */; };
 		AC540A1C1D61AB31007636CE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC540A1B1D61AB31007636CE /* CoreMotion.framework */; };
 		AC540A1E1D61AB3E007636CE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC540A1D1D61AB3E007636CE /* CFNetwork.framework */; };
 		AC540A201D61AB4E007636CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC540A1F1D61AB4E007636CE /* QuartzCore.framework */; };
@@ -239,6 +240,8 @@
 		AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
+		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
+		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
@@ -696,6 +699,8 @@
 		AC3E16041D5D7FA2006FD1D7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AC441DA91D62D28200BE5338 /* MBAliPayManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAliPayManger.h; sourceTree = "<group>"; };
 		AC441DAA1D62D28200BE5338 /* MBAliPayManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAliPayManger.m; sourceTree = "<group>"; };
+		AC538BB91D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayTypeAPIManager.h; sourceTree = "<group>"; };
+		AC538BBA1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayTypeAPIManager.m; sourceTree = "<group>"; };
 		AC540A1B1D61AB31007636CE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		AC540A1D1D61AB3E007636CE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AC540A1F1D61AB4E007636CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -831,6 +836,10 @@
 		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
 		ACE6747F1D5D58EA00B57938 /* MyOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailCell.h; path = jjb_user/My/Controller/MyOrderDetailCell.h; sourceTree = SOURCE_ROOT; };
 		ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderDetailCell.m; path = jjb_user/My/Controller/MyOrderDetailCell.m; sourceTree = SOURCE_ROOT; };
+		ACE8111F1D6AD966006402A5 /* MBOrderPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayController.h; sourceTree = "<group>"; };
+		ACE811201D6AD966006402A5 /* MBOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayController.m; sourceTree = "<group>"; };
+		ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayHeadView.h; sourceTree = "<group>"; };
+		ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayHeadView.m; sourceTree = "<group>"; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
 		BB1294251D50A6B10048927D /* MBAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAdViewController.m; sourceTree = "<group>"; };
 		BB1294271D50A8D60048927D /* MBAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdItem.h; sourceTree = "<group>"; };
@@ -962,6 +971,8 @@
 			children = (
 				51B50F3D1D642953001733C8 /* OrdersDetailController.h */,
 				51B50F3E1D642953001733C8 /* OrdersDetailController.m */,
+				ACE8111F1D6AD966006402A5 /* MBOrderPayController.h */,
+				ACE811201D6AD966006402A5 /* MBOrderPayController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -977,6 +988,8 @@
 				51D3D75E1D6444E30062D288 /* OrdersDetailFooter.m */,
 				735C3B281D65C1F300E4DB90 /* MakeOrderBar.h */,
 				735C3B291D65C1F300E4DB90 /* MakeOrderBar.m */,
+				ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */,
+				ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1767,6 +1780,8 @@
 				735C3B231D65C0EB00E4DB90 /* MakeOrderAPIManager.m */,
 				735C3B251D65C13000E4DB90 /* OrderDetailAPIManager.h */,
 				735C3B261D65C13000E4DB90 /* OrderDetailAPIManager.m */,
+				AC538BB91D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.h */,
+				AC538BBA1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -2856,6 +2871,7 @@
 				734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */,
 				AC540AEA1D62A54D007636CE /* MBScanButton.m in Sources */,
 				AC540ADF1D61B640007636CE /* NSDataEx.m in Sources */,
+				ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */,
 				735C3B241D65C0EB00E4DB90 /* MakeOrderAPIManager.m in Sources */,
 				51FB77151D632EC80040D9B6 /* GoodsDetailHeader.m in Sources */,
 				AC540AE51D61C6F4007636CE /* Order.m in Sources */,
@@ -2891,6 +2907,7 @@
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
 				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,
 				BB1294291D50A8D60048927D /* MBAdItem.m in Sources */,
+				AC538BBB1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m in Sources */,
 				732A96C11D5EA07E00BE5800 /* Target_Goods.m in Sources */,
 				5175745C1D548203009894D7 /* main.m in Sources */,
 				AC540ADB1D61B640007636CE /* base64.m in Sources */,
@@ -2915,6 +2932,7 @@
 				734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
 				51D348A11D57924E002D761C /* MyHelpCell.m in Sources */,
+				ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */,
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,

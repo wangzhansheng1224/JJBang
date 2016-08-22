@@ -7,7 +7,7 @@
 //
 
 #import "OrdersDetailHeader.h"
-
+#import "OrdersDetailKey.h"
 @interface OrdersDetailHeader ()
 
 @property (nonatomic,strong) UILabel *ordersNumLabel;
@@ -38,7 +38,7 @@
 
     [_ordersNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(200, 14));
+        make.size.mas_equalTo(CGSizeMake(250, 16));
         make.left.equalTo(@16);
         make.top.equalTo(@16);
     }];
@@ -54,6 +54,12 @@
         make.left.right.equalTo(@0);
         make.top.equalTo(_ordersNumLabel.mas_bottom).with.offset(16);
     }];
+}
+
+- (void)configWithData:(NSDictionary *)data
+{
+//    [self.ordersNumLabel setText:data[@"kOrdersDetailOrderNO"]];
+    self.ordersNumLabel.text = data[kOrdersDetailOrderNO];
 }
 
 #pragma -

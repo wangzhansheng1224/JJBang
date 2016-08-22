@@ -13,10 +13,9 @@
 #import "RechargeWeChatAndAliView.h"
 #import "MyRechargeAPIManager.h"
 #import "MyRechargeReformer.h"
-#import "NSString+MBMD5.h"
-#import "Order.h"
+//#import "Order.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "DataSigner.h"
+//#import "DataSigner.h"
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MyRechargeWeChatAPIManager.h"

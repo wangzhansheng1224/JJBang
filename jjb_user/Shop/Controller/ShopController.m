@@ -92,6 +92,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         [self.loactionButton setTitle:dict[@"city"]];
     }];
+    //切换门店之后tableView自动置顶
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 
     }
 
