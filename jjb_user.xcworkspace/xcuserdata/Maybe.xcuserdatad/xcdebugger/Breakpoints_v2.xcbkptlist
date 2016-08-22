@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "jjb_user/Orders/Controller/MBOrderPayController.m"
-            timestampString = "493547243.186504"
+            timestampString = "493557618.341314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-apiManagerCallDidSuccess:"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-gotoRecharge:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "jjb_user/Orders/Controller/OrdersDetailController.m"
-            timestampString = "493555275.13475"
+            filePath = "jjb_user/Orders/Controller/MBOrderPayController.m"
+            timestampString = "493557634.446002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-apiManagerCallDidSuccess:"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-apiManagerCallDidFailed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

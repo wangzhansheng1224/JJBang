@@ -60,7 +60,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 
     RechargeWeChatAndAliCell * ReView = [[RechargeWeChatAndAliCell alloc]init];
     [ReView selectButton:^(RechargeWeChatAndAliCell *sender) {
-                NSString * str = self.nameLabel.text;
+    NSString * str = self.nameLabel.text;
                 JJBLog(@"++++=========%@",str);
     }];
    [self addSubViewConstraints];
@@ -72,13 +72,6 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     // Dispose of any resources that can be recreated.
     
 }
-
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-}
-
 
 #pragma 
 #pragma mark - private methods

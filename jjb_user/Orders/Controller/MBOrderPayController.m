@@ -20,6 +20,7 @@
 @property(nonatomic,strong)MBOrderPayHeadView * orderPayHeadView;
 @property(nonatomic,strong)RechargeWeChatAndAliView * RechargeWeChatAndAliView;
 @property(nonatomic,strong)LDAPIBaseManager * RechrgeManager;
+
 //充值按钮
 @property(nonatomic,weak)UIButton * RechargeButton;
 @end
@@ -107,11 +108,21 @@
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
 {
-    NSDictionary * dict = @{
-                            @"way":@1,
-                            @"order_no":@"余额充值",
-                            };
-    return dict;
+    
+    if ([manager isKindOfClass:[MBOrderPayTypeAPIManager class]]) {
+        ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@",@1,self.orderNo];
+    }
+    return nil;
+    
+    
+    
+    
+    
+//    NSDictionary * dict = @{
+//                            @"way":@1,
+//                            @"order_no":@"余额充值",
+//                            };
+//    return dict;
     
     
 }
