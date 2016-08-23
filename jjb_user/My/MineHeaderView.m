@@ -13,6 +13,7 @@
 #import "MySettingController.h"
 #import "LevelController.h"
 #import "MyBalanceViewController.h"
+#import "GoodsListController.h"
 
 #define HeaderView_Height 250
 #define TopImage_Height 150
@@ -74,7 +75,7 @@
 
     [self.setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.top.equalTo(@10);
+        make.top.equalTo(@30);
         make.right.equalTo(@-10);
     }];
     
@@ -108,7 +109,7 @@
         
         make.size.mas_equalTo(CGSizeMake(110, 21));
         make.right.equalTo(@20);
-        make.top.equalTo(self.setBtn.mas_bottom).with.offset(80);
+        make.top.equalTo(self.setBtn.mas_bottom).with.offset(70);
     }];
     
     [self.moneyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,7 +138,7 @@
     [self.nameLabel setText:model.nickName];
     NSURL *url=[NSURL initWithImageURL:model.photo Size:self.itemImage.frame.size];
     [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
-    self.moneyBtn.bDetail=[NSString stringWithFormat:@" %f",model.balance];
+    self.moneyBtn.bDetail=[NSString stringWithFormat:@" %.2f",model.balance];
 }
 
 
@@ -162,6 +163,14 @@
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     MyBalanceViewController *balanceController=[[MyBalanceViewController alloc] init];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:balanceController];
+    [navController pushViewController:controller animated:YES];
+}
+
+- (void)goodsBtnClick:(id)sender {
+
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    GoodsListController *goodsListController=[[GoodsListController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:goodsListController];
     [navController pushViewController:controller animated:YES];
 }
 
@@ -284,6 +293,7 @@
         _adBtn.bImage = @"my_shop";
         _adBtn.bTitle = @"七彩商城";
         _adBtn.bDetail = @"....";
+        [_adBtn addTarget:self action:@selector(goodsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _adBtn;
 }

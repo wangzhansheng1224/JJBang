@@ -13,6 +13,7 @@ NSString *const kCoursePackagesNums=@"CoursePackagesNums";
 NSString *const kCoursePackagesID=@"CoursePackagesID";
 NSString *const kCoursePackagesName=@"CoursePackagesName";
 NSString *const kCoursePackagesOrgPrice=@"CoursePackagesOrgPrice";
+NSString *const kPackagesID=@"PackagesID";
 
 @implementation CoursePackagesReformer
 
@@ -29,7 +30,8 @@ NSString *const kCoursePackagesOrgPrice=@"CoursePackagesOrgPrice";
                       kCoursePackagesID:dataArr[i][@"courseId"],
                       kCoursePackagesName:dataArr[i][@"name"],
                       kCoursePackagesNums:dataArr[i][@"course_nums"],
-                      kCoursePackagesOrgPrice:dataArr[i][@"org_price"]
+                      kCoursePackagesOrgPrice:dataArr[i][@"org_price"],
+                      kPackagesID:dataArr[i][@"id"]
                       };
             
             [resultArr addObject:dic];

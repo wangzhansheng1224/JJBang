@@ -15,7 +15,7 @@
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MBOrderPayTypeAPIManager.h"
-
+#import "PayResultController.h"
 @interface MBOrderPayController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property(nonatomic,strong)MBOrderPayHeadView * orderPayHeadView;
 @property(nonatomic,strong)RechargeWeChatAndAliView * RechargeWeChatAndAliView;
@@ -77,6 +77,9 @@
     if (self.RechargeWeChatAndAliView.selectIndex == 0) {
         JJBLog(@"余额支付");
         self.RechargeType = 0;
+       
+
+        
     }
     else if (self.RechargeWeChatAndAliView.selectIndex == 1)
     {
@@ -102,12 +105,20 @@
     if(self.RechargeType == 0 )
     {
         JJBLog(@"余额支付");
+        PayResultController * payVC = [[PayResultController alloc]init];
+
+        [self.navigationController pushViewController:payVC animated:YES];
+        
+        
     }
     else if (self.RechargeType == 1)
     {
         JJBLog(@"微信支付");
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
-
+        
+        PayResultController * payVC = [[PayResultController alloc]init];
+        payVC.orderNo = self.orderInfoDict[@"OrderDetailOrderNo"];
+        [self.navigationController pushViewController:payVC animated:YES];
     }
     else
     {

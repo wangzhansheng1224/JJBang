@@ -85,6 +85,12 @@ static NSString  *const MyCourseCellIdentifier=@"MyCourseCellIdentifier";
     return 148;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dataDic=self.arrData[indexPath.row];
+    UIViewController* controller=[[CTMediator sharedInstance] CTMediator_CourseDetail:@{@"courseID":dataDic[kCourseID]}];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{

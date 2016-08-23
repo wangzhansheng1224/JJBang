@@ -98,10 +98,10 @@
 - (void)configMasonry {
     UIView* superView=self.view;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superView.mas_top);
+        make.top.equalTo(superView.mas_top).with.offset(-20);
         make.bottom.equalTo(superView.mas_bottom);
         make.width.equalTo(superView.mas_width);
-        make.height.equalTo(superView.mas_height);
+        make.height.equalTo(@(Screen_Height));
     }];
 }
 

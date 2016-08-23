@@ -26,7 +26,7 @@
 
 @property (nonatomic,strong) NSMutableArray *arrData;
 @property (nonatomic,strong) NSDictionary *dataDic;
-
+@property (nonatomic,assign) NSInteger index;
 @end
 
 @implementation SelectMenuController
@@ -92,9 +92,9 @@
 }
 
 - (void)btnClick:(UIButton *)btn {
-    NSInteger index = btn.tag - 100;
-    [self.makeOrderBar configWithData:@{@"price":_arrData[index][@"CoursePackagesOrgPrice"]}];
-    
+    _index = btn.tag;
+    [self.makeOrderBar configWithData:@{@"price":_arrData[_index][@"CoursePackagesOrgPrice"]}];
+    JJBLog(@"-------%zd",self.index);
     for (UIView * view in _btnSV.subviews) {
         
         if ([view isKindOfClass:[UIButton class]]) {
@@ -102,7 +102,7 @@
             UIButton * packagesItem = (UIButton *)view;
             
             if (packagesItem == btn) {
-                
+                [self.coursePackagesAPIManager loadData];
                 packagesItem.selected = YES;
                 [packagesItem.layer setBorderColor:COLOR_ORANGE.CGColor];
             }else {
@@ -122,8 +122,8 @@
 
         NSArray *resultData = [manager fetchDataWithReformer:self.coursePackagesReformer];
         [self.arrData addObjectsFromArray:resultData];
-        [self.makeOrderBar configWithData:@{@"price":_arrData[0][@"CoursePackagesOrgPrice"]}];
-        
+        [self.makeOrderBar configWithData:@{@"price":_arrData[_index][@"CoursePackagesOrgPrice"],@"objectID":_arrData[_index][@"PackagesID"]}];
+        JJBLog(@"++++++%zd",self.index);
         [self.menuView addSubview:self.btnSV];
         [self.menuView addSubview:self.makeOrderBar];
         [self layoutPageSubviews];
@@ -231,7 +231,7 @@
             [btn setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
             [btn setTitleColor:COLOR_ORANGE forState:UIControlStateSelected];
             btn.titleLabel.font = H4;
-            btn.tag = 100 + i;
+            btn.tag = i;
             [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
             if (i == 0) {
                 btn.selected = YES;

@@ -169,12 +169,15 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(void)addPageTimer
 {
     self.Timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(updatePage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.Timer forMode:NSRunLoopCommonModes];
+
+        [[NSRunLoop mainRunLoop] addTimer:self.Timer forMode:NSRunLoopCommonModes];
+    
 }
 
 -(void)removePageTimer
 {
     [self.Timer invalidate];
+    self.Timer = nil;
 }
 //切换界面
 -(void)updatePage
@@ -188,6 +191,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
     [self.scrollView setContentOffset:offset animated:YES];
+//    JJBLog(@"定时器时间==%lf",self.Timer.timeInterval);
 }
 
 -(void)activityClick:(UITapGestureRecognizer*)sender{

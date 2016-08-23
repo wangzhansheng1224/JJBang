@@ -38,6 +38,7 @@
 		519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519E9F3C1D66F18200129EAC /* SelectMenuController.m */; };
 		51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033A91D6B02440058CDD4 /* CoursePackagesReformer.m */; };
 		51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033AB1D6B02530058CDD4 /* CoursePackagesAPIManager.m */; };
+		51A033B31D6C46210058CDD4 /* CourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033B21D6C46210058CDD4 /* CourseListCell.m */; };
 		51AA22AD1D5C22F000851626 /* StudentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AA22AC1D5C22F000851626 /* StudentDetailController.m */; };
 		51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ACDDF11D640675001604A6 /* GoodsParameterCell.m */; };
 		51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2B6BB1D51F75800347E57 /* MyCourseCell.m */; };
@@ -354,6 +355,8 @@
 		51A033A91D6B02440058CDD4 /* CoursePackagesReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursePackagesReformer.m; sourceTree = "<group>"; };
 		51A033AB1D6B02530058CDD4 /* CoursePackagesAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursePackagesAPIManager.m; sourceTree = "<group>"; };
 		51A033AC1D6B02530058CDD4 /* CoursePackagesAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursePackagesAPIManager.h; sourceTree = "<group>"; };
+		51A033B11D6C46210058CDD4 /* CourseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListCell.h; sourceTree = "<group>"; };
+		51A033B21D6C46210058CDD4 /* CourseListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListCell.m; sourceTree = "<group>"; };
 		51AA22AB1D5C22F000851626 /* StudentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailController.h; sourceTree = "<group>"; };
 		51AA22AC1D5C22F000851626 /* StudentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailController.m; sourceTree = "<group>"; };
 		51ACDDF01D640675001604A6 /* GoodsParameterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsParameterCell.h; sourceTree = "<group>"; };
@@ -1279,6 +1282,8 @@
 				735C3B141D655A5000E4DB90 /* CourseRegistrationCell.m */,
 				735C3B1B1D658DCD00E4DB90 /* CourseCatalogView.h */,
 				735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */,
+				51A033B11D6C46210058CDD4 /* CourseListCell.h */,
+				51A033B21D6C46210058CDD4 /* CourseListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2707,7 +2712,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = A8XTC7F62D;
+						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3054,6 +3059,7 @@
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
 				512F23461D517FD800E33A92 /* LevelButton.m in Sources */,
+				51A033B31D6C46210058CDD4 /* CourseListCell.m in Sources */,
 				734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */,
 				732A96BD1D5EA01300BE5800 /* GoodsDetailController.m in Sources */,
 				735C3AF01D62F1E300E4DB90 /* ClerkListCell.m in Sources */,
@@ -3096,7 +3102,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				CODE_SIGN_IDENTITY = "Mac Developer: 348519692@qq.com (QTZCJE98V6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -3119,7 +3125,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "a61303ea-3810-47c0-bddd-3d725548531d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3143,7 +3149,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				CODE_SIGN_IDENTITY = "Mac Developer: 348519692@qq.com (QTZCJE98V6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3159,7 +3165,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "a61303ea-3810-47c0-bddd-3d725548531d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3231,7 +3237,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
-
 			};
 			name = Debug;
 		};
@@ -3284,7 +3289,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
-
 			};
 			name = Release;
 		};
