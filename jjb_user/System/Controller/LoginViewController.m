@@ -81,6 +81,12 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+
 #pragma mark
 #pragma mark - private methods
 -(void)setupNav

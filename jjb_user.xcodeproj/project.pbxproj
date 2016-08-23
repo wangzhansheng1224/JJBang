@@ -186,6 +186,7 @@
 		738B82161D5FE67200765F6F /* ImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82151D5FE67200765F6F /* ImgModel.m */; };
 		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
+		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
@@ -654,6 +655,8 @@
 		739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClerkKeys.h; path = Reformer/ClerkKeys.h; sourceTree = "<group>"; };
 		739F210B1D67D9D900F2CF6A /* TeacherListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
 		739F210C1D67D9D900F2CF6A /* TeacherListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
+		739F210E1D6AA93A00F2CF6A /* LevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelController.h; sourceTree = "<group>"; };
+		739F210F1D6AA93A00F2CF6A /* LevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelController.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1903,6 +1906,8 @@
 				ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */,
 				AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */,
 				AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */,
+				739F210E1D6AA93A00F2CF6A /* LevelController.h */,
+				739F210F1D6AA93A00F2CF6A /* LevelController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2906,6 +2911,7 @@
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
+				739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */,
 				AC6E13881D5DBEEF00A7C71D /* MyRechargeAPIManager.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,

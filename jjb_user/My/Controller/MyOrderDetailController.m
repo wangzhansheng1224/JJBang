@@ -33,6 +33,12 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 #pragma 
 #pragma mark - UITableViewDelegate and UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

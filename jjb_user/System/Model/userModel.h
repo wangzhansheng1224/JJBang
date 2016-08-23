@@ -15,7 +15,10 @@
 @property (nonatomic,strong) NSString* photo;
 @property (nonatomic,assign) NSInteger sex;
 @property (nonatomic,strong) NSString* signature;
-@property (nonatomic,assign) NSArray* myFamily;
+@property (nonatomic,strong) NSString* balance;
+@property (nonatomic,strong) NSString* totalBalance;
+@property (nonatomic,assign) NSInteger level;
+@property (nonatomic,strong) NSArray* myFamily;
 
 
 + (UserModel *)currentUser;
