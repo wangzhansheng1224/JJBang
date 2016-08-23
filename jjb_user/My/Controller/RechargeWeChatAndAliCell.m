@@ -11,7 +11,7 @@
 @interface RechargeWeChatAndAliCell ()
 @property(nonatomic,weak) UIImageView * iconImageView;
 @property(nonatomic,weak) UILabel * nameLabel;
-@property(nonatomic,weak) UIButton * choiceButton;
+//@property(nonatomic,weak) UIButton * choiceButton;
 @property(nonatomic,weak) UIView * lineView;
 @property(nonatomic,copy) SelectButtonBlock selectBlock;
 
@@ -69,7 +69,7 @@
 
 -(void)selectBtn:(UIButton * )btn
 {
-    JJBLog(@"%s",__func__);
+    
     btn.selected = !btn.selected;
     
     if(self.selectBlock)

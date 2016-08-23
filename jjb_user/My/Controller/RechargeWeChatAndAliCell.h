@@ -12,6 +12,7 @@ typedef void (^SelectButtonBlock)(RechargeWeChatAndAliCell * sender);
 @interface RechargeWeChatAndAliCell : UIView
 -(instancetype)initWithImage:(UIImage *)iconImage title:(NSString *)title;
 -(void)selectButton:(SelectButtonBlock)block;
+@property(nonatomic,weak) UIButton * choiceButton;
 
 
 @end
