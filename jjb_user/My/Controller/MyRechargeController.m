@@ -15,7 +15,7 @@
 #import "MyRechargeReformer.h"
 //#import "Order.h"
 #import <AlipaySDK/AlipaySDK.h>
-//#import "DataSigner.h"
+#import "PayResultController.h"
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MyRechargeWeChatAPIManager.h"
@@ -147,6 +147,9 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     else{
         
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
+        PayResultController *resultController=[[PayResultController alloc] init];
+        resultController.orderNo=self.order;
+        [self.navigationController pushViewController:resultController animated:YES];
     }
    
 }

@@ -145,21 +145,23 @@
 #pragma - Event 
 
 -(void)settingClick:(id)sender{
-    
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
-    MySettingController *controller=[[MySettingController alloc] init];
+    MySettingController *setting=[[MySettingController alloc] init];
+      UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:setting];
     [navController pushViewController:controller animated:YES];
 }
 
 -(void)levelBtnClick:(id)sender{
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
-    LevelController *controller=[[LevelController alloc] init];
+    LevelController *levelController=[[LevelController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:levelController];
     [navController pushViewController:controller animated:YES];
 }
 
 -(void)moneyBtnClick:(id)sender{
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
-    MyBalanceViewController *controller=[[MyBalanceViewController alloc] init];
+    MyBalanceViewController *balanceController=[[MyBalanceViewController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:balanceController];
     [navController pushViewController:controller animated:YES];
 }
 
