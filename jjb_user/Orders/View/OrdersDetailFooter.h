@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OrdersDetailFooter : UIView
+- (void)configWithData:(NSDictionary *)data;
 
 @end

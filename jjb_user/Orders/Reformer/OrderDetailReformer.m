@@ -27,18 +27,23 @@
 {
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
         NSDictionary * dataDict = data[@"data"];
+        NSTimeInterval time = [dataDict[@"orderTime"] doubleValue]/1000;
+        NSDate * date = [NSDate dateWithTimeIntervalSince1970:time];
+        NSString * timeString = [date formattedDateWithFormat:@"YYYY-MM-dd hh:mm:ss"];
+        
         return @{
                  
-                 kOrdersDetailID:dataDict[@"id"],
+                 kOrdersDetailID:[dataDict[@"id"] stringValue],
                  kOrdersDetailCourseNum:dataDict[@"courseNum"],
                  kOrdersDetailName:dataDict[@"name"],
                  kOrdersDetailImage:dataDict[@"image"],
-                 kOrdersDetailOrderTime:dataDict[@"orderTime"],
+                 kOrdersDetailOrderTime:timeString,
                  kOrdersDetailOrderUser:dataDict[@"orderUser"],
                  kOrdersDetailOrderNO:dataDict[@"orderNo"],
-                 kOrdersDetailPayPrice:dataDict[@"payPrice"],
+                 kOrdersDetailPayPrice:[dataDict[@"payPrice"] stringValue],
                  kOrdersDetailShopName:dataDict[@"shopName"],
-                 kOrdersDetailZKPrice:dataDict[@"zkPrice"],
+                 kOrdersDetailZKPrice:[dataDict[@"zkPrice"] stringValue],
+                 kOrdersDetailPrice:[dataDict[@"price"] stringValue]
                  
                  };
     }

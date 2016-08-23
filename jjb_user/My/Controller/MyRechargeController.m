@@ -13,10 +13,9 @@
 #import "RechargeWeChatAndAliView.h"
 #import "MyRechargeAPIManager.h"
 #import "MyRechargeReformer.h"
-#import "NSString+MBMD5.h"
-#import "Order.h"
+//#import "Order.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "DataSigner.h"
+//#import "DataSigner.h"
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MyRechargeWeChatAPIManager.h"
@@ -58,32 +57,16 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     self.navigationItem.title = @"充值";
     
     
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPay:) name:@"PaySelect" object:nil];
+
     RechargeWeChatAndAliCell * ReView = [[RechargeWeChatAndAliCell alloc]init];
-    //    [ReView selectButton:^(RechargeWeChatAndAliCell *sender) {
-    //     NSString * string  = self.nameLabel.text;
-    //        JJBLog(@"++++=========%@",string);
-    //    }];
     [ReView selectButton:^(RechargeWeChatAndAliCell *sender) {
-                NSString * str = self.nameLabel.text;
+    NSString * str = self.nameLabel.text;
                 JJBLog(@"++++=========%@",str);
     }];
    [self addSubViewConstraints];
     
     
 }
-//-(void)gotoPay:(NSNotification *)notification
-//{
-//    NSString * string =  notification.userInfo[@"PaySelect"];
-//    if ([string rangeOfString:@"支付宝"].location != NSNotFound) {
-//        JJBLog(@"看这里%@",string);
-//    }else
-//    {
-//        JJBLog(@"看这里%@",string);
-//    }
-//}
-//
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -176,13 +159,6 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
 {
-//    return @{
-//             @"shop_id":@"3",
-//             @"user_id":@([UserModel currentUser].userID),
-//             @"start":@(self.pageIndex),
-//             @"count":@(self.pageSize),
-//             @"isOwn":@"0"
-//             };
     NSDictionary * dict = @{
                             @"user_id":@([UserModel currentUser].userID),
                             @"boby":@"余额充值",
@@ -287,7 +263,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         NSArray * item =@[AliPayCell,WeChatCell];
         RechargeWeChatAndAliView * view = [[RechargeWeChatAndAliView alloc]initWithItems:item];
         
-        view.backgroundColor = [UIColor redColor];
+        
         [self.view addSubview:view];
         _RechargeWeChatAndAliView = view;
     }

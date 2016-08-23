@@ -7,7 +7,7 @@
 //
 
 #import "MyOrderDetailCell.h"
-
+#import "MyOrderDetailKey.h"
 @interface MyOrderDetailCell ()
 @property(nonatomic,weak) UILabel * courseNameLabel;
 @property(nonatomic,weak) UILabel * courseTimeLabel;
@@ -23,6 +23,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+//        self.backgroundColor = [UIColor redColor];
         [self addSubViewConstraints];
     }
     return self;
@@ -37,7 +38,12 @@
 
     // Configure the view for the selected state
 }
-
+- (void)configWithData:(NSDictionary *)data
+{
+    [self.courseNameLabel setText:data[kMyOrderDetailName]];
+    [self.courseMoneyLabel setText:data[kMyOrderDetailPrice]];
+    [self.courseTimeLabel setText:data[kMyOrderDetailTime]];
+}
 -(void)addSubViewConstraints
 {
     [self.courseNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,7 +83,7 @@
         label.text = @"2016 08-11-19-09";
         _courseTimeLabel = label;
         label.font = H4;
-        label.textColor = COLOR_LIGHT_GRAY;
+        label.textColor = COLOR_GRAY;
         [label sizeToFit];
         [self.contentView addSubview:label];
     }

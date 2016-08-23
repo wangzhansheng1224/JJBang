@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface OrdersDetailHeader : UIView
-
+- (void)configWithData:(NSDictionary *)data;
 @end

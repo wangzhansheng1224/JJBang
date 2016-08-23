@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MyOrderDetailCell : UITableViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end
