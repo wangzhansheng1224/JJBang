@@ -73,11 +73,6 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     
 }
 
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-}
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -87,6 +82,8 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 
 #pragma 
 #pragma mark - private methods
+
+
 
 -(void)addSubViewConstraints
 {
@@ -148,7 +145,8 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
         PayResultController *resultController=[[PayResultController alloc] init];
-        resultController.orderNo=self.order;
+        resultController.orderNo=[dictData objectForKey:@"order"];
+        
         [self.navigationController pushViewController:resultController animated:YES];
     }
    
@@ -244,17 +242,6 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     }
     return _bjTextfieldView;
 }
-//-(RechargeWeChatAndAliCell *)cell
-//{
-//    if (_cell == nil) {
-//        RechargeWeChatAndAliCell * cell = [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"img_default"] title:@"支付宝支付"];
-//        
-//        [self.view addSubview:cell];
-//        _cell = cell;
-//        
-//    }
-//    return _cell;
-//}
 -(RechargeWeChatAndAliView *)RechargeWeChatAndAliView
 {
     if (_RechargeWeChatAndAliView == nil) {

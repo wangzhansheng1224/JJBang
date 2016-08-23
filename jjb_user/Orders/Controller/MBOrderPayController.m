@@ -15,7 +15,7 @@
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MBOrderPayTypeAPIManager.h"
-
+#import "PayResultController.h"
 @interface MBOrderPayController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 @property(nonatomic,strong)MBOrderPayHeadView * orderPayHeadView;
 @property(nonatomic,strong)RechargeWeChatAndAliView * RechargeWeChatAndAliView;
@@ -107,7 +107,10 @@
     {
         JJBLog(@"微信支付");
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
-
+        
+        PayResultController * payVC = [[PayResultController alloc]init];
+        payVC.orderNo = self.orderInfoDict[@"OrderDetailOrderNo"];
+        [self.navigationController pushViewController:payVC animated:YES];
     }
     else
     {
