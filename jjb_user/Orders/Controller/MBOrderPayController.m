@@ -95,7 +95,7 @@
 //    
 //    else{
 //        
-//        [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
+        [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
 //    }
     
 }
@@ -110,7 +110,7 @@
 {
     
     if ([manager isKindOfClass:[MBOrderPayTypeAPIManager class]]) {
-        ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@",@1,self.orderNo];
+        ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@/%@",@1,self.orderInfoDict,@([UserModel currentUser].userID)];
     }
     return nil;
     

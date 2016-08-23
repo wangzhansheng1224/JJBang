@@ -51,8 +51,13 @@
     [self.sectionView addSubview:self.arrowImageV];
     [self layoutPageSubviews];
     [self.apiManager loadData];
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+  
+}
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
@@ -134,7 +139,6 @@
 
     return self.sectionView;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
     return 32;
@@ -153,6 +157,7 @@
     [self.tableView reloadData];
     [self.headerView configWithData:self.orderDetailDictionary];
     [self.footerView configWithData:self.orderDetailDictionary];
+    self.locationLabel.text = self.orderDetailDictionary[kOrdersDetailShopName];
      
 }
 
@@ -260,6 +265,7 @@
         
         _locationLabel = [[UILabel alloc] init];
         _locationLabel.text = @"望京店";
+//        _locationLabel.text = self.orderDetailDictionary[@"OrderDetailShopName"];
         _locationLabel.textColor = COLOR_GRAY;
         _locationLabel.textAlignment = NSTextAlignmentLeft;
         _locationLabel.font = H3;

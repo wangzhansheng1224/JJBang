@@ -98,8 +98,8 @@
     }];
     
     [self.signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(100, 14));
+        make.height.mas_equalTo(@16);
+        make.right.mas_equalTo(self.mas_right).offset(-10);
         make.top.equalTo(self.nameLabel.mas_bottom).with.offset(8);
         make.left.equalTo(self.itemImage.mas_right).with.offset(16);
     }];
@@ -133,8 +133,11 @@
 
 #pragma -
 #pragma - configWithData
-- (void)configWithData:(NSDictionary *)data{
-    
+- (void)configWithData:(UserModel *)model{
+    [self.nameLabel setText:model.nickName];
+    NSURL *url=[NSURL initWithImageURL:model.photo Size:self.itemImage.frame.size];
+    [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
+    self.moneyBtn.bDetail=[NSString stringWithFormat:@" %f",model.balance];
 }
 
 
@@ -227,8 +230,6 @@
     
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text=@"Owen";
-        _nameLabel.textColor = [UIColor whiteColor];
     }
     return _nameLabel;
 }
@@ -237,11 +238,8 @@
     
     if (!_signLabel) {
         _signLabel = [[UILabel alloc] init];
-        
-        _signLabel.textColor = [UIColor whiteColor];
-        
         _signLabel.alpha = 0.8;
-        _signLabel.text=@"....";
+        _signLabel.text=@"这家伙很懒，什么都没留下！";
         
         _signLabel.font = [UIFont systemFontOfSize:13];
     }

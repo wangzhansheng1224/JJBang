@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserModel.h"
 
 @interface MineHeaderView : UIView
-- (void)configWithData:(NSDictionary *)data;
+- (void)configWithData:(UserModel *)model;
 @end

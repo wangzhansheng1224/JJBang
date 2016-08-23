@@ -189,6 +189,7 @@
 		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
 		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
+		73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC782F1D6BD5FF00A81078 /* MemberModel.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
@@ -669,6 +670,8 @@
 		739F210C1D67D9D900F2CF6A /* TeacherListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
 		739F210E1D6AA93A00F2CF6A /* LevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelController.h; sourceTree = "<group>"; };
 		739F210F1D6AA93A00F2CF6A /* LevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelController.m; sourceTree = "<group>"; };
+		73AC782E1D6BD5FF00A81078 /* MemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberModel.h; sourceTree = "<group>"; };
+		73AC782F1D6BD5FF00A81078 /* MemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberModel.m; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2640,6 +2643,8 @@
 				731092311D5483600031B443 /* UserModel.m */,
 				738B82141D5FE67200765F6F /* ImgModel.h */,
 				738B82151D5FE67200765F6F /* ImgModel.m */,
+				73AC782E1D6BD5FF00A81078 /* MemberModel.h */,
+				73AC782F1D6BD5FF00A81078 /* MemberModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2887,6 +2892,7 @@
 				51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */,
 				AC540ADC1D61B640007636CE /* DataSigner.m in Sources */,
 				BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */,
+				73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
 				735C3B1A1D65690400E4DB90 /* CourseCatalogReformer.m in Sources */,
 				735C3B011D62F94F00E4DB90 /* TeacherReformer.m in Sources */,

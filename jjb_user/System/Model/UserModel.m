@@ -8,6 +8,7 @@
 
 #import "userModel.h"
 #import "PathHelper.h"
+#import "MemberModel.h"
 
 static UserModel* currentUser;
 
@@ -70,6 +71,17 @@ static UserModel* currentUser;
     user.sex=[dic[@"sex"] integerValue];
     user.photo=dic[@"photo"];
     user.signature=dic[@"signature"];
+    user.balance=[dic[@"balance"] doubleValue];
+    user.level=[dic[@"level"] integerValue];
+    user.totalBalance=[dic[@"totalBalance"] doubleValue];
+    user.nextBalance=[dic[@"nextBalance"] doubleValue];
+    user.discount=[dic[@"discount"] doubleValue];
+    user.nextDiscount=[dic[@"nextDiscount"] doubleValue];
+    user.myFamily=[[NSMutableArray alloc] init];
+    NSArray *myFamliy=dic[@"myFamily"];
+    for (NSDictionary *dic in myFamliy) {
+        [user.myFamily addObject:[MemberModel JsonParse:dic]];
+    }
     return user;
 }
 
