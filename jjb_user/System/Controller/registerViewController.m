@@ -200,10 +200,7 @@
 //    UserModel *user=[manager fetchDataWithReformer:self.userReformer];
 //    [UserModel save:user];
 //    [self.navigationController popViewControllerAnimated:YES];
-    if ([manager isKindOfClass:[self.getCodeAPIManager class]]) {
-        NSDictionary * dict = [manager fetchDataWithReformer:nil];
-    }
-    else if([manager isKindOfClass:[self.verCodeAPIManager class]])
+    if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
         //验证成功则进行注册验证
         NSDictionary * dict = [manager fetchDataWithReformer:nil];
