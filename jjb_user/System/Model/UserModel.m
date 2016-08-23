@@ -6,7 +6,7 @@
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "userModel.h"
+#import "UserModel.h"
 #import "PathHelper.h"
 #import "MemberModel.h"
 
@@ -105,6 +105,14 @@ static UserModel* currentUser;
         self.photo=[[aDecoder decodeObjectForKey:@"photo"] copy];
         self.sex=[aDecoder decodeIntegerForKey:@"sex"];
         self.signature=[[aDecoder decodeObjectForKey:@"signature"] copy];
+        self.myFamily=[[aDecoder decodeObjectForKey:@"myFamily"] copy];
+        self.balance=[aDecoder decodeDoubleForKey:@"balance"];
+        self.level=[aDecoder decodeIntegerForKey:@"level"];
+        self.totalBalance=[aDecoder decodeDoubleForKey:@"totalBalance"];
+        self.nextBalance=[aDecoder decodeDoubleForKey:@"nextBalance"];
+        self.discount=[aDecoder decodeDoubleForKey:@"discount"];
+        self.nextDiscount=[aDecoder decodeDoubleForKey:@"nextDiscount"];
+    
     }
     return self;
 }
@@ -117,6 +125,12 @@ static UserModel* currentUser;
     [aCoder encodeInteger:self.sex forKey:@"sex"];
     [aCoder encodeObject:self.signature forKey:@"signature"];
     [aCoder encodeObject:self.myFamily forKey:@"myFamily"];
+    [aCoder encodeDouble:self.balance forKey:@"balance"];
+    [aCoder encodeInteger:self.level forKey:@"level"];
+    [aCoder encodeDouble:self.balance forKey:@"totalBalance"];
+    [aCoder encodeDouble:self.balance forKey:@"nextBalance"];
+    [aCoder encodeDouble:self.balance forKey:@"discount"];
+    [aCoder encodeDouble:self.balance forKey:@"nextDiscount"];
 }
 
 @end

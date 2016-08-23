@@ -107,6 +107,7 @@
 //    orderPayVC.orderNo = self.orderNo;
 //    JJBLog(@"%@",orderPayVC.orderNo);
     JJBLog(@"%@",self.orderNo);
+    orderPayVC.orderInfoDict = self.orderDetailDictionary;
     [self.navigationController pushViewController:orderPayVC animated:YES];
 
 }
@@ -149,7 +150,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
-        [self.view makeToast:@"获取成功"];
+//        [self.view makeToast:@"获取成功"];
          self.orderDetailDictionary = [manager fetchDataWithReformer:self.OrderDetailReformer];
         
         JJBLog(@"%@",self.orderDetailDictionary);
@@ -172,9 +173,7 @@
         ((OrderDetailAPIManager*)manager).methodName=[NSString stringWithFormat:@"gateway/orderInfo/%@",self.orderNo];
         
     }
-    return @{
-             @"shop_id":@"2"
-             };
+    return nil;
 }
 
 

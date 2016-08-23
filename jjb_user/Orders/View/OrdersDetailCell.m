@@ -78,9 +78,10 @@
     NSString * URLString = [NSString stringWithFormat:@"%@%@",ImageServer,data[kOrdersDetailImage]];
     NSURL * imageURL = [NSURL URLWithString:URLString];
     [self.picImageV sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"img_default"]];
+   
     [self.titleLabel setText:data[kOrdersDetailName]];
-    [self.describeLabel setText:data[kOrdersDetailCourseNum]];
-    [self.priceLabel setText:data[kOrdersDetailPrice] ];
+    [self.describeLabel setText:[NSString stringWithFormat:@" %@ 课时",data[kOrdersDetailCourseNum]]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPayPrice]]];
 }
 
 

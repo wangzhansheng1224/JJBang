@@ -109,6 +109,8 @@
 		732A96D81D5EBD5700BE5800 /* Target_Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96D71D5EBD5700BE5800 /* Target_Teacher.m */; };
 		732A96DC1D5EC04F00BE5800 /* Target_Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96DB1D5EC04F00BE5800 /* Target_Student.m */; };
 		732A96E01D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A96DF1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m */; };
+		7340120E1D6C092400BF217C /* PayResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7340120D1D6C092400BF217C /* PayResultController.m */; };
+		734012111D6C2B6600BF217C /* OrderStatusAPImanager.m in Sources */ = {isa = PBXBuildFile; fileRef = 734012101D6C2B6600BF217C /* OrderStatusAPImanager.m */; };
 		734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C51D59A081000AAA27 /* iCarousel.m */; };
 		734CC3C91D59AA96000AAA27 /* ActivityDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3C81D59AA96000AAA27 /* ActivityDetailHeader.m */; };
 		734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 734CC3CB1D5AC591000AAA27 /* ActivityRegistrationCell.m */; };
@@ -499,6 +501,10 @@
 		732A96DB1D5EC04F00BE5800 /* Target_Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_Student.m; path = Actions/Target_Student.m; sourceTree = "<group>"; };
 		732A96DE1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorStudentActions.h"; path = "Student/CTMediator+CTMediatorStudentActions.h"; sourceTree = "<group>"; };
 		732A96DF1D5EC10700BE5800 /* CTMediator+CTMediatorStudentActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorStudentActions.m"; path = "Student/CTMediator+CTMediatorStudentActions.m"; sourceTree = "<group>"; };
+		7340120C1D6C092400BF217C /* PayResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultController.h; sourceTree = "<group>"; };
+		7340120D1D6C092400BF217C /* PayResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultController.m; sourceTree = "<group>"; };
+		7340120F1D6C2B6600BF217C /* OrderStatusAPImanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderStatusAPImanager.h; path = APIManager/OrderStatusAPImanager.h; sourceTree = "<group>"; };
+		734012101D6C2B6600BF217C /* OrderStatusAPImanager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderStatusAPImanager.m; path = APIManager/OrderStatusAPImanager.m; sourceTree = "<group>"; };
 		734CC3C41D59A081000AAA27 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		734CC3C51D59A081000AAA27 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		734CC3C71D59AA96000AAA27 /* ActivityDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailHeader.h; sourceTree = "<group>"; };
@@ -996,6 +1002,8 @@
 				51B50F3E1D642953001733C8 /* OrdersDetailController.m */,
 				ACE8111F1D6AD966006402A5 /* MBOrderPayController.h */,
 				ACE811201D6AD966006402A5 /* MBOrderPayController.m */,
+				7340120C1D6C092400BF217C /* PayResultController.h */,
+				7340120D1D6C092400BF217C /* PayResultController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1808,6 +1816,8 @@
 				735C3B261D65C13000E4DB90 /* OrderDetailAPIManager.m */,
 				AC538BB91D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.h */,
 				AC538BBA1D6AEA9000EB6DB3 /* MBOrderPayTypeAPIManager.m */,
+				7340120F1D6C2B6600BF217C /* OrderStatusAPImanager.h */,
+				734012101D6C2B6600BF217C /* OrderStatusAPImanager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -2933,6 +2943,7 @@
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
 				AC27CB1A1D6720E400240089 /* OrderDetailReformer.m in Sources */,
 				735C3B121D654C9200E4DB90 /* CourseCatalogCell.m in Sources */,
+				734012111D6C2B6600BF217C /* OrderStatusAPImanager.m in Sources */,
 				51B50F3A1D64193A001733C8 /* GoodsDetailAPIManager.m in Sources */,
 				731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */,
 				51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */,
@@ -2957,6 +2968,7 @@
 				735C3B0C1D643D0D00E4DB90 /* CourseDetailHeader.m in Sources */,
 				ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
+				7340120E1D6C092400BF217C /* PayResultController.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */,
@@ -3159,7 +3171,7 @@
 			baseConfigurationReference = 2CD1262B9CB20512C7AF567D /* Pods-jjb_user.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3218,7 +3230,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
+
 			};
 			name = Debug;
 		};
@@ -3227,7 +3240,7 @@
 			baseConfigurationReference = 30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3270,7 +3283,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5cfb4353-2051-4ddf-a73d-82b311d38d34";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
+
 			};
 			name = Release;
 		};

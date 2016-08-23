@@ -88,7 +88,8 @@
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-
+        NSDictionary *dic=[manager fetchDataWithReformer:nil];
+        [self makeToast:dic[@"message"] duration:3.0f position:CSToastPositionCenter];
 }
 
 #pragma -

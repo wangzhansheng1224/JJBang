@@ -10,6 +10,7 @@
 #import "RechargeWeChatAndAliCell.h"
 
 @interface RechargeWeChatAndAliView ()
+@property (nonatomic,strong) RechargeWeChatAndAliCell *currentCell;
 @end
 @implementation RechargeWeChatAndAliView
 
@@ -21,8 +22,14 @@
             RechargeWeChatAndAliCell * cell=(RechargeWeChatAndAliCell*)items[i];
              [cell selectButton:^(RechargeWeChatAndAliCell *sender) {
                  self.selectIndex=cell.tag;
+                 if (self.currentCell) {
+                     self.currentCell.choiceButton.selected=NO;
+                 }
+                 self.currentCell=cell;
+                 cell.choiceButton.selected = YES;
              }];
             cell.frame=CGRectMake(0, i*60, Screen_Width, 60);
+
             [self addSubview:cell];
             
         }
