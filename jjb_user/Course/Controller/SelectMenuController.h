@@ -10,4 +10,6 @@
 
 @interface SelectMenuController : UIViewController
 
+@property (nonatomic,assign) NSInteger courseID;
+
 @end

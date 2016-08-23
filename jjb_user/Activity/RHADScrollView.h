@@ -10,6 +10,7 @@
 
 @protocol RHADScrollViewDelegate <NSObject>
 
+@optional
 - (void)tapImageIndex:(NSInteger)index;
 
 @end
@@ -20,6 +21,6 @@
 @property (nonatomic, weak) id<RHADScrollViewDelegate> delegate;
 @property (nonatomic, assign) BOOL invalidate;
 
-- (instancetype)initWithPicArr:(NSArray *)picArr;
+//- (instancetype)initWithPicArr:(NSArray *)picArr;
 
 @end
