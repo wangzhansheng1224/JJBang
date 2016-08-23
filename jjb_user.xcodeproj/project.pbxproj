@@ -3234,9 +3234,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
 			};
 			name = Debug;
 		};
@@ -3286,9 +3286,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
 			};
 			name = Release;
 		};
