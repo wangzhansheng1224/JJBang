@@ -38,6 +38,7 @@
     self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
     [self loadData];
+    [self.headerView configWithData:[UserModel currentUser]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

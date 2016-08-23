@@ -32,6 +32,7 @@
     [self setupNav];
     [self addChildViews];
     [self addChildVIewConstraints];
+    self.moneyLabel.text=[NSString stringWithFormat:@"%f",[UserModel currentUser].balance] ;
 
 }
 - (void)didReceiveMemoryWarning {
