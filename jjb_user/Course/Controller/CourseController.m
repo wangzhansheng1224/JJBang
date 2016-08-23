@@ -217,9 +217,10 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[CourseDetailAPIManager class]]) {
-         self.detailData=[manager fetchDataWithReformer:self.detailReformer];
-         [self.headerView configWithData:_detailData];
-           self.title=_detailData[kCourseName];
+        self.detailData=[manager fetchDataWithReformer:self.detailReformer];
+        [self.headerView configWithData:_detailData];
+        self.priceLabel.text = [NSString stringWithFormat:@"￥%@",_detailData[kCoursePrice]];
+        self.title=_detailData[kCourseName];
     }
     if ([manager isKindOfClass:[CourseCatalogAPIManager class]]) {
         NSArray *resultData = [manager fetchDataWithReformer:self.catalogReformer];
@@ -466,7 +467,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _priceLabel = [[UILabel alloc] init];
         _priceLabel.textColor = COLOR_ORANGE;
         _priceLabel.font = H1;
-        _priceLabel.text = @"￥128";
     }
     return _priceLabel;
 }

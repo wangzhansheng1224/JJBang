@@ -122,8 +122,8 @@
 
         NSArray *resultData = [manager fetchDataWithReformer:self.coursePackagesReformer];
         [self.arrData addObjectsFromArray:resultData];
-        [self.makeOrderBar configWithData:@{@"price":_arrData[0][@"CoursePackagesOrgPrice"]}];
-        
+        [self.makeOrderBar configWithData:@{@"price":_arrData[0][@"CoursePackagesOrgPrice"],@"objectID":_arrData[0][@"PackagesID"]}];
+    
         [self.menuView addSubview:self.btnSV];
         [self.menuView addSubview:self.makeOrderBar];
         [self layoutPageSubviews];

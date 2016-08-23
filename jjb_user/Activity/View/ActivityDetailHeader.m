@@ -129,7 +129,8 @@
     }
     
     _adScrollView.arrPic = mutArr;
-    
+    _adScrollView.adHeight = 173;
+
     if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
         [self.signupButton setEnabled:NO];
         [self.signupButton setTitle:@"已报名" forState:UIControlStateNormal];

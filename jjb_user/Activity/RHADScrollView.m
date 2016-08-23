@@ -9,7 +9,7 @@
 #import "RHADScrollView.h"
 
 
-#define  AD_Height  173
+#define  AD_Height  200
 
 @interface RHADScrollView () <UIScrollViewDelegate>
 
@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSArray * arr_pic;
 @property (nonatomic, assign) int page;
 @property (nonatomic, strong) NSTimer * timer;
+@property (nonatomic, assign) float ADHeight;
 
 @end
 
@@ -33,7 +34,7 @@
     
     if (self) {
         _page = 0;
-        [self addSubviews];
+        
     }
     return self;
 }
@@ -53,8 +54,8 @@
     
     for (int i = 0; i < _arr_pic.count + 1; i++) {
         
-        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(i * Screen_Width, 0, Screen_Height, AD_Height)];
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, AD_Height)];
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(i * Screen_Width, 0, Screen_Height, _ADHeight)];
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, _ADHeight)];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.tag = 1000 + i;
@@ -131,7 +132,7 @@
     NSInteger index = imageView.tag - 1000;
     
     if ([self.delegate respondsToSelector:@selector(tapImageIndex:)]) {
-    
+        
         [self.delegate tapImageIndex:index];
     }
 }
@@ -144,9 +145,13 @@
     
     if (!_scrollView) {
         
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, AD_Height)];
+        if (_ADHeight == 0) {
+            
+            _ADHeight = AD_Height;
+        }
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, _ADHeight)];
         _scrollView.delegate = self;
-        _scrollView.contentSize = CGSizeMake(_arr_pic.count * Screen_Width, AD_Height);
+        _scrollView.contentSize = CGSizeMake(_arr_pic.count * Screen_Width, _ADHeight);
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
@@ -160,7 +165,7 @@
     
     if (!_pageControl) {
         
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(- Screen_Width/2, AD_Height - 20, Screen_Width, 20)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, _ADHeight - 20, Screen_Width, 20)];
         _pageControl.numberOfPages = self.arr_pic.count;
         _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     }
@@ -174,7 +179,7 @@
         _timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(adAudioPlay) userInfo:nil repeats:YES];
         NSRunLoop * runLoop = [NSRunLoop currentRunLoop];
         [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
-
+        
         _page = 0;
     }
     return _timer;
@@ -184,7 +189,14 @@
     
     self.arr_pic = arrPic;
     _pageControl.numberOfPages = arrPic.count;
+}
+
+- (void)setAdHeight:(float)adHeight {
+    
+    _ADHeight = adHeight;
+    [self addSubviews];
     [self scrollViewAddImages];
+    
 }
 
 - (void)setInvalidate:(BOOL)invalidate {

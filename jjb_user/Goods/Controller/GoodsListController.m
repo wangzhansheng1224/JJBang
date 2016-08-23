@@ -42,6 +42,11 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     [self.GoodsListAPIManager loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
