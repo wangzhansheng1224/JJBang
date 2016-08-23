@@ -59,7 +59,9 @@ static UserModel* currentUser;
 }
 + (UserModel*)currentUser
 {
-    [self load];
+    if (!currentUser) {
+        [self load];
+    }
     return currentUser;
 }
 

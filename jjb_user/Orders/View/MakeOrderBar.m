@@ -99,7 +99,7 @@
         return @{
                  @"id":@(self.objectID),
                  @"user_id":@([UserModel currentUser].userID),
-                 @"shop_id":@(1)
+                 @"shop_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"currenShopID"]
                  };
 }
 
