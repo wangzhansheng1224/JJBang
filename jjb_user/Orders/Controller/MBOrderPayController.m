@@ -77,6 +77,9 @@
     if (self.RechargeWeChatAndAliView.selectIndex == 0) {
         JJBLog(@"余额支付");
         self.RechargeType = 0;
+       
+
+        
     }
     else if (self.RechargeWeChatAndAliView.selectIndex == 1)
     {
@@ -102,6 +105,11 @@
     if(self.RechargeType == 0 )
     {
         JJBLog(@"余额支付");
+        PayResultController * payVC = [[PayResultController alloc]init];
+
+        [self.navigationController pushViewController:payVC animated:YES];
+        
+        
     }
     else if (self.RechargeType == 1)
     {
