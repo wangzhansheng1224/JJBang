@@ -160,12 +160,13 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         [cell configWithData:self.catalogData[indexPath.row]];
         return cell;
     }
-    else if (_tabbarControl.selectedSegmentIndex==1) {
-        //报名信息
-        CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
-       // [cell configWithData:self.registrationData[indexPath.row]];
-        return cell;
-    } else {
+//    else if (_tabbarControl.selectedSegmentIndex==1) {
+//        //报名信息
+//        CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
+//       // [cell configWithData:self.registrationData[indexPath.row]];
+//        return cell;
+//    }
+    else {
         //报名信息
         CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
         return cell;

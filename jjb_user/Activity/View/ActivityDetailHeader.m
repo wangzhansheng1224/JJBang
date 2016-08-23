@@ -12,9 +12,8 @@
 #import "ActivityDetailKey.h"
 #import "RHADScrollView.h"
 
-@interface ActivityDetailHeader()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,iCarouselDelegate,iCarouselDataSource,RHADScrollViewDelegate>
+@interface ActivityDetailHeader()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,RHADScrollViewDelegate>
 
-//@property (nonatomic,copy) iCarousel *iView_Photo;
 @property (nonatomic,strong) UILabel *label_status;
 @property (nonatomic,strong) UILabel *label_title;
 @property (nonatomic,strong) UIImageView *imageView_location;
@@ -131,8 +130,6 @@
     
     _adScrollView.arrPic = mutArr;
     
-    NSLog(@"%@", mutArr);
-    
     if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
         [self.signupButton setEnabled:NO];
         [self.signupButton setTitle:@"已报名" forState:UIControlStateNormal];
@@ -148,25 +145,6 @@
 #pragma mark - Event
 - (void) signUpClick:(id)sender{
     [self.registerAPIManager loadData];
-}
-
-#pragma -
-#pragma mark - iCarouselDataSource
-
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
-    return 10;
-}
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
-
-    if (view == nil)
-    {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width/2)];
-        [((UIImageView *)view) sd_setImageWithURL:[NSURL initWithImageURL:@"/weixin/icon/banner1.jpg" Width:Screen_Width Height:Screen_Width/2] placeholderImage:[UIImage imageNamed:@"img_default"]];
-        view.contentMode = UIViewContentModeScaleAspectFit;
- 
-    }
-
-    return view;
 }
 
 #pragma -
@@ -194,7 +172,6 @@
 
 #pragma -
 #pragma mark - getters and setters
-
 - (RHADScrollView *)adScrollView {
 
     if (!_adScrollView) {
