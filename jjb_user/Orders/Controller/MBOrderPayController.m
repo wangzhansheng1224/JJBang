@@ -20,7 +20,8 @@
 @property(nonatomic,strong)MBOrderPayHeadView * orderPayHeadView;
 @property(nonatomic,strong)RechargeWeChatAndAliView * RechargeWeChatAndAliView;
 @property(nonatomic,strong)LDAPIBaseManager * RechrgeManager;
-
+//支付类型 0:余额 1:微信 2:支付宝
+@property(nonatomic,assign) NSUInteger RechargeType;
 //充值按钮
 @property(nonatomic,weak)UIButton * RechargeButton;
 @end
@@ -33,9 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"支付订单";
+    
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self.view addSubview:self.orderPayHeadView];
     [self.view addSubview:self.RechargeWeChatAndAliView];
+    [self.orderPayHeadView setValue:self.orderInfoDict[@"OrderDetailName"] forKeyPath:@"_orderNameLabel.text"];
+    [self.orderPayHeadView setValue:self.orderInfoDict[@"OrderDetailPayPrice"] forKeyPath:@"_orderPriceLabel.text"];
+    [self setHeadViewValue];
     [self addSubViewsConstraints];
 }
 
@@ -43,7 +48,12 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)setHeadViewValue
+{
 
+    [self.orderPayHeadView setValue: self.orderInfoDict[@"OrderDetailName"] forKeyPath:@"_orderNameLabel.text"];
+    [self.orderPayHeadView setValue:[NSString stringWithFormat:@"￥ %@",self.orderInfoDict[@"OrderDetailPayPrice"]] forKeyPath:@"_orderPriceLabel.text"];
+}
 -(void)addSubViewsConstraints
 {
     [self.RechargeWeChatAndAliView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,15 +76,19 @@
 {
     if (self.RechargeWeChatAndAliView.selectIndex == 0) {
         JJBLog(@"余额支付");
+        self.RechargeType = 0;
     }
     else if (self.RechargeWeChatAndAliView.selectIndex == 1)
     {
         JJBLog(@"支付宝支付");
-        [self.RechrgeManager loadData];
+        self.RechargeType = 2;
+        
     }else
     {
         JJBLog(@"微信支付");
+        self.RechargeType = 1;
     }
+    [self.RechrgeManager loadData];
 }
 
 
@@ -85,32 +99,48 @@
     NSDictionary * dict = [manager fetchDataWithReformer:nil];
     NSDictionary * dictData = [dict objectForKey:@"data"];
     
-//    if ([manager isKindOfClass:[self.AliPayprepayIdManager class]]
-//        ) {
-//        
-//        self.order = [dictData objectForKey:@"order"];
-//        self.notifyURL= [dictData objectForKey:@"notify_url"];
-//        [self jumpAliPay];
-//    }
-//    
-//    else{
-//        
+    if(self.RechargeType == 0 )
+    {
+        JJBLog(@"余额支付");
+    }
+    else if (self.RechargeType == 1)
+    {
+        JJBLog(@"微信支付");
         [MBWeChatPayManger wxPayWithInfoDictionary:dictData];
-//    }
+
+    }
+    else
+    {
+        JJBLog(@"支付宝支付");
+        JJBLog(@"%@",self.orderInfoDict);
+        NSDictionary * aliDict = @{
+                                   @"tradeNo":self.orderInfoDict[@"OrderDetailOrderNo"],
+                                   @"productName":self.orderInfoDict[@"OrderDetailName"],
+                                   @"productDescription":self.orderInfoDict[@"OrderDetailName"],
+                                   @"amount":self.orderInfoDict[@"OrderDetailPayPrice"],
+                                   @"notifyURL":dictData[@"notify_url"]
+                                   };
+        
+        [MBAliPayManger aliPayWithParamDictonary:aliDict];
+    }
+    
     
 }
 
 
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    
+    if ([manager isKindOfClass:[MBOrderPayTypeAPIManager class]]) {
+        NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        //错误信息判断
+    }
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
 {
     
     if ([manager isKindOfClass:[MBOrderPayTypeAPIManager class]]) {
-        ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@/%@",@1,self.orderInfoDict,@([UserModel currentUser].userID)];
+        ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@/%@",@(self.RechargeType),self.orderInfoDict[@"OrderDetailOrderNo"],@([UserModel currentUser].userID)];
     }
     return nil;
     
@@ -137,6 +167,7 @@
 {
     if (_orderPayHeadView == nil) {
         _orderPayHeadView = [[MBOrderPayHeadView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 44)];
+        
     }
     return _orderPayHeadView;
 }

@@ -40,7 +40,7 @@
         req.prepayId      = [dict objectForKey:@"prepayid"];
         req.nonceStr      = [dict objectForKey:@"noncestr"];
         req.timeStamp     = stamp.intValue;
-        BOOL status = [WXApi sendResp:req];
+        BOOL status = [WXApi sendReq:req];
     
     }
     

@@ -45,11 +45,20 @@
     [self.view bringSubviewToFront:self.tileView];
     [self.view addSubview:self.issueLocationView];
 //    issueLocationView * issView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, 400, Screen_Width, 60)];
-   
+    [self layoutPageSubviews];
 }
 
 #pragma -
-#pragma mark - life cycle
+#pragma mark - layoutPageSubviews
+- (void)layoutPageSubviews {
+
+    [_label_placehold mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(@8);
+        make.left.equalTo(@8);
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
@@ -65,15 +74,6 @@
         }];
 
 }
-
-- (void)viewDidDisappear:(BOOL)animated {
-
-    [super viewDidDisappear:animated];
-    
-    self.textView.text = @"";
-    self.label_placehold.text = @"此时此地，想和大家分享什么";
-}
-
 
 #pragma
 #pragma mark - UITextViewDelegate

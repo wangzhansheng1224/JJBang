@@ -104,9 +104,7 @@
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
     MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
-//    orderPayVC.orderNo = self.orderNo;
-//    JJBLog(@"%@",orderPayVC.orderNo);
-    JJBLog(@"%@",self.orderNo);
+    orderPayVC.orderInfoDict = self.orderDetailDictionary;
     [self.navigationController pushViewController:orderPayVC animated:YES];
 
 }
@@ -149,7 +147,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
-        [self.view makeToast:@"获取成功"];
+//        [self.view makeToast:@"获取成功"];
          self.orderDetailDictionary = [manager fetchDataWithReformer:self.OrderDetailReformer];
         
         JJBLog(@"%@",self.orderDetailDictionary);
