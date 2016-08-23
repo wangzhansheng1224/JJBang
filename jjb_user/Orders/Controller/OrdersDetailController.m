@@ -104,9 +104,10 @@
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
     MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
-    orderPayVC.orderNo = self.orderNo;
-    JJBLog(@"%@",orderPayVC.orderNo);
-    JJBLog(@"%@",self.orderNo);
+    orderPayVC.orderInfoDict = self.orderDetailDictionary;
+//    orderPayVC.orderNo = self.orderNo;
+//    JJBLog(@"%@",orderPayVC.orderNo);
+//    JJBLog(@"%@",self.orderNo);
     [self.navigationController pushViewController:orderPayVC animated:YES];
 
 }

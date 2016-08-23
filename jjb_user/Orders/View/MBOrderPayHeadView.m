@@ -20,7 +20,7 @@
 /**
  *  价格
  */
-@property(nonatomic,weak)UILabel * orderPrice;
+@property(nonatomic,weak)UILabel * orderPriceLabel;
 @end
 
 @implementation MBOrderPayHeadView
@@ -32,12 +32,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = COLOR_WHITE;
+        [self layoutSubviewss];
     }
     return self;
 }
--(void)layoutSubviews
+-(void)layoutSubviewss
 {
-    [super layoutSubviews];
+//    [super layoutSubviews];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
         make.left.equalTo(self.mas_left).offset(20);
@@ -48,10 +49,14 @@
         make.centerY.equalTo(self.iconImageView.mas_centerY);
         make.left.equalTo(self.iconImageView.mas_right).offset(10);
     }];
-    [self.orderPrice mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.orderPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.iconImageView.mas_centerY);
         make.right.equalTo(self.mas_right).offset(-20);
     }];
+//    self.iconImageView.frame = CGRectMake(20, 10, 25, 25);
+//    _orderNameLabel.frame = CGRectMake(55, 10, 100, 25);
+//    _orderPriceLabel.frame = CGRectMake(200, 10, 50, 25);
+    
 }
 #pragma -
 #pragma mark
@@ -70,17 +75,17 @@
     return _iconImageView;
 }
 
--(UILabel*)orderPrice
+-(UILabel*)orderPriceLabel
 {
-    if (_orderPrice == nil) {
+    if (_orderPriceLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"￥ 1080";
         label.textColor = COLOR_ORANGE;
         [label sizeToFit];
-        _orderPrice = label;
+        _orderPriceLabel = label;
         [self addSubview:label];
     }
-    return _orderPrice;
+    return _orderPriceLabel;
 }
 -(UILabel *)orderNameLabel
 {

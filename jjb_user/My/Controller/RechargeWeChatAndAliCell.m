@@ -71,8 +71,7 @@
 {
     JJBLog(@"%s",__func__);
     btn.selected = !btn.selected;
-    JJBLog(@"$$$$$$$$%ld",btn.tag);
-//    JJBWeakSelf;
+    
     if(self.selectBlock)
     {
         self.selectBlock(self);

@@ -113,9 +113,9 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
-    [self.goodsPriceLabel setText:data[kOrdersDetailPrice]] ;
-    [self.discountLabel setText:data[kOrdersDetailZKPrice]];
-    [self.payingLabel setText:data[kOrdersDetailPayPrice] ];
+    [self.goodsPriceLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPrice]]] ;
+    [self.discountLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailZKPrice]]];
+    [self.payingLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPayPrice] ]];
     [self.timeLabel setText:data[kOrdersDetailOrderTime]];
 }
 
