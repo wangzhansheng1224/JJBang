@@ -41,8 +41,6 @@
     [self.view addSubview:self.clearView];
     [self.clearView addGestureRecognizer:self.tapGR];
     [self.coursePackagesAPIManager loadData];
-    
-
 }
 
 #pragma -
@@ -51,13 +49,13 @@
     
     [_clearView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.mas_equalTo(Screen_Height - 132 - 64);
+        make.height.mas_equalTo(Screen_Height - 162 - 64);
         make.top.left.right.equalTo(@0);
     }];
     
     [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 132));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 162));
         make.bottom.left.right.equalTo(@0);
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,7 +67,7 @@
     [_classLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.right.equalTo(@10);
-        make.top.equalTo(_line.mas_bottom).with.offset(10);
+        make.top.equalTo(_line.mas_bottom).with.offset(20);
         make.height.equalTo(@16);
     }];
     [_makeOrderBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,9 +78,9 @@
     }];
     [_btnSV mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(_classLabel.mas_bottom).with.offset(10);
+        make.top.equalTo(_classLabel.mas_bottom).with.offset(20);
         make.left.right.equalTo(@0);
-        make.height.equalTo(@36);
+        make.height.equalTo(@56);
     }];
 }
 
