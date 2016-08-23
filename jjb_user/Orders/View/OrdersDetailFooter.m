@@ -7,7 +7,7 @@
 //
 
 #import "OrdersDetailFooter.h"
-
+#import "OrdersDetailKey.h"
 @interface OrdersDetailFooter ()
 
 @property (nonatomic,strong) UILabel *label1;   //商品总额
@@ -109,6 +109,14 @@
         make.height.equalTo(@8);
         make.left.right.equalTo(@0);
     }];
+}
+
+- (void)configWithData:(NSDictionary *)data
+{
+    [self.goodsPriceLabel setText:data[kOrdersDetailPrice]] ;
+    [self.discountLabel setText:data[kOrdersDetailZKPrice]];
+    [self.payingLabel setText:data[kOrdersDetailPayPrice] ];
+    [self.timeLabel setText:data[kOrdersDetailOrderTime]];
 }
 
 #pragma -

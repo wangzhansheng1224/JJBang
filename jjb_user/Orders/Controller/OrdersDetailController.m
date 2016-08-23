@@ -12,6 +12,7 @@
 #import "OrdersDetailFooter.h"
 #import "OrderDetailAPIManager.h"
 #import "OrderDetailReformer.h"
+#import "MBOrderPayController.h"
 @interface OrdersDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -97,8 +98,12 @@
 #pragma -
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
+    MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
+    orderPayVC.orderNo = self.orderNo;
+    JJBLog(@"%@",orderPayVC.orderNo);
+    JJBLog(@"%@",self.orderNo);
+    [self.navigationController pushViewController:orderPayVC animated:YES];
 
-    NSLog(@"============支付=============");
 }
 
 #pragma -
@@ -116,6 +121,7 @@
         
         cell = [[OrdersDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OrdersDetailCell"];
     }
+    [cell configWithData:self.orderDetailDictionary];
     return cell;
 }
 
@@ -144,7 +150,10 @@
         
         JJBLog(@"%@",self.orderDetailDictionary);
         }
-    
+    [self.tableView reloadData];
+    [self.headerView configWithData:self.orderDetailDictionary];
+    [self.footerView configWithData:self.orderDetailDictionary];
+     
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{

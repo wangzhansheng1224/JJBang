@@ -28,6 +28,13 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+
 - (void)createTextField {
     
     _view_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 64, Screen_Width, 50)];

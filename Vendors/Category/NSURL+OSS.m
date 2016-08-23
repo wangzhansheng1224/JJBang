@@ -21,9 +21,10 @@
 }
 
 //指定Size 返回固定大小
+//1e_1c_2o_0l_231h_381w_90q.jpg
 + (NSURL*) initWithImageURL:(NSString*)imageURL Size:(CGSize)size{
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@@1e_%dw_%dh_1c_0i_1o_90Q_1x.jpg",
-                                 ImageServer, imageURL, (int)size.width * (int)Screen_Scale, (int)size.height * (int)Screen_Scale]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@@1e_1c_2o_0l_%dh_%dw_90q.jpg",
+                                 ImageServer, imageURL,(int)size.height * (int)Screen_Scale,(int)size.width * (int)Screen_Scale]];
 }
 
 //指定长和高 返回固定大小

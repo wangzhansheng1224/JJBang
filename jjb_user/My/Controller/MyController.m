@@ -24,13 +24,8 @@
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
-
+@property (nonatomic,strong) MineHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *array_data;
-
-@property (nonatomic,strong) MyCourseController *myCourseVC;
-
-@property (nonatomic,strong) MyMoreController *moreVC;
-
 @end
 
 
@@ -39,21 +34,15 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
     [self.view addSubview:self.tableView];
-    
-    [self loadData];
-    
-    [self createTableHeaderView];
-    
+    self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
+    [self loadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 #pragma -
@@ -101,42 +90,7 @@
 }
 
 #pragma mark -- tableView headerView
-- (void)createTableHeaderView {
-    
-    MineHeaderView * headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 276)];
-        
-    headerView.topImageView = @"BG";
-    
-    headerView.emailButton = @"my_email";
-    
-    headerView.setButton = @"my_setting";
-    
-    headerView.itemImageView = @"student_icon";
-    
-    headerView.name = @"亓凯";
-    
-    headerView.sign = @"爱生活爱自己";
-    
-    headerView.levelTitle = @"黄金会员";
-    
-    headerView.levelImage = @"my_member1_select";
-    
-    headerView.money = @"88.88";
-    
-    headerView.ad = @"门店超市";
-    
-    [headerView setBtnAddTarget:self action:@selector(setBtnClick:)];
-    
-    [headerView emailBtnAddTarget:self action:@selector(emailBtnClick:)];
-    
-    [headerView levelBtnAddTarget:self action:@selector(levelBtnClick:)];
-    
-    [headerView moneyBtnAddTarget:self action:@selector(moneyBtnClick:)];
-    
-    [headerView adBtnAddTarget:self action:@selector(adBtnClick:)];
-    
-    self.tableView.tableHeaderView = headerView;
-}
+
 
 
 #pragma mark -- Masonry
@@ -149,41 +103,6 @@
         make.height.equalTo(superView.mas_height);
     }];
 }
-
-
-
-
-
-#pragma mark -- event response
-
-- (void)setBtnClick:(UIButton *)setBtn {
-    
-   [self.navigationController pushViewController:[[MySettingController alloc] init] animated:YES];
-}
-
-- (void)emailBtnClick:(UIButton *)emailBtn {
-    
-    [self.navigationController pushViewController:[[StudentController alloc] init] animated:YES];
-    NSLog(@"我是邮件按钮");
-}
-
-- (void)levelBtnClick:(UIButton *)levelBtn {
-    
-    NSLog(@"我是会员按钮");
-}
-
-- (void)moneyBtnClick:(UIButton *)moneyBtn {
-    
-//    NSLog(@"我是余额按钮");
-    MyBalanceViewController * BalanceVC = [[MyBalanceViewController alloc]init];
-    [self.navigationController pushViewController:BalanceVC animated:YES];
-}
-
-- (void)adBtnClick:(UIButton *)adBtn {
-    
-    NSLog(@"我是广告按钮");
-}
-
 
 
 #pragma mark -- UITableViewDelegate
@@ -237,7 +156,8 @@
         }
         
         if (indexPath.row == 1) {
-         UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:self.myCourseVC];
+            MyCourseController *course=[[MyCourseController alloc] init];
+         UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:course];
         [self.navigationController pushViewController:controller animated:YES];
         }
     }else {
@@ -255,7 +175,6 @@
 - (UITableView *)tableView {
     
     if (!_tableView) {
-        
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -265,6 +184,13 @@
     return _tableView;
 }
 
+- (MineHeaderView*)headerView {
+    if (!_headerView) {
+        _headerView = [[MineHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 194.0f+84.0f)];
+    }
+    return _headerView;
+}
+
 - (NSMutableArray *)dataArr{
     
     if (!_array_data) {
@@ -272,15 +198,6 @@
         _array_data = [NSMutableArray array];
     }
     return _array_data;
-}
-
-- (MyCourseController *)myCourseVC{
-    
-    if (!_myCourseVC) {
-        
-        _myCourseVC = [[MyCourseController alloc] init];
-    }
-    return _myCourseVC;
 }
 
 @end

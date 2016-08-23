@@ -37,6 +37,13 @@
     [self layoutPageSubviews];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {

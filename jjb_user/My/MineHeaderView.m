@@ -10,6 +10,9 @@
 #import "RHHeader.h"
 #import "MyButton.h"
 #import "LevelButton.h"
+#import "MySettingController.h"
+#import "LevelController.h"
+#import "MyBalanceViewController.h"
 
 #define HeaderView_Height 250
 #define TopImage_Height 150
@@ -45,16 +48,16 @@
     
     if (self) {
         
-        [self createTopImageView];
-        [self createSetBtn];
-        [self createEmailBtn];
-        [self createItemImageView];
-        [self createNameLabel];
-        [self createSignLabel];
-        [self createLevelBtn];
-        [self createMoneyBtn];
-        [self createAdBtn];
-        [self createLine];
+        [self addSubview:self.topImage];
+        [self addSubview:self.label_line];
+        [self addSubview:self.signLabel];
+        [self addSubview:self.itemImage];
+//        [self addSubview:self.emailBtn];
+        [self addSubview:self.nameLabel];
+        [self addSubview:self.levelBtn];
+        [self addSubview:self.setBtn];
+        [self addSubview:self.moneyBtn];
+        [self addSubview:self.adBtn];
         [self layoutPageSubviews];
     }
     return self;
@@ -65,31 +68,26 @@
 - (void)layoutPageSubviews {
 
     [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 202));
-        make.top.left.equalTo(@0);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width,194.0f));
+        make.top.left.mas_equalTo(@0);
     }];
 
     [self.setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.top.equalTo(@28);
-        make.right.equalTo(@-16);
+        make.top.equalTo(@10);
+        make.right.equalTo(@-10);
     }];
     
-    
-    [self.emailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.top.equalTo(@28);
-        make.right.equalTo(self.setBtn.mas_left).with.offset(-16);
-    }];
+//    [self.emailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(30, 30));
+//        make.top.equalTo(@10);
+//        make.right.equalTo(self.setBtn.mas_left).with.offset(-10);
+//    }];
     
     [self.itemImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(78, 78));
-        make.left.equalTo(@16);
-        make.top.equalTo(@124);
+        make.left.equalTo(@10);
+        make.bottom.equalTo(self.moneyBtn.mas_top).offset(-10);
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,54 +114,76 @@
     [self.moneyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 74));
-        make.top.equalTo(@202);
+        make.bottom.equalTo(self.mas_bottom);
         make.left.equalTo(@0);
     }];
     
     [self.adBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 74));
-        make.top.equalTo(@202);
-        make.left.equalTo(self.moneyBtn.mas_right).with.offset(0);
+        make.bottom.equalTo(self.mas_bottom);
+        make.left.equalTo(self.moneyBtn.mas_right);
     }];
     
     [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(2, 30));
         make.centerY.equalTo(self.adBtn.mas_centerY);
         make.centerX.equalTo(self.mas_centerX);
     }];
 }
 
-
-
-
-#pragma mark -- 上部背景图片
-- (void)createTopImageView {
+#pragma -
+#pragma - configWithData
+- (void)configWithData:(NSDictionary *)data{
     
-    _topImage = [[UIImageView alloc] init];
-    
-    _topImage.contentMode = UIViewContentModeScaleAspectFill;
-    
-    [self addSubview:_topImage];
-}
-
-- (void)setTopImageView:(NSString *)topImageView {
-    
-    _topImage.image = [UIImage imageNamed:topImageView];
 }
 
 
-#pragma mark -- 设置按钮
-- (void)createSetBtn {
+#pragma -
+#pragma - Event 
+
+-(void)settingClick:(id)sender{
     
-    _setBtn = [[UIButton alloc] init];
-    _setBtn.backgroundColor = COLOR_GRAY;
-    _setBtn.layer.cornerRadius = 15;
-    _setBtn.clipsToBounds = YES;
-    _setBtn.center = CGPointMake(SCREEN_W - 35, 35);
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    MySettingController *controller=[[MySettingController alloc] init];
+    [navController pushViewController:controller animated:YES];
+}
+
+-(void)levelBtnClick:(id)sender{
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    LevelController *controller=[[LevelController alloc] init];
+    [navController pushViewController:controller animated:YES];
+}
+
+-(void)moneyBtnClick:(id)sender{
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    MyBalanceViewController *controller=[[MyBalanceViewController alloc] init];
+    [navController pushViewController:controller animated:YES];
+}
+
+#pragma -
+#pragma mark - setter and getter
+
+- (UIImageView*)topImage {
     
-    [self addSubview:_setBtn];
+    if (!_topImage) {
+        _topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"my_background"]];
+        _topImage.frame=CGRectMake(0, 0, Screen_Width, 194);
+        _topImage.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _topImage;
+}
+
+- (UIButton*)setBtn {
+    if (!_setBtn) {
+        _setBtn = [[UIButton alloc] init];
+        _setBtn.backgroundColor = COLOR_GRAY;
+        _setBtn.layer.cornerRadius = 15;
+        _setBtn.clipsToBounds = YES;
+        _setBtn.center = CGPointMake(SCREEN_W - 35, 35);
+        [_setBtn setImage:[UIImage imageNamed:@"my_setting"] forState:UIControlStateNormal];
+        [_setBtn addTarget:self action:@selector(settingClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _setBtn;
 }
 
 - (void)setSetButton:(NSString *)setButton {
@@ -176,19 +196,16 @@
     [_setBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark -- 邮件按钮
-- (void)createEmailBtn {
+- (UIButton*)emailBtn {
     
-    _emailBtn = [[UIButton alloc] init];
-    _emailBtn.backgroundColor = COLOR_GRAY;
-    _emailBtn.layer.cornerRadius = 15;
-    _emailBtn.clipsToBounds = YES;
-    [self addSubview:_emailBtn];
-}
-
-- (void)setEmailButton:(NSString *)emailButton {
-    
-    [_emailBtn setImage:[UIImage imageNamed:emailButton] forState:UIControlStateNormal];
+    if (!_emailBtn) {
+        _emailBtn = [[UIButton alloc] init];
+        _emailBtn.backgroundColor = COLOR_GRAY;
+        _emailBtn.layer.cornerRadius = 15;
+        _emailBtn.clipsToBounds = YES;
+         [_emailBtn setImage:[UIImage imageNamed:@"my_email"] forState:UIControlStateNormal];
+    }
+    return _emailBtn;
 }
 
 - (void)emailBtnAddTarget:(id)target action:(SEL)sel {
@@ -196,128 +213,79 @@
     [_emailBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark -- 头像
-- (void)createItemImageView {
+- (UIImageView*)itemImage {
     
-    _itemImage = [[UIImageView alloc] init];
-    _itemImage.layer.cornerRadius = 39;
-    _itemImage.layer.masksToBounds = YES;
-    _itemImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self addSubview:_itemImage];
+    if (!_itemImage) {
+        _itemImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_default"]];
+        _itemImage.layer.cornerRadius = 39;
+        _itemImage.layer.masksToBounds = YES;
+        _itemImage.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _itemImage;
+}
+- (UILabel*)nameLabel {
+    
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.text=@"Owen";
+        _nameLabel.textColor = [UIColor whiteColor];
+    }
+    return _nameLabel;
 }
 
-- (void)setItemImageView:(NSString *)itemImageView {
+- (UILabel*)signLabel {
     
-    _itemImage.image = [UIImage imageNamed:itemImageView];
-}
-
-#pragma mark -- 名字
-- (void)createNameLabel {
-    
-    _nameLabel = [[UILabel alloc] init];
-    
-    _nameLabel.textColor = [UIColor whiteColor];
-    
-    [self addSubview:_nameLabel];
-    
-}
-
-- (void)setName:(NSString *)name {
-    
-    _nameLabel.text = name;
-}
-
-#pragma mark -- 签名
-- (void)createSignLabel {
-    
-    _signLabel = [[UILabel alloc] init];
-    
-    _signLabel.textColor = [UIColor whiteColor];
-    
-    _signLabel.alpha = 0.8;
-    
-    _signLabel.font = [UIFont systemFontOfSize:13];
-    
-    [self addSubview:_signLabel];
-    
-}
-
-- (void)setSign:(NSString *)sign {
-    
-    _signLabel.text = sign;
-}
-
-#pragma mark -- 会员等级
-- (void)createLevelBtn {
-    
-    _levelBtn = [[LevelButton alloc] initWithFrame:CGRectMake(SCREEN_W - 100, CGRectGetMaxY(_itemImage.frame) - Item_Width/2.0, 110, 21)];
-    
-    _levelBtn.backgroundColor = [UIColor lightGrayColor];
-    
-    _levelBtn.layer.cornerRadius = _levelBtn.frame.size.height/2.0;
-    _levelBtn.layer.masksToBounds = YES;
+    if (!_signLabel) {
+        _signLabel = [[UILabel alloc] init];
         
-    [self addSubview:_levelBtn];
+        _signLabel.textColor = [UIColor whiteColor];
+        
+        _signLabel.alpha = 0.8;
+        _signLabel.text=@"....";
+        
+        _signLabel.font = [UIFont systemFontOfSize:13];
+    }
+    return _signLabel;
+}
+
+- (LevelButton*)levelBtn {
+    
+    if (!_levelBtn) {
+        _levelBtn = [[LevelButton alloc] initWithFrame:CGRectMake(SCREEN_W - 100, CGRectGetMaxY(_itemImage.frame) - Item_Width/2.0, 110, 21)];
+        _levelBtn.backgroundColor = [UIColor lightGrayColor];
+        _levelBtn.layer.cornerRadius = _levelBtn.frame.size.height/2.0;
+        _levelBtn.layer.masksToBounds = YES;
+        [_levelBtn addTarget:self action:@selector(levelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _levelBtn.lImage=@"my_member1_select";
+         _levelBtn.lTitle = @"黄金会员";
+    }
+    return _levelBtn;
     
 }
 
-- (void)setLevelImage:(NSString *)levelImage {
+- (MyButton*)moneyBtn {
     
-    _levelBtn.lImage = levelImage;
+    if (!_moneyBtn) {
+        _moneyBtn = [[MyButton alloc] init];
+        _moneyBtn.backgroundColor = COLOR_WHITE;
+        _moneyBtn.bImage = @"my_money";
+        _moneyBtn.bTitle = @"用户余额";
+        _moneyBtn.bDetail = @"100";
+        [_moneyBtn addTarget:self action:@selector(moneyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _moneyBtn;
 }
 
-- (void)setLevelTitle:(NSString *)levelTitle {
+- (MyButton*)adBtn {
     
-    _levelBtn.lTitle = levelTitle;
-}
-
-- (void)levelBtnAddTarget:(id)target action:(SEL)sel {
-    
-    [_levelBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
-}
-
-#pragma mark -- 余额
-- (void)createMoneyBtn {
-    
-    _moneyBtn = [[MyButton alloc] init];
-    
-    _moneyBtn.backgroundColor = COLOR_WHITE;
-    
-    _moneyBtn.bImage = @"my_money";
-    
-    _moneyBtn.bTitle = @"用户余额";
-    
-    [self addSubview:_moneyBtn];
-    
-}
-
-- (void)setMoney:(NSString *)money {
-    
-    _moneyBtn.bDetail = money;
-}
-
-- (void)moneyBtnAddTarget:(id)target action:(SEL)sel {
-    
-    [_moneyBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
-}
-
-#pragma mark -- 广告
-- (void)createAdBtn {
-    
-    _adBtn = [[MyButton alloc] init];
-    
-    _adBtn.backgroundColor = COLOR_WHITE;
-    
-    _adBtn.bImage = @"my_shop";
-    
-    _adBtn.bTitle = @"七彩商城";
-    
-    [self addSubview:_adBtn];
-}
-
-- (void)setAd:(NSString *)ad {
-    
-    _adBtn.bDetail = ad;
+    if (!_adBtn) {
+        _adBtn = [[MyButton alloc] init];
+        _adBtn.backgroundColor = COLOR_WHITE;
+        _adBtn.bImage = @"my_shop";
+        _adBtn.bTitle = @"七彩商城";
+        _adBtn.bDetail = @"....";
+    }
+    return _adBtn;
 }
 
 - (void)adBtnAddTarget:(id)target action:(SEL)sel {
@@ -325,15 +293,12 @@
     [_adBtn addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)createLine {
-
-    _label_line = [[UILabel alloc] init];
-    _label_line.backgroundColor = COLOR_LIGHT_GRAY;
-    
-    [self addSubview:self.label_line];
-    
-    [self bringSubviewToFront:self.label_line];
-
+- (UILabel*)label_line {
+    if (!_label_line) {
+        _label_line = [[UILabel alloc] init];
+        _label_line.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _label_line;
 }
 
 @end

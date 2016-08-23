@@ -36,7 +36,11 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 
 
 #pragma 

@@ -13,10 +13,9 @@
 #import "RechargeWeChatAndAliView.h"
 #import "MyRechargeAPIManager.h"
 #import "MyRechargeReformer.h"
-#import "NSString+MBMD5.h"
-#import "Order.h"
+//#import "Order.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "DataSigner.h"
+//#import "DataSigner.h"
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MyRechargeWeChatAPIManager.h"
@@ -61,7 +60,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 
     RechargeWeChatAndAliCell * ReView = [[RechargeWeChatAndAliCell alloc]init];
     [ReView selectButton:^(RechargeWeChatAndAliCell *sender) {
-                NSString * str = self.nameLabel.text;
+    NSString * str = self.nameLabel.text;
                 JJBLog(@"++++=========%@",str);
     }];
    [self addSubViewConstraints];
@@ -78,6 +77,11 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+}
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 

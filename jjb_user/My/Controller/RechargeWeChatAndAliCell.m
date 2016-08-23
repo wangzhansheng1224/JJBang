@@ -98,7 +98,7 @@
     {
         UILabel * label = [[UILabel alloc]init];
         label.text = @"支付宝支付";
-        label.textColor = COLOR_LIGHT_GRAY;
+        label.textColor = COLOR_GRAY;
         [label sizeToFit];
         label.textAlignment = NSTextAlignmentLeft;
         [self addSubview:label];
