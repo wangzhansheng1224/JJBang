@@ -1,17 +1,19 @@
 //
-//  MyCourseCell.m
+//  CourseListCell.m
 //  jjb_user
 //
-//  Created by Check on 16/8/3.
+//  Created by Check on 16/8/23.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MyCourseCell.h"
+#import "CourseListCell.h"
 #import "StarView.h"
 #import "CourseKeys.h"
 
-
-@interface MyCourseCell ()
+/**
+ *  课程图片
+ */
+@interface CourseListCell ()
 
 @property(nonatomic,strong) UIImageView * couseImageView;
 /**
@@ -38,7 +40,7 @@
 
 @end
 
-@implementation MyCourseCell
+@implementation CourseListCell
 
 #pragma
 #pragma mark - lefe cycle

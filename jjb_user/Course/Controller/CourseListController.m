@@ -11,8 +11,7 @@
 /**
  *  课程列表
  */
-
-#import "MBStarCouseCell.h"
+#import "CourseListCell.h"
 #import "CourseListAPIManager.h"
 #import "CourseListReformer.h"
 
@@ -71,9 +70,9 @@ static NSString  *const CourseListCellIdentifier=@"CourseListCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MBStarCouseCell *cell = [tableView dequeueReusableCellWithIdentifier:CourseListCellIdentifier forIndexPath:indexPath];
+    CourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:CourseListCellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[MBStarCouseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CourseListCellIdentifier];
+        cell = [[CourseListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CourseListCellIdentifier];
     }
     [cell configWithData:self.arrData[indexPath.row]];
     return cell;
@@ -152,7 +151,7 @@ static NSString  *const CourseListCellIdentifier=@"CourseListCellIdentifier";
         }];
         _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.CourseListAPIManager loadData];
         }];
-        [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:CourseListCellIdentifier];
+        [_tableView registerClass:[CourseListCell class] forCellReuseIdentifier:CourseListCellIdentifier];
     }
     return _tableView;
 }
