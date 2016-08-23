@@ -64,7 +64,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 #pragma mark - set Nav
 - (void)setNav {
     
-    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"growing_issue"] highImage:[UIImage imageNamed:@"growing_issue"] target:self action:@selector(itemClick)];
+    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"img_pulish"] highImage:[UIImage imageNamed:@"img_pulish"] target:self action:@selector(itemClick)];
     self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
@@ -106,7 +106,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         return 92 + height;
         
     }else {
-        return (self.imageArr.count+2)/3 *85 +92 + height;
+        return (self.imageArr.count+2)/3 *85 +95 + height;
     }
 }
 

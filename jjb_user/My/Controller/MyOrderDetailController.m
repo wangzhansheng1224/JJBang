@@ -17,6 +17,8 @@
 @property(nonatomic,strong) NSMutableArray * listArray;
 @property(nonatomic,strong)LDAPIBaseManager * MyOrderDetailAPIManagerx;
 @property(nonatomic,strong)id<ReformerProtocol> MyOrderReformer;
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
 @end
 
 static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentifier";
@@ -30,13 +32,28 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.title = @"明细";
     [self.tableView registerClass:[MyOrderDetailCell class] forCellReuseIdentifier:MyOrderDetailCellIdentifier];
+    self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.listArray removeAllObjects];
+        self.pageIndex=0;
+        [self.MyOrderDetailAPIManagerx loadData];
+    }];
+    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self.MyOrderDetailAPIManagerx loadData];
+    }];
+
+    self.pageSize=10;
+    self.pageIndex=0;
     [self.MyOrderDetailAPIManagerx loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 
 
 #pragma 
@@ -64,17 +81,18 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    
-self.listArray = [manager fetchDataWithReformer:self.MyOrderReformer];
-//    self.listArray = [dict objectForKey:@"data"];
+
+    NSArray *resultData = [manager fetchDataWithReformer:self.MyOrderReformer];
+    [self.listArray addObjectsFromArray:resultData];
+    self.pageIndex=[self.listArray count];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
     [self.tableView reloadData];
 }
 
-
-
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    JJBLog(@"加载失败");
-    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
@@ -82,19 +100,10 @@ self.listArray = [manager fetchDataWithReformer:self.MyOrderReformer];
     if([manager isKindOfClass:[MyOrderDetailAPIManager class]])
     {
         //用户ID/消费类型/开始条数/返回条数
-            ((MyOrderDetailAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/order/%@/%d/%@/%@",@([UserModel currentUser].userID),0,@1,@40];
-        
+
+            ((MyOrderDetailAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/order/%@/%d/%@/%@",@([UserModel currentUser].userID),1,@(self.pageIndex),@(self.pageSize)];
     }
-    
-    
-//    NSDictionary * dict = @{
-//                            @"user_id":@([UserModel currentUser].userID),
-//                            @"type":@1,
-//                            @"start":@1,
-//                            @"count":@1};
     return nil;
-    
-    
 }
 
 

@@ -15,7 +15,13 @@
 @property (nonatomic,strong) NSString* photo;
 @property (nonatomic,assign) NSInteger sex;
 @property (nonatomic,strong) NSString* signature;
-@property (nonatomic,assign) NSArray* myFamily;
+@property (nonatomic,assign) double balance;//余额
+@property (nonatomic,assign) NSInteger level;//等级
+@property (nonatomic,assign) double totalBalance;//总充值钱数
+@property (nonatomic,assign) double nextBalance;//距离下一级，还需要充值多少钱
+@property (nonatomic,assign) double discount;//当前优惠
+@property (nonatomic,assign) double nextDiscount; //下一级优惠
+@property (nonatomic,strong) NSMutableArray* myFamily;
 
 
 + (UserModel *)currentUser;

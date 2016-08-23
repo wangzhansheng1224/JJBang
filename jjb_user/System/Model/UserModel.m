@@ -8,6 +8,7 @@
 
 #import "userModel.h"
 #import "PathHelper.h"
+#import "MemberModel.h"
 
 static UserModel* currentUser;
 
@@ -64,12 +65,23 @@ static UserModel* currentUser;
 
 + (UserModel*)JsonParse:(NSDictionary*)dic{
     UserModel *user=[[UserModel alloc] init];
-    user.userID= ([dic objectForKey:@"id"] != [NSNull null]) && ([dic objectForKey:@"id"] != nil) ? [[dic objectForKey:@"id"] integerValue] : 0;
-    user.nickName=([dic objectForKey:@"nickName"] != [NSNull null]) && ([dic objectForKey:@"nickName"] != nil) ? [dic objectForKey:@"nickName"] : @"";
-    user.phone=([dic objectForKey:@"phone"] != [NSNull null]) && ([dic objectForKey:@"phone"] != nil) ? [dic objectForKey:@"phone"] : @"";
-    user.sex=([dic objectForKey:@"sex"] != [NSNull null]) && ([dic objectForKey:@"sex"] != nil) ? [[dic objectForKey:@"sex"] integerValue] : 0;
-    user.photo=([dic objectForKey:@"photo"] != [NSNull null]) && ([dic objectForKey:@"photo"] != nil) ? [dic objectForKey:@"photo"] : @"";
-    user.signature=([dic objectForKey:@"signature"] != [NSNull null]) && ([dic objectForKey:@"signature"] != nil) ? [dic objectForKey:@"signature"] : @"";
+    user.userID= [dic[@"id"] integerValue];
+    user.nickName=dic[@"nickName"];
+    user.phone=dic[@"phone"];
+    user.sex=[dic[@"sex"] integerValue];
+    user.photo=dic[@"photo"];
+    user.signature=dic[@"signature"];
+    user.balance=[dic[@"balance"] doubleValue];
+    user.level=[dic[@"level"] integerValue];
+    user.totalBalance=[dic[@"totalBalance"] doubleValue];
+    user.nextBalance=[dic[@"nextBalance"] doubleValue];
+    user.discount=[dic[@"discount"] doubleValue];
+    user.nextDiscount=[dic[@"nextDiscount"] doubleValue];
+    user.myFamily=[[NSMutableArray alloc] init];
+    NSArray *myFamliy=dic[@"myFamily"];
+    for (NSDictionary *dic in myFamliy) {
+        [user.myFamily addObject:[MemberModel JsonParse:dic]];
+    }
     return user;
 }
 

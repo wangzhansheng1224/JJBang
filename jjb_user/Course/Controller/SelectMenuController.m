@@ -8,23 +8,24 @@
 
 #import "SelectMenuController.h"
 #import "MakeOrderBar.h"
+#import "CoursePackagesAPIManager.h"
+#import "CoursePackagesReformer.h"
 
-@interface SelectMenuController ()
+@interface SelectMenuController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
+@property (nonatomic,strong) LDAPIBaseManager *coursePackagesAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> coursePackagesReformer;
 @property (nonatomic,strong) UIView *menuView;
-@property (nonatomic,strong) UIImageView *picImageV;
-@property (nonatomic,strong) UILabel *categoryLabel;
-@property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UIImageView *starImageV;
-@property (nonatomic,strong) UILabel *teacherLabel;
-@property (nonatomic,strong) UILabel *priceLabel;
 @property (nonatomic,strong) UILabel *line;
 @property (nonatomic,strong) UILabel *classLabel;
 
-@property (nonatomic,strong) NSMutableArray *btnArray;
-
 @property (nonatomic,strong) MakeOrderBar *makeOrderBar;
 @property (nonatomic,strong) UITapGestureRecognizer *tapGR;
+@property (nonatomic,strong) UIView *clearView;
+@property (nonatomic,strong) UIScrollView *btnSV;
+
+@property (nonatomic,strong) NSMutableArray *arrData;
+@property (nonatomic,strong) NSDictionary *dataDic;
 
 @end
 
@@ -34,74 +35,36 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.menuView addSubview:self.picImageV];
-    [self.menuView addSubview:self.categoryLabel];
-    [self.menuView addSubview:self.titleLabel];
-    [self.menuView addSubview:self.starImageV];
-    [self.menuView addSubview:self.teacherLabel];
-    [self.menuView addSubview:self.priceLabel];
     [self.menuView addSubview:self.line];
     [self.menuView addSubview:self.classLabel];
-    [self.menuView addSubview:self.makeOrderBar];
     [self.view addSubview:self.menuView];
-    [self.view addGestureRecognizer:self.tapGR];
-    [self layoutPageSubviews];
+    [self.view addSubview:self.clearView];
+    [self.clearView addGestureRecognizer:self.tapGR];
+    [self.coursePackagesAPIManager loadData];
+    
+
 }
 
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-
+    
+    [_clearView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.mas_equalTo(Screen_Height - 132 - 64);
+        make.top.left.right.equalTo(@0);
+    }];
+    
     [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 300));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 132));
         make.bottom.left.right.equalTo(@0);
-    }];
-    [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(200, 120));
-        make.top.left.equalTo(@10);
-//        make.right.equalTo(_titleLabel.mas_left).with.offset(10);
-    }];
-    [_categoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(@20);
-        make.left.equalTo(@10);
-        make.size.mas_equalTo(CGSizeMake(40, 12));
-    }];
-    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(@18);
-        make.left.equalTo(_picImageV.mas_right).with.offset(10);
-        make.right.equalTo(@-10);
-        make.height.equalTo(@17);
-    }];
-    [_starImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@14);
-        make.top.equalTo(_titleLabel.mas_bottom).with.offset(10);
-        make.left.equalTo(_picImageV.mas_right).with.offset(10);
-        make.right.equalTo(@-10);
-    }];
-    [_teacherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@14);
-        make.top.equalTo(_starImageV.mas_bottom).with.offset(10);
-        make.left.equalTo(_picImageV.mas_right).with.offset(10);
-        make.right.equalTo(@-10);
-    }];
-    [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.equalTo(@17);
-        make.top.equalTo(_teacherLabel.mas_bottom).with.offset(10);
-        make.left.equalTo(_picImageV.mas_right).with.offset(10);
-        make.right.equalTo(@-10);
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.height.equalTo(@1);
         make.left.right.equalTo(@0);
-        make.top.equalTo(_picImageV.mas_bottom).with.offset(10);
+        make.top.equalTo(@0);
     }];
     [_classLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -115,19 +78,85 @@
         make.left.right.equalTo(@0);
         make.height.equalTo(@50);
     }];
+    [_btnSV mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_classLabel.mas_bottom).with.offset(10);
+        make.left.right.equalTo(@0);
+        make.height.equalTo(@36);
+    }];
 }
 
 #pragma -
 #pragma mark - event respone
 - (void)tapGRClick {
-
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)btnClick:(UIButton *)btn {
+    NSInteger index = btn.tag - 100;
+    [self.makeOrderBar configWithData:@{@"price":_arrData[index][@"CoursePackagesOrgPrice"]}];
+    
+    for (UIView * view in _btnSV.subviews) {
+        
+        if ([view isKindOfClass:[UIButton class]]) {
+            
+            UIButton * packagesItem = (UIButton *)view;
+            
+            if (packagesItem == btn) {
+                
+                packagesItem.selected = YES;
+                [packagesItem.layer setBorderColor:COLOR_ORANGE.CGColor];
+            }else {
+                
+                packagesItem.selected = NO;
+                [packagesItem.layer setBorderColor:COLOR_GRAY.CGColor];
+            }
+        }
+    }
+}
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[CoursePackagesAPIManager class]]) {
+
+        NSArray *resultData = [manager fetchDataWithReformer:self.coursePackagesReformer];
+        [self.arrData addObjectsFromArray:resultData];
+        [self.makeOrderBar configWithData:@{@"price":_arrData[0][@"CoursePackagesOrgPrice"]}];
+        
+        [self.menuView addSubview:self.btnSV];
+        [self.menuView addSubview:self.makeOrderBar];
+        [self layoutPageSubviews];
+    }
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    return @{
+             @"course_id":@(self.courseID)
+             };
 }
 
 #pragma -
 #pragma mark - getters and setters
-- (UIView *)menuView {
 
+- (NSMutableArray *)arrData {
+    
+    if (!_arrData) {
+        
+        _arrData = [[NSMutableArray alloc] init];
+    }
+    return _arrData;
+}
+- (UIView *)menuView {
+    
     if (!_menuView) {
         
         _menuView = [[UIView alloc] init];
@@ -135,80 +164,20 @@
     }
     return _menuView;
 }
-- (UIImageView *)picImageV {
 
-    if (!_picImageV) {
-        
-        _picImageV = [[UIImageView alloc] init];
-        _picImageV.backgroundColor = JJBRandomColor;
-    }
-    return _picImageV;
-}
-- (UILabel *)categoryLabel {
-
-    if (!_categoryLabel) {
-        
-        _categoryLabel = [[UILabel alloc] init];
-        _categoryLabel.text = @"少儿";
-    }
-    return _categoryLabel;
-}
-- (UILabel *)titleLabel {
-
-    if (!_titleLabel) {
-        
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"少儿美术";
-        _titleLabel.font = H3;
-    }
-    return _titleLabel;
-}
-- (UIImageView *)starImageV {
-
-    if (!_starImageV) {
-        
-        _starImageV = [[UIImageView alloc] init];
-        _starImageV.backgroundColor = JJBRandomColor;
-    }
-    return _starImageV;
-}
-- (UILabel *)teacherLabel {
-
-    if (!_teacherLabel) {
-        
-        _teacherLabel = [[UILabel alloc] init];
-        _teacherLabel.text = @"王蒙 老师";
-    }
-    return _teacherLabel;
-}
-- (UILabel *)priceLabel {
-
-    if (!_priceLabel) {
-        
-        _priceLabel = [[UILabel alloc] init];
-        _priceLabel.text = @"￥1080";
-    }
-    return _priceLabel;
-}
 - (UILabel *)classLabel {
-
+    
     if (!_classLabel) {
         
         _classLabel = [[UILabel alloc] init];
         _classLabel.text = @"选择课时数量";
+        _classLabel.font = H3;
     }
     return _classLabel;
 }
-- (NSMutableArray *)btnArray {
 
-    if (!_btnArray) {
-        
-        _btnArray = [[NSMutableArray alloc] init];
-    }
-    return _btnArray;
-}
 -(UILabel *)line {
-
+    
     if (!_line) {
         
         _line = [[UILabel alloc] init];
@@ -217,14 +186,22 @@
     return _line;
 }
 - (MakeOrderBar *)makeOrderBar {
-
+    
     if (!_makeOrderBar) {
         
         _makeOrderBar = [[MakeOrderBar alloc] init];
     }
     return _makeOrderBar;
 }
-
+- (UIView *)clearView {
+    
+    if (!_clearView) {
+        
+        _clearView = [[UIView alloc] init];
+        _clearView.backgroundColor = [UIColor clearColor];
+    }
+    return _clearView;
+}
 - (UITapGestureRecognizer *)tapGR {
     
     if (!_tapGR) {
@@ -232,6 +209,66 @@
         _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRClick)];
     }
     return _tapGR;
+}
+- (UIScrollView *)btnSV {
+    
+    if (!_btnSV) {
+        
+        float width = (Screen_Width - 16 * (_arrData.count + 1))/3;
+        
+        _btnSV = [[UIScrollView alloc] init];
+        _btnSV.contentSize = CGSizeMake((width + 16) * _arrData.count + 16, 30);
+        _btnSV.bounces = NO;
+        _btnSV.showsHorizontalScrollIndicator = NO;
+        
+        for (int i = 0; i < _arrData.count; i++) {
+            
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i * (width + 16)+16, 0, width, 36)];
+            btn.layer.cornerRadius = 3.0;
+            btn.clipsToBounds = YES;
+            [btn.layer setBorderWidth:1.0];
+            [btn.layer setBorderColor:COLOR_GRAY.CGColor];
+            NSString * str = [NSString stringWithFormat:@"%@", _arrData[i][@"CoursePackagesNums"]];
+            [btn setTitle:[NSString stringWithFormat:@"%@课时",str] forState:UIControlStateNormal];
+            [btn setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
+            [btn setTitleColor:COLOR_ORANGE forState:UIControlStateSelected];
+            btn.titleLabel.font = H4;
+            btn.tag = 100 + i;
+            [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+            if (i == 0) {
+                btn.selected = YES;
+                [btn.layer setBorderColor:COLOR_ORANGE.CGColor];
+            }
+            [self.btnSV addSubview:btn];
+        }
+    }
+    return _btnSV;
+}
+
+- (LDAPIBaseManager *)coursePackagesAPIManager {
+    if (_coursePackagesAPIManager == nil) {
+        _coursePackagesAPIManager = [CoursePackagesAPIManager  sharedInstance];
+        _coursePackagesAPIManager.delegate=self;
+        _coursePackagesAPIManager.paramSource=self;
+    }
+    return _coursePackagesAPIManager;
+}
+
+- (id<ReformerProtocol>)coursePackagesReformer {
+    
+    if (!_coursePackagesReformer) {
+        _coursePackagesReformer = [[CoursePackagesReformer alloc] init];
+    }
+    return _coursePackagesReformer;
+}
+
+- (NSDictionary *)dataDic {
+    
+    if (!_dataDic) {
+        
+        _dataDic = [[NSDictionary alloc] init];
+    }
+    return _dataDic;
 }
 
 @end

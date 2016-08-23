@@ -98,7 +98,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         make.top.mas_equalTo(self.view.mas_top);
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-50);
     }];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -229,8 +229,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
             [self.boolArr addObject:@NO];
         }
         
-        NSLog(@"%@", _catalogData);
-
         if (self.tabbarControl.selectedSegmentIndex==0) {
             self.dataSource=self.catalogData;
         }
@@ -296,8 +294,8 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     
     SelectMenuController *select = [[SelectMenuController alloc] init];
     self.definesPresentationContext = YES;
-//    select.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    select.courseID = [_detailData[@"CourseID"] integerValue];
     [self presentViewController:select animated:YES completion:nil];
 }
 

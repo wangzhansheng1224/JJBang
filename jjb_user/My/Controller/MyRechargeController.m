@@ -73,6 +73,18 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+
 #pragma 
 #pragma mark - private methods
 
