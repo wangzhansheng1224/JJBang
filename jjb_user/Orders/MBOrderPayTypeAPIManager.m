@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"gateway/orderPayWay/{way}/{order_no}";
+        _methodName = @"gateway/orderPayWay/{way}/{order_no}/{user_id}";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;

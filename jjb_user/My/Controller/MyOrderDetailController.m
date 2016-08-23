@@ -84,8 +84,6 @@ self.listArray = [manager fetchDataWithReformer:self.MyOrderReformer];
         //用户ID/消费类型/开始条数/返回条数
             ((MyOrderDetailAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/order/%@/%d/%@/%@",@([UserModel currentUser].userID),0,@1,@40];
         
-    
-
     }
     
     

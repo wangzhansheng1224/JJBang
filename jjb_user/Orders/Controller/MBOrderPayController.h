@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBOrderPayController : UIViewController
-@property(nonatomic,copy)NSString * orderNo;
+@property(nonatomic,copy)NSDictionary * orderInfoDict;
 @end
