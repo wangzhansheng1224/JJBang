@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSArray * arrPic;
 @property (nonatomic, weak) id<RHADScrollViewDelegate> delegate;
 @property (nonatomic, assign) BOOL invalidate;
+@property (nonatomic, assign) float adHeight;
 
 //- (instancetype)initWithPicArr:(NSArray *)picArr;
 

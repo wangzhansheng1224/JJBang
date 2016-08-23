@@ -13,11 +13,11 @@
 
 @interface RHADScrollView () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) UIScrollView * scrollView;
-@property (nonatomic, strong) UIPageControl * pageControl;
-@property (nonatomic, strong) NSArray * arr_pic;
-@property (nonatomic, assign) int page;
-@property (nonatomic, strong) NSTimer * timer;
+@property (nonatomic,strong) UIScrollView * scrollView;
+@property (nonatomic,strong) UIPageControl * pageControl;
+@property (nonatomic,strong) NSArray * arr_pic;
+@property (nonatomic,assign) int page;
+@property (nonatomic,strong) NSTimer * timer;
 
 @end
 

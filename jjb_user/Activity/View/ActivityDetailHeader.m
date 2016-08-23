@@ -179,6 +179,7 @@
         _adScrollView = [[RHADScrollView alloc] init];
         
         _adScrollView.delegate = self;
+        _adScrollView.adHeight = 173;
     }
     return _adScrollView;
 }
