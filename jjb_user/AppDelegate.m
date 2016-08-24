@@ -134,7 +134,6 @@ if([resp isKindOfClass:[PayResp class]]){
             NSLog(@"result = %@",str);
         }];
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             id<DataVerifier> dataVeri = CreateRSADataVerifier(@"public");
             //验证签名是否一致
             if ([dataVeri verifyString:@"22" withSign:@"ee"]) {
