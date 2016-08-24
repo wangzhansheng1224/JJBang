@@ -35,6 +35,7 @@
 {
     [self.shopNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.mas_left).offset(2);
+                make.top.equalTo(self.mas_top).offset(2);
                 make.centerY.equalTo(self.mas_centerY);
         
     }];
@@ -54,6 +55,7 @@
     {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"nav_shop_down"];
+        imageView.userInteractionEnabled = YES;
         [self addSubview:imageView];
         _iconImageView = imageView;
     }
@@ -66,7 +68,11 @@
         label.text = @"望湖公园店";
         label.font = H1;
         label.tintColor = COLOR_WHITE;
+        label.textColor = COLOR_WHITE;
+        [label sizeToFit];
         label.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:label];
+
         _shopNameLabel = label;
     }
     return _shopNameLabel;
