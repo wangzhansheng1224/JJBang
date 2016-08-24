@@ -54,7 +54,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 @property(nonatomic,weak) UICollectionView * collectionView;
 @property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
-@property (nonatomic,strong) UIBarButtonItem * loactionButton;//定位按钮
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
 @property(nonatomic,strong) NSDictionary *dataDic;
@@ -78,7 +77,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     [self.view addSubview:self.coustomNavCenterView];
     self.navigationItem.titleView = self.coustomNavCenterView;
-    self.navigationItem.leftBarButtonItem=self.loactionButton;
     self.navigationItem.rightBarButtonItem =self.scanButton;
 
     
@@ -95,11 +93,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     MBLocation * location =[MBLocation shareMBLocation];
     
     [location getCurrentLocation:^(NSDictionary * dict) {
-        JJBLog(@"%@",dict);
         self.currentLongitude = [dict[@"longitude"] doubleValue];
         self.currentLatitude  = [dict [@"latitude"] doubleValue];
-        
-        [self.loactionButton setTitle:dict[@"city"]];
     }];
     
     if (self.currentShopName) {
@@ -516,14 +511,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         _scanButton=[UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"scan"] highImage:[UIImage imageNamed:@"scan"] target:self action:@selector(gotoScan:)];
     }
     return _scanButton;
-}
-
-- (UIBarButtonItem *) loactionButton{
-    if (_loactionButton==nil) {
-        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStylePlain target:nil action:nil];
-        [_loactionButton setTintColor:COLOR_WHITE];
-    }
-    return _loactionButton;
 }
 
 -(UITableView*)tableView{
