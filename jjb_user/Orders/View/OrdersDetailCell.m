@@ -35,7 +35,6 @@
     }
     return self;
 }
-
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
