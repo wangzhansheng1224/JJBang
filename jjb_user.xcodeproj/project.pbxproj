@@ -206,6 +206,7 @@
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
+		AC0EF2B41D6D996600054421 /* FirstShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
@@ -719,6 +720,8 @@
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
+		AC0EF2B21D6D996600054421 /* FirstShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstShopIndexAPIManager.h; sourceTree = "<group>"; };
+		AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstShopIndexAPIManager.m; sourceTree = "<group>"; };
 		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
@@ -1105,6 +1108,8 @@
 			children = (
 				731091661D5198C60031B443 /* ShopIndexAPIManager.h */,
 				731091671D5198C60031B443 /* ShopIndexAPIManager.m */,
+				AC0EF2B21D6D996600054421 /* FirstShopIndexAPIManager.h */,
+				AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -2880,6 +2885,7 @@
 				BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */,
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
+				AC0EF2B41D6D996600054421 /* FirstShopIndexAPIManager.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				738B82091D5F48B500765F6F /* TileViewItem.m in Sources */,
 				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
@@ -3190,7 +3196,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3230,7 +3236,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3301,7 +3307,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+>>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Debug;
 		};
@@ -3353,7 +3363,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+>>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Release;
 		};

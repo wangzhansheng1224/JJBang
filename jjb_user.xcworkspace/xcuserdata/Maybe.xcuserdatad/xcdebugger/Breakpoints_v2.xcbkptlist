@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "jjb_user/Orders/Controller/MBOrderPayController.m"
-            timestampString = "493647934.421339"
+            filePath = "jjb_user/System/Controller/registerViewController.m"
+            timestampString = "493729181.589913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-apiManagerCallDidSuccess:"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-apiManagerCallDidFailed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

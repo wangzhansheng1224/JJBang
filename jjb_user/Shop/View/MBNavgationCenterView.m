@@ -33,9 +33,10 @@
 -(void)addSubviewConstraints
 {
     [self.shopNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.mas_left).offset(2);
-                make.top.equalTo(self.mas_top).offset(2);
+                make.centerX.equalTo(self.mas_centerX);
+        
                 make.centerY.equalTo(self.mas_centerY);
+            
         
     }];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
