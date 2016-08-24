@@ -7,6 +7,7 @@
 //
 
 #import "StudentDetailHeader.h"
+#import "StudentKeys.h"
 
 @interface StudentDetailHeader ()
 
@@ -44,7 +45,7 @@
 
     [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Width*2.0/3.0f));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 197));
         make.top.left.equalTo(@0);
         make.bottom.mas_equalTo(self.mas_bottom).offset(-10);
     }];
@@ -56,7 +57,8 @@
     }];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(50, 20));
+        make.height.mas_equalTo(@20);
+        make.right.mas_equalTo(self.mas_right).offset(-10);
         make.top.mas_equalTo(_iconImageV.mas_top);
         make.left.equalTo(self.iconImageV.mas_right).offset(10);
     }];
@@ -81,6 +83,20 @@
 
 
 - (void)configWithData:(NSDictionary *)data{
+    NSURL *url=[NSURL initWithImageURL:data[kStudentPhoto] Width:50 Height:50];
+    [self.iconImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
+    [self.nameLabel setText:data[kStudentName]];
+    [self.ageLabel setText:data[kStudentAge]];
+    if ([data[kStudentSex] integerValue]==1) {
+        [self.sexLabel setText:@"男"];
+    } else if ([data[kStudentSex] integerValue]==0)
+    {
+        [self.sexLabel setText:@"女"];
+    } else
+    {
+        [self.sexLabel setText:@"未知"];
+    }
+    
     
 }
 
@@ -90,7 +106,7 @@
     
     if (!_picImageV) {
         
-        _picImageV = [[UIImageView alloc] init];
+        _picImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_background"]];
         _picImageV.backgroundColor = COLOR_GRAY;
     }
     return _picImageV;

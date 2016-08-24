@@ -44,7 +44,6 @@
     [self.view addSubview:self.tileView];
     [self.view bringSubviewToFront:self.tileView];
     [self.view addSubview:self.issueLocationView];
-//    issueLocationView * issView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, 400, Screen_Width, 60)];
     [self layoutPageSubviews];
 }
 
@@ -54,8 +53,8 @@
 
     [_label_placehold mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(@8);
-        make.left.equalTo(@8);
+        make.top.equalTo(@10);
+        make.left.equalTo(@10);
     }];
 }
 
@@ -272,10 +271,8 @@
 -(issueLocationView *)issueLocationView
 {
     if (_issueLocationView == nil) {
-        _issueLocationView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, self.tileView.frame.origin.y+self.tileView.frame.size.height + 5, Screen_Width, 40)];
-        
-        
-}
+        _issueLocationView = [[issueLocationView alloc]initWithFrame:CGRectMake(0, self.tileView.frame.origin.y+self.tileView.frame.size.height + 10, Screen_Width, 40)];
+        }
     return _issueLocationView;
 }
 @end

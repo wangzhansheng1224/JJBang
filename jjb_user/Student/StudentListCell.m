@@ -60,7 +60,7 @@
 
 - (void)configWithData:(NSDictionary *)data{
     
-    NSURL *url=[NSURL initWithImageURL:data[kStudentPhoto] Size:self.clerkFaceIView.frame.size];
+    NSURL *url=[NSURL initWithImageURL:data[kStudentPhoto] Width:50 Height:50];
     [self.clerkFaceIView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     [self.nicknameLabel setText:data[kStudentName]];
 }
