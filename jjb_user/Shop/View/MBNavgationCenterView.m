@@ -11,7 +11,6 @@
 @interface MBNavgationCenterView ()
 
 @property(nonatomic,strong)UIImageView * iconImageView;
-@property(nonatomic,strong)UILabel * shopNameLabel;
 
 @end
 @implementation MBNavgationCenterView

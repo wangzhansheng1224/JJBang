@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MBNavgationCenterView : UIView
+@property(nonatomic,strong)UILabel * shopNameLabel;
 
 @end

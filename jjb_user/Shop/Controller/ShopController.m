@@ -61,7 +61,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,assign) double currentLongitude;  //当前经度
 @property(nonatomic,assign) double currentLatitude;    //当前纬度
 @property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
-
+@property(nonatomic,copy) NSString * currentShopName; //当前店铺名称
 @property(nonatomic,strong) RHADScrollView * adScrollView;
 @property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
 
@@ -101,6 +101,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         [self.loactionButton setTitle:dict[@"city"]];
     }];
+    
+    if (self.currentShopName) {
+        _coustomNavCenterView.shopNameLabel.text = self.currentShopName;
+        
+    }
+
     //切换门店之后tableView自动置顶
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 
@@ -120,6 +126,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.currentShopID = notification.userInfo[@"ShopIndexShopListID"];
     [[NSUserDefaults standardUserDefaults] setObject:self.currentShopID forKey:@"currenShopID"];
 //    [[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentShopName forKey:@"currntShopName"];
+    
     [self.shopIndexAPIManager loadData];
 }
 #pragma -
@@ -605,7 +613,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (_coustomNavCenterView == nil) {
         _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(40, 20, 100, 44)];
         _coustomNavCenterView.userInteractionEnabled = YES;
-        UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
+                        UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
         [_coustomNavCenterView addGestureRecognizer:changeShopTapestureRecognizer];
     }
     return _coustomNavCenterView;
