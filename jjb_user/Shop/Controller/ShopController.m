@@ -30,6 +30,7 @@
 #import "MBLocation.h"
 #import "MBLocationManager.h"
 #import "RHADScrollView.h"
+#import "MBNavgationCenterView.h"
 
 /**
  *  首页主控制器
@@ -62,7 +63,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
 
 @property(nonatomic,strong) RHADScrollView * adScrollView;
-
+@property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
 
 @end
 
@@ -75,9 +76,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    self.navigationItem.title=@"望湖公园店";
+    [self.view addSubview:self.coustomNavCenterView];
+    self.navigationItem.titleView = self.coustomNavCenterView;
     self.navigationItem.leftBarButtonItem=self.loactionButton;
     self.navigationItem.rightBarButtonItem =self.scanButton;
+
+    
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
 }
@@ -125,13 +129,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     [self.navigationController pushViewController:self.scanController animated:YES];
 }
-//定位
--(void)gotoLocation:(id)sender
+//更改店铺
+-(void)changeShop:(UITapGestureRecognizer *)recognizer
 {
-    JJBLog(@"%s",__func__);
     ShopListController * shopListVC = [[ShopListController alloc]init];
     shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
-//    [self presentViewController:shopListVC animated:YES completion:nil];
+    //    [self presentViewController:shopListVC animated:YES completion:nil];
     [self presentViewController:shopListVC animated:YES completion:^{
         
         _adScrollView.invalidate = YES;
@@ -509,7 +512,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 - (UIBarButtonItem *) loactionButton{
     if (_loactionButton==nil) {
-        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStylePlain target:self action:@selector(gotoLocation:)];
+        _loactionButton=[[UIBarButtonItem alloc] initWithTitle:@"合肥市" style:UIBarButtonItemStylePlain target:nil action:nil];
         [_loactionButton setTintColor:COLOR_WHITE];
     }
     return _loactionButton;
@@ -597,7 +600,16 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     return _adScrollView;
 }
 
-
+-(MBNavgationCenterView *)coustomNavCenterView
+{
+    if (_coustomNavCenterView == nil) {
+        _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(40, 20, 100, 44)];
+        _coustomNavCenterView.userInteractionEnabled = YES;
+        UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
+        [_coustomNavCenterView addGestureRecognizer:changeShopTapestureRecognizer];
+    }
+    return _coustomNavCenterView;
+}
 
 
 
