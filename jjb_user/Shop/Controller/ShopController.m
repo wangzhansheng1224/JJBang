@@ -31,7 +31,7 @@
 #import "MBLocationManager.h"
 #import "RHADScrollView.h"
 #import "MBNavgationCenterView.h"
-
+#import "FirstShopIndexAPIManager.h"
 /**
  *  首页主控制器
  */
@@ -47,6 +47,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource, RHADScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
+@property (nonatomic,strong) LDAPIBaseManager * firstShopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 //@property(nonatomic,strong) UIScrollView * scrollView;  //banner位
 //@property(nonatomic,strong) UIPageControl * pageControl;
@@ -85,8 +86,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         self.coustomNavCenterView.shopNameLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"];
     
     }
-    
-    [self.shopIndexAPIManager loadData];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -100,6 +99,16 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [location getCurrentLocation:^(NSDictionary * dict) {
         self.currentLongitude = [dict[@"longitude"] doubleValue];
         self.currentLatitude  = [dict [@"latitude"] doubleValue];
+        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"isFirst"]) {
+            [self.firstShopIndexAPIManager loadData];
+            [[NSUserDefaults standardUserDefaults] setObject:@"secondLoad" forKey:@"isFirst"];
+        }
+        else
+        {
+            [self.shopIndexAPIManager loadData];
+            
+        }
+
     }];
     
     //切换门店之后tableView自动置顶
@@ -144,78 +153,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }];
 
 }
-//banner位
-//-(void)setUpBanner
-//{
-//    CGFloat width = self.scrollView.width;
-//    CGFloat height = self.scrollView.height;
-//    NSArray *imgArr=self.dataDic[kShopIndexActImg];
-//    for(int i = 0 ; i <[imgArr count]; i++)
-//    {
-//        NSDictionary *imgDic=imgArr[i];
-//        UIImageView * imageView  = [[UIImageView alloc]init];
-//        imageView.userInteractionEnabled=YES;
-//        UITapGestureRecognizer *clickTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(activityClick:)];
-//        [imageView addGestureRecognizer:clickTapGestureRecognizer];
-//        imageView.tag=[imgDic[kShopIndexActImgID] integerValue];
-//        imageView.frame = CGRectMake(width * i, 0, width, height);
-//            [imageView sd_setImageWithURL:[NSURL initWithImageURL:imgDic[kShopIndexActImgImagePath] Size:imageView.frame.size] placeholderImage:[UIImage imageNamed:@"img_default"]];
-//        [self.scrollView addSubview:imageView];
-//    }
-//    self.scrollView.contentSize= CGSizeMake([imgArr count] * width, height);
-//
-//    
-//    self.pageControl.numberOfPages = [imgArr count];
-//    self.pageControl.currentPageIndicatorTintColor = COLOR_ORANGE;
-//    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.view.mas_centerX);
-////        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-5);
-//        make.top.equalTo(self.scrollView.mas_bottom).offset(-30);
-//        
-//    }];
-////    self.pageControl.frame = CGRectMake(100, 100, 200, 30);
-//    self.scrollView.delegate = self;
-//    
-//    [self addPageTimer];
-//    
-//    
-//}
-////对定时器操作
-//-(void)addPageTimer
-//{
-//    self.Timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(updatePage) userInfo:nil repeats:YES];
-//
-//        [[NSRunLoop mainRunLoop] addTimer:self.Timer forMode:NSRunLoopCommonModes];
-//    
-//}
-//
-//-(void)removePageTimer
-//{
-//    [self.Timer invalidate];
-//    self.Timer = nil;
-//}
-////切换界面
-//-(void)updatePage
-//{
-//    //获取当前的页码
-//    NSInteger currentPageIndex = self.pageControl.currentPage;
-//    currentPageIndex++;
-//    NSArray *imgArr=self.dataDic[kShopIndexActImg];
-//    if (currentPageIndex >= [imgArr count]) {
-//        currentPageIndex = 0;
-//    }
-//    CGPoint offset = CGPointMake(currentPageIndex * self.scrollView.width, 0);
-//    [self.scrollView setContentOffset:offset animated:YES];
-////    JJBLog(@"定时器时间==%lf",self.Timer.timeInterval);
-//}
-//
-//-(void)activityClick:(UITapGestureRecognizer*)sender{
-//    
-//   UIViewController *controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":@(sender.view.tag)}];
-//    [self.navigationController pushViewController:controller animated:YES];
-//}
-
-#pragma 
+#pragma
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -438,7 +376,20 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":self.currentShopID};
+    
+    if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
+            return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":self.currentShopID};
+    }
+    else if ([manager isKindOfClass:[FirstShopIndexAPIManager class]])
+    {
+        return @{
+                 @"lng":@(self.currentLongitude),
+                 @"lat":@(self.currentLatitude)
+                 
+                 };
+    }
+    return nil;
+
 }
 
 #pragma -
@@ -459,33 +410,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
     return _shopIndexReformer;
 }
-//banner位
-//-(UIScrollView *)scrollView
-//{
-//    if (_scrollView == nil) {
-//    //保持宽高比
-//        UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f)];
-//        scrollView.showsHorizontalScrollIndicator = NO;
-//        scrollView.pagingEnabled = YES;
-////        [self.view addSubview:scrollView];
-//        self.tableView.tableHeaderView = scrollView;
-//        _scrollView = scrollView;
-//    }
-//    
-//    return _scrollView;
-//}
-
-//-(UIPageControl *)pageControl
-//{
-//    if (_pageControl == nil) {
-//        _pageControl = [[UIPageControl alloc]init];
-//        _pageControl.currentPage = 0;
-//        _pageControl.hidesForSinglePage = YES;
-//        _pageControl.userInteractionEnabled = NO;
-//        [self.tableView addSubview:_pageControl];
-//    }
-//    return _pageControl;
-//}
 -(NSMutableArray *)groupsArray
 {
     if (_groupsArray == nil) {
@@ -600,12 +524,22 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (_coustomNavCenterView == nil) {
         _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
         _coustomNavCenterView.userInteractionEnabled = YES;
-                        UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
+        UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
         [_coustomNavCenterView addGestureRecognizer:changeShopTapestureRecognizer];
     }
     return _coustomNavCenterView;
 }
 
+-(LDAPIBaseManager *)firstShopIndexAPIManager
+{
+    if (_firstShopIndexAPIManager == nil) {
+        _firstShopIndexAPIManager = [FirstShopIndexAPIManager  sharedInstance];
+        _firstShopIndexAPIManager.delegate=self;
+        _firstShopIndexAPIManager.paramSource=self;
+    }
+    return _firstShopIndexAPIManager;
 
+    
+}
 
 @end
