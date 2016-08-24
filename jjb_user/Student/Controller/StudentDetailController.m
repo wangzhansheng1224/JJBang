@@ -12,8 +12,10 @@
 #import "MBStarCouseCell.h"
 #import "MyGrowingAPIManager.h"
 #import "GrowingTreeListReformer.h"
-#import "ShopIndexReformer.h"
-#import "ShopIndexAPIManager.h"
+#import "CourseListReformer.h"
+#import "StudentDetailReformer.h"
+#import "MyCourseAPIManager.h"
+#import "StudentDetailAPIManager.h"
 
 @interface StudentDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
@@ -23,14 +25,18 @@
 @property (nonatomic,strong) NSArray *imageArr;
 @property (nonatomic,strong) LDAPIBaseManager *MyGrowingAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
-@property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
-@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,strong) LDAPIBaseManager *myCourseAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> myCourseReformer;
+
+@property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
+@property(nonatomic,strong) id<ReformerProtocol> detailReformer;
+
+@property (nonatomic,assign) NSInteger growingIndex;
+@property (nonatomic,assign) NSInteger courseIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSMutableArray *courseDataArr;
 @property (nonatomic,strong) NSMutableArray *GrowingTreeDataArr;
-@property(nonatomic,strong) NSDictionary *dataDic;
-
+@property(nonatomic,strong) NSDictionary *detailDic;
 @end
 
 @implementation StudentDetailController
@@ -39,18 +45,22 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"学员详情";
-    self.pageIndex=0;
+    self.navigationItem.title = @"学员首页";
+    self.growingIndex=0;
+    self.courseIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
+    [self.detailAPIManager loadData];
+    [self.MyGrowingAPIManager loadData];
+    [self.myCourseAPIManager loadData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    [self loadData];
 }
 
 -(void) loadData{
@@ -60,7 +70,7 @@
         
     } else {
         
-        [self.shopIndexAPIManager loadData];
+        [self.myCourseAPIManager loadData];
     }
 }
 
@@ -82,11 +92,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        
         return self.GrowingTreeDataArr.count;
     } else {
-        NSArray* arrData=self.dataDic[kShopIndexCourseList];
-        return [arrData count];
+        return [self.courseDataArr count];
     }
 }
 
@@ -105,7 +113,7 @@
     }   else {
         
         MBStarCouseCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MBStarCouseCellIdentifier" forIndexPath:indexPath];
-        [cell configWithData:self.dataDic[kShopIndexCourseList][indexPath.row]];
+        [cell configWithData:self.courseDataArr[indexPath.row]];
         return cell;
     }
 }
@@ -155,14 +163,24 @@
     if ([manager isKindOfClass:[MyGrowingAPIManager class]]) {
         NSArray *resultData = [manager fetchDataWithReformer:self.growingTreeListReformer];
         [self.GrowingTreeDataArr addObjectsFromArray:resultData];
-        self.pageIndex=[self.GrowingTreeDataArr count];
+        self.growingIndex=[self.GrowingTreeDataArr count];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
-    }else {
-    
-        self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
+    }
+    if ([manager isKindOfClass:[MyCourseAPIManager class]])
+    {
+        NSArray *resultData = [manager fetchDataWithReformer:self.myCourseReformer];
+        [self.courseDataArr addObjectsFromArray:resultData];
+        self.courseIndex=[self.courseDataArr count];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
+    }
+    if ([manager isKindOfClass:[StudentDetailAPIManager class]])
+    {
+        self.detailDic = [manager fetchDataWithReformer:self.detailReformer];
+        [self.headerView configWithData:_detailDic];
     }
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -176,24 +194,29 @@
     
     if ([manager isKindOfClass:[MyGrowingAPIManager class]]) {
         return @{
-                 @"user_id":@([UserModel currentUser].userID),
-                 @"start":@(self.pageIndex),
+                 @"user_id":@(self.studentID),
+                 @"start":@(self.growingIndex),
                  @"count":@(self.pageSize)
                  };
     }
-    else{
-        return @{@"lng":@"117.10",@"lat":@"40.13",@"shopId":@"2"};
+    if ([manager isKindOfClass:[StudentDetailAPIManager class]]) {
+        return @{
+                 @"stuId":@(self.studentID)
+                 };
     }
+    if ([manager isKindOfClass:[MyCourseAPIManager class]]) {
+        return @{
+                 @"user_id":@(self.studentID),
+                 @"start":@(self.courseIndex),
+                 @"count":@(self.pageSize)
+                 };
+    }
+    return nil;
 }
 
 #pragma -
 #pragma mark - event response
 - (void)tabBarControlChangeValue:(id)sender{
-    if (self.tabbarControl.selectedSegmentIndex==1) {
-        [self.courseDataArr removeAllObjects];
-        self.pageIndex=0;
-        [self loadData];
-    }
     [self.tableView reloadData];
 }
 
@@ -222,15 +245,19 @@
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.GrowingTreeDataArr removeAllObjects];
-            [self.courseDataArr removeAllObjects];
-            self.pageIndex=0;
-            [self.MyGrowingAPIManager loadData];
-            [self.shopIndexAPIManager loadData];
+            if (self.tabbarControl.selectedSegmentIndex==0) {
+                [self.GrowingTreeDataArr removeAllObjects];
+                self.growingIndex=0;
+                
+            }
+            if (self.tabbarControl.selectedSegmentIndex==1) {
+                [self.courseDataArr removeAllObjects];
+                self.courseIndex=0;
+            }
+            [self loadData];
         }];
         _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self.MyGrowingAPIManager loadData];
-            [self.shopIndexAPIManager loadData];
+            [self loadData];
         }];
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"GrowingCellIdentifier"];
         [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:@"MBStarCouseCellIdentifier"];
@@ -251,7 +278,7 @@
 
     if (!_headerView) {
         
-        _headerView = [[StudentDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, Screen_Width*2.0/3.0f+10))];
+        _headerView = [[StudentDetailHeader alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 194+10))];
         _headerView.backgroundColor = COLOR_WHITE;
     }
     return _headerView;
@@ -274,21 +301,39 @@
     return _growingTreeListReformer;
 }
 
-- (LDAPIBaseManager *)shopIndexAPIManager {
-    if (_shopIndexAPIManager == nil) {
-        _shopIndexAPIManager = [ShopIndexAPIManager  sharedInstance];
-        _shopIndexAPIManager.delegate=self;
-        _shopIndexAPIManager.paramSource=self;
+- (LDAPIBaseManager *)myCourseAPIManager {
+    if (_myCourseAPIManager == nil) {
+        _myCourseAPIManager = [MyCourseAPIManager  sharedInstance];
+        _myCourseAPIManager.delegate=self;
+        _myCourseAPIManager.paramSource=self;
     }
-    return _shopIndexAPIManager;
+    return _myCourseAPIManager;
 }
 
--(id<ReformerProtocol>) shopIndexReformer
+-(id<ReformerProtocol>) myCourseReformer
 {
-    if (!_shopIndexReformer) {
-        _shopIndexReformer=[[ShopIndexReformer alloc] init];
+    if (!_myCourseReformer) {
+        _myCourseReformer=[[CourseListReformer alloc] init];
     }
-    return _shopIndexReformer;
+    return _myCourseReformer;
+}
+
+
+- (LDAPIBaseManager *)detailAPIManager {
+    if (_detailAPIManager == nil) {
+        _detailAPIManager = [StudentDetailAPIManager  sharedInstance];
+        _detailAPIManager.delegate=self;
+        _detailAPIManager.paramSource=self;
+    }
+    return _detailAPIManager;
+}
+
+-(id<ReformerProtocol>) detailReformer
+{
+    if (!_detailReformer) {
+        _detailReformer=[[StudentDetailReformer alloc] init];
+    }
+    return _detailReformer;
 }
 
 - (NSMutableArray *)courseDataArr {
@@ -300,11 +345,5 @@
     return _courseDataArr;
 }
 
--(NSDictionary *) dataDic{
-    if (!_dataDic) {
-        _dataDic=[[NSDictionary alloc] init];
-    }
-    return _dataDic;
-}
 
 @end

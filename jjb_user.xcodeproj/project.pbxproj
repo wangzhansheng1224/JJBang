@@ -190,6 +190,8 @@
 		738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B820D1D5F741D00765F6F /* PublishAlbumTopView.m */; };
 		738B82161D5FE67200765F6F /* ImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82151D5FE67200765F6F /* ImgModel.m */; };
 		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
+		738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */; };
+		738F52421D6D29CD00AFBD3D /* StudentDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52411D6D29CD00AFBD3D /* StudentDetailReformer.m */; };
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
 		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
 		73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC782F1D6BD5FF00A81078 /* MemberModel.m */; };
@@ -674,6 +676,10 @@
 		738B82151D5FE67200765F6F /* ImgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgModel.m; sourceTree = "<group>"; };
 		738B82171D5FE90800765F6F /* OSSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSManager.h; sourceTree = "<group>"; };
 		738B82181D5FE90800765F6F /* OSSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSManager.m; sourceTree = "<group>"; };
+		738F523D1D6D262C00AFBD3D /* StudentDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailAPIManager.h; sourceTree = "<group>"; };
+		738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailAPIManager.m; sourceTree = "<group>"; };
+		738F52401D6D29CD00AFBD3D /* StudentDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailReformer.h; sourceTree = "<group>"; };
+		738F52411D6D29CD00AFBD3D /* StudentDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailReformer.m; sourceTree = "<group>"; };
 		739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClerkKeys.h; path = Reformer/ClerkKeys.h; sourceTree = "<group>"; };
 		739F210B1D67D9D900F2CF6A /* TeacherListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
 		739F210C1D67D9D900F2CF6A /* TeacherListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
@@ -1701,6 +1707,8 @@
 				735C3AFA1D62F59F00E4DB90 /* StarStudentListAPIManger.m */,
 				51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */,
 				51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */,
+				738F523D1D6D262C00AFBD3D /* StudentDetailAPIManager.h */,
+				738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -1726,6 +1734,8 @@
 				735C3B031D6302F700E4DB90 /* StudentReformer.h */,
 				735C3B041D6302F700E4DB90 /* StudentReformer.m */,
 				735C3B061D63030900E4DB90 /* StudentKeys.h */,
+				738F52401D6D29CD00AFBD3D /* StudentDetailReformer.h */,
+				738F52411D6D29CD00AFBD3D /* StudentDetailReformer.m */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -3045,6 +3055,7 @@
 				732A969C1D5D7B7200BE5800 /* StarView.m in Sources */,
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
+				738F52421D6D29CD00AFBD3D /* StudentDetailReformer.m in Sources */,
 				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */,
@@ -3055,6 +3066,7 @@
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
+				738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */,
 				BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */,
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
