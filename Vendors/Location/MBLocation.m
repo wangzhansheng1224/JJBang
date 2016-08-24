@@ -72,6 +72,12 @@ SingleM(MBLocation);
     CLLocationCoordinate2D coordnate = location.coordinate;
     self.longitude = coordnate.longitude; //经度
     self.latitude = coordnate.latitude;  //纬度
+    NSDictionary * infoDict = @{
+                            @"longitude":@(self.longitude),
+                            @"latitude":@(self.latitude)
+                            };
+    self.resultBlock(infoDict);
+
     JJBLog(@"经度=%lf纬度=%lf",self.longitude,self.latitude);
     
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
@@ -88,13 +94,13 @@ SingleM(MBLocation);
                 NSString * street = pm.addressDictionary[@"Street"];
                 NSString * address = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
                 
-                NSDictionary * infoDict = @{
-                                            @"city":city,
-                                            @"address":address,
-                                            @"longitude":@(self.longitude),
-                                            @"latitude":@(self.latitude)
-                                            };
-                JJBLog(@"定位的城市%@",infoDict);
+//                NSDictionary * infoDict = @{
+//                                            @"city":city,
+//                                            @"address":address,
+//                                            @"longitude":@(self.longitude),
+//                                            @"latitude":@(self.latitude)
+//                                            };
+//                JJBLog(@"定位的城市%@",infoDict);
                 self.resultBlock(infoDict);
             }else if([placemarks count] == 0 )
             {

@@ -49,9 +49,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property (nonatomic,strong) LDAPIBaseManager * firstShopIndexAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
-//@property(nonatomic,strong) UIScrollView * scrollView;  //banner位
-//@property(nonatomic,strong) UIPageControl * pageControl;
-//@property(nonatomic,weak) NSTimer * Timer;
 
 @property(nonatomic,weak) UICollectionView * collectionView;
 @property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
@@ -76,7 +73,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    [self.view addSubview:self.coustomNavCenterView];
     self.navigationItem.titleView = self.coustomNavCenterView;
     self.navigationItem.rightBarButtonItem =self.scanButton;
 
@@ -146,6 +142,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     ShopListController * shopListVC = [[ShopListController alloc]init];
     shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
+    JJBLog(@"aaaaaaaaaaaaaaaaaa%@",shopListVC.shopListArray);
     //    [self presentViewController:shopListVC animated:YES completion:nil];
     [self presentViewController:shopListVC animated:YES completion:^{
         
@@ -320,22 +317,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
       return Screen_Width/3.0f;
 }
 
-#pragma mark
-#pragma mark -   UIScrollViewDelegate
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    NSInteger currentPage = (NSInteger)(self.scrollView.contentOffset.x/scrollView.width+0.5);
-//    self.pageControl.currentPage = currentPage;
-//}
-
-//-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-//{
-//    [self removePageTimer];
-//}
-//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    [self addPageTimer];
-//}
 
 - (void)tapImageIndex:(NSInteger)index {
     NSArray * arr = self.dataDic[kShopIndexActImg];
@@ -522,7 +503,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(MBNavgationCenterView *)coustomNavCenterView
 {
     if (_coustomNavCenterView == nil) {
-        _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
+        _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width - 120, 44)];
+        _coustomNavCenterView.centerX = self.view.centerX;
         _coustomNavCenterView.userInteractionEnabled = YES;
         UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
         [_coustomNavCenterView addGestureRecognizer:changeShopTapestureRecognizer];
