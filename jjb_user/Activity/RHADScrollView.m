@@ -104,7 +104,7 @@
         
         if (i == 0 || i == self.arrPic.count) {
             
-            imageView.backgroundColor = [UIColor greenColor];
+            imageView.backgroundColor = JJBRandomColor;
         }
         [_scrollView addSubview:imageView];
         

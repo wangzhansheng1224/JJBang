@@ -8,14 +8,16 @@
 
 #import "GoodsDetailHeader.h"
 #import "GoodsDetailKey.h"
+#import "RHADScrollView.h"
 
-@interface GoodsDetailHeader()<iCarouselDataSource>
+@interface GoodsDetailHeader()
 
-@property (nonatomic,strong) iCarousel *picImageV;
+//@property (nonatomic,strong) iCarousel *picImageV;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *salesLabel;
 @property (nonatomic,strong) UIView *lineView;
 @property (nonatomic,strong) NSArray *imgArr;
+@property (nonatomic,strong) RHADScrollView *adScrollView;
 
 @end
 
@@ -24,7 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.picImageV];
+        [self addSubview:self.adScrollView];
         [self addSubview:self.titleLabel];
         [self addSubview:self.salesLabel];
         [self addSubview:self.lineView];
@@ -37,18 +39,18 @@
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     
-    [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_adScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Width*2.0/3.0f));
         make.top.left.equalTo(@0);
     }];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(@30);
-        make.top.mas_equalTo(_picImageV.mas_bottom).offset(10);
+        make.top.mas_equalTo(_adScrollView.mas_bottom).offset(10);
         make.left.mas_equalTo(self).offset(10);
         make.right.mas_equalTo(_salesLabel.mas_left);
     }];
     [_salesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_picImageV.mas_bottom).offset(10);
+        make.top.mas_equalTo(_adScrollView.mas_bottom).offset(10);
         make.right.equalTo(@-10);
         make.width.mas_equalTo(@100);
     }];
@@ -67,38 +69,56 @@
     
     [self.titleLabel setText:data[kGoodsDetailName]];
     self.imgArr=data[kGoodsDetailImages];
-    [self.picImageV reloadData];
-}
-
-#pragma -
-#pragma mark - iCarouselDataSource
-
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
-    return [self.imgArr count];
-}
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
-    
-    if (view == nil)
-    {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f)];
-        NSURL *url=[NSURL initWithImageURL:self.imgArr[index][@"image"] Size:view.frame.size];
-        [((UIImageView *)view) sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
-        view.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.picImageV reloadData];
+    NSLog(@"%@+++++",data[kGoodsDetailImages]);
+    NSMutableArray *mutArr = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.imgArr.count; i++) {
         
+        [mutArr addObject:[NSString stringWithFormat:@"%@%@",ImageServer,_imgArr[i][@"image"]]];
     }
-    
-    return view;
+    _adScrollView.arrPic = mutArr;
+    [_adScrollView play];
 }
+//
+//#pragma -
+//#pragma mark - iCarouselDataSource
+//
+//- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
+//    return [self.imgArr count];
+//}
+//- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view{
+//    
+//    if (view == nil)
+//    {
+//        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Width*2.0f/3.0f)];
+//        NSURL *url=[NSURL initWithImageURL:self.imgArr[index][@"image"] Size:view.frame.size];
+//        [((UIImageView *)view) sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+//        view.contentMode = UIViewContentModeScaleAspectFit;
+//        
+//    }
+//    
+//    return view;
+//}
 
 #pragma -
 #pragma mark - getters and setters
-- (iCarousel *)picImageV {
+//- (iCarousel *)picImageV {
+//
+//    if (!_picImageV) {
+//        _picImageV = [[iCarousel alloc] init];
+//        _picImageV.dataSource=self;
+//    }
+//    return _picImageV;
+//}
+- (RHADScrollView *)adScrollView {
 
-    if (!_picImageV) {
-        _picImageV = [[iCarousel alloc] init];
-        _picImageV.dataSource=self;
+    if (!_adScrollView) {
+        
+        _adScrollView = [[RHADScrollView alloc] init];
+        _adScrollView.adHeight = Screen_Width*2.0/3.0f;
+        _adScrollView.delegate = self;
     }
-    return _picImageV;
+    return _adScrollView;
 }
 
 - (UILabel *)titleLabel {
@@ -134,6 +154,11 @@
         _lineView.backgroundColor=COLOR_LIGHT_GRAY;
     }
     return _lineView;
+}
+
+- (void)setInvalidate:(BOOL)invalidate {
+    
+    _adScrollView.invalidate = invalidate;
 }
 
 @end
