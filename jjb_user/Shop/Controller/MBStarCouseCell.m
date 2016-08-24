@@ -78,7 +78,7 @@
     [self.numbercouseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.couseNameLabel.mas_top);
         make.height.mas_equalTo(@30);
-        make.width.mas_equalTo(@100);
+        make.width.mas_equalTo(@50);
         make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,7 +141,8 @@
     if (_couseNameLabel == nil) {
         _couseNameLabel = [[UILabel alloc]init];
         _couseNameLabel.text = @"少儿美术";
-        _couseNameLabel.font = H2;
+        _couseNameLabel.font = H4;
+        _couseNameLabel.textColor = COLOR_DARK_GRAY;
         [_couseNameLabel sizeToFit];
     }
     return _couseNameLabel;
@@ -151,7 +152,8 @@
     if (_numbercouseLabel == nil) {
         _numbercouseLabel = [[UILabel alloc]init];
         _numbercouseLabel.text = @"98人报名";
-        _numbercouseLabel.font = H3;
+        _numbercouseLabel.font = H5;
+        _numbercouseLabel.textColor = COLOR_DARK_GRAY;
         _numbercouseLabel.textAlignment=NSTextAlignmentRight;
         [_numbercouseLabel sizeToFit];
     }

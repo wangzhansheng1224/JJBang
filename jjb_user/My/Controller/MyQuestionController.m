@@ -1,45 +1,38 @@
 //
-//  MyHelpController.m
-//  jjb_user    帮助反馈
+//  MyQuestionController.m
+//  jjb_user
 //
 //  Created by Check on 16/8/24.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MyHelpController.h"
-#import "MyHelpCell.h"
-#import "MyCommentController.h"
+#import "MyQuestionController.h"
+#import "MyQuestionCell.h"
 
-@interface MyHelpController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyQuestionController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *titleArr;
 
 @end
 
-@implementation MyHelpController
+@implementation MyQuestionController
 
-#pragma -
+#pragma - 
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"帮助与反馈";
     self.view.backgroundColor = COLOR_WHITE;
-    [self.view addSubview:self.tableView];
+    self.navigationItem.title = @"常见问题";
+    
     [self layoutPageSubviews];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
 }
 
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     
-   [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
         make.top.left.equalTo(@0);
@@ -49,18 +42,19 @@
 #pragma -
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 1;
+}
 
-    return self.titleArr.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MyHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyHelpCellIdentifier" forIndexPath:indexPath];
+    MyQuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyQuestionCellIdentifier" forIndexPath:indexPath];
     
-    if (indexPath.row < self.titleArr.count) {
-        
-        cell.title = self.titleArr[indexPath.row];
-    }
     return cell;
 }
 
@@ -69,22 +63,6 @@
     return 50;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
-        MyCommentController *commentVC = [[MyCommentController alloc] init];
-        [self.navigationController pushViewController:commentVC animated:YES];
-        
-    }else if (indexPath.row == 1) {
-    
-        
-    }else {
-    
-        
-    }
-//    [self.view makeToast:@"敬请期待"];
-}
 
 #pragma -
 #pragma mark - getters and setters
@@ -96,7 +74,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[MyHelpCell class] forCellReuseIdentifier:@"MyHelpCellIdentifier"];
+        [_tableView registerClass:[MyQuestionCell class] forCellReuseIdentifier:@"MyQuestionCellIdentifier"];
     }
     return _tableView;
 }
