@@ -81,6 +81,11 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
     
     [self.view addSubview:self.tableView];
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"]) {
+        self.coustomNavCenterView.shopNameLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"];
+    
+    }
+    
     [self.shopIndexAPIManager loadData];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -97,11 +102,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         self.currentLatitude  = [dict [@"latitude"] doubleValue];
     }];
     
-    if (self.currentShopName) {
-        _coustomNavCenterView.shopNameLabel.text = self.currentShopName;
-        
-    }
-
     //切换门店之后tableView自动置顶
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 
@@ -115,14 +115,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 -(void)changeName:(NSNotification *)notification
 {
-    JJBLog(@"%@",notification);
+    JJBLog(@"jjjjjjjj%@",notification);
     NSString * string = notification.userInfo[@"ShopIndexShopListName"];
-    self.navigationItem.title = string;
+    self.coustomNavCenterView.shopNameLabel.text = string;
     self.currentShopID = notification.userInfo[@"ShopIndexShopListID"];
     [[NSUserDefaults standardUserDefaults] setObject:self.currentShopID forKey:@"currenShopID"];
 //    [[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"];
-    [[NSUserDefaults standardUserDefaults] setObject:self.currentShopName forKey:@"currntShopName"];
-    
+
+    [[NSUserDefaults standardUserDefaults] setObject:string forKey:@"currntShopName"];
     [self.shopIndexAPIManager loadData];
 }
 #pragma -
@@ -598,7 +598,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(MBNavgationCenterView *)coustomNavCenterView
 {
     if (_coustomNavCenterView == nil) {
-        _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(40, 20, 100, 44)];
+        _coustomNavCenterView = [[MBNavgationCenterView alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
         _coustomNavCenterView.userInteractionEnabled = YES;
                         UITapGestureRecognizer * changeShopTapestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeShop:)];
         [_coustomNavCenterView addGestureRecognizer:changeShopTapestureRecognizer];
