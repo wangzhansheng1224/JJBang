@@ -12,12 +12,10 @@
 @interface MyMoreController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
-
 @property (nonatomic,strong) UIView *view_top;
-
 @property (nonatomic,strong) UIImageView *imageView_icon;
-
 @property (nonatomic,strong) UILabel *label_name;
+@property (nonatomic,strong) NSMutableArray *titleArr;
 
 @end
 
@@ -65,14 +63,14 @@
         
         make.size.mas_equalTo(CGSizeMake(95, 95));
         make.top.equalTo(@53);
-        make.left.equalTo(@140);
+        make.centerX.equalTo(_view_top.mas_centerX);
     }];
     
     [self.label_name mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.size.mas_equalTo(CGSizeMake(100, 20));
         make.top.equalTo(self.imageView_icon.mas_bottom).with.offset(20);
-        make.left.equalTo(@138);
+        make.centerX.equalTo(_view_top.mas_centerX);
     }];
 }
 
@@ -87,6 +85,10 @@
     
     MyMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyMoreCellIdentifier" forIndexPath:indexPath];
    
+    if (indexPath.row < self.titleArr.count) {
+        
+        cell.title = self.titleArr[indexPath.row];
+    }
     return cell;
 }
 
@@ -99,6 +101,7 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+    [self.view makeToast:@"敬请期待"];
 }
 
 #pragma -
@@ -147,4 +150,16 @@
     }
     return _label_name;
 }
+
+- (NSMutableArray *)titleArr {
+
+    if (!_titleArr) {
+        
+        _titleArr = [[NSMutableArray alloc] init];
+        NSArray *array = @[@"检查更新",@"分享给好友"];
+        _titleArr = [NSMutableArray arrayWithArray:array];
+    }
+    return _titleArr;
+}
+
 @end

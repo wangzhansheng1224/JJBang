@@ -95,12 +95,11 @@
         imageView.userInteractionEnabled = YES;
         if (i == self.arrPic.count) {
             
-        [imageView sd_setImageWithURL:[NSURL URLWithString:self.arrPic.firstObject] placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.arrPic.firstObject] placeholderImage:[UIImage imageNamed:@"img_default"] options:SDWebImageCacheMemoryOnly];
         }else {
             
-        [imageView sd_setImageWithURL:[NSURL URLWithString:self.arrPic[i]] placeholderImage:nil options:SDWebImageCacheMemoryOnly];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.arrPic[i]] placeholderImage:[UIImage imageNamed:@"img_default"] options:SDWebImageCacheMemoryOnly];
         }
-        
         
         if (i == 0 || i == self.arrPic.count) {
             

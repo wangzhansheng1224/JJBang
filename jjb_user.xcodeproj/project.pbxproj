@@ -35,6 +35,7 @@
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
 		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
+		519843991D6D877800A69A33 /* MyHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519843981D6D877800A69A33 /* MyHelpController.m */; };
 		519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519E9F3C1D66F18200129EAC /* SelectMenuController.m */; };
 		51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033A91D6B02440058CDD4 /* CoursePackagesReformer.m */; };
 		51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033AB1D6B02530058CDD4 /* CoursePackagesAPIManager.m */; };
@@ -350,6 +351,8 @@
 		517F99331D57A87B002609E5 /* MySettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingCell.m; path = jjb_user/My/MySettingCell.m; sourceTree = SOURCE_ROOT; };
 		517F99351D57A957002609E5 /* MySettingDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingDetailController.h; sourceTree = "<group>"; };
 		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
+		519843971D6D877800A69A33 /* MyHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpController.h; sourceTree = "<group>"; };
+		519843981D6D877800A69A33 /* MyHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpController.m; sourceTree = "<group>"; };
 		519E9F3B1D66F18200129EAC /* SelectMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuController.h; sourceTree = "<group>"; };
 		519E9F3C1D66F18200129EAC /* SelectMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMenuController.m; sourceTree = "<group>"; };
 		51A033A71D6B02440058CDD4 /* CoursePackagesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursePackagesKeys.h; sourceTree = "<group>"; };
@@ -1980,6 +1983,8 @@
 				AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */,
 				739F210E1D6AA93A00F2CF6A /* LevelController.h */,
 				739F210F1D6AA93A00F2CF6A /* LevelController.m */,
+				519843971D6D877800A69A33 /* MyHelpController.h */,
+				519843981D6D877800A69A33 /* MyHelpController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3001,6 +3006,7 @@
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,
 				BBC572F51D59C3AE00848F5F /* MBStarStudentCollectionView.m in Sources */,
+				519843991D6D877800A69A33 /* MyHelpController.m in Sources */,
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,

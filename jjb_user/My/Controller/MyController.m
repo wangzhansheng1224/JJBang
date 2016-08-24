@@ -19,6 +19,7 @@
 #import "StudentController.h"
 #import "MyOrderPayController.h"
 #import "MyBalanceViewController.h"
+#import "MyHelpController.h"
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -154,15 +155,27 @@
             MyOrderPayController *order = [[MyOrderPayController alloc] init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:order];
             [self.navigationController pushViewController:controller animated:YES];
-        }
-        
-        if (indexPath.row == 1) {
+        }else if (indexPath.row == 1) {
             MyCourseController *course=[[MyCourseController alloc] init];
          UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:course];
         [self.navigationController pushViewController:controller animated:YES];
+        }else {
+        
+            [self.view makeToast:@"敬请期待"];
         }
+        
     }else {
     
+        if (indexPath.row == 0) {
+            MyHelpController *helpVC = [[MyHelpController alloc] init];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:helpVC];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        
+        if (indexPath.row == 1) {
+        
+            [self.view makeToast:@"敬请期待"];
+        }
         if (indexPath.row == 2) {
             MyMoreController *myMoreVC=[[MyMoreController alloc]init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:myMoreVC];
