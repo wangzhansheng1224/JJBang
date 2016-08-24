@@ -138,7 +138,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [self.navigationController pushViewController:controller animated:YES];
     }
     if (indexPath.section==1) {
-        NSDictionary *actDic=self.dataDic[kShopIndexActList];
+        NSDictionary *actDic=self.dataDic[kShopIndexActList][indexPath.row];
         UIViewController* controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":actDic[kShopIndexActID]}];
         [self.navigationController pushViewController:controller animated:YES];
     }

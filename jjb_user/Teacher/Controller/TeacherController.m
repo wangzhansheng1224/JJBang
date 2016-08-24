@@ -85,7 +85,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
     if (_tabbarControl.selectedSegmentIndex == 1) {
         
-        GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:TeacherDetailCellIdentifier forIndexPath:indexPath];
+        GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
         if (cell == nil) {
             cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
         }
