@@ -97,6 +97,7 @@ alpha:(a)]
 #import "MJRefresh.h"
 #import "UIView+Toast.h"
 #import "UserModel.h"
+#import "ShopModel.h"
 #import "iCarousel.h"
 #import "CTMediator.h"
 #import "CTMediator+CTMediatorSystemActions.h"

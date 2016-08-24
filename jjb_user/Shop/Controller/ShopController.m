@@ -31,7 +31,7 @@
 #import "MBLocationManager.h"
 #import "RHADScrollView.h"
 #import "MBNavgationCenterView.h"
-#import "FirstShopIndexAPIManager.h"
+#import "ShopListAPIManager.h"
 /**
  *  首页主控制器
  */
@@ -47,7 +47,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource, RHADScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
-@property (nonatomic,strong) LDAPIBaseManager * firstShopIndexAPIManager;
+@property (nonatomic,strong) LDAPIBaseManager * shopListAPIManager;
 @property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 
 @property(nonatomic,weak) UICollectionView * collectionView;
@@ -57,8 +57,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,strong) NSDictionary *dataDic;
 @property(nonatomic,assign) double currentLongitude;  //当前经度
 @property(nonatomic,assign) double currentLatitude;    //当前纬度
-@property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
-@property(nonatomic,copy) NSString * currentShopName; //当前店铺名称
+@property (nonatomic,copy) NSMutableArray *shopList;
+@property (nonatomic,strong) ShopModel *currentShop;
 @property(nonatomic,strong) RHADScrollView * adScrollView;
 @property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
 
@@ -75,14 +75,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.titleView = self.coustomNavCenterView;
     self.navigationItem.rightBarButtonItem =self.scanButton;
-
-    
     [self.view addSubview:self.tableView];
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"]) {
-        self.coustomNavCenterView.shopNameLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"];
-   
-    
-    }
+    [self.shopListAPIManager loadData];
+    [self.view makeToastActivity:CSToastPositionCenter];
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -90,27 +86,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(changeName:) name:@"changeShopName" object:nil];
     
-    
     MBLocation * location =[MBLocation shareMBLocation];
     
     [location getCurrentLocation:^(NSDictionary * dict) {
         self.currentLongitude = [dict[@"longitude"] doubleValue];
-        self.currentLatitude  = [dict [@"latitude"] doubleValue];
-        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"isFirst"]) {
-            [self.firstShopIndexAPIManager loadData];
-            [[NSUserDefaults standardUserDefaults] setObject:@"secondLoad" forKey:@"isFirst"];
-        }
-        else
-        {
-            [self.shopIndexAPIManager loadData];
-            
-        }
-
+        self.currentLatitude  = [dict[@"latitude"] doubleValue];
     }];
-    
     //切换门店之后tableView自动置顶
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-
     }
 
 
@@ -121,14 +104,9 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 -(void)changeName:(NSNotification *)notification
 {
-    JJBLog(@"jjjjjjjj%@",notification);
-    NSString * string = notification.userInfo[@"ShopIndexShopListName"];
-    self.coustomNavCenterView.shopNameLabel.text = string;
-    self.currentShopID = notification.userInfo[@"ShopIndexShopListID"];
-    [[NSUserDefaults standardUserDefaults] setObject:self.currentShopID forKey:@"currenShopID"];
-//    [[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"];
-
-    [[NSUserDefaults standardUserDefaults] setObject:string forKey:@"currntShopName"];
+    ShopModel * shop = notification.userInfo[@"selectShop"];
+    [ShopModel save:shop];
+    self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
     [self.shopIndexAPIManager loadData];
 }
 #pragma -
@@ -142,9 +120,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(void)changeShop:(UITapGestureRecognizer *)recognizer
 {
     ShopListController * shopListVC = [[ShopListController alloc]init];
-    shopListVC.shopListArray=self.dataDic[kShopIndexShopList];
-    JJBLog(@"aaaaaaaaaaaaaaaaaa%@",shopListVC.shopListArray);
-    //    [self presentViewController:shopListVC animated:YES completion:nil];
+    shopListVC.shopListArray=self.shopList;
     [self presentViewController:shopListVC animated:YES completion:^{
         
         _adScrollView.invalidate = YES;
@@ -330,29 +306,45 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    [self.tableView.mj_header endRefreshing];
-    self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
-//    [self setUpBanner];
-    NSArray * arr = self.dataDic[kShopIndexActImg];
-    NSMutableArray * mutArr = [[NSMutableArray alloc] init];
-    for (int i = 0; i < arr.count; i++) {
-        
-        NSDictionary * dic = arr[i];
-        
-        [mutArr addObject:[NSString stringWithFormat:@"%@%@", ImageServer,dic[kShopIndexActImgImagePath]]];
+    
+    if ([manager isKindOfClass:[ShopListAPIManager class]]) {
+        NSMutableArray *resultData=[manager fetchDataWithReformer:self.shopIndexReformer];
+        self.shopList=resultData;
+        if ([resultData count]>0) {
+            self.currentShop=resultData[0];
+            [ShopModel save:self.currentShop];
+            self.coustomNavCenterView.shopNameLabel.text=self.currentShop.shopName;
+        }
+        [self.shopIndexAPIManager loadData];
         
     }
-    _adScrollView = nil;
+    if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
+        [self.tableView.mj_header endRefreshing];
+        [self.view hideToastActivity];
+        self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
+        NSArray * arr = self.dataDic[kShopIndexActImg];
+        NSMutableArray * mutArr = [[NSMutableArray alloc] init];
+        for (int i = 0; i < arr.count; i++) {
+            
+            NSDictionary * dic = arr[i];
+            
+            [mutArr addObject:[NSString stringWithFormat:@"%@%@", ImageServer,dic[kShopIndexActImgImagePath]]];
+            
+        }
+        _adScrollView = nil;
+        
+        self.adScrollView.arrPic = mutArr;
+        _adScrollView.adHeight = Screen_Width*2.0f/3.0f;
+        [_adScrollView play];
+        
+        [self.tableView reloadData];
+    }
     
-    self.adScrollView.arrPic = mutArr;
-    _adScrollView.adHeight = Screen_Width*2.0f/3.0f;
-    [_adScrollView play];
-    
-    [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
       [self.tableView.mj_header endRefreshing];
+        [self.view hideToastActivity];
 }
 
 #pragma -
@@ -360,14 +352,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
-            return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":self.currentShopID};
+            return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":@(self.currentShop.shopID)};
     }
-    else if ([manager isKindOfClass:[FirstShopIndexAPIManager class]])
+    else if ([manager isKindOfClass:[ShopListAPIManager class]])
     {
         return @{
                  @"lng":@(self.currentLongitude),
                  @"lat":@(self.currentLatitude)
-                 
                  };
     }
     return nil;
@@ -513,14 +504,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     return _coustomNavCenterView;
 }
 
--(LDAPIBaseManager *)firstShopIndexAPIManager
+-(LDAPIBaseManager *)shopListAPIManager
 {
-    if (_firstShopIndexAPIManager == nil) {
-        _firstShopIndexAPIManager = [FirstShopIndexAPIManager  sharedInstance];
-        _firstShopIndexAPIManager.delegate=self;
-        _firstShopIndexAPIManager.paramSource=self;
+    if (_shopListAPIManager == nil) {
+        _shopListAPIManager = [ShopListAPIManager  sharedInstance];
+        _shopListAPIManager.delegate=self;
+        _shopListAPIManager.paramSource=self;
     }
-    return _firstShopIndexAPIManager;
+    return _shopListAPIManager;
 
     
 }
