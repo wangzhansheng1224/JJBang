@@ -213,8 +213,6 @@
     }
     else if([manager isKindOfClass:[self.registerAPIManager class]])
     {
-        NSDictionary * dict = [manager fetchDataWithReformer:nil];
-        NSString * string = dict[@"data"];
          UserModel *user=[manager fetchDataWithReformer:self.userReformer];
          [UserModel save:user];
         
