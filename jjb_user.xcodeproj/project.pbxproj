@@ -36,6 +36,9 @@
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
 		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
 		519843991D6D877800A69A33 /* MyHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519843981D6D877800A69A33 /* MyHelpController.m */; };
+		5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439B1D6D920500A69A33 /* MyCommentController.m */; };
+		5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439E1D6DB9F900A69A33 /* MyQuestionController.m */; };
+		519843A21D6DBC0E00A69A33 /* MyQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 519843A11D6DBC0E00A69A33 /* MyQuestionCell.m */; };
 		519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519E9F3C1D66F18200129EAC /* SelectMenuController.m */; };
 		51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033A91D6B02440058CDD4 /* CoursePackagesReformer.m */; };
 		51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A033AB1D6B02530058CDD4 /* CoursePackagesAPIManager.m */; };
@@ -359,6 +362,12 @@
 		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
 		519843971D6D877800A69A33 /* MyHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpController.h; sourceTree = "<group>"; };
 		519843981D6D877800A69A33 /* MyHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpController.m; sourceTree = "<group>"; };
+		5198439A1D6D920500A69A33 /* MyCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentController.h; sourceTree = "<group>"; };
+		5198439B1D6D920500A69A33 /* MyCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentController.m; sourceTree = "<group>"; };
+		5198439D1D6DB9F900A69A33 /* MyQuestionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionController.h; sourceTree = "<group>"; };
+		5198439E1D6DB9F900A69A33 /* MyQuestionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionController.m; sourceTree = "<group>"; };
+		519843A01D6DBC0E00A69A33 /* MyQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyQuestionCell.h; path = jjb_user/My/Controller/MyQuestionCell.h; sourceTree = SOURCE_ROOT; };
+		519843A11D6DBC0E00A69A33 /* MyQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyQuestionCell.m; path = jjb_user/My/Controller/MyQuestionCell.m; sourceTree = SOURCE_ROOT; };
 		519E9F3B1D66F18200129EAC /* SelectMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuController.h; sourceTree = "<group>"; };
 		519E9F3C1D66F18200129EAC /* SelectMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMenuController.m; sourceTree = "<group>"; };
 		51A033A71D6B02440058CDD4 /* CoursePackagesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursePackagesKeys.h; sourceTree = "<group>"; };
@@ -2015,6 +2024,10 @@
 				739F210F1D6AA93A00F2CF6A /* LevelController.m */,
 				519843971D6D877800A69A33 /* MyHelpController.h */,
 				519843981D6D877800A69A33 /* MyHelpController.m */,
+				5198439A1D6D920500A69A33 /* MyCommentController.h */,
+				5198439B1D6D920500A69A33 /* MyCommentController.m */,
+				5198439D1D6DB9F900A69A33 /* MyQuestionController.h */,
+				5198439E1D6DB9F900A69A33 /* MyQuestionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2046,6 +2059,8 @@
 				AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */,
 				AC842C921D5C6C320065A71C /* RechargeWeChatAndAliView.h */,
 				AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */,
+				519843A01D6DBC0E00A69A33 /* MyQuestionCell.h */,
+				519843A11D6DBC0E00A69A33 /* MyQuestionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2757,7 +2772,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 59V932RQGA;
 					};
 				};
 			};
@@ -2851,6 +2865,7 @@
 				BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */,
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
 				735C3AF41D62F28500E4DB90 /* ClerkListAPIManager.m in Sources */,
+				5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */,
 				738B82061D5F485D00765F6F /* TileView.m in Sources */,
 				731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */,
 				51B50F3F1D642953001733C8 /* OrdersDetailController.m in Sources */,
@@ -3084,6 +3099,7 @@
 				AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */,
 				AC540ADD1D61B640007636CE /* DataVerifier.m in Sources */,
 				AC27CB211D6A98A500240089 /* MyOrderDetailReformer.m in Sources */,
+				5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */,
 				51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */,
 				BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */,
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
@@ -3108,6 +3124,7 @@
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
+				519843A21D6DBC0E00A69A33 /* MyQuestionCell.m in Sources */,
 				738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */,
 				BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */,
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
@@ -3179,7 +3196,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6e6ceb9b-08a9-4cdf-a47a-4754df481310";
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3219,7 +3236,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6e6ceb9b-08a9-4cdf-a47a-4754df481310";
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3288,9 +3305,13 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabangliu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+>>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Debug;
 		};
@@ -3340,9 +3361,13 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabangliu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+>>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Release;
 		};
