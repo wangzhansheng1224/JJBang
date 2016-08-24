@@ -94,7 +94,6 @@
 - (void)btnClick:(UIButton *)btn {
     _index = btn.tag;
     [self.makeOrderBar configWithData:@{@"price":_arrData[_index][@"CoursePackagesOrgPrice"]}];
-    JJBLog(@"-------%zd",self.index);
     for (UIView * view in _btnSV.subviews) {
         
         if ([view isKindOfClass:[UIButton class]]) {
@@ -123,7 +122,6 @@
         NSArray *resultData = [manager fetchDataWithReformer:self.coursePackagesReformer];
         [self.arrData addObjectsFromArray:resultData];
         [self.makeOrderBar configWithData:@{@"price":_arrData[_index][@"CoursePackagesOrgPrice"],@"objectID":_arrData[_index][@"PackagesID"]}];
-        JJBLog(@"++++++%zd",self.index);
         [self.menuView addSubview:self.btnSV];
         [self.menuView addSubview:self.makeOrderBar];
         [self layoutPageSubviews];

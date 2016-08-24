@@ -129,7 +129,7 @@
     }
     
     _adScrollView.arrPic = mutArr;
-    _adScrollView.adHeight = 173;
+    [_adScrollView play];
 
     if ([data[kActivityDetailIsRegist] compare:[NSNumber numberWithInt:1]]==NSOrderedSame) {
         [self.signupButton setEnabled:NO];
@@ -178,7 +178,7 @@
     if (!_adScrollView) {
         
         _adScrollView = [[RHADScrollView alloc] init];
-        
+        _adScrollView.adHeight = 173;
         _adScrollView.delegate = self;
     }
     return _adScrollView;

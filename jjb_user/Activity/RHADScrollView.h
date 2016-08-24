@@ -11,17 +11,19 @@
 @protocol RHADScrollViewDelegate <NSObject>
 
 @optional
-- (void)tapImageIndex:(NSInteger)index;
+- (void)tapImageIndex:(NSInteger )index;
 
 @end
 
 @interface RHADScrollView : UIView
 
-@property (nonatomic, strong) NSArray * arrPic;
 @property (nonatomic, weak) id<RHADScrollViewDelegate> delegate;
+
+@property (nonatomic, strong) NSArray * arrPic;
 @property (nonatomic, assign) BOOL invalidate;
 @property (nonatomic, assign) float adHeight;
 
-//- (instancetype)initWithPicArr:(NSArray *)picArr;
+//设置好属性开始播放
+- (void)play;
 
 @end
