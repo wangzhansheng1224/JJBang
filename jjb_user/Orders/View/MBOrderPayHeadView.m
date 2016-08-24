@@ -32,13 +32,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = COLOR_WHITE;
-        [self layoutSubviewss];
+        [self layoutSubviewsx];
     }
     return self;
 }
--(void)layoutSubviewss
+-(void)layoutSubviewsx
 {
-//    [super layoutSubviews];
+    [super layoutSubviews];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
         make.left.equalTo(self.mas_left).offset(20);

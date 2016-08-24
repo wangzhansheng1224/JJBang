@@ -193,11 +193,16 @@
 		738B82191D5FE90800765F6F /* OSSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738B82181D5FE90800765F6F /* OSSManager.m */; };
 		738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */; };
 		738F52421D6D29CD00AFBD3D /* StudentDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52411D6D29CD00AFBD3D /* StudentDetailReformer.m */; };
+		738F52451D6D5F0800AFBD3D /* TeacherDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52441D6D5F0700AFBD3D /* TeacherDetailAPIManager.m */; };
+		738F52481D6D660000AFBD3D /* TeacherDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52471D6D660000AFBD3D /* TeacherDetailCell.m */; };
+		738F524B1D6D67F500AFBD3D /* TeacherHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F524A1D6D67F500AFBD3D /* TeacherHeaderView.m */; };
+		738F524E1D6D6F2D00AFBD3D /* TeacherTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F524D1D6D6F2D00AFBD3D /* TeacherTileView.m */; };
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
 		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
 		73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC782F1D6BD5FF00A81078 /* MemberModel.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
+		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
@@ -683,6 +688,14 @@
 		738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailAPIManager.m; sourceTree = "<group>"; };
 		738F52401D6D29CD00AFBD3D /* StudentDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDetailReformer.h; sourceTree = "<group>"; };
 		738F52411D6D29CD00AFBD3D /* StudentDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDetailReformer.m; sourceTree = "<group>"; };
+		738F52431D6D5F0700AFBD3D /* TeacherDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherDetailAPIManager.h; sourceTree = "<group>"; };
+		738F52441D6D5F0700AFBD3D /* TeacherDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherDetailAPIManager.m; sourceTree = "<group>"; };
+		738F52461D6D660000AFBD3D /* TeacherDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherDetailCell.h; sourceTree = "<group>"; };
+		738F52471D6D660000AFBD3D /* TeacherDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherDetailCell.m; sourceTree = "<group>"; };
+		738F52491D6D67F500AFBD3D /* TeacherHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherHeaderView.h; sourceTree = "<group>"; };
+		738F524A1D6D67F500AFBD3D /* TeacherHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherHeaderView.m; sourceTree = "<group>"; };
+		738F524C1D6D6F2D00AFBD3D /* TeacherTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTileView.h; sourceTree = "<group>"; };
+		738F524D1D6D6F2D00AFBD3D /* TeacherTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTileView.m; sourceTree = "<group>"; };
 		739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClerkKeys.h; path = Reformer/ClerkKeys.h; sourceTree = "<group>"; };
 		739F210B1D67D9D900F2CF6A /* TeacherListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
 		739F210C1D67D9D900F2CF6A /* TeacherListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
@@ -695,6 +708,8 @@
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		73ED4F161D4EFA410022BF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
+		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
 		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
@@ -1153,6 +1168,8 @@
 				AC540AE91D62A54D007636CE /* MBScanButton.m */,
 				AC3D77D41D63322200AAA3A0 /* ShopListCell.h */,
 				AC3D77D51D63322200AAA3A0 /* ShopListCell.m */,
+				AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */,
+				AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1318,6 +1335,8 @@
 				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
 				735C3AFC1D62F5F900E4DB90 /* StarTeacherListAPIManager.h */,
 				735C3AFD1D62F5F900E4DB90 /* StarTeacherListAPIManager.m */,
+				738F52431D6D5F0700AFBD3D /* TeacherDetailAPIManager.h */,
+				738F52441D6D5F0700AFBD3D /* TeacherDetailAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -1352,6 +1371,12 @@
 				51F6944E1D60A0870099909A /* StarTeacherCell.m */,
 				739F210B1D67D9D900F2CF6A /* TeacherListCell.h */,
 				739F210C1D67D9D900F2CF6A /* TeacherListCell.m */,
+				738F52461D6D660000AFBD3D /* TeacherDetailCell.h */,
+				738F52471D6D660000AFBD3D /* TeacherDetailCell.m */,
+				738F52491D6D67F500AFBD3D /* TeacherHeaderView.h */,
+				738F524A1D6D67F500AFBD3D /* TeacherHeaderView.m */,
+				738F524C1D6D6F2D00AFBD3D /* TeacherTileView.h */,
+				738F524D1D6D6F2D00AFBD3D /* TeacherTileView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2727,7 +2752,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -2879,6 +2903,7 @@
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
 				73575F861D5546B80037F697 /* Target_System.m in Sources */,
+				738F524E1D6D6F2D00AFBD3D /* TeacherTileView.m in Sources */,
 				BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
 				739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */,
@@ -2889,6 +2914,7 @@
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */,
 				732A96D41D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m in Sources */,
+				738F524B1D6D67F500AFBD3D /* TeacherHeaderView.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				735C3AF81D62F2DC00E4DB90 /* ClerkListReformer.m in Sources */,
@@ -2901,6 +2927,7 @@
 				73886D241D4F735D00643BBA /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				AC540ADE1D61B640007636CE /* MD5DataSigner.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
+				AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */,
 				BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
@@ -2995,6 +3022,7 @@
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
+				738F52451D6D5F0800AFBD3D /* TeacherDetailAPIManager.m in Sources */,
 				51D348A11D57924E002D761C /* MyHelpCell.m in Sources */,
 				ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */,
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
@@ -3002,6 +3030,7 @@
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */,
+				738F52481D6D660000AFBD3D /* TeacherDetailCell.m in Sources */,
 				AC6E13881D5DBEEF00A7C71D /* MyRechargeAPIManager.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,
@@ -3120,7 +3149,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer: 348519692@qq.com (QTZCJE98V6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -3143,7 +3172,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3167,7 +3196,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer: 348519692@qq.com (QTZCJE98V6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3183,7 +3212,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3a326665-74e5-42a5-815c-3c4b18b1a208";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

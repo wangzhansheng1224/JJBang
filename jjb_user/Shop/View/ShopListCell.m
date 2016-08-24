@@ -45,13 +45,12 @@
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
         make.left.equalTo(self.contentView.mas_left).offset(10);
-        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     [self.shopIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.shopNameLabel.mas_top);
         make.bottom.equalTo(self.shopNameLabel.mas_bottom);
         make.left.equalTo(self.shopNameLabel.mas_right);
-        make.right.equalTo(self.contentView.mas_right);
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
 }
 

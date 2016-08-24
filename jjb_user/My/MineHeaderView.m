@@ -180,7 +180,7 @@
 - (UIImageView*)topImage {
     
     if (!_topImage) {
-        _topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"my_background"]];
+        _topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_background"]];
         _topImage.frame=CGRectMake(0, 0, Screen_Width, 194);
         _topImage.contentMode = UIViewContentModeScaleAspectFill;
     }
@@ -241,6 +241,7 @@
     
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
+        _nameLabel.textColor=COLOR_WHITE;
     }
     return _nameLabel;
 }
@@ -251,7 +252,7 @@
         _signLabel = [[UILabel alloc] init];
         _signLabel.alpha = 0.8;
         _signLabel.text=@"这家伙很懒，什么都没留下！";
-        
+        _signLabel.textColor=COLOR_WHITE;
         _signLabel.font = [UIFont systemFontOfSize:13];
     }
     return _signLabel;
