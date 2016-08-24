@@ -30,6 +30,7 @@
 #import "MBLocation.h"
 #import "MBLocationManager.h"
 #import "RHADScrollView.h"
+#import "MBNavgationCenterView.h"
 
 /**
  *  首页主控制器
@@ -62,7 +63,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property(nonatomic,copy) NSString * currentShopID; //当前店铺ID
 
 @property(nonatomic,strong) RHADScrollView * adScrollView;
-
+@property(nonatomic,strong) MBNavgationCenterView * coustonNavCenterView; //自定义的导航栏中间View
 
 @end
 
@@ -78,6 +79,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     self.navigationItem.title=@"望湖公园店";
     self.navigationItem.leftBarButtonItem=self.loactionButton;
     self.navigationItem.rightBarButtonItem =self.scanButton;
+    self.navigationItem.titleView = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     [self.view addSubview:self.tableView];
     [self.shopIndexAPIManager loadData];
 }

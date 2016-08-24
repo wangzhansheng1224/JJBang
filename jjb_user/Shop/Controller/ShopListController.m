@@ -106,7 +106,7 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
 {
     if (_backButton == nil) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(10, 10, 30, 30);
+        button.frame = CGRectMake(10, 20, 25, 25);
         [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
 //        [self.NavView addSubview:button];
