@@ -84,6 +84,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     [self.view addSubview:self.tableView];
     if ([[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"]) {
         self.coustomNavCenterView.shopNameLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"currntShopName"];
+   
     
     }
 }
