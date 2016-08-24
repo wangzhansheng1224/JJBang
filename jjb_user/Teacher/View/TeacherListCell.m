@@ -30,6 +30,8 @@
     return self;
 }
 
+#pragma -
+#pragma mark - layoutSubviews
 -(void)layoutSubviews{
     UIView *superView=self;
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,9 +60,13 @@
     }];
 }
 
+
+#pragma -
+#pragma mark - configWithData
+
 - (void)configWithData:(NSDictionary *)data{
     
-    NSURL *url=[NSURL initWithImageURL:data[kTeacherPhoto] Size:self.clerkFaceIView.frame.size];
+    NSURL *url=[NSURL initWithImageURL:data[kTeacherPhoto] Width:50 Height:50];
     [self.clerkFaceIView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     [self.nicknameLabel setText:data[kTeacherName]];
 }

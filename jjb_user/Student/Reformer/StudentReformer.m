@@ -13,7 +13,9 @@ NSString * const kStudentID = @"StudentID";
 NSString * const kStudentPhoto = @"StudentPhoto";
 NSString * const kStudentName = @"StudentName";
 NSString * const kStudentNum = @"StudentNum";
-
+NSString * const kStudentSex = @"StudentSex";
+NSString * const kStudentPhone = @"StudentPhone";
+NSString * const kStudentAge = @"StudentAge";
 @implementation StudentReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {

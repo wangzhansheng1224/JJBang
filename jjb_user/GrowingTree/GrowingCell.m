@@ -103,7 +103,7 @@
     [self.timeLabel setText:data[kGrowingTreeListCreateTime]];
     [self.moodLabel setText:data[kGrowingTreeListContent]];
     
-    NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Size:self.iconView.frame.size];
+    NSURL *url=[NSURL initWithImageURL:data[kGrowingTreeListFromUserFace] Width:40 Height:40];
     [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     
     float width = (Screen_Width - 8 * 4)/3.0;

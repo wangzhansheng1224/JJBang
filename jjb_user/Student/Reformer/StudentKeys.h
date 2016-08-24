@@ -12,5 +12,7 @@ extern NSString *const kStudentID;
 extern NSString *const kStudentPhoto;
 extern NSString *const kStudentName;
 extern NSString *const kStudentNum;
-
+extern NSString *const kStudentSex;
+extern NSString *const kStudentPhone;
+extern NSString *const kStudentAge;
 #endif /* StudentKeys_h */
