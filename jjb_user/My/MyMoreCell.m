@@ -11,10 +11,9 @@
 @interface MyMoreCell ()
 
 @property (nonatomic,strong) UILabel *label_title;
-
 @property (nonatomic,strong) UIImageView *imageView_icon;
-
 @property (nonatomic,strong) UILabel *label_line;
+@property (nonatomic,strong) NSArray *textArr;
 
 @end
 
@@ -29,7 +28,7 @@
     
         [self.contentView addSubview:self.label_title];
         [self.contentView addSubview:self.imageView_icon];
-//        [self.contentView addSubview:_label_line];
+        [self.contentView addSubview:self.label_line];
         [self layoutPageSubviews];
     }
     return self;
@@ -42,9 +41,10 @@
 
     [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(68, 17));
+        make.height.equalTo(@17);
         make.top.equalTo(@20);
         make.left.equalTo(@18);
+        make.right.mas_equalTo(_imageView_icon.mas_left);
     }];
     
     [self.imageView_icon mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,15 +54,13 @@
         make.right.equalTo(@-16);
     }];
     
-//    [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
-//        make.top.equalTo(@0);
-//        make.left.equalTo(@0);
-//    }];
+    [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+    }];
 }
-
-
 
 
 #pragma -
@@ -72,7 +70,7 @@
     if (!_label_title) {
         
         _label_title = [[UILabel alloc] init];
-        _label_title.text = @"检查更新";
+        NSLog(@"%@qqqq",_label_title.text);
         _label_title.font = H2;
         _label_title.textColor = COLOR_GRAY;
     }
@@ -94,8 +92,14 @@
     if (!_label_line) {
         
         _label_line = [[UILabel alloc] init];
-        _label_line.backgroundColor = COLOR_GRAY;
+        _label_line.backgroundColor = COLOR_LIGHT_GRAY;
     }
     return _label_line;
 }
+
+- (void)setTitle:(NSString *)title {
+    
+    _label_title.text = title;
+}
+
 @end

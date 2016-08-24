@@ -10,4 +10,6 @@
 
 @interface MyMoreCell : UITableViewCell
 
+@property (nonatomic,copy) NSString *title;
+
 @end
