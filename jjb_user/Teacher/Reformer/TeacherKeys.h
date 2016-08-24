@@ -12,5 +12,10 @@ extern NSString *const kTeacherID;
 extern NSString *const kTeacherPhoto;
 extern NSString *const kTeacherName;
 extern NSString *const kTeacherStar;
-
+extern NSString *const kTeacherSex;
+extern NSString *const kTeacherNotes;
+extern NSString *const kTeacherSummary;
+extern NSString *const kTeacherWorkYears;
+extern NSString *const kTeacherAddress;
+extern NSString *const kTeacherPhone;
 #endif /* TeacherKeys_h */
