@@ -6,15 +6,15 @@
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "FirstShopIndexAPIManager.h"
+#import "ShopListAPIManager.h"
 
-@interface FirstShopIndexAPIManager ()
+@interface ShopListAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation FirstShopIndexAPIManager
+@implementation ShopListAPIManager
 
 
 #pragma mark - life cycle
@@ -45,10 +45,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t FirstShopIndexAPIManagerOnceToken;
-    static FirstShopIndexAPIManager *sharedInstance = nil;
-    dispatch_once(&FirstShopIndexAPIManagerOnceToken, ^{
-        sharedInstance = [[FirstShopIndexAPIManager alloc] init];
+    static dispatch_once_t ShopListAPIManagerOnceToken;
+    static ShopListAPIManager *sharedInstance = nil;
+    dispatch_once(&ShopListAPIManagerOnceToken, ^{
+        sharedInstance = [[ShopListAPIManager alloc] init];
     });
     return sharedInstance;
 }

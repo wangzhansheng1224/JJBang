@@ -7,6 +7,7 @@
 //
 
 #import "CourseRegistrationCell.h"
+#import "UserKeys.h"
 
 @interface CourseRegistrationCell ()
 
@@ -74,7 +75,9 @@
 #pragma mark - configWithData
 
 - (void)configWithData:(NSDictionary *)data{
-    
+    NSURL *url=[NSURL initWithImageURL:data[kUserFace] Width:50 Height:50];
+    [self.userfaceImageview sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
+    [self.nicknameLabel setText:data[kUserName]];
 }
 
 #pragma -
@@ -119,7 +122,7 @@
         _remarkLabel.font = H4;
         _remarkLabel.numberOfLines = 0;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        _remarkLabel.text = @"心情不错";
+        //_remarkLabel.text = @"心情不错";
         [_remarkLabel setContentMode:UIViewContentModeTop];
         
     }

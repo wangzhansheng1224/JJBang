@@ -56,11 +56,10 @@
 
 #pragma 
 #pragma mark - configWithData
--(void)configWithData:(NSDictionary *)data
+-(void)configWithData:(ShopModel *)shop;
 {
-    [self.shopNameLabel setText:data[kShopIndexShopListName]];
-     NSString * string =  [data[kShopIndexShopListID] stringValue];
-    [self.shopIDLabel setText:string];
+    [self.shopNameLabel setText:shop.shopName];
+    [self.shopIDLabel setText:[NSString stringWithFormat:@"%ld",(long)shop.shopID]];
 }
 
 

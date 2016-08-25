@@ -200,13 +200,15 @@
 		738F52481D6D660000AFBD3D /* TeacherDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52471D6D660000AFBD3D /* TeacherDetailCell.m */; };
 		738F524B1D6D67F500AFBD3D /* TeacherHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F524A1D6D67F500AFBD3D /* TeacherHeaderView.m */; };
 		738F524E1D6D6F2D00AFBD3D /* TeacherTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F524D1D6D6F2D00AFBD3D /* TeacherTileView.m */; };
+		738F52511D6DEBA900AFBD3D /* ShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738F52501D6DEBA900AFBD3D /* ShopModel.m */; };
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
 		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
 		73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC782F1D6BD5FF00A81078 /* MemberModel.m */; };
+		73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
-		AC0EF2B41D6D996600054421 /* FirstShopIndexAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */; };
+		AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
@@ -706,6 +708,8 @@
 		738F524A1D6D67F500AFBD3D /* TeacherHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherHeaderView.m; sourceTree = "<group>"; };
 		738F524C1D6D6F2D00AFBD3D /* TeacherTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherTileView.h; sourceTree = "<group>"; };
 		738F524D1D6D6F2D00AFBD3D /* TeacherTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherTileView.m; sourceTree = "<group>"; };
+		738F524F1D6DEBA900AFBD3D /* ShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopModel.h; sourceTree = "<group>"; };
+		738F52501D6DEBA900AFBD3D /* ShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopModel.m; sourceTree = "<group>"; };
 		739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClerkKeys.h; path = Reformer/ClerkKeys.h; sourceTree = "<group>"; };
 		739F210B1D67D9D900F2CF6A /* TeacherListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
 		739F210C1D67D9D900F2CF6A /* TeacherListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
@@ -713,6 +717,9 @@
 		739F210F1D6AA93A00F2CF6A /* LevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelController.m; sourceTree = "<group>"; };
 		73AC782E1D6BD5FF00A81078 /* MemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberModel.h; sourceTree = "<group>"; };
 		73AC782F1D6BD5FF00A81078 /* MemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberModel.m; sourceTree = "<group>"; };
+		73DD01E21D6E5ACE0092C74A /* CourseRegisterListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseRegisterListReformer.h; path = CourseRegisterList/CourseRegisterListReformer.h; sourceTree = "<group>"; };
+		73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseRegisterListReformer.m; path = CourseRegisterList/CourseRegisterListReformer.m; sourceTree = "<group>"; };
+		73DD01E51D6E5B420092C74A /* UserKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserKeys.h; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -720,8 +727,8 @@
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
-		AC0EF2B21D6D996600054421 /* FirstShopIndexAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstShopIndexAPIManager.h; sourceTree = "<group>"; };
-		AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstShopIndexAPIManager.m; sourceTree = "<group>"; };
+		AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListAPIManager.h; sourceTree = "<group>"; };
+		AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListAPIManager.m; sourceTree = "<group>"; };
 		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
@@ -1108,8 +1115,8 @@
 			children = (
 				731091661D5198C60031B443 /* ShopIndexAPIManager.h */,
 				731091671D5198C60031B443 /* ShopIndexAPIManager.m */,
-				AC0EF2B21D6D996600054421 /* FirstShopIndexAPIManager.h */,
-				AC0EF2B31D6D996600054421 /* FirstShopIndexAPIManager.m */,
+				AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */,
+				AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -1300,11 +1307,13 @@
 		731091A91D51A52C0031B443 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				73DD01E11D6E5A9B0092C74A /* CourseRegisterList */,
 				51A033A61D6B02440058CDD4 /* CoursePackages */,
 				735C3B161D65687100E4DB90 /* CourseCatalog */,
 				73575F4B1D54D2D10037F697 /* CourseInfo */,
 				73575F461D54D2B70037F697 /* CourseList */,
 				735C3AED1D62B97900E4DB90 /* CourseKeys.h */,
+				73DD01E51D6E5B420092C74A /* UserKeys.h */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -2250,6 +2259,15 @@
 			path = OSS;
 			sourceTree = "<group>";
 		};
+		73DD01E11D6E5A9B0092C74A /* CourseRegisterList */ = {
+			isa = PBXGroup;
+			children = (
+				73DD01E21D6E5ACE0092C74A /* CourseRegisterListReformer.h */,
+				73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */,
+			);
+			name = CourseRegisterList;
+			sourceTree = "<group>";
+		};
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
@@ -2720,6 +2738,8 @@
 				738B82151D5FE67200765F6F /* ImgModel.m */,
 				73AC782E1D6BD5FF00A81078 /* MemberModel.h */,
 				73AC782F1D6BD5FF00A81078 /* MemberModel.m */,
+				738F524F1D6DEBA900AFBD3D /* ShopModel.h */,
+				738F52501D6DEBA900AFBD3D /* ShopModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2772,6 +2792,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A8XTC7F62D;
 					};
 				};
 			};
@@ -2885,7 +2906,7 @@
 				BB613AD51D599DE0004DE299 /* MBSaleCollectionView.m in Sources */,
 				73575F521D54D4430037F697 /* TeacherListController.m in Sources */,
 				5126C1FE1D56EBC9005D23F3 /* MyOrderPayCell.m in Sources */,
-				AC0EF2B41D6D996600054421 /* FirstShopIndexAPIManager.m in Sources */,
+				AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */,
 				73575F781D54EEA00037F697 /* CTMediator.m in Sources */,
 				738B82091D5F48B500765F6F /* TileViewItem.m in Sources */,
 				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
@@ -2908,6 +2929,7 @@
 				512763631D6174C5005A241A /* HomePageActivityController.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
 				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
+				738F52511D6DEBA900AFBD3D /* ShopModel.m in Sources */,
 				51D3D75F1D6444E30062D288 /* OrdersDetailFooter.m in Sources */,
 				732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */,
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
@@ -3050,6 +3072,7 @@
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
+				73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */,
 				738F52481D6D660000AFBD3D /* TeacherDetailCell.m in Sources */,
@@ -3305,9 +3328,8 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 			};
 			name = Debug;
@@ -3358,7 +3380,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 			};

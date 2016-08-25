@@ -14,7 +14,7 @@
 #import "CourseDetailAPIManager.h"
 #import "CourseDetailHeader.h"
 #import "HMSegmentedControl.h"
-#import "ActivityRegisterListReformer.h"
+#import "CourseRegisterListReformer.h"
 #import "CourseInfoReformer.h"
 #import "CourseCatalogReformer.h"
 #import "CourseCatalogView.h"
@@ -169,6 +169,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     else {
         //报名信息
         CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.registrationData[indexPath.row]];
         return cell;
     }
 }
@@ -399,7 +400,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (id<ReformerProtocol>) registerListReformer{
     
     if (!_registerListReformer) {
-        _registerListReformer=[[ActivityRegisterListReformer alloc] init];
+        _registerListReformer=[[CourseRegisterListReformer alloc] init];
     }
     return _registerListReformer;
 }

@@ -8,7 +8,7 @@
 
 #import "LDAPIBaseManager.h"
 
-@interface FirstShopIndexAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
+@interface ShopListAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
 LDAPIManagerInterceptor>
 + (instancetype)sharedInstance;
 @end
