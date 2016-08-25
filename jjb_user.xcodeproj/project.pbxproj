@@ -204,6 +204,7 @@
 		739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210C1D67D9D900F2CF6A /* TeacherListCell.m */; };
 		739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F210F1D6AA93A00F2CF6A /* LevelController.m */; };
 		73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC782F1D6BD5FF00A81078 /* MemberModel.m */; };
+		73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */; };
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
@@ -716,6 +717,9 @@
 		739F210F1D6AA93A00F2CF6A /* LevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelController.m; sourceTree = "<group>"; };
 		73AC782E1D6BD5FF00A81078 /* MemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberModel.h; sourceTree = "<group>"; };
 		73AC782F1D6BD5FF00A81078 /* MemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberModel.m; sourceTree = "<group>"; };
+		73DD01E21D6E5ACE0092C74A /* CourseRegisterListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseRegisterListReformer.h; path = CourseRegisterList/CourseRegisterListReformer.h; sourceTree = "<group>"; };
+		73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseRegisterListReformer.m; path = CourseRegisterList/CourseRegisterListReformer.m; sourceTree = "<group>"; };
+		73DD01E51D6E5B420092C74A /* UserKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserKeys.h; sourceTree = "<group>"; };
 		73ED4F041D4EFA410022BF79 /* jjb_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jjb_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1303,11 +1307,13 @@
 		731091A91D51A52C0031B443 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				73DD01E11D6E5A9B0092C74A /* CourseRegisterList */,
 				51A033A61D6B02440058CDD4 /* CoursePackages */,
 				735C3B161D65687100E4DB90 /* CourseCatalog */,
 				73575F4B1D54D2D10037F697 /* CourseInfo */,
 				73575F461D54D2B70037F697 /* CourseList */,
 				735C3AED1D62B97900E4DB90 /* CourseKeys.h */,
+				73DD01E51D6E5B420092C74A /* UserKeys.h */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -2253,6 +2259,15 @@
 			path = OSS;
 			sourceTree = "<group>";
 		};
+		73DD01E11D6E5A9B0092C74A /* CourseRegisterList */ = {
+			isa = PBXGroup;
+			children = (
+				73DD01E21D6E5ACE0092C74A /* CourseRegisterListReformer.h */,
+				73DD01E31D6E5ACE0092C74A /* CourseRegisterListReformer.m */,
+			);
+			name = CourseRegisterList;
+			sourceTree = "<group>";
+		};
 		73ED4EFB1D4EFA410022BF79 = {
 			isa = PBXGroup;
 			children = (
@@ -2777,6 +2792,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A8XTC7F62D;
 					};
 				};
 			};
@@ -3056,6 +3072,7 @@
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
+				73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */,
 				738F52481D6D660000AFBD3D /* TeacherDetailCell.m in Sources */,
@@ -3311,7 +3328,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 			};
@@ -3363,7 +3380,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
 			};
