@@ -23,4 +23,16 @@ NSString * const kCTMediatorActionNativeLogin = @"Login";
     }
 }
 
+- (UIViewController *)CTMediator_CheckIsLogin{
+    if ([UserModel isHasLogin]) {
+        return nil;
+    } else{
+        return [self performTarget:kCTMediatorSystemTarget
+                            action:kCTMediatorActionNativeLogin
+                            params:nil];
+    }
+}
+
+
+
 @end

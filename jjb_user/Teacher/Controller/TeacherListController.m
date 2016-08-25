@@ -11,6 +11,7 @@
 #import "TeacherListAPIManager.h"
 #import "TeacherReformer.h"
 #import "TeacherController.h"
+#import "TeacherKeys.h"
 
 static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 @interface TeacherListController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -82,6 +83,7 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TeacherController *detail =[[TeacherController alloc] init];
+    detail.teacherID=[self.arrData[indexPath.row][kTeacherID] integerValue];
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma -

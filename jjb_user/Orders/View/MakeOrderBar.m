@@ -108,8 +108,15 @@
 #pragma mark - event respone
 
 - (void)payBtnClick:(UIButton *)click {
-    self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];
-    [self.apiManager loadData];
+    
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];
+        [self.apiManager loadData];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
 }
 
 - (UIButton *)payBtn {
