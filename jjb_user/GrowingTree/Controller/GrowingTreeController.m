@@ -131,7 +131,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
-             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
+             @"shop_id":@([ShopModel currentShop].shopID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };

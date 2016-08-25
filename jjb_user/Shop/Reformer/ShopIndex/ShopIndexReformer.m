@@ -9,6 +9,7 @@
 #import "ShopIndexReformer.h"
 #import "ShopIndexAPIManager.h"
 #import "CourseKeys.h"
+#import "ShopListAPIManager.h"
 
 @implementation ShopIndexReformer
 
@@ -52,6 +53,19 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
+    if ([manager isKindOfClass:[ShopListAPIManager class]]) {
+        
+        NSDictionary *indexData=data[@"data"];
+        NSArray * shopListTmpArray = indexData[@"shopList"];
+        NSMutableArray * shopListArray = [NSMutableArray array];
+        if (shopListTmpArray != nil) {
+            for (NSInteger i = 0; i<shopListTmpArray.count; i++) {
+                [shopListArray addObject:[ShopModel JsonParse:shopListTmpArray[i]]];
+            }
+        }
+        return shopListArray;
+    }
+    
     if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
         
         NSDictionary *indexData=data[@"data"];

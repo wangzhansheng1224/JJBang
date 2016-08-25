@@ -8,6 +8,7 @@
 
 #import "MyHelpController.h"
 #import "MyHelpCell.h"
+#import "MyCommentController.h"
 
 @interface MyHelpController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -71,8 +72,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        MyCommentController *commentVC = [[MyCommentController alloc] init];
+        [self.navigationController pushViewController:commentVC animated:YES];
+        
+    }else if (indexPath.row == 1) {
     
-    [self.view makeToast:@"敬请期待"];
+        
+    }else {
+    
+        
+    }
+//    [self.view makeToast:@"敬请期待"];
 }
 
 #pragma -

@@ -65,8 +65,7 @@
         make.height.equalTo(@50);
         make.left.right.bottom.equalTo(@0);
     }];
-    
-   }
+}
 
 #pragma -
 #pragma mark - event respone

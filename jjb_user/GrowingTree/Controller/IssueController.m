@@ -163,7 +163,7 @@
     return @{
              @"user_id":@([UserModel currentUser].userID),
              @"from_user_id":@([UserModel currentUser].userID),
-             @"shop_id":[[NSUserDefaults standardUserDefaults]objectForKey:@"currenShopID"],
+             @"shop_id":@([ShopModel currentShop].shopID),
              @"content":_textView.text,
              @"longitude":@(self.longitude),
              @"latitude":@(self.latitude),

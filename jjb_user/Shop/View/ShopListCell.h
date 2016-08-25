@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopListCell : UITableViewCell
--(void)configWithData:(NSDictionary *)data;
+-(void)configWithData:(ShopModel *)shop;
 @end
