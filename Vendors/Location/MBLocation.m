@@ -68,6 +68,7 @@ SingleM(MBLocation);
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
 {
     
+    
     CLLocation * location = [locations lastObject];
     CLLocationCoordinate2D coordnate = location.coordinate;
     self.longitude = coordnate.longitude; //经度

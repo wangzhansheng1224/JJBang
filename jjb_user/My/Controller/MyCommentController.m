@@ -84,21 +84,23 @@
 
 -(void)textViewDidChange:(UITextView *)textView
 {
-//    UITextView *textV1 = [textView viewWithTag:200];
-//    NSInteger index = textV1.tag;
-//    if () {
-//   
-//        if (self.commentTV.text.length == 0) {
-//            self.commentLabel.text = @"请留下您宝贵意见和建议，我们将努力改进";
-//        }else{
-//            self.commentLabel.text = @"";        }
-//    }else if ([self isKindOfClass:[self.phoneTV class]]){
-//        if (self.phoneTV.text.length == 0) {
-//            self.phoneLabel.text = @"请留下手机号，已便我们回复您";
-//        }else {
-//            self.phoneLabel.text = @"";
-//        }
-//    }
+    NSInteger index = textView.tag;
+    
+
+    if (index == 200) {
+   
+        if (self.commentTV.text.length == 0) {
+            self.commentLabel.text = @"请留下您宝贵意见和建议，我们将努力改进";
+        }else{
+            self.commentLabel.text = @"";        }
+    }
+    if (index == 300){
+        if (self.phoneTV.text.length == 0) {
+            self.phoneLabel.text = @"请留下手机号，已便我们回复您";
+        }else {
+            self.phoneLabel.text = @"";
+        }
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView*)textView
