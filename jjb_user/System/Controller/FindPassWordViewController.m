@@ -55,31 +55,56 @@
     btn.userInteractionEnabled = NO;
     btn.backgroundColor = COLOR_GRAY;
     [self createTimer];
-    [self.getCodeAPIManager loadData];
-
+    if(self.telTextfield.text.length != 11)
+    {
+        [self.view makeToast:@"请输入正确的手机号" duration:1.0f position:CSToastPositionCenter];
+    }
+    else
+    {
+        [self.getCodeAPIManager loadData];
+    }
+    
 }
 //提交
 -(void)gotoReplace
 {
+    
+    
     [self.verCodeAPIManager loadData];
 }
 
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    JJBLog(@"返回的字典%@",dict);
     if ([manager isKindOfClass:[self.getCodeAPIManager class]]) {
 //        NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        bool codeStatus = dict[@"data"];
+        if (codeStatus) {
+            [self.view makeToast:@"获取验证码成功" duration:1.0f position:CSToastPositionCenter];
+        }
+        else
+        {
+            [self.view makeToast:@"获取验证码失败" duration:1.0f position:CSToastPositionCenter];
+        }
+        
     }
     else if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
-        NSDictionary * dict = [manager fetchDataWithReformer:nil];
-        NSString * string = dict[@"data"];
-        if(string)
+         BOOL string = (BOOL)dict[@"data"];
+        if(string == NO)
         {
             //验证成功跳转修改密码界面
             ReplacePassWordViewController * replaceVC = [[ReplacePassWordViewController alloc]init];
             replaceVC.telString = self.telTextfield.text;
             [self.navigationController pushViewController:replaceVC animated:YES];
+        }
+        else
+        {
+            [self.view makeToast:@"验证码错误" duration:1.0f position:CSToastPositionCenter];
         }
         
     }
@@ -88,13 +113,17 @@
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
 //    [self.view makeToast:@"登录失败！" duration:3.0 position:CSToastPositionCenter];
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    NSString * messageString = dict[@"message"];
+    JJBLog(@"%@",dict);
+
     if([manager isKindOfClass:[self.getCodeAPIManager class]])
     {
-        [self.view makeToast:@"获取验证码失败" duration:3.0f position:CSToastPositionCenter];
+        [self.view makeToast:messageString duration:3.0f position:CSToastPositionCenter];
     }
     else if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
-        [self.view makeToast:@"验证码错误" duration:3.0f position:CSToastPositionCenter];
+        [self.view makeToast:messageString duration:3.0f position:CSToastPositionCenter];
     }
 
 }
@@ -149,7 +178,7 @@
     }];
     [self.codeTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.telTextfield.mas_left);
-        make.top.mas_equalTo(self.telTextfield.mas_bottom).offset(2);
+        make.top.mas_equalTo(self.telTextfield.mas_bottom).offset(10);
         make.right.mas_equalTo(self.codeButton.mas_right);
         make.height.mas_equalTo(self.telTextfield.mas_height);
     }];
@@ -164,7 +193,7 @@
 
 - (void)createTimer{
     
-    __block int timeout = 60;
+    __block int timeout = 3;
     //获取全局队列 将倒计时的任务 交给全局队列执行
     dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     

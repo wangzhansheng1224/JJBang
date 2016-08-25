@@ -16,7 +16,7 @@
  */
 @interface registerViewController ()<LDAPIManagerParamSourceDelegate,LDAPIManagerApiCallBackDelegate>
 @property(nonatomic,strong) UITextField * telTextfield;
-@property(nonatomic,strong) UITextField * userNameTextfield;
+//@property(nonatomic,strong) UITextField * userNameTextfield;
 @property(nonatomic,strong) UITextField * passWordTextfield;
 @property(nonatomic,strong) UITextField * codeTextfield;
 @property(nonatomic,strong) UIButton * codeButton;
@@ -64,7 +64,7 @@
 -(void)addAllChildView
 {
     [self.view addSubview:self.telTextfield];
-    [self.view addSubview:self.userNameTextfield];
+//    [self.view addSubview:self.userNameTextfield];
     [self.view addSubview:self.passWordTextfield];
     [self.view addSubview:self.codeTextfield];
     [self.view addSubview:self.codeButton];
@@ -81,21 +81,16 @@
         make.height.mas_equalTo(@40);
         
     }];
-    [self.userNameTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(18);
-        make.right.equalTo(self.view.mas_right).offset(-20);
-        make.height.mas_equalTo(@40);
-        make.top.equalTo(self.telTextfield.mas_bottom).offset(10);
-    }];
-    [self.passWordTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(18);
-        make.right.equalTo(self.view.mas_right).offset(-20);
-        make.height.mas_equalTo(@40);
-        make.top.equalTo(self.userNameTextfield.mas_bottom).offset(10);
-    }];
+//    [self.userNameTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left).offset(18);
+//        make.right.equalTo(self.view.mas_right).offset(-20);
+//        make.height.mas_equalTo(@40);
+//        make.top.equalTo(self.telTextfield.mas_bottom).offset(10);
+//    }];
+    
     [self.codeTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(18);
-        make.top.equalTo(self.passWordTextfield.mas_bottom).offset(10);
+        make.top.equalTo(self.telTextfield.mas_bottom).offset(10);
         make.width.mas_equalTo(@150);
 //        make.right.equalTo(self.view.mas_right).offset(20);
        make.height.mas_equalTo(@40);
@@ -107,10 +102,16 @@
         make.left.equalTo(self.codeTextfield.mas_right).offset(20);
         make.height.mas_equalTo(@40);
     }];
+    [self.passWordTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(18);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.height.mas_equalTo(@40);
+        make.top.equalTo(self.codeTextfield.mas_bottom).offset(10);
+    }];
     
     [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.top.equalTo(self.codeTextfield.mas_bottom).offset(32);
+        make.top.equalTo(self.passWordTextfield.mas_bottom).offset(32);
         make.left.equalTo(self.view.mas_left).offset(42);
 //        make.height.mas_equalTo(@35);
     }];
@@ -135,12 +136,19 @@
     btn.userInteractionEnabled = NO;
     btn.backgroundColor = COLOR_GRAY;
     [self createTimer];
-    [self.getCodeAPIManager loadData];
+    if(self.telTextfield.text.length != 11)
+    {
+        [self.view makeToast:@"请输入正确的手机号" duration:1.0f position:CSToastPositionCenter];
+    }
+    else
+    {
+        [self.getCodeAPIManager loadData];
+    }
     
 }
 - (void)createTimer{
     
-    __block int timeout = 60;
+    __block int timeout = 4;
     //获取全局队列 将倒计时的任务 交给全局队列执行
     dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
@@ -189,8 +197,13 @@
 //进行注册
 -(void)gotoRegister
 {
+    if (self.passWordTextfield.text.length ==0) {
+        [self.view makeToast:@"请输入密码" duration:1.0f position:CSToastPositionCenter];
+    }
+    else
+    {
     [self.verCodeAPIManager loadData]; //验证验证码
-    
+    }
     
 }
 
@@ -200,16 +213,32 @@
 //    UserModel *user=[manager fetchDataWithReformer:self.userReformer];
 //    [UserModel save:user];
 //    [self.navigationController popViewControllerAnimated:YES];
-    if([manager isKindOfClass:[self.verCodeAPIManager class]])
-    {
-        //验证成功则进行注册验证
-        NSDictionary * dict = [manager fetchDataWithReformer:nil];
-        NSString * string = dict[@"data"];
-        if(string)
-        {
-        [self.registerAPIManager loadData];
+     NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    JJBLog(@"返回的字典%@",dict);
+     if ([manager isKindOfClass:[self.getCodeAPIManager class]]) {
+            bool codeStatus = dict[@"data"];
+        if (codeStatus) {
+            [self.view makeToast:@"获取验证码成功" duration:1.0f position:CSToastPositionCenter];
         }
+        else
+        {
+           [self.view makeToast:@"获取验证码失败" duration:1.0f position:CSToastPositionCenter];
+        }
+    }
+    else if([manager isKindOfClass:[self.verCodeAPIManager class]])
+    {
+       NSString * verCode = [dict[@"data"] stringValue];
+        if (![verCode isEqualToString:@"0"]) {
+            //验证成功则进行注册验证
+            [self.registerAPIManager loadData];
 
+        }
+        else
+        {
+            [self.view makeToast:@"验证码错误" duration:1.0f position:CSToastPositionCenter];
+
+        }
+        
     }
     else if([manager isKindOfClass:[self.registerAPIManager class]])
     {
@@ -222,16 +251,21 @@
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    NSString * messageString = dict[@"message"];
+    JJBLog(@"%@",dict);
     if([manager isKindOfClass:[self.getCodeAPIManager class]])
     {
-        [self.view makeToast:@"获取验证码失败" duration:3.0f position:CSToastPositionCenter];
+        [self.view makeToast:messageString duration:3.0f position:CSToastPositionCenter];
     }
     else if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
-        [self.view makeToast:@"验证码错误" duration:3.0f position:CSToastPositionCenter];
+        [self.view makeToast:messageString duration:3.0f position:CSToastPositionCenter];
     }
     else if ([manager isKindOfClass:[self.registerAPIManager class]]) {
-        [self.view makeToast:@"注册失败！" duration:3.0f position:CSToastPositionCenter];
+        
+        [self.view makeToast:messageString duration:3.0f position:CSToastPositionCenter];
 
     }
 }
@@ -286,20 +320,20 @@
     }
     return _telTextfield;
 }
--(UITextField *)userNameTextfield
-{
-    if (_userNameTextfield == nil) {
-        UITextField * textField = [[UITextField alloc]init];
-        textField.translatesAutoresizingMaskIntoConstraints = NO;
-        textField.placeholder = @"用户昵称";
-        textField.backgroundColor = [UIColor whiteColor];
-        textField.font = [UIFont systemFontOfSize:17];
-//        textField.borderStyle = UITextBorderStyleLine;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        _userNameTextfield = textField;
-    }
-    return _userNameTextfield;
-}
+//-(UITextField *)userNameTextfield
+//{
+//    if (_userNameTextfield == nil) {
+//        UITextField * textField = [[UITextField alloc]init];
+//        textField.translatesAutoresizingMaskIntoConstraints = NO;
+//        textField.placeholder = @"用户昵称";
+//        textField.backgroundColor = [UIColor whiteColor];
+//        textField.font = [UIFont systemFontOfSize:17];
+////        textField.borderStyle = UITextBorderStyleLine;
+//        textField.borderStyle = UITextBorderStyleRoundedRect;
+//        _userNameTextfield = textField;
+//    }
+//    return _userNameTextfield;
+//}
 
 -(UITextField *)passWordTextfield
 {
