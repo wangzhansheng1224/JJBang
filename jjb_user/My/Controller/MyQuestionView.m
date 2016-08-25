@@ -1,23 +1,25 @@
 //
-//  CourseDetailCell.m
+//  MyQuestionView.m
 //  jjb_user
 //
-//  Created by Aimee on 16/8/17.
+//  Created by Check on 16/8/25.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "CourseDetailCell.h"
-@interface CourseDetailCell()
+#import "MyQuestionView.h"
+
+@interface MyQuestionView ()
+
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UIImageView *dropdownImageView;
+
 @end
 
-@implementation CourseDetailCell
+@implementation MyQuestionView
 
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)init
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super init];
     
     if (self)
     {
@@ -36,20 +38,12 @@
         make.top.mas_equalTo(superView.mas_top).offset(10);
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(self.dropdownImageView.mas_right);
-        make.bottom.mas_equalTo(superView.mas_bottom);
+        make.height.mas_equalTo(30);
     }];
     [self.dropdownImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(superView.mas_top).offset(10);
-        make.width.mas_equalTo(@(30));
         make.right.mas_equalTo(superView.mas_right).offset(-10);
-        make.bottom.mas_equalTo(superView.mas_bottom);
     }];
-}
-
-#pragma -
-#pragma mark - configWithData
-- (void)configWithData:(NSDictionary *)data{
-    
 }
 
 #pragma -
@@ -67,7 +61,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.text = @"第一节课 拉伸运动";
-        _titleLabel.font = H3;
+        _titleLabel.font = H2;
         _titleLabel.textColor=COLOR_GRAY;
         [_titleLabel sizeToFit];
         _titleLabel.numberOfLines = 1;

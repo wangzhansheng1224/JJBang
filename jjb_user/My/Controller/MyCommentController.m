@@ -119,7 +119,7 @@
         _commentLabel.text = @"请留下您宝贵意见和建议，我们将努力改进";
         _commentLabel.backgroundColor = [UIColor clearColor];
         _commentLabel.enabled = NO;
-        _commentLabel.font = H1;
+        _commentLabel.font = H2;
         [_commentLabel sizeToFit];
     }
     return _commentLabel;
@@ -130,7 +130,7 @@
     if (!_commentTV) {
         
         _commentTV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 140)];
-        _commentTV.font = H1;
+        _commentTV.font = H2;
         _commentTV.textAlignment = NSTextAlignmentLeft;
         _commentTV.delegate = self;
         _commentTV.tag = 200;
@@ -146,7 +146,7 @@
         _phoneLabel.text = @"请留下手机号，已便我们回复您";
         _phoneLabel.backgroundColor = [UIColor clearColor];
         _phoneLabel.enabled = NO;
-        _phoneLabel.font = H1;
+        _phoneLabel.font = H2;
         [_phoneLabel sizeToFit];
     }
     return _phoneLabel;
@@ -158,7 +158,7 @@
     if (!_phoneTV) {
         
         _phoneTV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 140)];
-        _phoneTV.font = H1;
+        _phoneTV.font = H2;
         _phoneTV.textAlignment = NSTextAlignmentLeft;
         _phoneTV.delegate = self;
         _phoneTV.tag = 300;

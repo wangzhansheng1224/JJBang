@@ -10,4 +10,6 @@
 
 @interface MyOrderPayCell : UITableViewCell
 
+- (void)configWithData:(NSDictionary *)data;
+
 @end
