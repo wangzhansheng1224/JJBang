@@ -77,7 +77,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     self.detail.hidesBottomBarWhenPushed = YES;
     NSDictionary *item=_arrData[indexPath.row];
     self.detail.activity_id=[item[kActivityListID] integerValue];
-    [self.navigationController pushViewController:self.detail animated:YES];
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    [navController pushViewController:self.detail animated:YES];
 }
 
 #pragma -

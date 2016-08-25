@@ -11,7 +11,7 @@
 
 @interface MBLocation ()
 @property(nonatomic,strong) CLGeocoder * geocoder;
-
+@property(nonatomic,copy) ResultBlock resultBlock;
 @end
 @implementation MBLocation
 SingleM(MBLocation);
@@ -52,7 +52,6 @@ SingleM(MBLocation);
 {
     // 记录代码块
     self.resultBlock = block;
-    
     // 获取用户位置信息
     if([CLLocationManager locationServicesEnabled])
     {
@@ -63,27 +62,12 @@ SingleM(MBLocation);
         self.resultBlock(nil);
     }
 }
-#pragma -
-#pragma mark  - CLLocationManagerDelegate
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
-{
-    
-    
-    CLLocation * location = [locations lastObject];
-    CLLocationCoordinate2D coordnate = location.coordinate;
-    self.longitude = coordnate.longitude; //经度
-    self.latitude = coordnate.latitude;  //纬度
-    NSDictionary * infoDict = @{
-                            @"longitude":@(self.longitude),
-                            @"latitude":@(self.latitude)
-                            };
-    self.resultBlock(infoDict);
 
-    JJBLog(@"经度=%lf纬度=%lf",self.longitude,self.latitude);
-    
+-(void)getCurrentAddress:(ResultBlock)block{
+    CLLocation * location=[[CLLocation alloc] initWithLatitude:self.latitude longitude:self.longitude];
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
-            JJBLog(@"%@",error.description);
+            block(nil);
         }
         else
         {
@@ -94,26 +78,28 @@ SingleM(MBLocation);
                 NSString * subLocality = pm.addressDictionary[@"SubLocality"];
                 NSString * street = pm.addressDictionary[@"Street"];
                 NSString * address = [NSString stringWithFormat:@"%@%@%@",city,subLocality,street];
-                
-//                NSDictionary * infoDict = @{
-//                                            @"city":city,
-//                                            @"address":address,
-//                                            @"longitude":@(self.longitude),
-//                                            @"latitude":@(self.latitude)
-//                                            };
-//                JJBLog(@"定位的城市%@",infoDict);
-                self.resultBlock(infoDict);
+                block(@{@"address":address,@"latitude":@(self.latitude),@"longitude":@(self.longitude)});
             }else if([placemarks count] == 0 )
             {
-                [self alertOpenLocationSwitch:@"提示" messgae:@"定位城市失败"];
+                block(nil);
             }
         }
     }];
-    
-    
-    
+}
+#pragma -
+#pragma mark  - CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
+{
+    CLLocation * location = [locations lastObject];
+    CLLocationCoordinate2D coordnate = location.coordinate;
+    self.longitude = coordnate.longitude; //经度
+    self.latitude = coordnate.latitude;  //纬度
+    NSDictionary * infoDict = @{
+                            @"longitude":@(self.longitude),
+                            @"latitude":@(self.latitude)
+                            };
+    self.resultBlock(infoDict);
     [self.locationManager stopUpdatingLocation];
-    
 }
 
 #pragma -

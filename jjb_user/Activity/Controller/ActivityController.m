@@ -26,11 +26,12 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView=self.tabbarControl;
-    [self.view addSubview:self.list.view];
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+     [self.view addSubview:self.list.view];
+    [self.tabbarControl setSelectedSegmentIndex:0];
 }
 
 
@@ -43,7 +44,14 @@
         [self.view addSubview:self.list.view];
     }
     else{
-        [self.view addSubview:self.participation.view];
+        UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+        if (controller==nil) {
+            [self.view addSubview:self.participation.view];
+        } else{
+            UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+            [navController pushViewController:controller animated:YES];
+        }
+        
     }
 }
 
