@@ -76,6 +76,7 @@
 
 - (void)payBtnClick:(UIButton *)click {
     OrdersDetailController *orderDetail = [[OrdersDetailController alloc] init];
+    
     [self.navigationController pushViewController:orderDetail animated:YES];
 }
 
@@ -95,6 +96,7 @@
         //商品详情
         GoodsDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsDetailCell" forIndexPath:indexPath];
         [cell configWithData:self.dataDic];
+        JJBLog(@"!!!!!!!!!!!!!!!!!%@",self.dataDic);
         return cell;
     }else {
         GoodsParameterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsParameterCell" forIndexPath:indexPath];
