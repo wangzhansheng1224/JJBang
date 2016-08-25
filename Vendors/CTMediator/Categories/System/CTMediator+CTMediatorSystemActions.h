@@ -10,4 +10,5 @@
 
 @interface CTMediator (CTMediatorSystemActions)
 - (UIViewController *)CTMediator_CheckIsLogin:(UIViewController*)targetController;
+- (UIViewController *)CTMediator_CheckIsLogin;
 @end

@@ -145,7 +145,15 @@
 #pragma -
 #pragma mark - Event
 - (void) signUpClick:(id)sender{
-    [self.registerAPIManager loadData];
+   
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        [self.registerAPIManager loadData];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
+    
 }
 
 #pragma -

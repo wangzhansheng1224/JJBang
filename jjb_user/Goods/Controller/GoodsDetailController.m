@@ -121,7 +121,7 @@
     if ([manager isKindOfClass:[GoodsDetailAPIManager class]]) {
         self.dataDic=[manager fetchDataWithReformer:self.GoodsDetailReformer];
         [self.headerView configWithData:self.dataDic];
-        [self.makeOrderBar configWithData:@{@"shopID":@1,@"OrderType":@0,@"objectID":_dataDic[kGoodsDetailID],@"price":_dataDic[kGoodsDetailPrice]}];
+        [self.makeOrderBar configWithData:@{@"shopID":@([ShopModel currentShop].shopID),@"orderType":@1,@"objectID":_dataDic[kGoodsDetailID],@"price":_dataDic[kGoodsDetailPrice]}];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];

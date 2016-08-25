@@ -61,17 +61,13 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    [[MBLocation shareMBLocation] getCurrentLocation:^(NSDictionary *dict) {
-//            self.currentLongitude = [dict[@"longitude"] doubleValue];
-//            self.currentLatitude  = [dict [@"latitude"] doubleValue];
-        _issueLocationView.locationLabel.text = dict[@"address"];
-        self.longitude = [dict[@"longitude"] doubleValue];
-        self.latitude =  [dict[@"latitude"] doubleValue];
-        self.address = dict[@"address"];
-        JJBLog(@"%@",dict);
+    [[MBLocation shareMBLocation] getCurrentAddress:^(NSDictionary *dic) {
+        _issueLocationView.locationLabel.text = dic[@"address"];
+        self.longitude = [dic[@"longitude"] doubleValue];
+        self.latitude =  [dic[@"latitude"] doubleValue];
+        self.address = dic[@"address"];
         
-        }];
-
+    }];
 }
 
 #pragma

@@ -11,7 +11,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 typedef void (^ResultBlock)(NSDictionary *dic);
-
 @interface MBLocation : NSObject<CLLocationManagerDelegate>
 SingleH(MBLocation);
 
@@ -20,11 +19,9 @@ SingleH(MBLocation);
 @property(nonatomic,assign) double latitude; //纬度
 @property(nonatomic,copy) NSString * city ; //城市名
 @property(nonatomic,copy) NSString * address ;  // 详细地址
-@property(nonatomic,copy) ResultBlock resultBlock;
+
 
 -(void)startLocation; // 开始定位
-
 -(void)getCurrentLocation:(ResultBlock)block;
-
-
+-(void)getCurrentAddress:(ResultBlock)block;
 @end

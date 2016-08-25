@@ -9,20 +9,14 @@
 #import "ActivityController.h"
 #import "ActivityListController.h"
 #import "ParticipationController.h"
-#import "SponsorViewController.h"
-#import "RHMenuViewController.h"
 /**
  *  活动控制器
  */
 
 @interface ActivityController ()
-
+@property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) ActivityListController *list;
 @property (nonatomic,strong) ParticipationController *participation;
-@property (nonatomic,strong) SponsorViewController *sponsor;
-@property (nonatomic,strong) NSArray *arrayVC;
-@property (nonatomic,strong) NSArray *titlesArray;
-
 @end
 
 @implementation ActivityController
@@ -31,35 +25,53 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self createControllers];
+    self.navigationItem.titleView=self.tabbarControl;
 }
-
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-}
-
--(void)createControllers{
-    
-    self.arrayVC = @[self.list,self.participation];
-    
-    self.titlesArray = @[@"活动列表",@"我参与的"];
-    
-    RHMenuViewController *menu = [[RHMenuViewController alloc]initWithViewControllers:_arrayVC andMenuTitles:_titlesArray];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [self.view addSubview:menu.view];
-    
-    [self addChildViewController:menu];
-    
-//    [menu addChildViewController:self.list];
+     [self.view addSubview:self.list.view];
+    [self.tabbarControl setSelectedSegmentIndex:0];
 }
 
 
+#pragma -
+#pragma mark - event response
+- (void)tabBarControlChangeValue:(id)sender{
+    [self.list.view removeFromSuperview];
+    [self.participation.view removeFromSuperview];
+    if (_tabbarControl.selectedSegmentIndex==0) {
+        [self.view addSubview:self.list.view];
+    }
+    else{
+        UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+        if (controller==nil) {
+            [self.view addSubview:self.participation.view];
+        } else{
+            UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+            [navController pushViewController:controller animated:YES];
+        }
+        
+    }
+}
 
+#pragma -
+#pragma mark - getters and setters
+- (HMSegmentedControl *)tabbarControl {
+    
+    if (!_tabbarControl) {
+        _tabbarControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动列表",@"我参与的"]];
+        _tabbarControl.backgroundColor=[UIColor clearColor];
+        _tabbarControl.frame=CGRectMake(0, 0, 200, 44);
+        _tabbarControl.selectionIndicatorColor = COLOR_WHITE;
+        _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H3};
+        _tabbarControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _tabbarControl.selectionIndicatorHeight = 2.0f;
+        [_tabbarControl addTarget:self action:@selector(tabBarControlChangeValue:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _tabbarControl;
+}
 
-#pragma mark -- getters and setters
 - (ActivityListController *)list {
     
     if (!_list) {
@@ -78,35 +90,5 @@
     }
     
     return _participation;
-}
-
-- (SponsorViewController *)sponsor {
-    
-    if (!_sponsor) {
-        
-        _sponsor = [[SponsorViewController alloc] init];
-    }
-    
-    return _sponsor;
-}
-
-- (NSArray *)arrayVC {
-    
-    if (!_arrayVC) {
-        
-        _arrayVC = [[NSArray alloc] init];
-    }
-    
-    return _arrayVC;
-}
-
-- (NSArray *)titlesArray {
-    
-    if (!_titlesArray) {
-        
-        _titlesArray = [[NSArray alloc] init];
-    }
-    
-    return _titlesArray;
 }
 @end

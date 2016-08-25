@@ -78,6 +78,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[MakeOrderAPIManager class]]) {
+        [self hideToastActivity];
         NSDictionary *dic=[manager fetchDataWithReformer:nil];
         UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
         OrdersDetailController *order=[[OrdersDetailController alloc] init];
@@ -88,6 +89,7 @@
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+        [self hideToastActivity];
         NSDictionary *dic=[manager fetchDataWithReformer:nil];
         [self makeToast:dic[@"message"] duration:3.0f position:CSToastPositionCenter];
 }
@@ -99,7 +101,7 @@
         return @{
                  @"id":@(self.objectID),
                  @"user_id":@([UserModel currentUser].userID),
-                 @"shop_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"currenShopID"]
+                 @"shop_id":@([ShopModel currentShop].shopID)
                  };
 }
 
@@ -108,8 +110,16 @@
 #pragma mark - event respone
 
 - (void)payBtnClick:(UIButton *)click {
-    self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];
-    [self.apiManager loadData];
+    
+    [self makeToastActivity:CSToastPositionCenter];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];
+        [self.apiManager loadData];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
 }
 
 - (UIButton *)payBtn {
