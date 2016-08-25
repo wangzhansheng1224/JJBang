@@ -3307,11 +3307,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				PROVISIONING_PROFILE = "";
-=======
+
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
->>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Debug;
 		};
@@ -3363,11 +3360,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
-				PROVISIONING_PROFILE = "";
-=======
 				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
->>>>>>> 20e69a4cff2a0fe7672154fd6725c25517ed70aa
 			};
 			name = Release;
 		};
