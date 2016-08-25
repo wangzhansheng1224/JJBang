@@ -84,7 +84,7 @@
     if (!_titleArr) {
         
         _titleArr = [[NSMutableArray alloc] init];
-        NSArray *array = @[@"意见反馈",@"常见问题",@"网络诊断"];
+        NSArray *array = @[@"支付问题",@"订单问题",@"优惠问题",@"其他问题"];
         _titleArr = [NSMutableArray arrayWithArray:array];
     }
     return _titleArr;

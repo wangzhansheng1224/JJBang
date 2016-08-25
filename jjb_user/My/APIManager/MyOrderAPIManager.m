@@ -10,19 +10,16 @@
 
 
 @interface MyOrderAPIManager ()
-@property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
 @implementation MyOrderAPIManager
 
-
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"grown/sdtInfo";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;

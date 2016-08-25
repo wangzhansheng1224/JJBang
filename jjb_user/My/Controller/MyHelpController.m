@@ -9,6 +9,7 @@
 #import "MyHelpController.h"
 #import "MyHelpCell.h"
 #import "MyCommentController.h"
+#import "MyQuestionController.h"
 
 @interface MyHelpController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -75,10 +76,9 @@
     if (indexPath.row == 0) {
         MyCommentController *commentVC = [[MyCommentController alloc] init];
         [self.navigationController pushViewController:commentVC animated:YES];
-        
     }else if (indexPath.row == 1) {
-    
-        
+//        MyQuestionController *questionVC = [[MyQuestionController alloc] init];
+//        [self.navigationController pushViewController:questionVC animated:YES];
     }else {
     
         

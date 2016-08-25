@@ -10,6 +10,7 @@
 
 @interface MyOrderAPIManager : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
 LDAPIManagerInterceptor>
+@property(nonatomic, copy, readwrite) NSString *methodName;
 + (instancetype)sharedInstance;
 
 @end

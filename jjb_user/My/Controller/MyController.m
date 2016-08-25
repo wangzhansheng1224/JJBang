@@ -14,7 +14,6 @@
 #import "MyCourseController.h"
 #import "MyMoreController.h"
 #import "LoginViewController.h"
-#import "MyOrderController.h"
 #import "MySettingController.h"
 #import "StudentController.h"
 #import "MyOrderPayController.h"

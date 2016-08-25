@@ -7,193 +7,216 @@
 //
 
 #import "MyOrderPayCell.h"
+#import "MyOrderPayKey.h"
 
 @interface MyOrderPayCell ()
 
-@property (nonatomic,strong) UIImageView *imageView_pic;
-@property (nonatomic,strong) UILabel *label_class;
-@property (nonatomic,strong) UILabel *label_title;
-@property (nonatomic,strong) UIImageView *imageView_star;
-@property (nonatomic,strong) UILabel *label_teacher;
-@property (nonatomic,strong) UIImageView *imageView_moneyIcon;
-@property (nonatomic,strong) UILabel *label_money;
-@property (nonatomic,strong) UILabel *label_count;//报名人数
-@property (nonatomic,strong) UIButton *btn_status;//已报名
-
-
+@property (nonatomic,strong) UILabel *orderNo;
+@property (nonatomic,strong) UIImageView *orderImageV;
+@property (nonatomic,strong) UILabel *orderTitleLabel;
+@property (nonatomic,strong) UILabel *orderPriceLabel;
+@property (nonatomic,strong) UILabel *orderTimeLabel;
+@property (nonatomic,strong) UILabel *orderStatusLabel;
+@property (nonatomic,strong) UIButton *orderPayBtn;
+@property (nonatomic,strong) UILabel *topLine;
+@property (nonatomic,strong) UILabel *bottomLine;
+@property (nonatomic,strong) UILabel *line;
 
 @end
 
 @implementation MyOrderPayCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+#pragma
+#pragma mark - lefe cycle
 
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
     if (self) {
-        
-        [self.contentView addSubview:self.imageView_pic];
-        [self.contentView addSubview:self.label_class];
-        [self.contentView addSubview:self.label_title];
-        [self.contentView addSubview:self.imageView_star];
-        [self.contentView addSubview:self.label_teacher];
-        [self.contentView addSubview:self.imageView_moneyIcon];
-        [self.contentView addSubview:self.label_money];
-        [self.contentView addSubview:self.label_count];
-        [self.contentView addSubview:self.btn_status];
-        
-        [self layoutPageSubviews];
+        [self.contentView addSubview:self.orderNo];
+        [self.contentView addSubview:self.orderStatusLabel];
+        [self.contentView addSubview:self.topLine];
+        [self.contentView addSubview:self.orderImageV];
+        [self.contentView addSubview:self.orderTitleLabel];
+        [self.contentView addSubview:self.orderPriceLabel];
+        [self.contentView addSubview:self.orderTimeLabel];
+        [self.contentView addSubview:self.bottomLine];
+        [self.contentView addSubview:self.orderPayBtn];
+        [self.contentView addSubview:self.line];
+        [self addSubviewConstraint];
     }
     return self;
 }
 
-#pragma - 
-#pragma mark - layoutPageSubviews
-- (void)layoutPageSubviews {
-
-    [_imageView_pic mas_makeConstraints:^(MASConstraintMaker *make) {
+#pragma
+#pragma mark - private methods
+-(void)addSubviewConstraint
+{
+    [self.orderNo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(@10);
+        make.right.mas_equalTo(_orderStatusLabel.mas_left);
+        make.height.mas_equalTo(14);
         
-        make.size.mas_equalTo(CGSizeMake(180,120));
-        make.top.left.equalTo(@8);
     }];
-    
-    [_label_class mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.imageView_pic.mas_top).with.offset(6);
-        make.size.mas_equalTo(CGSizeMake(40, 15));
-        make.left.equalTo(self.imageView_pic.mas_left).with.offset(0);
-    }];
-    
-    [_label_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(80, 20));
-        make.top.equalTo(@10);
-        make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
-    }];
-    
-    [_imageView_star mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(80, 20));
-        make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
-        make.top.equalTo(_label_title.mas_bottom).with.offset(10);
-    }];
-    
-    [_label_teacher mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.imageView_star.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(60, 15));
-        make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
-    }];
-    
-    [_imageView_star mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.label_teacher.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.equalTo(self.imageView_pic.mas_right).with.offset(10);
-    }];
-    
-    [_label_money mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.label_teacher.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(40, 15));
-        make.left.equalTo(self.imageView_star.mas_right).with.offset(8);
-    }];
-    
-    [_label_count mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(@10);
-        make.size.mas_equalTo(CGSizeMake(60, 20));
+    [self.orderStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_orderNo.mas_centerY);
         make.right.equalTo(@-10);
+        make.size.mas_equalTo(CGSizeMake(80, 14));
     }];
-    
-    [_btn_status mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.bottom.right.equalTo(@-10);
-        make.size.mas_equalTo(CGSizeMake(80, 20));
+    [self.topLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.orderNo.mas_bottom).with.offset(10);
+        make.height.mas_equalTo(@1);
+        make.left.right.equalTo(@0);
+    }];
+    [self.orderImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.top.equalTo(self.topLine.mas_bottom).offset(10);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0,Screen_Width/3.0));
+    }];
+    [self.orderTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topLine.mas_bottom).offset(20);
+        make.left.equalTo(_orderImageV.mas_right).with.offset(10);
+        make.right.equalTo(@-10);
+        make.height.mas_equalTo(@17);
+    }];
+    [self.orderPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orderTitleLabel.mas_bottom).with.offset(10);
+        make.left.equalTo(_orderImageV.mas_right).with.offset(10);
+        make.right.equalTo(@-10);
+        make.height.mas_equalTo(@14);
+    }];
+    [self.orderTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orderPriceLabel.mas_bottom).with.offset(10);
+        make.left.equalTo(_orderImageV.mas_right).with.offset(10);
+        make.right.equalTo(@-10);
+        make.height.mas_equalTo(@14);
+    }];
+    [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orderTimeLabel.mas_bottom).with.offset(10);
+        make.left.equalTo(_orderImageV.mas_right).with.offset(10);
+        make.right.equalTo(@-10);
+        make.height.mas_equalTo(@1);
+    }];
+    [self.orderPayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_bottomLine.mas_bottom).with.offset(10);
+        make.right.equalTo(@-10);
+        make.size.mas_equalTo(CGSizeMake(80, 30));
+    }];
+    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orderImageV.mas_bottom).with.offset(10);
+        make.left.right.equalTo(@0);
+        make.height.mas_equalTo(@1);
     }];
 }
 
 #pragma -
-#pragma mark - getters and setters
-- (UIImageView *)imageView_pic {
-
-    if (!_imageView_pic) {
-        
-        _imageView_pic = [[UIImageView alloc] init];
-    }
-    return _imageView_pic;
+#pragma mark - private methods
+- (void)configWithData:(NSDictionary *)data
+{
+    self.orderNo.text = [NSString stringWithFormat:@"订单号 %@",data[kMyOrderPayOrderNo]];
+    self.orderStatusLabel.text = data[kMyOrderPayOrderStatus];
+    [self.orderImageV sd_setImageWithURL:[NSURL initWithImageURL:data[kMyOrderPayOrderImage] Width:Screen_Width/2.0 Height:Screen_Width/3.0]  placeholderImage:[UIImage imageNamed:@"img_default"]];
+    self.orderTitleLabel.text = data[kMyOrderPayOrderName];
+    self.orderPriceLabel.text = [NSString stringWithFormat:@"￥%@",data[kMyOrderPayOrderPrice]];
+    self.orderTimeLabel.text = data[kMyOrderPayOrderCTime];
 }
 
-- (UILabel *)label_class {
+#pragma -
+#pragma mark - event respond
+- (void)orderPayBtnClick {
 
-    if (!_label_class) {
-        
-        _label_class = [[UILabel alloc] init];
-    }
-    return _label_class;
+ 
 }
 
-- (UILabel *)label_title {
-
-    if (!_label_title) {
-        
-        _label_title = [[UILabel alloc] init];
+#pragma
+#pragma mark - getter and setter
+- (UILabel *)orderNo {
+    if (!_orderNo) {
+        _orderNo = [[UILabel alloc] init];
+        _orderNo.text = @"订单号 2020202020202";
+        _orderNo.textColor = COLOR_GRAY;
+        _orderNo.font = H3;
     }
-    return _label_title;
+    return _orderNo;
 }
-
-- (UIImageView *)imageView_star {
-
-    if (!_imageView_star) {
-        
-        _imageView_star = [[UIImageView alloc] init];
+- (UILabel *)orderStatusLabel {
+    if (!_orderStatusLabel) {
+        _orderStatusLabel = [[UILabel alloc] init];
+        _orderStatusLabel.text = @"报名成功";
+        _orderStatusLabel.textAlignment = NSTextAlignmentRight;
+        _orderStatusLabel.textColor = COLOR_ORANGE;
+        _orderStatusLabel.font = H3;
     }
-    return _imageView_star;
+    return _orderStatusLabel;
 }
+- (UILabel *)topLine {
 
-- (UILabel *)label_teacher {
-
-    if (!_label_teacher) {
-        
-        _label_teacher = [[UILabel alloc] init];
+    if (!_topLine) {
+        _topLine = [[UILabel alloc] init];
+        _topLine.backgroundColor = COLOR_LIGHT_GRAY;
     }
-    return _label_teacher;
+    return _topLine;
 }
-
-- (UIImageView *)imageView_moneyIcon {
-
-    if (!_imageView_moneyIcon) {
-        
-        _imageView_moneyIcon = [[UIImageView alloc] init];
+- (UIImageView *)orderImageV
+{
+    if (!_orderImageV) {
+        _orderImageV = [[UIImageView alloc]init];
+        _orderImageV.image = [UIImage imageNamed:@"img_default"];
     }
-    return _imageView_moneyIcon;
+    return _orderImageV;
 }
-
-- (UILabel *)label_money {
-
-    if (!_label_money) {
-        
-        _label_money = [[UILabel alloc] init];
+- (UILabel *)orderTitleLabel {
+    if (!_orderTitleLabel) {
+        _orderTitleLabel = [[UILabel alloc] init];
+        _orderTitleLabel.text = @"少儿美术";
+        _orderTitleLabel.textColor = COLOR_DARK_GRAY;
+        _orderTitleLabel.font = H2;
     }
-    return _label_money;
+    return _orderTitleLabel;
 }
-
-- (UILabel *)label_count {
-
-    if (!_label_count) {
-        
-        _label_count = [[UILabel alloc] init];
+- (UILabel *)orderPriceLabel {
+    if (!_orderPriceLabel) {
+        _orderPriceLabel = [[UILabel alloc] init];
+        _orderPriceLabel.text = @"￥3000";
+        _orderPriceLabel.textColor = COLOR_ORANGE;
+        _orderPriceLabel.font = H3;
     }
-    return _label_count;
+    return _orderPriceLabel;
 }
-
-- (UIButton *)btn_status {
-
-    if (!_btn_status) {
-        
-        _btn_status = [[UIButton alloc] init];
+- (UILabel *)orderTimeLabel {
+    if (!_orderTimeLabel) {
+        _orderTimeLabel = [[UILabel alloc] init];
+        _orderTimeLabel.text = @"2016-08-25 14:39:21";
+        _orderTimeLabel.textColor = COLOR_GRAY;
+        _orderTimeLabel.font = H4;
     }
-    return _btn_status;
+    return _orderTimeLabel;
 }
-
+- (UILabel *)bottomLine {
+    
+    if (!_bottomLine) {
+        _bottomLine = [[UILabel alloc] init];
+        _bottomLine.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _bottomLine;
+}
+- (UIButton *)orderPayBtn {
+    if (!_orderPayBtn) {
+        _orderPayBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_orderPayBtn setTitle:@"未付款" forState:UIControlStateNormal];
+        _orderPayBtn.layer.cornerRadius = 3.0;
+        _orderPayBtn.clipsToBounds = YES;
+        _orderPayBtn.backgroundColor = COLOR_ORANGE;
+        [_orderPayBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
+        [_orderPayBtn addTarget:self action:@selector(orderPayBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _orderPayBtn;
+}
+- (UILabel *)line {
+    if (!_line) {
+        _line = [[UILabel alloc] init];
+        _line.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _line;
+}
 @end

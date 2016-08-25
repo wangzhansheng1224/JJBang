@@ -7,45 +7,41 @@
 //
 
 #import "MyOrderPayController.h"
+#import "MyOrderPayCell.h"
+#import "MyOrderPayReformer.h"
+#import "MyOrderAPIManager.h"
 
-#define BTN_TAG  2000
+@interface MyOrderPayController () <UITableViewDataSource, UITableViewDelegate,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
-#define Cell_Order @"CellReuseIdentifier_Order"
-
-@interface MyOrderPayController () <UITableViewDataSource, UITableViewDelegate>
-
+@property (nonatomic,strong) MyOrderAPIManager *myOrderPayAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> myOrderPayReformer;
 @property (nonatomic,strong) UITableView * tableView;
-@property (nonatomic,strong) UILabel * lab_line;
-@property (nonatomic,strong) UIView * view_header;
+@property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) UIView *headerView;
 @property (nonatomic,assign) int index;
 @property (nonatomic,strong) NSArray * arr_title;
 @property (nonatomic,strong) NSMutableArray * arr_button;
-@property (nonatomic,strong) NSMutableArray * arr_noPayData;
-@property (nonatomic,strong) NSMutableArray * arr_hasPayData;
-@property (nonatomic,strong) NSMutableArray * arr_backPayData;
-@property (nonatomic,strong) NSMutableArray * arr_allData;
-
-
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,assign) NSInteger pageSize;
+@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,strong) NSMutableArray *dataArr;
 
 @end
 
 @implementation MyOrderPayController
-
-
 #pragma -
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"我的订单";
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.pageSize=10;
+    self.pageIndex=0;
     [self.view addSubview:self.tableView];
-    
     [self createHeaderViewButton];
-    
     [self layoutPageSubviews];
+    [self.myOrderPayAPIManager loadData];
 }
 - (void)viewWillAppear:(BOOL)animated {
 
@@ -56,250 +52,171 @@
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-    
-    
-    self.tableView.frame = CGRectMake(0, 0, Screen_Width, Screen_Height);
-    
-    self.view_header.frame = CGRectMake(0, 0, Screen_Width, 50);
-    
-    self.lab_line.frame = CGRectMake(0, 48, Screen_Width/4.0, 2);
-    
-#if 0
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
-        make.top.equalTo(@64);
-        make.left.equalTo(@0);
-        
+        make.top.left.equalTo(@0);
     }];
-    //    [self.view addSubview:self.view_header];
-    
-    [self.view_header mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGPointMake(Screen_Width, 50));
-        
-        make.top.equalTo(@0);
-        
-        make.left.equalTo(@0);
-    }];
-    
-    [self.lab_line mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGPointMake(Screen_Width / self.arr_title.count, 2));
-        
-        make.bottom.equalTo(@0);
-        
-        make.left.equalTo(@0);
-    }];
-#endif
-    
 }
 
-
 - (void)createHeaderViewButton {
-    
     for (int i = 0; i < self.arr_title.count; i++) {
-        
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(i * Screen_Width/4.0, 0, Screen_Width/4.0, 50)];
-        
-        button.tag = BTN_TAG + i;
-        
+        button.tag = 2000 + i;
         [button setTitle:self.arr_title[i] forState:UIControlStateNormal];
-        
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
-        
+        [button setTitleColor:COLOR_ORANGE forState:UIControlStateSelected];
         [button addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view_header addSubview:button];
-        
+        [self.headerView addSubview:button];
         if (i == 0) {
-            
             button.selected = YES;
         }
-        
         [self.arr_button addObject:button];
     }
-    
-    self.tableView.tableHeaderView = self.view_header;
-    
-    [self.view_header addSubview:self.lab_line];
+    self.tableView.tableHeaderView = self.headerView;
+    [self.headerView addSubview:self.line];
 }
 
 #pragma -
 #pragma mark - 点击事件
-
 - (void)titleBtnClick:(UIButton *)button {
     
     NSLog(@"-------");
-    
-    self.index = (int)button.tag - BTN_TAG;
-    
+    self.index = (int)button.tag - 2000;
     for (int i = 0; i < self.arr_button.count; i++) {
-        
         UIButton * btn = (UIButton *)self.arr_button[i];
-        
         if (self.index == i) {
-            
             btn.selected = YES;
         }else {
-            
             btn.selected = NO;
         }
     }
-    
     NSLog(@"%d",self.index);
-    
     float contentOffset = self.index * Screen_Width / self.arr_title.count;
-    
     [UIView animateWithDuration:0.2 animations:^{
-        
-        self.lab_line.frame = CGRectMake(contentOffset, 48, Screen_Width/4.0, 2);
+        self.line.frame = CGRectMake(contentOffset, 48, Screen_Width/4.0, 2);
     }];
+    [self.myOrderPayAPIManager loadData];
+    [self.tableView reloadData];
 }
-
 
 #pragma -
 #pragma mark - tableView delegate
-
-
-//每个section的row数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 8;
+    return self.dataArr.count;
 }
-//cell的样式设置
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:Cell_Order];
-    
-    cell.backgroundColor = JJBRandomColor;
-    
+    MyOrderPayCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyOrderPayCellIdentifier"];
+    if (!cell) {
+        cell = [[MyOrderPayCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyOrderPayCellIdentifier"];
+    }
+    [cell configWithData:self.dataArr[indexPath.row]];
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 40)];
-    UILabel * label = [[UILabel alloc] initWithFrame:header.bounds];
-    
-    label.text = @"订单号201506072921";
-    
-    [header addSubview:label];
-    
-    return header;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 56 + Screen_Width/3.0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return 40;
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    NSArray *resultData = [manager fetchDataWithReformer:self.myOrderPayReformer];
+    NSLog(@"%@+++++",resultData);
+    [self.dataArr addObjectsFromArray:resultData];
+    self.pageIndex=[self.dataArr count];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    
-    return 0.0001;
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
-
+#pragma -
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+     if ([manager isKindOfClass:[MyOrderAPIManager class]]) {
+    self.myOrderPayAPIManager.methodName=[NSString stringWithFormat:@"gateway/orderList/%d/%@/%@/%@",self.index,@([UserModel currentUser].userID),@(self.pageIndex),@(self.pageSize)];
+     }
+    return nil;
+}
 
 #pragma -
 #pragma mark - getters and setters
-- (UITableView *)tableView {
+- (MyOrderAPIManager *)myOrderPayAPIManager {
+    if (_myOrderPayAPIManager == nil) {
+        _myOrderPayAPIManager = [MyOrderAPIManager  sharedInstance];
+        _myOrderPayAPIManager.delegate=self;
+        _myOrderPayAPIManager.paramSource=self;
+    }
+    return _myOrderPayAPIManager;
+}
+- (id<ReformerProtocol>)myOrderPayReformer {
     
+    if (!_myOrderPayReformer) {
+        _myOrderPayReformer=[[MyOrderPayReformer alloc] init];
+    }
+    return _myOrderPayReformer;
+}
+- (UITableView *)tableView {
     if (!_tableView) {
-        
         _tableView = [[UITableView alloc] init];
-        
         _tableView.dataSource = self;
-        
         _tableView.delegate = self;
-        
         _tableView.tableFooterView = [[UIView alloc] init];
-        
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:Cell_Order];
-        
+        [_tableView registerClass:[MyOrderPayCell class] forCellReuseIdentifier:@"MyOrderPayCellIdentifier"];
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.dataArr removeAllObjects];
+            self.pageIndex=0;
+            [self.myOrderPayAPIManager loadData];
+        }];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.myOrderPayAPIManager loadData];
+        }];
         _tableView.rowHeight = UITableViewAutomaticDimension;
-        
         _tableView.estimatedRowHeight = 44.0;
     }
     return _tableView;
 }
-
-- (UIView *)view_header {
+- (UIView *)headerView {
     
-    if (!_view_header) {
-        
-        _view_header = [[UIView alloc] init];
-        
+    if (!_headerView) {
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 50)];
     }
-    return _view_header;
+    return _headerView;
 }
-
-- (UILabel *)lab_line {
+- (UILabel *)line {
     
-    if (!_lab_line) {
-        
-        _lab_line = [[UILabel alloc] init];
-        
-        _lab_line.backgroundColor = [UIColor orangeColor];
+    if (!_line) {
+        _line = [[UILabel alloc] initWithFrame:CGRectMake(0, 48, Screen_Width/4.0, 2)];
+        _line.backgroundColor = COLOR_ORANGE;
     }
-    return _lab_line;
+    return _line;
 }
-
 - (NSArray *)arr_title {
     
     if (!_arr_title) {
-        
         _arr_title = [[NSArray alloc] initWithObjects:@"待付款", @"已付款", @"退款", @"全部订单", nil];
     }
     return _arr_title;
 }
-
 - (NSMutableArray *)arr_button {
     
     if (!_arr_button) {
-        
         _arr_button = [[NSMutableArray alloc] init];
-        
     }
     return _arr_button;
 }
-
-- (NSMutableArray *)arr_noPayData {
-    
-    if (!_arr_noPayData) {
-        
-        _arr_noPayData = [[NSMutableArray alloc] init];
+- (NSMutableArray *)dataArr {
+    if (!_dataArr) {
+        _dataArr = [[NSMutableArray alloc] init];
     }
-    return _arr_noPayData;
+    return _dataArr;
 }
-
-- (NSMutableArray *)arr_hasPayData {
-    
-    if (!_arr_hasPayData) {
-        
-        _arr_hasPayData = [[NSMutableArray alloc] init];
-    }
-    return _arr_hasPayData;
-}
-
-- (NSMutableArray *)arr_backPayData {
-    
-    if (!_arr_backPayData) {
-        
-        _arr_backPayData = [[NSMutableArray alloc] init];
-    }
-    return _arr_backPayData;
-}
-
-- (NSMutableArray *)arr_allData {
-    
-    if (!_arr_allData) {
-        
-        _arr_allData = [[NSMutableArray alloc] init];
-    }
-    return _arr_allData;
-}
-
 
 @end

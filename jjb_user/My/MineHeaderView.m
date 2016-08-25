@@ -293,7 +293,7 @@
         _adBtn.backgroundColor = COLOR_WHITE;
         _adBtn.bImage = @"my_shop";
         _adBtn.bTitle = @"七彩商城";
-        _adBtn.bDetail = @"....";
+        _adBtn.bDetail = @"门店超市";
         [_adBtn addTarget:self action:@selector(goodsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _adBtn;

@@ -70,7 +70,6 @@
     if (!_label_title) {
         
         _label_title = [[UILabel alloc] init];
-        NSLog(@"%@qqqq",_label_title.text);
         _label_title.font = H2;
         _label_title.textColor = COLOR_GRAY;
     }
