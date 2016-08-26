@@ -127,7 +127,6 @@
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.myOrderPayReformer];
-    NSLog(@"%@+++++",resultData);
     [self.dataArr addObjectsFromArray:resultData];
     self.pageIndex=[self.dataArr count];
     [self.tableView.mj_header endRefreshing];
