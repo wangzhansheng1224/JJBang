@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LevelPrizeSupView : UIView
-//-(instancetype)initWithItems:(NSArray *)items;
--(instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items;
-
+-(instancetype)initWithItems:(NSArray *)items;
+//-(instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items;
+@property(nonatomic,assign) NSInteger selectIndex;
 @end
