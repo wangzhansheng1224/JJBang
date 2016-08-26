@@ -10,9 +10,10 @@
 #import "ExplainLevelController.h"
 #import "ExplainLevelHeadView.h"
 #import "MyNewPrivilegeCell.h"
-
+#import "MyFeaturePrivilegecell.h"
 
 static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdentifier";
+static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeCellIdentifier";
 
 @interface LevelController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -63,16 +64,28 @@ static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdent
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-//    return cell;
-    MyNewPrivilegeCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MyNewPrivilegeCellIdentifier];
-    return cell;
+    if (indexPath.row == 0) {
+        MyNewPrivilegeCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MyNewPrivilegeCellIdentifier];
+        return cell;
+
+    }
+    else if(indexPath.row == 1)
+    {
+        MyFeaturePrivilegecell * cell = [self.tableView dequeueReusableCellWithIdentifier:MyFeaturePrivilegeCellIdentifier];
+        return cell;
+    }
+    return nil;
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80.f;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"我的特权";
+}
 #pragma -
 #pragma mark - getters and setters
 - (UIBarButtonItem *)rightItem {
@@ -92,6 +105,7 @@ static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdent
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[MyNewPrivilegeCell class] forCellReuseIdentifier:MyNewPrivilegeCellIdentifier];
+        [_tableView registerClass:[MyFeaturePrivilegecell class] forCellReuseIdentifier:MyFeaturePrivilegeCellIdentifier];
     }
     return _tableView;
 }

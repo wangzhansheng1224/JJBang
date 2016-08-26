@@ -100,6 +100,8 @@
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     UserModel *user=[manager fetchDataWithReformer:self.userReformer];
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    JJBLog(@"#####%@",dict);
     [UserModel save:user];
     [self.navigationController popViewControllerAnimated:YES];
 }

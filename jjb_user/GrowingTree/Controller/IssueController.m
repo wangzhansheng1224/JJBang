@@ -68,6 +68,9 @@
         self.address = dic[@"address"];
         
     }];
+   self.issueLocationView.frame =  CGRectMake(0, self.tileView.frame.origin.y+self.tileView.frame.size.height + 10, Screen_Width, 40);
+
+    
 }
 
 #pragma
@@ -248,7 +251,7 @@
 -(PublishAlbumTopView *)tileView
 {
     if (!_tileView) {
-          _tileView = [[PublishAlbumTopView alloc] initWithFrame:CGRectMake(0, 150, Screen_Width, 3*PublishImageTileHeight + 40-150)];
+          _tileView = [[PublishAlbumTopView alloc] initWithFrame:CGRectMake(0, 150, Screen_Width, 3*PublishImageTileHeight + 40)];
         _tileView.imageMaxCount=9;
         _tileView.delegate = self;
         [_tileView setViewDefault];

@@ -40,6 +40,7 @@
     _btn_add = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_publish"]];
     _btn_add.userInteractionEnabled = YES;
     _btn_add.frame = CGRectMake(20, 20, _btn_add.frame.size.width, _btn_add.frame.size.height);
+    JJBLog(@"-%@",NSStringFromCGRect(_btn_add.frame));
     [self addSubview:_btn_add];
     UITapGestureRecognizer* _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [_btn_add addGestureRecognizer:_tap];
@@ -68,16 +69,30 @@
     }
     [_btn_add removeFromSuperview];
     
-    self.frame=CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, (_dataList.count/4 +1)*(PublishImageTileHeight+20)+20);
+    self.frame=CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, (_dataList.count/3 +1)*(PublishImageTileHeight+20)+20);
+    JJBLog(@"变化的frame%@",NSStringFromCGRect(self.frame));
     NSInteger num = _dataList.count;
     if (num<_imageMaxCount) {
         num++;
     }
     for (int i = 0; i < num; i++) {
-        NSInteger col=i%4;
-        NSInteger row=i/4;
+//        NSInteger col=i%4;
+//        NSInteger row=i/4;
+        
+        NSInteger col;
+        NSInteger row;
+        if(iPhone6P)
+        {
+            col = i%4;
+            row = i/4;
+        }
+        else{
+            col = i%3;
+            row = i/3;
+        }
         if (num>_dataList.count&&i==num-1) {
             _btn_add.frame = CGRectMake(col*(PublishImageTileWidth+20)+20, row*(PublishImageTileHeight+20)+20, PublishImageTileWidth, PublishImageTileHeight);
+            JJBLog(@"!!!!%@",NSStringFromCGRect(_btn_add.frame));
             if (_btn_add.superview == nil)
             [self addSubview:_btn_add];
         }

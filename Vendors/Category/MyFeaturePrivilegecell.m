@@ -1,14 +1,14 @@
 //
-//  MyNewPrivilegeCell.m
+//  MyFeaturePrivilegecell.m
 //  jjb_user
 //
 //  Created by Maybe on 16/8/26.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MyNewPrivilegeCell.h"
+#import "MyFeaturePrivilegecell.h"
 
-@interface MyNewPrivilegeCell ()
+@interface MyFeaturePrivilegecell ()
 @property(nonatomic,strong)UILabel * levelLabel;
 @property(nonatomic,strong)UILabel * nowlevelLabel;
 @property(nonatomic,strong)UILabel * moneyLabel;
@@ -17,7 +17,8 @@
 @property(nonatomic,strong)UILabel * disLabel;
 
 @end
-@implementation MyNewPrivilegeCell
+@implementation MyFeaturePrivilegecell
+
 #pragma -
 #pragma mark - life cycle
 - (void)awakeFromNib {
@@ -29,7 +30,6 @@
 
     // Configure the view for the selected state
 }
-
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -76,8 +76,8 @@
 {
     if (_levelLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"当前等级";
-        label.textColor = JJBColor(127, 77, 62);
+        label.text = @"下一等级";
+        label.textColor = JJBColor(182, 182, 182);
         [label sizeToFit];
         [self.contentView addSubview:label];
         _levelLabel = label;
@@ -89,7 +89,7 @@
     if (_nowlevelLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         NSString * string = [[NSString alloc]init];
-        switch ([UserModel currentUser].level) {
+        switch ([UserModel currentUser].level +1) {
             case 0:
                 string = @"铁牌等级";
                 break;
@@ -106,7 +106,9 @@
                 break;
         }
         label.text = string;
-        label.textColor = JJBColor(127, 77, 62);
+
+        label.textColor = JJBColor(182, 182, 182);
+
         [label sizeToFit];
         [self.contentView addSubview:label];
         _nowlevelLabel = label;
@@ -119,23 +121,22 @@
     
     if (_moneyLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        
-        
         label.text = @"累计消费";
-        label.textColor = JJBColor(127, 77, 62);
+        label.textColor = JJBColor(182, 182, 182);
+
         [label sizeToFit];
         [self.contentView addSubview:label];
         _moneyLabel = label;
     }
     return _moneyLabel;
-
+    
 }
 -(UILabel *)figureLabel
 {
     if (_figureLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         NSString * string = [[NSString alloc]init];
-        switch ([UserModel currentUser].level) {
+        switch ([UserModel currentUser].level+1) {
             case 0:
                 string = @"3000";
                 break;
@@ -151,9 +152,11 @@
             default:
                 break;
         }
-
+        
         label.text = string;
-        label.textColor = JJBColor(127, 77, 62);
+
+        label.textColor = JJBColor(182, 182, 182);
+
         [label sizeToFit];
         [self.contentView addSubview:label];
         _figureLabel = label;
@@ -165,7 +168,7 @@
 {
     if (_iconImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
-        imageView.image = [UIImage imageNamed:@"my_level_privilege"];
+        imageView.image = [UIImage imageNamed:@"my_level_privilege_1"];
         [self.contentView addSubview:imageView];
         _iconImageView = imageView;
     }
@@ -176,7 +179,7 @@
     if (_disLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         NSString * string = [[NSString alloc]init];
-        switch ([UserModel currentUser].level) {
+        switch ([UserModel currentUser].level +1) {
             case 0:
                 string = @"100%";
                 break;
@@ -192,14 +195,17 @@
             default:
                 break;
         }
-
+        
         label.text =string;
-        label.textColor = JJBColor(127, 77, 62);
+
+        label.textColor = JJBColor(182, 182, 182);
         [label sizeToFit];
         [self.contentView addSubview:label];
         _disLabel = label;
     }
     return _disLabel;
-  
+    
 }
+
+
 @end

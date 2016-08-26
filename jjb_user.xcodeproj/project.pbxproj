@@ -265,6 +265,8 @@
 		AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6E13981D5DECC000A7C71D /* NSString+MBMD5.m */; };
 		AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7421981D5B2F9E00E4353A /* MyRechargeController.m */; };
 		AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */; };
+		AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */; };
+		AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
@@ -917,6 +919,10 @@
 		AC7421981D5B2F9E00E4353A /* MyRechargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeController.m; sourceTree = "<group>"; };
 		AC842C921D5C6C320065A71C /* RechargeWeChatAndAliView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliView.h; path = jjb_user/My/Controller/RechargeWeChatAndAliView.h; sourceTree = SOURCE_ROOT; };
 		AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeWeChatAndAliView.m; path = jjb_user/My/Controller/RechargeWeChatAndAliView.m; sourceTree = SOURCE_ROOT; };
+		AC9C41091D6FD53300EC6C65 /* MyFeaturePrivilegecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFeaturePrivilegecell.h; path = Vendors/Category/MyFeaturePrivilegecell.h; sourceTree = SOURCE_ROOT; };
+		AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFeaturePrivilegecell.m; path = Vendors/Category/MyFeaturePrivilegecell.m; sourceTree = SOURCE_ROOT; };
+		AC9C410C1D6FF0CC00EC6C65 /* MyBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBubbleView.h; path = Vendors/Category/MyBubbleView.h; sourceTree = SOURCE_ROOT; };
+		AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBubbleView.m; path = Vendors/Category/MyBubbleView.m; sourceTree = SOURCE_ROOT; };
 		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
 		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
 		ACE6747F1D5D58EA00B57938 /* MyOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailCell.h; path = jjb_user/My/Controller/MyOrderDetailCell.h; sourceTree = SOURCE_ROOT; };
@@ -2100,6 +2106,10 @@
 				5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */,
 				BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */,
 				BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */,
+				AC9C41091D6FD53300EC6C65 /* MyFeaturePrivilegecell.h */,
+				AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */,
+				AC9C410C1D6FF0CC00EC6C65 /* MyBubbleView.h */,
+				AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2969,6 +2979,7 @@
 				BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */,
 				512763631D6174C5005A241A /* HomePageActivityController.m in Sources */,
 				73886D3B1D4F742500643BBA /* LDServiceJJBUser.m in Sources */,
+				AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */,
 				732A96971D5D3C6D00BE5800 /* TitleBar.m in Sources */,
 				738F52511D6DEBA900AFBD3D /* ShopModel.m in Sources */,
 				51D3D75F1D6444E30062D288 /* OrdersDetailFooter.m in Sources */,
@@ -3016,6 +3027,7 @@
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
 				AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */,
 				BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */,
+				AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,
 				BB159CCA1D4F489700F46F09 /* BaseTabBar.m in Sources */,
 				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
