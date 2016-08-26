@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UITableView * tableView;
 @property (nonatomic,strong) NSMutableArray * arr_title;
 @property (nonatomic,strong) NSMutableArray * arr_content;
+@property (nonatomic,strong) UIButton * quitButton; //退出按钮
 
 @end
 
@@ -31,6 +32,8 @@
 
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,6 +49,12 @@
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(@0);
     }];
+    [self.quitButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.tableView.mas_centerX);
+        make.top.equalTo(self.tableView.mas_top).offset(330);
+        make.left.equalTo(self.tableView.mas_left).offset(30);
+    }];
+
 }
 
 #pragma -
@@ -112,6 +121,13 @@
     return 50;
 }
 
+
+
+-(void)quit:(UIButton *)btn
+{
+    [UserModel removeUser];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma -
 #pragma mark - getters and setters
 - (NSMutableArray *)arr_title {
@@ -141,5 +157,24 @@
     return _tableView;
 }
 
+-(UIButton *)quitButton
+{
+    if (_quitButton == nil) {
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [button setBackgroundColor:COLOR_ORANGE];
+        [button addTarget:self action:@selector(quit:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"退出当前账号" forState:UIControlStateNormal];
+        button.titleLabel.textColor = [UIColor whiteColor];
+        [button.layer setMasksToBounds:YES];
+        [button.layer setCornerRadius:5.0];
+        _quitButton = button;
+        [self.tableView addSubview:_quitButton];
+        
+    }
+    return _quitButton;
+
+}
 
 @end
