@@ -13,17 +13,11 @@ typedef void(^SetBlock)(NSString * content);
 @interface MySettingDetailController : UIViewController
 
 @property (nonatomic, copy) NSString * name;
-
 @property (nonatomic, copy) NSString * sign;
-
 @property (nonatomic, copy) NSString * password;
-
 @property (nonatomic, copy) NSString * phoneNum;
-
 @property (nonatomic, copy) NSString * weixinNum;
-
 @property (nonatomic, copy) NSString * qqNum;
-
 @property (nonatomic, copy) SetBlock block;
 
 @end

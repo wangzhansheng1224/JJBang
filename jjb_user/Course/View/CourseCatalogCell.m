@@ -23,6 +23,7 @@
     
     if (self)
     {
+        self.backgroundColor = COLOR_LIGHT_GRAY;
         [self addSubview:self.descLabel];
         [self layoutPageSubviews];
     }

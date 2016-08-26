@@ -11,9 +11,7 @@
 @interface MySettingDetailController ()
 
 @property (nonatomic,strong) UIView * view_bg;
-
 @property (nonatomic,strong) UITextField * textField;
-
 @property (nonatomic,strong) UIButton * button;
 
 @end
@@ -25,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,31 +36,20 @@
 - (void)createTextField {
     
     _view_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 64, Screen_Width, 50)];
-    
     _view_bg.backgroundColor = [UIColor whiteColor];
-    
     [self.view addSubview:_view_bg];
-    
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, Screen_Width - 40, 50)];
-    
     [_view_bg addSubview:_textField];
-    
 }
 
 - (void)createPassWord {
     
     UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 134, Screen_Width, 50)];
-    
     bgView.backgroundColor = [UIColor whiteColor];
-    
     [self.view addSubview:bgView];
-    
     UITextField * passwordField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, Screen_Width - 40, 50)];
-    
     passwordField.placeholder = @"请再次输入密码";
-    
     [bgView addSubview:passwordField];
-    
 }
 
 - (void)createButton {

@@ -78,7 +78,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     [self loadData];
 }
 
--(void) loadData{
+-(void)loadData {
     
     [self.detailAPIManager loadData];
     if(self.tabbarControl.selectedSegmentIndex==0)
@@ -134,21 +134,15 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.tabbarControl.selectedSegmentIndex==0) {
-        
         if (section == 0) {
-            
             return 0;
         }else {
-            
             if (![self.boolArr[section] boolValue]) {
-                
                 return 0;
             }else {
-                
                 return 1;
             }
         }
-        
     }
     return  [self.dataSource count];
 }
@@ -207,6 +201,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
             view.tag = 1000+section;
             UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
             [view addGestureRecognizer:tap];
+            view.backgroundColor = COLOR_WHITE;
             return view;
         }
     }
@@ -331,7 +326,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.dataSource removeAllObjects];
             self.pageIndex=0;

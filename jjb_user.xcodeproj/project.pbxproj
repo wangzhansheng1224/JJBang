@@ -59,6 +59,7 @@
 		51B875DD1D503DD80082558D /* ParticipationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D91D503DD80082558D /* ParticipationController.m */; };
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
+		51C137CD1D702CB700EBEA35 /* MySettingIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C137CC1D702CB700EBEA35 /* MySettingIconCell.m */; };
 		51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */; };
 		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
 		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
@@ -421,6 +422,8 @@
 		51B875DB1D503DD80082558D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
 		51B875DF1D503E880082558D /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityListCell.h; path = jjb_user/Activity/ActivityListCell.h; sourceTree = SOURCE_ROOT; };
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
+		51C137CB1D702CB700EBEA35 /* MySettingIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingIconCell.h; sourceTree = "<group>"; };
+		51C137CC1D702CB700EBEA35 /* MySettingIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingIconCell.m; sourceTree = "<group>"; };
 		51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGrowingAPIManager.h; path = jjb_user/APIManager/MyGrowingAPIManager.h; sourceTree = SOURCE_ROOT; };
 		51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingAPIManager.m; path = jjb_user/APIManager/MyGrowingAPIManager.m; sourceTree = SOURCE_ROOT; };
 		51D3489F1D57924E002D761C /* MyHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHelpCell.h; path = jjb_user/My/MyHelpCell.h; sourceTree = SOURCE_ROOT; };
@@ -2084,6 +2087,8 @@
 				51D348A01D57924E002D761C /* MyHelpCell.m */,
 				517F99321D57A87B002609E5 /* MySettingCell.h */,
 				517F99331D57A87B002609E5 /* MySettingCell.m */,
+				51C137CB1D702CB700EBEA35 /* MySettingIconCell.h */,
+				51C137CC1D702CB700EBEA35 /* MySettingIconCell.m */,
 				AC2F2B9C1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.h */,
 				AC2F2B9D1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m */,
 				AC842C921D5C6C320065A71C /* RechargeWeChatAndAliView.h */,
@@ -3123,6 +3128,7 @@
 				AC6E13881D5DBEEF00A7C71D /* MyRechargeAPIManager.m in Sources */,
 				73886D2F1D4F735D00643BBA /* LDLogger.m in Sources */,
 				517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */,
+				51C137CD1D702CB700EBEA35 /* MySettingIconCell.m in Sources */,
 				BBC572F51D59C3AE00848F5F /* MBStarStudentCollectionView.m in Sources */,
 				519843991D6D877800A69A33 /* MyHelpController.m in Sources */,
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,

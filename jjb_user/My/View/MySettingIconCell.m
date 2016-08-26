@@ -1,23 +1,23 @@
 //
-//  MySettingCell.m
+//  MySettingIconCell.m
 //  jjb_user
 //
-//  Created by Check on 16/8/8.
+//  Created by Check on 16/8/26.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MySettingCell.h"
+#import "MySettingIconCell.h"
 
-@interface MySettingCell ()
+@interface MySettingIconCell ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *contentLabel;
+@property (nonatomic,strong) UIImageView *iconImageV;
 @property (nonatomic,strong) UIImageView *rightImageV;
 @property (nonatomic,strong) UILabel *line;
 
 @end
 
-@implementation MySettingCell
+@implementation MySettingIconCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -25,7 +25,7 @@
     
     if (self) {
         [self.contentView addSubview:self.titleLabel];
-        [self.contentView addSubview:self.contentLabel];
+        [self.contentView addSubview:self.iconImageV];
         [self.contentView addSubview:self.rightImageV];
         [self.contentView addSubview:self.line];
         [self layoutPageSubviews];
@@ -41,11 +41,10 @@
         make.centerY.equalTo(self.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 17));
     }];
-    [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_iconImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(_rightImageV.mas_left).with.offset(-10);
         make.centerY.equalTo(_titleLabel.mas_centerY);
-        make.left.equalTo(_titleLabel.mas_right).with.offset(10);
-        make.height.equalTo(@17);
+        make.size.mas_equalTo(CGSizeMake((self.height)*4.0/5.0, (self.height)*4.0/5.0));
     }];
     [_rightImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(@-18);
@@ -65,16 +64,18 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = COLOR_GRAY;
+        _titleLabel.text = @"头像";
     }
     return _titleLabel;
 }
-- (UILabel *)contentLabel {
-    if (!_contentLabel) {
-        _contentLabel = [[UILabel alloc] init];
-        _contentLabel.textColor = COLOR_GRAY;
-        _contentLabel.textAlignment = NSTextAlignmentRight;
+-(UIImageView *)iconImageV {
+    if (!_iconImageV) {
+        _iconImageV = [[UIImageView alloc] init];
+        _iconImageV.image = [UIImage imageNamed:@"student_icon"];
+        _iconImageV.layer.cornerRadius = (self.height)*4.0/5.0/2.0;
+        _iconImageV.clipsToBounds = YES;
     }
-    return _contentLabel;
+    return _iconImageV;
 }
 - (UIImageView *)rightImageV {
     if (!_rightImageV) {
@@ -89,14 +90,6 @@
         _line.backgroundColor = COLOR_LIGHT_GRAY;
     }
     return _line;
-}
-- (void)setTitle:(NSString *)title {
-    
-    self.titleLabel.text = title;
-}
-- (void)setContent:(NSString *)content {
-    
-    self.contentLabel.text = content;
 }
 
 @end
