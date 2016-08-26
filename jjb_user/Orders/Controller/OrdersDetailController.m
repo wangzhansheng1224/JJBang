@@ -151,7 +151,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[OrderDetailAPIManager class]]) {
-//        [self.view makeToast:@"获取成功"];
+
          self.orderDetailDictionary = [manager fetchDataWithReformer:self.OrderDetailReformer];
         
         JJBLog(@"%@",self.orderDetailDictionary);

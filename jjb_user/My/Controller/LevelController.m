@@ -7,10 +7,20 @@
 //
 
 #import "LevelController.h"
+#import "ExplainLevelController.h"
+#import "ExplainLevelHeadView.h"
+#import "MyNewPrivilegeCell.h"
 
-@interface LevelController ()
+
+static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdentifier";
+
+@interface LevelController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UIBarButtonItem *rightItem;
+@property(nonatomic,strong) UITableView * tableView;
+@property(nonatomic,strong) ExplainLevelHeadView * headView;
+
+
 
 @end
 
@@ -19,9 +29,13 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = COLOR_WHITE;
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.title = @"会员等级";
     self.navigationItem.rightBarButtonItem = self.rightItem;
+
+    [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.headView;
+    
 
 }
 
@@ -35,7 +49,28 @@
 #pragma mark - event respone
 - (void)itemClick {
 
+    ExplainLevelController * explainVC = [[ExplainLevelController alloc]init];
+    [self.navigationController pushViewController:explainVC animated:YES];
+}
+
+#pragma -
+#pragma mark - UITableViewDelegate and UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
+//    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    return cell;
+    MyNewPrivilegeCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MyNewPrivilegeCellIdentifier];
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.f;
 }
 
 #pragma -
@@ -48,6 +83,27 @@
         _rightItem.tintColor = COLOR_WHITE;
     }
     return _rightItem;
+}
+-(UITableView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height-49) style:UITableViewStylePlain];
+        _tableView.backgroundColor = COLOR_LIGHT_GRAY;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[MyNewPrivilegeCell class] forCellReuseIdentifier:MyNewPrivilegeCellIdentifier];
+    }
+    return _tableView;
+}
+
+-(ExplainLevelHeadView *)headView
+{
+    if (_headView == nil) {
+        _headView = [[ExplainLevelHeadView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 300)];
+        _headView.backgroundColor = COLOR_ORANGE ;
+        
+    }
+    return _headView;
 }
 
 @end

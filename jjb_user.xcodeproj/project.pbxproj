@@ -209,6 +209,12 @@
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
 		AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */; };
+		AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */; };
+		AC0EF2BA1D6ECDE500054421 /* ExplainLevelHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B91D6ECDE500054421 /* ExplainLevelHeadView.m */; };
+		AC0EF2BD1D6ED20000054421 /* LevelPrizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2BC1D6ED20000054421 /* LevelPrizeView.m */; };
+		AC0EF2C01D6EE2EA00054421 /* LevelPrizeSupView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2BF1D6EE2EA00054421 /* LevelPrizeSupView.m */; };
+		AC0EF2C71D6EE92700054421 /* UIImage+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2C61D6EE92700054421 /* UIImage+MB.m */; };
+		AC0EF2CA1D6EEAA400054421 /* UIImageView+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
@@ -263,6 +269,7 @@
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
 		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
+		BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
@@ -730,6 +737,18 @@
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
 		AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListAPIManager.h; sourceTree = "<group>"; };
 		AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListAPIManager.m; sourceTree = "<group>"; };
+		AC0EF2B51D6ECB2500054421 /* ExplainLevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainLevelController.h; sourceTree = "<group>"; };
+		AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainLevelController.m; sourceTree = "<group>"; };
+		AC0EF2B81D6ECDE500054421 /* ExplainLevelHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplainLevelHeadView.h; path = jjb_user/My/Controller/ExplainLevelHeadView.h; sourceTree = SOURCE_ROOT; };
+		AC0EF2B91D6ECDE500054421 /* ExplainLevelHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExplainLevelHeadView.m; path = jjb_user/My/Controller/ExplainLevelHeadView.m; sourceTree = SOURCE_ROOT; };
+		AC0EF2BB1D6ED20000054421 /* LevelPrizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelPrizeView.h; path = jjb_user/My/Controller/LevelPrizeView.h; sourceTree = SOURCE_ROOT; };
+		AC0EF2BC1D6ED20000054421 /* LevelPrizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelPrizeView.m; path = jjb_user/My/Controller/LevelPrizeView.m; sourceTree = SOURCE_ROOT; };
+		AC0EF2BE1D6EE2EA00054421 /* LevelPrizeSupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelPrizeSupView.h; path = jjb_user/My/Controller/LevelPrizeSupView.h; sourceTree = SOURCE_ROOT; };
+		AC0EF2BF1D6EE2EA00054421 /* LevelPrizeSupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelPrizeSupView.m; path = jjb_user/My/Controller/LevelPrizeSupView.m; sourceTree = SOURCE_ROOT; };
+		AC0EF2C51D6EE92700054421 /* UIImage+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MB.h"; sourceTree = "<group>"; };
+		AC0EF2C61D6EE92700054421 /* UIImage+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MB.m"; sourceTree = "<group>"; };
+		AC0EF2C81D6EEAA400054421 /* UIImageView+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MB.h"; sourceTree = "<group>"; };
+		AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MB.m"; sourceTree = "<group>"; };
 		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
@@ -906,6 +925,8 @@
 		ACE811201D6AD966006402A5 /* MBOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayController.m; sourceTree = "<group>"; };
 		ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayHeadView.h; sourceTree = "<group>"; };
 		ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayHeadView.m; sourceTree = "<group>"; };
+		BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyNewPrivilegeCell.h; path = jjb_user/My/MyNewPrivilegeCell.h; sourceTree = SOURCE_ROOT; };
+		BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyNewPrivilegeCell.m; path = jjb_user/My/MyNewPrivilegeCell.m; sourceTree = SOURCE_ROOT; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
 		BB1294251D50A6B10048927D /* MBAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAdViewController.m; sourceTree = "<group>"; };
 		BB1294271D50A8D60048927D /* MBAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdItem.h; sourceTree = "<group>"; };
@@ -2026,6 +2047,8 @@
 				ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */,
 				AC2F2B991D5C0DEA0069B411 /* MyOrderDetailController.h */,
 				AC2F2B9A1D5C0DEA0069B411 /* MyOrderDetailController.m */,
+				AC0EF2B51D6ECB2500054421 /* ExplainLevelController.h */,
+				AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */,
 				739F210E1D6AA93A00F2CF6A /* LevelController.h */,
 				739F210F1D6AA93A00F2CF6A /* LevelController.m */,
 				519843971D6D877800A69A33 /* MyHelpController.h */,
@@ -2067,8 +2090,16 @@
 				AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */,
 				519843A01D6DBC0E00A69A33 /* MyQuestionCell.h */,
 				519843A11D6DBC0E00A69A33 /* MyQuestionCell.m */,
+				AC0EF2B81D6ECDE500054421 /* ExplainLevelHeadView.h */,
+				AC0EF2B91D6ECDE500054421 /* ExplainLevelHeadView.m */,
+				AC0EF2BE1D6EE2EA00054421 /* LevelPrizeSupView.h */,
+				AC0EF2BF1D6EE2EA00054421 /* LevelPrizeSupView.m */,
+				AC0EF2BB1D6ED20000054421 /* LevelPrizeView.h */,
+				AC0EF2BC1D6ED20000054421 /* LevelPrizeView.m */,
 				5167DA3C1D6E86DB00A67457 /* MyQuestionView.h */,
 				5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */,
+				BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */,
+				BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2598,6 +2629,10 @@
 				AC27CB111D66DABC00240089 /* MBButton.m */,
 				AC27CB131D66DCB500240089 /* MBButtons.h */,
 				AC27CB141D66DCB500240089 /* MBButtons.m */,
+				AC0EF2C51D6EE92700054421 /* UIImage+MB.h */,
+				AC0EF2C61D6EE92700054421 /* UIImage+MB.m */,
+				AC0EF2C81D6EEAA400054421 /* UIImageView+MB.h */,
+				AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2888,7 +2923,10 @@
 				BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */,
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
 				735C3AF41D62F28500E4DB90 /* ClerkListAPIManager.m in Sources */,
+				AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */,
+				AC0EF2C71D6EE92700054421 /* UIImage+MB.m in Sources */,
 				5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */,
+				AC0EF2C01D6EE2EA00054421 /* LevelPrizeSupView.m in Sources */,
 				738B82061D5F485D00765F6F /* TileView.m in Sources */,
 				731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */,
 				51B50F3F1D642953001733C8 /* OrdersDetailController.m in Sources */,
@@ -2923,6 +2961,7 @@
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
 				AC540AFF1D62C16D007636CE /* ApiXml.mm in Sources */,
+				AC0EF2CA1D6EEAA400054421 /* UIImageView+MB.m in Sources */,
 				BB159CC31D4F473200F46F09 /* BaseTabBarController.m in Sources */,
 				73575F4A1D54D2B70037F697 /* CourseListReformer.m in Sources */,
 				51D348A41D5797E3002D761C /* MyMemberController.m in Sources */,
@@ -2957,12 +2996,14 @@
 				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
+				BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */,
 				732A96D41D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m in Sources */,
 				738F524B1D6D67F500AFBD3D /* TeacherHeaderView.m in Sources */,
 				73886D6D1D50841700643BBA /* ActivityListAPIManager.m in Sources */,
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
+				AC0EF2BA1D6ECDE500054421 /* ExplainLevelHeadView.m in Sources */,
 				735C3AF81D62F2DC00E4DB90 /* ClerkListReformer.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
@@ -3007,6 +3048,7 @@
 				AC540AEA1D62A54D007636CE /* MBScanButton.m in Sources */,
 				AC540ADF1D61B640007636CE /* NSDataEx.m in Sources */,
 				ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */,
+				AC0EF2BD1D6ED20000054421 /* LevelPrizeView.m in Sources */,
 				735C3B241D65C0EB00E4DB90 /* MakeOrderAPIManager.m in Sources */,
 				51FB77151D632EC80040D9B6 /* GoodsDetailHeader.m in Sources */,
 				AC540AE51D61C6F4007636CE /* Order.m in Sources */,
