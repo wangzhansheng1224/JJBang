@@ -66,7 +66,7 @@
             LevelPrizeView * cell  = [[LevelPrizeView alloc]initWithImage:[NSString stringWithFormat:@"L_nomal_%d",3] selectImage:[NSString stringWithFormat:@"L_select_%d",3]];
             [array addObject:cell];
         }
-        LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithFrame:self.levelBjView.frame items:array];
+        LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithItems:array];
         _levelPrizeView = view;
         
     }

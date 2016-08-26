@@ -8,29 +8,45 @@
 
 #import "LevelPrizeSupView.h"
 #import "LevelPrizeView.h"
+
+#define margin 1
+#define cols 4
+#define width ((Screen_Width-40 - (cols + 2) * margin) / cols)
+
+@interface LevelPrizeSupView ()
+
+
+@end
+
 @implementation LevelPrizeSupView
 
--(instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items
+-(instancetype)initWithItems:(NSArray *)items
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        for(int i = 0;i < items.count; i++)
+        for(int i = 0;i <items.count; i++)
         {
             
-            CGFloat a = (self.frame.size.width - (30 * 4))/5;
-            JJBLog(@"%lf",a);
-            JJBLog(@"%lf",self.frame.size.width);
-            JJBLog(@"%@",NSStringFromCGRect(frame));
             LevelPrizeView * levelPrizeButton = (LevelPrizeView *)items[i];
-            levelPrizeButton.frame = CGRectMake((i*30+a),400 , 30, 30);
-            JJBLog(@"%@",NSStringFromCGRect(levelPrizeButton.frame));
-            
+            levelPrizeButton.frame = CGRectMake(width*i+15,15, 30, 30);
+            levelPrizeButton.selected = i;
             [self addSubview:levelPrizeButton];
+            
+            JJBLog(@"%@",NSStringFromCGRect(levelPrizeButton.frame));
         }
-        
-        
+
     }
     return self;
 }
 
+
+
+//-(void)drawRect:(CGRect)rect
+//{
+//    [super drawRect:rect];
+//    
+//
+//    
+//
+//}
 @end

@@ -9,6 +9,11 @@
 #import "LevelController.h"
 #import "ExplainLevelController.h"
 #import "ExplainLevelHeadView.h"
+#import "MyNewPrivilegeCell.h"
+
+
+static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdentifier";
+
 @interface LevelController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UIBarButtonItem *rightItem;
@@ -24,7 +29,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = COLOR_WHITE;
+    self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.title = @"会员等级";
     self.navigationItem.rightBarButtonItem = self.rightItem;
 
@@ -58,8 +63,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    return cell;
+    MyNewPrivilegeCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MyNewPrivilegeCellIdentifier];
     return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.f;
 }
 
 #pragma -
@@ -77,12 +88,14 @@
 {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height-49) style:UITableViewStylePlain];
-        _tableView.backgroundColor = COLOR_ORANGE;
+        _tableView.backgroundColor = COLOR_LIGHT_GRAY;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        [_tableView registerClass:[MyNewPrivilegeCell class] forCellReuseIdentifier:MyNewPrivilegeCellIdentifier];
     }
     return _tableView;
 }
+
 -(ExplainLevelHeadView *)headView
 {
     if (_headView == nil) {

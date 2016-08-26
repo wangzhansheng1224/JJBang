@@ -269,6 +269,7 @@
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
 		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
+		BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
 		BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB159CA01D4F3A8A00F46F09 /* MyController.m */; };
@@ -924,6 +925,8 @@
 		ACE811201D6AD966006402A5 /* MBOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayController.m; sourceTree = "<group>"; };
 		ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayHeadView.h; sourceTree = "<group>"; };
 		ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayHeadView.m; sourceTree = "<group>"; };
+		BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyNewPrivilegeCell.h; path = jjb_user/My/MyNewPrivilegeCell.h; sourceTree = SOURCE_ROOT; };
+		BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyNewPrivilegeCell.m; path = jjb_user/My/MyNewPrivilegeCell.m; sourceTree = SOURCE_ROOT; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
 		BB1294251D50A6B10048927D /* MBAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAdViewController.m; sourceTree = "<group>"; };
 		BB1294271D50A8D60048927D /* MBAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdItem.h; sourceTree = "<group>"; };
@@ -2095,6 +2098,8 @@
 				AC0EF2BC1D6ED20000054421 /* LevelPrizeView.m */,
 				5167DA3C1D6E86DB00A67457 /* MyQuestionView.h */,
 				5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */,
+				BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */,
+				BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2991,6 +2996,7 @@
 				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
+				BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
 				73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */,
 				732A96D41D5EBC9500BE5800 /* CTMediator+CTMediatorTeacherActions.m in Sources */,
