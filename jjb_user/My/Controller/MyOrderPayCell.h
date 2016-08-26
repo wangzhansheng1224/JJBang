@@ -12,4 +12,5 @@
 
 - (void)configWithData:(NSDictionary *)data;
 
+
 @end

@@ -43,19 +43,22 @@
        
         make.left.equalTo(@16);
         make.top.equalTo(@8);
-        make.size.mas_equalTo(CGSizeMake(78, 78));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width/4.0, Screen_Width/4.0));
     }];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(@16);
-        make.left.equalTo(_picImageV.mas_right).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(70, 17));
+        make.left.mas_equalTo(_picImageV.mas_right).with.offset(8);
+        make.right.mas_equalTo(_priceLabel.mas_left).offset(8);
+        make.height.equalTo(@17);
     }];
     [_describeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_titleLabel.mas_bottom).with.offset(16);
-        make.centerX.equalTo(_titleLabel.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(60, 14));
+//        make.centerX.equalTo(_titleLabel.mas_centerX);
+        make.left.equalTo(_picImageV.mas_right).with.offset(8);
+        make.right.equalTo(@8);
+        make.height.equalTo(@14);
     }];
     [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         

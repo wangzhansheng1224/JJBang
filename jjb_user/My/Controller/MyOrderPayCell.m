@@ -8,6 +8,7 @@
 
 #import "MyOrderPayCell.h"
 #import "MyOrderPayKey.h"
+#import "OrdersDetailController.h"
 
 @interface MyOrderPayCell ()
 
@@ -21,6 +22,7 @@
 @property (nonatomic,strong) UILabel *topLine;
 @property (nonatomic,strong) UILabel *bottomLine;
 @property (nonatomic,strong) UILabel *line;
+@property (nonatomic,copy) NSString *orderId;
 
 @end
 
@@ -113,6 +115,19 @@
 #pragma mark - private methods
 - (void)configWithData:(NSDictionary *)data
 {
+    NSString * type = data[kMyOrderPayOrderStatus];
+    self.orderId = data[kMyOrderPayId];
+    if (type.length == 0) {
+        [_orderPayBtn setTitle:@"待付款" forState:UIControlStateNormal];
+    }else if ([type isEqualToString:@"已付款"]) {
+        self.orderPayBtn.userInteractionEnabled = NO;
+        _orderPayBtn.backgroundColor = COLOR_GRAY;
+        [_orderPayBtn setTitle:@"已付款" forState:UIControlStateNormal];
+    }else if ([type isEqualToString:@"已退款"]) {
+        self.orderPayBtn.userInteractionEnabled = NO;
+        _orderPayBtn.backgroundColor = COLOR_GRAY;
+        [_orderPayBtn setTitle:@"已退款" forState:UIControlStateNormal];
+    }
     self.orderNo.text = [NSString stringWithFormat:@"订单号 %@",data[kMyOrderPayOrderNo]];
     self.orderStatusLabel.text = data[kMyOrderPayOrderStatus];
     [self.orderImageV sd_setImageWithURL:[NSURL initWithImageURL:data[kMyOrderPayOrderImage] Width:Screen_Width/2.0 Height:Screen_Width/3.0]  placeholderImage:[UIImage imageNamed:@"img_default"]];
@@ -125,7 +140,17 @@
 #pragma mark - event respond
 - (void)orderPayBtnClick {
 
- 
+    [self makeToastActivity:CSToastPositionCenter];
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        OrdersDetailController *detail = [[OrdersDetailController alloc] init];
+        detail.orderNo = self.orderId;
+        [navController pushViewController:detail animated:YES];
+    } else{
+        [navController pushViewController:controller animated:YES];
+    }
+    [self hideToastActivity];
 }
 
 #pragma
@@ -203,7 +228,6 @@
 - (UIButton *)orderPayBtn {
     if (!_orderPayBtn) {
         _orderPayBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_orderPayBtn setTitle:@"未付款" forState:UIControlStateNormal];
         _orderPayBtn.layer.cornerRadius = 3.0;
         _orderPayBtn.clipsToBounds = YES;
         _orderPayBtn.backgroundColor = COLOR_ORANGE;
@@ -219,4 +243,5 @@
     }
     return _line;
 }
+
 @end
