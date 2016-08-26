@@ -9,7 +9,6 @@
 #import "ClerkListCell.h"
 #import "StarView.h"
 #import "ClerkKeys.h"
-
 @interface ClerkListCell()
 @property (nonatomic,strong) UIView *lineView;
 @property (nonatomic,strong) UIImageView *clerkFaceIView;
@@ -60,8 +59,8 @@
 
 - (void)configWithData:(NSDictionary *)data{
     
-    NSURL *url=[NSURL initWithImageURL:data[kClerkID] Width:50 Height:50];
-    [self.clerkFaceIView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
+    NSURL *url=[NSURL initWithImageURL:data[kClerkFace] Width:50 Height:50];
+    [self.clerkFaceIView setHeader:url];
     [self.nicknameLabel setText:data[kClerkName]];
 }
 
@@ -81,8 +80,8 @@
 -(UIImageView*)clerkFaceIView{
     if (!_clerkFaceIView) {
         _clerkFaceIView=[[UIImageView alloc] init];
-        _clerkFaceIView.layer.cornerRadius=25.0f;
-        _clerkFaceIView.layer.masksToBounds=YES;
+//        _clerkFaceIView.layer.cornerRadius=25.0f;
+//        _clerkFaceIView.layer.masksToBounds=YES;
     }
     return _clerkFaceIView;
 }

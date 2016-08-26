@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (MB)
--(void)setHeader:(NSString *)url;
+-(void)setHeader:(id)url;
 @end

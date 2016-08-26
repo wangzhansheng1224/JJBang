@@ -10,8 +10,9 @@
 /**
  *  店员界面
  */
-@interface ClerkController ()
+@interface ClerkController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property(nonatomic,strong)UITableView * tableView;
 @end
 
 @implementation ClerkController
@@ -23,19 +24,41 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=COLOR_WHITE;
-    self.title=@"店员首页";
+    self.title=@"店员详情";
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+#pragma -
+#pragma mark - getter and setter
+//-(UITableView *)tableView
+//{
+//    if (!_tableView) {
+//        
+//        _tableView = [[UITableView alloc] init];
+//        _tableView.dataSource = self;
+//        _tableView.delegate = self;
+//        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//            if (self.tabbarControl.selectedSegmentIndex==1) {
+//                [self.GrowingTreeDataArr removeAllObjects];
+//                self.growingIndex=0;
+//                [self.MyGrowingAPIManager loadData];
+//            }
+//            else{
+//                [self.detailAPIManager loadData];
+//            }
+//        }];
+//        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//            if (self.tabbarControl.selectedSegmentIndex==1) {
+//                [self.MyGrowingAPIManager loadData];
+//            }
+//            else{
+//                [self.detailAPIManager loadData];
+//            }
+//        }];
+//        [_tableView registerClass:[TeacherDetailCell class] forCellReuseIdentifier:TeacherDetailCellIdentifier];
+//        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
+//    }
+//    return _tableView;
+//}
 @end

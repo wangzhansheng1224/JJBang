@@ -9,8 +9,7 @@
 #import "ExplainLevelHeadView.h"
 #import "LevelPrizeView.h"
 #import "LevelPrizeSupView.h"
-#import "UIImage+MB.h"
-#import "UIImageView+MB.h"
+
 #import "NSURL+OSS.h"
 #import "MyBubbleView.h"
 @interface ExplainLevelHeadView ()
@@ -82,9 +81,8 @@
 {
     if (_iconImageView == nil) {
         _iconImageView = [[UIImageView alloc]init];
-        NSURL *url= [NSURL initWithImageURL:[UserModel currentUser].photo Width:120 Height:120];
-        NSString * string = [url absoluteString];
-        [_iconImageView setHeader:string];
+        NSURL *url= [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
+        [_iconImageView setHeader:url];
 
            }
     return _iconImageView;
