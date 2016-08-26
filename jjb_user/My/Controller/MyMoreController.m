@@ -8,6 +8,7 @@
 
 #import "MyMoreController.h"
 #import "MyMoreCell.h"
+#import "ExplainLevelController.h"
 
 @interface MyMoreController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -101,7 +102,8 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    [self.view makeToast:@"敬请期待"];
+    ExplainLevelController *controller = [[ExplainLevelController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma -

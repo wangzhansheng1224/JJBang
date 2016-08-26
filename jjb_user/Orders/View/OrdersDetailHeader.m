@@ -38,9 +38,10 @@
 
     [_ordersNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(250, 16));
+        make.height.equalTo(@16);
         make.left.equalTo(@16);
         make.top.equalTo(@16);
+        make.right.mas_equalTo(_statusLabel.mas_left);
     }];
     [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         

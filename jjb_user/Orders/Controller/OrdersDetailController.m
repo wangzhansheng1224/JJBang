@@ -88,7 +88,8 @@
     }];
     [_locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(100, 16));
+        make.height.equalTo(@16);
+        make.right.mas_equalTo(_arrowImageV.mas_left).offset(8);
         make.top.equalTo(@8);
         make.left.equalTo(@16);
     }];
@@ -133,7 +134,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return 95;
+    return Screen_Width/4.0 + 24;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -277,7 +278,7 @@
     if (!_arrowImageV) {
         
         _arrowImageV = [[UIImageView alloc] init];
-        _arrowImageV.backgroundColor = JJBRandomColor;
+        _arrowImageV.image = [UIImage imageNamed:@"my_right"];
     }
     return _arrowImageV;
 }

@@ -11,7 +11,6 @@
 @interface MySettingCell : UITableViewCell
 
 @property (nonatomic, copy) NSString * title;
-
 @property (nonatomic, copy) NSString * content;
 
 @end

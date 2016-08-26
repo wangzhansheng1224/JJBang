@@ -10,6 +10,7 @@
 #import "MyHelpCell.h"
 #import "MyCommentController.h"
 #import "MyQuestionController.h"
+#import "ExplainLevelController.h"
 
 @interface MyHelpController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -80,10 +81,9 @@
 //        MyQuestionController *questionVC = [[MyQuestionController alloc] init];
 //        [self.navigationController pushViewController:questionVC animated:YES];
     }else {
-    
-        
+        ExplainLevelController *controller = [[ExplainLevelController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
     }
-//    [self.view makeToast:@"敬请期待"];
 }
 
 #pragma -

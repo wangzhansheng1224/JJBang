@@ -95,8 +95,9 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.line.frame = CGRectMake(contentOffset, 48, Screen_Width/4.0, 2);
     }];
+    [self.dataArr removeAllObjects];
+    self.pageIndex=0;
     [self.myOrderPayAPIManager loadData];
-    [self.tableView reloadData];
 }
 
 #pragma -
@@ -113,6 +114,7 @@
         cell = [[MyOrderPayCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyOrderPayCellIdentifier"];
     }
     [cell configWithData:self.dataArr[indexPath.row]];
+    
     return cell;
 }
 
@@ -125,7 +127,6 @@
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.myOrderPayReformer];
-    NSLog(@"%@+++++",resultData);
     [self.dataArr addObjectsFromArray:resultData];
     self.pageIndex=[self.dataArr count];
     [self.tableView.mj_header endRefreshing];

@@ -19,6 +19,7 @@
 #import "MyOrderPayController.h"
 #import "MyBalanceViewController.h"
 #import "MyHelpController.h"
+#import "ExplainLevelController.h"
 
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
@@ -149,7 +150,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
-        
         if (indexPath.row == 0) {
             MyOrderPayController *order = [[MyOrderPayController alloc] init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:order];
@@ -159,21 +159,19 @@
          UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:course];
         [self.navigationController pushViewController:controller animated:YES];
         }else {
-        
-            [self.view makeToast:@"敬请期待"];
+            ExplainLevelController *controller = [[ExplainLevelController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
         }
-        
     }else {
-    
         if (indexPath.row == 0) {
             MyHelpController *helpVC = [[MyHelpController alloc] init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:helpVC];
             [self.navigationController pushViewController:controller animated:YES];
         }
-        
         if (indexPath.row == 1) {
         
-            [self.view makeToast:@"敬请期待"];
+            ExplainLevelController *controller = [[ExplainLevelController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
         }
         if (indexPath.row == 2) {
             MyMoreController *myMoreVC=[[MyMoreController alloc]init];
