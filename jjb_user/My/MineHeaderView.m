@@ -93,7 +93,7 @@
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(60, 16));
+//        make.size.mas_equalTo(CGSizeMake(60, 16));
         make.top.equalTo(self.itemImage.mas_top).with.offset(22);
         make.left.equalTo(self.itemImage.mas_right).with.offset(16);
     }];
@@ -241,6 +241,7 @@
     
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
+        [_nameLabel sizeToFit];
         _nameLabel.textColor=COLOR_WHITE;
     }
     return _nameLabel;
@@ -267,7 +268,25 @@
         _levelBtn.layer.masksToBounds = YES;
         [_levelBtn addTarget:self action:@selector(levelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         _levelBtn.lImage=@"my_member1_select";
-         _levelBtn.lTitle = @"黄金会员";
+        NSString * string = [[NSString alloc]init];
+        switch ([UserModel currentUser].level) {
+            case 0:
+                string = @"铜牌会员";
+                break;
+            case 1:
+                string = @"银牌会员";
+                break;
+            case 2:
+                string = @"金牌会员";
+                break;
+            case 3:
+                string = @"钻石会员";
+                break;
+            default:
+                break;
+        }
+
+         _levelBtn.lTitle = string;
     }
     return _levelBtn;
     

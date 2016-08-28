@@ -91,18 +91,19 @@
         NSString * string = [[NSString alloc]init];
         switch ([UserModel currentUser].level) {
             case 0:
-                string = @"铁牌等级";
+                string = @"铜牌会员";
                 break;
             case 1:
-                string = @"铜牌等级";
+                string = @"银牌会员";
                 break;
             case 2:
-                string = @"银牌等级";
+                string = @"金牌会员";
                 break;
             case 3:
-                string = @"金牌等级";
+                string = @"金牌会员";
                 break;
             default:
+                string = @"钻石会员";
                 break;
         }
         label.text = string;
