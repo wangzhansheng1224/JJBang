@@ -10,6 +10,8 @@
 
 @interface MyOrderPayCell : UITableViewCell
 
+@property (nonatomic,strong) UIButton *orderPayBtn;
+
 - (void)configWithData:(NSDictionary *)data;
 
 

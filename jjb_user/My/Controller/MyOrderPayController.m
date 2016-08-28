@@ -113,8 +113,9 @@
     if (!cell) {
         cell = [[MyOrderPayCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyOrderPayCellIdentifier"];
     }
-    [cell configWithData:self.dataArr[indexPath.row]];
     
+    [cell configWithData:self.dataArr[indexPath.row]];
+
     return cell;
 }
 

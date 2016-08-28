@@ -26,6 +26,7 @@
 		513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447BC1D5DBDC200E72F1B /* StudentDetailHeader.m */; };
 		513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */; };
 		513447C31D5DE85200E72F1B /* StudentSignClassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447C21D5DE85200E72F1B /* StudentSignClassController.m */; };
+		513A4A921D732CF1008AA661 /* MyQuestionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
@@ -355,6 +356,8 @@
 		513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentMyGrowingController.m; sourceTree = "<group>"; };
 		513447C11D5DE85200E72F1B /* StudentSignClassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSignClassController.h; sourceTree = "<group>"; };
 		513447C21D5DE85200E72F1B /* StudentSignClassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignClassController.m; sourceTree = "<group>"; };
+		513A4A901D732CF1008AA661 /* MyQuestionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionSectionView.h; sourceTree = "<group>"; };
+		513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionSectionView.m; sourceTree = "<group>"; };
 		514AD59E1D50A9F500E196FE /* ActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailController.h; sourceTree = "<group>"; };
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
@@ -2115,6 +2118,8 @@
 				AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */,
 				AC9C410C1D6FF0CC00EC6C65 /* MyBubbleView.h */,
 				AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */,
+				513A4A901D732CF1008AA661 /* MyQuestionSectionView.h */,
+				513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3193,6 +3198,7 @@
 				AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */,
 				738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
+				513A4A921D732CF1008AA661 /* MyQuestionSectionView.m in Sources */,
 				73575F551D54D4950037F697 /* TeacherController.m in Sources */,
 				732A969C1D5D7B7200BE5800 /* StarView.m in Sources */,
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
