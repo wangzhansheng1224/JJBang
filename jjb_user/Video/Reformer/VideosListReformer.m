@@ -12,8 +12,7 @@
 NSString *const kVideosListID = @"VideosListID";
 NSString *const kVideosListImageUrl = @"VideosListImageUrl";
 NSString *const kVideosListToName = @"VideosListToName";
-NSString *const kVideosListToPrice = @"VideosListToPrice";
-
+NSString *const kVideosListTocourseName = @"VideosListTocourseName";
 @implementation VideosListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
@@ -36,7 +35,7 @@ NSString *const kVideosListToPrice = @"VideosListToPrice";
                                      kVideosListID:arrData[i][@"id"],
                                      kVideosListToName:arrData[i][@"name"],
                                      kVideosListTocourseName:arrData[i][@"courseName"],
-                                     kVideosListImageUrl:courseImg
+                                     kVideosListImageUrl:arrData[i][@"count"]
                                      };
             [arrResult addObject:itemData];
         }

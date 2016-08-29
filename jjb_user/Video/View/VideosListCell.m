@@ -64,8 +64,8 @@
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
     
-    [self.titleLabel setText:data[kVideosListToName]];
-    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kVideosListToPrice]]];
+//    [self.titleLabel setText:data[kVideosListToName]];
+//    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kVideosListToPrice]]];
     NSURL *url=[NSURL initWithImageURL:data[kVideosListImageUrl] Size:self.picImageV.frame.size];
     [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
 
