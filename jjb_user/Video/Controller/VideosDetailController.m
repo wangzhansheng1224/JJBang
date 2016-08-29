@@ -11,13 +11,6 @@
 #import "VideosDetailReformer.h"
 
 
-@interface VideosDetailController ()
-
-@property (nonatomic,strong) VideosDetailHeader *headerView;
-@property (nonatomic,strong)
-
-@end
-
 @implementation VideosDetailController
 
 #pragma -
@@ -26,9 +19,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"视频详情";
     [self.view addSubview:self.webView];
-    self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
-    [self.detailAPIManager loadData];
+//    [self.detailAPIManager loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,7 +39,6 @@
             make.top.equalTo(@0);
             make.left.equalTo(@0);
         }];
-    }
     
 }
 
@@ -55,12 +46,11 @@
     
     if (!_webView) {
         
-        _webView = [[WKWebView alloc] init];
-        UIWebView * webview = [[UIWebView alloc] initWithFrame:self.view.frame];
+        _webView = [[UIWebView alloc] init];
         NSString *docUrl = @"http://192.168.6.21/ttt/video.html";
-        webview.allowsInlineMediaPlayback = YES;
-        webview.mediaPlaybackRequiresUserAction = NO;
-       [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:docUrl]]];
+        _webView.allowsInlineMediaPlayback = YES;
+        _webView.mediaPlaybackRequiresUserAction = NO;
+       [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:docUrl]]];
 
         
     }

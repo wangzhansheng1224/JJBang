@@ -9,7 +9,7 @@
 #import "MBClassifyCollectionView.h"
 #import "ShopClassifyCell.h"
 #import "ShopClassifyModel.h"
-#import "OrgListController.h"
+#import "StoreDetailController.h"
 #import "BaseNavigationController.h"
 #import "AppDelegate.h"
 #import "CourseListController.h"
@@ -129,9 +129,9 @@ static NSString * const cellID = @"cell";
         
     }else if(indexPath.row == 7)
     {
-        //机构
-        OrgListController * orgListVC = [OrgListController alloc];
-        [navControler pushViewController:orgListVC animated:YES];
+        //门店介绍
+        StoreDetailController * storeControl = [StoreDetailController alloc];
+        [navControler pushViewController:storeControl animated:YES];
 
     }
     

@@ -12,6 +12,5 @@
 extern NSString *const kVideosListID;
 extern NSString *const kVideosListImageUrl;
 extern NSString *const kVideosListToName;
-extern NSString *const kVideosListToPrice;
-
+extern NSString *const kVideosListTocourseName;
 #endif /* VideosListKey_h */

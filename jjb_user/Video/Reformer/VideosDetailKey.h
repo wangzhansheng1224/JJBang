@@ -10,11 +10,7 @@
 #define VideosDetailKey_h
 
 extern NSString *const kVideosDetailID;
+extern NSString *const kVideosUrlString;
 extern NSString *const kVideosDetailName;
-extern NSString *const kVideosDetailPrice;
-extern NSString *const kVideosDetaildescribe;
-extern NSString *const kVideosDetailCategoryName;
-extern NSString *const kVideosDetailImages;
-
 
 #endif /* VideosDetailKey_h */

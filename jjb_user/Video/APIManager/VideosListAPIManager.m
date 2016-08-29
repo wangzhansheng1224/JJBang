@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"Videos/selectVideosPage";
+        _methodName = @"video/list";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
