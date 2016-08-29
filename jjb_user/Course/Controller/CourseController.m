@@ -287,7 +287,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     //刷新section
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
 }
-
 - (void)payBtnClick:(UIButton *)click {
     
     SelectMenuController *select = [[SelectMenuController alloc] init];
@@ -296,7 +295,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     select.courseID = [_detailData[@"CourseID"] integerValue];
     [self presentViewController:select animated:YES completion:nil];
 }
-
 #pragma -
 #pragma mark - getters and setters
 - (CourseDetailHeader *) headerView{
@@ -306,7 +304,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _headerView;
 }
-
 - (HMSegmentedControl *) tabbarControl
 {
     if (!_tabbarControl) {
@@ -319,9 +316,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _tabbarControl;
 }
-
 - (UITableView *)tableView {
-    
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
@@ -332,39 +327,30 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
             self.pageIndex=0;
             [self loadData];
         }];
-        
         [_tableView registerClass:[CourseCatalogCell class] forCellReuseIdentifier:CatalogCellIdentifier];
         [_tableView registerClass:[CourseRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];
     }
     return _tableView;
 }
-
 - (NSMutableArray *)registrationData {
-    
     if (!_registrationData) {
         
         _registrationData = [[NSMutableArray alloc] init];
     }
     return _registrationData;
 }
-
 - (NSMutableArray *)dataSource {
-    
     if (!_dataSource) {
         _dataSource = [[NSMutableArray alloc] init];
     }
     return _dataSource;
 }
-
 - (NSMutableArray *)catalogData {
-    
     if (!_catalogData) {
         _catalogData = [[NSMutableArray alloc] init];
     }
     return _catalogData;
 }
-
-
 - (LDAPIBaseManager *)catalogAPIManager {
     if (_catalogAPIManager == nil) {
         _catalogAPIManager = [CourseCatalogAPIManager  sharedInstance];
@@ -373,7 +359,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _catalogAPIManager;
 }
-
 - (LDAPIBaseManager *)signUpAPIManager {
     if (_signUpAPIManager == nil) {
         _signUpAPIManager = [CourseRegisterListAPIManager  sharedInstance];
@@ -390,53 +375,39 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _detailAPIManager;
 }
-
-
 - (id<ReformerProtocol>) registerListReformer{
-    
     if (!_registerListReformer) {
         _registerListReformer=[[CourseRegisterListReformer alloc] init];
     }
     return _registerListReformer;
 }
-
 -(id<ReformerProtocol>) catalogReformer{
     if (!_catalogReformer) {
         _catalogReformer=[[CourseCatalogReformer alloc] init];
     }
     return _catalogReformer;
 }
-
 -(id<ReformerProtocol>) detailReformer{
     if (!_detailReformer) {
         _detailReformer=[[CourseInfoReformer alloc] init];
     }
     return _detailReformer;
 }
-
 - (NSMutableArray *)boolArr {
-
     if (!_boolArr) {
-        
         _boolArr = [[NSMutableArray alloc] init];
     }
     return _boolArr;
 }
-
 - (UIView *)bottomView {
-
     if (!_bottomView) {
-        
         _bottomView = [[UIView alloc] init];
         _bottomView.backgroundColor = COLOR_WHITE;
     }
     return _bottomView;
 }
-
 - (UIButton *)payBtn {
-    
     if (!_payBtn) {
-        
         _payBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _payBtn.backgroundColor = COLOR_ORANGE;
         _payBtn.layer.cornerRadius = 2.0;
@@ -447,7 +418,6 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _payBtn;
 }
-
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [[UIView alloc] init];
@@ -455,17 +425,13 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     }
     return _lineView;
 }
-
 - (UILabel *)priceLabel {
-    
     if (!_priceLabel) {
-        
         _priceLabel = [[UILabel alloc] init];
         _priceLabel.textColor = COLOR_ORANGE;
         _priceLabel.font = H1;
     }
     return _priceLabel;
 }
-
 
 @end

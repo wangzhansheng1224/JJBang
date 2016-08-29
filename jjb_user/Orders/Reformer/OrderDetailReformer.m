@@ -44,7 +44,6 @@
                  kOrdersDetailShopName:dataDict[@"shopName"],
                  kOrdersDetailZKPrice:[dataDict[@"zkPrice"] stringValue],
                  kOrdersDetailPrice:[dataDict[@"price"] stringValue]
-                 
                  };
     }
     return nil;

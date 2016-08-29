@@ -67,7 +67,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 50;
+    return 100;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -75,11 +75,11 @@
     MyQuestionSectionView * sectionView = [[MyQuestionSectionView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 50)];
     sectionView.titleLabel.text = self.titleArr[section];
     sectionView.tag = 1000+section;
-    
+    sectionView.backgroundColor = COLOR_WHITE;
     if ([self.boolArr[section] boolValue]) {
-        sectionView.rightImageV.image = [UIImage imageNamed:@""];
+        sectionView.rightImageV.image = [UIImage imageNamed:@"course_up"];
     }else {
-        sectionView.rightImageV.image = [UIImage imageNamed:@"my_right"];
+        sectionView.rightImageV.image = [UIImage imageNamed:@"course_down"];
 //        sectionView.rightImageV.image = nil;
 
     }

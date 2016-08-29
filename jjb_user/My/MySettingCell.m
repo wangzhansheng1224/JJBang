@@ -12,7 +12,6 @@
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *contentLabel;
-@property (nonatomic,strong) UIImageView *rightImageV;
 @property (nonatomic,strong) UILabel *line;
 
 @end

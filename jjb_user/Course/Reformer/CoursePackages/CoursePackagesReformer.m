@@ -14,6 +14,8 @@ NSString *const kCoursePackagesID=@"CoursePackagesID";
 NSString *const kCoursePackagesName=@"CoursePackagesName";
 NSString *const kCoursePackagesOrgPrice=@"CoursePackagesOrgPrice";
 NSString *const kPackagesID=@"PackagesID";
+NSString *const kPackagesMembersId=@"PackagesMembersId";
+NSString *const kPackagesMembersName=@"PackagesMembersName";
 
 @implementation CoursePackagesReformer
 
@@ -21,23 +23,37 @@ NSString *const kPackagesID=@"PackagesID";
 {
     if ([manager isKindOfClass:[CoursePackagesAPIManager class]]) {
         
-        NSMutableArray *resultArr = [[NSMutableArray alloc] init];
-        NSArray *dataArr = data[@"data"];
+        NSMutableDictionary *resultDic = [[NSMutableDictionary alloc] init];
         
-        for (int i = 0; i < dataArr.count; i++) {
+        NSMutableArray * packArr = [[NSMutableArray alloc] init];
+        NSMutableArray * memberArr = [[NSMutableArray alloc] init];
+        
+        NSDictionary *dataDic = data[@"data"];
+        NSArray *packagesArr = dataDic[@"packages"];
+        for (int i = 0; i < packagesArr.count; i++) {
             
             NSDictionary * dic = @{
-                      kCoursePackagesID:dataArr[i][@"courseId"],
-                      kCoursePackagesName:dataArr[i][@"name"],
-                      kCoursePackagesNums:dataArr[i][@"course_nums"],
-                      kCoursePackagesOrgPrice:dataArr[i][@"org_price"],
-                      kPackagesID:dataArr[i][@"id"]
-                      };
-            
-            [resultArr addObject:dic];
+                                   kCoursePackagesID:packagesArr[i][@"courseId"],
+                                   kCoursePackagesName:packagesArr[i][@"name"],
+                                   kCoursePackagesNums:packagesArr[i][@"course_nums"],
+                                   kCoursePackagesOrgPrice:packagesArr[i][@"org_price"],
+                                   kPackagesID:packagesArr[i][@"id"]
+                                   };
+            [packArr addObject:dic];
         }
+        [resultDic setObject:packArr forKey:@"packages"];
         
-        return resultArr;
+        NSArray *membersArr = dataDic[@"members"];
+        for (int i = 0; i < membersArr.count; i++) {
+            NSDictionary *dic = @{
+                                  kPackagesMembersId:membersArr[i][@"user_id"],
+                                  kPackagesMembersName:membersArr[i][@"name"]
+                                  };
+            [memberArr addObject:dic];
+        }
+        [resultDic setObject:memberArr forKey:@"members"];
+        
+        return resultDic;
     }
     return nil;
 }
