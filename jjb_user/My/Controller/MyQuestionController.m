@@ -8,14 +8,13 @@
 
 #import "MyQuestionController.h"
 #import "MyQuestionCell.h"
+#import "MyQuestionSectionView.h"
 
 @interface MyQuestionController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *titleArr;
-@property (nonatomic,strong) UIView *sectionView;
-@property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UIImageView *rightImageV;
+
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,strong) NSMutableArray *boolArr;
 
@@ -29,7 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_WHITE;
     self.navigationItem.title = @"常见问题";
-    
+    [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
 }
 
@@ -41,17 +40,7 @@
         make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
         make.top.left.equalTo(@0);
     }];
-    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@10);
-        make.left.equalTo(@10);
-        make.right.equalTo(_rightImageV.mas_left).with.offset(-10);
-        make.height.equalTo(@17);
-    }];
-    [_rightImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_titleLabel.mas_centerY);
-        make.right.equalTo(@-10);
-        make.size.mas_equalTo(CGSizeMake(17, 9));
-    }];
+
 }
 
 #pragma -
@@ -66,7 +55,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return self.dataArr.count;
+    return self.titleArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,11 +72,31 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
-//    [self.sectionView configWithData:self.dataArr[section-1]];
-    self.sectionView.tag = 100+section;
+    MyQuestionSectionView * sectionView = [[MyQuestionSectionView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 50)];
+    sectionView.titleLabel.text = self.titleArr[section];
+    sectionView.tag = 1000+section;
+    
+    if ([self.boolArr[section] boolValue]) {
+        sectionView.rightImageV.image = [UIImage imageNamed:@""];
+    }else {
+        sectionView.rightImageV.image = [UIImage imageNamed:@"my_right"];
+//        sectionView.rightImageV.image = nil;
+
+    }
+    
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGR:)];
-    [self.sectionView addGestureRecognizer:tap];
-    return self.sectionView;
+    [sectionView addGestureRecognizer:tap];
+    return sectionView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 50.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 0.00001;
 }
 
 #pragma -
@@ -125,24 +134,16 @@
     }
     return _titleArr;
 }
-- (UIView *)sectionView {
-    if (!_sectionView) {
-        _sectionView = [[UIView alloc] init];
-        [_sectionView addSubview:self.titleLabel];
-        [_sectionView addSubview:self.rightImageV];
+
+- (NSMutableArray *)boolArr {
+    
+    if (!_boolArr) {
+        _boolArr = [[NSMutableArray alloc] init];
+        NSArray *array = @[@NO,@NO,@NO,@NO];
+        _boolArr = [NSMutableArray arrayWithArray:array];
     }
-    return _sectionView;
+    return _boolArr;
 }
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-    }
-    return _titleLabel;
-}
-- (UIImageView *)rightImageV {
-    if (!_rightImageV) {
-        _rightImageV = [[UIImageView alloc] init];
-    }
-    return _rightImageV;
-}
+
+
 @end

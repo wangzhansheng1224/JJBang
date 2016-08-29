@@ -131,7 +131,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==5) {
+    if (indexPath.section==6) {
         NSArray* arrData=self.dataDic[kShopIndexCourseList];
         NSDictionary *dataDic=arrData[indexPath.row];
         UIViewController* controller=[[CTMediator sharedInstance] CTMediator_CourseDetail:@{@"courseID":dataDic[kCourseID]}];
@@ -146,12 +146,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 6;
+    return 7;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==5) {
+    if (section==6) {
         NSArray* arrData=self.dataDic[kShopIndexCourseList];
         if (arrData) {
             return [arrData count];
@@ -206,12 +206,22 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         return cell;
     }
-//    else if(indexPath.section ==3)
-//    {
-//        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
-//        return cell;
-//    }
-    else if(indexPath.section == 3)
+    else if(indexPath.section ==3)
+    {
+        MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.dataDic[kShopIndexVideoID][indexPath.row]];
+        JJBLog(@"self.dataDic = %@",self.dataDic);
+        TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"直播间"];
+        titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
+        [cell.contentView addSubview:titleBar];
+        [titleBar moreButtonClick:^(TitleBar *sender) {
+            UIViewController *controller= [[CTMediator sharedInstance] CTMediator_VideosList:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+        }];
+
+        return cell;
+    }
+    else if(indexPath.section == 4)
     {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarStudentCellIdentifier forIndexPath:indexPath];
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"明星学员"];
@@ -231,7 +241,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         return cell;
         
     }
-    else if(indexPath.section == 4)
+    else if(indexPath.section == 5)
     {
         
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MBStarTeacherCellIdentifier forIndexPath:indexPath];
@@ -280,14 +290,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (indexPath.section==2) {
         return (Screen_Width-40.0f)/2.0f+30.0f+40.0f;
     }
-//    if (indexPath.section==3) {
-//        return Screen_Width*2.0f/3.0f+90.0f;
-//    }
-    if(indexPath.section==3)
+    if (indexPath.section==3) {
+        return Screen_Width*2.0f/3.0f+90.0f;
+    }
+    if (indexPath.section==4)
     {
         return Screen_Width/2.0f+30.0f+10.f;
     }
-    if(indexPath.section==4)
+    if (indexPath.section==5)
     {
         return Screen_Width/2.0f+30.0f+10.f+30.0f;
     }

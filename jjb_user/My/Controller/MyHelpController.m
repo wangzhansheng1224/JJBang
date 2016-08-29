@@ -78,8 +78,8 @@
         MyCommentController *commentVC = [[MyCommentController alloc] init];
         [self.navigationController pushViewController:commentVC animated:YES];
     }else if (indexPath.row == 1) {
-//        MyQuestionController *questionVC = [[MyQuestionController alloc] init];
-//        [self.navigationController pushViewController:questionVC animated:YES];
+        MyQuestionController *questionVC = [[MyQuestionController alloc] init];
+        [self.navigationController pushViewController:questionVC animated:YES];
     }else {
         ExplainLevelController *controller = [[ExplainLevelController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];

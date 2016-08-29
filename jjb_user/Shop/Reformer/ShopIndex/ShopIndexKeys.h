@@ -16,7 +16,7 @@ extern NSString *const kShopIndexSdtList;
 extern NSString *const kShopIndexTechList;
 extern NSString *const kShopIndexRadioList;
 extern NSString *const kShopIndexCourseList;
-
+extern NSString *const kShopIndexVideosList;
 
 extern NSString *const kShopIndexActImgID;
 extern NSString *const kShopIndexActImgImagePath;
@@ -39,6 +39,13 @@ extern NSString *const kShopIndexSdtListNum;
 extern NSString *const kShopIndexActID;
 extern NSString *const kShopIndexActImage;
 extern NSString *const kShopIndexActTitle;
+
+extern NSString *const kShopIndexVideoID;
+extern NSString *const kShopIndexCourseImg;
+extern NSString *const kShopIndexCourseName;
+extern NSString *const kShopIndexVideoName;
+
+
 
 //门店列表
 extern NSString *const kShopIndexShopListID;

@@ -22,7 +22,7 @@
     
     if (self)
     {
-        [self addSubview:self.descLabel];
+        [self.contentView addSubview:self.descLabel];
         [self layoutPageSubviews];
     }
     return self;
@@ -31,12 +31,10 @@
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-    UIView *superView=self;
+    
     [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(superView.mas_bottom).offset(10);
-        make.left.mas_equalTo(superView.mas_left).offset(10);
-        make.right.mas_equalTo(superView.mas_right).offset(-10);
-        make.bottom.mas_equalTo(superView.mas_bottom).offset(-10);
+        make.top.left.equalTo(@10);
+        make.bottom.right.equalTo(@-10);
     }];
 }
 
@@ -70,7 +68,7 @@
         _descLabel = [[UILabel alloc] init];
         _descLabel.text = @"第一节课 拉伸运动";
         _descLabel.font = H3;
-        //        _descLabel.backgroundColor=JJBRandomColor;
+//        _descLabel.backgroundColor=JJBRandomColor;
         _descLabel.textColor=COLOR_GRAY;
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _descLabel.numberOfLines = 0;

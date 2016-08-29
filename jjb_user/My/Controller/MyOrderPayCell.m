@@ -18,7 +18,7 @@
 @property (nonatomic,strong) UILabel *orderPriceLabel;
 @property (nonatomic,strong) UILabel *orderTimeLabel;
 @property (nonatomic,strong) UILabel *orderStatusLabel;
-@property (nonatomic,strong) UIButton *orderPayBtn;
+//@property (nonatomic,strong) UIButton *orderPayBtn;
 @property (nonatomic,strong) UILabel *topLine;
 @property (nonatomic,strong) UILabel *bottomLine;
 @property (nonatomic,strong) UILabel *line;
@@ -115,21 +115,25 @@
 #pragma mark - private methods
 - (void)configWithData:(NSDictionary *)data
 {
-    NSString * type = data[kMyOrderPayOrderStatus];
+    
     self.orderId = data[kMyOrderPayId];
-    if (type.length == 0) {
+    NSLog(@"%@+++",data);
+    NSNumber * type = data[kMyOrderPayOrderStatus];
+    if ([type intValue] == 0) {
+        self.orderPayBtn.userInteractionEnabled = YES;
+        _orderPayBtn.backgroundColor = COLOR_ORANGE;
         [_orderPayBtn setTitle:@"待付款" forState:UIControlStateNormal];
-    }else if ([type isEqualToString:@"已付款"]) {
+    }else if ([type intValue] == 1) {
         self.orderPayBtn.userInteractionEnabled = NO;
         _orderPayBtn.backgroundColor = COLOR_GRAY;
         [_orderPayBtn setTitle:@"已付款" forState:UIControlStateNormal];
-    }else if ([type isEqualToString:@"已退款"]) {
+    }else if ([type intValue] == 2) {
         self.orderPayBtn.userInteractionEnabled = NO;
         _orderPayBtn.backgroundColor = COLOR_GRAY;
         [_orderPayBtn setTitle:@"已退款" forState:UIControlStateNormal];
     }
     self.orderNo.text = [NSString stringWithFormat:@"订单号 %@",data[kMyOrderPayOrderNo]];
-    self.orderStatusLabel.text = data[kMyOrderPayOrderStatus];
+//    self.orderStatusLabel.text = data[kMyOrderPayOrderStatus];
     [self.orderImageV sd_setImageWithURL:[NSURL initWithImageURL:data[kMyOrderPayOrderImage] Width:Screen_Width/2.0 Height:Screen_Width/3.0]  placeholderImage:[UIImage imageNamed:@"img_default"]];
     self.orderTitleLabel.text = data[kMyOrderPayOrderName];
     self.orderPriceLabel.text = [NSString stringWithFormat:@"￥%@",data[kMyOrderPayOrderPrice]];
@@ -227,11 +231,9 @@
 }
 - (UIButton *)orderPayBtn {
     if (!_orderPayBtn) {
-        _orderPayBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _orderPayBtn = [[UIButton alloc] init];
         _orderPayBtn.layer.cornerRadius = 3.0;
         _orderPayBtn.clipsToBounds = YES;
-        _orderPayBtn.backgroundColor = COLOR_ORANGE;
-        [_orderPayBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
         [_orderPayBtn addTarget:self action:@selector(orderPayBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _orderPayBtn;

@@ -32,8 +32,6 @@
 
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,7 +52,6 @@
         make.top.equalTo(self.tableView.mas_top).offset(330);
         make.left.equalTo(self.tableView.mas_left).offset(30);
     }];
-
 }
 
 #pragma -
@@ -121,25 +118,26 @@
     return 50;
 }
 
-
-
+#pragma -
+#pragma mark - getters and setters
 -(void)quit:(UIButton *)btn
 {
     [UserModel removeUser];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 #pragma -
 #pragma mark - getters and setters
 - (NSMutableArray *)arr_title {
     if (!_arr_title) {
-        NSArray * array = @[@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号", @"QQ"];
+        NSArray * array = @[@"",@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号"];
         _arr_title = [NSMutableArray arrayWithArray:array];
     }
     return _arr_title;
 }
 - (NSMutableArray *)arr_content {
     if (!_arr_content) {
-        NSArray * array = @[@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号", @"QQ"];
+        NSArray * array = @[@"",@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号"];
         _arr_content = [NSMutableArray arrayWithArray:array];
     }
     return _arr_content;
@@ -171,10 +169,8 @@
         [button.layer setCornerRadius:5.0];
         _quitButton = button;
         [self.tableView addSubview:_quitButton];
-        
     }
     return _quitButton;
-
 }
 
 @end
