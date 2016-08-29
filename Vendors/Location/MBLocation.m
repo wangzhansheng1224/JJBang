@@ -30,7 +30,7 @@ SingleM(MBLocation);
                 [self.locationManager requestWhenInUseAuthorization];
                 break;
             case kCLAuthorizationStatusDenied:
-                [self alertOpenLocationSwitch:@"提示" messgae:@"请在隐私设置中打开定位"];
+//                [self alertOpenLocationSwitch:@"提示" messgae:@"请在隐私设置中打开定位"];
                 break;
             default:
                 

@@ -270,6 +270,7 @@
 		AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */; };
 		AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */; };
 		AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */; };
+		AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
@@ -291,6 +292,7 @@
 		BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A661D5704380078D083 /* MBStarCouseCell.m */; };
 		BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */; };
 		BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BB223E1A1D5B0E7A003D3703 /* StreetControl.m */; };
+		BB29D5131D72B9AA00A25EC0 /* Video in Resources */ = {isa = PBXBuildFile; fileRef = BB29D5121D72B9AA00A25EC0 /* Video */; };
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
@@ -312,6 +314,7 @@
 		BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB82A0C11D520BEC006739A5 /* otherButtonModel.m */; };
 		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
 		BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8843011D51E02100A537D8 /* UIImage+image.m */; };
+		BBA1380C1D731C380032F3CE /* CTMediator+CTMediatorVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA1380B1D731C380032F3CE /* CTMediator+CTMediatorVideos.m */; };
 		BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */; };
 		BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4451D51EDEE001BCEEF /* registerViewController.m */; };
 		BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4491D51FD22001BCEEF /* MBloginButton.m */; };
@@ -932,6 +935,8 @@
 		AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBubbleView.m; path = Vendors/Category/MyBubbleView.m; sourceTree = SOURCE_ROOT; };
 		AC9C410F1D70580600EC6C65 /* ClerkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailCell.h; path = Vendors/Category/ClerkDetailCell.h; sourceTree = SOURCE_ROOT; };
 		AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailCell.m; path = Vendors/Category/ClerkDetailCell.m; sourceTree = SOURCE_ROOT; };
+		AC9C41151D74056200EC6C65 /* ClerkDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailAPIManager.h; path = APIManager/ClerkDetailAPIManager.h; sourceTree = "<group>"; };
+		AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailAPIManager.m; path = APIManager/ClerkDetailAPIManager.m; sourceTree = "<group>"; };
 		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
 		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
 		ACE6747F1D5D58EA00B57938 /* MyOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailCell.h; path = jjb_user/My/Controller/MyOrderDetailCell.h; sourceTree = SOURCE_ROOT; };
@@ -975,6 +980,7 @@
 		BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewActivityModel.m; sourceTree = "<group>"; };
 		BB223E191D5B0E7A003D3703 /* StreetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetControl.h; sourceTree = "<group>"; };
 		BB223E1A1D5B0E7A003D3703 /* StreetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetControl.m; sourceTree = "<group>"; };
+		BB29D5121D72B9AA00A25EC0 /* Video */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Video; sourceTree = "<group>"; };
 		BB4C13111D52E23E002C13FA /* LoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterView.h; sourceTree = "<group>"; };
 		BB4C13121D52E23E002C13FA /* LoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterView.m; sourceTree = "<group>"; };
 		BB4C13141D53303E002C13FA /* FindPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPassWordViewController.h; sourceTree = "<group>"; };
@@ -1016,6 +1022,8 @@
 		BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MBCustom.m"; sourceTree = "<group>"; };
 		BB8843001D51E02100A537D8 /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
 		BB8843011D51E02100A537D8 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
+		BBA1380A1D731C320032F3CE /* CTMediator+CTMediatorVideos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorVideos.h"; path = "Videos/CTMediator+CTMediatorVideos.h"; sourceTree = "<group>"; };
+		BBA1380B1D731C380032F3CE /* CTMediator+CTMediatorVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorVideos.m"; path = "Videos/CTMediator+CTMediatorVideos.m"; sourceTree = "<group>"; };
 		BBC3F4411D51ECD0001BCEEF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BBC3F4441D51EDEE001BCEEF /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
@@ -1375,8 +1383,8 @@
 		731091AB1D51A5F20031B443 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				732A96D51D5EBD3900BE5800 /* Actions */,
 				731091AC1D51A5F20031B443 /* APIManager */,
+				732A96D51D5EBD3900BE5800 /* Actions */,
 				731091AD1D51A5F20031B443 /* Controller */,
 				731091AE1D51A5F20031B443 /* Reformer */,
 				731091AF1D51A5F20031B443 /* View */,
@@ -1470,7 +1478,8 @@
 				731091E81D51C8840031B443 /* APIManager */,
 				731091E41D51C8700031B443 /* Controller */,
 			);
-			path = System;
+			name = System;
+			path = ../../System;
 			sourceTree = "<group>";
 		};
 		731091E41D51C8700031B443 /* Controller */ = {
@@ -1687,6 +1696,7 @@
 			children = (
 				732A96D61D5EBD5700BE5800 /* Target_Teacher.h */,
 				732A96D71D5EBD5700BE5800 /* Target_Teacher.m */,
+				BB1294231D50A6970048927D /* View */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -1817,6 +1827,7 @@
 		73575F671D54D5FA0037F697 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				731091E31D51C8700031B443 /* System */,
 				735C3B031D6302F700E4DB90 /* StudentReformer.h */,
 				735C3B041D6302F700E4DB90 /* StudentReformer.m */,
 				735C3B061D63030900E4DB90 /* StudentKeys.h */,
@@ -1850,6 +1861,8 @@
 		73575F711D54EEA00037F697 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				BBA1380A1D731C320032F3CE /* CTMediator+CTMediatorVideos.h */,
+				BBA1380B1D731C380032F3CE /* CTMediator+CTMediatorVideos.m */,
 				732A96DD1D5EC0E200BE5800 /* Student */,
 				732A96D11D5EBC7500BE5800 /* Teacher */,
 				732A96CA1D5EB55900BE5800 /* Course */,
@@ -1882,6 +1895,8 @@
 		735C3AF11D62F25700E4DB90 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				AC9C41151D74056200EC6C65 /* ClerkDetailAPIManager.h */,
+				AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */,
 				735C3AF21D62F28500E4DB90 /* ClerkListAPIManager.h */,
 				735C3AF31D62F28500E4DB90 /* ClerkListAPIManager.m */,
 			);
@@ -2344,13 +2359,12 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
-				AC540A711D61B640007636CE /* AliPay */,
 				732A96B31D5E9E8300BE5800 /* Goods */,
 				51B50F3B1D642903001733C8 /* Orders */,
 				BB613ACA1D598B0E004DE299 /* Clerk */,
+				BB29D5121D72B9AA00A25EC0 /* Video */,
 				73575F5C1D54D5FA0037F697 /* Student */,
 				731091AB1D51A5F20031B443 /* Teacher */,
-				731091E31D51C8700031B443 /* System */,
 				731091A61D51A52C0031B443 /* Course */,
 				731091A11D51A4FD0031B443 /* Org */,
 				731091621D5198C60031B443 /* Shop */,
@@ -2415,7 +2429,8 @@
 				AC540A761D61B640007636CE /* openssl */,
 				AC540AC41D61B640007636CE /* Util */,
 			);
-			path = AliPay;
+			name = AliPay;
+			path = ../jjb_user/AliPay;
 			sourceTree = "<group>";
 		};
 		AC540A761D61B640007636CE /* openssl */ = {
@@ -2583,7 +2598,6 @@
 			children = (
 				BB1294211D50A6970048927D /* Controller */,
 				BB1294221D50A6970048927D /* Model */,
-				BB1294231D50A6970048927D /* View */,
 			);
 			path = Ad;
 			sourceTree = "<group>";
@@ -2610,12 +2624,14 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = View;
+			name = View;
+			path = ../Ad/View;
 			sourceTree = "<group>";
 		};
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				AC540A711D61B640007636CE /* AliPay */,
 				AC3D77D71D643D6600AAA3A0 /* Location */,
 				AC540AF31D62C0FE007636CE /* Pay */,
 				738B82101D5FE5A100765F6F /* OSS */,
@@ -2854,7 +2870,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
+						DevelopmentTeam = QG53YK39QX;
 					};
 				};
 			};
@@ -2887,6 +2903,7 @@
 				5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */,
 				AC6E13821D5D8E1100A7C71D /* README.txt in Resources */,
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
+				BB29D5131D72B9AA00A25EC0 /* Video in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3020,6 +3037,7 @@
 				739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */,
 				51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */,
 				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
+				AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
 				BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */,
@@ -3103,6 +3121,7 @@
 				735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
+				BBA1380C1D731C380032F3CE /* CTMediator+CTMediatorVideos.m in Sources */,
 				AC27CB1A1D6720E400240089 /* OrderDetailReformer.m in Sources */,
 				735C3B121D654C9200E4DB90 /* CourseCatalogCell.m in Sources */,
 				734012111D6C2B6600BF217C /* OrderStatusAPImanager.m in Sources */,
@@ -3346,7 +3365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3414,7 +3433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",

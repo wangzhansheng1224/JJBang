@@ -8,7 +8,6 @@
 
 #import "ClerkListReformer.h"
 #import "ClerkListAPIManager.h"
-#import "ClerkKeys.h"
 
 NSString * const kClerkID = @"ClerkID";
 NSString * const kClerkFace = @"ClerkFace";
@@ -17,24 +16,24 @@ NSString * const kClerkStar = @"ClerkStar";
 /**
  *  性别
  */
-NSString *const kClerkGender = @"kClerkGender";
+NSString *const kClerkGender = @"ClerkGender";
 /**
  *  勋章
  */
-NSString *const kClerkMedal = @"kClerkMedal";
+NSString *const kClerkMedal = @"ClerkMedal";
 /**
  *  年龄
  */
- NSString *const kClerkAge = @"kClerkAge";
+ NSString *const kClerkAge = @"ClerkAge";
 /**
  *  生日
  */
 
- NSString *const kClerkBirthday = @"kClerkBirthday";
+ NSString *const kClerkBirthday = @"ClerkBirthday";
 /**
  *  角色名称
  */
-NSString *const kClerkRoleName = @"kClerkRoleName";
+NSString *const kClerkRoleName = @"ClerkRoleName";
 
 
 

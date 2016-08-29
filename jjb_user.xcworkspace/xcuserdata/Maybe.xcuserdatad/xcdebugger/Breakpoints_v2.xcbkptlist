@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "jjb_user/My/Controller/ExplainLevelHeadView.m"
-            timestampString = "493900005.095519"
+            filePath = "jjb_user/Clerk/Controller/ClerkController.m"
+            timestampString = "494150622.562274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-iconImageView"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-paramsForApi:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

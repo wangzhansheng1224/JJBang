@@ -143,6 +143,7 @@
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     if ([manager isKindOfClass:[MBOrderPayTypeAPIManager class]]) {
         NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        JJBLog(@"%@",dict);
         //错误信息判断
     }
 }
@@ -154,18 +155,6 @@
         ((MBOrderPayTypeAPIManager *)manager).methodName = [NSString stringWithFormat:@"gateway/orderPayWay/%@/%@/%@",@(self.RechargeType),self.orderInfoDict[@"OrderDetailOrderNo"],@([UserModel currentUser].userID)];
     }
     return nil;
-    
-    
-    
-    
-    
-//    NSDictionary * dict = @{
-//                            @"way":@1,
-//                            @"order_no":@"余额充值",
-//                            };
-//    return dict;
-    
-    
 }
 
 

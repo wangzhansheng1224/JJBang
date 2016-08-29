@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MBVideoCell : UITableViewCell
-
+- (void)configWithData:(NSDictionary *)data;
 @end
