@@ -10,7 +10,8 @@
 #import "MySettingCell.h"
 #import "MySettingIconCell.h"
 #import "MySettingDetailController.h"
-
+#import "FindPassWordViewController.h"
+#import "ChangeHeaderIconController.h"
 
 @interface MySettingController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -71,6 +72,11 @@
         cell.title = self.arr_title[indexPath.row];
         cell.content = self.arr_content[indexPath.row];
         }
+        if (indexPath.row == 1) {
+            cell.rightImageV.image = nil;
+        }else if (indexPath.row == 4) {
+            cell.rightImageV.image = nil;
+        }
         return cell;
     }
 }
@@ -80,38 +86,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MySettingDetailController * detail = [[MySettingDetailController alloc] init];
     if (indexPath.row == 0) {
+        ChangeHeaderIconController *changeHeader = [[ChangeHeaderIconController alloc] init];
+        [self.navigationController pushViewController:changeHeader animated:YES];
     }else if (indexPath.row == 1) {
-        detail.name = self.arr_title[indexPath.row];
-        detail.block = ^(NSString * content) {
-            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
-        };
+
     }else if (indexPath.row == 2) {
         detail.sign = self.arr_title[indexPath.row];
         detail.block = ^(NSString * content) {
             [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
         };
+        [self.navigationController pushViewController:detail animated:YES];
     }else if (indexPath.row == 3) {
-        detail.password = self.arr_title[indexPath.row];
-        detail.block = ^(NSString * content) {
-            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
-        };
-    }else if (indexPath.row == 4) {
-        detail.phoneNum = self.arr_title[indexPath.row];
-        detail.block = ^(NSString * content) {
-            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
-        };
-    }else if (indexPath.row == 5) {
-        detail.weixinNum = self.arr_title[indexPath.row];
-        detail.block = ^(NSString * content) {
-            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
-        };
-    }else if (indexPath.row == 6) {
-        detail.qqNum = self.arr_title[indexPath.row];
-        detail.block = ^(NSString * content) {
-            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
-        };
+        FindPassWordViewController *findPassWord = [[FindPassWordViewController alloc] init];
+        [self.navigationController pushViewController:findPassWord animated:YES];
     }
-    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,14 +118,14 @@
 #pragma mark - getters and setters
 - (NSMutableArray *)arr_title {
     if (!_arr_title) {
-        NSArray * array = @[@"",@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号"];
+        NSArray * array = @[@"",@"昵称", @"个性签名", @"账户密码", @"手机号"];
         _arr_title = [NSMutableArray arrayWithArray:array];
     }
     return _arr_title;
 }
 - (NSMutableArray *)arr_content {
     if (!_arr_content) {
-        NSArray * array = @[@"",@"昵称", @"个性签名", @"账户密码", @"手机号", @"微信账号"];
+        NSArray * array = @[@"",[UserModel currentUser].nickName, [UserModel currentUser].signature, @"重置密码", [UserModel currentUser].phone];
         _arr_content = [NSMutableArray arrayWithArray:array];
     }
     return _arr_content;

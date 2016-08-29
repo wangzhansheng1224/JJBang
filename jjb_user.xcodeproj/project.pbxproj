@@ -31,13 +31,13 @@
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
-		5167DA3E1D6E86DB00A67457 /* MyQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */; };
 		5167DA421D6EDB7100A67457 /* MyOrderPayReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */; };
 		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
 		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
+		5189D4EF1D73BF8600AFC01C /* ChangeHeaderIconController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */; };
 		519843991D6D877800A69A33 /* MyHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519843981D6D877800A69A33 /* MyHelpController.m */; };
 		5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439B1D6D920500A69A33 /* MyCommentController.m */; };
 		5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439E1D6DB9F900A69A33 /* MyQuestionController.m */; };
@@ -381,8 +381,6 @@
 		5155CE701D581F0B00306150 /* StudentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentListCell.m; path = jjb_user/Student/StudentListCell.m; sourceTree = SOURCE_ROOT; };
 		5158BE2B1D61C57900105473 /* GoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListCell.h; sourceTree = "<group>"; };
 		5158BE2C1D61C57900105473 /* GoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListCell.m; sourceTree = "<group>"; };
-		5167DA3C1D6E86DB00A67457 /* MyQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyQuestionView.h; path = jjb_user/My/Controller/MyQuestionView.h; sourceTree = SOURCE_ROOT; };
-		5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyQuestionView.m; path = jjb_user/My/Controller/MyQuestionView.m; sourceTree = SOURCE_ROOT; };
 		5167DA401D6EDB7100A67457 /* MyOrderPayReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayReformer.h; sourceTree = "<group>"; };
 		5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderPayReformer.m; sourceTree = "<group>"; };
 		5167DA431D6EDB8000A67457 /* MyOrderPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayKey.h; sourceTree = "<group>"; };
@@ -395,6 +393,8 @@
 		517F99331D57A87B002609E5 /* MySettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySettingCell.m; path = jjb_user/My/MySettingCell.m; sourceTree = SOURCE_ROOT; };
 		517F99351D57A957002609E5 /* MySettingDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingDetailController.h; sourceTree = "<group>"; };
 		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
+		5189D4ED1D73BF8600AFC01C /* ChangeHeaderIconController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeaderIconController.h; sourceTree = "<group>"; };
+		5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeaderIconController.m; sourceTree = "<group>"; };
 		519843971D6D877800A69A33 /* MyHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpController.h; sourceTree = "<group>"; };
 		519843981D6D877800A69A33 /* MyHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpController.m; sourceTree = "<group>"; };
 		5198439A1D6D920500A69A33 /* MyCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentController.h; sourceTree = "<group>"; };
@@ -2123,6 +2123,8 @@
 				5198439B1D6D920500A69A33 /* MyCommentController.m */,
 				5198439D1D6DB9F900A69A33 /* MyQuestionController.h */,
 				5198439E1D6DB9F900A69A33 /* MyQuestionController.m */,
+				5189D4ED1D73BF8600AFC01C /* ChangeHeaderIconController.h */,
+				5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2164,8 +2166,6 @@
 				AC0EF2BF1D6EE2EA00054421 /* LevelPrizeSupView.m */,
 				AC0EF2BB1D6ED20000054421 /* LevelPrizeView.h */,
 				AC0EF2BC1D6ED20000054421 /* LevelPrizeView.m */,
-				5167DA3C1D6E86DB00A67457 /* MyQuestionView.h */,
-				5167DA3D1D6E86DB00A67457 /* MyQuestionView.m */,
 				BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */,
 				BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */,
 				AC9C41091D6FD53300EC6C65 /* MyFeaturePrivilegecell.h */,
@@ -3259,6 +3259,7 @@
 				AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */,
 				735C3B271D65C13000E4DB90 /* OrderDetailAPIManager.m in Sources */,
 				732A96BA1D5E9FFA00BE5800 /* GoodsListController.m in Sources */,
+				5189D4EF1D73BF8600AFC01C /* ChangeHeaderIconController.m in Sources */,
 				735C3B051D6302F700E4DB90 /* StudentReformer.m in Sources */,
 				731091F41D51C8840031B443 /* EditUserInfoAPIManger.m in Sources */,
 				731091821D5198C60031B443 /* ShopIndexReformer.m in Sources */,
@@ -3268,7 +3269,6 @@
 				734012111D6C2B6600BF217C /* OrderStatusAPImanager.m in Sources */,
 				51B50F3A1D64193A001733C8 /* GoodsDetailAPIManager.m in Sources */,
 				731091F31D51C8840031B443 /* EditPasswordAPIManager.m in Sources */,
-				5167DA3E1D6E86DB00A67457 /* MyQuestionView.m in Sources */,
 				51B2B6BC1D51F75800347E57 /* MyCourseCell.m in Sources */,
 				73886D2E1D4F735D00643BBA /* LDURLResponse.m in Sources */,
 				731091C11D51A6FB0031B443 /* TeacherInfoAPIManager.m in Sources */,

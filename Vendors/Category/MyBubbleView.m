@@ -64,7 +64,7 @@
         UILabel * label = [[UILabel alloc]init];
         label.text = @"升级还需:充值3000";
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = H4;
+        label.font = FONT_SIZE(13);
         [label sizeToFit];
         _label = label;
         [self.imageView addSubview:_label];

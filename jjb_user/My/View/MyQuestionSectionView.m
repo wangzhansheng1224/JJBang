@@ -8,6 +8,11 @@
 
 #import "MyQuestionSectionView.h"
 
+@interface MyQuestionSectionView ()
+
+@property (nonatomic,strong) UILabel *line;
+
+@end
 
 @implementation MyQuestionSectionView
 
@@ -18,28 +23,30 @@
     if (self) {
         [self addSubview:self.titleLabel];
         [self addSubview:self.rightImageV];
-        
-        [self layout];
+        [self addSubview:self.line];
+        [self layoutPageSubviews];
     }
     return self;
 }
 
 
 
-- (void)layout {
+- (void)layoutPageSubviews {
     
     [_rightImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
         make.right.equalTo(@-10);
         make.size.mas_equalTo(CGSizeMake(17, 9));
     }];
-
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@10);
+        make.centerY.equalTo(self.mas_centerY);
         make.left.equalTo(@10);
-//        make.right.equalTo(_rightImageV.mas_left).with.offset(-10);
         make.height.equalTo(@17);
-        make.width.equalTo(@100);
+        make.width.equalTo(@200);
+    }];
+    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.right.equalTo(@0);
+        make.height.equalTo(@1);
     }];
 }
 
@@ -55,6 +62,12 @@
     }
     return _rightImageV;
 }
-
+- (UILabel *)line {
+    if (!_line) {
+        _line = [[UILabel alloc] init];
+        _line.backgroundColor = COLOR_LIGHT_GRAY;
+    }
+    return _line;
+}
 
 @end

@@ -50,44 +50,25 @@
 #pragma -
 #pragma mark - CustomMethods
 - (void)loadData {
-    
     NSArray *array_image1 = @[@"my_order", @"my_course", @"my_evaluate"];
-    
     NSArray * array_title1 = @[@"我的订单", @"我的课程", @"我的评价"];
-    
     NSMutableArray * array_section1 = [[NSMutableArray alloc] init];
-    
     for (int i = 0; i < array_image1.count; i++) {
-        
         MineModel * model = [[MineModel alloc] init];
-        
         model.image = array_image1[i];
-        
         model.title = array_title1[i];
-        
         [array_section1 addObject:model];
-        
     }
-    
     [self.dataArr addObject:array_section1];
-    
     NSArray * array_image2 = @[@"my_help", @"my_service", @"my_more"];
-    
     NSArray * array_title2 = @[@"帮助与反馈", @"联系客服", @"更多"];
-    
     NSMutableArray * array_section2 = [[NSMutableArray alloc] init];
-    
     for (int i = 0; i < array_image2.count; i++) {
-        
         MineModel * model = [[MineModel alloc] init];
-        
         model.image = array_image2[i];
-        
         model.title = array_title2[i];
-        
         [array_section2 addObject:model];
     }
-    
     [self.dataArr addObject:array_section2];
 }
 
