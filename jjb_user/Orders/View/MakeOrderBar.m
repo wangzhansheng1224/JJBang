@@ -78,7 +78,6 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[MakeOrderAPIManager class]]) {
-        [self hideToastActivity];
         NSDictionary *dic=[manager fetchDataWithReformer:nil];
         UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
         OrdersDetailController *order=[[OrdersDetailController alloc] init];
@@ -111,7 +110,6 @@
 
 - (void)payBtnClick:(UIButton *)click {
 
-    [self makeToastActivity:CSToastPositionCenter];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     if (controller==nil) {
         self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];

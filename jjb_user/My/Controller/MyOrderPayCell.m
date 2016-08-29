@@ -22,7 +22,7 @@
 @property (nonatomic,strong) UILabel *topLine;
 @property (nonatomic,strong) UILabel *bottomLine;
 @property (nonatomic,strong) UILabel *line;
-@property (nonatomic,copy) NSString *orderId;
+@property (nonatomic,copy) NSString *order_no;
 
 @end
 
@@ -116,8 +116,7 @@
 - (void)configWithData:(NSDictionary *)data
 {
     
-    self.orderId = data[kMyOrderPayId];
-    NSLog(@"%@+++",data);
+    self.order_no = data[kMyOrderPayOrderNo];
     NSNumber * type = data[kMyOrderPayOrderStatus];
     if ([type intValue] == 0) {
         self.orderPayBtn.userInteractionEnabled = YES;
@@ -149,7 +148,7 @@
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     if (controller==nil) {
         OrdersDetailController *detail = [[OrdersDetailController alloc] init];
-        detail.orderNo = self.orderId;
+        detail.orderNo = self.order_no;
         [navController pushViewController:detail animated:YES];
     } else{
         [navController pushViewController:controller animated:YES];
