@@ -17,6 +17,7 @@
         self.strScanned = str;
         self.imgScanned = img;
         self.strBarCodeType = type;
+        
     }
     
     return self;

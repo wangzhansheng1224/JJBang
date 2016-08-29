@@ -20,13 +20,23 @@
         self.userInteractionEnabled = YES;
         for (NSInteger i=0; i<[items count]; i++) {
             RechargeWeChatAndAliCell * cell=(RechargeWeChatAndAliCell*)items[i];
-             [cell selectButton:^(RechargeWeChatAndAliCell *sender) {
+            if (i == 0) {
+                cell.choiceButton.selected = YES;
+                cell.choiceButton.tag = 100;
+            }
+                [cell selectButton:^(RechargeWeChatAndAliCell *sender) {
                  self.selectIndex=cell.tag;
                  if (self.currentCell) {
                      self.currentCell.choiceButton.selected=NO;
                  }
+                
                  self.currentCell=cell;
-                 cell.choiceButton.selected = YES;
+                if (cell.choiceButton.tag == 100) {
+                        cell.choiceButton.selected = NO;
+                    }
+                
+                    self.currentCell.choiceButton.selected = YES;
+//               cell.choiceButton.selected = !cell.choiceButton.selected;
              }];
             cell.frame=CGRectMake(0, i*60, Screen_Width, 60);
 
