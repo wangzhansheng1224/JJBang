@@ -8,6 +8,8 @@
 
 #import "MBVideoCell.h"
 #import "TitleBar.h"
+#import "ShopIndexKeys.h"
+
 /**
  * 直播间
  */
@@ -17,7 +19,7 @@
 @property(nonatomic,strong) UILabel * videoTitleLabel;
 @property(nonatomic,strong) UIButton * videoButton;
 @property(nonatomic,strong) UIView * lineView;
-
+@property(nonatomic,strong) NSDictionary *dataDic;
 @end
 @implementation MBVideoCell
 
@@ -85,7 +87,14 @@
         make.height.equalTo(@(10));
     }];
 }
-
+//配置数据
+-(void)configWithData:(NSDictionary *)data
+{
+    self.dataDic=data;
+    self.videoTitleLabel.text=data[kShopIndexCourseName];
+    NSURL *url=[NSURL initWithImageURL:data[kShopIndexCourseImg] Width:Screen_Width Height:Screen_Width*2/3.0f];
+    [self.videoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+}
 #pragma 
 #pragma mark - getter and setter
 -(UIImageView *)videoImageView
@@ -123,7 +132,8 @@
 
 -(TitleBar*) titleBar{
     if (!_titleBar) {
-        _titleBar=[[TitleBar alloc] initWithTitle:@"直播间"];
+        _titleBar=[[TitleBar alloc] init ];
+                    
     }
     return _titleBar;
 }

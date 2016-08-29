@@ -76,7 +76,12 @@ alpha:(a)]
 /**
  *  日志输出
  */
-#define JJBLog(...) NSLog(__VA_ARGS__)
+//#define JJBLog(...) NSLog(__VA_ARGS__)
+//#else
+//#define JJBLog(...)
+//#endif
+
+#define JJBLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 #define JJBLog(...)
 #endif
@@ -107,6 +112,8 @@ alpha:(a)]
 #import "CTMediator+CTMediatorCourseActions.h"
 #import "CTMediator+CTMediatorTeacherActions.h"
 #import "CTMediator+CTMediatorStudentActions.h"
+#import "CTMediator+CTMediatorVideos.h"
+
 #import "NSDate+NSString.h"
 #import "DateTools.h"
 #import <MWPhotoBrowser.h>

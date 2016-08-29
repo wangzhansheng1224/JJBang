@@ -62,8 +62,8 @@
 
 - (void)onResp:(BaseResp *)resp {
 if([resp isKindOfClass:[PayResp class]]){
-        //支付返回结果，实际支付结果需要去微信服务器端查询
-        NSString *strMsg = [NSString stringWithFormat:@"支付结果"];
+    //支付返回结果，实际支付结果需要去微信服务器端查询
+    NSString *strMsg = [NSString stringWithFormat:@"支付结果"];
     NSString * wxPayResult;
         switch (resp.errCode) {
             case WXSuccess:
