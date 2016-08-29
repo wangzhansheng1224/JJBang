@@ -64,7 +64,7 @@
         
         make.top.equalTo(@16);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(60, 14));
+        make.size.mas_equalTo(CGSizeMake(100, 14));
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -83,7 +83,8 @@
    
     [self.titleLabel setText:data[kOrdersDetailName]];
     [self.describeLabel setText:[NSString stringWithFormat:@" %@ 课时",data[kOrdersDetailCourseNum]]];
-    [self.priceLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPayPrice]]];
+    float price = [data[kOrdersDetailPayPrice] floatValue];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥ %.2f",price]];
 }
 
 

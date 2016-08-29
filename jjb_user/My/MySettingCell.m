@@ -38,7 +38,7 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@20);
         make.centerY.equalTo(self.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0, 17));
+        make.size.mas_equalTo(CGSizeMake((Screen_Width-50)/2.0, 17));
     }];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(_rightImageV.mas_left).with.offset(-10);

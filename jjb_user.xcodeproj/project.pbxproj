@@ -38,6 +38,7 @@
 		517F99341D57A87B002609E5 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99331D57A87B002609E5 /* MySettingCell.m */; };
 		517F99371D57A957002609E5 /* MySettingDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99361D57A957002609E5 /* MySettingDetailController.m */; };
 		5189D4EF1D73BF8600AFC01C /* ChangeHeaderIconController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */; };
+		518CBFA11D74808B00ED9DE8 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 518CBFA01D74808B00ED9DE8 /* UIButton+Custom.m */; };
 		519843991D6D877800A69A33 /* MyHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519843981D6D877800A69A33 /* MyHelpController.m */; };
 		5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439B1D6D920500A69A33 /* MyCommentController.m */; };
 		5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5198439E1D6DB9F900A69A33 /* MyQuestionController.m */; };
@@ -384,6 +385,8 @@
 		517F99361D57A957002609E5 /* MySettingDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingDetailController.m; sourceTree = "<group>"; };
 		5189D4ED1D73BF8600AFC01C /* ChangeHeaderIconController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeaderIconController.h; sourceTree = "<group>"; };
 		5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeaderIconController.m; sourceTree = "<group>"; };
+		518CBF9F1D74808B00ED9DE8 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
+		518CBFA01D74808B00ED9DE8 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		519843971D6D877800A69A33 /* MyHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpController.h; sourceTree = "<group>"; };
 		519843981D6D877800A69A33 /* MyHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpController.m; sourceTree = "<group>"; };
 		5198439A1D6D920500A69A33 /* MyCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentController.h; sourceTree = "<group>"; };
@@ -2650,6 +2653,8 @@
 		BB159CB11D4F473200F46F09 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				518CBF9F1D74808B00ED9DE8 /* UIButton+Custom.h */,
+				518CBFA01D74808B00ED9DE8 /* UIButton+Custom.m */,
 				AC6E13971D5DECC000A7C71D /* NSString+MBMD5.h */,
 				AC6E13981D5DECC000A7C71D /* NSString+MBMD5.m */,
 				BB613AC71D597D85004DE299 /* NSDate+NSString.h */,
@@ -2870,7 +2875,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QG53YK39QX;
+						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -2999,6 +3004,7 @@
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
 				AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */,
 				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
+				518CBFA11D74808B00ED9DE8 /* UIButton+Custom.m in Sources */,
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
 				73886D201D4F735D00643BBA /* LDSignatureGenerator.m in Sources */,
 				BB1E8A641D5704240078D083 /* MBStarTeacherCell.m in Sources */,
@@ -3365,7 +3371,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3421,9 +3427,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3433,7 +3439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3473,9 +3479,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

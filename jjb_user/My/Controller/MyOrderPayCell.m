@@ -57,13 +57,13 @@
     [self.orderNo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(@10);
         make.right.mas_equalTo(_orderStatusLabel.mas_left);
-        make.height.mas_equalTo(14);
+        make.height.mas_equalTo(18);
         
     }];
     [self.orderStatusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_orderNo.mas_centerY);
         make.right.equalTo(@-10);
-        make.size.mas_equalTo(CGSizeMake(80, 14));
+        make.size.mas_equalTo(CGSizeMake(1, 14));
     }];
     [self.topLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.orderNo.mas_bottom).with.offset(10);
@@ -72,7 +72,7 @@
     }];
     [self.orderImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@10);
-        make.top.equalTo(self.topLine.mas_bottom).offset(10);
+        make.top.equalTo(self.topLine.mas_bottom).offset(20);
         make.size.mas_equalTo(CGSizeMake(Screen_Width/2.0,Screen_Width/3.0));
     }];
     [self.orderTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -100,12 +100,12 @@
         make.height.mas_equalTo(@1);
     }];
     [self.orderPayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_bottomLine.mas_bottom).with.offset(10);
+        make.top.equalTo(_bottomLine.mas_bottom).with.offset(20);
         make.right.equalTo(@-10);
         make.size.mas_equalTo(CGSizeMake(80, 30));
     }];
     [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_orderImageV.mas_bottom).with.offset(10);
+        make.top.equalTo(_orderImageV.mas_bottom).with.offset(20);
         make.left.right.equalTo(@0);
         make.height.mas_equalTo(@1);
     }];
@@ -171,7 +171,7 @@
 - (UILabel *)orderStatusLabel {
     if (!_orderStatusLabel) {
         _orderStatusLabel = [[UILabel alloc] init];
-        _orderStatusLabel.text = @"报名成功";
+//        _orderStatusLabel.text = @"报名成功";
         _orderStatusLabel.textAlignment = NSTextAlignmentRight;
         _orderStatusLabel.textColor = COLOR_ORANGE;
         _orderStatusLabel.font = H3;
