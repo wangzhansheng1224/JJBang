@@ -59,7 +59,6 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
-//    [self.ordersNumLabel setText:data[@"kOrdersDetailOrderNO"]];
     self.ordersNumLabel.text = data[kOrdersDetailOrderNO];
 }
 

@@ -37,6 +37,8 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _packagesIndex = 0;
+    _membersIndex = 0;
     [self.menuView addSubview:self.line];
     [self.menuView addSubview:self.classLabel];
     [self.menuView addSubview:self.membersLabel];
@@ -97,8 +99,8 @@
 }
 
 - (void)btnClick:(UIButton *)btn {
-    self.packagesIndex = btn.tag;
-    [self.makeOrderBar configWithData:@{@"price":_packagesData[_packagesIndex][@"CoursePackagesOrgPrice"]}];
+    _packagesIndex = btn.tag;
+//    [self.makeOrderBar configWithData:@{@"price":_packagesData[_packagesIndex][@"CoursePackagesOrgPrice"]}];
     for (UIView * view in _packagesSV.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton * packagesItem = (UIButton *)view;
@@ -115,8 +117,8 @@
 }
 
 - (void)membersBtnClick:(UIButton *)button {
-    self.membersIndex = button.tag-100;
-    [self.makeOrderBar configWithData:@{@"studentID":_membersData[_membersIndex][@"PackagesMembersName"]}];
+    _membersIndex = button.tag-100;
+//    [self.makeOrderBar configWithData:@{@"studentID":_membersData[_membersIndex][@"PackagesMembersName"]}];
     for (UIView * view in _membersSV.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton * memberItem = (UIButton *)view;
@@ -143,7 +145,7 @@
         [self.packagesData addObjectsFromArray:packageArr];
         [self.membersData addObjectsFromArray:memberArr];
         
-        [self.makeOrderBar configWithData:@{@"price":_packagesData[_packagesIndex][@"CoursePackagesOrgPrice"],@"objectID":_packagesData[_packagesIndex][@"PackagesID"],@"studentID":_membersData[_membersIndex][@"PackagesMembersId"]}];
+        [self.makeOrderBar configWithData:@{@"price":self.packagesData[_packagesIndex][@"CoursePackagesOrgPrice"],@"objectID":self.packagesData[_packagesIndex][@"PackagesID"],@"studentID":self.membersData[_membersIndex][@"PackagesMembersId"]}];
         [self.menuView addSubview:self.packagesSV];
         [self.menuView addSubview:self.membersSV];
         [self.menuView addSubview:self.makeOrderBar];

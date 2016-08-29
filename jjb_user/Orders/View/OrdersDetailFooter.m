@@ -65,13 +65,13 @@
         
         make.top.equalTo(@16);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(60, 14));
+        make.size.mas_equalTo(CGSizeMake(100, 14));
     }];
     [_discountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_goodsPriceLabel.mas_bottom).with.offset(8);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(30, 14));
+        make.size.mas_equalTo(CGSizeMake(100, 14));
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -83,7 +83,7 @@
         
         make.top.equalTo(_line.mas_bottom).with.offset(8);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(64, 16));
+        make.size.mas_equalTo(CGSizeMake(100, 16));
     }];
     [_label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -113,9 +113,12 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
-    [self.goodsPriceLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPrice]]] ;
-    [self.discountLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailZKPrice]]];
-    [self.payingLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPayPrice] ]];
+    float price =[data[kOrdersDetailPrice] floatValue];
+    [self.goodsPriceLabel setText:[NSString stringWithFormat:@"￥ %.2f",price]];
+    float ZKPrice = [data[kOrdersDetailZKPrice] floatValue];
+    [self.discountLabel setText:[NSString stringWithFormat:@"￥ %.2f",ZKPrice]];
+    float PayPrice = [data[kOrdersDetailPayPrice] floatValue];
+    [self.payingLabel setText:[NSString stringWithFormat:@"￥ %.2f",PayPrice]];
     [self.timeLabel setText:data[kOrdersDetailOrderTime]];
 }
 

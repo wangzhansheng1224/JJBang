@@ -63,13 +63,12 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-    NSLog(@"%@pppss",data);
     self.orderType=[data[@"orderType"] integerValue];
     self.objectID=[data[@"objectID"] integerValue];
     self.shopID=[data[@"shopID"] integerValue];
-    self.studentID=[data[@"student_id"] integerValue];
+    self.studentID=[data[@"studentID"] integerValue];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[@"price"]]];
-    
+    NSLog(@"%@++",data);
 }
 
 
@@ -111,7 +110,7 @@
 #pragma mark - event respone
 
 - (void)payBtnClick:(UIButton *)click {
-    
+
     [self makeToastActivity:CSToastPositionCenter];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     if (controller==nil) {
