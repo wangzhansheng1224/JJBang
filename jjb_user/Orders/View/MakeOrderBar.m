@@ -13,7 +13,7 @@
 @property (nonatomic,assign) NSInteger orderType;
 @property (nonatomic,assign) NSInteger objectID;
 @property (nonatomic,assign) NSInteger shopID;
-
+@property (nonatomic,assign) NSInteger studentID;
 @property (nonatomic,strong) UIButton* payBtn;
 @property (nonatomic,strong) UIView* lineView;
 @property (nonatomic,strong) UILabel *priceLabel;
@@ -63,10 +63,11 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-    
+    NSLog(@"%@pppss",data);
     self.orderType=[data[@"orderType"] integerValue];
     self.objectID=[data[@"objectID"] integerValue];
     self.shopID=[data[@"shopID"] integerValue];
+    self.studentID=[data[@"student_id"] integerValue];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[@"price"]]];
     
 }
@@ -83,7 +84,6 @@
         UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
         OrdersDetailController *order=[[OrdersDetailController alloc] init];
         order.orderNo=dic[@"data"][@"order"];
-//        JJBLog(@"2222222222%@",[NSThread currentThread]) ;
         [navController pushViewController:order animated:YES];
     }
 }
@@ -101,7 +101,8 @@
         return @{
                  @"id":@(self.objectID),
                  @"user_id":@([UserModel currentUser].userID),
-                 @"shop_id":@([ShopModel currentShop].shopID)
+                 @"shop_id":@([ShopModel currentShop].shopID),
+                 @"student_id":@(self.studentID)
                  };
 }
 

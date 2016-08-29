@@ -139,6 +139,7 @@
     NSURL *url=[NSURL initWithImageURL:model.photo Size:self.itemImage.frame.size];
     [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     self.moneyBtn.bDetail=[NSString stringWithFormat:@" %.2f",model.balance];
+    self.signLabel.text = model.signature;
 }
 
 

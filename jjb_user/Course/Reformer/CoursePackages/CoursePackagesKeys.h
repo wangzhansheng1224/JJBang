@@ -14,5 +14,7 @@ extern NSString *const kCoursePackagesName;
 extern NSString *const kCoursePackagesNums;
 extern NSString *const kCoursePackagesOrgPrice;
 extern NSString *const kPackagesID;
+extern NSString *const kPackagesMembersId;
+extern NSString *const kPackagesMembersName;
 
 #endif /* CoursePackagesKeys_h */
