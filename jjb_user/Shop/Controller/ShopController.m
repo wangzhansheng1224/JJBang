@@ -175,7 +175,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ShopClassifyCellIdentifier forIndexPath:indexPath];
         cell.backgroundColor=[UIColor clearColor];
-        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, Screen_Width/2.0) collectionViewItemSize:CGSizeMake(0, 0)];
+        MBClassifyCollectionView * collectionView = [[MBClassifyCollectionView alloc]initWithFrame:CGRectMake(0, 2, Screen_Width, Screen_Width/2.0+5) collectionViewItemSize:CGSizeMake(0, 0)];
         [cell.contentView addSubview:collectionView];
         return cell;
     }

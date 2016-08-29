@@ -92,7 +92,7 @@
     if (_nameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
         
-        label.text = @"某某";
+        label.text = @"*****";
         label.textAlignment = NSTextAlignmentCenter;
         [label sizeToFit];
         _nameLabel = label;
