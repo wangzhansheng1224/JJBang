@@ -30,6 +30,8 @@
         self.userInteractionEnabled = YES;
         self.iconImageView.image = iconImage;
         self.nameLabel.text = title;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectBtn:)];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -67,10 +69,19 @@
 }
 
 
--(void)selectBtn:(UIButton * )btn
+-(void)selectBtn:(id)btn
 {
-    
-    btn.selected = !btn.selected;
+//    UIButton * bttton = (UIButton *)btn;
+//    UIView *view1 = [view1 viewWithTag:bttton.tag];
+//  btn.selected = !btn.selected;
+//    UIButton * btn1 = (UIButton *)[self viewWithTag:self.btn.tag];
+    for (UIView *view1 in self.subviews) {
+        if ([view1 isKindOfClass:[UIButton class]]) {
+            if (view1 == btn) {
+                
+            }
+        }
+    }
     
     if(self.selectBlock)
     {
@@ -112,8 +123,7 @@
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
        [button setBackgroundImage:[UIImage imageNamed:@"my_recharge_normal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"my_recharge_select"]forState:UIControlStateSelected];
-        [button setSelected:NO];
-         [self addSubview:button];
+      [self addSubview:button];
         [button addTarget:self action:@selector(selectBtn:) forControlEvents:UIControlEventTouchUpInside];
         _choiceButton = button;
     }

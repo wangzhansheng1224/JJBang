@@ -1,28 +1,27 @@
 //
-//  VideosDetailAPIManager.m
+//  TeacherInfoAPIManager.m
 //  jjb_user
 //
-//  Created by Check on 16/8/17.
+//  Created by Aimee on 16/8/3.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "VideosDetailAPIManager.h"
+#import "StoreDetailInfoAPIManager.h"
 
-@interface VideosDetailAPIManager ()
-
+@interface StoreDetailInfoAPIManager ()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
-
 @end
 
-@implementation VideosDetailAPIManager
+@implementation StoreDetailInfoAPIManager
+
 
 #pragma mark - life cycle
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _methodName = @"video/info";
+        _methodName = @"shop/info";
         _serviceType = kLDServiceJJBUser;
         _requestType = LDAPIManagerRequestTypePost;
         self.validator = self;
@@ -34,11 +33,10 @@
 #pragma mark - LDAPIManagerValidator
 - (BOOL)manager:(LDAPIBaseManager *)manager
 isCorrectWithCallBackData:(NSDictionary *)data {
-    
-    if (![data[@"code"] isEqualToString:@"200"]) {
+    if ([data[@"code"] isEqualToString:@"200"] )
+        return YES;
+    else
         return NO;
-    }
-    return YES;
 }
 
 - (BOOL)manager:(LDAPIBaseManager *)manager
@@ -47,10 +45,10 @@ isCorrectWithParamsData:(NSDictionary *)data {
 }
 
 + (instancetype)sharedInstance {
-    static dispatch_once_t VideosDetailAPIManagerOnceToken;
-    static VideosDetailAPIManager *sharedInstance = nil;
-    dispatch_once(&VideosDetailAPIManagerOnceToken, ^{
-        sharedInstance = [[VideosDetailAPIManager alloc] init];
+    static dispatch_once_t StoreDetailInfoAPIManagerOnceToken;
+    static StoreDetailInfoAPIManager *sharedInstance = nil;
+    dispatch_once(&StoreDetailInfoAPIManagerOnceToken, ^{
+        sharedInstance = [[StoreDetailInfoAPIManager alloc] init];
     });
     return sharedInstance;
 }

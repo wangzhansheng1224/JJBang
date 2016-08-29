@@ -56,7 +56,7 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-  [self.detailWebView loadHTMLString:data[kVideosDetaildescribe] baseURL:nil];
+//  [self.detailWebView loadHTMLString:data[kVideosDetaildescribe] baseURL:nil];
 }
 
 #pragma -

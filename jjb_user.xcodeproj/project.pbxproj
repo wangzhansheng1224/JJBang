@@ -293,7 +293,6 @@
 		BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A661D5704380078D083 /* MBStarCouseCell.m */; };
 		BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */; };
 		BB223E1B1D5B0E7A003D3703 /* StreetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BB223E1A1D5B0E7A003D3703 /* StreetControl.m */; };
-		BB29D5131D72B9AA00A25EC0 /* Video in Resources */ = {isa = PBXBuildFile; fileRef = BB29D5121D72B9AA00A25EC0 /* Video */; };
 		BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13121D52E23E002C13FA /* LoginRegisterView.m */; };
 		BB4C13161D53303E002C13FA /* FindPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13151D53303E002C13FA /* FindPassWordViewController.m */; };
 		BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4C13181D5330E2002C13FA /* ReplacePassWordViewController.m */; };
@@ -312,6 +311,18 @@
 		BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C9761D5074510037DA9F /* MBNewFeatureCollectionViewCell.m */; };
 		BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */; };
 		BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB68C97E1D50878B0037DA9F /* MBGuideTool.m */; };
+		BB717BF51D742C0D0077CAD1 /* VideosDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717BF21D742C0D0077CAD1 /* VideosDetailAPIManager.m */; };
+		BB717BF61D742C0D0077CAD1 /* VideosListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717BF41D742C0D0077CAD1 /* VideosListAPIManager.m */; };
+		BB717BFB1D742C230077CAD1 /* VideosDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717BF81D742C230077CAD1 /* VideosDetailController.m */; };
+		BB717BFC1D742C230077CAD1 /* VideosListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717BFA1D742C230077CAD1 /* VideosListController.m */; };
+		BB717C031D742C310077CAD1 /* VideosDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717BFF1D742C310077CAD1 /* VideosDetailReformer.m */; };
+		BB717C041D742C310077CAD1 /* VideosListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C021D742C310077CAD1 /* VideosListReformer.m */; };
+		BB717C091D742C3F0077CAD1 /* VideosDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C061D742C3F0077CAD1 /* VideosDetailCell.m */; };
+		BB717C0A1D742C3F0077CAD1 /* VideosListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C081D742C3F0077CAD1 /* VideosListCell.m */; };
+		BB717C141D7432F20077CAD1 /* StoreDetailInfoAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C131D7432F20077CAD1 /* StoreDetailInfoAPIManager.m */; };
+		BB717C191D74334C0077CAD1 /* StoreDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C181D74334C0077CAD1 /* StoreDetailController.m */; };
+		BB717C1D1D7433AC0077CAD1 /* StoreDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C1C1D7433AC0077CAD1 /* StoreDetailReformer.m */; };
+		BB717C201D7434100077CAD1 /* StoreDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */; };
 		BB82A0C21D520BEC006739A5 /* otherButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB82A0C11D520BEC006739A5 /* otherButtonModel.m */; };
 		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
 		BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8843011D51E02100A537D8 /* UIImage+image.m */; };
@@ -471,7 +482,7 @@
 		731091881D51998F0031B443 /* MyCourseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseAPIManager.h; path = APIManager/MyCourseAPIManager.h; sourceTree = "<group>"; };
 		731091891D51998F0031B443 /* MyCourseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseAPIManager.m; path = APIManager/MyCourseAPIManager.m; sourceTree = "<group>"; };
 		731091B01D51A67A0031B443 /* TeacherListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListAPIManager.m; sourceTree = "<group>"; };
-		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListAPIManager.h; sourceTree = "<group>"; };
+		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherListAPIManager.h; path = Teacher/APIManager/TeacherListAPIManager.h; sourceTree = "<group>"; };
 		731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentAPIManager.m; sourceTree = "<group>"; };
 		731091B41D51A6CD0031B443 /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListAPIManager.m; sourceTree = "<group>"; };
 		731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentAPIManager.h; sourceTree = "<group>"; };
@@ -983,7 +994,6 @@
 		BB1E8A691D57055D0078D083 /* MBNewActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNewActivityModel.m; sourceTree = "<group>"; };
 		BB223E191D5B0E7A003D3703 /* StreetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetControl.h; sourceTree = "<group>"; };
 		BB223E1A1D5B0E7A003D3703 /* StreetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetControl.m; sourceTree = "<group>"; };
-		BB29D5121D72B9AA00A25EC0 /* Video */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Video; sourceTree = "<group>"; };
 		BB4C13111D52E23E002C13FA /* LoginRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterView.h; sourceTree = "<group>"; };
 		BB4C13121D52E23E002C13FA /* LoginRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterView.m; sourceTree = "<group>"; };
 		BB4C13141D53303E002C13FA /* FindPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPassWordViewController.h; sourceTree = "<group>"; };
@@ -1019,6 +1029,33 @@
 		BB68C97B1D5086B60037DA9F /* MBNSUserDefaultsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNSUserDefaultsTool.m; sourceTree = "<group>"; };
 		BB68C97D1D50878B0037DA9F /* MBGuideTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGuideTool.h; sourceTree = "<group>"; };
 		BB68C97E1D50878B0037DA9F /* MBGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideTool.m; sourceTree = "<group>"; };
+		BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosDetailAPIManager.h; path = Video/APIManager/VideosDetailAPIManager.h; sourceTree = "<group>"; };
+		BB717BF21D742C0D0077CAD1 /* VideosDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosDetailAPIManager.m; path = Video/APIManager/VideosDetailAPIManager.m; sourceTree = "<group>"; };
+		BB717BF31D742C0D0077CAD1 /* VideosListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosListAPIManager.h; path = Video/APIManager/VideosListAPIManager.h; sourceTree = "<group>"; };
+		BB717BF41D742C0D0077CAD1 /* VideosListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosListAPIManager.m; path = Video/APIManager/VideosListAPIManager.m; sourceTree = "<group>"; };
+		BB717BF71D742C230077CAD1 /* VideosDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosDetailController.h; path = Video/Controller/VideosDetailController.h; sourceTree = "<group>"; };
+		BB717BF81D742C230077CAD1 /* VideosDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosDetailController.m; path = Video/Controller/VideosDetailController.m; sourceTree = "<group>"; };
+		BB717BF91D742C230077CAD1 /* VideosListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosListController.h; path = Video/Controller/VideosListController.h; sourceTree = "<group>"; };
+		BB717BFA1D742C230077CAD1 /* VideosListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosListController.m; path = Video/Controller/VideosListController.m; sourceTree = "<group>"; };
+		BB717BFD1D742C310077CAD1 /* VideosDetailKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosDetailKey.h; path = Video/Reformer/VideosDetailKey.h; sourceTree = "<group>"; };
+		BB717BFE1D742C310077CAD1 /* VideosDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosDetailReformer.h; path = Video/Reformer/VideosDetailReformer.h; sourceTree = "<group>"; };
+		BB717BFF1D742C310077CAD1 /* VideosDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosDetailReformer.m; path = Video/Reformer/VideosDetailReformer.m; sourceTree = "<group>"; };
+		BB717C001D742C310077CAD1 /* VideosListKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosListKey.h; path = Video/Reformer/VideosListKey.h; sourceTree = "<group>"; };
+		BB717C011D742C310077CAD1 /* VideosListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosListReformer.h; path = Video/Reformer/VideosListReformer.h; sourceTree = "<group>"; };
+		BB717C021D742C310077CAD1 /* VideosListReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosListReformer.m; path = Video/Reformer/VideosListReformer.m; sourceTree = "<group>"; };
+		BB717C051D742C3F0077CAD1 /* VideosDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosDetailCell.h; path = Video/View/VideosDetailCell.h; sourceTree = "<group>"; };
+		BB717C061D742C3F0077CAD1 /* VideosDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosDetailCell.m; path = Video/View/VideosDetailCell.m; sourceTree = "<group>"; };
+		BB717C071D742C3F0077CAD1 /* VideosListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideosListCell.h; path = Video/View/VideosListCell.h; sourceTree = "<group>"; };
+		BB717C081D742C3F0077CAD1 /* VideosListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideosListCell.m; path = Video/View/VideosListCell.m; sourceTree = "<group>"; };
+		BB717C121D7432F20077CAD1 /* StoreDetailInfoAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailInfoAPIManager.h; path = StoreDetail/APIManager/StoreDetailInfoAPIManager.h; sourceTree = "<group>"; };
+		BB717C131D7432F20077CAD1 /* StoreDetailInfoAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailInfoAPIManager.m; path = StoreDetail/APIManager/StoreDetailInfoAPIManager.m; sourceTree = "<group>"; };
+		BB717C171D74334C0077CAD1 /* StoreDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailController.h; path = StoreDetail/Controller/StoreDetailController.h; sourceTree = "<group>"; };
+		BB717C181D74334C0077CAD1 /* StoreDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailController.m; path = StoreDetail/Controller/StoreDetailController.m; sourceTree = "<group>"; };
+		BB717C1A1D7433AB0077CAD1 /* StoreDetailKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailKeys.h; path = StoreDetail/Reformer/StoreDetailKeys.h; sourceTree = "<group>"; };
+		BB717C1B1D7433AB0077CAD1 /* StoreDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailReformer.h; path = StoreDetail/Reformer/StoreDetailReformer.h; sourceTree = "<group>"; };
+		BB717C1C1D7433AC0077CAD1 /* StoreDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailReformer.m; path = StoreDetail/Reformer/StoreDetailReformer.m; sourceTree = "<group>"; };
+		BB717C1E1D7434100077CAD1 /* StoreDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailCell.h; path = StoreDetail/View/StoreDetailCell.h; sourceTree = "<group>"; };
+		BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailCell.m; path = StoreDetail/View/StoreDetailCell.m; sourceTree = "<group>"; };
 		BB82A0C01D520BEC006739A5 /* otherButtonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otherButtonModel.h; sourceTree = "<group>"; };
 		BB82A0C11D520BEC006739A5 /* otherButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otherButtonModel.m; sourceTree = "<group>"; };
 		BB8842FD1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MBCustom.h"; sourceTree = "<group>"; };
@@ -1398,7 +1435,6 @@
 		731091AC1D51A5F20031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
 				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
 				731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */,
 				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
@@ -2362,10 +2398,11 @@
 		73ED4F061D4EFA410022BF79 /* jjb_user */ = {
 			isa = PBXGroup;
 			children = (
+				BB717C0D1D7432390077CAD1 /* StoreDetail */,
+				BB8F96B21D7427C000D4993B /* Video */,
 				732A96B31D5E9E8300BE5800 /* Goods */,
 				51B50F3B1D642903001733C8 /* Orders */,
 				BB613ACA1D598B0E004DE299 /* Clerk */,
-				BB29D5121D72B9AA00A25EC0 /* Video */,
 				73575F5C1D54D5FA0037F697 /* Student */,
 				731091AB1D51A5F20031B443 /* Teacher */,
 				731091A61D51A52C0031B443 /* Course */,
@@ -2810,6 +2847,54 @@
 			path = View/Method;
 			sourceTree = "<group>";
 		};
+		BB717C0D1D7432390077CAD1 /* StoreDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C111D74326C0077CAD1 /* APIManager */,
+				BB717C101D7432630077CAD1 /* Controller */,
+				BB717C0F1D74325B0077CAD1 /* Reformer */,
+				BB717C0E1D7432530077CAD1 /* View */,
+			);
+			name = StoreDetail;
+			sourceTree = "<group>";
+		};
+		BB717C0E1D7432530077CAD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C1E1D7434100077CAD1 /* StoreDetailCell.h */,
+				BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BB717C0F1D74325B0077CAD1 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C1A1D7433AB0077CAD1 /* StoreDetailKeys.h */,
+				BB717C1B1D7433AB0077CAD1 /* StoreDetailReformer.h */,
+				BB717C1C1D7433AC0077CAD1 /* StoreDetailReformer.m */,
+			);
+			name = Reformer;
+			sourceTree = "<group>";
+		};
+		BB717C101D7432630077CAD1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C171D74334C0077CAD1 /* StoreDetailController.h */,
+				BB717C181D74334C0077CAD1 /* StoreDetailController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BB717C111D74326C0077CAD1 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C121D7432F20077CAD1 /* StoreDetailInfoAPIManager.h */,
+				BB717C131D7432F20077CAD1 /* StoreDetailInfoAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
 		BB82A0BF1D520B8F006739A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2825,6 +2910,64 @@
 				738F52501D6DEBA900AFBD3D /* ShopModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BB8F96B21D7427C000D4993B /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				BB8F96B41D7427D900D4993B /* Controller */,
+				BB8F96B61D7427F200D4993B /* View */,
+				BB8F96B51D7427E700D4993B /* Reformer */,
+				BB8F96B31D7427CC00D4993B /* APIManager */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		BB8F96B31D7427CC00D4993B /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				BB717BF21D742C0D0077CAD1 /* VideosDetailAPIManager.m */,
+				BB717BF31D742C0D0077CAD1 /* VideosListAPIManager.h */,
+				BB717BF41D742C0D0077CAD1 /* VideosListAPIManager.m */,
+			);
+			name = APIManager;
+			sourceTree = "<group>";
+		};
+		BB8F96B41D7427D900D4993B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */,
+				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
+				BB717BF71D742C230077CAD1 /* VideosDetailController.h */,
+				BB717BF81D742C230077CAD1 /* VideosDetailController.m */,
+				BB717BF91D742C230077CAD1 /* VideosListController.h */,
+				BB717BFA1D742C230077CAD1 /* VideosListController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BB8F96B51D7427E700D4993B /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C001D742C310077CAD1 /* VideosListKey.h */,
+				BB717BFD1D742C310077CAD1 /* VideosDetailKey.h */,
+				BB717BFE1D742C310077CAD1 /* VideosDetailReformer.h */,
+				BB717BFF1D742C310077CAD1 /* VideosDetailReformer.m */,
+				BB717C011D742C310077CAD1 /* VideosListReformer.h */,
+				BB717C021D742C310077CAD1 /* VideosListReformer.m */,
+			);
+			name = Reformer;
+			sourceTree = "<group>";
+		};
+		BB8F96B61D7427F200D4993B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB717C051D742C3F0077CAD1 /* VideosDetailCell.h */,
+				BB717C061D742C3F0077CAD1 /* VideosDetailCell.m */,
+				BB717C071D742C3F0077CAD1 /* VideosListCell.h */,
+				BB717C081D742C3F0077CAD1 /* VideosListCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		BBC3F4471D51FCE3001BCEEF /* View */ = {
@@ -2875,7 +3018,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -2908,7 +3050,6 @@
 				5126C1F81D562279005D23F3 /* Assets.xcassets in Resources */,
 				AC6E13821D5D8E1100A7C71D /* README.txt in Resources */,
 				73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */,
-				BB29D5131D72B9AA00A25EC0 /* Video in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3027,6 +3168,7 @@
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
 				AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,
+				BB717BFC1D742C230077CAD1 /* VideosListController.m in Sources */,
 				513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */,
 				731091BC1D51A6CD0031B443 /* CourseListAPIManager.m in Sources */,
 				73575F361D549C7C0037F697 /* FileCache.m in Sources */,
@@ -3156,10 +3298,12 @@
 				ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				7340120E1D6C092400BF217C /* PayResultController.m in Sources */,
+				BB717C0A1D742C3F0077CAD1 /* VideosListCell.m in Sources */,
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
+				BB717C141D7432F20077CAD1 /* StoreDetailInfoAPIManager.m in Sources */,
 				734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */,
 				731091BD1D51A6CD0031B443 /* CourseDetailAPIManager.m in Sources */,
 				738F52451D6D5F0800AFBD3D /* TeacherDetailAPIManager.m in Sources */,
@@ -3167,6 +3311,7 @@
 				ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */,
 				51EB73141D546E69009D08FE /* MyMoreController.m in Sources */,
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
+				BB717BFB1D742C230077CAD1 /* VideosDetailController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
 				73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
@@ -3180,18 +3325,21 @@
 				519843991D6D877800A69A33 /* MyHelpController.m in Sources */,
 				BB4C13191D5330E2002C13FA /* ReplacePassWordViewController.m in Sources */,
 				7310918A1D51998F0031B443 /* MyCourseAPIManager.m in Sources */,
+				BB717C191D74334C0077CAD1 /* StoreDetailController.m in Sources */,
 				731091B21D51A67A0031B443 /* TeacherListAPIManager.m in Sources */,
 				732A96D81D5EBD5700BE5800 /* Target_Teacher.m in Sources */,
 				73575F581D54D4C50037F697 /* OrgListController.m in Sources */,
 				512D16DF1D61DD8B00574307 /* GoodsListReformer.m in Sources */,
 				73886D291D4F735D00643BBA /* LDCache.m in Sources */,
 				AC441DAB1D62D28200BE5338 /* MBAliPayManger.m in Sources */,
+				BB717BF51D742C0D0077CAD1 /* VideosDetailAPIManager.m in Sources */,
 				AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */,
 				BB613ACF1D598B42004DE299 /* ClerkController.m in Sources */,
 				734CC3D01D5AC625000AAA27 /* Target_Org.m in Sources */,
 				735C3AFE1D62F5F900E4DB90 /* StarTeacherListAPIManager.m in Sources */,
 				731091F71D51C8840031B443 /* RegisterAPIManager.m in Sources */,
 				AC540AE21D61B640007636CE /* RSADataVerifier.m in Sources */,
+				BB717C031D742C310077CAD1 /* VideosDetailReformer.m in Sources */,
 				AC27CB151D66DCB500240089 /* MBButtons.m in Sources */,
 				BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */,
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
@@ -3235,9 +3383,11 @@
 				7310920C1D5215840031B443 /* ResetPasswordAPIManager.m in Sources */,
 				512F233E1D51766000E33A92 /* MineModel.m in Sources */,
 				738F52421D6D29CD00AFBD3D /* StudentDetailReformer.m in Sources */,
+				BB717C041D742C310077CAD1 /* VideosListReformer.m in Sources */,
 				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */,
+				BB717C1D1D7433AC0077CAD1 /* StoreDetailReformer.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				5167DA421D6EDB7100A67457 /* MyOrderPayReformer.m in Sources */,
 				73886D231D4F735D00643BBA /* NSDictionary+LDNetworkingMethods.m in Sources */,
@@ -3248,6 +3398,7 @@
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				519843A21D6DBC0E00A69A33 /* MyQuestionCell.m in Sources */,
 				738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */,
+				BB717C091D742C3F0077CAD1 /* VideosDetailCell.m in Sources */,
 				BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */,
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
@@ -3257,7 +3408,9 @@
 				732A96BD1D5EA01300BE5800 /* GoodsDetailController.m in Sources */,
 				735C3AF01D62F1E300E4DB90 /* ClerkListCell.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
+				BB717BF61D742C0D0077CAD1 /* VideosListAPIManager.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
+				BB717C201D7434100077CAD1 /* StoreDetailCell.m in Sources */,
 				731FDD241D58767700A18534 /* Target_My.m in Sources */,
 				731091BE1D51A6CD0031B443 /* CourseCatalogAPIManager.m in Sources */,
 			);
@@ -3427,7 +3580,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3479,7 +3632,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

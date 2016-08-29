@@ -233,9 +233,9 @@
     
     if (!_locLabel) {
         _locLabel = [[UILabel alloc] init];
-        _locLabel.text = @"来自北京，望湖公园店";
+        _locLabel.text = @"北京望湖公园店";
         _locLabel.textColor = COLOR_ORANGE;
-        _locLabel.font = H4;
+        _locLabel.font = H6;
     }
     return _locLabel;
 }

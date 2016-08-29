@@ -312,7 +312,7 @@
         _adBtn = [[MyButton alloc] init];
         _adBtn.backgroundColor = COLOR_WHITE;
         _adBtn.bImage = @"my_shop";
-        _adBtn.bTitle = @"七彩商城";
+        _adBtn.bTitle = @"儿童水吧";
         _adBtn.bDetail = @"门店超市";
         [_adBtn addTarget:self action:@selector(goodsBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

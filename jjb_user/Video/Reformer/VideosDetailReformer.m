@@ -11,7 +11,7 @@
 
 NSString *const kVideosDetailID=@"VideosDetailID";
 NSString *const kVideosDetailName=@"VideosDetailName";
-NSString *const kVideosDetailImages=@"VideosDetailImages";
+NSString *const kkVideosUrlString=@"VideosUrlString";
 
 @implementation VideosDetailReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
@@ -22,7 +22,7 @@ NSString *const kVideosDetailImages=@"VideosDetailImages";
         return  @{
                                      kVideosDetailID:dataDic[@"id"],
                                      kVideosDetailName:dataDic[@"name"],
-                                     kVideosDetailImages:dataDic[@"images"]
+                                     kkVideosUrlString:dataDic[@"code"]
                                      };
 
     }
