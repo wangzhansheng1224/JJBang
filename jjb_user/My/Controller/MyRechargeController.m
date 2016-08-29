@@ -163,7 +163,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     NSDictionary * dict = @{
                             @"user_id":@([UserModel currentUser].userID),
                             @"boby":@"余额充值",
-                            @"total_fee":@"0.01"};
+                            @"total_fee":self.moneyTextfield.text};
     return dict;
                                 
 
@@ -197,7 +197,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:self.order,@"tradeNo",
                            self.productName,@"productName",
                            self.productDescription,@"productDescription",
-                           self.amount,@"amount",
+                           self.moneyTextfield.text,@"amount",
                            self.notifyURL,@"notifyURL",
                            nil];
     [MBAliPayManger aliPayWithParamDictonary:dict];
@@ -352,7 +352,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 -(NSString *)amount
 {
     if (_amount == nil) {
-        _amount = @"0.01";
+        _amount = [[NSString alloc]init];
     }
     return _amount;
 }

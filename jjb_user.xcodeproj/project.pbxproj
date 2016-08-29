@@ -270,6 +270,7 @@
 		AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */; };
 		AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */; };
 		AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */; };
+		AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
@@ -934,6 +935,8 @@
 		AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBubbleView.m; path = Vendors/Category/MyBubbleView.m; sourceTree = SOURCE_ROOT; };
 		AC9C410F1D70580600EC6C65 /* ClerkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailCell.h; path = Vendors/Category/ClerkDetailCell.h; sourceTree = SOURCE_ROOT; };
 		AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailCell.m; path = Vendors/Category/ClerkDetailCell.m; sourceTree = SOURCE_ROOT; };
+		AC9C41151D74056200EC6C65 /* ClerkDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailAPIManager.h; path = APIManager/ClerkDetailAPIManager.h; sourceTree = "<group>"; };
+		AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailAPIManager.m; path = APIManager/ClerkDetailAPIManager.m; sourceTree = "<group>"; };
 		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
 		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
 		ACE6747F1D5D58EA00B57938 /* MyOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailCell.h; path = jjb_user/My/Controller/MyOrderDetailCell.h; sourceTree = SOURCE_ROOT; };
@@ -1380,6 +1383,7 @@
 		731091AB1D51A5F20031B443 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				731091AC1D51A5F20031B443 /* APIManager */,
 				732A96D51D5EBD3900BE5800 /* Actions */,
 				731091AD1D51A5F20031B443 /* Controller */,
 				731091AE1D51A5F20031B443 /* Reformer */,
@@ -1400,15 +1404,12 @@
 				738F52431D6D5F0700AFBD3D /* TeacherDetailAPIManager.h */,
 				738F52441D6D5F0700AFBD3D /* TeacherDetailAPIManager.m */,
 			);
-			name = APIManager;
-			path = ../APIManager;
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		731091AD1D51A5F20031B443 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				731091AC1D51A5F20031B443 /* APIManager */,
-				5155CE6F1D581F0B00306150 /* StudentListCell.h */,
 				73575F501D54D4430037F697 /* TeacherListController.h */,
 				73575F511D54D4430037F697 /* TeacherListController.m */,
 				73575F531D54D4950037F697 /* TeacherController.h */,
@@ -1839,6 +1840,7 @@
 		73575F681D54D5FA0037F697 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5155CE6F1D581F0B00306150 /* StudentListCell.h */,
 				5155CE701D581F0B00306150 /* StudentListCell.m */,
 				513447BB1D5DBDC200E72F1B /* StudentDetailHeader.h */,
 				513447BC1D5DBDC200E72F1B /* StudentDetailHeader.m */,
@@ -1893,6 +1895,8 @@
 		735C3AF11D62F25700E4DB90 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				AC9C41151D74056200EC6C65 /* ClerkDetailAPIManager.h */,
+				AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */,
 				735C3AF21D62F28500E4DB90 /* ClerkListAPIManager.h */,
 				735C3AF31D62F28500E4DB90 /* ClerkListAPIManager.m */,
 			);
@@ -3033,6 +3037,7 @@
 				739F210D1D67D9D900F2CF6A /* TeacherListCell.m in Sources */,
 				51181DBC1D53A94D00F54210 /* ActivityDetailCell.m in Sources */,
 				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
+				AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
 				BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */,

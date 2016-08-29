@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ClerkController : UIViewController
-@property(nonatomic,assign) NSInteger * clerkID;
+@property(nonatomic,assign) NSInteger clerkID;
 @end

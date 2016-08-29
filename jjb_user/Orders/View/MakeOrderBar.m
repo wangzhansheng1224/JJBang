@@ -83,7 +83,6 @@
         UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
         OrdersDetailController *order=[[OrdersDetailController alloc] init];
         order.orderNo=dic[@"data"][@"order"];
-//        JJBLog(@"2222222222%@",[NSThread currentThread]) ;
         [navController pushViewController:order animated:YES];
     }
 }

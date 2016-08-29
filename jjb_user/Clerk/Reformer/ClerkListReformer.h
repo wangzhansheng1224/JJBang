@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ClerkKeys.h"
 
 @interface ClerkListReformer : NSObject<ReformerProtocol>
 
