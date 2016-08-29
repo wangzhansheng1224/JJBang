@@ -37,7 +37,7 @@ NSString * const kMyOrderPayOrderCTime=@"MyOrderPayOrderCTime";
             NSDictionary * itemData = @{
                                         kMyOrderPayId:arrData[i][@"id"],
                                         kMyOrderPayOrderNo:arrData[i][@"orderNo"],
-                                        kMyOrderPayOrderStatus:(arrData[i][@"status"]!=[NSNull null])?arrData[i][@"sdt_id"]:@(0),
+                                        kMyOrderPayOrderStatus:arrData[i][@"status"],
                                         kMyOrderPayOrderName:arrData[i][@"name"],
                                         kMyOrderPayOrderImage:arrData[i][@"image"],
                                         kMyOrderPayOrderPrice:priceString,

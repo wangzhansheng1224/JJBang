@@ -100,6 +100,8 @@
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     UserModel *user=[manager fetchDataWithReformer:self.userReformer];
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    JJBLog(@"#####%@",dict);
     [UserModel save:user];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -288,7 +290,7 @@
         button.translatesAutoresizingMaskIntoConstraints = NO;
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:@"忘记密码" forState:UIControlStateNormal];
-        
+        [button setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
         button.titleLabel.textColor = [UIColor blackColor];
         [button addTarget:self action:@selector(gotoFindPassWord) forControlEvents:UIControlEventTouchUpInside];
         _forgetPassWordButton = button;

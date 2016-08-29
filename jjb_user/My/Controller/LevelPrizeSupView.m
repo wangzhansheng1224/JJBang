@@ -29,7 +29,8 @@
             
             LevelPrizeView * levelPrizeButton = (LevelPrizeView *)items[i];
             levelPrizeButton.frame = CGRectMake(width*i+15,15, 30, 30);
-            levelPrizeButton.selected = i;
+//            levelPrizeButton.selected = i;
+            self.selectIndex = levelPrizeButton.tag;
             [self addSubview:levelPrizeButton];
             
             JJBLog(@"%@",NSStringFromCGRect(levelPrizeButton.frame));

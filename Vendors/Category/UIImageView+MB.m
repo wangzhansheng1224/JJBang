@@ -9,16 +9,34 @@
 #import "UIImageView+MB.h"
 #import "UIImage+MB.h"
 @implementation UIImageView (MB)
--(void)setHeader:(NSString *)url
+-(void)setHeader:(id)url
 {
     //设置站位图片
     UIImage * placeholder = [[UIImage imageNamed:@"img_default"] circleImage];
-    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (image== nil) {
-            return ;
-        }
-        self.image = [image circleImage];
-    }];
+    
+    if ([url isKindOfClass:[NSString class]]) {
+        [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image== nil) {
+                return ;
+            }
+            self.image = [image circleImage];
+        }];
+
+    }
+    else
+    {
+        [self sd_setImageWithURL:url placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image== nil) {
+                return ;
+            }
+            self.image = [image circleImage];
+        }];
+
+        
+    }
+    
+
+    
 }
 
 @end

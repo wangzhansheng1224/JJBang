@@ -14,6 +14,30 @@ NSString * const kClerkID = @"ClerkID";
 NSString * const kClerkFace = @"ClerkFace";
 NSString * const kClerkName = @"ClerkName";
 NSString * const kClerkStar = @"ClerkStar";
+/**
+ *  性别
+ */
+NSString *const kClerkGender = @"kClerkGender";
+/**
+ *  勋章
+ */
+NSString *const kClerkMedal = @"kClerkMedal";
+/**
+ *  年龄
+ */
+ NSString *const kClerkAge = @"kClerkAge";
+/**
+ *  生日
+ */
+
+ NSString *const kClerkBirthday = @"kClerkBirthday";
+/**
+ *  角色名称
+ */
+NSString *const kClerkRoleName = @"kClerkRoleName";
+
+
+
 
 @implementation ClerkListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
@@ -26,8 +50,13 @@ NSString * const kClerkStar = @"ClerkStar";
             [resultMarr addObject:@{
                                     kClerkID:temp[@"id"],
                                     kClerkName:temp[@"nickname"],
-                                    kClerkFace:temp[@"useface"],
-                                    kClerkStar:@(5)
+                                    kClerkFace:temp[@"userface"],
+                                    kClerkStar:@(5),
+                                    kClerkGender:temp[@"sex"],
+                                    kClerkMedal:temp[@"medal"],
+                                    kClerkAge:temp[@"age"],
+                                    kClerkBirthday:temp[@"birthday"],
+                                    kClerkRoleName:temp[@"role_name"]
                                     }];
         }
         return resultMarr;

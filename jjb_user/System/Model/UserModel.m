@@ -75,6 +75,7 @@ static UserModel* currentUser;
     user.signature=dic[@"signature"];
     user.balance=[dic[@"balance"] doubleValue];
     user.level=[dic[@"level"] integerValue];
+
     user.totalBalance=[dic[@"totalBalance"] doubleValue];
     user.nextBalance=[dic[@"nextBalance"] doubleValue];
     user.discount=[dic[@"discount"] doubleValue];

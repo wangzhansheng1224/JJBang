@@ -89,6 +89,8 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.clerkListReformer];
+    NSArray * array = [manager fetchDataWithReformer:nil];
+    JJBLog(@"返回的所有店员信息%@",array);
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];

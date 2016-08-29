@@ -40,8 +40,8 @@
         make.height.mas_equalTo(30);
     }];
     [self.dropdownImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(superView.mas_top).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
+        make.centerY.equalTo(_titleLabel.mas_centerY);
     }];
 }
 

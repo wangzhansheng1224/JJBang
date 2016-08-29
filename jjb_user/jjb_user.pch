@@ -93,6 +93,8 @@ alpha:(a)]
 #define JJBWeakSelf __weak typeof(self)weakSelf = self
 
 
+#import "UIImageView+MB.h"
+#import "UIImage+MB.h"
 #import "UIColor+MBHex.h"
 #import "LDNetworking.h"
 #import "UIView+MBFrame.h"

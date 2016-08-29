@@ -11,6 +11,7 @@
 #import "RegisterAPIManager.h"
 #import "VerifyCodeAPIManager.h"
 #import "UserReformer.h"
+#import "LoginAPIManager.h"
 /**
  *  注册主控制器
  */
@@ -28,6 +29,7 @@
 
 @property(nonatomic,strong) LDAPIBaseManager * registerAPIManager; //注册
 @property(nonatomic,strong) UserReformer *userReformer;
+@property(nonatomic,strong) LDAPIBaseManager * loginAPIManager; //登陆
 @end
 
 @implementation registerViewController
@@ -246,6 +248,7 @@
          [UserModel save:user];
         
          [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.loginAPIManager loadData];
     }
     
 }
@@ -287,13 +290,21 @@
                  @"code":self.codeTextfield.text
                  
                  };
-    }else
+    }else if([manager isKindOfClass:[self.registerAPIManager class]])
     {
         return @{
                  @"phone":self.telTextfield.text,
                  @"password":self.passWordTextfield.text
                  };
     }
+    else
+    {
+        return @{
+                 @"phone":self.telTextfield.text,
+                 @"password":self.passWordTextfield.text
+                 };
+    }
+    
     
     
 }
@@ -464,4 +475,13 @@
     return _userReformer;
 }
 
+-(LDAPIBaseManager *)loginAPIManager
+{
+    if (_loginAPIManager == nil) {
+        _loginAPIManager = [LoginAPIManager sharedInstance];
+        _loginAPIManager.delegate = self;
+        _loginAPIManager.paramSource = self;
+    }
+    return _loginAPIManager;
+}
 @end

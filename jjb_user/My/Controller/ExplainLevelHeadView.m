@@ -9,14 +9,16 @@
 #import "ExplainLevelHeadView.h"
 #import "LevelPrizeView.h"
 #import "LevelPrizeSupView.h"
-#import "UIImage+MB.h"
+
+#import "NSURL+OSS.h"
+#import "MyBubbleView.h"
 @interface ExplainLevelHeadView ()
 @property(nonatomic,strong) UIImageView * iconImageView;
 @property(nonatomic,strong) UILabel * nameLabel;
 @property(nonatomic,strong) UIView * levelBjView;
 @property(nonatomic,strong) LevelPrizeView * levelPrizeButton;
 @property(nonatomic,strong) LevelPrizeSupView * levelPrizeView;
-
+@property(nonatomic,strong) MyBubbleView * bubbleView;
 @end
 
 @implementation ExplainLevelHeadView
@@ -33,8 +35,9 @@
         [self addSubview:self.nameLabel];
         [self addSubview:self.levelBjView];
         [self.levelBjView addSubview:self.levelPrizeView];
-
+        [self addSubview:self.bubbleView];
         [self addChildViewConstraints];
+        self.nameLabel.text = [UserModel currentUser].nickName;
     }
     return self;
 }
@@ -63,7 +66,8 @@
         
         NSMutableArray * array = [NSMutableArray array];
         for (int i = 1; i< 5; i++) {
-            LevelPrizeView * cell  = [[LevelPrizeView alloc]initWithImage:[NSString stringWithFormat:@"L_nomal_%d",3] selectImage:[NSString stringWithFormat:@"L_select_%d",3]];
+            LevelPrizeView * cell  = [[LevelPrizeView alloc]initWithImage:[NSString stringWithFormat:@"L_normal_%d",i] selectImage:[NSString stringWithFormat:@"L_select_%d",i]];
+            cell.tag = i;
             [array addObject:cell];
         }
         LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithItems:array];
@@ -77,7 +81,9 @@
 {
     if (_iconImageView == nil) {
         _iconImageView = [[UIImageView alloc]init];
-        _iconImageView.image = [[UIImage imageNamed:@"img_default"] circleImage];
+        NSURL *url= [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
+        [_iconImageView setHeader:url];
+
            }
     return _iconImageView;
 }
@@ -85,7 +91,8 @@
 {
     if (_nameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"牛逼";
+        
+        label.text = @"某某";
         label.textAlignment = NSTextAlignmentCenter;
         [label sizeToFit];
         _nameLabel = label;
@@ -95,7 +102,6 @@
 -(UIView *)levelBjView
 {
     if (_levelBjView == nil) {
-//        UIView * view = [[UIView alloc]init];
         UIView * view = [[UIView alloc]initWithFrame:CGRectMake(30, 200, Screen_Width-60, 60)];
         [view.layer setCornerRadius:30.f];
         [view.layer setMasksToBounds:YES];
@@ -105,6 +111,14 @@
         _levelBjView = view;
     }
     return _levelBjView;
+}
+-(MyBubbleView *)bubbleView
+{
+    if (_bubbleView == nil) {
+        _bubbleView = [[MyBubbleView alloc]init];
+        _bubbleView.frame = CGRectMake(0, 170, 140, 40);
+    }
+    return _bubbleView;
 }
 
 @end
