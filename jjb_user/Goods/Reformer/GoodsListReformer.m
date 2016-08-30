@@ -30,7 +30,7 @@ NSString *const kGoodsListToPrice = @"GoodsListToPrice";
             NSArray *imgArr=arrData[i][@"images"];
             
             if (imgArr!=nil&&[imgArr count]>0) {
-                imgPath=imgArr[1][@"image"];
+                imgPath=imgArr[0][@"image"];
             }
             
             NSDictionary *itemData=@{
