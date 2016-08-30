@@ -7,19 +7,10 @@
 //
 
 #import "StoreDetailReformer.h"
-//#import "TeacherListAPIManager.h"
-//#import "TeacherDetailAPIManager.h"
-
 
 //NSString * const kTeacherID = @"TeacherID";
 //NSString * const kTeacherPhoto = @"TeacherPhoto";
 //NSString * const kTeacherName = @"TeacherName";
-//NSString * const kTeacherStar = @"TeacherStar";
-//NSString * const kTeacherSex = @"TeacherSex";
-//NSString * const kTeacherNotes = @"TeacherNotes";
-//NSString * const kTeacherSummary = @"TeacherSummary";
-//NSString * const kTeacherWorkYears = @"TeacherWorkYears";
-//NSString * const kTeacherAddress = @"TeacherAddress";
 
 @implementation StoreDetailReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data

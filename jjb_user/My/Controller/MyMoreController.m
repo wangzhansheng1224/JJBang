@@ -79,7 +79,7 @@
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 2;
+    return self.titleArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,9 +101,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    ExplainLevelController *controller = [[ExplainLevelController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    if (indexPath.row == 0) {
+        [QAlert showAlertWithController:self andTitle:@"检查更新" andMessage:@"当前为最新版本，不需要更新" andTime:2.0];
+    }
 }
 
 #pragma -
@@ -158,7 +158,7 @@
     if (!_titleArr) {
         
         _titleArr = [[NSMutableArray alloc] init];
-        NSArray *array = @[@"检查更新",@"分享给好友"];
+        NSArray *array = @[@"检查更新"];
         _titleArr = [NSMutableArray arrayWithArray:array];
     }
     return _titleArr;

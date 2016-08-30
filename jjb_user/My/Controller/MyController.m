@@ -20,7 +20,7 @@
 #import "MyBalanceViewController.h"
 #import "MyHelpController.h"
 #import "ExplainLevelController.h"
-
+#import "ContactServiceController.h"
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -150,9 +150,8 @@
             [self.navigationController pushViewController:controller animated:YES];
         }
         if (indexPath.row == 1) {
-        
-            ExplainLevelController *controller = [[ExplainLevelController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            ContactServiceController *contactService = [[ContactServiceController alloc] init];
+            [self.navigationController pushViewController:contactService animated:YES];
         }
         if (indexPath.row == 2) {
             MyMoreController *myMoreVC=[[MyMoreController alloc]init];

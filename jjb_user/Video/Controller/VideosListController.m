@@ -76,7 +76,7 @@ static NSString  *const VideosListCellIdentifier=@"VideosListCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 107;
+    return 289;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,7 +127,8 @@ static NSString  *const VideosListCellIdentifier=@"VideosListCellIdentifier";
             self.pageIndex=0;
             [self.VideosListAPIManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{            [self.VideosListAPIManager loadData];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.VideosListAPIManager loadData];
         }];
         
         [_tableView registerClass:[VideosListCell class] forCellReuseIdentifier:VideosListCellIdentifier];

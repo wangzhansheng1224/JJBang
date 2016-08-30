@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-@interface VideosDetailController : UIViewController<WKNavigationDelegate,WKUIDelegate>
+#import "VideosDetailAPIManager.h"
+#import "VideosDetailReformer.h"
+@interface VideosDetailController : UIViewController<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIWebViewDelegate>
 @property (nonatomic,assign) NSInteger VideosID;
 @property (nonatomic,strong) UIWebView * webView;
+@property (nonatomic,strong) VideosDetailAPIManager *videosDetailAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> videoDetailReformer;
+@property (nonatomic,strong) NSDictionary *videosDetailDictionary;
+@property (nonatomic,copy) NSString *docUrl;
 @end

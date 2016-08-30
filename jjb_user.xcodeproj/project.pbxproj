@@ -27,6 +27,8 @@
 		513447C01D5DE7F600E72F1B /* StudentMyGrowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447BF1D5DE7F600E72F1B /* StudentMyGrowingController.m */; };
 		513447C31D5DE85200E72F1B /* StudentSignClassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513447C21D5DE85200E72F1B /* StudentSignClassController.m */; };
 		513A4A921D732CF1008AA661 /* MyQuestionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */; };
+		514A8D911D75999C00912E11 /* QAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 514A8D901D75999C00912E11 /* QAlert.m */; };
+		514A8D941D759C9900912E11 /* ContactServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514A8D931D759C9900912E11 /* ContactServiceController.m */; };
 		514AD5A01D50A9F500E196FE /* ActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514AD59F1D50A9F500E196FE /* ActivityDetailController.m */; };
 		514E9B4F1D5086020064EEFD /* IssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E9B4E1D5086020064EEFD /* IssueController.m */; };
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
@@ -376,6 +378,10 @@
 		513447C21D5DE85200E72F1B /* StudentSignClassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignClassController.m; sourceTree = "<group>"; };
 		513A4A901D732CF1008AA661 /* MyQuestionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionSectionView.h; sourceTree = "<group>"; };
 		513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionSectionView.m; sourceTree = "<group>"; };
+		514A8D8F1D75999C00912E11 /* QAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAlert.h; sourceTree = "<group>"; };
+		514A8D901D75999C00912E11 /* QAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAlert.m; sourceTree = "<group>"; };
+		514A8D921D759C9900912E11 /* ContactServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactServiceController.h; sourceTree = "<group>"; };
+		514A8D931D759C9900912E11 /* ContactServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactServiceController.m; sourceTree = "<group>"; };
 		514AD59E1D50A9F500E196FE /* ActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailController.h; sourceTree = "<group>"; };
 		514AD59F1D50A9F500E196FE /* ActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailController.m; sourceTree = "<group>"; };
 		514E9B4D1D5086020064EEFD /* IssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueController.h; sourceTree = "<group>"; };
@@ -484,7 +490,7 @@
 		731091881D51998F0031B443 /* MyCourseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseAPIManager.h; path = APIManager/MyCourseAPIManager.h; sourceTree = "<group>"; };
 		731091891D51998F0031B443 /* MyCourseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseAPIManager.m; path = APIManager/MyCourseAPIManager.m; sourceTree = "<group>"; };
 		731091B01D51A67A0031B443 /* TeacherListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListAPIManager.m; sourceTree = "<group>"; };
-		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherListAPIManager.h; path = Teacher/APIManager/TeacherListAPIManager.h; sourceTree = "<group>"; };
+		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListAPIManager.h; sourceTree = "<group>"; };
 		731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentAPIManager.m; sourceTree = "<group>"; };
 		731091B41D51A6CD0031B443 /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListAPIManager.m; sourceTree = "<group>"; };
 		731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentAPIManager.h; sourceTree = "<group>"; };
@@ -1442,6 +1448,7 @@
 		731091AC1D51A5F20031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
 				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
 				731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */,
 				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
@@ -2133,6 +2140,8 @@
 				5198439E1D6DB9F900A69A33 /* MyQuestionController.m */,
 				5189D4ED1D73BF8600AFC01C /* ChangeHeaderIconController.h */,
 				5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */,
+				514A8D921D759C9900912E11 /* ContactServiceController.h */,
+				514A8D931D759C9900912E11 /* ContactServiceController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2731,6 +2740,8 @@
 				AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */,
 				AC1E8EA61D7527FF001CF566 /* MBTextFieldTool.h */,
 				AC1E8EA71D7527FF001CF566 /* MBTextFieldTool.m */,
+				514A8D8F1D75999C00912E11 /* QAlert.h */,
+				514A8D901D75999C00912E11 /* QAlert.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2943,6 +2954,7 @@
 		BB8F96B31D7427CC00D4993B /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */,
 				BB717BF21D742C0D0077CAD1 /* VideosDetailAPIManager.m */,
 				BB717BF31D742C0D0077CAD1 /* VideosListAPIManager.h */,
 				BB717BF41D742C0D0077CAD1 /* VideosListAPIManager.m */,
@@ -2953,8 +2965,6 @@
 		BB8F96B41D7427D900D4993B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */,
-				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
 				BB717BF71D742C230077CAD1 /* VideosDetailController.h */,
 				BB717BF81D742C230077CAD1 /* VideosDetailController.m */,
 				BB717BF91D742C230077CAD1 /* VideosListController.h */,
@@ -3273,6 +3283,7 @@
 				731FDD181D586BEF00A18534 /* ErrorController.m in Sources */,
 				73886D2B1D4F735D00643BBA /* LDAPIBaseManager.m in Sources */,
 				BB1E8A581D5703B70078D083 /* MBNewActivityCell.m in Sources */,
+				514A8D941D759C9900912E11 /* ContactServiceController.m in Sources */,
 				73886D211D4F735D00643BBA /* LDUDIDGenerator.m in Sources */,
 				51F6944F1D60A0870099909A /* StarTeacherCell.m in Sources */,
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
@@ -3421,6 +3432,7 @@
 				BB1E8A5E1D5703EF0078D083 /* MBVideoCell.m in Sources */,
 				73575F5B1D54D4DA0037F697 /* OrgController.m in Sources */,
 				BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */,
+				514A8D911D75999C00912E11 /* QAlert.m in Sources */,
 				512F23461D517FD800E33A92 /* LevelButton.m in Sources */,
 				51A033B31D6C46210058CDD4 /* CourseListCell.m in Sources */,
 				734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */,

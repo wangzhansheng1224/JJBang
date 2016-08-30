@@ -81,8 +81,7 @@
         MyQuestionController *questionVC = [[MyQuestionController alloc] init];
         [self.navigationController pushViewController:questionVC animated:YES];
     }else {
-        ExplainLevelController *controller = [[ExplainLevelController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [QAlert showAlertWithController:self andTitle:@"网络提示" andMessage:@"当前网络正常" andTime:2.0];
     }
 }
 

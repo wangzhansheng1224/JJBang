@@ -18,14 +18,15 @@
 #import "TeacherListController.h"
 #import "StreetControl.h"
 #import "ShopIndexReformer.h"
+#import "ShopModel.h"
 #import "StudentController.h"
 
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
 @property(nonatomic,assign) CGSize itemSize;
 @property(nonatomic,strong) NSMutableArray * shopClassifyArray;
-@property (nonatomic,strong) NSDictionary *dataDic;
-
+@property(nonatomic,strong) NSDictionary *dataDic;
+@property(nonatomic,strong) ShopModel *currentShop;
 @end
 @implementation MBClassifyCollectionView
 
@@ -132,6 +133,7 @@ static NSString * const cellID = @"cell";
     {
         //门店介绍
         StoreDetailController * storeControl = [StoreDetailController alloc];
+        storeControl.storeID = _currentShop.shopID;
         [navControler pushViewController:storeControl animated:YES];
 
     }

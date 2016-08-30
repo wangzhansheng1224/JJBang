@@ -51,7 +51,6 @@
     [self.sectionView addSubview:self.arrowImageV];
     [self layoutPageSubviews];
     [self.apiManager loadData];
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -159,11 +158,10 @@
         
         JJBLog(@"%@",self.orderDetailDictionary);
         }
-    [self.tableView reloadData];
     [self.headerView configWithData:self.orderDetailDictionary];
     [self.footerView configWithData:self.orderDetailDictionary];
     self.locationLabel.text = self.orderDetailDictionary[kOrdersDetailShopName];
-     
+    [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{

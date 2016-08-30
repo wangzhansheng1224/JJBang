@@ -10,7 +10,11 @@
 #define VideosListKey_h
 
 extern NSString *const kVideosListID;
-extern NSString *const kVideosListImageUrl;
 extern NSString *const kVideosListToName;
 extern NSString *const kVideosListTocourseName;
+extern NSString *const kVideosListTocourseImg;
+extern NSString *const kVideosListToShopName;
+extern NSString *const kVideosListStartEndTime;
+
+
 #endif /* VideosListKey_h */

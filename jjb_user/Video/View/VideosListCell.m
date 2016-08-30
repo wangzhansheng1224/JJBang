@@ -12,11 +12,12 @@
 
 @interface VideosListCell ()
 
-@property (nonatomic,strong) UIImageView *picImageV;
-@property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *salesLabel;
-@property (nonatomic,strong) UILabel *priceLabel;
-@property (nonatomic,strong) UILabel *line;
+@property (nonatomic,strong) UIImageView *courseImg;//课程图片
+@property (nonatomic,strong) UILabel *courseNameLabel;//课程名称
+@property (nonatomic,strong) UILabel *shopNameLabel;//店铺名称
+@property (nonatomic,strong) UILabel *nameLabel;//课时名称
+@property (nonatomic,strong) UILabel *startEndTimeLabel;//开始结束时间
+@property (nonatomic,strong) UILabel *lineLabel;//底部细线
 
 @end
 
@@ -27,9 +28,12 @@
     
     if (self) {
         
-        [self.contentView addSubview:self.picImageV];
-        [self.contentView addSubview:self.titleLabel];
-        [self.contentView addSubview:self.line];
+        [self.contentView addSubview:self.courseImg];
+        [self.contentView addSubview:self.courseNameLabel];
+        [self.contentView addSubview:self.nameLabel];
+        [self.contentView addSubview:self.shopNameLabel];
+        [self.contentView addSubview:self.startEndTimeLabel];
+
         [self layoutPageSubviews];
     }
     return self;
@@ -38,72 +42,125 @@
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-    
-    [_picImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+    //课程图片
+    [_courseImg mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(90, 90));
-        make.top.equalTo(@10);
-        make.left.equalTo(@10);
+        make.top.equalTo(self.contentView.mas_top).with.offset(0);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 178));
+        make.left.equalTo(self.contentView.mas_left).with.offset(0);
     }];
-    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //课程名称
+    [_courseNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(90, 17));
-        make.left.equalTo(_picImageV.mas_right).with.offset(10);
-        make.top.equalTo(_picImageV.mas_top).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width-16, 20));
+        make.top.equalTo(_courseImg.mas_bottom).with.offset(8);
+        make.left.equalTo(@16);
     }];
-    [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+    //店铺名称
+    [_shopNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 1));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 16));
+        make.left.equalTo(@16);
+        make.top.equalTo(_courseNameLabel.mas_bottom).with.offset(8);
+    }];
+    //课时名称
+    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 16));
+        make.left.equalTo(@16);
+        make.top.equalTo(_shopNameLabel.mas_bottom).with.offset(8);
+    }];
+    //起始时间
+    [_startEndTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 16));
+        make.left.equalTo(@16);
+        make.top.equalTo(_nameLabel.mas_bottom).with.offset(8);
+    }];
+    //底部细线
+    [_lineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 4));
         make.left.equalTo(@0);
-        make.bottom.equalTo(@1);
+        make.top.equalTo(_startEndTimeLabel.mas_bottom).with.offset(2);
     }];
-    
+
 }
 
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
     
-//    [self.titleLabel setText:data[kVideosListToName]];
-//    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kVideosListToPrice]]];
-    NSURL *url=[NSURL initWithImageURL:data[kVideosListImageUrl] Size:self.picImageV.frame.size];
-    [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+    [self.courseNameLabel setText:data[kVideosListTocourseName]];
+    [self.shopNameLabel setText:data[kVideosListToShopName]];
+    [self.nameLabel setText:data[kVideosListToName]];
+    [self.startEndTimeLabel setText:data[kVideosListStartEndTime]];
+    NSURL *url=[NSURL initWithImageURL:data[kVideosListTocourseImg] Size:self.courseImg.frame.size];
+    JJBLog(@"kVideosListTocourseImgUrl=%@",url);
+    [self.courseImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+    
 
 }
 
 #pragma -
 #pragma mark - getters and setters
-- (UIImageView *)picImageV {
+- (UIImageView *)courseImg {
     
-    if (!_picImageV) {
-        _picImageV = [[UIImageView alloc] init];
+    if (!_courseImg) {
+        _courseImg = [[UIImageView alloc] init];
     }
-    return _picImageV;
+    return _courseImg;
 }
 
-- (UILabel *)titleLabel {
+- (UILabel *)courseNameLabel {
     
-    if (!_titleLabel) {
+    if (!_courseNameLabel) {
         
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"摩卡咖啡";
-        _titleLabel.font = H2;
+        _courseNameLabel = [[UILabel alloc] init];
+        _courseNameLabel.font = H2;
     }
-    return _titleLabel;
+    return _courseNameLabel;
+}
+- (UILabel *)shopNameLabel {
+         
+    if (!_shopNameLabel) {
+             
+        _shopNameLabel = [[UILabel alloc] init];
+        _shopNameLabel.font = H4;
+        _shopNameLabel.textColor = COLOR_GRAY;
+    }
+    return _shopNameLabel;
+}
+- (UILabel *)nameLabel {
+         
+    if (!_nameLabel) {
+             
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.font = H4;
+        _nameLabel.textColor = COLOR_GRAY;
+    }
+    return _nameLabel;
+}
+- (UILabel *)startEndTimeLabel {
+         
+    if (!_startEndTimeLabel) {
+             
+        _startEndTimeLabel = [[UILabel alloc] init];
+        _startEndTimeLabel.font = H4;
+        _startEndTimeLabel.textColor = COLOR_GRAY;
+    }
+    return _startEndTimeLabel;
 }
 
 
 
-
-
-- (UILabel *)line {
+- (UILabel *)lineLabel {
     
-    if (!_line) {
+    if (!_lineLabel) {
         
-        _line = [[UILabel alloc] init];
-        _line.backgroundColor = COLOR_LIGHT_GRAY;
+        _lineLabel = [[UILabel alloc] init];
+        _lineLabel.backgroundColor = COLOR_LIGHT_GRAY;
     }
-    return _line;
+    return _lineLabel;
 }
 
 @end
