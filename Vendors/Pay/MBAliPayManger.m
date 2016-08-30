@@ -13,8 +13,7 @@
 #import "constantPay.h"
 @implementation MBAliPayManger
 
-+(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary
-{
++(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary callbackConfig:(void(^)(BOOL config))config{
     NSString *partner = AliPayPartnerID; // 商户ID
     NSString *seller = AliPaySellerID; // 账号
     NSString *privateKey = AliPayPrivateKey; // 私钥
@@ -52,7 +51,11 @@
     //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner(privateKey);
     NSString *signedString = [signer signString:orderSpec];
-    
+    if (!signedString.length) {
+        JJBLog(@"支付宝签名失败");
+        config(NO);
+        return;
+    }
     
     // //将签名成功字符串格式化为订单字符串,请严格按照该格式
     NSString *orderString = nil;
@@ -60,13 +63,35 @@
         orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
                        orderSpec, signedString, @"RSA"];
         
-        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
-        }];
+//        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+//            if ([resultDic[@"resultStatus"] intValue] == 9000) {
+//                JJBLog(@"支付宝支付成功");
+//                config(YES);
+//            }
+//        
+//        }];
+        [[AlipaySDK defaultService] auth_V2WithInfo:orderString
+                                         fromScheme:appScheme
+                                           callback:^(NSDictionary *resultDic) {
+                                               NSLog(@"result = %@",resultDic);
+                                               // 解析 auth code
+                                               NSString *result = resultDic[@"result"];
+                                               NSString *authCode = nil;
+                                               if (result.length>0) {
+                                                   NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+                                                   for (NSString *subResult in resultArr) {
+                                                       if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                                                           authCode = [subResult substringFromIndex:10];
+                                                           break;
+                                                       }
+                                                   }
+                                               }
+                                               NSLog(@"授权结果 authCode = %@", authCode?:@"");
+                                           }];
+
         
         
     }
-
-    
 }
+
 @end

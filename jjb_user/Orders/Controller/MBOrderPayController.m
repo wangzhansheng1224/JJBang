@@ -135,7 +135,11 @@
                                    @"notifyURL":dictData[@"notify_url"]
                                    };
         
-        [MBAliPayManger aliPayWithParamDictonary:aliDict];
+        [MBAliPayManger aliPayWithParamDictonary:aliDict callbackConfig:^(BOOL config) {
+            if (config) {
+                JJBLog(@"支付宝支付成功");
+            }
+        }];
     }
     
     

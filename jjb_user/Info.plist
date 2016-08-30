@@ -51,10 +51,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>AliPay</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>jjb_user_AliPay</string>
+				<string>com.happycity777.jiajiabang</string>
 			</array>
 		</dict>
 	</array>

@@ -87,8 +87,6 @@ if([resp isKindOfClass:[PayResp class]]){
                 wxPayResult = @"faile";
                 break;
         }
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
        NSNotification * notification = [NSNotification notificationWithName:@"WXPay" object:wxPayResult];
     
       [[NSNotificationCenter defaultCenter] postNotification:notification];
@@ -103,55 +101,63 @@ if([resp isKindOfClass:[PayResp class]]){
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
 {
     
-//    return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
-    if ([url.host isEqualToString:@"safepay"]) {
+//     return [[[CTMediator sharedInstance] performActionWithUrl:url completion:nil] boolValue];
+      if ([url.host isEqualToString:@"safepay"]) {
         // 支付跳转支付宝钱包进行支付，处理支付结果
-//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-//            NSLog(@"result = %@",resultDic);
-//        }];
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
         
         // 授权跳转支付宝钱包进行支付，处理支付结果
-//        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-//            NSLog(@"result = %@",resultDic);
-//            // 解析 auth code
-//            NSString *result = resultDic[@"result"];
-//            NSString *authCode = nil;
-//            if (result.length>0) {
-//                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
-//                for (NSString *subResult in resultArr) {
-//                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
-//                        authCode = [subResult substringFromIndex:10];
-//                        break;
-//                    }
-//                }
-//            }
-//            NSLog(@"授权结果 authCode = %@", authCode?:@"");
-//        }];
-        
-        //最新写法
-        [[AlipaySDK defaultService]processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            NSString * str = resultDic[@"result"];
-            NSLog(@"result = %@",str);
-        }];
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            id<DataVerifier> dataVeri = CreateRSADataVerifier(@"public");
-            //验证签名是否一致
-            if ([dataVeri verifyString:@"22" withSign:@"ee"]) {
-                
-            }
-            NSLog(@"result = %@",resultDic);
-            NSString * str = resultDic[@"memo"];
-            NSLog(@"memo = %@",str);
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
             
-        }];
-        return YES;
-    }
-    
+//            NSString * key = @"ResultStatus";
+//            if (![[resultDic allKeys]containsObject:key]) {
+//                key = @"resultStatus";
+//            }
+//            if ([[resultDic objectForKey:key] integerValue] == 9000)
+//            {
+//                NSNotification * notification = [NSNotification notificationWithName:@"AliPay" object:nil];
+//                
+//             [[NSNotificationCenter defaultCenter] postNotification:notification];
+//
+//            }else if ([resultDic[key]integerValue] == 8000){
+//                
+//                NSLog(@"正在处理中");
+//            }else if ([resultDic[key]integerValue] == 4000){
+//                
+//                NSLog(@"订单支付失败");
+//            }else if ([resultDic[key]integerValue] == 6001){
+//                
+//                NSLog(@"用户中途取消");
+//            }else if ([resultDic[key]integerValue] == 6002){
+//                
+//                NSLog(@"网路连接出错");
+//            }
 
-    else 
+            
+            
+            // 解析 auth code
+            NSString *result = resultDic[@"result"];
+            NSString *authCode = nil;
+            if (result.length>0) {
+                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+                for (NSString *subResult in resultArr) {
+                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                        authCode = [subResult substringFromIndex:10];
+                        break;
+                    }
+                }
+            }
+            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+        }];
+    }
+    return YES;
+
         return [WXApi handleOpenURL:url delegate:self];
-    
-  }
+}
+
+
 
 -(BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -161,7 +167,7 @@ if([resp isKindOfClass:[PayResp class]]){
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
+            NSLog(@"支付宝回调%@",resultDic);
         }];
         // 授权跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
@@ -184,6 +190,23 @@ if([resp isKindOfClass:[PayResp class]]){
     return YES;
 }
 
+
+-(BOOL)application:(UIApplication *)app handleOpenURL:(nonnull NSURL *)url
+{
+    //跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"支付宝回调%@",resultDic);
+
+    }];
+    
+    
+    return YES;
+}
+- (void)processOrderWithPaymentResult:(NSURL *)resultUrl
+                      standbyCallback:(CompletionBlock)completionBlock;
+{
+    JJBLog(@"支付宝支付");
+}
 -(UINavigationController *)navController{
         UITabBarController * tabControler = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
       return  (UINavigationController *)[tabControler selectedViewController];
