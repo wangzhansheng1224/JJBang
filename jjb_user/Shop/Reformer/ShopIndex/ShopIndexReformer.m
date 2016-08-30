@@ -153,21 +153,22 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                                            
                                            }];
         }
-//        //video 数据
-//        NSArray * videosListArray = indexData[@"videoList"];
-//        NSMutableArray * videosListMArray = [[NSMutableArray alloc]initWithCapacity:0];
-//            
+        //video 数据
+//        NSArray * videosListArray = indexData[@"video"];
+        NSDictionary *videosDic = indexData[@"video"];
+        NSMutableArray *videoListMutableArry = [[NSMutableArray alloc]initWithCapacity:0];
 //        for (NSInteger i=0; i<[videosListArray count]; i++) {
 //            NSDictionary *dic=videosListArray[i];
-//            [videosListMArray addObject:@{
-//                                           kShopIndexVideoID:dic[@"id"],
-//                                           kShopIndexCourseImg:[dic objectForKey:@"courseImg"],
-//                                           kShopIndexCourseName:dic[@"courseName"],
-//                                           kShopIndexVideoName:dic[@"name"]
-//                                           }];
-//            }
+        if (videosDic != nil) {
+            [videoListMutableArry addObject:@{
+                                           kShopIndexVideoID:videosDic[@"id"],
+                                           kShopIndexCourseImg:[videosDic objectForKey:@"courseImg"],
+                                           kShopIndexCourseName:videosDic[@"courseName"],
+                                           kShopIndexVideoName:videosDic[@"name"]
+                                           }];
+            }
 
-        }
+//        }
         return @{
 //                 kShopIndexShopList : indexData[@"shopList"] != [NSNull null]
 //                 ? indexData[@"shopList"]
@@ -177,8 +178,8 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                  kShopIndexGoodsList : goodsMArrary,
                  kShopIndexActList:actListMArray,
                  kShopIndexSdtList : sdtMArrary,
-//                 kShopIndexVideosList : videosListMArray,
                  kShopIndexCourseList : courseMArrary,
+                 kShopIndexVideosList : videoListMutableArry,
                  kShopIndexRadioList : indexData[@"radioList"] != [NSNull null]
                  ? indexData[@"radioList"]
                  : @"",
@@ -186,7 +187,7 @@ NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
                  
                  };
     }
-    
+    }
     return nil;
 }
 @end

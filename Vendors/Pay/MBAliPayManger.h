@@ -10,5 +10,5 @@
 
 @interface MBAliPayManger : NSObject
 
-+(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary;
++(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary callbackConfig:(void(^)(BOOL config))config;
 @end

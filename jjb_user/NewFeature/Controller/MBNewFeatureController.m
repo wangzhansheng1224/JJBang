@@ -93,7 +93,7 @@ static NSString * const reuseIdentifier = @"cell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MBNewFeatureCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    NSString * string = [NSString stringWithFormat:@"guide_%ld",indexPath.row+1];
+    NSString * string = [NSString stringWithFormat:@"guide_%d",indexPath.row+1];
     cell.image = [UIImage imageNamed:string];
 
     [cell setIndexPath:indexPath count:kMBGuidePageCount];

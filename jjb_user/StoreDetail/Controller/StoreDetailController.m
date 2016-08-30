@@ -8,29 +8,26 @@
 
 #import "StoreDetailController.h"
 #import "StoreDetailCell.h"
-//#import "TeacherHeaderView.h"
 #import "StoreDetailInfoAPIManager.h"
 #import "StoreDetailReformer.h"
-//#import "MyCourseAPIManager.h"
-//#import "TeacherDetailAPIManager.h"
-
 
 static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 @interface StoreDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
-//@property (nonatomic,strong) TeacherHeaderView *headerView;
 @property (nonatomic,strong) NSArray *imageArr;
 @property (nonatomic,strong) LDAPIBaseManager *MyGrowingAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> detailReformer;
+@property (nonatomic,strong) id<ReformerProtocol> storeDetailReformer;
+@property (nonatomic,strong) StoreDetailInfoAPIManager *storeDetailInfoAPIManager;
+//@property (nonatomic,strong) StoreDetailReformer *storeDetailReformer;
 
 @property (nonatomic,assign) NSInteger growingIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSMutableArray *GrowingTreeDataArr;
-@property(nonatomic,strong) NSDictionary *detailDic;
+@property (nonatomic,strong) NSDictionary *storeDetailDictionary;
 @end
 
 @implementation StoreDetailController
@@ -39,11 +36,13 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"门店介绍";
+    self.navigationItem.title = @"门店详情";
     self.growingIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
+    
 //    self.tableView.tableHeaderView=self.headerView;
+    
     [self layoutPageSubviews];
     [self.detailAPIManager loadData];
 }
@@ -100,109 +99,116 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     return self.tabbarControl;
 }
 
-#pragma -
-#pragma mark - LDAPIManagerApiCallBackDelegate
-- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    
-    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]])
-    {
-        self.detailDic = [manager fetchDataWithReformer:self.detailReformer];
-//        [self.headerView configWithData:_detailDic];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-        [self.tableView reloadData];
-    }
-}
-- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
-}
 
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
-
     if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
         return @{
-                 @"teaId":@(self.storeID)
+                 @"shop_id":@(self.storeID)
                  };
     }
     return nil;
 }
 
 #pragma -
-#pragma mark - event response
-- (void)tabBarControlChangeValue:(id)sender{
-    [self.tableView reloadData];
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+//    
+//    if ([manager isKindOfClass:[ActivityDetailAPIManager class]]) {
+//        self.storeDetailDictionary=[manager fetchDataWithReformer:self.detailReformer];
+//        self.title=_detailData[kActivityDetailTitle];
+//        [self.headerView configWithData:_detailData];
+//        [self.tableView reloadData];
+//    }
 }
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
+
 
 #pragma -
 #pragma mark - getters and setters
+//- (ActivityDetailHeader *) headerView{
+//    if (!_headerView) {
+//        _headerView=[[ActivityDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 273)];
+//        _headerView.backgroundColor=COLOR_WHITE;
+//    }
+//    return _headerView;
+//}
+//
+- (HMSegmentedControl *) tabbarControl
+{
+    
+    if (!_tabbarControl) {
+        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动详情",@"报名信息"]];
+        _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
+        _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
+        _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
+        _tabbarControl.selectionIndicatorHeight=2.0f;
+        [_tabbarControl addTarget:self action:@selector(tabbarControllChangeValue:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _tabbarControl;
+}
+
 - (UITableView *)tableView {
     
     if (!_tableView) {
-        
         _tableView = [[UITableView alloc] init];
-        _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            if (self.tabbarControl.selectedSegmentIndex==1) {
-                [self.GrowingTreeDataArr removeAllObjects];
-                self.growingIndex=0;
-                [self.MyGrowingAPIManager loadData];
-            }
-            else{
-                  [self.detailAPIManager loadData];
-            }
-        }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            if (self.tabbarControl.selectedSegmentIndex==1) {
-                [self.MyGrowingAPIManager loadData];
-            }
-            else{
-                [self.detailAPIManager loadData];
-            }
-        }];
-        [_tableView registerClass:[StoreDetailCell class] forCellReuseIdentifier:StoreDetailCellIdentifier];
+        
+//        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailCell"];
+//        [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:@"ActivityRegistrationCell"];
     }
     return _tableView;
 }
 
-- (NSMutableArray *)GrowingTreeDataArr {
-    
-    if (!_GrowingTreeDataArr) {
-        
-        _GrowingTreeDataArr = [[NSMutableArray alloc] init];
-    }
-    return _GrowingTreeDataArr;
-}
+//- (NSMutableArray *)arrRegistrationData {
 
-//- (TeacherHeaderView *)headerView {
-//    
-//    if (!_headerView) {
-//        _headerView = [[TeacherHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 194+10))];
-//        _headerView.backgroundColor = COLOR_WHITE;
+//    if (!_arrRegistrationData) {
+//        
+//        _arrRegistrationData = [[NSMutableArray alloc] init];
 //    }
-//    return _headerView;
+//    return _arrRegistrationData;
 //}
 
-- (LDAPIBaseManager *)detailAPIManager {
-    if (_detailAPIManager == nil) {
-        _detailAPIManager = [StoreDetailInfoAPIManager  sharedInstance];
-        _detailAPIManager.delegate=self;
-        _detailAPIManager.paramSource=self;
-    }
-    return _detailAPIManager;
-}
+//- (NSMutableArray *)array_data {
 
--(id<ReformerProtocol>) detailReformer
-{
-    if (!_detailReformer) {
-//        _detailReformer=[[TeacherReformer alloc] init];
+//    if (!_array_data) {
+//        
+//        _array_data = [[NSMutableArray alloc] init];
+//    }
+//    return _array_data;
+//}
+
+- (LDAPIBaseManager *)storeDetailInfoAPIManager {
+    if (_storeDetailInfoAPIManager == nil) {
+        _storeDetailInfoAPIManager = [StoreDetailInfoAPIManager  sharedInstance];
+        _storeDetailInfoAPIManager.delegate=self;
+        _storeDetailInfoAPIManager.paramSource=self;
     }
-    return _detailReformer;
+    return _storeDetailInfoAPIManager;
+}
+-(id<ReformerProtocol>)storeDetailReformer
+{
+    if (_storeDetailReformer == nil) {
+        _storeDetailReformer = [[StoreDetailReformer alloc]init];
+    }
+    return _storeDetailReformer;
+}
+-(NSDictionary *)storeDetailDictionary
+{
+    if (_storeDetailDictionary == nil) {
+        _storeDetailDictionary = [[NSDictionary alloc]init];
+        
+    }
+    return _storeDetailDictionary;
 }
 
 @end

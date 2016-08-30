@@ -32,6 +32,7 @@
 #import "RHADScrollView.h"
 #import "MBNavgationCenterView.h"
 #import "ShopListAPIManager.h"
+#import "VideosListController.h"
 /**
  *  首页主控制器
  */
@@ -210,14 +211,16 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     else if(indexPath.section ==3)
     {
         MBVideoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:MBVideoCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.dataDic[kShopIndexVideoID][indexPath.row]];
+        [cell configWithData:self.dataDic[kShopIndexVideosList][indexPath.row]];
         JJBLog(@"self.dataDic = %@",self.dataDic);
         TitleBar * titleBar=[[TitleBar alloc] initWithTitle:@"直播间"];
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
+        
+        VideosListController *video = [[VideosListController alloc]init];
         [titleBar moreButtonClick:^(TitleBar *sender) {
-            UIViewController *controller= [[CTMediator sharedInstance] CTMediator_VideosList:nil];
-            [self.navigationController pushViewController:controller animated:YES];
+//            UIViewController *controller= [[CTMediator sharedInstance] CTMediator_VideosList:nil];
+            [self.navigationController pushViewController:video animated:YES];
         }];
 
         return cell;

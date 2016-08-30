@@ -212,7 +212,16 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
                            self.moneyTextfield.text,@"amount",
                            self.notifyURL,@"notifyURL",
                            nil];
-    [MBAliPayManger aliPayWithParamDictonary:dict];
+    [MBAliPayManger aliPayWithParamDictonary:dict callbackConfig:^(BOOL config) {
+        if (config) {
+            JJBLog(@"支付宝支付成功");
+            PayResultController *resultController=[[PayResultController alloc] init];
+//            resultController.orderNo=[dictData objectForKey:@"order"];
+            
+            [self.navigationController pushViewController:resultController animated:YES];
+
+            }
+    }];
     
 }
 

@@ -78,7 +78,7 @@
     }];
     [_label_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(_label_title.mas_bottom).with.offset(8);
+    make.top.equalTo(_label_title.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(200, 17));
         make.left.equalTo(_imageView_location.mas_right).with.offset(8);
     }];
