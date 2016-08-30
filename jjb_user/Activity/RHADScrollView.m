@@ -177,9 +177,11 @@
 //继续
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
+    if (self.arrPic.count > 1) {
+        
+        [self addTimer];
+    }
 //    _timer.fireDate = [NSDate distantPast];
-    [self addTimer];
-    
 }
 
 
@@ -253,7 +255,10 @@
         
     }else {
         
-        [self addTimer];
+        if (self.arrPic.count > 1) {
+            
+            [self addTimer];
+        }
     }
 }
 

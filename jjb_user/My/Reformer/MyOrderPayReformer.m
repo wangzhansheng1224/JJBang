@@ -28,7 +28,7 @@ NSString * const kMyOrderPayOrderCTime=@"MyOrderPayOrderCTime";
         NSArray * arrData = data[@"data"];
         
         for (NSInteger i = 0 ; i< arrData.count; i++) {
-            NSDate * date = [NSDate dateWithTimeIntervalSince1970:[arrData[i][@"time"]doubleValue]/1000];
+            NSDate * date = [NSDate dateWithTimeIntervalSince1970:[arrData[i][@"ctime"]doubleValue]/1000];
             NSString * time = [date formattedDateWithFormat:@"YYYY-MM-dd hh:mm:ss"];
             
             NSString * priceString = [NSString stringWithFormat:@"%.2f",[arrData[i][@"price"]doubleValue]];

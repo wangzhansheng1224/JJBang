@@ -23,13 +23,14 @@ NSString *const kGoodsListToPrice = @"GoodsListToPrice";
         NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
         
         NSArray *arrData=data[@"data"];
-        
+//        NSArray *imgArr=data[@"images"];
         for (NSInteger i=0; i< [arrData count]; i++) {
            
             NSString *imgPath;
             NSArray *imgArr=arrData[i][@"images"];
+            
             if (imgArr!=nil&&[imgArr count]>0) {
-                imgPath=imgArr[0][@"image"];
+                imgPath=imgArr[1][@"image"];
             }
             
             NSDictionary *itemData=@{

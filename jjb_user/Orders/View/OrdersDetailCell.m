@@ -77,14 +77,18 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
+    [self.titleLabel setText:data[kOrdersDetailName]];
     NSString * URLString = [NSString stringWithFormat:@"%@%@",ImageServer,data[kOrdersDetailImage]];
     NSURL * imageURL = [NSURL URLWithString:URLString];
     [self.picImageV sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"img_default"]];
-   
-    [self.titleLabel setText:data[kOrdersDetailName]];
-    [self.describeLabel setText:[NSString stringWithFormat:@" %@ 课时",data[kOrdersDetailCourseNum]]];
     float price = [data[kOrdersDetailPayPrice] floatValue];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥ %.2f",price]];
+    [self.describeLabel setText:[NSString stringWithFormat:@" %@ 课时",data[kOrdersDetailCourseNum]]];
+    if (![data[kOrdersDetailName] isEqualToString:@"咖啡"]) {
+        self.describeLabel.hidden = NO;
+    }else {
+        self.describeLabel.hidden = YES;
+    }
 }
 
 
@@ -116,7 +120,7 @@
     if (!_describeLabel) {
         
         _describeLabel = [[UILabel alloc] init];
-        _describeLabel.text = @"商品描述";
+//        _describeLabel.text = @"商品描述";
         _describeLabel.font = H4;
         _describeLabel.textColor = COLOR_GRAY;
     }
