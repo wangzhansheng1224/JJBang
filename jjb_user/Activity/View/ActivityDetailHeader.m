@@ -184,7 +184,6 @@
 - (RHADScrollView *)adScrollView {
 
     if (!_adScrollView) {
-        
         _adScrollView = [[RHADScrollView alloc] init];
         _adScrollView.adHeight = 173;
         _adScrollView.delegate = self;
