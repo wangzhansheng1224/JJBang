@@ -73,7 +73,11 @@
         [[AlipaySDK defaultService] auth_V2WithInfo:orderString
                                          fromScheme:appScheme
                                            callback:^(NSDictionary *resultDic) {
-                                               NSLog(@"result = %@",resultDic);
+                                    if ([resultDic[@"resultStatus"] intValue] == 9000) {
+                                                                   JJBLog(@"支付宝支付成功");
+                                                                   config(YES);
+                                            }
+
                                                // 解析 auth code
                                                NSString *result = resultDic[@"result"];
                                                NSString *authCode = nil;
