@@ -19,11 +19,15 @@
 #import "MBWeChatPayManger.h"
 #import "MBAliPayManger.h"
 #import "MyRechargeWeChatAPIManager.h"
-
+#import "MBTextFieldTool.h"
 /**
  *  充值界面
  */
-@interface MyRechargeController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
+
+
+#define myDotNumbers @"0123456789.\n"
+#define myNumbers @"0123456789"
+@interface MyRechargeController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITextFieldDelegate>
 
 @property(nonatomic,weak) UITextField * moneyTextfield;
 @property(nonatomic,weak) UILabel * nameLabel;
@@ -162,7 +166,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 {
     NSDictionary * dict = @{
                             @"user_id":@([UserModel currentUser].userID),
-                            @"boby":@"余额充值",
+                            @"body":@"余额充值",
                             @"total_fee":self.moneyTextfield.text};
     return dict;
                                 
@@ -176,6 +180,14 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 //确认支付
 -(void )gotoRecharge:(UIButton *)btn
 {
+    
+    if ([self.moneyTextfield.text doubleValue] < 0.01)
+    {
+        [self.view makeToast:@"输入的金额应大于0.01元,请重新输入" duration:1.0f position:CSToastPositionCenter];
+        return;
+    }
+    
+    
     JJBLog(@"确认支付");
         //支付宝支付
     if ( self.RechargeWeChatAndAliView.selectIndex == 0) {
@@ -203,6 +215,44 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     [MBAliPayManger aliPayWithParamDictonary:dict];
     
 }
+
+
+#pragma -
+#pragma - mark UITextFieldDelegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+     NSCharacterSet *cs;
+    NSUInteger nDotLoc = [textField.text rangeOfString:@"."].location;
+    if (NSNotFound == nDotLoc && 0 != range.location) {
+        cs = [[NSCharacterSet characterSetWithCharactersInString:myDotNumbers] invertedSet];
+    }
+    else {
+        cs = [[NSCharacterSet characterSetWithCharactersInString:myNumbers] invertedSet];
+    }
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    BOOL basicTest = [string isEqualToString:filtered];
+    if (!basicTest) {
+        
+                [self.view makeToast:@"只能输入数字和小数点" duration:1.0f position:CSToastPositionCenter];
+        return NO;
+    }
+    if (NSNotFound != nDotLoc && range.location > nDotLoc + 2) {
+
+                        [self.view makeToast:@"小数点后最多两位" duration:1.0f position:CSToastPositionCenter];
+        return NO;
+    }
+return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+
+{
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+    
+}
+
 #pragma
 #pragma mark - getter and setter
 -(UITextField *)moneyTextfield
@@ -211,7 +261,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         UITextField * textField = [[UITextField alloc]init];
         textField.placeholder = @"输入充值金额";
         textField.font = [UIFont systemFontOfSize:14];
-        
+        textField.delegate = self;
         [self.bjTextfieldView addSubview:textField];
         
         _moneyTextfield = textField;

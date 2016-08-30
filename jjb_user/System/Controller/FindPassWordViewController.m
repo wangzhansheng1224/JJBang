@@ -95,7 +95,7 @@
     else if([manager isKindOfClass:[self.verCodeAPIManager class]])
     {
          BOOL string = (BOOL)dict[@"data"];
-        if(string == NO)
+        if(string == YES)
         {
             //验证成功跳转修改密码界面
             ReplacePassWordViewController * replaceVC = [[ReplacePassWordViewController alloc]init];
@@ -135,7 +135,8 @@
     //验证码
     if ([manager isKindOfClass:[self.getCodeAPIManager class]]) {
         return @{
-                 @"phone":self.telTextfield.text
+                 @"phone":self.telTextfield.text,
+                 @"type":@1
                  };
     }
     else

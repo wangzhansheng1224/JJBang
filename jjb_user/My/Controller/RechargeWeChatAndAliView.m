@@ -37,7 +37,6 @@
                     }
                 
                     self.currentCell.choiceButton.selected = YES;
-//               cell.choiceButton.selected = !cell.choiceButton.selected;
              }];
             cell.frame=CGRectMake(0, i*60, Screen_Width, 60);
 
