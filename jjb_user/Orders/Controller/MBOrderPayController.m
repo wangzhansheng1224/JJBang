@@ -74,6 +74,9 @@
 #pragma mark - 支付按钮点击事件
 -(void)gotoRecharge:(UIButton *)btn
 {
+        
+    
+    
     if (self.RechargeWeChatAndAliView.selectIndex == 0) {
         JJBLog(@"余额支付");
         self.RechargeType = 0;

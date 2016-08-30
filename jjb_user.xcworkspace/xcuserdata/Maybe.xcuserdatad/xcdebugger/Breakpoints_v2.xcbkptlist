@@ -19,22 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "jjb_user/Clerk/Controller/ClerkController.m"
-            timestampString = "494150622.562274"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "-paramsForApi:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/LBXScan/LBXScan/LBXScanNative.m"
             timestampString = "494160875.765099"
             startingColumnNumber = "9223372036854775807"
@@ -51,13 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "jjb_user/My/Controller/RechargeWeChatAndAliView.m"
-            timestampString = "494164972.664362"
+            filePath = "jjb_user/System/Controller/FindPassWordViewController.m"
+            timestampString = "494220353.439128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-initWithItems:"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-apiManagerCallDidFailed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "jjb_user/System/Controller/FindPassWordViewController.m"
+            timestampString = "494220355.669517"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-apiManagerCallDidFailed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -280,7 +280,8 @@
     //验证码
     if ([manager isKindOfClass:[self.getCodeAPIManager class]]) {
         return @{
-                 @"phone":self.telTextfield.text
+                 @"phone":self.telTextfield.text,
+                 @"type":@0
                  };
     }
     else if([manager isKindOfClass:[self.verCodeAPIManager class]]){
