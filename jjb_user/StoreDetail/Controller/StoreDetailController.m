@@ -40,6 +40,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     self.growingIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
+    
 //    self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
     [self.detailAPIManager loadData];
