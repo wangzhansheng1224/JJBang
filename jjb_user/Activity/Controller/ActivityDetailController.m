@@ -49,7 +49,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self loadData];
-    self.headerView.invalidate = NO;
+//    self.headerView.invalidate = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

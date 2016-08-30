@@ -194,7 +194,7 @@
 
 - (void)createTimer{
     
-    __block int timeout = 3;
+    __block int timeout = 60;
     //获取全局队列 将倒计时的任务 交给全局队列执行
     dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
