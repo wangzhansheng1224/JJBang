@@ -27,6 +27,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXPay" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"AliPay" object:nil];
 }
 
 -(void)dealloc
@@ -47,6 +48,11 @@
     {
 
         self.infoLabel.text = @"用户取消了支付";
+        [self.apiManager loadData];
+    }
+    else if ([notification.object isEqualToString:@"9000"])
+    {
+        self.infoLabel.text = @"支付成功";
         [self.apiManager loadData];
     }
     else
