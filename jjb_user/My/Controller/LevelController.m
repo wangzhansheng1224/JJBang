@@ -32,7 +32,7 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
     [super viewDidLoad];
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
     self.navigationItem.title = @"会员等级";
-    self.navigationItem.rightBarButtonItem = self.rightItem;
+//    self.navigationItem.rightBarButtonItem = self.rightItem;
 
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headView;

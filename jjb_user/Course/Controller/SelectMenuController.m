@@ -142,6 +142,9 @@
         NSDictionary * resultDic = [manager fetchDataWithReformer:self.coursePackagesReformer];
         NSArray *packageArr = resultDic[@"packages"];
         NSArray *memberArr = resultDic[@"members"];
+       
+        [self.packagesData addObjectsFromArray:packageArr];
+        [self.membersData addObjectsFromArray:memberArr];
         NSInteger studentID;
         if ([memberArr count]>0) {
             studentID=[self.membersData[_membersIndex][@"PackagesMembersId"] integerValue];
@@ -149,9 +152,6 @@
         {
             studentID=[UserModel currentUser].userID;
         }
-        [self.packagesData addObjectsFromArray:packageArr];
-        [self.membersData addObjectsFromArray:memberArr];
-        
         [self.makeOrderBar configWithData:@{@"price":self.packagesData[_packagesIndex][@"CoursePackagesOrgPrice"],@"objectID":self.packagesData[_packagesIndex][@"PackagesID"],@"studentID":@(studentID)}];
         [self.menuView addSubview:self.packagesSV];
         [self.menuView addSubview:self.membersSV];

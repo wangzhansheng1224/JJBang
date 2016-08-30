@@ -37,8 +37,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
+    [self.tableView.mj_header beginRefreshing];
     [self.activityListAPIManager loadData];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

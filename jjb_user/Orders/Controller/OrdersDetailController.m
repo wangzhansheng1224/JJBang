@@ -104,10 +104,16 @@
 #pragma -
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
-    MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
-    orderPayVC.orderInfoDict = self.orderDetailDictionary;
-    [self.navigationController pushViewController:orderPayVC animated:YES];
-
+    
+//    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+//    if (controller==nil) {
+        MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
+        orderPayVC.orderInfoDict = self.orderDetailDictionary;
+        [self.navigationController pushViewController:orderPayVC animated:YES];
+//    } else{
+//        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+//        [navController pushViewController:controller animated:YES];
+//    }
 }
 
 #pragma -
