@@ -3594,7 +3594,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3646,7 +3646,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
