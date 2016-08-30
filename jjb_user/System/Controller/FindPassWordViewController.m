@@ -187,6 +187,7 @@
         make.top.mas_equalTo(self.codeTextfield.mas_bottom).offset(32);
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.left.mas_equalTo(self.view.mas_left).offset(43);
+        make.height.equalTo(@40);
     }];
     
 

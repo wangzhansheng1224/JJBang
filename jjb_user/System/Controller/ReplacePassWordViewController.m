@@ -108,7 +108,7 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.againPassWordTextfield.mas_bottom).offset(32);
         make.left.equalTo(self.view.mas_left).offset(42);
-        
+        make.height.equalTo(@40);
     }];
 
 }

@@ -97,6 +97,7 @@
         make.top.equalTo(self.bjView.mas_bottom).offset(32);
         make.left.equalTo(self.view.mas_left).offset(43);
         make.centerX.equalTo(self.view.mas_centerX);
+        make.height.equalTo(@40);
     }];
 }
 #pragma 
