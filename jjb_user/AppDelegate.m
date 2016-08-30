@@ -148,7 +148,7 @@ if([resp isKindOfClass:[PayResp class]]){
     }
     
 
-    else
+    else 
         return [WXApi handleOpenURL:url delegate:self];
     
   }
