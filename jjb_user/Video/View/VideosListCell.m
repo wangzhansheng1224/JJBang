@@ -96,6 +96,7 @@
     [self.startEndTimeLabel setText:data[kVideosListStartEndTime]];
     NSURL *url=[NSURL initWithImageURL:data[kVideosListTocourseImg] Size:self.courseImg.frame.size];
     JJBLog(@"kVideosListTocourseImgUrl=%@",url);
+    
     [self.courseImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
     
 
