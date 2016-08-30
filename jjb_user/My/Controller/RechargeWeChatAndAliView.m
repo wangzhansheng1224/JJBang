@@ -23,6 +23,7 @@
             if (i == 0) {
                 cell.choiceButton.selected = YES;
                 cell.choiceButton.tag = 100;
+                self.currentCell=cell;
             }
                 [cell selectButton:^(RechargeWeChatAndAliCell *sender) {
                  self.selectIndex=cell.tag;

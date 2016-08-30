@@ -121,7 +121,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return 56 + Screen_Width/3.0;
+    return 80 + Screen_Width/3.0;
 }
 
 #pragma -

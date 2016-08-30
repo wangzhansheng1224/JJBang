@@ -39,7 +39,7 @@
 }
 
 #pragma -
-#pragma mark - layoutPageSubviews
+#pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
     
 }
