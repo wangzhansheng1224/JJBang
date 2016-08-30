@@ -56,6 +56,9 @@
         
         _pageControl.numberOfPages = self.arrPic.count;
         
+    }else {
+    
+        _pageControl.numberOfPages = 0;
     }
     
     if (self.adHeight > 0) {
@@ -77,7 +80,7 @@
     
     [self removeTimer];
     
-    if (self.arrPic.count > 0) {
+    if (self.arrPic.count > 1) {
         
         [self addTimer];
     }
@@ -174,9 +177,11 @@
 //继续
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
+    if (self.arrPic.count > 1) {
+        
+        [self addTimer];
+    }
 //    _timer.fireDate = [NSDate distantPast];
-    [self addTimer];
-    
 }
 
 
@@ -250,7 +255,10 @@
         
     }else {
         
-        [self addTimer];
+        if (self.arrPic.count > 1) {
+            
+            [self addTimer];
+        }
     }
 }
 

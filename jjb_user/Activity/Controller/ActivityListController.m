@@ -37,6 +37,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     self.pageIndex=0;
     self.pageSize=20;
     [self.view addSubview:self.tableView];
+    [self.tableView.mj_header beginRefreshing];
     [self.activityListAPIManager loadData];
 
 }

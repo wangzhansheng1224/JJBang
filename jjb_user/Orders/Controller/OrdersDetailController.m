@@ -51,7 +51,6 @@
     [self.sectionView addSubview:self.arrowImageV];
     [self layoutPageSubviews];
     [self.apiManager loadData];
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -104,10 +103,16 @@
 #pragma -
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
-    MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
-    orderPayVC.orderInfoDict = self.orderDetailDictionary;
-    [self.navigationController pushViewController:orderPayVC animated:YES];
-
+    
+//    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+//    if (controller==nil) {
+        MBOrderPayController * orderPayVC = [[MBOrderPayController alloc]init];
+        orderPayVC.orderInfoDict = self.orderDetailDictionary;
+        [self.navigationController pushViewController:orderPayVC animated:YES];
+//    } else{
+//        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+//        [navController pushViewController:controller animated:YES];
+//    }
 }
 
 #pragma -
@@ -153,11 +158,10 @@
         
         JJBLog(@"%@",self.orderDetailDictionary);
         }
-    [self.tableView reloadData];
     [self.headerView configWithData:self.orderDetailDictionary];
     [self.footerView configWithData:self.orderDetailDictionary];
     self.locationLabel.text = self.orderDetailDictionary[kOrdersDetailShopName];
-     
+    [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{

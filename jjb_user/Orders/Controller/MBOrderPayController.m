@@ -39,7 +39,10 @@
     [self.view addSubview:self.orderPayHeadView];
     [self.view addSubview:self.RechargeWeChatAndAliView];
     [self.orderPayHeadView setValue:self.orderInfoDict[@"OrderDetailName"] forKeyPath:@"_orderNameLabel.text"];
-    [self.orderPayHeadView setValue:self.orderInfoDict[@"OrderDetailPayPrice"] forKeyPath:@"_orderPriceLabel.text"];
+    
+    float payPrice = [self.orderInfoDict[@"OrderDetailPayPrice"] floatValue];
+    
+    [self.orderPayHeadView setValue:[NSString stringWithFormat:@"%.2f",payPrice] forKeyPath:@"_orderPriceLabel.text"];
     [self setHeadViewValue];
     [self addSubViewsConstraints];
 }
@@ -52,7 +55,9 @@
 {
 
     [self.orderPayHeadView setValue: self.orderInfoDict[@"OrderDetailName"] forKeyPath:@"_orderNameLabel.text"];
-    [self.orderPayHeadView setValue:[NSString stringWithFormat:@"￥ %@",self.orderInfoDict[@"OrderDetailPayPrice"]] forKeyPath:@"_orderPriceLabel.text"];
+    float payPrice = [self.orderInfoDict[@"OrderDetailPayPrice"] floatValue];
+
+    [self.orderPayHeadView setValue:[NSString stringWithFormat:@"￥ %.2f",payPrice] forKeyPath:@"_orderPriceLabel.text"];
 }
 -(void)addSubViewsConstraints
 {
@@ -74,6 +79,9 @@
 #pragma mark - 支付按钮点击事件
 -(void)gotoRecharge:(UIButton *)btn
 {
+        
+    
+    
     if (self.RechargeWeChatAndAliView.selectIndex == 0) {
         JJBLog(@"余额支付");
         self.RechargeType = 0;

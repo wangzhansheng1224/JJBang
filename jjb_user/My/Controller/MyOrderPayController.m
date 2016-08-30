@@ -35,9 +35,9 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"我的订单";
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.pageSize=10;
     self.pageIndex=0;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
     [self createHeaderViewButton];
     [self layoutPageSubviews];
@@ -53,7 +53,7 @@
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 50));
         make.top.left.equalTo(@0);
     }];
 }
@@ -121,7 +121,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return 56 + Screen_Width/3.0;
+    return 80 + Screen_Width/3.0;
 }
 
 #pragma -

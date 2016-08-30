@@ -78,7 +78,7 @@
     
     [self.nicknameLabel setText:data[kActivityRegisterListNickName]];
     [self.remarkLabel setText:data[kActivityRegisterListRemark]];
-    [self.userfaceImageview sd_setImageWithURL:data[kActivityRegisterListUserFace] placeholderImage:[UIImage imageNamed:@"user_default"]];
+    [self.userfaceImageview setHeader:data[kActivityRegisterListUserFace]];
 }
 
 #pragma -
@@ -96,8 +96,8 @@
     
     if (!_userfaceImageview) {
         _userfaceImageview=[[UIImageView alloc] init];
-        _userfaceImageview.layer.cornerRadius = 25;
-        _userfaceImageview.clipsToBounds = YES;
+//        _userfaceImageview.layer.cornerRadius = 25;
+//        _userfaceImageview.clipsToBounds = YES;
     }
     return _userfaceImageview;
 }

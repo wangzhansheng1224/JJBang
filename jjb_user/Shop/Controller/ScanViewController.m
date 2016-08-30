@@ -7,13 +7,10 @@
 //
 
 #import "ScanViewController.h"
-//#import <MyQRViewController.h>
-//#import "ScanResultViewController.h"
 #import "LBXScanResult.h"
 #import "LBXScanWrapper.h"
 #import "LBXScanVideoZoomView.h"
 #import "ScanResultViewController.h"
-//#import "LBXAlertAction.h"
 @interface ScanViewController ()
 @property (nonatomic, strong) LBXScanVideoZoomView *zoomView;
 @end
@@ -23,8 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         
         self.edgesForExtendedLayout = UIRectEdgeNone;

@@ -59,8 +59,7 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
-//    [self.ordersNumLabel setText:data[@"kOrdersDetailOrderNO"]];
-    self.ordersNumLabel.text = data[kOrdersDetailOrderNO];
+    self.ordersNumLabel.text = [NSString stringWithFormat:@"订单号：%@",data[kOrdersDetailOrderNO]];
 }
 
 #pragma -

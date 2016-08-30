@@ -20,7 +20,7 @@
 #import "MyBalanceViewController.h"
 #import "MyHelpController.h"
 #import "ExplainLevelController.h"
-
+#import "ContactServiceController.h"
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -50,8 +50,8 @@
 #pragma -
 #pragma mark - CustomMethods
 - (void)loadData {
-    NSArray *array_image1 = @[@"my_order", @"my_course", @"my_evaluate"];
-    NSArray * array_title1 = @[@"我的订单", @"我的课程", @"我的评价"];
+    NSArray *array_image1 = @[@"my_order", @"my_course"];
+    NSArray * array_title1 = @[@"我的订单", @"我的课程"];
     NSMutableArray * array_section1 = [[NSMutableArray alloc] init];
     for (int i = 0; i < array_image1.count; i++) {
         MineModel * model = [[MineModel alloc] init];
@@ -150,9 +150,8 @@
             [self.navigationController pushViewController:controller animated:YES];
         }
         if (indexPath.row == 1) {
-        
-            ExplainLevelController *controller = [[ExplainLevelController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            ContactServiceController *contactService = [[ContactServiceController alloc] init];
+            [self.navigationController pushViewController:contactService animated:YES];
         }
         if (indexPath.row == 2) {
             MyMoreController *myMoreVC=[[MyMoreController alloc]init];

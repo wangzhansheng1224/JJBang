@@ -412,7 +412,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         _payBtn.backgroundColor = COLOR_ORANGE;
         _payBtn.layer.cornerRadius = 2.0;
         _payBtn.clipsToBounds = YES;
-        [_payBtn setTitle:@"立即报名" forState:UIControlStateNormal];
+        [_payBtn setTitle:@"立即购买" forState:UIControlStateNormal];
         [_payBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
         [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

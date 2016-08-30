@@ -149,6 +149,7 @@
     if ([manager isKindOfClass:[ActivityRegisterListAPIManager class]]) {
         NSArray *resultData = [manager fetchDataWithReformer:self.activityRegisterListReformer];
         [self.arrRegistrationData addObjectsFromArray:resultData];
+        JJBLog(@"%@",self.arrRegistrationData);
         self.pageIndex=[self.arrRegistrationData count];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];

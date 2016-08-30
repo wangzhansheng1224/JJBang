@@ -18,8 +18,15 @@
 @property (nonatomic,strong) UILabel *payingLabel;
 @property (nonatomic,strong) UILabel *label4;    //下单时间
 @property (nonatomic,strong) UILabel *timeLabel;
+@property (nonatomic,strong) UILabel *label5;    //订单客户
+@property (nonatomic,strong) UILabel *clientLabel;
+@property (nonatomic,strong) UILabel *label6;    //支付人
+@property (nonatomic,strong) UILabel *payerLabel;
+@property (nonatomic,strong) UILabel *label7;    //为谁购买
+@property (nonatomic,strong) UILabel *forLabel;
 @property (nonatomic,strong) UILabel *line;
 @property (nonatomic,strong) UILabel *topline;
+
 
 @end
 
@@ -65,13 +72,13 @@
         
         make.top.equalTo(@16);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(60, 14));
+        make.size.mas_equalTo(CGSizeMake(100, 14));
     }];
     [_discountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_goodsPriceLabel.mas_bottom).with.offset(8);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(30, 14));
+        make.size.mas_equalTo(CGSizeMake(100, 14));
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -83,7 +90,7 @@
         
         make.top.equalTo(_line.mas_bottom).with.offset(8);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(64, 16));
+        make.size.mas_equalTo(CGSizeMake(100, 16));
     }];
     [_label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -113,9 +120,12 @@
 
 - (void)configWithData:(NSDictionary *)data
 {
-    [self.goodsPriceLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPrice]]] ;
-    [self.discountLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailZKPrice]]];
-    [self.payingLabel setText:[NSString stringWithFormat:@"￥ %@",data[kOrdersDetailPayPrice] ]];
+    float price =[data[kOrdersDetailPrice] floatValue];
+    [self.goodsPriceLabel setText:[NSString stringWithFormat:@"￥ %.2f",price]];
+    float ZKPrice = [data[kOrdersDetailZKPrice] floatValue];
+    [self.discountLabel setText:[NSString stringWithFormat:@"￥ %.2f",ZKPrice]];
+    float PayPrice = [data[kOrdersDetailPayPrice] floatValue];
+    [self.payingLabel setText:[NSString stringWithFormat:@"￥ %.2f",PayPrice]];
     [self.timeLabel setText:data[kOrdersDetailOrderTime]];
 }
 
@@ -239,6 +249,73 @@
     }
     return _topline;
 }
+- (UILabel *)label5 {
+    
+    if (!_label5) {
+        
+        _label5 = [[UILabel alloc] init];
+        _label5.text = @"订单客户";
+        _label5.font = H3;
+    }
+    return _label5;
+}
 
+- (UILabel *)clientLabel {
+    
+    if (!_clientLabel) {
+        
+        _clientLabel = [[UILabel alloc] init];
+        _clientLabel.text = @"￥1075";
+        _clientLabel.textColor = COLOR_ORANGE;
+        _clientLabel.font = H3;
+        _clientLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _clientLabel;
+}
+- (UILabel *)label6 {
+    
+    if (!_label6) {
+        
+        _label6 = [[UILabel alloc] init];
+        _label6.text = @"支付人";
+        _label6.font = H3;
+    }
+    return _label6;
+}
 
+- (UILabel *)payerLabel {
+    
+    if (!_payerLabel) {
+        
+        _payerLabel = [[UILabel alloc] init];
+        _payerLabel.text = @"￥1075";
+        _payerLabel.textColor = COLOR_ORANGE;
+        _payerLabel.font = H3;
+        _payerLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _payerLabel;
+}
+- (UILabel *)label7 {
+    
+    if (!_label7) {
+        
+        _label7 = [[UILabel alloc] init];
+        _label7.text = @"为谁购买";
+        _label7.font = H3;
+    }
+    return _label7;
+}
+
+- (UILabel *)forLabel {
+    
+    if (!_forLabel) {
+        
+        _forLabel = [[UILabel alloc] init];
+        _forLabel.text = @"￥1075";
+        _forLabel.textColor = COLOR_ORANGE;
+        _forLabel.font = H3;
+        _forLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _forLabel;
+}
 @end

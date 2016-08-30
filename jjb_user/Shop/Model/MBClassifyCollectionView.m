@@ -19,6 +19,8 @@
 #import "StreetControl.h"
 #import "ShopIndexReformer.h"
 #import "ShopModel.h"
+#import "StudentController.h"
+
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
 @property(nonatomic,assign) CGSize itemSize;
@@ -111,7 +113,7 @@ static NSString * const cellID = @"cell";
     {
         //街区
         
-        StreetControl * streetVC = [[StreetControl alloc]init];
+        StudentController * streetVC = [[StudentController alloc]init];
         [navControler pushViewController:streetVC animated:YES];
         
     }else if(indexPath.row == 5)
