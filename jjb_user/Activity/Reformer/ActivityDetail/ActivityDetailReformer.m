@@ -29,7 +29,7 @@ NSString *const kActivityDetailAddress=@"ActivityDetailAddress";
          NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[dicData[@"starttime"] doubleValue]/1000];
          
          NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[dicData[@"endtime"] doubleValue]/1000];
-         NSString *strTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+         NSString *strTime=[NSString stringWithFormat:@"%@ 至 %@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
          
        return  @{
            kActivityDetailID:dicData[@"id"],

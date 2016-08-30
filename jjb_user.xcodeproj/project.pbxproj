@@ -479,7 +479,7 @@
 		731091881D51998F0031B443 /* MyCourseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCourseAPIManager.h; path = APIManager/MyCourseAPIManager.h; sourceTree = "<group>"; };
 		731091891D51998F0031B443 /* MyCourseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCourseAPIManager.m; path = APIManager/MyCourseAPIManager.m; sourceTree = "<group>"; };
 		731091B01D51A67A0031B443 /* TeacherListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherListAPIManager.m; sourceTree = "<group>"; };
-		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherListAPIManager.h; path = Teacher/APIManager/TeacherListAPIManager.h; sourceTree = "<group>"; };
+		731091B11D51A67A0031B443 /* TeacherListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherListAPIManager.h; sourceTree = "<group>"; };
 		731091B31D51A6CD0031B443 /* CourseCommentAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCommentAPIManager.m; sourceTree = "<group>"; };
 		731091B41D51A6CD0031B443 /* CourseListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListAPIManager.m; sourceTree = "<group>"; };
 		731091B51D51A6CD0031B443 /* CourseCommentAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCommentAPIManager.h; sourceTree = "<group>"; };
@@ -1432,6 +1432,7 @@
 		731091AC1D51A5F20031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
 				731091B01D51A67A0031B443 /* TeacherListAPIManager.m */,
 				731091BF1D51A6FB0031B443 /* TeacherInfoAPIManager.h */,
 				731091C01D51A6FB0031B443 /* TeacherInfoAPIManager.m */,
@@ -2921,6 +2922,7 @@
 		BB8F96B31D7427CC00D4993B /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */,
 				BB717BF21D742C0D0077CAD1 /* VideosDetailAPIManager.m */,
 				BB717BF31D742C0D0077CAD1 /* VideosListAPIManager.h */,
 				BB717BF41D742C0D0077CAD1 /* VideosListAPIManager.m */,
@@ -2931,8 +2933,6 @@
 		BB8F96B41D7427D900D4993B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BB717BF11D742C0D0077CAD1 /* VideosDetailAPIManager.h */,
-				731091B11D51A67A0031B443 /* TeacherListAPIManager.h */,
 				BB717BF71D742C230077CAD1 /* VideosDetailController.h */,
 				BB717BF81D742C230077CAD1 /* VideosDetailController.m */,
 				BB717BF91D742C230077CAD1 /* VideosListController.h */,

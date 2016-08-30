@@ -21,8 +21,8 @@ NSString *const kkVideosUrlString=@"VideosUrlString";
         NSDictionary *dataDic=data[@"data"];
         return  @{
                                      kVideosDetailID:dataDic[@"id"],
-                                     kVideosDetailName:dataDic[@"name"],
-                                     kkVideosUrlString:dataDic[@"code"]
+//                                     kVideosDetailName:dataDic[@"name"],
+//                                     kkVideosUrlString:dataDic[@"code"]
                                      };
 
     }

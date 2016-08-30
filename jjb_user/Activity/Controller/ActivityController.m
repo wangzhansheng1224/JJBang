@@ -48,7 +48,7 @@
         if (controller==nil) {
             [self.view addSubview:self.participation.view];
         } else{
-            UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+            UINavigationController  *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
             [navController pushViewController:controller animated:YES];
         }
         

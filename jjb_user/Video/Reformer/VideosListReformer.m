@@ -10,9 +10,13 @@
 #import "VideosListAPIManager.h"
 
 NSString *const kVideosListID = @"VideosListID";
-NSString *const kVideosListImageUrl = @"VideosListImageUrl";
-NSString *const kVideosListToName = @"VideosListToName";
 NSString *const kVideosListTocourseName = @"VideosListTocourseName";
+NSString *const kVideosListTocourseImg = @"VideosListTocourseImg";
+NSString *const kVideosListToName = @"VideosListToName";
+NSString *const kVideosListToShopName = @"VideosListToShopName";
+NSString *const kVideosListStartEndTime = @"VideosListStartEndTime";
+NSString *const kVideosListEndTime = @"VideosListEndTime";
+
 @implementation VideosListReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
@@ -24,22 +28,29 @@ NSString *const kVideosListTocourseName = @"VideosListTocourseName";
         NSArray *arrData=data[@"data"];
         
         for (NSInteger i=0; i< [arrData count]; i++) {
-           
-            NSString *imgPath;
-            NSArray *imgArr=arrData[i][@"images"];
-            if (imgArr!=nil&&[imgArr count]>0) {
-                imgPath=imgArr[0][@"image"];
-            }
             
+            NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"startTime"] doubleValue]/1000];
+            
+            NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"endTime"] doubleValue]/1000];
+            NSString *startEndTime=[NSString stringWithFormat:@"%@ 至 %@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+            NSURL *courseImagUrl;
+            if (arrData[i][@"courseImg"]!=[NSNull null]) {
+                courseImagUrl=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@",arrData[i][@"courseImg"]]];
+            }
+
             NSDictionary *itemData=@{
-                                     kVideosListID:arrData[i][@"id"],
-                                     kVideosListToName:arrData[i][@"name"],
-                                     kVideosListTocourseName:arrData[i][@"courseName"],
-                                     kVideosListImageUrl:arrData[i][@"count"]
+                                     kVideosListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:@" ",
+                                     kVideosListToName:arrData[i][@"name"]!=[NSNull null]?arrData[i][@"name"]:@" ",
+                                     kVideosListToShopName:arrData[i][@"shopName"]!=[NSNull null]?arrData[i][@"name"]:@" ",
+                                     kVideosListTocourseName:arrData[i][@"courseName"]!=[NSNull null]?arrData[i][@"courseName"]:@" ",
+                                     kVideosListTocourseImg:courseImagUrl,
+                                     kVideosListStartEndTime:startEndTime
                                      };
             [arrResult addObject:itemData];
         }
         return arrResult;
+        
+        
     }
     return nil;
 }

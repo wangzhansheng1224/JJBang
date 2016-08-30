@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface StoreDetailReformer : NSObject<ReformerProtocol>
-
+@interface StoreDetailReformer : LDAPIBaseManager<LDAPIManager, LDAPIManagerValidator,
+LDAPIManagerInterceptor>
++ (instancetype)sharedInstance;
 @end
