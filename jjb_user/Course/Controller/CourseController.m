@@ -254,6 +254,13 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
+        
+        return @{
+                 @"course_id":@(self.courseID)
+                 };
+    }
         return @{
                  @"course_id":@(self.courseID)
                  };
