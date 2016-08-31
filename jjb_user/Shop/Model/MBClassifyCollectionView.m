@@ -20,6 +20,7 @@
 #import "ShopIndexReformer.h"
 #import "ShopModel.h"
 #import "StudentController.h"
+#import "GrowingTreeController.h"
 
 @interface MBClassifyCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong) UICollectionViewFlowLayout * layout;
@@ -118,8 +119,8 @@ static NSString * const cellID = @"cell";
     }else if(indexPath.row == 5)
     {
         //儿童成长
-        StreetControl * streetVC = [[StreetControl alloc]init];
-        [navControler pushViewController:streetVC animated:YES];
+        GrowingTreeController  *growingTree = [[GrowingTreeController alloc]init];
+        [navControler pushViewController:growingTree animated:YES];
         
         
     }else if(indexPath.row == 6)
