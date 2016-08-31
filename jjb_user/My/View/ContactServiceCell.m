@@ -14,6 +14,7 @@
 @property (nonatomic,strong) UILabel *nameLabel;    //门店名字
 @property (nonatomic,strong) UILabel *locationLabel;    //地址
 @property (nonatomic,strong) UILabel *phoneLabel;   //电话
+@property (nonatomic,strong) UIImageView *iconImageV;
 
 @end
 
@@ -27,7 +28,7 @@
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.locationLabel];
         [self.contentView addSubview:self.phoneLabel];
-        
+        [self.contentView addSubview:self.iconImageV];
         [self layoutPageSubviews];
     }
     return self;
@@ -54,6 +55,11 @@
         make.height.equalTo(@20);
         make.bottom.equalTo(@-10);
     }];
+    [_iconImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@-20);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.centerY.equalTo(_phoneLabel.mas_centerY);
+    }];
 }
 
 #pragma -
@@ -69,8 +75,9 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = H1;
+        _nameLabel.font = H2;
         _nameLabel.text = @"家家帮成长馆";
+        _nameLabel.textColor = COLOR_DARK_GRAY;
     }
     return _nameLabel;
 }
@@ -89,10 +96,16 @@
     if (!_phoneLabel) {
         _phoneLabel = [[UILabel alloc] init];
         _phoneLabel.font = H3;
-        _phoneLabel.textColor = [UIColor blueColor];
+        _phoneLabel.textColor = COLOR_GRAY;
         _phoneLabel.text = @"1235433553";
     }
     return _phoneLabel;
 }
-
+- (UIImageView *)iconImageV {
+    if (!_iconImageV) {
+        _iconImageV = [[UIImageView alloc] init];
+        _iconImageV.image = [UIImage imageNamed:@"shop_tel"];
+    }
+    return _iconImageV;
+}
 @end

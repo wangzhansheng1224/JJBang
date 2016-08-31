@@ -80,7 +80,7 @@ static NSString  *const CourseListCellIdentifier=@"CourseListCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 148;
+    return 20+Screen_Width/3.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

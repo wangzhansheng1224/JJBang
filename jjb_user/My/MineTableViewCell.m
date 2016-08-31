@@ -29,13 +29,13 @@
         [self.contentView addSubview:self.headerImageView];
         [self.contentView addSubview:self.rightImage];
         [self.contentView addSubview:self.titleLabel];
-        
+        [self layoutSubviews];
     }
     
     return self;
 }
 
--(void) layoutSubviews{
+-(void)layoutSubviews {
     UIView *superView=self;
     [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.mas_equalTo(superView.mas_left).offset(10);
@@ -45,7 +45,7 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.headerImageView.mas_right).offset(10);
-        make.top.mas_equalTo(superView.mas_top).offset(10);
+        make.centerY.equalTo(self.mas_centerY);
         make.height.mas_equalTo(@30);
         make.right.mas_equalTo(self.rightImage.mas_left);
     }];
