@@ -187,6 +187,7 @@
         make.top.mas_equalTo(self.codeTextfield.mas_bottom).offset(32);
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.left.mas_equalTo(self.view.mas_left).offset(43);
+        make.height.equalTo(@40);
     }];
     
 
@@ -194,7 +195,7 @@
 
 - (void)createTimer{
     
-    __block int timeout = 3;
+    __block int timeout = 60;
     //获取全局队列 将倒计时的任务 交给全局队列执行
     dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     

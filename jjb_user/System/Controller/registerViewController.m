@@ -115,7 +115,7 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.passWordTextfield.mas_bottom).offset(32);
         make.left.equalTo(self.view.mas_left).offset(42);
-//        make.height.mas_equalTo(@35);
+        make.height.mas_equalTo(@40);
     }];
     [self.agreeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.registerButton.mas_left);
