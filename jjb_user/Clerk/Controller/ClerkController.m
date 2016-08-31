@@ -14,6 +14,7 @@
 #import "TeacherDetailCell.h"
 #import "ClerkDetailAPIManager.h"
 #import "ClerkListReformer.h"
+#import "ClerkDetailCell.h"
 /**
  *  店员界面
  */
@@ -83,7 +84,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
         return cell;
     }   else {
         
-        TeacherDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:ClerkDetailCellIdentifier forIndexPath:indexPath];
+        ClerkDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:ClerkDetailCellIdentifier forIndexPath:indexPath];
         [cell configWithData:self.detailDictionary];
         return cell;
     }
@@ -212,7 +213,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
                 [self.detailAPIManager loadData];
             }
         }];
-        [_tableView registerClass:[TeacherDetailCell class] forCellReuseIdentifier:ClerkDetailCellIdentifier];
+        [_tableView registerClass:[ClerkDetailCell class] forCellReuseIdentifier:ClerkDetailCellIdentifier];
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:ClerkDetailGrowingCellIdentifier];
     }
     return _tableView;

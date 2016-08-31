@@ -9,6 +9,7 @@
 #import "ClerkDetailCell.h"
 #import "TeacherTileView.h"
 #import "ClerkKeys.h"
+#import "TeacherKeys.h"
 
 NSString * const kClerkTitle = @"ClerkTitle";
 NSString * const kClerkContent = @"ClerkContent";
@@ -69,8 +70,8 @@ NSString * const kClerkContent = @"ClerkContent";
 //                                    kClerkContent:data[kTeacherNotes]
 //                                    }];
     [self.summaryView configWithData:@{
-//                                       kClerkTitle:@"自我介绍",
-//                                       kClerkContent:data[kTeacherSummary]
+                                       kClerkTitle:@"自我介绍",
+                                       kClerkContent:data[kTeacherSummary]
                                        }];
 }
 
