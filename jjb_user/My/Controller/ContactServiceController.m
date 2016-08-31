@@ -62,7 +62,37 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 140;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"联系我们" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *  action) {
+            
+            [self openFuncFromCommd:@"telprompt://01056264701"];
+            
+        }];
+    [alert addAction:OKAction];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancleAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+}
+
+- (void)openFuncFromCommd:(NSString*)str{
+    //NSString -> NSURL
+    NSURL *url = [NSURL URLWithString:str];
+    //当前程序
+    UIApplication *app = [UIApplication sharedApplication];
+    //判断
+    if ([app canOpenURL:url]) {
+        //调用
+        [app openURL:url];
+    } else {
+        NSLog(@"没有此功能或该功能不可用");
+    }
 }
 
 #pragma -
