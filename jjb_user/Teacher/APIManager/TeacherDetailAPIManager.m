@@ -33,10 +33,17 @@
 #pragma mark - LDAPIManagerValidator
 - (BOOL)manager:(LDAPIBaseManager *)manager
 isCorrectWithCallBackData:(NSDictionary *)data {
-    if ([data[@"code"] isEqualToString:@"200"] )
-        return YES;
-    else
+    if ([data[@"code"] isEqualToString:@"200"] ){
+
+        if (data[@"data"] !=nil && ![data[@"data"] isKindOfClass:[NSNull class]] && [data[@"data"] count] != 0){
+            return YES;
+        }
+    }
+    else{
         return NO;
+    }
+    return NO;
+
 }
 
 - (BOOL)manager:(LDAPIBaseManager *)manager

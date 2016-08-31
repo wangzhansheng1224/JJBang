@@ -135,22 +135,27 @@
 -(void)gotoCode:(UIButton *)btn
 {
     JJBLog(@"%s",__func__);
-    btn.userInteractionEnabled = NO;
-    btn.backgroundColor = COLOR_GRAY;
-    [self createTimer];
+    if (self.telTextfield.text.length == 0) {
+        [self.view makeToast:@"请输入手机号" duration:1.5f position:CSToastPositionCenter];
+        return;
+    }
     if(self.telTextfield.text.length != 11)
     {
-        [self.view makeToast:@"请输入正确的手机号" duration:1.0f position:CSToastPositionCenter];
+        [self.view makeToast:@"请输入正确的手机号" duration:1.5f position:CSToastPositionCenter];
+        return;
     }
     else
     {
+        btn.userInteractionEnabled = NO;
+        btn.backgroundColor = COLOR_GRAY;
+        [self createTimer];
         [self.getCodeAPIManager loadData];
     }
     
 }
 - (void)createTimer{
     
-    __block int timeout = 4;
+    __block int timeout = 60;
     //获取全局队列 将倒计时的任务 交给全局队列执行
     dispatch_queue_t global = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
