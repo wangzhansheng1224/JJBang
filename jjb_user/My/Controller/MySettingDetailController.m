@@ -53,6 +53,10 @@
     [_button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];
 }
+-(void)navigationRightBtn{
+    UIBarButtonItem * scanButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(gotoRegister:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"注册账号"];
+    self.navigationItem.rightBarButtonItem = scanButton;
+}
 - (void)buttonClick:(UIButton *)btn {
     self.block(_textField.text);
     [self.navigationController popViewControllerAnimated:YES];
@@ -71,6 +75,7 @@
 - (void)setSign:(NSString *)sign {
     self.navigationItem.title = @"修改签名";
     [self  createTextField];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClick:)];
 }
 - (void)setPassword:(NSString *)password {
