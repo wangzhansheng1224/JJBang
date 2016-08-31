@@ -80,7 +80,7 @@
     
     [self.titleLabel setText:data[kGoodsListToName]];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kGoodsListToPrice]]];
-    NSURL *url=[NSURL initWithImageURL:data[kGoodsListImageUrl] Size:self.picImageV.frame.size];
+    NSURL *url=[NSURL initWithImageURL:data[kGoodsListImageUrl] Width:90 Height:90];
     [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
     
 //[self.scaleImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kShopIndexGoodsListImage] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];
