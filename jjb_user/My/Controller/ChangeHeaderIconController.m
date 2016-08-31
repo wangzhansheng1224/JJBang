@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_WHITE;
     self.navigationItem.title = @"修改头像";
 }
 
