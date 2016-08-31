@@ -9,32 +9,47 @@
 #import "StoreDetailReformer.h"
 #import "StoreDetailInfoAPIManager.h"
 
-NSString *const kStoreID;//门店ID
-NSString *const kStoreName;//名称
-NSString *const kStoreAddress;//地址
-NSString *const kStoreMobile;//电话
-NSString *const kStoreVotes;//优势
-NSString *const kStoreSummary;//简介
-NSString *const kStoreImage;//门店图片
+NSString * const kStoreID = @"StoreID";
+NSString * const kStoreName = @"StoreName";
+NSString * const kStoreAddress = @"StoreAddress";
+NSString * const kStoreMobile = @"StoreMobile";
+NSString * const kStoreVotes = @"StoreVotes";
+NSString * const kStoreSummary = @"StoreSummary";
+NSString * const kStoreImage = @"StoreImage";
 
 @implementation StoreDetailReformer
-- (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data {
+- (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
+{
     
     if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
         
-        NSDictionary * dataDict = [data objectForKey:@"data"];
-
-        return  @{
-                  kStoreID:dataDict[@"id"],
-                  kStoreName:dataDict[@"name"],
-                  kStoreAddress:dataDict[@"addr"],
-                  kStoreMobile:dataDict[@"mobile"],
-                  kStoreVotes:dataDict[@"votes"],
-                  kStoreSummary:dataDict[@"notes"],
-                  kStoreImage:dataDict[@"image"]
-                  };
-        return dataDict;
+        NSDictionary *dataDic=[data objectForKey:@"data"];
+        return @{
+                 kStoreID:dataDic[@"id"],
+                 kStoreName:dataDic[@"name"],
+                 kStoreAddress:dataDic[@"addr"],
+                 kStoreMobile:dataDic[@"mobile"],
+                 kStoreVotes:dataDic[@"votes"],
+                 kStoreSummary:dataDic[@"notes"],
+                 kStoreImage:dataDic[@"image"],
+                 };
+        
     }
+//    if ([manager isKindOfClass:[TeacherListAPIManager class]]) {
+//        
+//        NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
+//        
+//        NSArray *arrData=data[@"data"];
+//        for (NSDictionary *dic in arrData) {
+//            [arrResult addObject:@{
+//                                   kTeacherID:dic[@"user_id"],
+//                                   kTeacherName:dic[@"nickname"],
+//                                   kTeacherPhoto:dic[@"userface"],
+//                                   kTeacherStar:@(5)
+//                                   }];
+//        }
+//        return arrResult;
+//    }
     return nil;
 }
 

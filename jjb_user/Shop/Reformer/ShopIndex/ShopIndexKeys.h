@@ -45,7 +45,7 @@ extern NSString *const kShopIndexCourseImg;
 extern NSString *const kShopIndexCourseName;
 extern NSString *const kShopIndexVideoName;
 
-
+extern NSString *const kShopIndexShopID;
 
 //门店列表
 extern NSString *const kShopIndexShopListID;

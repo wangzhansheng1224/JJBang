@@ -332,6 +332,7 @@
 		BB8842FF1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8842FE1D519D3B00A537D8 /* UIBarButtonItem+MBCustom.m */; };
 		BB8843021D51E02100A537D8 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8843011D51E02100A537D8 /* UIImage+image.m */; };
 		BBA1380C1D731C380032F3CE /* CTMediator+CTMediatorVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA1380B1D731C380032F3CE /* CTMediator+CTMediatorVideos.m */; };
+		BBAE6A441D766A48001032FA /* StoreDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE6A421D766A48001032FA /* StoreDetailHeaderView.m */; };
 		BBC3F4431D51ECD0001BCEEF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */; };
 		BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4451D51EDEE001BCEEF /* registerViewController.m */; };
 		BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC3F4491D51FD22001BCEEF /* MBloginButton.m */; };
@@ -1079,6 +1080,8 @@
 		BB8843011D51E02100A537D8 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
 		BBA1380A1D731C320032F3CE /* CTMediator+CTMediatorVideos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CTMediator+CTMediatorVideos.h"; path = "Videos/CTMediator+CTMediatorVideos.h"; sourceTree = "<group>"; };
 		BBA1380B1D731C380032F3CE /* CTMediator+CTMediatorVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTMediator+CTMediatorVideos.m"; path = "Videos/CTMediator+CTMediatorVideos.m"; sourceTree = "<group>"; };
+		BBAE6A421D766A48001032FA /* StoreDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailHeaderView.m; path = StoreDetail/View/StoreDetailHeaderView.m; sourceTree = "<group>"; };
+		BBAE6A431D766A48001032FA /* StoreDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailHeaderView.h; path = StoreDetail/View/StoreDetailHeaderView.h; sourceTree = "<group>"; };
 		BBC3F4411D51ECD0001BCEEF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		BBC3F4421D51ECD0001BCEEF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BBC3F4441D51EDEE001BCEEF /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
@@ -2894,6 +2897,8 @@
 		BB717C0E1D7432530077CAD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBAE6A431D766A48001032FA /* StoreDetailHeaderView.h */,
+				BBAE6A421D766A48001032FA /* StoreDetailHeaderView.m */,
 				BB717C1E1D7434100077CAD1 /* StoreDetailCell.h */,
 				BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */,
 			);
@@ -3395,6 +3400,7 @@
 				73886D6E1D50841700643BBA /* ActivityDetailAPIManager.m in Sources */,
 				731FDD201D5870BD00A18534 /* CTMediator+CTMediatorMyActions.m in Sources */,
 				7310917F1D5198C60031B443 /* ShopController.m in Sources */,
+				BBAE6A441D766A48001032FA /* StoreDetailHeaderView.m in Sources */,
 				73575F451D54D2A20037F697 /* CourseListController.m in Sources */,
 				AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */,
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
@@ -3508,7 +3514,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3548,7 +3554,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "afc21661-eb4b-4b51-a68a-4e3f6c6b7d9b";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3561,7 +3567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3629,7 +3635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Weiwen Wu (WY6XWPFYTX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",

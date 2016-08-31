@@ -62,7 +62,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property (nonatomic,strong) ShopModel *currentShop;
 @property(nonatomic,strong) RHADScrollView * adScrollView;
 @property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
-
 @end
 
 @implementation ShopController
@@ -108,6 +107,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     ShopModel * shop = notification.userInfo[@"selectShop"];
     [ShopModel save:shop];
     self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
+    
+    NSString *shopIDString = [NSString stringWithFormat:@"%ld",shop.shopID ];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setValue:shopIDString forKey:kShopIndexShopID];
     [self.shopIndexAPIManager loadData];
 }
 #pragma -
@@ -328,6 +331,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
             self.currentShop=resultData[0];
             [ShopModel save:self.currentShop];
             self.coustomNavCenterView.shopNameLabel.text=self.currentShop.shopName;
+            
+            NSString *shopIDString = [NSString stringWithFormat:@"%ld",self.currentShop.shopID ];
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            [userDefault setValue:shopIDString forKey:kShopIndexShopID];
         }
         [self.shopIndexAPIManager loadData];
         
@@ -484,7 +491,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
    return _scanController;
 }
-
 -(NSDictionary *) dataDic{
     if (!_dataDic) {
         _dataDic=[[NSDictionary alloc] init];

@@ -10,5 +10,4 @@
 
 @interface StoreDetailReformer : NSObject<ReformerProtocol>
 
-
 @end
