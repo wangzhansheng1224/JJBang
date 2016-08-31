@@ -119,7 +119,7 @@
     else{
         num=[data[kCourseNum] integerValue];
     }
-    self.numbercouseLabel.text=[NSString stringWithFormat:@"%ld人报名",num];
+    self.numbercouseLabel.text=[NSString stringWithFormat:@"%ld人报名",(long)num];
     
     self.cousePriceLabel.text=[NSString stringWithFormat:@"￥%@",data[kCoursePrice]] ;
     [self.couseImageView sd_setImageWithURL:[NSURL initWithImageURL:data[kCourseImg] Width:(Screen_Width-40)/2 Height:(Screen_Width-40)/2]  placeholderImage:[UIImage imageNamed:@"img_default"]];

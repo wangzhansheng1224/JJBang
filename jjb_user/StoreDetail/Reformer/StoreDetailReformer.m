@@ -8,6 +8,7 @@
 
 #import "StoreDetailReformer.h"
 #import "StoreDetailInfoAPIManager.h"
+
 NSString * const kStoreID = @"StoreID";
 NSString * const kStoreName = @"StoreName";
 NSString * const kStoreAddress = @"StoreAddress";
@@ -38,3 +39,4 @@ NSString * const kStoreImage = @"StoreImage";
 }
 
 @end
+

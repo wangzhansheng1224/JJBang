@@ -44,7 +44,7 @@
     }
     else
     {
-        
+    
         //有新版本
         MBNewFeatureController * newFeatureController = [[MBNewFeatureController alloc]init];
         window.rootViewController = newFeatureController;

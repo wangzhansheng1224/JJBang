@@ -14,14 +14,15 @@
 //@property(nonatomic,weak) UIButton * choiceButton;
 @property(nonatomic,weak) UIView * lineView;
 @property(nonatomic,copy) SelectButtonBlock selectBlock;
-
+@property(nonatomic,strong) UILabel * moneyLabel;
 @end
 @implementation RechargeWeChatAndAliCell
 
 
 #pragma 
 #pragma mark - life cycle
--(instancetype)initWithImage:(UIImage *)iconImage title:(NSString *)title;
+-(instancetype)initWithImage:(UIImage *)iconImage title:(NSString *)title balance:(id)balance;
+
 {
     self = [super init];
     if (self) {
@@ -30,6 +31,13 @@
         self.userInteractionEnabled = YES;
         self.iconImageView.image = iconImage;
         self.nameLabel.text = title;
+        if (balance) {
+            self.moneyLabel.text = [NSString stringWithFormat:@"余额:￥%@",balance];
+        }
+        else
+        {
+            [self.moneyLabel removeFromSuperview];
+        }
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectBtn:)];
         [self addGestureRecognizer:tap];
     }
@@ -60,6 +68,13 @@
         make.left.equalTo(self.mas_left).offset(30);
         make.right.equalTo(self.mas_right);
     }];
+    [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.nameLabel.mas_centerY);
+        make.left.equalTo(self.nameLabel.mas_right).offset(5);
+
+    }];
+
+    
 }
 
 -(void)selectButton:(SelectButtonBlock)block
@@ -138,5 +153,18 @@
         _lineView = view;
     }
     return _lineView;
+}
+
+-(UILabel *)moneyLabel
+{
+   if(_moneyLabel == nil)
+   {
+       UILabel * label = [[UILabel alloc]init];
+       label.text = @"余额 ￥0.00元";
+       label.textColor = COLOR_ORANGE;
+       [self addSubview:label];
+       _moneyLabel = label;
+   }
+    return _moneyLabel;
 }
 @end

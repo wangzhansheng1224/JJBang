@@ -254,6 +254,13 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
+        
+        return @{
+                 @"course_id":@(self.courseID)
+                 };
+    }
         return @{
                  @"course_id":@(self.courseID)
                  };
@@ -289,12 +296,19 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 - (void)payBtnClick:(UIButton *)click {
     
-    SelectMenuController *select = [[SelectMenuController alloc] init];
-    self.definesPresentationContext = YES;
-    select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    select.courseID = [_detailData[@"CourseID"] integerValue];
-    [self presentViewController:select animated:YES completion:nil];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        SelectMenuController *select = [[SelectMenuController alloc] init];
+        self.definesPresentationContext = YES;
+        select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        select.courseID = [_detailData[@"CourseID"] integerValue];
+        [self presentViewController:select animated:YES completion:nil];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
 }
+
 #pragma -
 #pragma mark - getters and setters
 - (CourseDetailHeader *) headerView{
