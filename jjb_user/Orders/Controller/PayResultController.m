@@ -27,7 +27,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderPayResult:) name:@"WXPay" object:nil];
-    self.infoLabel.text = self.aliPayStatus;
+    if(self.aliPayStatus){
+        self.infoLabel.text = self.aliPayStatus;
+        
+        return;
+    }
     if (self.isSuccess) {
         self.infoLabel.text = @"支付成功";
     }
@@ -36,6 +40,8 @@
         self.infoLabel.text = @"支付失败";
     }
     [self.apiManager loadData];
+    
+    
 }
 
 -(void)dealloc
@@ -65,6 +71,19 @@
     }
     
     
+}
+-(void)getBalanceResult:(NSNotification *)noti
+{
+    NSLog(@"%@",noti.object);
+    if (self.isSuccess) {
+        self.infoLabel.text = @"支付成功";
+    }
+    else
+    {
+        self.infoLabel.text = @"支付失败";
+    }
+    [self.apiManager loadData];
+
 }
 -(void)gotoFinish:(UIButton *)button
 {

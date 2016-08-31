@@ -114,10 +114,11 @@
     if(self.RechargeType == 0 )
     {
         JJBLog(@"余额支付");
-         BOOL isSuccess = dictData[@"is_success"];
+         NSString * isSuccess = dictData[@"is_success"];
          PayResultController * payVC = [[PayResultController alloc]init];
          payVC.orderNo = self.orderInfoDict[@"OrderDetailOrderNo"];
          payVC.isSuccess = isSuccess;
+        
          [self.navigationController pushViewController:payVC animated:YES];
         
         

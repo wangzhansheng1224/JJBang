@@ -209,7 +209,7 @@
     
     if (!_footerView) {
         
-        _footerView = [[OrdersDetailFooter alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 68))];
+        _footerView = [[OrdersDetailFooter alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 134))];
         _footerView.backgroundColor = COLOR_WHITE;
     }
     return _footerView;
@@ -266,7 +266,6 @@
         
         _locationLabel = [[UILabel alloc] init];
         _locationLabel.text = @"望京店";
-//        _locationLabel.text = self.orderDetailDictionary[@"OrderDetailShopName"];
         _locationLabel.textColor = COLOR_GRAY;
         _locationLabel.textAlignment = NSTextAlignmentLeft;
         _locationLabel.font = H3;
