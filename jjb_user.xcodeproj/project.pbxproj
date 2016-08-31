@@ -35,6 +35,7 @@
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
 		5167DA421D6EDB7100A67457 /* MyOrderPayReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */; };
 		5168D6E91D7666D400496453 /* ContactServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5168D6E81D7666D400496453 /* ContactServiceCell.m */; };
+		5168D6EC1D76B4F600496453 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5168D6EB1D76B4F600496453 /* CourseDetailCell.m */; };
 		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
@@ -399,6 +400,8 @@
 		5167DA431D6EDB8000A67457 /* MyOrderPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayKey.h; sourceTree = "<group>"; };
 		5168D6E71D7666D400496453 /* ContactServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactServiceCell.h; sourceTree = "<group>"; };
 		5168D6E81D7666D400496453 /* ContactServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactServiceCell.m; sourceTree = "<group>"; };
+		5168D6EA1D76B4F600496453 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
+		5168D6EB1D76B4F600496453 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
 		5174E5171D6594F200C92E24 /* GoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
 		5174E5181D6594F200C92E24 /* GoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1443,6 +1446,8 @@
 				735C3B1C1D658DCD00E4DB90 /* CourseCatalogView.m */,
 				51A033B11D6C46210058CDD4 /* CourseListCell.h */,
 				51A033B21D6C46210058CDD4 /* CourseListCell.m */,
+				5168D6EA1D76B4F600496453 /* CourseDetailCell.h */,
+				5168D6EB1D76B4F600496453 /* CourseDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2051,7 +2056,6 @@
 			isa = PBXGroup;
 			children = (
 				51B875DF1D503E880082558D /* ActivityListCell.h */,
-				51B875E01D503E880082558D /* ActivityListCell.m */,
 				51181DBA1D53A94D00F54210 /* ActivityDetailCell.h */,
 				51181DBB1D53A94D00F54210 /* ActivityDetailCell.m */,
 				51181DBD1D53A96400F54210 /* ActivityInfoCell.h */,
@@ -2323,6 +2327,7 @@
 		73886D5B1D50841700643BBA /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				51B875E01D503E880082558D /* ActivityListCell.m */,
 				73886D861D508B7D00643BBA /* ActivityRegisterAPIManager.h */,
 				73886D871D508B7D00643BBA /* ActivityRegisterAPIManager.m */,
 				73886D881D508B7D00643BBA /* ActivityRegisterListAPIManager.h */,
@@ -3065,6 +3070,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3412,6 +3418,7 @@
 				7310917F1D5198C60031B443 /* ShopController.m in Sources */,
 				BBAE6A441D766A48001032FA /* StoreDetailHeaderView.m in Sources */,
 				73575F451D54D2A20037F697 /* CourseListController.m in Sources */,
+				5168D6EC1D76B4F600496453 /* CourseDetailCell.m in Sources */,
 				AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */,
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
 				51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */,
@@ -3635,7 +3642,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3687,7 +3694,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

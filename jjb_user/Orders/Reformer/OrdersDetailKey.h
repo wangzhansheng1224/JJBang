@@ -21,5 +21,6 @@ extern NSString * const kOrdersDetailPrice;   //价格
 extern NSString * const kOrdersDetailShopName; //
 extern NSString * const kOrdersDetailZKPrice; //折扣价格
 extern NSString * const kOrdersDetailType; //商品类型
+extern NSString * const kOrdersDetailOrderStudent;
 
 #endif /* OrdersDetailKey_h */

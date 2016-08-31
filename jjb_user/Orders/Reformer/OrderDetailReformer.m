@@ -20,6 +20,7 @@
  NSString * const kOrdersDetailShopName = @"OrderDetailShopName";
  NSString * const kOrdersDetailZKPrice = @"OrderDetailZKPrice";
  NSString * const kOrdersDetailType=@"OrdersDetailType"; //商品类型
+ NSString * const kOrdersDetailOrderStudent = @"OrdersDetailOrderStudent";
 
 
 @implementation OrderDetailReformer
@@ -44,7 +45,8 @@
                  kOrdersDetailPayPrice:[dataDict[@"payPrice"] stringValue],
                  kOrdersDetailShopName:dataDict[@"shopName"],
                  kOrdersDetailZKPrice:[dataDict[@"zkPrice"] stringValue],
-                 kOrdersDetailPrice:[dataDict[@"price"] stringValue]
+                 kOrdersDetailPrice:[dataDict[@"price"] stringValue],
+                 kOrdersDetailOrderStudent:dataDict[@"orderStudent"]
                  };
     }
     return nil;

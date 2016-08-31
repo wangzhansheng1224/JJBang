@@ -42,10 +42,18 @@
         [self addSubview:self.label2];
         [self addSubview:self.label3];
         [self addSubview:self.label4];
+        [self addSubview:self.label5];
+        [self addSubview:self.label6];
+        [self addSubview:self.label7];
+
         [self addSubview:self.goodsPriceLabel];
         [self addSubview:self.discountLabel];
         [self addSubview:self.payingLabel];
         [self addSubview:self.timeLabel];
+        [self addSubview:self.clientLabel];
+        [self addSubview:self.payerLabel];
+        [self addSubview:self.forLabel];
+
         [self addSubview:self.line];
         [self addSubview:self.topline];
         [self layoutPageSubviews];
@@ -68,21 +76,58 @@
         make.top.equalTo(_label1.mas_bottom).with.offset(8);
         make.size.mas_equalTo(CGSizeMake(50, 14));
     }];
+    [_label5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(@16);
+        make.top.equalTo(_label2.mas_bottom).with.offset(8);
+        make.size.mas_equalTo(CGSizeMake(80, 14));
+    }];
+    [_label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(@16);
+        make.top.equalTo(_label5.mas_bottom).with.offset(8);
+        make.size.mas_equalTo(CGSizeMake(60, 14));
+    }];
+    [_label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(@16);
+        make.top.equalTo(_label6.mas_bottom).with.offset(8);
+        make.size.mas_equalTo(CGSizeMake(80, 14));
+    }];
     [_goodsPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(@16);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(100, 14));
+        make.size.mas_equalTo(CGSizeMake(120, 14));
     }];
     [_discountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_goodsPriceLabel.mas_bottom).with.offset(8);
         make.right.equalTo(@-16);
-        make.size.mas_equalTo(CGSizeMake(100, 14));
+        make.size.mas_equalTo(CGSizeMake(120, 14));
+    }];
+    [_clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_discountLabel.mas_bottom).with.offset(8);
+        make.right.equalTo(@-16);
+        make.size.mas_equalTo(CGSizeMake(120, 14));
+    }];
+    [_payerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_clientLabel.mas_bottom).with.offset(8);
+        make.right.equalTo(@-16);
+        make.height.equalTo(@14);
+        make.left.mas_equalTo(_label6.mas_right);
+    }];
+    [_forLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_payerLabel.mas_bottom).with.offset(8);
+        make.right.equalTo(@-16);
+        make.size.mas_equalTo(CGSizeMake(120, 14));
     }];
     [_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(_label2.mas_bottom).with.offset(16);
+        make.top.equalTo(_label7.mas_bottom).with.offset(16);
         make.left.right.equalTo(@0);
         make.height.equalTo(@1);
     }];
@@ -96,7 +141,7 @@
         
         make.top.equalTo(_line.mas_bottom).with.offset(8);
         make.right.equalTo(_payingLabel.mas_left).with.offset(-8);
-        make.size.mas_equalTo(CGSizeMake(64, 16));
+        make.size.mas_equalTo(CGSizeMake(80, 16));
     }];
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -108,7 +153,7 @@
         
         make.right.equalTo(_timeLabel.mas_left).with.offset(0);
         make.centerY.equalTo(_timeLabel.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(60, 12));
+        make.size.mas_equalTo(CGSizeMake(80, 12));
     }];
     [_topline mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -127,6 +172,9 @@
     float PayPrice = [data[kOrdersDetailPayPrice] floatValue];
     [self.payingLabel setText:[NSString stringWithFormat:@"￥ %.2f",PayPrice]];
     [self.timeLabel setText:data[kOrdersDetailOrderTime]];
+    [self.clientLabel setText:data[kOrdersDetailOrderUser]];
+    [self.payerLabel setText:[NSString stringWithFormat:@"%@(余额:%.2f)",[UserModel currentUser].nickName,[UserModel currentUser].balance]];
+    [self.forLabel setText:data[kOrdersDetailOrderStudent]];
 }
 
 #pragma -
@@ -255,7 +303,8 @@
         
         _label5 = [[UILabel alloc] init];
         _label5.text = @"订单客户";
-        _label5.font = H3;
+        _label5.textColor = COLOR_GRAY;
+        _label5.font = H4;
     }
     return _label5;
 }
@@ -265,9 +314,8 @@
     if (!_clientLabel) {
         
         _clientLabel = [[UILabel alloc] init];
-        _clientLabel.text = @"￥1075";
-        _clientLabel.textColor = COLOR_ORANGE;
-        _clientLabel.font = H3;
+        _clientLabel.textColor = COLOR_GRAY;
+        _clientLabel.font = H4;
         _clientLabel.textAlignment = NSTextAlignmentRight;
     }
     return _clientLabel;
@@ -278,7 +326,8 @@
         
         _label6 = [[UILabel alloc] init];
         _label6.text = @"支付人";
-        _label6.font = H3;
+        _label6.textColor = COLOR_GRAY;
+        _label6.font = H4;
     }
     return _label6;
 }
@@ -288,9 +337,8 @@
     if (!_payerLabel) {
         
         _payerLabel = [[UILabel alloc] init];
-        _payerLabel.text = @"￥1075";
-        _payerLabel.textColor = COLOR_ORANGE;
-        _payerLabel.font = H3;
+        _payerLabel.textColor = COLOR_GRAY;
+        _payerLabel.font = H4;
         _payerLabel.textAlignment = NSTextAlignmentRight;
     }
     return _payerLabel;
@@ -301,7 +349,8 @@
         
         _label7 = [[UILabel alloc] init];
         _label7.text = @"为谁购买";
-        _label7.font = H3;
+        _label7.textColor = COLOR_GRAY;
+        _label7.font = H4;
     }
     return _label7;
 }
@@ -311,9 +360,7 @@
     if (!_forLabel) {
         
         _forLabel = [[UILabel alloc] init];
-        _forLabel.text = @"￥1075";
-        _forLabel.textColor = COLOR_ORANGE;
-        _forLabel.font = H3;
+        _forLabel.font = H4;
         _forLabel.textAlignment = NSTextAlignmentRight;
     }
     return _forLabel;
