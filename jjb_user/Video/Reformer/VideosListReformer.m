@@ -41,7 +41,7 @@ NSString *const kVideosListEndTime = @"VideosListEndTime";
             NSDictionary *itemData=@{
                                      kVideosListID:arrData[i][@"id"]!=[NSNull null]?arrData[i][@"id"]:@" ",
                                      kVideosListToName:arrData[i][@"name"]!=[NSNull null]?arrData[i][@"name"]:@" ",
-                                     kVideosListToShopName:arrData[i][@"shopName"]!=[NSNull null]?arrData[i][@"name"]:@" ",
+                                     kVideosListToShopName:arrData[i][@"shopName"]!=[NSNull null]?arrData[i][@"shopName"]:@" ",
                                      kVideosListTocourseName:arrData[i][@"courseName"]!=[NSNull null]?arrData[i][@"courseName"]:@" ",
                                      kVideosListTocourseImg:courseImagUrl,
                                      kVideosListStartEndTime:startEndTime

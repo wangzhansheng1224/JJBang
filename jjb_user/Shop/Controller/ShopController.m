@@ -33,6 +33,7 @@
 #import "MBNavgationCenterView.h"
 #import "ShopListAPIManager.h"
 #import "VideosListController.h"
+#import "VideosDetailController.h"
 /**
  *  首页主控制器
  */
@@ -147,6 +148,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         UIViewController* controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":actDic[kShopIndexActID]}];
         [self.navigationController pushViewController:controller animated:YES];
     }
+    if (indexPath.section==3){
+        VideosDetailController* detail= [[VideosDetailController alloc] init];
+        NSArray *ary = self.dataDic[@"VideosList"];
+        detail.VideosID=[ary[indexPath.row][kShopIndexVideoID] integerValue];
+        [self.navigationController pushViewController:detail animated:YES];
+
+    }
+        
 }
 
 

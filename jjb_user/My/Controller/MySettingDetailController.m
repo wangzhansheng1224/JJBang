@@ -31,7 +31,7 @@
 
 
 - (void)createTextField {
-    _view_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 10, Screen_Width, 40)];
+    _view_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 15, Screen_Width, 40)];
     _view_bg.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_view_bg];
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, Screen_Width - 40, 40)];
@@ -71,7 +71,7 @@
 - (void)setSign:(NSString *)sign {
     self.navigationItem.title = @"修改签名";
     [self  createTextField];
-//    [self createButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClick:)];
 }
 - (void)setPassword:(NSString *)password {
     self.navigationItem.title = @"修改密码";
