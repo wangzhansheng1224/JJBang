@@ -298,7 +298,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-          return Screen_Width/2.0f+10;
+          return Screen_Width/2.0f+10+6;
     }
     if (indexPath.section==1) {
           return Screen_Width*2.0f/3.0f+90.0f;

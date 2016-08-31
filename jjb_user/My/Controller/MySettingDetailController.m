@@ -53,13 +53,17 @@
     [_button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];
 }
+-(void)navigationRightBtn{
+    UIBarButtonItem * rightButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(buttonClick:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"保存"];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
 - (void)buttonClick:(UIButton *)btn {
     self.block(_textField.text);
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)setName:(NSString *)name {
     self.navigationItem.title = @"修改昵称";
-    [self  createTextField];
+    [self createTextField];
     [self createButton];
     UILabel * leftLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 50)];
     leftLab.textAlignment = NSTextAlignmentCenter;
@@ -70,8 +74,8 @@
 }
 - (void)setSign:(NSString *)sign {
     self.navigationItem.title = @"修改签名";
-    [self  createTextField];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClick:)];
+    [self createTextField];
+    [self navigationRightBtn];
 }
 - (void)setPassword:(NSString *)password {
     self.navigationItem.title = @"修改密码";
