@@ -8,14 +8,13 @@
 
 #ifndef StoreDetailKeys_h
 #define StoreDetailKeys_h
-extern NSString *const kTeacherID;
-extern NSString *const kTeacherPhoto;
-extern NSString *const kTeacherName;
-extern NSString *const kTeacherStar;
-extern NSString *const kTeacherSex;
-extern NSString *const kTeacherNotes;
-extern NSString *const kTeacherSummary;
-extern NSString *const kTeacherWorkYears;
-extern NSString *const kTeacherAddress;
-extern NSString *const kTeacherPhone;
+
+extern NSString *const kStoreID;//门店ID
+extern NSString *const kStoreName;//名称
+extern NSString *const kStoreAddress;//地址
+extern NSString *const kStoreMobile;//电话
+extern NSString *const kStoreVotes;//优势
+extern NSString *const kStoreSummary;//简介
+extern NSString *const kStoreImage;//门店图片
+
 #endif

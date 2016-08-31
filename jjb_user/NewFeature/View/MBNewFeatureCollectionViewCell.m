@@ -18,6 +18,9 @@
 {
     if (indexPath.row == count -1 ) {
         self.startButton.hidden = NO;
+            UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(start)];
+        [self addGestureRecognizer:ges];
+        
     }
     else
     {
@@ -52,7 +55,7 @@
         btn.center = CGPointMake(self.width * 0.5, self.height * 0.9);
         [btn addTarget:self action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
         _startButton = btn;
-        [self addSubview:_startButton];
+//        [self addSubview:_startButton];
 
     }
     return _startButton;

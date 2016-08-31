@@ -111,8 +111,7 @@ static NSString * const cellID = @"cell";
         
     }else if(indexPath.row == 4)
     {
-        //街区
-        
+        //明星学员
         StudentController * streetVC = [[StudentController alloc]init];
         [navControler pushViewController:streetVC animated:YES];
         
