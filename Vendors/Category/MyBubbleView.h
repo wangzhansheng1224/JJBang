@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MyBubbleView : UIView
+@property(nonatomic,strong)UILabel * label;
 
 @end

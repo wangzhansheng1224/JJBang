@@ -21,6 +21,7 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
 @property(nonatomic,strong) UITableView * tableView;
 @property(nonatomic,strong) ExplainLevelHeadView * headView;
 @property(nonatomic,strong) MyLevelAPIManager * myLevelAPIManage;
+@property(nonatomic,copy) NSString * totalBalance;//累计充值
 
 
 @end
@@ -91,7 +92,11 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
-    NSArray *resultData = [manager fetchDataWithReformer:nil];
+    NSDictionary *resultData = [manager fetchDataWithReformer:nil];
+    NSDictionary * dict  = resultData[@"data"];
+    self.totalBalance = [dict[@"totalBalance"] stringValue];
+    [self.headView setValue:[NSString stringWithFormat:@"累计充值:￥%@",self.totalBalance] forKeyPath:@"_bubbleView.label.text"];
+    
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
