@@ -11,7 +11,7 @@
 #import "StoreDetailInfoAPIManager.h"
 #import "StoreDetailReformer.h"
 #import "StoreDetailHeaderView.h"
-
+#import "ShopIndexKeys.h"
 static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 @interface StoreDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
@@ -47,7 +47,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     
     [self layoutPageSubviews];
     
-    [self.detailAPIManager loadData];
+    [self.storeDetailInfoAPIManager loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -105,14 +105,13 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
-//        if ([manager isKindOfClass:[TeacherDetailAPIManager class]])
-//    {
-//        self.detailDic = [manager fetchDataWithReformer:self.detailReformer];
-//        [self.headerView configWithData:_detailDic];
-//        [self.tableView.mj_header endRefreshing];
-//        [self.tableView.mj_footer endRefreshing];
-//        [self.tableView reloadData];
-//    }
+    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]){
+        self.storeDetailDictionary = [manager fetchDataWithReformer:self.storeDetailReformer];
+        [self.headerView configWithData:_storeDetailDictionary];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+    }
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
@@ -123,6 +122,9 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        
+        self.storeID = [[userDefault objectForKey:kShopIndexShopID] integerValue];
         return @{
                  @"shop_id":@(self.storeID)
                  };

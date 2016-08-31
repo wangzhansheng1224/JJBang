@@ -24,13 +24,13 @@ NSString * const kStoreImage = @"StoreImage";
         
         NSDictionary *dataDic=[data objectForKey:@"data"];
         return @{
-                 kStoreID:dataDic[@"user_id"],
-                 kStoreName:dataDic[@"nickname"],
-                 kStoreAddress:dataDic[@"userface"],
-                 kStoreMobile:@(5),
-                 kStoreVotes:dataDic[@"sex"],
-                 kStoreSummary:dataDic[@"phone"],
-                 kStoreImage:dataDic[@"notes"],
+                 kStoreID:dataDic[@"id"],
+                 kStoreName:dataDic[@"name"],
+                 kStoreAddress:dataDic[@"addr"],
+                 kStoreMobile:dataDic[@"mobile"],
+                 kStoreVotes:dataDic[@"votes"],
+                 kStoreSummary:dataDic[@"notes"],
+                 kStoreImage:dataDic[@"image"],
                  };
         
     }
