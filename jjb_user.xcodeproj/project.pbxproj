@@ -34,6 +34,7 @@
 		5155CE711D581F0B00306150 /* StudentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5155CE701D581F0B00306150 /* StudentListCell.m */; };
 		5158BE2D1D61C57900105473 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5158BE2C1D61C57900105473 /* GoodsListCell.m */; };
 		5167DA421D6EDB7100A67457 /* MyOrderPayReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */; };
+		5168D6E91D7666D400496453 /* ContactServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5168D6E81D7666D400496453 /* ContactServiceCell.m */; };
 		5174E5191D6594F200C92E24 /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174E5181D6594F200C92E24 /* GoodsDetailCell.m */; };
 		5175745C1D548203009894D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5175745B1D548203009894D7 /* main.m */; };
 		517F99311D57A6FB002609E5 /* MySettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517F99301D57A6FB002609E5 /* MySettingController.m */; };
@@ -393,6 +394,8 @@
 		5167DA401D6EDB7100A67457 /* MyOrderPayReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayReformer.h; sourceTree = "<group>"; };
 		5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderPayReformer.m; sourceTree = "<group>"; };
 		5167DA431D6EDB8000A67457 /* MyOrderPayKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderPayKey.h; sourceTree = "<group>"; };
+		5168D6E71D7666D400496453 /* ContactServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactServiceCell.h; sourceTree = "<group>"; };
+		5168D6E81D7666D400496453 /* ContactServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactServiceCell.m; sourceTree = "<group>"; };
 		5174E5171D6594F200C92E24 /* GoodsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
 		5174E5181D6594F200C92E24 /* GoodsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
 		5175745B1D548203009894D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2191,6 +2194,8 @@
 				AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */,
 				513A4A901D732CF1008AA661 /* MyQuestionSectionView.h */,
 				513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */,
+				5168D6E71D7666D400496453 /* ContactServiceCell.h */,
+				5168D6E81D7666D400496453 /* ContactServiceCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3143,6 +3148,7 @@
 				5198439F1D6DB9F900A69A33 /* MyQuestionController.m in Sources */,
 				AC0EF2C01D6EE2EA00054421 /* LevelPrizeSupView.m in Sources */,
 				738B82061D5F485D00765F6F /* TileView.m in Sources */,
+				5168D6E91D7666D400496453 /* ContactServiceCell.m in Sources */,
 				731092091D5215790031B443 /* VerifyCodeAPIManager.m in Sources */,
 				51B50F3F1D642953001733C8 /* OrdersDetailController.m in Sources */,
 				51B50F361D6417C5001733C8 /* GoodsDetailReformer.m in Sources */,

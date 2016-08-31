@@ -289,12 +289,19 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 - (void)payBtnClick:(UIButton *)click {
     
-    SelectMenuController *select = [[SelectMenuController alloc] init];
-    self.definesPresentationContext = YES;
-    select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    select.courseID = [_detailData[@"CourseID"] integerValue];
-    [self presentViewController:select animated:YES completion:nil];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        SelectMenuController *select = [[SelectMenuController alloc] init];
+        self.definesPresentationContext = YES;
+        select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        select.courseID = [_detailData[@"CourseID"] integerValue];
+        [self presentViewController:select animated:YES completion:nil];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
 }
+
 #pragma -
 #pragma mark - getters and setters
 - (CourseDetailHeader *) headerView{

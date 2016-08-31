@@ -82,7 +82,6 @@
     [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[kGoodsListToPrice]]];
     NSURL *url=[NSURL initWithImageURL:data[kGoodsListImageUrl] Size:self.picImageV.frame.size];
     [self.picImageV setHeader:url];
-    
 }
 
 #pragma -

@@ -104,10 +104,8 @@
                  };
 }
 
-
 #pragma -
 #pragma mark - event respone
-
 - (void)payBtnClick:(UIButton *)click {
 
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];

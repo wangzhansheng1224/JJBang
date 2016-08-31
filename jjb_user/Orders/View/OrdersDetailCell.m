@@ -84,10 +84,10 @@
     float price = [data[kOrdersDetailPayPrice] floatValue];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥ %.2f",price]];
     [self.describeLabel setText:[NSString stringWithFormat:@" %@ 课时",data[kOrdersDetailCourseNum]]];
-    if (![data[kOrdersDetailName] isEqualToString:@"咖啡"]) {
-        self.describeLabel.hidden = NO;
-    }else {
+    if ([data[kOrdersDetailType] isEqualToString:@"1"]) {
         self.describeLabel.hidden = YES;
+    }else {
+        self.describeLabel.hidden = NO;
     }
 }
 

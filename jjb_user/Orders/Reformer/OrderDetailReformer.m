@@ -19,6 +19,7 @@
  NSString * const kOrdersDetailPrice = @"OrderDetailPrice";
  NSString * const kOrdersDetailShopName = @"OrderDetailShopName";
  NSString * const kOrdersDetailZKPrice = @"OrderDetailZKPrice";
+ NSString * const kOrdersDetailType=@"OrdersDetailType"; //商品类型
 
 
 @implementation OrderDetailReformer
@@ -32,7 +33,7 @@
         NSString * timeString = [date formattedDateWithFormat:@"YYYY-MM-dd hh:mm:ss"];
         
         return @{
-                 
+                 kOrdersDetailType:[dataDict[@"type"] stringValue],
                  kOrdersDetailID:[dataDict[@"id"] stringValue],
                  kOrdersDetailCourseNum:dataDict[@"courseNum"],
                  kOrdersDetailName:dataDict[@"name"],
