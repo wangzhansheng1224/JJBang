@@ -103,11 +103,16 @@
 - (void)itemClick {
 
     if (_tileView.dataList.count == 0) {
-        [self.view makeToast:@"请选择要上传的图片！"];
+        [self.view endEditing:YES];
+        [self.view makeToast:@"请选择要上传的图片！" duration:1.0f position:CSToastPositionCenter];
         return;
     }
     if (_textView.text.length == 0) {
-        [self.view makeToast:@"请选择输入内容！"];
+
+        [self.view endEditing:YES];
+
+        [self.view makeToast:@"请选择输入内容！" duration:1.0f position:CSToastPositionCenter];
+
         return;
     }
     [self.view makeToastActivity:CSToastPositionCenter];

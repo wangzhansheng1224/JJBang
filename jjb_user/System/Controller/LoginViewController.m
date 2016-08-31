@@ -61,13 +61,15 @@
     [self.view addSubview:self.passWordTextField];
     [self.view addSubview:self.loginButton];
     [self.view addSubview:self.forgetPassWordButton];
+    //1期不做
+/*
     [self.view addSubview:self.otherLabel];
     [self.view addSubview:self.otherLabelLine];
     [self.view addSubview:self.secondLabelLine];
     [self.view addSubview:self.weChatButton];
     [self.view addSubview:self.weiBoButton];
     [self.view addSubview:self.qqButton];
-    
+   */
     [self layoutPageSubviews];
 
 }
@@ -187,6 +189,7 @@
         make.height.mas_equalTo(@10);
         make.width.mas_equalTo(@60);
     }];
+    
     [self.otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(superView.mas_bottom).offset(-200);
         make.centerX.equalTo(superView.mas_centerX);

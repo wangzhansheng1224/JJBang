@@ -13,7 +13,7 @@
 #import "constantPay.h"
 @implementation MBAliPayManger
 
-+(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary callbackConfig:(void(^)(BOOL config))config{
++(void)aliPayWithParamDictonary:(NSDictionary *)paramDictonary callbackConfig:(void(^)(NSString * config))config{
     NSString *partner = AliPayPartnerID; // 商户ID
     NSString *seller = AliPaySellerID; // 账号
     NSString *privateKey = AliPayPrivateKey; // 私钥
@@ -74,10 +74,27 @@
                                          fromScheme:appScheme
                                            callback:^(NSDictionary *resultDic) {
                                                NSLog(@"result = %@",resultDic);
-                                    if ([resultDic[@"resultStatus"] intValue] == 9000) {
-                                                                   JJBLog(@"支付宝支付成功");
-                                                                   config(YES);
-                                            }
+                                               
+    if ([resultDic[@"resultStatus"] intValue] == 9000) {
+    JJBLog(@"支付宝支付成功");
+    config(@"支付成功");
+    }else if ([resultDic[@"resultStatus"] intValue] == 8000)
+    {
+           config(@"正在处理中...");
+    }else if ([resultDic[@"resultStatus"] intValue] == 4000)
+    {
+        config(@"订单支付失败");
+        
+    }else if ([resultDic[@"resultStatus"] intValue] == 6001)
+    {
+        config(@"用户中途取消");
+        
+    }else if ([resultDic[@"resultStatus"] intValue] == 6002)
+    {
+        config(@"网络连接出错");
+        
+    }
+                                               
                                                // 解析 auth code
                                                NSString *result = resultDic[@"result"];
                                                NSString *authCode = nil;

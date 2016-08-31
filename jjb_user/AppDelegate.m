@@ -107,7 +107,6 @@ if([resp isKindOfClass:[PayResp class]]){
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
         }];
-//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
           [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary
     *resultDic)
           {
@@ -166,8 +165,9 @@ if([resp isKindOfClass:[PayResp class]]){
             
 
         }];
+          return YES;
     }
-//    return YES;
+    
 
         return [WXApi handleOpenURL:url delegate:self];
 }
