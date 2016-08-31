@@ -17,7 +17,7 @@
 @property(nonatomic,strong) TitleBar *titleBar;
 @property(nonatomic,strong) UIImageView * videoImageView;
 @property(nonatomic,strong) UILabel * videoTitleLabel;
-@property(nonatomic,strong) UIButton * videoButton;
+@property(nonatomic,strong) UIImageView * videoButtonImage;
 @property(nonatomic,strong) UIView * lineView;
 @property(nonatomic,strong) NSDictionary *dataDic;
 @end
@@ -41,7 +41,7 @@
         [self.contentView addSubview:self.titleBar];
         [self.contentView addSubview:self.videoImageView];
         [self.contentView addSubview:self.videoTitleLabel];
-        [self.contentView addSubview:self.videoButton];
+        [self.contentView addSubview:self.videoButtonImage];
         [self.contentView addSubview:self.lineView];
         [self addSubviewConstraint];
     }
@@ -74,11 +74,11 @@
         make.right.equalTo(self.contentView.mas_right).offset(-10);
     }];
     
-    [self.videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.videoButtonImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.videoImageView.mas_centerX);
         make.centerY.equalTo(self.videoImageView.mas_centerY);
         make.width.mas_equalTo(@44);
-        make.height.equalTo(self.videoButton.mas_width);
+        make.height.equalTo(self.videoButtonImage.mas_width);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_videoTitleLabel.mas_bottom);
@@ -118,16 +118,16 @@
     }
     return _videoTitleLabel;
 }
--(UIButton *)videoButton
+-(UIImageView *)videoButtonImage
 {
-    if (_videoButton == nil) {
-        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setBackgroundImage:[UIImage imageNamed:@"shop_video_playbutton"] forState:UIControlStateNormal];
-        [self.contentView addSubview:button];
-//    [button addTarget:<#(nullable id)#> action:<#(nonnull SEL)#> forControlEvents:<#(UIControlEvents)#>];
-        _videoButton = button;
+    if (_videoButtonImage == nil) {
+        _videoButtonImage = [[UIImageView alloc]init];
+        UIImage *imag = [UIImage imageNamed:@"shop_video_playbutton"];
+        _videoButtonImage.image = imag;
+        [self.contentView addSubview:_videoButtonImage];
+        
     }
-    return _videoButton;
+    return _videoButtonImage;
 }
 
 -(TitleBar*) titleBar{

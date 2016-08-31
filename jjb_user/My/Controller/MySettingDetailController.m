@@ -54,8 +54,8 @@
     [self.view addSubview:_button];
 }
 -(void)navigationRightBtn{
-    UIBarButtonItem * scanButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(gotoRegister:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"注册账号"];
-    self.navigationItem.rightBarButtonItem = scanButton;
+    UIBarButtonItem * rightButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(buttonClick:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"保存"];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 - (void)buttonClick:(UIButton *)btn {
     self.block(_textField.text);
@@ -63,7 +63,7 @@
 }
 - (void)setName:(NSString *)name {
     self.navigationItem.title = @"修改昵称";
-    [self  createTextField];
+    [self createTextField];
     [self createButton];
     UILabel * leftLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 50)];
     leftLab.textAlignment = NSTextAlignmentCenter;
@@ -74,9 +74,8 @@
 }
 - (void)setSign:(NSString *)sign {
     self.navigationItem.title = @"修改签名";
-    [self  createTextField];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(buttonClick:)];
+    [self createTextField];
+    [self navigationRightBtn];
 }
 - (void)setPassword:(NSString *)password {
     self.navigationItem.title = @"修改密码";
