@@ -70,7 +70,6 @@
     [self.titleLabel setText:data[kGoodsDetailName]];
     self.imgArr=data[kGoodsDetailImages];
 //    [self.picImageV reloadData];
-    NSLog(@"%@+++++",data[kGoodsDetailImages]);
     NSMutableArray *mutArr = [[NSMutableArray alloc] init];
     for (int i = 0; i < self.imgArr.count; i++) {
         

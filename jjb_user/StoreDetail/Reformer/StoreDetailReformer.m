@@ -34,21 +34,6 @@ NSString * const kStoreImage = @"StoreImage";
                  };
         
     }
-//    if ([manager isKindOfClass:[TeacherListAPIManager class]]) {
-//        
-//        NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
-//        
-//        NSArray *arrData=data[@"data"];
-//        for (NSDictionary *dic in arrData) {
-//            [arrResult addObject:@{
-//                                   kTeacherID:dic[@"user_id"],
-//                                   kTeacherName:dic[@"nickname"],
-//                                   kTeacherPhoto:dic[@"userface"],
-//                                   kTeacherStar:@(5)
-//                                   }];
-//        }
-//        return arrResult;
-//    }
     return nil;
 }
 
