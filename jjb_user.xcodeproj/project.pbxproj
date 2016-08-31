@@ -213,6 +213,7 @@
 		73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */; };
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		73EDB7A31D74E02A00F8D40A /* Target_order.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A21D74E02A00F8D40A /* Target_order.m */; };
+		73EDB7AA1D76B4B200F8D40A /* FamliyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A91D76B4B200F8D40A /* FamliyModel.m */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
 		AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */; };
 		AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */; };
@@ -769,6 +770,8 @@
 		73ED4F181D4EFA410022BF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73EDB7A11D74E02A00F8D40A /* Target_order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_order.h; path = Actions/Target_order.h; sourceTree = "<group>"; };
 		73EDB7A21D74E02A00F8D40A /* Target_order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_order.m; path = Actions/Target_order.m; sourceTree = "<group>"; };
+		73EDB7A81D76B4B200F8D40A /* FamliyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamliyModel.h; sourceTree = "<group>"; };
+		73EDB7A91D76B4B200F8D40A /* FamliyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamliyModel.m; sourceTree = "<group>"; };
 		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
 		AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListAPIManager.h; sourceTree = "<group>"; };
@@ -2936,6 +2939,8 @@
 				73AC782F1D6BD5FF00A81078 /* MemberModel.m */,
 				738F524F1D6DEBA900AFBD3D /* ShopModel.h */,
 				738F52501D6DEBA900AFBD3D /* ShopModel.m */,
+				73EDB7A81D76B4B200F8D40A /* FamliyModel.h */,
+				73EDB7A91D76B4B200F8D40A /* FamliyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3444,6 +3449,7 @@
 				BB717C201D7434100077CAD1 /* StoreDetailCell.m in Sources */,
 				731FDD241D58767700A18534 /* Target_My.m in Sources */,
 				731091BE1D51A6CD0031B443 /* CourseCatalogAPIManager.m in Sources */,
+				73EDB7AA1D76B4B200F8D40A /* FamliyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
