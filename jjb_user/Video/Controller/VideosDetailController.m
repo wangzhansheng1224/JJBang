@@ -10,7 +10,8 @@
 #import "VideosDetailCell.h"
 #import "VideosDetailReformer.h"
 @implementation VideosDetailController
-
+#define VIDEOURL @"http://115.29.221.199:82/live/live-detail?code="
+//live/live-detail-new?code=1F0345APAL00070
 #pragma -
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -49,7 +50,7 @@
     _videosDetailDictionary = [manager fetchDataWithReformer:self.videoDetailReformer];
         NSDictionary *dict = _videosDetailDictionary[@"data"];
         if (dict) {
-            _docUrl = [NSString stringWithFormat:@"http://115.29.221.199:82/live/live-detail&code=%@",dict[@"video_code"]];
+            _docUrl = [NSString stringWithFormat:@"%@%@",VIDEOURL,dict[@"video_code"]];
         }
         
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_docUrl]]];
