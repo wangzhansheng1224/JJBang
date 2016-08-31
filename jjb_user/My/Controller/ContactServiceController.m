@@ -34,16 +34,18 @@
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    
-    
+        make.top.left.equalTo(@50);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width - 100, 40));
     }];
     [_locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        
+        make.top.equalTo(_nameLabel.mas_bottom).with.offset(20);
+        make.left.equalTo(@50);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width - 100, 40));
     }];
     [_phoneBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        
+        make.top.equalTo(_locationLabel.mas_bottom).with.offset(20);
+        make.left.equalTo(@50);
+        make.size.mas_equalTo(CGSizeMake(Screen_Width - 100, 40));
     }];
 }
 
@@ -52,14 +54,15 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        
+        _nameLabel.font = H1;
     }
     return _nameLabel;
 }
 - (UILabel *)locationLabel {
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc] init];
-        
+        _locationLabel.font = H3;
+        _locationLabel.textColor = COLOR_LIGHT_GRAY;
     }
     return _locationLabel;
 }
@@ -67,6 +70,7 @@
     if (!_phoneBtn) {
         _phoneBtn = [[UIButton alloc] init];
         _phoneBtn.backgroundColor = JJBRandomColor;
+        
     }
     return _phoneBtn;
 }

@@ -44,6 +44,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 //    self.tableView.tableHeaderView=self.headerView;
     
     [self layoutPageSubviews];
+    
     [self.detailAPIManager loadData];
 }
 

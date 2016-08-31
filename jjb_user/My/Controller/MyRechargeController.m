@@ -13,7 +13,6 @@
 #import "RechargeWeChatAndAliView.h"
 #import "MyRechargeAPIManager.h"
 #import "MyRechargeReformer.h"
-//#import "Order.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "PayResultController.h"
 #import "MBWeChatPayManger.h"
@@ -34,7 +33,7 @@
 @property(nonatomic,weak) UIView * bjTextfieldView;
 @property(nonatomic,strong) RechargeWeChatAndAliCell * cell;
 @property(nonatomic,strong) RechargeWeChatAndAliView * RechargeWeChatAndAliView;
-@property(nonatomic,weak) UIButton * rechargeButton;
+@property(nonatomic,strong) UIButton * rechargeButton;
 @property(nonatomic,strong) LDAPIBaseManager * AliPayprepayIdManager;
 @property(nonatomic,strong) LDAPIBaseManager * WeChatprepayIdManager;
 @property(nonatomic,strong) id<ReformerProtocol> MyRecargeReformer;
@@ -82,7 +81,13 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    //退出键盘
+    [self.view endEditing:YES];
 
+    
+}
 
 #pragma 
 #pragma mark - private methods
@@ -113,6 +118,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         make.centerY.equalTo(self.nameLabel.mas_centerY);
         make.left.equalTo(self.nameLabel.mas_right).offset(8);
         make.right.equalTo(self.bjTextfieldView.mas_right);
+        make.height.mas_equalTo(50);
         
     }];
    
@@ -127,6 +133,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
         make.top.equalTo(self.RechargeWeChatAndAliView.mas_bottom).offset(21);
         make.left.equalTo(self.view.mas_left).offset(43);
         make.centerX.equalTo(self.view.mas_centerX);
+        make.height.equalTo(@40);
     }];
     
 }
@@ -262,7 +269,16 @@ return YES;
     
 }
 
-#pragma
+#pragma -
+#pragma mark -  UITapGestureRecognizer
+-(void)GestureRecognizer:(UITapGestureRecognizer *)gestureRecognizer
+{
+    [self.moneyTextfield becomeFirstResponder];
+}
+
+
+
+#pragma -
 #pragma mark - getter and setter
 -(UITextField *)moneyTextfield
 {
@@ -271,6 +287,7 @@ return YES;
         textField.placeholder = @"输入充值金额";
         textField.font = [UIFont systemFontOfSize:14];
         textField.delegate = self;
+
         [self.bjTextfieldView addSubview:textField];
         
         _moneyTextfield = textField;
@@ -296,6 +313,8 @@ return YES;
     if (_bjTextfieldView == nil) {
         UIView * view = [[UIView alloc]init];
         view.backgroundColor = COLOR_WHITE;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(GestureRecognizer:)];
+        [view addGestureRecognizer:tap];
         [self.view addSubview:view];
         _bjTextfieldView = view;
     }

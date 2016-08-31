@@ -76,6 +76,13 @@
         _scrollView.contentOffset = CGPointMake(Screen_Width, 0);
     }
     
+    if (self.arrPic.count == 1) {
+        
+        _scrollView.contentSize = CGSizeMake(Screen_Width, self.adHeight);
+        
+        _scrollView.contentOffset = CGPointMake(0, 0);
+    }
+    
     [self scrollViewAddImages];
     
     [self removeTimer];
@@ -89,7 +96,6 @@
 
 - (void)scrollViewAddImages {
     
-    NSLog(@"%@", self.arrPic);
     for (int i = 0; i < self.arrPic.count + 2; i++) {
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * Screen_Width, 0, Screen_Width, self.adHeight)];
@@ -132,12 +138,9 @@
 //移除
 - (void)removeTimer {
     
-    if (!_timer) {
-        
-        [_timer invalidate];
-        
-        _timer = nil;
-    }
+    [_timer invalidate];
+    
+    _timer = nil;
 }
 
 

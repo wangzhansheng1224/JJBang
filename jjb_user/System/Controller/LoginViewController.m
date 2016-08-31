@@ -179,6 +179,7 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.passWordTextField.mas_bottom).offset(32);
         make.left.mas_equalTo(self.view.mas_left).offset(42);
+        make.height.equalTo(@40);
     }];
     [self.forgetPassWordButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.loginButton.mas_right);
