@@ -138,37 +138,11 @@ if([resp isKindOfClass:[PayResp class]]){
                     }
                 }
             }
-            NSLog(@"result = %@",resultDic);
-            NSString * key = @"ResultStatus";
-            if (![[resultDic allKeys]containsObject:key]) {
-                key = @"resultStatus";
-            }
-            if ([[resultDic objectForKey:key] integerValue] == 9000)
-            {
-                NSNotification * notification = [NSNotification notificationWithName:@"AliPay" object:nil];
-                
-                [[NSNotificationCenter defaultCenter] postNotification:notification];
-                
-            }else if ([resultDic[key]integerValue] == 8000){
-                
-                NSLog(@"正在处理中");
-            }else if ([resultDic[key]integerValue] == 4000){
-                
-                NSLog(@"订单支付失败");
-            }else if ([resultDic[key]integerValue] == 6001){
-                
-                NSLog(@"用户中途取消");
-            }else if ([resultDic[key]integerValue] == 6002){
-                
-                NSLog(@"网路连接出错");
-            }
-            
-
         }];
           return YES;
     }
     
-
+    
         return [WXApi handleOpenURL:url delegate:self];
 }
 

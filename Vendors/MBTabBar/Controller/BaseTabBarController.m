@@ -91,7 +91,7 @@
     vc.title = titleString;
     vc.tabBarItem.image = norImage;
 //    //返回一张未被渲染的图片
-//    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     
 }

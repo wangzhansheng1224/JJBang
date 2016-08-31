@@ -162,12 +162,12 @@
 #pragma mark - layoutPageSubviews
 -(void)layoutPageSubviews
 {
-    UIView *superView=self.view;
+
     
     [self.telTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(18);
         make.right.mas_equalTo(self.view.mas_right).offset(-20);
-        make.top.mas_equalTo(self.view.mas_top).offset(20);
+        make.top.mas_equalTo(self.view.mas_top).offset(60);
         make.height.mas_equalTo(@40);
         
     }];
@@ -189,7 +189,7 @@
         make.height.mas_equalTo(@10);
         make.width.mas_equalTo(@60);
     }];
-    
+   /*
     [self.otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(superView.mas_bottom).offset(-200);
         make.centerX.equalTo(superView.mas_centerX);
@@ -233,6 +233,7 @@
         make.width.equalTo(self.weChatButton.mas_width);
         make.right.equalTo(self.view.mas_right).offset(-14);
     }];
+    */
 }
 
 #pragma mark
@@ -301,6 +302,7 @@
     }
     return _forgetPassWordButton;
 }
+/*
 -(UILabel *)otherLabel
 {
     if (_otherLabel == nil) {
@@ -374,7 +376,7 @@
     }
     return _weiBoButton;
 }
-
+*/
 
 - (LDAPIBaseManager *)loginAPIManager {
     if (_loginAPIManager == nil) {

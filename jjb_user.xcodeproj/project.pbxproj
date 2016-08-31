@@ -223,6 +223,7 @@
 		AC0EF2C71D6EE92700054421 /* UIImage+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2C61D6EE92700054421 /* UIImage+MB.m */; };
 		AC0EF2CA1D6EEAA400054421 /* UIImageView+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */; };
 		AC1E8EA81D7527FF001CF566 /* MBTextFieldTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EA71D7527FF001CF566 /* MBTextFieldTool.m */; };
+		AC1E8EAB1D76AB59001CF566 /* MyLevelAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EAA1D76AB59001CF566 /* MyLevelAPIManager.m */; };
 		AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0B1D65602900240089 /* issueLocationView.m */; };
 		AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB0E1D657E7800240089 /* issueLocationController.m */; };
 		AC27CB121D66DABC00240089 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC27CB111D66DABC00240089 /* MBButton.m */; };
@@ -791,6 +792,8 @@
 		AC0EF2C91D6EEAA400054421 /* UIImageView+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MB.m"; sourceTree = "<group>"; };
 		AC1E8EA61D7527FF001CF566 /* MBTextFieldTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextFieldTool.h; sourceTree = "<group>"; };
 		AC1E8EA71D7527FF001CF566 /* MBTextFieldTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextFieldTool.m; sourceTree = "<group>"; };
+		AC1E8EA91D76AB59001CF566 /* MyLevelAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLevelAPIManager.h; sourceTree = "<group>"; };
+		AC1E8EAA1D76AB59001CF566 /* MyLevelAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLevelAPIManager.m; sourceTree = "<group>"; };
 		AC27CB0A1D65602900240089 /* issueLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationView.h; sourceTree = "<group>"; };
 		AC27CB0B1D65602900240089 /* issueLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issueLocationView.m; sourceTree = "<group>"; };
 		AC27CB0D1D657E7800240089 /* issueLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issueLocationController.h; sourceTree = "<group>"; };
@@ -1316,6 +1319,8 @@
 				AC3D77D21D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m */,
 				AC27CB1B1D6A968A00240089 /* MyOrderDetailAPIManager.h */,
 				AC27CB1C1D6A968A00240089 /* MyOrderDetailAPIManager.m */,
+				AC1E8EA91D76AB59001CF566 /* MyLevelAPIManager.h */,
+				AC1E8EAA1D76AB59001CF566 /* MyLevelAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -3418,6 +3423,7 @@
 				AC27CB0C1D65602900240089 /* issueLocationView.m in Sources */,
 				738B820F1D5F741D00765F6F /* PublishAlbumTopView.m in Sources */,
 				731092061D5210FA0031B443 /* GrowingTreeListReformer.m in Sources */,
+				AC1E8EAB1D76AB59001CF566 /* MyLevelAPIManager.m in Sources */,
 				513A4A921D732CF1008AA661 /* MyQuestionSectionView.m in Sources */,
 				73575F551D54D4950037F697 /* TeacherController.m in Sources */,
 				732A969C1D5D7B7200BE5800 /* StarView.m in Sources */,
@@ -3623,7 +3629,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3675,7 +3681,7 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
