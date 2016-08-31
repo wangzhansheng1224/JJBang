@@ -29,7 +29,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,strong) LDAPIBaseManager *MyGrowingAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> detailReformer;
+@property (nonatomic,strong) id<ReformerProtocol> detailReformer;
 
 @property (nonatomic,assign) NSInteger growingIndex;
 @property (nonatomic,assign) NSInteger pageSize;

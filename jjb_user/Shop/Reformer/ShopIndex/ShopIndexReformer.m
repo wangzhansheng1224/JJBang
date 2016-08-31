@@ -52,7 +52,7 @@ NSString *const kShopIndexCourseImg=@"ShopIndexCourseImage";
 NSString *const kShopIndexCourseName=@"ShopIndexCourseName";
 NSString *const kShopIndexVideoName=@"ShopIndexVideoName";
 
-
+NSString *const kShopIndexShopID= @"ShopIndexShopID";
 //门店列表
 NSString *const kShopIndexShopListID = @"ShopIndexShopListID";
 NSString *const kShopIndexShopListName = @"ShopIndexShopListName";
