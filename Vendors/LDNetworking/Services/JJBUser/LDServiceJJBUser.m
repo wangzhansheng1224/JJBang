@@ -16,8 +16,6 @@
 
 - (NSString *)onlineApiBaseUrl {
     return @"http://115.29.221.199:8081/sys/rest/";
-//    return  @"http://139.129.110.116:8080/sys/rest/";
-
     
 }
 

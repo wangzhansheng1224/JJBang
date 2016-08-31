@@ -20,7 +20,6 @@
 -(id) initWithTitle:(NSString*)title{
     self=[super init];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
         [self addSubview:self.orangeView];
         [self addSubview:self.titleLabel];
         [self addSubview:self.moreLabel];
