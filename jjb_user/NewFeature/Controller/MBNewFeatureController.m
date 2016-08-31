@@ -39,6 +39,9 @@ static NSString * const reuseIdentifier = @"cell";
     self.collectionView.pagingEnabled = YES;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.bounces = NO;
+    
+
+    
     [self setUpGuideView];
 }
 /**

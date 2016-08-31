@@ -33,7 +33,7 @@
         [self.contentView addSubview:self.nameLabel];
         [self.contentView addSubview:self.shopNameLabel];
         [self.contentView addSubview:self.startEndTimeLabel];
-
+        [self.contentView addSubview:self.lineLabel];
         [self layoutPageSubviews];
     }
     return self;
@@ -79,9 +79,9 @@
     }];
     //底部细线
     [_lineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, 4));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, 10));
         make.left.equalTo(@0);
-        make.top.equalTo(_startEndTimeLabel.mas_bottom).with.offset(2);
+        make.top.equalTo(_startEndTimeLabel.mas_bottom).with.offset(10);
     }];
 
 }
@@ -91,15 +91,14 @@
 - (void)configWithData:(NSDictionary *)data{
     
     [self.courseNameLabel setText:data[kVideosListTocourseName]];
-    [self.shopNameLabel setText:data[kVideosListToShopName]];
-    [self.nameLabel setText:data[kVideosListToName]];
-    [self.startEndTimeLabel setText:data[kVideosListStartEndTime]];
-    NSURL *url=[NSURL initWithImageURL:data[kVideosListTocourseImg] Size:self.courseImg.frame.size];
-    JJBLog(@"kVideosListTocourseImgUrl=%@",url);
+    [self.shopNameLabel setText:[NSString stringWithFormat:@"店铺名称：%@",data[kVideosListToShopName]]];
+    [self.nameLabel setText:[NSString stringWithFormat:@"课时名称：%@",data[kVideosListToName]]];
+    [self.startEndTimeLabel setText:[NSString stringWithFormat:@"起始时间：%@",data[kVideosListStartEndTime]]];
     
+    NSURL *url=[NSURL initWithImageURL:data[kVideosListTocourseImg] Width:Screen_Width Height:178];
+    JJBLog(@"kVideosListTocourseImgUrl=%@",url);
     [self.courseImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
     
-
 }
 
 #pragma -
@@ -126,7 +125,7 @@
     if (!_shopNameLabel) {
              
         _shopNameLabel = [[UILabel alloc] init];
-        _shopNameLabel.font = H4;
+        _shopNameLabel.font = H6;
         _shopNameLabel.textColor = COLOR_GRAY;
     }
     return _shopNameLabel;
@@ -136,7 +135,7 @@
     if (!_nameLabel) {
              
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = H4;
+        _nameLabel.font = H6;
         _nameLabel.textColor = COLOR_GRAY;
     }
     return _nameLabel;
@@ -146,7 +145,7 @@
     if (!_startEndTimeLabel) {
              
         _startEndTimeLabel = [[UILabel alloc] init];
-        _startEndTimeLabel.font = H4;
+        _startEndTimeLabel.font = H6;
         _startEndTimeLabel.textColor = COLOR_GRAY;
     }
     return _startEndTimeLabel;

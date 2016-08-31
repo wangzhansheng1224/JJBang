@@ -10,4 +10,9 @@
 
 @interface PayResultController : UIViewController
 @property (nonatomic,strong) NSString* orderNo;
+//用来判断支付宝支付结果
+@property (nonatomic,strong) NSString * aliPayStatus;
+
+//余额支付状态
+@property(nonatomic,assign) BOOL isSuccess;
 @end

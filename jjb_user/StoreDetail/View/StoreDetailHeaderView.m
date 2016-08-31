@@ -67,7 +67,7 @@
 
     }];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_addressLabel.mas_bottom);
+        make.top.equalTo(_addressLabel.mas_bottom).with.offset(10);
         make.left.right.equalTo(@0);
         make.height.equalTo(@10);
     }];
@@ -75,45 +75,26 @@
 
 
 - (void)configWithData:(NSDictionary *)data{
-//    NSURL *url=[NSURL initWithImageURL:data[kStoreDetailPhoto] Width:50 Height:50];
-//    [self.iconImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
-//    [self.nameLabel setText:data[kStoreDetailName]];
-//    //[self.ageLabel setText:data[kStoreDetailAge]];
-//    if ([data[kStoreDetailSex] integerValue]==1) {
-//        [self.sexLabel setText:@"男"];
-//    } else if ([data[kStoreDetailSex] integerValue]==0)
-//    {
-//        [self.sexLabel setText:@"女"];
-//    } else
-//    {
-//        [self.sexLabel setText:@"未知"];
-//    }
     
+    NSString *imageUrlString = [NSString stringWithFormat:@"%@%@",ImageServer,data[kStoreImage]];
+    NSURL *url=[NSURL initWithImageURL:imageUrlString Width:Screen_Width Height:197];
+    [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"pic_default"]];
+    [self.nameLabel setText:data[kStoreName]];
+    [self.addressLabel setText:[NSString stringWithFormat:@"门店电话：%@",data[kStoreAddress]]];
+    [self.mobileLabel setText:[NSString stringWithFormat:@"门店地址：%@",data[kStoreMobile]]];
     
 }
-/*
+
 #pragma -
 #pragma mark - getters and setters
 - (UIImageView *)picImageV {
     
     if (!_picImageV) {
         
-        _picImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_background"]];
+        _picImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pic_default"]];
         _picImageV.backgroundColor = COLOR_GRAY;
     }
     return _picImageV;
-}
-
-- (UIImageView *)iconImageV {
-    
-    if (!_iconImageV) {
-        
-        _iconImageV = [[UIImageView alloc] init];
-        _iconImageV.image = [UIImage imageNamed:@"student_icon"];
-        _iconImageV.layer.cornerRadius = 39;
-        _iconImageV.clipsToBounds = YES;
-    }
-    return _iconImageV;
 }
 
 - (UILabel *)nameLabel {
@@ -121,25 +102,30 @@
     if (!_nameLabel) {
         
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text = @"王鹿晗";
         _nameLabel.font = H3;
-        _nameLabel.textColor = COLOR_WHITE;
+        _nameLabel.textColor = COLOR_DARK_GRAY;
     }
     return _nameLabel;
 }
 
-- (UILabel *)sexLabel {
+- (UILabel *)addressLabel {
     
-    if (!_sexLabel) {
+    if (!_addressLabel) {
         
-        _sexLabel = [[UILabel alloc] init];
-        _sexLabel.text = @"男";
-        _sexLabel.font = H3;
-        _sexLabel.textColor = COLOR_WHITE;
+        _addressLabel = [[UILabel alloc] init];
+        _addressLabel.font = H6;
+        _addressLabel.textColor = COLOR_GRAY;
     }
-    return _sexLabel;
+    return _addressLabel;
 }
-*/
+-(UILabel *)mobileLabel {
+    if (!_mobileLabel) {
+        _mobileLabel = [[UILabel alloc]init];
+        _mobileLabel.font = H6;
+        _mobileLabel.textColor = COLOR_GRAY;
+    }
+    return _mobileLabel;
+}
 -(UIView *)lineView{
     if (!_lineView) {
         _lineView=[[UIView alloc] init];

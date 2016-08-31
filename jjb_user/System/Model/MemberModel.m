@@ -12,6 +12,7 @@
 
 + (MemberModel*)JsonParse:(NSDictionary*)dic{
     MemberModel *member=[[MemberModel alloc] init];
+    JJBLog("%@",dic);
     member.id= [dic[@"id"] integerValue];
     member.name=dic[@"name"];
     member.photo=dic[@"photo"];

@@ -72,7 +72,7 @@
 
 - (void) tabbarControllChangeValue:(id)sender{
     
-    NSLog(@"%ld",_tabbarControl.selectedSegmentIndex);
+    NSLog(@"%ld",(long)_tabbarControl.selectedSegmentIndex);
 }
 
 #pragma -

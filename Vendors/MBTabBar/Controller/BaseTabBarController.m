@@ -67,7 +67,7 @@
      成长界面
      */
     GrowingTreeController * growingTreeVC = [[GrowingTreeController alloc]init];
-    [self setUpOneChildController:growingTreeVC image:[UIImage imageNamed:@"tab_growingtree_normal"] clickImage:[UIImage imageNamed:@"tab_growingtree_selected"] title:@"成长"];
+    [self setUpOneChildController:growingTreeVC image:[UIImage imageNamed:@"tab_growingtree_normal"] clickImage:[UIImage imageNamed:@"tab_growingtree_selected"] title:@"动态"];
     /**
      *  活动界面
      */
@@ -77,7 +77,7 @@
     //个人中心界面
     
     MyController * myVC = [[MyController alloc]init];
-    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"tab_my_normal"] clickImage:[UIImage imageNamed:@"tab_my_selected"] title:@"我的"];
+    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"tab_my_normal"] clickImage:[UIImage imageNamed:@"tab_my_selected"] title:@"个人"];
     
 }
 
@@ -91,7 +91,7 @@
     vc.title = titleString;
     vc.tabBarItem.image = norImage;
 //    //返回一张未被渲染的图片
-//    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     
 }

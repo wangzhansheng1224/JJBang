@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FamliyModel.h"
 
 @interface UserModel : NSObject<NSCoding>
 @property (nonatomic,assign) NSInteger userID;
@@ -21,7 +22,7 @@
 @property (nonatomic,assign) double nextBalance;//距离下一级，还需要充值多少钱
 @property (nonatomic,assign) double discount;//当前优惠
 @property (nonatomic,assign) double nextDiscount; //下一级优惠
-@property (nonatomic,strong) NSMutableArray* myFamily;
+@property (nonatomic,strong) FamliyModel* myFamily;
 
 
 + (UserModel *)currentUser;
