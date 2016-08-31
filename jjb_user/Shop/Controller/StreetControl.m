@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = COLOR_LIGHT_GRAY;
-    self.navigationItem.title = @"街区";
+    self.navigationItem.title = @"明星学员";
 }
 
 - (void)didReceiveMemoryWarning {

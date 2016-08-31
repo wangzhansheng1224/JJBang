@@ -142,7 +142,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     
     if (!_tabbarControl) {
         
-        _tabbarControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"老师简介",@"老师动态"]];
+        _tabbarControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"门店简介",@"门店优势"]];
         _tabbarControl.selectionIndicatorColor = COLOR_ORANGE;
         _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
