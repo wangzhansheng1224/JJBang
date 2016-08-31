@@ -105,7 +105,7 @@ static UserModel* currentUser;
         self.photo=[[aDecoder decodeObjectForKey:@"photo"] copy];
         self.sex=[aDecoder decodeIntegerForKey:@"sex"];
         self.signature=[[aDecoder decodeObjectForKey:@"signature"] copy];
-        self.myFamily=[[aDecoder decodeObjectForKey:@"myFamily"] copy];
+        self.myFamily=[aDecoder decodeObjectForKey:@"myFamily"] ;
         self.balance=[aDecoder decodeDoubleForKey:@"balance"];
         self.level=[aDecoder decodeIntegerForKey:@"level"];
         self.totalBalance=[aDecoder decodeDoubleForKey:@"totalBalance"];
