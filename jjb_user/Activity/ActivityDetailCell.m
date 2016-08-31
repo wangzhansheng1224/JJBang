@@ -48,7 +48,7 @@
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
         make.top.equalTo(self.view_line.mas_bottom);
-        make.height.equalTo(@(Screen_Height-300));
+        make.height.equalTo(@(Screen_Height-380));
     }];
     
 }
@@ -75,7 +75,7 @@
 -(UIWebView*) detailWebView{
     
     if (!_detailWebView) {
-        _detailWebView=[[UIWebView alloc] initWithFrame:CGRectMake(0, Screen_Height-280, Screen_Width, Screen_Height)];
+        _detailWebView=[[UIWebView alloc] initWithFrame:CGRectMake(0, Screen_Height-330, Screen_Width, Screen_Height)];
         _detailWebView.backgroundColor=COLOR_WHITE;
     }
     return _detailWebView;

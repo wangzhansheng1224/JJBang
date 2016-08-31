@@ -65,6 +65,7 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageSize = 10;
     [self.view addSubview:self.tableView];
     [self.bottomView addSubview:self.lineView];
     [self.bottomView addSubview:self.payBtn];
@@ -267,7 +268,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
     if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
         
         return @{
-                 @"course_id":@(self.courseID)
+                 @"course_id":@(self.courseID),
+                 @"count":@(self.pageSize)
                  };
     }
         return @{
@@ -281,13 +283,16 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
     
     if (self.tabbarControl.selectedSegmentIndex==0) {
         
-        
+        _tableView.mj_footer.hidden = YES;
     }else if (self.tabbarControl.selectedSegmentIndex==1) {
         self.dataSource=self.catalogData;
         self.pageIndex=[self.dataSource count];
     }else {
         self.dataSource=self.registrationData;
         self.pageIndex=[self.dataSource count];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.signUpAPIManager loadData];
+        }];
     }
         [self.tableView reloadData];
 }
