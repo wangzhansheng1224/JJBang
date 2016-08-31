@@ -49,7 +49,7 @@ NSString * const kTeacherContent = @"TeacherContent";
     
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_titleLabel.mas_bottom).offset(10);
-        make.height.equalTo(@(100));
+//        make.height.equalTo(@(100));
         make.left.equalTo(superView.mas_left).offset(10);
         make.right.equalTo(superView.mas_right).offset(-10);
     }];
@@ -80,6 +80,7 @@ NSString * const kTeacherContent = @"TeacherContent";
     if (!_detailLabel) {
         _detailLabel=[[UILabel alloc] init];
         _detailLabel.numberOfLines=0;
+        [_detailLabel sizeToFit];
         _detailLabel.text=@"最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动";
     }
     return _detailLabel;
