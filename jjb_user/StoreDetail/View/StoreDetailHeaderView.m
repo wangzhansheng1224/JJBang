@@ -76,8 +76,7 @@
 
 - (void)configWithData:(NSDictionary *)data{
     
-    NSString *imageUrlString = [NSString stringWithFormat:@"%@%@",ImageServer,data[kStoreImage]];
-    NSURL *url=[NSURL initWithImageURL:imageUrlString Width:Screen_Width Height:197];
+    NSURL *url=[NSURL initWithImageURL:data[kStoreImage] Width:Screen_Width Height:197];
     [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"pic_default"]];
     [self.nameLabel setText:data[kStoreName]];
     [self.addressLabel setText:[NSString stringWithFormat:@"门店电话：%@",data[kStoreAddress]]];
