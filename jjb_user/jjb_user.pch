@@ -71,7 +71,6 @@ alpha:(a)]
 #define OSSMessagePath @"Message"
 
 #define ImageServer @"http://image.happycity777.com/"
-#define ImageServer2 @"http://image.happycity777.com"
 /*屏幕视频*/
 
 #ifdef DEBUG
