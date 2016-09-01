@@ -3644,7 +3644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abb0677c-6a87-4132-acb6-02e12e357ba0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3697,7 +3697,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abb0677c-6a87-4132-acb6-02e12e357ba0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

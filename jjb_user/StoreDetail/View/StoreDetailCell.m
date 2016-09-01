@@ -46,14 +46,14 @@
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_orangeView.mas_top);
+        make.top.equalTo(superView.mas_top).offset(10);
         make.left.equalTo(superView.mas_left).offset(10);
         make.right.equalTo(superView.mas_right);
         make.height.equalTo(@(20));
     }];
     
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_titleLabel.mas_bottom).offset(10);
+        make.top.equalTo(_titleLabel.mas_bottom);
 //        make.height.equalTo(@(100));
         make.left.equalTo(superView.mas_left).offset(10);
         make.right.equalTo(superView.mas_right).offset(-10);
@@ -83,8 +83,8 @@
     }
     
     [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_titleLabel.mas_bottom).offset(10);
-        make.height.equalTo(@(height));
+        make.top.equalTo(_titleLabel.mas_bottom);
+        make.height.equalTo(@(height+40));
 //        make.left.equalTo(superView.mas_left).offset(10);
 //        make.right.equalTo(superView.mas_right).offset(-10);
     }];
