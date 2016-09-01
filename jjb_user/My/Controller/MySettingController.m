@@ -50,7 +50,7 @@
     }];
     [self.quitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.tableView.mas_centerX);
-        make.top.equalTo(self.tableView.mas_top).offset(330);
+        make.top.equalTo(self.tableView.mas_top).offset(326);
         make.left.equalTo(self.tableView.mas_left).offset(30);
     }];
 }
