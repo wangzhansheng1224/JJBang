@@ -11,6 +11,7 @@
 #import "MBImageStore.h"
 #import "OSSManager.h"
 #import "ImgModel.h"
+#import "PathHelper.h"
 @interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong)UIPopoverController * imagePickerPopver;
 @property(nonatomic,strong) UIImageView * headImageView;
@@ -38,7 +39,7 @@
 -(void)setUpNav
 {
     self.navigationItem.title = @"修改头像";
-    UIBarButtonItem * chooseBtn = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(chooseButtonClick:) norColor:nil highColor:nil title:@"这里缺张图片"];
+    UIBarButtonItem * chooseBtn = [UIBarButtonItem itmeWithNormalImage:[UIImage imageNamed:@"my_choose_header_button"] high:nil target:self action:@selector(chooseButtonClick:) norColor:nil highColor:nil title:nil];
     self.navigationItem.rightBarButtonItem = chooseBtn;
     
     
@@ -115,16 +116,30 @@
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-    self.headImageView.image = image;
+
+    
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
    NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
-//    ImgModel * model = [[ImgModel alloc]init];
-    [self.view makeToast:@"正在上传" duration:1.0f position:CSToastPositionCenter];
-    [[OSSManager shareInstance]uploadFiles:@[image] withTargetSubPath:OSSMessagePath withBlock:^{
-        [self.view makeToast:@"上传成功" duration:1.0f position:CSToastPositionCenter];
+    
+    NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+    JJBLog(@"%@",path);
+    [UserModel currentUser].photo = path;
+    [UserModel save:[UserModel currentUser]];
+    BOOL fg = [editImageData writeToFile:path atomically:YES];
+    JJBLog(@"%@",fg);
+    NSMutableArray * imageArray = [NSMutableArray array];
+    ImgModel * model = [[ImgModel alloc]init];
+    model.imgpath = path;
+    model.status = NO;
+    
+    [imageArray addObject:model];
+
+    
+    [[OSSManager shareInstance]uploadFiles:imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
         [self.changeHeaderAPIManager loadData];
+
     }];
     
     
