@@ -7,13 +7,15 @@
 //
 
 #import "StoreDetailCell.h"
-//#import "TeacherTileView.h"
 #import "StoreDetailKeys.h"
 
 @interface StoreDetailCell()
 @property (nonatomic,strong) UIView *lineView;
-//@property (nonatomic,strong) TeacherTileView *noteView;
-//@property (nonatomic,strong) TeacherTileView *summaryView;
+
+@property(nonatomic,strong) UIView *orangeView;
+@property(nonatomic,strong) UILabel *titleLabel;
+@property(nonatomic,strong) UILabel *detailLabel;
+
 @end
 @implementation StoreDetailCell
 
@@ -21,65 +23,103 @@
 -(instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor=COLOR_LIGHT_GRAY;
-//        [self addSubview:self.noteView];
-//        [self addSubview:self.summaryView];
+//        self.backgroundColor=JJBRandomColor;
+        
+        [self setBackgroundColor:COLOR_WHITE];
+        [self addSubview:self.orangeView];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.detailLabel];
+        [self layoutSubviews];
+
     }
     return self;
 }
-
-
--(void) layoutSubviews{
-    UIView *superView=self;
-    
-//    [self.noteView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(superView.mas_left);
-//        make.top.mas_equalTo(superView.mas_top).offset(10);
-//        make.height.mas_equalTo(@200);
-//        make.right.mas_equalTo(superView.mas_right);
-//    }];
-    
-//    [self.summaryView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(superView.mas_left);
-//        make.top.mas_equalTo(_noteView.mas_bottom).offset(10);
-//        make.height.mas_equalTo(@200);
-//        make.right.mas_equalTo(superView.mas_right);
-//    }];
-    
-
-}
 #pragma -
-#pragma mark - configWithData
-
-- (void)configWithData:(NSDictionary *)data{
+#pragma mark - layoutSubviews
+-(void)layoutSubviews{
+    UIView *superView=self;
+    [self.orangeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(superView.mas_top).offset(10);
+        make.left.equalTo(superView.mas_left);
+        make.height.equalTo(@(20));
+        make.width.equalTo(@(10));
+    }];
     
-//    [self.noteView configWithData:@{
-//                                    kTeacherTitle:@"个人宣言",
-//                                    kTeacherContent:data[kTeacherNotes]
-//                                    }];
-//    [self.summaryView configWithData:@{
-//                                    kTeacherTitle:@"自我介绍",
-//                                    kTeacherContent:data[kTeacherSummary]
-//                                    }];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_orangeView.mas_top);
+        make.left.equalTo(superView.mas_left).offset(10);
+        make.right.equalTo(superView.mas_right);
+        make.height.equalTo(@(20));
+    }];
+    
+    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_titleLabel.mas_bottom).offset(10);
+//        make.height.equalTo(@(100));
+        make.left.equalTo(superView.mas_left).offset(10);
+        make.right.equalTo(superView.mas_right).offset(-10);
+    }];
 }
 
+#pragma -
+#pragma mark - setTitleData
+- (void)setVoteData:(NSDictionary *)data{
+    [self.titleLabel setText:@"优 势"];
+    [self.detailLabel setText:data[kStoreVotes]];
+    [self configDataSize:data[kStoreVotes]];
+}
+- (void)setSummaryData:(NSDictionary *)data{
+    [self.titleLabel setText:@"简 介"];
+    [self.detailLabel setText:data[kStoreSummary]];
+    [self configDataSize:data[kStoreSummary]];
+}
+-(void)configDataSize:(NSString *)dataString{
+    
+    CGSize size = [dataString boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+    
+    float height = size.height;
+    
+    if ([dataString length] <= 0) {
+        height = 0;
+    }
+    
+    [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_titleLabel.mas_bottom).offset(10);
+        make.height.equalTo(@(height));
+//        make.left.equalTo(superView.mas_left).offset(10);
+//        make.right.equalTo(superView.mas_right).offset(-10);
+    }];
+
+}
 #pragma -
 #pragma mark - getter and setter
-/*
--(TeacherTileView *) noteView
-{
-    if (!_noteView) {
-        _noteView=[[TeacherTileView alloc] init];
+-(UILabel*) titleLabel{
+    
+    if (!_titleLabel) {
+        _titleLabel=[[UILabel alloc] init];
+        _titleLabel.font = H3;
+        [_titleLabel sizeToFit];
     }
-    return _noteView;
+    return _titleLabel;
 }
 
--(TeacherTileView *) summaryView
-{
-    if (!_summaryView) {
-        _summaryView=[[TeacherTileView alloc] init];
+-(UILabel*) detailLabel{
+    
+    if (!_detailLabel) {
+        _detailLabel=[[UILabel alloc] init];
+        _detailLabel.font = H6;
+        _detailLabel.textColor =  COLOR_GRAY;
+        _detailLabel.numberOfLines=0;
+        [_detailLabel sizeToFit];
     }
-    return _summaryView;
+    return _detailLabel;
 }
-*/
+
+-(UIView*) orangeView{
+    if (!_orangeView) {
+        _orangeView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+        _orangeView.backgroundColor=COLOR_ORANGE;
+    }
+    return _orangeView;
+}
+
 @end
