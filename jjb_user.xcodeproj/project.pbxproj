@@ -275,6 +275,8 @@
 		AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6E138C1D5DC9A600A7C71D /* MyRechargeReformer.m */; };
 		AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6E13981D5DECC000A7C71D /* NSString+MBMD5.m */; };
 		AC7421991D5B2F9E00E4353A /* MyRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7421981D5B2F9E00E4353A /* MyRechargeController.m */; };
+		AC7CDFAA1D77BC520010D711 /* changeMyInfoAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7CDFA91D77BC520010D711 /* changeMyInfoAPIManager.m */; };
+		AC7CDFAE1D77C5690010D711 /* MBImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7CDFAD1D77C5690010D711 /* MBImageStore.m */; };
 		AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */; };
 		AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */; };
 		AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */; };
@@ -966,6 +968,10 @@
 		AC6E13981D5DECC000A7C71D /* NSString+MBMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MBMD5.m"; sourceTree = "<group>"; };
 		AC7421971D5B2F9E00E4353A /* MyRechargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRechargeController.h; sourceTree = "<group>"; };
 		AC7421981D5B2F9E00E4353A /* MyRechargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRechargeController.m; sourceTree = "<group>"; };
+		AC7CDFA81D77BC520010D711 /* changeMyInfoAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeMyInfoAPIManager.h; sourceTree = "<group>"; };
+		AC7CDFA91D77BC520010D711 /* changeMyInfoAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeMyInfoAPIManager.m; sourceTree = "<group>"; };
+		AC7CDFAC1D77C5690010D711 /* MBImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBImageStore.h; sourceTree = "<group>"; };
+		AC7CDFAD1D77C5690010D711 /* MBImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBImageStore.m; sourceTree = "<group>"; };
 		AC842C921D5C6C320065A71C /* RechargeWeChatAndAliView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeWeChatAndAliView.h; path = jjb_user/My/Controller/RechargeWeChatAndAliView.h; sourceTree = SOURCE_ROOT; };
 		AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeWeChatAndAliView.m; path = jjb_user/My/Controller/RechargeWeChatAndAliView.m; sourceTree = SOURCE_ROOT; };
 		AC9C41091D6FD53300EC6C65 /* MyFeaturePrivilegecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFeaturePrivilegecell.h; path = Vendors/Category/MyFeaturePrivilegecell.h; sourceTree = SOURCE_ROOT; };
@@ -1327,6 +1333,8 @@
 				AC27CB1C1D6A968A00240089 /* MyOrderDetailAPIManager.m */,
 				AC1E8EA91D76AB59001CF566 /* MyLevelAPIManager.h */,
 				AC1E8EAA1D76AB59001CF566 /* MyLevelAPIManager.m */,
+				AC7CDFA81D77BC520010D711 /* changeMyInfoAPIManager.h */,
+				AC7CDFA91D77BC520010D711 /* changeMyInfoAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -2678,6 +2686,15 @@
 			path = Reformer;
 			sourceTree = "<group>";
 		};
+		AC7CDFAB1D77C5400010D711 /* MBPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				AC7CDFAC1D77C5690010D711 /* MBImageStore.h */,
+				AC7CDFAD1D77C5690010D711 /* MBImageStore.m */,
+			);
+			path = MBPhoto;
+			sourceTree = "<group>";
+		};
 		BB1294201D50A6970048927D /* Ad */ = {
 			isa = PBXGroup;
 			children = (
@@ -2716,6 +2733,7 @@
 		BB159CB01D4F473200F46F09 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				AC7CDFAB1D77C5400010D711 /* MBPhoto */,
 				AC540A711D61B640007636CE /* AliPay */,
 				AC3D77D71D643D6600AAA3A0 /* Location */,
 				AC540AF31D62C0FE007636CE /* Pay */,
@@ -3251,6 +3269,7 @@
 				73886D221D4F735D00643BBA /* NSArray+LDNetworkingMethods.m in Sources */,
 				AC0EF2BA1D6ECDE500054421 /* ExplainLevelHeadView.m in Sources */,
 				735C3AF81D62F2DC00E4DB90 /* ClerkListReformer.m in Sources */,
+				AC7CDFAA1D77BC520010D711 /* changeMyInfoAPIManager.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
@@ -3427,6 +3446,7 @@
 				5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */,
 				51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */,
 				BB1E8A6A1D57055D0078D083 /* MBNewActivityModel.m in Sources */,
+				AC7CDFAE1D77C5690010D711 /* MBImageStore.m in Sources */,
 				7310917D1D5198C60031B443 /* ShopIndexAPIManager.m in Sources */,
 				737C00281D5ACD3A006A8636 /* ActivityIndexController.m in Sources */,
 				73886D761D50850D00643BBA /* ActivityInfoReformer.m in Sources */,
@@ -3513,6 +3533,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3531,8 +3552,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3560,6 +3581,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3572,7 +3594,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3642,9 +3665,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4fca5dd5-7e8d-481b-87b1-b8fba07cf3a2";
 			};
 			name = Debug;
 		};
@@ -3653,8 +3676,8 @@
 			baseConfigurationReference = 30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Home Help Technology Co., Ltd. (A8XTC7F62D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Home Help Technology Co., Ltd. (A8XTC7F62D)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendors/AliPay",
@@ -3695,9 +3718,9 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4fca5dd5-7e8d-481b-87b1-b8fba07cf3a2";
 			};
 			name = Release;
 		};
