@@ -19,12 +19,15 @@
 #import "CourseCatalogReformer.h"
 #import "CourseCatalogView.h"
 #import "SelectMenuController.h"
+#import "CourseDetailCell.h"
 
 /**
  *  课程控制器
  */
 static NSString  *const RegisterListCellIdentifier=@"RegisterListCellIdentifier";
 static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
+static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier";
+
 @interface CourseController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) LDAPIBaseManager *catalogAPIManager;
@@ -62,6 +65,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageSize = 10;
     [self.view addSubview:self.tableView];
     [self.bottomView addSubview:self.lineView];
     [self.bottomView addSubview:self.payBtn];
@@ -69,6 +73,9 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
     [self.view addSubview:self.bottomView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
+    [self.detailAPIManager loadData];
+    [self.catalogAPIManager loadData];
+    [self.signUpAPIManager loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,13 +86,12 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 
 -(void)loadData {
-    
-    [self.detailAPIManager loadData];
-    if(self.tabbarControl.selectedSegmentIndex==0)
+    if (self.tabbarControl.selectedSegmentIndex==0) {
+        [self.detailAPIManager loadData];
+    }else if(self.tabbarControl.selectedSegmentIndex==1)
     {
         [self.catalogAPIManager loadData];
-    } else if(self.tabbarControl.selectedSegmentIndex==1)
-    {
+    }else {
         [self.signUpAPIManager loadData];
     }
 }
@@ -126,7 +132,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.tabbarControl.selectedSegmentIndex==0) {
+    if (self.tabbarControl.selectedSegmentIndex==1) {
         return self.dataSource.count + 1;
     }
     return 1;
@@ -134,6 +140,8 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.tabbarControl.selectedSegmentIndex==0) {
+        return 1;
+    }else if (self.tabbarControl.selectedSegmentIndex==1) {
         if (section == 0) {
             return 0;
         }else {
@@ -144,22 +152,21 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
             }
         }
     }
-    return  [self.dataSource count];
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
+        //课程详情
+        CourseDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CourseDetailCellIdentifier forIndexPath:indexPath];
+        [cell configWithData:self.detailData];
+        return cell;
+    }else if (_tabbarControl.selectedSegmentIndex==1) {
         //课程目录
         CourseCatalogCell * cell = [tableView dequeueReusableCellWithIdentifier:CatalogCellIdentifier forIndexPath:indexPath];
         [cell configWithData:self.catalogData[indexPath.row]];
         return cell;
     }
-//    else if (_tabbarControl.selectedSegmentIndex==1) {
-//        //报名信息
-//        CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
-//       // [cell configWithData:self.registrationData[indexPath.row]];
-//        return cell;
-//    }
     else {
         //报名信息
         CourseRegistrationCell * cell = [tableView dequeueReusableCellWithIdentifier:RegisterListCellIdentifier forIndexPath:indexPath];
@@ -170,6 +177,12 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
+        CGSize size = [self.detailData[@"describe"] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+        
+        float height = size.height;
+        
+        return height;
+    } else if(_tabbarControl.selectedSegmentIndex == 1){
         
         NSDictionary * dic = self.catalogData[indexPath.row];
         
@@ -178,11 +191,8 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         float height = size.height;
         
         return height + 20;
-        
-    } else if(_tabbarControl.selectedSegmentIndex == 1){
-        return 80;
     } else{
-        return 100;
+        return 80;
     }
 }
 
@@ -192,7 +202,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.tabbarControl.selectedSegmentIndex==0) {
+    if (self.tabbarControl.selectedSegmentIndex==1) {
         if (section==0) {
             return  self.tabbarControl;
         }else{
@@ -254,6 +264,14 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    
+    if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
+        
+        return @{
+                 @"course_id":@(self.courseID),
+                 @"count":@(self.pageSize)
+                 };
+    }
         return @{
                  @"course_id":@(self.courseID)
                  };
@@ -264,13 +282,17 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (void)tabbarControllChangeValue:(id)sender{
     
     if (self.tabbarControl.selectedSegmentIndex==0) {
+        
+        _tableView.mj_footer.hidden = YES;
+    }else if (self.tabbarControl.selectedSegmentIndex==1) {
         self.dataSource=self.catalogData;
         self.pageIndex=[self.dataSource count];
-    }
-    else
-    {
+    }else {
         self.dataSource=self.registrationData;
         self.pageIndex=[self.dataSource count];
+        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.signUpAPIManager loadData];
+        }];
     }
         [self.tableView reloadData];
 }
@@ -289,12 +311,19 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 }
 - (void)payBtnClick:(UIButton *)click {
     
-    SelectMenuController *select = [[SelectMenuController alloc] init];
-    self.definesPresentationContext = YES;
-    select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    select.courseID = [_detailData[@"CourseID"] integerValue];
-    [self presentViewController:select animated:YES completion:nil];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    if (controller==nil) {
+        SelectMenuController *select = [[SelectMenuController alloc] init];
+        self.definesPresentationContext = YES;
+        select.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        select.courseID = [_detailData[@"CourseID"] integerValue];
+        [self presentViewController:select animated:YES completion:nil];
+    } else{
+        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+        [navController pushViewController:controller animated:YES];
+    }
 }
+
 #pragma -
 #pragma mark - getters and setters
 - (CourseDetailHeader *) headerView{
@@ -307,7 +336,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
 - (HMSegmentedControl *) tabbarControl
 {
     if (!_tabbarControl) {
-        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"课程详情",@"报名信息"]];
+        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"课程详情",@"课程目录",@"报名信息"]];
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
@@ -329,6 +358,7 @@ static NSString  *const CatalogCellIdentifier=@"CatalogCellIdentifier";
         }];
         [_tableView registerClass:[CourseCatalogCell class] forCellReuseIdentifier:CatalogCellIdentifier];
         [_tableView registerClass:[CourseRegistrationCell class] forCellReuseIdentifier:RegisterListCellIdentifier];
+        [_tableView registerClass:[CourseDetailCell class] forCellReuseIdentifier:CourseDetailCellIdentifier];
     }
     return _tableView;
 }

@@ -96,7 +96,6 @@
         //商品详情
         GoodsDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsDetailCell" forIndexPath:indexPath];
         [cell configWithData:self.dataDic];
-        JJBLog(@"!!!!!!!!!!!!!!!!!%@",self.dataDic);
         return cell;
     }else {
         GoodsParameterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsParameterCell" forIndexPath:indexPath];
@@ -159,7 +158,7 @@
 - (HMSegmentedControl *)tabbarControl {
     
     if (!_tabbarControl) {
-        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"商品详情",@"商品参数"]];
+        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"商品详情"]];
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;

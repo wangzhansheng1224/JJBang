@@ -7,49 +7,36 @@
 //
 
 #import "StoreDetailReformer.h"
+#import "StoreDetailInfoAPIManager.h"
 
-//NSString * const kTeacherID = @"TeacherID";
-//NSString * const kTeacherPhoto = @"TeacherPhoto";
-//NSString * const kTeacherName = @"TeacherName";
+NSString * const kStoreID = @"StoreID";
+NSString * const kStoreName = @"StoreName";
+NSString * const kStoreAddress = @"StoreAddress";
+NSString * const kStoreMobile = @"StoreMobile";
+NSString * const kStoreVotes = @"StoreVotes";
+NSString * const kStoreSummary = @"StoreSummary";
+NSString * const kStoreImage = @"StoreImage";
 
 @implementation StoreDetailReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
-//    
-//    if ([manager isKindOfClass:[TeacherDetailAPIManager class]]) {
-//        
-//        NSDictionary *dataDic=[data objectForKey:@"data"];
-//        return @{
-//                 kTeacherID:dataDic[@"user_id"],
-//                 kTeacherName:dataDic[@"nickname"],
-//                 kTeacherPhoto:dataDic[@"userface"],
-//                 kTeacherStar:@(5),
-//                 kTeacherSex:dataDic[@"sex"],
-//                 kTeacherNotes:dataDic[@"phone"],
-//                 kTeacherNotes:dataDic[@"notes"],
-//                 kTeacherSummary:dataDic[@"notes1"],
-//                 kTeacherWorkYears:dataDic[@"work_years"],
-//                 kTeacherPhone:dataDic[@"phone"],
-//                 kTeacherAddress:dataDic[@"address"]
-//                 };
-//        
-//    }
-//    if ([manager isKindOfClass:[TeacherListAPIManager class]]) {
-//        
-//        NSMutableArray *arrResult=[[NSMutableArray alloc] initWithCapacity:10];
-//        
-//        NSArray *arrData=data[@"data"];
-//        for (NSDictionary *dic in arrData) {
-//            [arrResult addObject:@{
-//                                   kTeacherID:dic[@"user_id"],
-//                                   kTeacherName:dic[@"nickname"],
-//                                   kTeacherPhoto:dic[@"userface"],
-//                                   kTeacherStar:@(5)
-//                                   }];
-//        }
-//        return arrResult;
-//    }
+    
+    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
+        
+        NSDictionary *dataDic=[data objectForKey:@"data"];
+        return @{
+                 kStoreID:dataDic[@"id"],
+                 kStoreName:dataDic[@"name"],
+                 kStoreAddress:dataDic[@"addr"],
+                 kStoreMobile:dataDic[@"mobile"],
+                 kStoreVotes:dataDic[@"votes"],
+                 kStoreSummary:dataDic[@"notes"],
+                 kStoreImage:dataDic[@"image"],
+                 };
+        
+    }
     return nil;
 }
 
 @end
+

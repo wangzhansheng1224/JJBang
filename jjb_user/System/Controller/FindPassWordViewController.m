@@ -52,24 +52,28 @@
 //获取验证码
 -(void)gotoCode:(UIButton *)btn
 {
-    btn.userInteractionEnabled = NO;
-    btn.backgroundColor = COLOR_GRAY;
-    [self createTimer];
+    if (self.telTextfield.text.length == 0){
+        [self.view makeToast:@"请输入手机号" duration:1.5f position:CSToastPositionCenter];
+        return;
+    }
     if(self.telTextfield.text.length != 11)
     {
-        [self.view makeToast:@"请输入正确的手机号" duration:1.0f position:CSToastPositionCenter];
+        [self.view makeToast:@"请输入正确的手机号" duration:1.5f position:CSToastPositionCenter];
+        return;
     }
     else
     {
+        btn.userInteractionEnabled = NO;
+        btn.backgroundColor = COLOR_GRAY;
         [self.getCodeAPIManager loadData];
+        [self createTimer];
+
     }
     
 }
 //提交
 -(void)gotoReplace
 {
-    
-    
     [self.verCodeAPIManager loadData];
 }
 

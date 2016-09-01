@@ -38,7 +38,7 @@ alpha:(a)]
 #define H3 FONT_SIZE(16)
 #define H4 FONT_SIZE(14)
 #define H5 FONT_SIZE(9)
-#define H6 FONT_SIZE(11)
+#define H6 FONT_SIZE(12)
 
 
 //颜色
@@ -69,9 +69,13 @@ alpha:(a)]
 
 #define MSG_Img_Dir_Name @"MSGImgDirName"
 #define OSSMessagePath @"Message"
-
+//头像服务器文件夹
+#define OSSHeaderPath @"jjb/image"
+//图片服务区地址
 #define ImageServer @"http://image.happycity777.com/"
-
+//接口服务区地址
+#define PortServer @"http://139.129.110.116:8080/sys/rest/"
+#define TestPortServer @"http://115.29.221.199:8081/sys/rest/"
 /*屏幕视频*/
 
 #ifdef DEBUG

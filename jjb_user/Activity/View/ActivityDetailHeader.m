@@ -78,8 +78,9 @@
     }];
     [_label_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
-    make.top.equalTo(_label_title.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(200, 17));
+        make.top.equalTo(_label_title.mas_bottom).with.offset(8);
+        make.height.equalTo(@17);
+        make.right.mas_equalTo(_signupButton.mas_left);
         make.left.equalTo(_imageView_location.mas_right).with.offset(8);
     }];
     [_imageView_time mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,13 +92,14 @@
     [_label_time mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_label_location.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(200, 17));
+        make.height.equalTo(@17);
+        make.right.mas_equalTo(_signupButton.mas_left);
         make.left.equalTo(_imageView_time.mas_right).with.offset(8);
     }];
     
     [_signupButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_label_location.mas_top);
-        make.size.mas_equalTo(CGSizeMake(90, 40));
+        make.bottom.equalTo(_view_line.mas_top).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(60, 30));
         make.right.equalTo(superView.mas_right).offset(-10);
     }];
     
@@ -267,6 +269,9 @@
         _signupButton=[[UIButton alloc] init];
         [_signupButton setTitle:@"立即报名" forState:UIControlStateNormal];
         [_signupButton addTarget:self action:@selector(signUpClick:) forControlEvents:UIControlEventTouchUpInside];
+        _signupButton.titleLabel.font = H4;
+        _signupButton.layer.cornerRadius = 3.0;
+        _signupButton.clipsToBounds = YES;
     }
     return _signupButton;
 }

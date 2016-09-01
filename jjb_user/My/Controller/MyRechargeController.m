@@ -144,8 +144,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     NSDictionary * dict = [manager fetchDataWithReformer:nil];
     NSDictionary * dictData = [dict objectForKey:@"data"];
 
-    if ([manager isKindOfClass:[self.AliPayprepayIdManager class]]
-) {
+    if ([manager isKindOfClass:[self.AliPayprepayIdManager class]]) {
         
         self.order = [dictData objectForKey:@"order"];
         self.notifyURL= [dictData objectForKey:@"notify_url"];
@@ -166,7 +165,8 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
 
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    
+    NSDictionary * dict = [manager fetchDataWithReformer:nil];
+    [self.view makeToast:dict[@"message"] duration:1.0f position:CSToastPositionCenter];
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
@@ -219,12 +219,12 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
                            self.moneyTextfield.text,@"amount",
                            self.notifyURL,@"notifyURL",
                            nil];
-    [MBAliPayManger aliPayWithParamDictonary:dict callbackConfig:^(BOOL config) {
+    [MBAliPayManger aliPayWithParamDictonary:dict callbackConfig:^(NSString * config) {
         if (config) {
             JJBLog(@"支付宝支付成功");
             PayResultController *resultController=[[PayResultController alloc] init];
-//            resultController.orderNo=[dictData objectForKey:@"order"];
-            
+            resultController.orderNo= self.order;
+            resultController.aliPayStatus = config;
             [self.navigationController pushViewController:resultController animated:YES];
 
             }
@@ -324,9 +324,9 @@ return YES;
 {
     if (_RechargeWeChatAndAliView == nil) {
         
-        RechargeWeChatAndAliCell* AliPayCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_rechargeAli"] title:@"支付宝支付"];
+        RechargeWeChatAndAliCell* AliPayCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_rechargeAli"] title:@"支付宝支付" balance:nil];
         AliPayCell.tag=0;
-        RechargeWeChatAndAliCell* WeChatCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_weChat"] title:@"微信支付"];
+        RechargeWeChatAndAliCell* WeChatCell=  [[RechargeWeChatAndAliCell alloc]initWithImage:[UIImage imageNamed:@"my_weChat"] title:@"微信支付" balance:nil];
         WeChatCell.tag=1;
         NSArray * item =@[AliPayCell,WeChatCell];
         RechargeWeChatAndAliView * view = [[RechargeWeChatAndAliView alloc]initWithItems:item];

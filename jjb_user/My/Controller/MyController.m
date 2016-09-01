@@ -151,7 +151,8 @@
         }
         if (indexPath.row == 1) {
             ContactServiceController *contactService = [[ContactServiceController alloc] init];
-            [self.navigationController pushViewController:contactService animated:YES];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:contactService];
+            [self.navigationController pushViewController:controller animated:YES];
         }
         if (indexPath.row == 2) {
             MyMoreController *myMoreVC=[[MyMoreController alloc]init];

@@ -143,7 +143,7 @@
 #pragma mark - event respond
 - (void)orderPayBtnClick {
 
-//    [self makeToastActivity:CSToastPositionCenter];
+    [self makeToastActivity:CSToastPositionCenter];
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     if (controller==nil) {
@@ -153,7 +153,7 @@
     } else{
         [navController pushViewController:controller animated:YES];
     }
-//    [self hideToastActivity];
+    [self hideToastActivity];
 }
 
 #pragma

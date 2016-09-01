@@ -61,23 +61,23 @@
 {
     //首页界面
     ShopController * shopVC = [[ShopController alloc]init];
-    [self setUpOneChildController:shopVC image:[UIImage imageNamed:@"tab_index_normal"] clickImage:[UIImage imageNamed:@"tab_index_selected"] title:@"首页"];
+    [self setUpOneChildController:shopVC image:[UIImage imageNamed:@"a"] clickImage:[UIImage imageNamed:@"a1"] title:@"首页"];
     
     /**
      成长界面
      */
     GrowingTreeController * growingTreeVC = [[GrowingTreeController alloc]init];
-    [self setUpOneChildController:growingTreeVC image:[UIImage imageNamed:@"tab_growingtree_normal"] clickImage:[UIImage imageNamed:@"tab_growingtree_selected"] title:@"成长"];
+    [self setUpOneChildController:growingTreeVC image:[UIImage imageNamed:@"b"] clickImage:[UIImage imageNamed:@"b1"] title:@"动态"];
     /**
      *  活动界面
      */
     ActivityController * activityVC = [[ActivityController alloc]init];
-    [self setUpOneChildController:activityVC image:[UIImage imageNamed:@"tab_activity_normal"] clickImage:[UIImage imageNamed:@"tab_activity_selected"] title:@"活动"];
+    [self setUpOneChildController:activityVC image:[UIImage imageNamed:@"c"] clickImage:[UIImage imageNamed:@"c1"] title:@"活动"];
     
     //个人中心界面
     
     MyController * myVC = [[MyController alloc]init];
-    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"tab_my_normal"] clickImage:[UIImage imageNamed:@"tab_my_selected"] title:@"我的"];
+    [self setUpOneChildController:myVC image:[UIImage imageNamed:@"d"] clickImage:[UIImage imageNamed:@"d1"] title:@"个人"];
     
 }
 
@@ -91,7 +91,7 @@
     vc.title = titleString;
     vc.tabBarItem.image = norImage;
 //    //返回一张未被渲染的图片
-//    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage =  [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     
 }

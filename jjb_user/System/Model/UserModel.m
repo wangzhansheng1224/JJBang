@@ -8,8 +8,6 @@
 
 #import "UserModel.h"
 #import "PathHelper.h"
-#import "MemberModel.h"
-
 static UserModel* currentUser;
 
 @implementation UserModel
@@ -80,11 +78,10 @@ static UserModel* currentUser;
     user.nextBalance=[dic[@"nextBalance"] doubleValue];
     user.discount=[dic[@"discount"] doubleValue];
     user.nextDiscount=[dic[@"nextDiscount"] doubleValue];
-    user.myFamily=[[NSMutableArray alloc] init];
-    NSArray *myFamliy=dic[@"myFamily"];
-    for (NSDictionary *dic in myFamliy) {
-        [user.myFamily addObject:[MemberModel JsonParse:dic]];
+    if (dic[@"myFamily"]!=[NSNull null]) {
+        user.myFamily=[FamliyModel JsonParse:dic[@"myFamily"]];
     }
+
     return user;
 }
 
@@ -108,7 +105,7 @@ static UserModel* currentUser;
         self.photo=[[aDecoder decodeObjectForKey:@"photo"] copy];
         self.sex=[aDecoder decodeIntegerForKey:@"sex"];
         self.signature=[[aDecoder decodeObjectForKey:@"signature"] copy];
-        self.myFamily=[[aDecoder decodeObjectForKey:@"myFamily"] copy];
+        self.myFamily=[aDecoder decodeObjectForKey:@"myFamily"] ;
         self.balance=[aDecoder decodeDoubleForKey:@"balance"];
         self.level=[aDecoder decodeIntegerForKey:@"level"];
         self.totalBalance=[aDecoder decodeDoubleForKey:@"totalBalance"];
@@ -130,10 +127,10 @@ static UserModel* currentUser;
     [aCoder encodeObject:self.myFamily forKey:@"myFamily"];
     [aCoder encodeDouble:self.balance forKey:@"balance"];
     [aCoder encodeInteger:self.level forKey:@"level"];
-    [aCoder encodeDouble:self.balance forKey:@"totalBalance"];
-    [aCoder encodeDouble:self.balance forKey:@"nextBalance"];
-    [aCoder encodeDouble:self.balance forKey:@"discount"];
-    [aCoder encodeDouble:self.balance forKey:@"nextDiscount"];
+    [aCoder encodeDouble:self.totalBalance forKey:@"totalBalance"];
+    [aCoder encodeDouble:self.nextBalance forKey:@"nextBalance"];
+    [aCoder encodeDouble:self.discount forKey:@"discount"];
+    [aCoder encodeDouble:self.nextDiscount forKey:@"nextDiscount"];
 }
 
 @end

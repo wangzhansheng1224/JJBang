@@ -33,6 +33,7 @@
 #import "MBNavgationCenterView.h"
 #import "ShopListAPIManager.h"
 #import "VideosListController.h"
+#import "VideosDetailController.h"
 /**
  *  首页主控制器
  */
@@ -62,7 +63,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @property (nonatomic,strong) ShopModel *currentShop;
 @property(nonatomic,strong) RHADScrollView * adScrollView;
 @property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
-
 @end
 
 @implementation ShopController
@@ -108,6 +108,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     ShopModel * shop = notification.userInfo[@"selectShop"];
     [ShopModel save:shop];
     self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
+    
+    NSString *shopIDString = [NSString stringWithFormat:@"%ld",shop.shopID ];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setValue:shopIDString forKey:kShopIndexShopID];
     [self.shopIndexAPIManager loadData];
 }
 #pragma -
@@ -144,6 +148,14 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         UIViewController* controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":actDic[kShopIndexActID]}];
         [self.navigationController pushViewController:controller animated:YES];
     }
+    if (indexPath.section==3){
+        VideosDetailController* detail= [[VideosDetailController alloc] init];
+        NSArray *ary = self.dataDic[@"VideosList"];
+        detail.VideosID=[ary[indexPath.row][kShopIndexVideoID] integerValue];
+        [self.navigationController pushViewController:detail animated:YES];
+
+    }
+        
 }
 
 
@@ -286,7 +298,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-          return Screen_Width/2.0f+10;
+          return Screen_Width/2.0f+10+6;
     }
     if (indexPath.section==1) {
           return Screen_Width*2.0f/3.0f+90.0f;
@@ -328,6 +340,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
             self.currentShop=resultData[0];
             [ShopModel save:self.currentShop];
             self.coustomNavCenterView.shopNameLabel.text=self.currentShop.shopName;
+            
+            NSString *shopIDString = [NSString stringWithFormat:@"%ld",self.currentShop.shopID ];
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            [userDefault setValue:shopIDString forKey:kShopIndexShopID];
         }
         [self.shopIndexAPIManager loadData];
         
@@ -484,7 +500,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     }
    return _scanController;
 }
-
 -(NSDictionary *) dataDic{
     if (!_dataDic) {
         _dataDic=[[NSDictionary alloc] init];

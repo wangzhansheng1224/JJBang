@@ -19,6 +19,8 @@
  NSString * const kOrdersDetailPrice = @"OrderDetailPrice";
  NSString * const kOrdersDetailShopName = @"OrderDetailShopName";
  NSString * const kOrdersDetailZKPrice = @"OrderDetailZKPrice";
+ NSString * const kOrdersDetailType=@"OrdersDetailType"; //商品类型
+ NSString * const kOrdersDetailOrderStudent = @"OrdersDetailOrderStudent";
 
 
 @implementation OrderDetailReformer
@@ -32,7 +34,7 @@
         NSString * timeString = [date formattedDateWithFormat:@"YYYY-MM-dd hh:mm:ss"];
         
         return @{
-                 
+                 kOrdersDetailType:[dataDict[@"type"] stringValue],
                  kOrdersDetailID:[dataDict[@"id"] stringValue],
                  kOrdersDetailCourseNum:dataDict[@"courseNum"],
                  kOrdersDetailName:dataDict[@"name"],
@@ -43,7 +45,8 @@
                  kOrdersDetailPayPrice:[dataDict[@"payPrice"] stringValue],
                  kOrdersDetailShopName:dataDict[@"shopName"],
                  kOrdersDetailZKPrice:[dataDict[@"zkPrice"] stringValue],
-                 kOrdersDetailPrice:[dataDict[@"price"] stringValue]
+                 kOrdersDetailPrice:[dataDict[@"price"] stringValue],
+                 kOrdersDetailOrderStudent:dataDict[@"orderStudent"]
                  };
     }
     return nil;

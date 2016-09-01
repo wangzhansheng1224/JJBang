@@ -10,19 +10,18 @@
 #import "StoreDetailCell.h"
 #import "StoreDetailInfoAPIManager.h"
 #import "StoreDetailReformer.h"
-
+#import "StoreDetailHeaderView.h"
+#import "ShopIndexKeys.h"
+#import "StoreDetailKeys.h"
 static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 @interface StoreDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
-@property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *imageArr;
-@property (nonatomic,strong) LDAPIBaseManager *MyGrowingAPIManager;
-@property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> storeDetailReformer;
 @property (nonatomic,strong) StoreDetailInfoAPIManager *storeDetailInfoAPIManager;
-//@property (nonatomic,strong) StoreDetailReformer *storeDetailReformer;
+@property (nonatomic,strong) StoreDetailHeaderView *headerView;
 
 @property (nonatomic,assign) NSInteger growingIndex;
 @property (nonatomic,assign) NSInteger pageSize;
@@ -38,20 +37,19 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     [super viewDidLoad];
     self.navigationItem.title = @"门店详情";
     self.growingIndex=0;
-    self.pageSize=20;
     [self.view addSubview:self.tableView];
     
-//    self.tableView.tableHeaderView=self.headerView;
+    self.tableView.tableHeaderView=self.headerView;
     
     [self layoutPageSubviews];
-    [self.detailAPIManager loadData];
+    
+    [self.storeDetailInfoAPIManager loadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
 }
-
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
@@ -67,125 +65,99 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (_tabbarControl.selectedSegmentIndex == 1) {
-        return self.GrowingTreeDataArr.count;
-    } else {
-        return 1;
-    }
+        return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    StoreDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:StoreDetailCellIdentifier forIndexPath:indexPath];
-  
-//        TeacherDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:TeacherDetailCellIdentifier forIndexPath:indexPath];
-//        [cell configWithData:self.detailDic];
+    
+        StoreDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:StoreDetailCellIdentifier forIndexPath:indexPath];
+        if (indexPath.row == 0) {
+            [cell setSummaryData:self.storeDetailDictionary];
+        }
+        if (indexPath.row == 1) {
+            [cell setVoteData:self.storeDetailDictionary];
+        }
+    
         return cell;
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-        return Screen_Height-204-44;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        CGSize size = [self.storeDetailDictionary[kStoreSummary] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
     
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return 44;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    return self.tabbarControl;
-}
-
-
-#pragma -
-#pragma mark - LDAPIManagerParamSourceDelegate
-- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    
-    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
-        return @{
-                 @"shop_id":@(self.storeID)
-                 };
+        return size.height+40+10;
     }
-    return nil;
+    if (indexPath.row == 1) {
+        CGSize size = [self.storeDetailDictionary[kStoreVotes] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+        return size.height+40+10;
+    }
+    
+        return 100;
+    
+    
 }
+
 
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-//    
-//    if ([manager isKindOfClass:[ActivityDetailAPIManager class]]) {
-//        self.storeDetailDictionary=[manager fetchDataWithReformer:self.detailReformer];
-//        self.title=_detailData[kActivityDetailTitle];
-//        [self.headerView configWithData:_detailData];
-//        [self.tableView reloadData];
-//    }
+    
+    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]){
+        self.storeDetailDictionary = [manager fetchDataWithReformer:self.storeDetailReformer];
+        [self.headerView configWithData:_storeDetailDictionary];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    }
 }
-
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+
 }
 
-
-
 #pragma -
-#pragma mark - getters and setters
-//- (ActivityDetailHeader *) headerView{
-//    if (!_headerView) {
-//        _headerView=[[ActivityDetailHeader alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, 273)];
-//        _headerView.backgroundColor=COLOR_WHITE;
-//    }
-//    return _headerView;
-//}
-//
-- (HMSegmentedControl *) tabbarControl
-{
-    
-    if (!_tabbarControl) {
-        _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动详情",@"报名信息"]];
-        _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
-        _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
-        _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;
-        _tabbarControl.selectionIndicatorHeight=2.0f;
-        [_tabbarControl addTarget:self action:@selector(tabbarControllChangeValue:) forControlEvents:UIControlEventValueChanged];
+#pragma mark - LDAPIManagerParamSourceDelegate
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]) {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        
+        self.storeID = [[userDefault objectForKey:kShopIndexShopID] integerValue];
+        if (self.storeID) {
+            return @{
+                     @"shop_id":@(self.storeID)
+                     };
+
+        }
     }
-    return _tabbarControl;
+    return nil;
 }
 
 - (UITableView *)tableView {
     
     if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-//        [_tableView registerClass:[ActivityDetailCell class] forCellReuseIdentifier:@"ActivityDetailCell"];
-//        [_tableView registerClass:[ActivityRegistrationCell class] forCellReuseIdentifier:@"ActivityRegistrationCell"];
+        _tableView = [[UITableView alloc] init];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.storeDetailInfoAPIManager loadData];
+        }];
+       
+        [_tableView registerClass:[StoreDetailCell class] forCellReuseIdentifier:StoreDetailCellIdentifier];
+
     }
     return _tableView;
 }
 
-//- (NSMutableArray *)arrRegistrationData {
-
-//    if (!_arrRegistrationData) {
-//        
-//        _arrRegistrationData = [[NSMutableArray alloc] init];
-//    }
-//    return _arrRegistrationData;
-//}
-
-//- (NSMutableArray *)array_data {
-
-//    if (!_array_data) {
-//        
-//        _array_data = [[NSMutableArray alloc] init];
-//    }
-//    return _array_data;
-//}
+- (StoreDetailHeaderView *)headerView {
+    
+    if (!_headerView) {
+        _headerView = [[StoreDetailHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 280+10))];
+        _headerView.backgroundColor = COLOR_WHITE;
+    }
+    return _headerView;
+}
 
 - (LDAPIBaseManager *)storeDetailInfoAPIManager {
     if (_storeDetailInfoAPIManager == nil) {

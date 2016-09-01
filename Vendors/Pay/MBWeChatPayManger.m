@@ -40,7 +40,7 @@
         req.prepayId      = [dict objectForKey:@"prepayid"];
         req.nonceStr      = [dict objectForKey:@"noncestr"];
         req.timeStamp     = stamp.intValue;
-        BOOL status = [WXApi sendReq:req];
+        [WXApi sendReq:req];
     
     }
     
@@ -68,8 +68,6 @@
     //                req.nonceStr = [self genNonceStr];
     req.timeStamp = [paramDict[@"timestamp"] intValue];
     req.package = @"Sign=WXPay";
-    
-    NSLog(@"%@--%@--%@--%d--%@",req.partnerId,req.prepayId,req.nonceStr,req.timeStamp,req.package);
     NSString * signString =[self createMD5SingForPayWithAppID:WeChatAppID partnerid:WeChatPartnerID prepayid:req.prepayId package:@"Sign=WXPay" noncestr:req.nonceStr timestamp:req.timeStamp];
     
     req.sign = signString;
@@ -87,7 +85,7 @@
     [signParams setObject:package_key forKey:@"package"];//扩展字段  参数为 Sign=WXPay
     [signParams setObject:partnerid_key forKey:@"partnerid"];//商户账号
     [signParams setObject:prepayid_key forKey:@"prepayid"];//此处为统一下单接口返回的预支付订单号
-    [signParams setObject:[NSString stringWithFormat:@"%u",timestamp_key] forKey:@"timestamp"];//时间戳
+    [signParams setObject:[NSString stringWithFormat:@"%u",(unsigned int)timestamp_key] forKey:@"timestamp"];//时间戳
     
     //    NSMutableString *contentString  =[NSMutableString string];
     // 排序, 因为微信规定 ---> 参数名ASCII码从小到大排序

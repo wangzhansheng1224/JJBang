@@ -11,16 +11,17 @@
 #import "ExplainLevelHeadView.h"
 #import "MyNewPrivilegeCell.h"
 #import "MyFeaturePrivilegecell.h"
-
+#import "MyLevelAPIManager.h"
 static NSString * const MyNewPrivilegeCellIdentifier = @"MyNewPrivilegeCellIdentifier";
 static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeCellIdentifier";
 
-@interface LevelController ()<UITableViewDataSource,UITableViewDelegate>
+@interface LevelController ()<UITableViewDataSource,UITableViewDelegate,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) UIBarButtonItem *rightItem;
 @property(nonatomic,strong) UITableView * tableView;
 @property(nonatomic,strong) ExplainLevelHeadView * headView;
-
+@property(nonatomic,strong) MyLevelAPIManager * myLevelAPIManage;
+@property(nonatomic,copy) NSString * totalBalance;//累计充值
 
 
 @end
@@ -36,7 +37,7 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
 
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headView;
-    
+    [self.myLevelAPIManage loadData];
 
 }
 
@@ -86,6 +87,38 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
 {
     return @"我的特权";
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    NSDictionary *resultData = [manager fetchDataWithReformer:nil];
+    NSDictionary * dict  = resultData[@"data"];
+    self.totalBalance = [dict[@"totalBalance"] stringValue];
+    [self.headView setValue:[NSString stringWithFormat:@"累计充值:￥%@",self.totalBalance] forKeyPath:@"_bubbleView.label.text"];
+    
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    
+}
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
+{
+
+    return @{
+             @"user_id" :@([UserModel currentUser].userID)
+             
+             };
+}
+
+
+
+
+
+
+
+
 #pragma -
 #pragma mark - getters and setters
 - (UIBarButtonItem *)rightItem {
@@ -118,6 +151,15 @@ static NSString * const MyFeaturePrivilegeCellIdentifier = @"MyFeaturePrivilegeC
         
     }
     return _headView;
+}
+-(MyLevelAPIManager *)myLevelAPIManage
+{
+    if (_myLevelAPIManage == nil) {
+        _myLevelAPIManage = [MyLevelAPIManager sharedInstance];
+        _myLevelAPIManage.delegate = self;
+        _myLevelAPIManage.paramSource = self;
+    }
+    return _myLevelAPIManage;
 }
 
 @end

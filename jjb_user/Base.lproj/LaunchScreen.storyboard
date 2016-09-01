@@ -43,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="welcome_bg" width="540" height="960"/>
+        <image name="welcome_bg" width="374" height="665"/>
     </resources>
 </document>
