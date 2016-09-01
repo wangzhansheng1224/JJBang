@@ -2919,7 +2919,6 @@
 			children = (
 				BB717C111D74326C0077CAD1 /* APIManager */,
 				BB717C101D7432630077CAD1 /* Controller */,
-				BB717C0F1D74325B0077CAD1 /* Reformer */,
 				BB717C0E1D7432530077CAD1 /* View */,
 			);
 			name = StoreDetail;
@@ -2932,6 +2931,7 @@
 				BBAE6A421D766A48001032FA /* StoreDetailHeaderView.m */,
 				BB717C1E1D7434100077CAD1 /* StoreDetailCell.h */,
 				BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */,
+				BB717C0F1D74325B0077CAD1 /* Reformer */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3088,7 +3088,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3534,6 +3533,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3552,7 +3552,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3581,6 +3581,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3593,6 +3594,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3665,7 +3667,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
+				PROVISIONING_PROFILE = "4fca5dd5-7e8d-481b-87b1-b8fba07cf3a2";
 			};
 			name = Debug;
 		};
@@ -3674,7 +3676,7 @@
 			baseConfigurationReference = 30AC97A6C91D86829486F9FE /* Pods-jjb_user.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Home Help Technology Co., Ltd. (A8XTC7F62D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Home Help Technology Co., Ltd. (A8XTC7F62D)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3718,7 +3720,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cd14ca85-5a51-4229-8b5d-40ab85c57100";
+				PROVISIONING_PROFILE = "4fca5dd5-7e8d-481b-87b1-b8fba07cf3a2";
 			};
 			name = Release;
 		};

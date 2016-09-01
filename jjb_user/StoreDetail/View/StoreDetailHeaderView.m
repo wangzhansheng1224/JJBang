@@ -79,8 +79,8 @@
     NSURL *url=[NSURL initWithImageURL:data[kStoreImage] Width:Screen_Width Height:197];
     [self.picImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"pic_default"]];
     [self.nameLabel setText:data[kStoreName]];
-    [self.addressLabel setText:[NSString stringWithFormat:@"门店电话：%@",data[kStoreAddress]]];
-    [self.mobileLabel setText:[NSString stringWithFormat:@"门店地址：%@",data[kStoreMobile]]];
+    [self.addressLabel setText:[NSString stringWithFormat:@"门店地址：%@",data[kStoreAddress]]];
+    [self.mobileLabel setText:[NSString stringWithFormat:@"门店电话：%@",data[kStoreMobile]]];
     
 }
 

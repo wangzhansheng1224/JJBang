@@ -131,7 +131,7 @@ static NSString * const cellID = @"cell";
         
     }else if(indexPath.row == 7)
     {
-        //门店介绍
+        //门店详情
         StoreDetailController * storeControl = [StoreDetailController alloc];
         storeControl.storeID = _currentShop.shopID;
         [navControler pushViewController:storeControl animated:YES];

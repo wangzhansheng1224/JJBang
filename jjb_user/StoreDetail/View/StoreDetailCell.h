@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface StoreDetailCell : UITableViewCell
-- (void)configWithData:(NSDictionary *)data;
+- (void)setVoteData:(NSDictionary *)data;
+- (void)setSummaryData:(NSDictionary *)data;
 @end

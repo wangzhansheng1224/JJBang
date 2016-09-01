@@ -12,6 +12,7 @@
 #import "StoreDetailReformer.h"
 #import "StoreDetailHeaderView.h"
 #import "ShopIndexKeys.h"
+#import "StoreDetailKeys.h"
 static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 @interface StoreDetailController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
@@ -36,7 +37,6 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     [super viewDidLoad];
     self.navigationItem.title = @"门店详情";
     self.growingIndex=0;
-    self.pageSize=20;
     [self.view addSubview:self.tableView];
     
     self.tableView.tableHeaderView=self.headerView;
@@ -65,32 +65,39 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 1;
+        return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
         StoreDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:StoreDetailCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.storeDetailDictionary];
+        if (indexPath.row == 0) {
+            [cell setSummaryData:self.storeDetailDictionary];
+        }
+        if (indexPath.row == 1) {
+            [cell setVoteData:self.storeDetailDictionary];
+        }
+    
         return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-        return Screen_Height-280-10-44;
+    if (indexPath.row == 0) {
+        CGSize size = [self.storeDetailDictionary[kStoreSummary] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+    
+        return size.height+40+10;
+    }
+    if (indexPath.row == 1) {
+        CGSize size = [self.storeDetailDictionary[kStoreVotes] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+        return size.height+40+10;
+    }
+    
+        return 100;
+    
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return 0;
-}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    
-//    return self.tabbarControl;
-//}
 
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
