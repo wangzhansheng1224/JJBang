@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = COLOR_GRAY;
-    
+    self.navigationItem.title = @"关于我们";
     [self.view addSubview:self.tableView];
     [self.view_top addSubview:self.imageView_icon];
     [self.view_top addSubview:self.label_name];
@@ -95,16 +95,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 57;
+    return 130;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
-        [QAlert showAlertWithController:self andTitle:@"检查更新" andMessage:@"当前为最新版本，不需要更新" andTime:2.0];
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    if (indexPath.row == 0) {
+//        [QAlert showAlertWithController:self andTitle:@"检查更新" andMessage:@"当前为最新版本，不需要更新" andTime:2.0];
+//    }
+//}
 
 #pragma -
 #pragma mark - getters and setters
@@ -158,7 +158,7 @@
     if (!_titleArr) {
         
         _titleArr = [[NSMutableArray alloc] init];
-        NSArray *array = @[@"检查更新"];
+        NSArray *array = @[@"      家家帮是一款面向社区提供少儿培训、托管陪伴、家庭课堂、社区悦读等一站式服务的软件，具有查看门店、老师、课程信息，购买课程、商品，发布成长动态，报名参加活动的功能。"];
         _titleArr = [NSMutableArray arrayWithArray:array];
     }
     return _titleArr;

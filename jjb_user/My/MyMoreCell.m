@@ -11,7 +11,7 @@
 @interface MyMoreCell ()
 
 @property (nonatomic,strong) UILabel *label_title;
-@property (nonatomic,strong) UIImageView *imageView_icon;
+//@property (nonatomic,strong) UIImageView *imageView_icon;
 @property (nonatomic,strong) UILabel *label_line;
 @property (nonatomic,strong) NSArray *textArr;
 
@@ -27,7 +27,7 @@
     {
     
         [self.contentView addSubview:self.label_title];
-        [self.contentView addSubview:self.imageView_icon];
+//        [self.contentView addSubview:self.imageView_icon];
         [self.contentView addSubview:self.label_line];
         [self layoutPageSubviews];
     }
@@ -41,18 +41,19 @@
 
     [self.label_title mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.equalTo(@17);
-        make.top.equalTo(@20);
-        make.left.equalTo(@18);
-        make.right.mas_equalTo(_imageView_icon.mas_left);
+//        make.height.equalTo(@130);
+        make.top.equalTo(@10);
+        make.left.equalTo(@10);
+        make.right.equalTo(@-10);
+        make.bottom.equalTo(@-10);
     }];
     
-    [self.imageView_icon mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(12, 20));
-        make.top.equalTo(@22);
-        make.right.equalTo(@-16);
-    }];
+//    [self.imageView_icon mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.size.mas_equalTo(CGSizeMake(12, 20));
+//        make.top.equalTo(@22);
+//        make.right.equalTo(@-16);
+//    }];
     
     [self.label_line mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -72,19 +73,21 @@
         _label_title = [[UILabel alloc] init];
         _label_title.font = H2;
         _label_title.textColor = COLOR_GRAY;
+        _label_title.lineBreakMode = NSLineBreakByWordWrapping;
+        _label_title.numberOfLines = 0;
     }
     return _label_title;
 }
 
-- (UIImageView *)imageView_icon {
-
-    if (!_imageView_icon) {
-        
-        _imageView_icon = [[UIImageView alloc] init];
-        _imageView_icon.image = [UIImage imageNamed:@"my_right"];
-    }
-    return _imageView_icon;
-}
+//- (UIImageView *)imageView_icon {
+//
+//    if (!_imageView_icon) {
+//        
+//        _imageView_icon = [[UIImageView alloc] init];
+//        _imageView_icon.image = [UIImage imageNamed:@"my_right"];
+//    }
+//    return _imageView_icon;
+//}
 
 - (UILabel *)label_line {
 
