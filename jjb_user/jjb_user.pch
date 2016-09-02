@@ -69,6 +69,8 @@ alpha:(a)]
 
 #define MSG_Img_Dir_Name @"MSGImgDirName"
 #define OSSMessagePath @"Message"
+//头像服务器文件夹
+#define OSSHeaderPath @"jjb/image"
 //图片服务区地址
 #define ImageServer @"http://image.happycity777.com/"
 //接口服务区地址

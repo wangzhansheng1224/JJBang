@@ -241,7 +241,10 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
             self.dataSource=self.catalogData;
         }
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
+            [self.tableView.mj_footer endRefreshing];
+        }
         [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
@@ -251,8 +254,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
             self.dataSource=self.registrationData;
         }
         [self.tableView.mj_header endRefreshing];
-        //判断列表数据>=20时才出现上提请求
-        if (self.pageIndex >=20){
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
            [self.tableView.mj_footer endRefreshing];
         }
         [self.tableView reloadData];
@@ -261,8 +264,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.pageIndex >=20){
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
        [self.tableView.mj_footer endRefreshing];
     }
 }
@@ -296,8 +299,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
     }else {
         self.dataSource=self.registrationData;
         self.pageIndex=[self.dataSource count];
-        //判断列表数据>=20时才出现上提请求
-        if (self.pageIndex >=20){
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 [self.signUpAPIManager loadData];
             }];

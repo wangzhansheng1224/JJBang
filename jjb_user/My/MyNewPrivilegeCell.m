@@ -122,7 +122,7 @@
         UILabel * label = [[UILabel alloc]init];
         
         
-        label.text = @"累计消费";
+        label.text = @"累计充值";
         label.textColor = JJBColor(127, 77, 62);
         [label sizeToFit];
         [self.contentView addSubview:label];

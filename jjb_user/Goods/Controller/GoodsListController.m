@@ -36,7 +36,7 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     self.view.backgroundColor = COLOR_WHITE;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
-    self.pageSize=20;
+    self.pageSize=10;
     self.pageIndex=0;
     [self layoutPageSubviews];
     [self.GoodsListAPIManager loadData];
@@ -92,8 +92,8 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
     [self.dataArr addObjectsFromArray:resultData];
     self.pageIndex=[self.dataArr count];
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.pageIndex >=20){
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
 
        [self.tableView.mj_footer endRefreshing];
     }
@@ -102,8 +102,8 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.pageIndex >=20){
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
 
        [self.tableView.mj_footer endRefreshing];
     }
@@ -135,8 +135,8 @@ static NSString  *const GoodsListCellIdentifier=@"GoodsListCellIdentifier";
             self.pageIndex=0;
             [self.GoodsListAPIManager loadData];
         }];
-        //判断列表数据>=20时才出现上提请求
-        if (self.pageIndex >=20){
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
 
            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                [self.GoodsListAPIManager loadData];

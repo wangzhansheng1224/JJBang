@@ -48,7 +48,7 @@
     self.navigationItem.title = @"学员首页";
     self.growingIndex=0;
     self.courseIndex=0;
-    self.pageSize=20;
+    self.pageSize=10;
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
@@ -189,11 +189,11 @@
 }
 //添加tableView底部视图
 -(void)addTableViewFooter{
-    //判断列表数据>=20时才出现上提请求
-    if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=20 ){
+    //判断列表数据>=10时才出现上提请求
+    if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=10 ){
         [self.tableView.mj_footer endRefreshing];
     }
-    if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=20) {
+    if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=10) {
         [self.tableView.mj_footer endRefreshing];
     }
 }
@@ -266,14 +266,14 @@
             [self loadData];
         }];
 
-        //判断列表数据>=20时才出现上提请求
-        if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=20 ){
+        //判断列表数据>=10时才出现上提请求
+        if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=10 ){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 [self.MyGrowingAPIManager loadData];
 
            }];
         }
-        if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=20) {
+        if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=10) {
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 [self.myCourseAPIManager loadData];
                 

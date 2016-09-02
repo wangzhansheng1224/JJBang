@@ -35,7 +35,7 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view setBackgroundColor:[UIColor clearColor]];
     self.pageIndex=0;
-    self.pageSize=20;
+    self.pageSize=10;
     [self.view addSubview:self.tableView];
     [self.tableView.mj_header beginRefreshing];
     [self.activityListAPIManager loadData];
@@ -87,8 +87,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.pageIndex >=20){
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
        [self.tableView.mj_footer endRefreshing];
     }
     [self.tableView reloadData];
@@ -96,8 +96,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.pageIndex >=20){
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
        [self.tableView.mj_footer endRefreshing];
     }
 }
@@ -148,8 +148,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
             self.pageIndex=0;
             [self.activityListAPIManager loadData];
         }];
-        //判断列表数据>=20时才出现上提请求
-        if (self.pageIndex >=20){
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [self.activityListAPIManager loadData];
             }];

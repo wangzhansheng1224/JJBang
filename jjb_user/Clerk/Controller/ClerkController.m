@@ -147,8 +147,8 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
         NSArray *resultData = [manager fetchDataWithReformer:self.growingTreeListReformer];
         [self.growTreeDataArray addObjectsFromArray:resultData];
         self.growingIndex=[self.growTreeDataArray count];
-        //判断列表数据>=20时才出现上提请求
-        if (self.growingIndex >=20) {
+        //判断列表数据>=10时才出现上提请求
+        if (self.growingIndex >=10) {
             [self.tableView.mj_footer endRefreshing];
         }
         [self.tableView.mj_header endRefreshing];
@@ -159,14 +159,13 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
         self.detailDictionary = [manager fetchDataWithReformer:self.detailReformer];
         [self.headerView configWithData:self.detailDictionary];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    //判断列表数据>=20时才出现上提请求
-    if (self.growingIndex >=20) {
+    //判断列表数据>=10时才出现上提请求
+    if (self.growingIndex >=10) {
         [self.tableView.mj_footer endRefreshing];
     }
 
@@ -212,8 +211,8 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
                 [self.detailAPIManager loadData];
             }
         }];
-        //判断列表数据>=20时才出现上提请求
-        if (self.growingIndex >=20){
+        //判断列表数据>=10时才出现上提请求
+        if (self.growingIndex >=10){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 if (self.tabbarControl.selectedSegmentIndex==1) {
                     [self.myGrowingAPIManager loadData];
