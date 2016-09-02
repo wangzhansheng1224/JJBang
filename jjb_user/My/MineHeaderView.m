@@ -28,7 +28,6 @@
 @property (nonatomic,strong) UIImageView * topImage;
 @property (nonatomic,strong) UIButton * setBtn;
 @property (nonatomic,strong) UIButton * emailBtn;
-@property (nonatomic,strong) UIImageView * itemImage;
 @property (nonatomic,strong) UILabel * nameLabel;
 @property (nonatomic,strong) UILabel * signLabel;
 @property (nonatomic,strong) LevelButton * levelBtn;

@@ -73,7 +73,7 @@
         cell.content = self.arr_content[indexPath.row];
         }
         if (indexPath.row == 1) {
-            cell.rightImageV.image = nil;
+//            cell.rightImageV.image = nil;
         }else if (indexPath.row == 4) {
             cell.rightImageV.image = nil;
         }
@@ -89,7 +89,12 @@
         ChangeHeaderIconController *changeHeader = [[ChangeHeaderIconController alloc] init];
         [self.navigationController pushViewController:changeHeader animated:YES];
     }else if (indexPath.row == 1) {
-
+        detail.name = self.arr_title[indexPath.row];
+        detail.block = ^(NSString * content){
+            [self.arr_content replaceObjectAtIndex:indexPath.row withObject:content];
+        };
+        [self.navigationController pushViewController:detail animated:YES];
+        
     }else if (indexPath.row == 2) {
         detail.sign = self.arr_title[indexPath.row];
         detail.block = ^(NSString * content) {
