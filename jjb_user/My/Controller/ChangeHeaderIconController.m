@@ -114,13 +114,13 @@
     
 }
 
+
 #pragma -
 #pragma mark - UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-
     
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
@@ -136,6 +136,7 @@
     [editImageData writeToFile:path atomically:YES];
 
     self.imageArray = [NSMutableArray array];
+
     ImgModel * model = [[ImgModel alloc]init];
     model.imgpath = path;
     model.status = NO;
@@ -212,6 +213,7 @@
     }
     return _headImageView;
 }
+
 -(LDAPIBaseManager *)changeHeaderAPIManager
 {
     if (_changeHeaderAPIManager == nil) {
