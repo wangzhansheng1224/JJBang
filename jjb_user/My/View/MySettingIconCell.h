@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MySettingIconCell : UITableViewCell
-
+@property (nonatomic,strong) UIImageView *iconImageV;
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic,strong) NSMutableArray * arr_title;
 @property (nonatomic,strong) NSMutableArray * arr_content;
 @property (nonatomic,strong) UIButton * quitButton; //退出按钮
+//@property(nonatomic,strong) MySettingIconCell * mySettingIconCell;
 
 @end
 
@@ -40,6 +41,7 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     self.navigationController.navigationBarHidden = NO;
+//    [self.tableView reloadData];
 }
 
 #pragma -
@@ -65,6 +67,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         MySettingIconCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MySettingIconCellIdentifier" forIndexPath:indexPath];
+        
+        NSURL * url = [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
+        [cell.iconImageV setHeader:url];
+
+
         return cell;
     }else {
         MySettingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MySettingCellIdentifier" forIndexPath:indexPath];
