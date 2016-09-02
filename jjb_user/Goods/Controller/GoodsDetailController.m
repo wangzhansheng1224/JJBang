@@ -122,14 +122,12 @@
         [self.headerView configWithData:self.dataDic];
         [self.makeOrderBar configWithData:@{@"shopID":@([ShopModel currentShop].shopID),@"orderType":@1,@"objectID":_dataDic[kGoodsDetailID],@"price":_dataDic[kGoodsDetailPrice]}];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-        [self.tableView reloadData];
+                [self.tableView reloadData];
     }
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma -

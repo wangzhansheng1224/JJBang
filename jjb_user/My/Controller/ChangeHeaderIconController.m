@@ -16,6 +16,7 @@
 @property(nonatomic,strong)UIPopoverController * imagePickerPopver;
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
+@property(nonatomic,strong)NSMutableArray * imageArray;
 
 @end
 
@@ -30,7 +31,12 @@
     [self setUpNav];
     [self setChildViewContraints];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UIImage * image = [[MBImageStore shareMBImageStore]imageForKey:@"MBStore"];
+    self.headImageView.image = image;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,6 +45,7 @@
 -(void)setUpNav
 {
     self.navigationItem.title = @"修改头像";
+
     UIBarButtonItem * chooseBtn = [UIBarButtonItem itmeWithNormalImage:[UIImage imageNamed:@"my_choose_header_button"] high:nil target:self action:@selector(chooseButtonClick:) norColor:nil highColor:nil title:nil];
     self.navigationItem.rightBarButtonItem = chooseBtn;
     
@@ -54,10 +61,7 @@
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom).offset(-80);
     }];
-    
-    
 }
-
 
 
 #pragma -
@@ -110,13 +114,13 @@
     
 }
 
+
 #pragma -
 #pragma mark - UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-
     
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
@@ -125,21 +129,25 @@
     
     NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
     JJBLog(@"%@",path);
-    [UserModel currentUser].photo = path;
+    [UserModel currentUser].photo = name;
+    JJBLog(@"生成的图片%@",name);
+   
     [UserModel save:[UserModel currentUser]];
-    BOOL fg = [editImageData writeToFile:path atomically:YES];
-    JJBLog(@"%@",fg);
-    NSMutableArray * imageArray = [NSMutableArray array];
+    [editImageData writeToFile:path atomically:YES];
+
+    self.imageArray = [NSMutableArray array];
+
     ImgModel * model = [[ImgModel alloc]init];
     model.imgpath = path;
     model.status = NO;
     
-    [imageArray addObject:model];
+    [self.imageArray addObject:model];
 
-    
-    [[OSSManager shareInstance]uploadFiles:imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
+    [self.view makeToast:@"正在上传" duration:1.0f position:CSToastPositionCenter];
+    [[OSSManager shareInstance]uploadFiles:self.imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
+       
         [self.changeHeaderAPIManager loadData];
-
+        
     }];
     
     
@@ -160,21 +168,34 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     NSDictionary *resultData = [manager fetchDataWithReformer:nil];
-    NSDictionary * dict  = resultData[@"data"];
-
+    BOOL dict  = resultData[@"data"];
+    if (dict) {
+        [self.view makeToast:@"修改头像成功" duration:1.0f position:CSToastPositionCenter];
+    }else
+    {
+       [self.view makeToast:@"修改头像失败" duration:1.0f position:CSToastPositionCenter];
+    }
     
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-    
+[self.view makeToast:@"修改头像失败" duration:1.0f position:CSToastPositionCenter];
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
 {
+    NSMutableString * imgString = [NSMutableString string];
+    for (ImgModel * img in self.imageArray) {
+        [imgString appendFormat:@"%@@",img.imagename];
+    }
+    [imgString deleteCharactersInRange:NSMakeRange(imgString.length-1, 1)];
+    [UserModel currentUser].photo = imgString;
+    [UserModel save:[UserModel currentUser]];
+    JJBLog(@"%@",imgString);
     
     return @{
              @"user_id" :@([UserModel currentUser].userID),
-             @"photo":@""
+             @"photo":imgString
              
              };
 }
@@ -193,5 +214,14 @@
     return _headImageView;
 }
 
+-(LDAPIBaseManager *)changeHeaderAPIManager
+{
+    if (_changeHeaderAPIManager == nil) {
+        _changeHeaderAPIManager = [changeMyInfoAPIManager sharedInstance];
+        _changeHeaderAPIManager.delegate = self;
+        _changeHeaderAPIManager.paramSource = self;
+    }
+    return _changeHeaderAPIManager;
+}
 
 @end

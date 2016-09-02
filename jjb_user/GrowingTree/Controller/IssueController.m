@@ -123,8 +123,8 @@
         NSData* editImageData = UIImageJPEGRepresentation(tempImg, 0.8f);
         
         NSString* name = [NSString stringWithFormat:@"%@.jpg", [[OSSManager shareInstance] currentTimeByJava]];
-        
-        NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+                NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+        JJBLog(@"路径=%@",path);
         [editImageData writeToFile:path atomically:YES];
         ImgModel* model = [[ImgModel alloc] init];
         model.sort = i;

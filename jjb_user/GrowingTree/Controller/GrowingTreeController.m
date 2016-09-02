@@ -36,7 +36,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     self.navigationItem.title = @"社区动态";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.pageIndex=0;
-    self.pageSize=20;
+    self.pageSize=10;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
@@ -117,14 +117,20 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    //判断列表数据>10时才出现上提请求
+    if(self.pageIndex >= 10){
+      [self.tableView.mj_footer endRefreshing];
+    }
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
-    [self.tableView reloadData];
+    //判断列表数据>10时才出现上提请求
+    if(self.pageIndex >= 10){
+        [self.tableView.mj_footer endRefreshing];
+    }
+//    [self.tableView reloadData];
 }
 
 #pragma -
@@ -161,9 +167,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
             self.pageIndex=0;
             [self.growingTreeListAPIManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //判断列表数据>=10时才出现上提请求
+        if ([self.arrData count] >=10){
+            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [self.growingTreeListAPIManager loadData];
         }];
+        }
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;

@@ -93,13 +93,21 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
+
+       [self.tableView.mj_footer endRefreshing];
+    }
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    //判断列表数据>=10时才出现上提请求
+    if (self.pageIndex >=10){
+
+       [self.tableView.mj_footer endRefreshing];
+    }
 }
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
@@ -146,9 +154,12 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
             self.pageIndex=0;
             [self.apiManager loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //判断列表数据>=10时才出现上提请求
+        if (self.pageIndex >=10){
+           _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [self.apiManager loadData];
-        }];
+           }];
+        }
         [_tableView registerClass:[TeacherListCell class] forCellReuseIdentifier:TeacherListCellIdentifier];
     }
     return _tableView;

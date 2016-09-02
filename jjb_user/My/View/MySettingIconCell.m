@@ -71,9 +71,9 @@
 -(UIImageView *)iconImageV {
     if (!_iconImageV) {
         _iconImageV = [[UIImageView alloc] init];
-        _iconImageV.image = [UIImage imageNamed:@"student_icon"];
-        _iconImageV.layer.cornerRadius = (self.height)*4.0/5.0/2.0;
-        _iconImageV.clipsToBounds = YES;
+        NSURL * url = [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
+        [_iconImageV setHeader:url];
+
     }
     return _iconImageV;
 }

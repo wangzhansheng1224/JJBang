@@ -21,7 +21,7 @@
 #import "MyHelpController.h"
 #import "ExplainLevelController.h"
 #import "ContactServiceController.h"
-
+#import "ImgModel.h"
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -39,12 +39,15 @@
     self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
     [self loadData];
-}
+    }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.headerView configWithData:[UserModel currentUser]];
     self.navigationController.navigationBarHidden = YES;
+    NSURL * url = [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
+    [self.headerView.itemImage setHeader:url];
+
 }
 
 #pragma -

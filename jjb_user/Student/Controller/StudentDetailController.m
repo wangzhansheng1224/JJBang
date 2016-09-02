@@ -48,7 +48,7 @@
     self.navigationItem.title = @"学员首页";
     self.growingIndex=0;
     self.courseIndex=0;
-    self.pageSize=20;
+    self.pageSize=10;
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
@@ -165,7 +165,7 @@
         [self.GrowingTreeDataArr addObjectsFromArray:resultData];
         self.growingIndex=[self.GrowingTreeDataArr count];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        [self addTableViewFooter];
         [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[MyCourseAPIManager class]])
@@ -174,7 +174,7 @@
         [self.courseDataArr addObjectsFromArray:resultData];
         self.courseIndex=[self.courseDataArr count];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        [self addTableViewFooter];
         [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[StudentDetailAPIManager class]])
@@ -185,9 +185,18 @@
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    [self addTableViewFooter];
 }
-
+//添加tableView底部视图
+-(void)addTableViewFooter{
+    //判断列表数据>=10时才出现上提请求
+    if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=10 ){
+        [self.tableView.mj_footer endRefreshing];
+    }
+    if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=10) {
+        [self.tableView.mj_footer endRefreshing];
+    }
+}
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
@@ -256,9 +265,20 @@
             }
             [self loadData];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self loadData];
-        }];
+
+        //判断列表数据>=10时才出现上提请求
+        if (self.tabbarControl.selectedSegmentIndex==0 && self.growingIndex >=10 ){
+            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                [self.MyGrowingAPIManager loadData];
+
+           }];
+        }
+        if (self.tabbarControl.selectedSegmentIndex==1 && self.courseIndex >=10) {
+            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                [self.myCourseAPIManager loadData];
+                
+            }];
+        }
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:@"GrowingCellIdentifier"];
         [_tableView registerClass:[MBStarCouseCell class] forCellReuseIdentifier:@"MBStarCouseCellIdentifier"];
     }

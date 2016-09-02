@@ -85,8 +85,7 @@
     [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_titleLabel.mas_bottom);
         make.height.equalTo(@(height+40));
-//        make.left.equalTo(superView.mas_left).offset(10);
-//        make.right.equalTo(superView.mas_right).offset(-10);
+
     }];
 
 }
