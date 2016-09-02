@@ -45,6 +45,7 @@
 -(void)setUpNav
 {
     self.navigationItem.title = @"修改头像";
+
     UIBarButtonItem * chooseBtn = [UIBarButtonItem itmeWithNormalImage:[UIImage imageNamed:@"my_choose_header_button"] high:nil target:self action:@selector(chooseButtonClick:) norColor:nil highColor:nil title:nil];
     self.navigationItem.rightBarButtonItem = chooseBtn;
     
@@ -60,10 +61,7 @@
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom).offset(-80);
     }];
-    
-    
 }
-
 
 
 #pragma -

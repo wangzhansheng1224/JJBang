@@ -45,7 +45,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [super viewDidLoad];
     self.navigationItem.title = @"老师首页";
     self.growingIndex=0;
-    self.pageSize=20;
+    self.pageSize=10;
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView=self.headerView;
     [self layoutPageSubviews];
@@ -147,7 +147,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         [self.GrowingTreeDataArr addObjectsFromArray:resultData];
         self.growingIndex=[self.GrowingTreeDataArr count];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        [self addTableViewFooter];
         [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[TeacherDetailAPIManager class]])
@@ -155,15 +155,22 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         self.detailDic = [manager fetchDataWithReformer:self.detailReformer];
         [self.headerView configWithData:_detailDic];
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+        [self addTableViewFooter];
         [self.tableView reloadData];
     }
 }
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    [self addTableViewFooter];
 }
+//添加tableView底部视图
+-(void)addTableViewFooter{
+    //判断列表数据>=10时才出现上提请求
+    if (self.growingIndex >=10 && self.tabbarControl.selectedSegmentIndex==1){
+        [self.tableView.mj_footer endRefreshing];
+    }
 
+}
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
@@ -223,14 +230,13 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
                   [self.detailAPIManager loadData];
             }
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            if (self.tabbarControl.selectedSegmentIndex==1) {
+        //判断列表数据>=10时才出现上提请求
+        if (self.growingIndex >=10 && self.tabbarControl.selectedSegmentIndex==1){
+            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 [self.MyGrowingAPIManager loadData];
-            }
-            else{
-                [self.detailAPIManager loadData];
-            }
-        }];
+            
+            }];
+        }
         [_tableView registerClass:[TeacherDetailCell class] forCellReuseIdentifier:TeacherDetailCellIdentifier];
         [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
