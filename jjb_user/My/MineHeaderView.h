@@ -11,4 +11,6 @@
 
 @interface MineHeaderView : UIView
 - (void)configWithData:(UserModel *)model;
+@property (nonatomic,strong) UIImageView * itemImage;
+
 @end
