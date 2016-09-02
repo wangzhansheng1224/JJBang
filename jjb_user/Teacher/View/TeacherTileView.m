@@ -68,7 +68,6 @@ NSString * const kTeacherContent = @"TeacherContent";
     
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] init];
-        _titleLabel.text = @"教育背景";
         _titleLabel.font = H3;
         [_titleLabel sizeToFit];
     }
@@ -81,7 +80,6 @@ NSString * const kTeacherContent = @"TeacherContent";
         _detailLabel=[[UILabel alloc] init];
         _detailLabel.numberOfLines=0;
         [_detailLabel sizeToFit];
-        _detailLabel.text=@"最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动最新活动";
     }
     return _detailLabel;
 }

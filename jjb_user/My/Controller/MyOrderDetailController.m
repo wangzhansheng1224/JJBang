@@ -37,10 +37,12 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
         self.pageIndex=0;
         [self.MyOrderDetailAPIManagerx loadData];
     }];
-    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    //判断列表数据>=20时才出现上提请求
+    if (self.pageIndex >=20){
+        self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self.MyOrderDetailAPIManagerx loadData];
-    }];
-
+        }];
+    }
     self.pageSize=10;
     self.pageIndex=0;
     [self.MyOrderDetailAPIManagerx loadData];
@@ -86,13 +88,19 @@ static NSString * const MyOrderDetailCellIdentifier = @"MyOrderDetailCellIdentif
     [self.listArray addObjectsFromArray:resultData];
     self.pageIndex=[self.listArray count];
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    //判断列表数据>=20时才出现上提请求
+    if (self.pageIndex >=20){
+       [self.tableView.mj_footer endRefreshing];
+    }
     [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    //判断列表数据>=20时才出现上提请求
+    if (self.pageIndex >=20){
+       [self.tableView.mj_footer endRefreshing];
+    }
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
