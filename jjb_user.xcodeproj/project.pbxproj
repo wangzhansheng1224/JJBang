@@ -283,6 +283,7 @@
 		AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */; };
 		AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
+		ACB8BF451D7962C70039A6C1 /* MyBalanceAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8BF441D7962C70039A6C1 /* MyBalanceAPIManager.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
 		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
@@ -984,6 +985,8 @@
 		AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailAPIManager.m; path = APIManager/ClerkDetailAPIManager.m; sourceTree = "<group>"; };
 		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
 		ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceViewController.m; sourceTree = "<group>"; };
+		ACB8BF431D7962C70039A6C1 /* MyBalanceAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceAPIManager.h; sourceTree = "<group>"; };
+		ACB8BF441D7962C70039A6C1 /* MyBalanceAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBalanceAPIManager.m; sourceTree = "<group>"; };
 		ACE6747F1D5D58EA00B57938 /* MyOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderDetailCell.h; path = jjb_user/My/Controller/MyOrderDetailCell.h; sourceTree = SOURCE_ROOT; };
 		ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderDetailCell.m; path = jjb_user/My/Controller/MyOrderDetailCell.m; sourceTree = SOURCE_ROOT; };
 		ACE8111F1D6AD966006402A5 /* MBOrderPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayController.h; sourceTree = "<group>"; };
@@ -1335,6 +1338,8 @@
 				AC1E8EAA1D76AB59001CF566 /* MyLevelAPIManager.m */,
 				AC7CDFA81D77BC520010D711 /* changeMyInfoAPIManager.h */,
 				AC7CDFA91D77BC520010D711 /* changeMyInfoAPIManager.m */,
+				ACB8BF431D7962C70039A6C1 /* MyBalanceAPIManager.h */,
+				ACB8BF441D7962C70039A6C1 /* MyBalanceAPIManager.m */,
 			);
 			name = APIManager;
 			sourceTree = "<group>";
@@ -3288,6 +3293,7 @@
 				BBC3F4461D51EDEE001BCEEF /* registerViewController.m in Sources */,
 				BB68C97C1D5086B60037DA9F /* MBNSUserDefaultsTool.m in Sources */,
 				BB68C97F1D50878B0037DA9F /* MBGuideTool.m in Sources */,
+				ACB8BF451D7962C70039A6C1 /* MyBalanceAPIManager.m in Sources */,
 				735C3B091D63F91C00E4DB90 /* CourseRegisterListAPIManager.m in Sources */,
 				51D3D7591D6442FF0062D288 /* OrdersDetailCell.m in Sources */,
 				738B82161D5FE67200765F6F /* ImgModel.m in Sources */,
@@ -3666,7 +3672,6 @@
 					"$(PROJECT_DIR)/Vendors/AliPay",
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
-
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
