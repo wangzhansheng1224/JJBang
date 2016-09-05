@@ -19,6 +19,7 @@
     self.navigationItem.title = @"视频详情";
     [self.view addSubview:self.webView];
     [self layoutPageSubviews];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,7 +80,6 @@
         
         _webView = [[UIWebView alloc] init];
         _webView.delegate = self;
-//        _docUrl = @"https://www.baidu.com";
         _webView.allowsInlineMediaPlayback = YES;
         _webView.mediaPlaybackRequiresUserAction = NO;
         

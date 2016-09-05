@@ -40,6 +40,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
+    [self.tableView reloadData];
     [self setNav];
 }
 

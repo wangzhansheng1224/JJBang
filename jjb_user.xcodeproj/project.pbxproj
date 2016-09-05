@@ -2469,8 +2469,8 @@
 				73886CB91D4F237600643BBA /* Activity */,
 				73ED4F0A1D4EFA410022BF79 /* AppDelegate.h */,
 				73ED4F0B1D4EFA410022BF79 /* AppDelegate.m */,
-				73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */,
 				73886CD21D4F58D000643BBA /* ViewControllerIntercepter.h */,
+				73886CD11D4F58D000643BBA /* ViewControllerIntercepter.m */,
 				73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */,
 				73ED4F181D4EFA410022BF79 /* Info.plist */,
 				5126C1F71D562279005D23F3 /* Assets.xcassets */,
@@ -3098,7 +3098,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3679,7 +3678,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3734,7 +3733,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

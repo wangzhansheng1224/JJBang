@@ -22,7 +22,7 @@
     self = [super init];
     if (self) {
         [self setBackgroundImage:[UIImage imageNamed:iconNormalImage] forState:UIControlStateNormal];
-        [self setBackgroundImage:[UIImage imageNamed:selectImage] forState:UIControlStateHighlighted];
+        [self setBackgroundImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
     }
     return self;
 }
