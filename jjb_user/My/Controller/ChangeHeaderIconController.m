@@ -12,8 +12,7 @@
 #import "OSSManager.h"
 #import "ImgModel.h"
 #import "PathHelper.h"
-@interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate>
-@property(nonatomic,strong)UIPopoverController * imagePickerPopver;
+@interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
 @property(nonatomic,strong)NSMutableArray * imageArray;
@@ -72,42 +71,24 @@
 #pragma mark - buttonClick event
 -(void)chooseButtonClick:(id)sender
 {
-    if ([self.imagePickerPopver isPopoverVisible]) {
-        [self.imagePickerPopver dismissPopoverAnimated:YES];
-        self.imagePickerPopver = nil;
-        return;
-    }
     UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.editing = YES;
     imagePicker.delegate = self;
     //允许编辑图片
     imagePicker.allowsEditing = YES;
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            self.imagePickerPopver = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
-            self.imagePickerPopver.delegate = self;
-            [self.imagePickerPopver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-        else
-        {
-            [self presentViewController:imagePicker animated:YES
+        [self presentViewController:imagePicker animated:YES
                              completion:nil];
-        }
     }] ];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            self.imagePickerPopver = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
-            self.imagePickerPopver.delegate = self;
-            [self.imagePickerPopver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-        else
-        {
-            [self presentViewController:imagePicker animated:YES completion:nil];
-        }
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    
         
     }]];
     [alertView addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -129,7 +110,7 @@
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
-   NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
+    NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
     NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
     
@@ -156,15 +137,7 @@
     }];
     
     
-    
-    if (self.imagePickerPopver) {
-        [self.imagePickerPopver dismissPopoverAnimated:YES];
-        self.imagePickerPopver = nil;
-    }
-    else
-    {
         [self dismissViewControllerAnimated:YES completion:nil];
-    }
     
 }
 
