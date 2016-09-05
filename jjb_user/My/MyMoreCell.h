@@ -11,5 +11,6 @@
 @interface MyMoreCell : UITableViewCell
 
 @property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *caches;
 
 @end

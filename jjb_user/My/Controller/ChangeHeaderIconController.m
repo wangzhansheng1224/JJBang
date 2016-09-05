@@ -13,7 +13,7 @@
 #import "ImgModel.h"
 #import "PathHelper.h"
 @interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property(nonatomic,strong)UIPopoverController * imagePickerPopver;
+
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
 @property(nonatomic,strong)NSMutableArray * imageArray;
@@ -78,15 +78,19 @@
     //允许编辑图片
     imagePicker.allowsEditing = YES;
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:imagePicker animated:YES completion:nil];
-    }] ];
+
+            }] ];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         
-            [self presentViewController:imagePicker animated:YES completion:nil];
+
+        [self presentViewController:imagePicker animated:YES completion:nil];
     
         
     }]];
@@ -107,7 +111,7 @@
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
-   NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
+    NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
     NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
     
@@ -134,15 +138,7 @@
     }];
     
     
-    
-    if (self.imagePickerPopver) {
-        [self.imagePickerPopver dismissPopoverAnimated:YES];
-        self.imagePickerPopver = nil;
-    }
-    else
-    {
         [self dismissViewControllerAnimated:YES completion:nil];
-    }
     
 }
 

@@ -93,8 +93,6 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         self.currentLongitude = [dict[@"longitude"] doubleValue];
         self.currentLatitude  = [dict[@"latitude"] doubleValue];
     }];
-    //切换门店之后tableView自动置顶
-    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
 
 
@@ -107,12 +105,20 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     ShopModel * shop = notification.userInfo[@"selectShop"];
     [ShopModel save:shop];
+    //切换门店之后tableView自动置顶
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+
     self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
     
-    NSString *shopIDString = [NSString stringWithFormat:@"%ld",shop.shopID ];
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setValue:shopIDString forKey:kShopIndexShopID];
+    [ShopModel currentShop].shopID = shop.shopID;
+    [ShopModel  save:[ShopModel currentShop]];
+    
+    
+    NSInteger string = [ShopModel currentShop].shopID;
+    JJBLog(@"######change");
+    JJBLog(@"111112222%ld",string);
     [self.shopIndexAPIManager loadData];
+    
 }
 #pragma -
 #pragma mark - Events
@@ -323,10 +329,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
 - (void)tapImageIndex:(NSInteger)index {
     NSArray * arr = self.dataDic[kShopIndexActImg];
+    //需要判断数组是否为空
+    if (arr !=nil && ![arr isKindOfClass:[NSNull class]] && [arr count] != 0){
     NSDictionary * dic = arr[index];
-    NSLog(@"%@+++",dic);
+    JJBLog(@"%@+++",dic);
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_ActivityDetail:@{@"activityID":dic[kShopIndexActImgID]}];
     [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma -
@@ -382,7 +391,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
     if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
-            return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":@(self.currentShop.shopID)};
+        JJBLog(@"######params");
+            return @{@"lng":@(self.currentLongitude) ,@"lat":@(self.currentLatitude),@"shopId":@([ShopModel currentShop].shopID)};
     }
     else if ([manager isKindOfClass:[ShopListAPIManager class]])
     {
