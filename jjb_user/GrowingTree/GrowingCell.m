@@ -65,7 +65,7 @@
     [_view_image mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_moodLabel.mas_top);
         make.top.equalTo(_iconView.mas_bottom);
-        make.left.equalTo(self.mas_left).with.offset(10);
+        make.left.equalTo(self.mas_left).with.offset(8);
         make.right.equalTo(self.mas_right).with.offset(-10);
     }];
     [_moodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
