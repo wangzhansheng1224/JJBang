@@ -30,6 +30,7 @@
     self.view.backgroundColor = COLOR_GRAY;
     self.navigationItem.title = @"关于我们";
     [self.view addSubview:self.tableView];
+    self.tableView.scrollEnabled = NO;
     [self.view_top addSubview:self.imageView_icon];
     [self.view_top addSubview:self.label_name];
     [self.view addSubview:self.view_top];
@@ -89,22 +90,88 @@
     if (indexPath.row < self.titleArr.count) {
         
         cell.title = self.titleArr[indexPath.row];
+        cell.caches = [NSString stringWithFormat:@"%0.2fM",[self folderSizeAtPath:[NSString stringWithFormat:@"%@/Library/Caches",NSHomeDirectory()]]];
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 130;
+    return 50;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    if (indexPath.row == 0) {
 //        [QAlert showAlertWithController:self andTitle:@"检查更新" andMessage:@"当前为最新版本，不需要更新" andTime:2.0];
 //    }
-//}
+    [self clearData];
+}
+
+#pragma mark -- 清除缓存功能
+//单个文件的大小
+- (long long) fileSizeAtPath:(NSString*) filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+//遍历文件夹获得文件夹大小，返回多少M
+- (float ) folderSizeAtPath:(NSString*) folderPath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:folderPath])
+        return 0;
+    //通过枚举遍历法遍历文件夹中的所有文件
+    //创建枚举遍历器
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];
+    //首先声明文件名称、文件大小
+    NSString* fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        //得到当前遍历文件的路径
+        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        //调用封装好的获取单个文件大小的方法
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    return folderSize/(1024.0*1024.0);//转换为多少M进行返回
+}
+#pragma mark 清除缓存大小 打印NSHomeDritiony前往Documents进行查看路径
+- (void)clearCacheFromPath:(NSString*)path{
+    //建立文件管理器
+    NSFileManager * manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:path]) {
+        //如果文件路径存在 获取其中所有文件
+        NSArray * fileArr = [manager subpathsAtPath:path];//找到所有子文件的路径，存到数组中。
+        //首先需要转化为完整路径
+        //直接删除所有子文件
+        for (int i = 0; i < fileArr.count; i++) {
+            NSString * fileName = fileArr[i];
+            //完整路径
+            NSString * filePath = [path stringByAppendingPathComponent:fileName];
+            [manager removeItemAtPath:filePath error:nil];
+        }
+    }
+}
+
+- (void)clearData{
+    
+    UIAlertController * _alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否清除缓存?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [_alert addAction:action1];
+    
+    UIAlertAction * action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //清除缓存
+        [self clearCacheFromPath:[NSString stringWithFormat:@"%@/Library/Caches",NSHomeDirectory()]];
+        [_tableView reloadData];
+    }];
+    [_alert addAction:action2];
+    
+    [self presentViewController:_alert animated:YES completion:nil];
+    
+}
 
 #pragma -
 #pragma mark - getters and setters
@@ -158,7 +225,7 @@
     if (!_titleArr) {
         
         _titleArr = [[NSMutableArray alloc] init];
-        NSArray *array = @[@"      家家帮是一款面向社区提供少儿培训、托管陪伴、家庭课堂、社区悦读等一站式服务的软件，具有查看门店、老师、课程信息，购买课程、商品，发布成长动态，报名参加活动的功能。"];
+        NSArray *array = @[@"清除缓存"];
         _titleArr = [NSMutableArray arrayWithArray:array];
     }
     return _titleArr;

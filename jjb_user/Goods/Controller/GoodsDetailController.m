@@ -14,7 +14,7 @@
 #import "GoodsDetailAPIManager.h"
 #import "GoodsDetailReformer.h"
 #import "OrdersDetailController.h"
-#import "MakeOrderBar.h"
+#import "GoodsMakeOrderBar.h"
 #import "GoodsDetailKey.h"
 
 @interface GoodsDetailController ()<UITableViewDataSource,UITableViewDelegate,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
@@ -22,7 +22,7 @@
 @property (nonatomic,strong) GoodsDetailHeader *headerView;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) MakeOrderBar *makeOrderBar;
+@property (nonatomic,strong) GoodsMakeOrderBar *makeOrderBar;
 @property (nonatomic,strong) LDAPIBaseManager *detailAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> GoodsDetailReformer;
 @property (nonatomic,strong) NSMutableArray *dataArr;
@@ -180,11 +180,11 @@
     return _tableView;
 }
 
-- (MakeOrderBar *)makeOrderBar {
+- (GoodsMakeOrderBar *)makeOrderBar {
 
     if (!_makeOrderBar) {
         
-        _makeOrderBar = [[MakeOrderBar alloc] init];
+        _makeOrderBar = [[GoodsMakeOrderBar alloc] init];
         _makeOrderBar.backgroundColor=COLOR_WHITE;
     }
     return _makeOrderBar;
