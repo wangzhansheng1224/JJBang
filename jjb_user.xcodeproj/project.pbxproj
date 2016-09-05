@@ -216,6 +216,7 @@
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		73EDB7A31D74E02A00F8D40A /* Target_order.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A21D74E02A00F8D40A /* Target_order.m */; };
 		73EDB7AA1D76B4B200F8D40A /* FamliyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A91D76B4B200F8D40A /* FamliyModel.m */; };
+		8495FBE31D7D1CFD001BF926 /* GoodsMakeOrderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
 		AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */; };
 		AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */; };
@@ -783,6 +784,8 @@
 		73EDB7A21D74E02A00F8D40A /* Target_order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_order.m; path = Actions/Target_order.m; sourceTree = "<group>"; };
 		73EDB7A81D76B4B200F8D40A /* FamliyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamliyModel.h; sourceTree = "<group>"; };
 		73EDB7A91D76B4B200F8D40A /* FamliyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamliyModel.m; sourceTree = "<group>"; };
+		8495FBE11D7D1CFD001BF926 /* GoodsMakeOrderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsMakeOrderBar.h; sourceTree = "<group>"; };
+		8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsMakeOrderBar.m; sourceTree = "<group>"; };
 		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
 		AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListAPIManager.h; sourceTree = "<group>"; };
@@ -1726,6 +1729,8 @@
 				51ACDDF11D640675001604A6 /* GoodsParameterCell.m */,
 				5174E5171D6594F200C92E24 /* GoodsDetailCell.h */,
 				5174E5181D6594F200C92E24 /* GoodsDetailCell.m */,
+				8495FBE11D7D1CFD001BF926 /* GoodsMakeOrderBar.h */,
+				8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3093,7 +3098,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = A8XTC7F62D;
+						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3377,6 +3382,7 @@
 				513447BD1D5DBDC200E72F1B /* StudentDetailHeader.m in Sources */,
 				735C3B0C1D643D0D00E4DB90 /* CourseDetailHeader.m in Sources */,
 				ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */,
+				8495FBE31D7D1CFD001BF926 /* GoodsMakeOrderBar.m in Sources */,
 				731091F61D51C8840031B443 /* LoginAPIManager.m in Sources */,
 				7340120E1D6C092400BF217C /* PayResultController.m in Sources */,
 				BB717C0A1D742C3F0077CAD1 /* VideosListCell.m in Sources */,
@@ -3673,7 +3679,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3728,7 +3734,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

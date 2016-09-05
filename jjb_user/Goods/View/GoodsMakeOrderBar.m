@@ -1,15 +1,17 @@
 //
-//  MakeOrderBar.m
+//  GoodsMakeOrderBar.m
 //  jjb_user
 //
-//  Created by Aimee on 16/8/18.
+//  Created by Owen on 16/9/5.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "MakeOrderBar.h"
+#import "GoodsMakeOrderBar.h"
 #import "OrdersDetailController.h"
 #import "MakeOrderAPIManager.h"
-@interface MakeOrderBar()<LDAPIManagerParamSourceDelegate,LDAPIManagerApiCallBackDelegate>
+
+@interface GoodsMakeOrderBar ()<LDAPIManagerParamSourceDelegate,LDAPIManagerApiCallBackDelegate>
+
 @property (nonatomic,assign) NSInteger orderType;
 @property (nonatomic,assign) NSInteger objectID;
 @property (nonatomic,assign) NSInteger shopID;
@@ -18,19 +20,27 @@
 @property (nonatomic,strong) UIView* lineView;
 @property (nonatomic,strong) UILabel *priceLabel;
 
+@property (nonatomic,strong) UIButton *reduceBtn;
+@property (nonatomic,strong) UIButton *addBtn;
+@property (nonatomic,strong) UILabel *numberLabel;
 @property (nonatomic,strong) MakeOrderAPIManager *apiManager;
+
 @end
 
-@implementation MakeOrderBar
+@implementation GoodsMakeOrderBar
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     
     if (self) {
+        _num = 1;
         [self addSubview:self.lineView];
         [self addSubview:self.payBtn];
         [self addSubview:self.priceLabel];
+        [self addSubview:self.reduceBtn];
+        [self addSubview:self.numberLabel];
+        [self addSubview:self.addBtn];
     }
     return self;
 }
@@ -44,16 +54,29 @@
         make.right.mas_equalTo(self.mas_right);
         make.height.equalTo(@1);
     }];
-    
-    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_reduceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.lineView.mas_top).offset(10);
-        make.left.mas_equalTo(self.lineView.mas_left).offset(10);
+        make.left.equalTo(@10);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    [_numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_reduceBtn.mas_centerY);
+        make.left.mas_equalTo(_reduceBtn.mas_right).offset(1);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    [_addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_numberLabel.mas_centerY);
+        make.left.equalTo(_numberLabel.mas_right).offset(1);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_addBtn.mas_centerY);
+        make.left.mas_equalTo(_addBtn.mas_right).offset(10);
         make.height.equalTo(@30);
         make.width.equalTo(@100);
     }];
-    
     [self.payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.lineView.mas_top).offset(10);
+        make.centerY.equalTo(_priceLabel.mas_centerY);
         make.right.mas_equalTo(self.lineView.mas_right).offset(-10);
         make.height.equalTo(@30);
         make.width.equalTo(@100);
@@ -67,10 +90,10 @@
     self.objectID=[data[@"objectID"] integerValue];
     self.shopID=[data[@"shopID"] integerValue];
     self.studentID=[data[@"studentID"] integerValue];
-    [self.priceLabel setText:[NSString stringWithFormat:@"￥%@",data[@"price"]]];
+    float price = [data[@"price"] floatValue];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥%.2f",price]];
     NSLog(@"%@++",data);
 }
-
 
 
 #pragma -
@@ -87,27 +110,27 @@
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-        [self hideToastActivity];
-        NSDictionary *dic=[manager fetchDataWithReformer:nil];
-        [self makeToast:dic[@"message"] duration:3.0f position:CSToastPositionCenter];
+    [self hideToastActivity];
+    NSDictionary *dic=[manager fetchDataWithReformer:nil];
+    [self makeToast:dic[@"message"] duration:3.0f position:CSToastPositionCenter];
 }
 
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
-        return @{
-                 @"id":@(self.objectID),
-                 @"user_id":@([UserModel currentUser].userID),
-                 @"shop_id":@([ShopModel currentShop].shopID),
-                 @"student_id":@(self.studentID)
-                 };
+    return @{
+             @"id":@(self.objectID),
+             @"user_id":@([UserModel currentUser].userID),
+             @"shop_id":@([ShopModel currentShop].shopID),
+             @"student_id":@(self.studentID)
+             };
 }
 
 #pragma -
 #pragma mark - event respone
 - (void)payBtnClick:(UIButton *)click {
-
+    
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     if (controller==nil) {
         self.apiManager.methodName=[NSString stringWithFormat:@"gateway/makeOrder/%ld",(long)self.orderType];
@@ -118,6 +141,23 @@
     }
 }
 
+- (void)reduceBtnClick {
+    if (_num > 1) {
+        _num --;
+        self.numberLabel.text = [NSString stringWithFormat:@"%d",_num];
+    }else {
+        self.reduceBtn.userInteractionEnabled = NO;
+        self.numberLabel.text = @"1";
+    }
+}
+
+- (void)addBtnClick {
+    _num ++;
+    self.numberLabel.text = [NSString stringWithFormat:@"%d",_num];
+}
+
+#pragma -
+#pragma mark - getters and setters
 - (UIButton *)payBtn {
     
     if (!_payBtn) {
@@ -160,6 +200,33 @@
         _apiManager.paramSource=self;
     }
     return _apiManager;
+}
+- (UIButton *)reduceBtn {
+    if (!_reduceBtn) {
+        _reduceBtn = [[UIButton alloc] init];
+        [_reduceBtn setImage:[UIImage imageNamed:@"goods_reduce"] forState:UIControlStateNormal];
+        _reduceBtn.backgroundColor = COLOR_LIGHT_GRAY;
+        [_reduceBtn addTarget:self action:@selector(reduceBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _reduceBtn;
+}
+- (UIButton *)addBtn {
+    if (!_addBtn) {
+        _addBtn = [[UIButton alloc] init];
+        [_addBtn setImage:[UIImage imageNamed:@"goods_add"] forState:UIControlStateNormal];
+        _addBtn.backgroundColor = COLOR_LIGHT_GRAY;
+        [_addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addBtn;
+}
+- (UILabel *)numberLabel {
+    if (!_numberLabel) {
+        _numberLabel = [[UILabel alloc] init];
+        _numberLabel.backgroundColor = COLOR_LIGHT_GRAY;
+        _numberLabel.textAlignment = NSTextAlignmentCenter;
+        _numberLabel.text = @"1";
+    }
+    return _numberLabel;
 }
 
 @end
