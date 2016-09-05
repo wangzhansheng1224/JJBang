@@ -129,7 +129,7 @@
         
         [self.view_image addSubview:imageView];
     }
-    
+
     CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
     
     float height = size.height;

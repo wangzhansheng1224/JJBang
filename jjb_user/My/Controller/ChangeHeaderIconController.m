@@ -17,6 +17,7 @@
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
 @property(nonatomic,strong)NSMutableArray * imageArray;
+@property(nonatomic,copy) NSString * ImagePath;
 
 @end
 
@@ -30,6 +31,9 @@
 
     [self setUpNav];
     [self setChildViewContraints];
+//    self.headImageView.image = [UIImage imageWithContentsOfFile:self.ImagePath];
+
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -128,13 +132,14 @@
    NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
     NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+    
     JJBLog(@"%@",path);
     [UserModel currentUser].photo = name;
     JJBLog(@"生成的图片%@",name);
    
     [UserModel save:[UserModel currentUser]];
     [editImageData writeToFile:path atomically:YES];
-
+    self.ImagePath = path;
     self.imageArray = [NSMutableArray array];
 
     ImgModel * model = [[ImgModel alloc]init];
@@ -170,10 +175,18 @@
     NSDictionary *resultData = [manager fetchDataWithReformer:nil];
     BOOL dict  = resultData[@"data"];
     if (dict) {
-        [self.view makeToast:@"修改头像成功" duration:1.0f position:CSToastPositionCenter];
+        UIView * view =   [self.view toastViewForMessage:@"修改头像成功" title:nil image:nil style:nil];
+        [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
     }else
     {
-       [self.view makeToast:@"修改头像失败" duration:1.0f position:CSToastPositionCenter];
+        UIView * view =   [self.view toastViewForMessage:@"修改头像失败" title:nil image:nil style:nil];
+        [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {
+//            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
     }
     
 }

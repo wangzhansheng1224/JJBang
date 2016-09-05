@@ -11,7 +11,7 @@
 @interface MySettingIconCell ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UIImageView *iconImageV;
+
 @property (nonatomic,strong) UIImageView *rightImageV;
 @property (nonatomic,strong) UILabel *line;
 

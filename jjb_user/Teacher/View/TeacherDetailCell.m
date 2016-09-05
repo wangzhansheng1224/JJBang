@@ -24,6 +24,7 @@
         self.backgroundColor=COLOR_LIGHT_GRAY;
         [self addSubview:self.noteView];
         [self addSubview:self.summaryView];
+        
     }
     return self;
 }
@@ -35,7 +36,7 @@
     [self.noteView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(superView.mas_top).offset(10);
-        make.height.mas_equalTo(@200);
+        make.height.mas_equalTo(@800);
         make.right.mas_equalTo(superView.mas_right);
     }];
     

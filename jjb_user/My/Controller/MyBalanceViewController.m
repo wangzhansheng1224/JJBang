@@ -9,15 +9,19 @@
 #import "MyBalanceViewController.h"
 #import "MyOrderDetailController.h"
 #import "MyRechargeController.h"
+#import "MyBalanceAPIManager.h"
 /**
  *  余额界面
  */
-@interface MyBalanceViewController ()
+@interface MyBalanceViewController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 //@property(nonatomic,weak) UITextField * moneyTextfield;
 @property(nonatomic,weak) UILabel * presentLabel;
 @property(nonatomic,weak) UILabel * moneyLabel;
 @property(nonatomic,weak) UIView * bjView;
 @property(nonatomic,weak) UIButton * rechargeButton;
+@property(nonatomic,strong) MyBalanceAPIManager * MyBalanceAPIManager;
+//余额
+@property(nonatomic,assign) double myBalance;
 
 @end
 
@@ -32,7 +36,8 @@
     [self setupNav];
     [self addChildViews];
     [self addChildVIewConstraints];
-    self.moneyLabel.text=[NSString stringWithFormat:@"%.2f",[UserModel currentUser].balance] ;
+    [self.MyBalanceAPIManager loadData];
+//    self.moneyLabel.text=[NSString stringWithFormat:@"%.2f",[UserModel currentUser].balance] ;
 
 }
 - (void)didReceiveMemoryWarning {
@@ -42,6 +47,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -100,6 +106,45 @@
         make.height.equalTo(@40);
     }];
 }
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[self.MyBalanceAPIManager class]]) {
+        NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        JJBLog(@"返回的dict%@",dict);
+        NSDictionary * data = dict[@"data"];
+        self.myBalance = [data[@"balance"] doubleValue];
+        JJBLog(@"返回的余额%lf",self.myBalance);
+        self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
+    }
+    
+    
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[self.MyBalanceAPIManager class]]) {
+        NSDictionary * dict = [manager fetchDataWithReformer:nil];
+        JJBLog(@"返回的dict%@",dict);
+    }
+}
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
+{
+    if([manager isKindOfClass:[MyBalanceAPIManager class]])
+    {
+
+        
+        ((MyBalanceAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/balance/%@",@([UserModel currentUser].userID)];
+                                                        }
+    return nil;
+}
+
+
+
+
+
+
 #pragma 
 #pragma mark - getter and setter
 -(UILabel *)presentLabel
@@ -154,4 +199,14 @@
     }
     return _rechargeButton;
 }
+-(MyBalanceAPIManager *)MyBalanceAPIManager
+{
+    if (_MyBalanceAPIManager == nil) {
+        _MyBalanceAPIManager = [MyBalanceAPIManager sharedInstance];
+        _MyBalanceAPIManager.delegate = self;
+        _MyBalanceAPIManager.paramSource = self;
+    }
+    return _MyBalanceAPIManager;
+}
+
 @end

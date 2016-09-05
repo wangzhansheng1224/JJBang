@@ -7,13 +7,15 @@
 //
 
 #import "MySettingDetailController.h"
-
-@interface MySettingDetailController ()
+#import "changeMyInfoAPIManager.h"
+@interface MySettingDetailController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
 @property (nonatomic,strong) UIView * view_bg;
 @property (nonatomic,strong) UITextField * textField;
 @property (nonatomic,strong) UIButton * button;
-
+@property(nonatomic,strong) LDAPIBaseManager * changeInfoAPIManager;
+//请求类型
+@property(nonatomic,copy) NSString * type;
 @end
 
 @implementation MySettingDetailController
@@ -29,7 +31,10 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 - (void)createTextField {
     _view_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 15, Screen_Width, 40)];
     _view_bg.backgroundColor = [UIColor whiteColor];
@@ -54,13 +59,22 @@
     [self.view addSubview:_button];
 }
 -(void)navigationRightBtn{
-    UIBarButtonItem * rightButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(buttonClick:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"保存"];
+    UIBarButtonItem * rightButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(barButtonClick:) norColor:[UIColor whiteColor] highColor:[UIColor blackColor] title:@"保存"];
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 - (void)buttonClick:(UIButton *)btn {
     self.block(_textField.text);
-    [self.navigationController popViewControllerAnimated:YES];
+    self.type = @"nickname";
+    
+    [self.changeInfoAPIManager loadData];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)barButtonClick:(UIButton *)btn
+{
+    self.block(_textField.text);
+    self.type = @"signature";
+    [self.changeInfoAPIManager loadData];
+    }
 - (void)setName:(NSString *)name {
     self.navigationItem.title = @"修改昵称";
     [self createTextField];
@@ -99,6 +113,66 @@
     self.navigationItem.title = @"修改QQ";
     [self  createTextField];
     [self createButton];
+}
+
+#pragma -
+#pragma mark - LDAPIManagerApiCallBackDelegate
+- (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
+    if ([self.type isEqualToString:@"nickname"]) {
+        UIView * view =   [self.view toastViewForMessage:@"修改昵称成功" title:nil image:nil style:nil];
+        [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {
+            [self.navigationController popViewControllerAnimated:YES];
+
+        }];
+
+        [UserModel currentUser].nickName = self.textField.text;
+        [UserModel save:[UserModel currentUser]];
+    }else
+    {
+        [UserModel currentUser].signature = self.textField.text;
+        [UserModel save:[UserModel currentUser]];
+
+        UIView * view =   [self.view toastViewForMessage:@"修改个性签名成功" title:nil image:nil style:nil];
+        [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
+
+    }
+    
+}
+
+- (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
+    NSDictionary * dict =[manager fetchDataWithReformer:nil];
+    NSString * string = dict[@"message"];
+    [self.view makeToast:string duration:1.0f position:CSToastPositionCenter];
+}
+
+- (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
+{
+    
+    
+    return @{
+             @"user_id" :@([UserModel currentUser].userID),
+             self.type:self.textField.text
+             
+             };
+}
+
+
+
+
+#pragma -
+#pragma mark - getter and setter
+-(LDAPIBaseManager *)changeInfoAPIManager
+{
+    if (_changeInfoAPIManager == nil) {
+        _changeInfoAPIManager = [changeMyInfoAPIManager sharedInstance];
+        _changeInfoAPIManager.delegate = self;
+        _changeInfoAPIManager.paramSource = self;
+    }
+    return _changeInfoAPIManager;
 }
 
 @end
