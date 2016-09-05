@@ -12,7 +12,7 @@
 #import "OSSManager.h"
 #import "ImgModel.h"
 #import "PathHelper.h"
-@interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate>
+@interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong)UIPopoverController * imagePickerPopver;
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
@@ -72,11 +72,6 @@
 #pragma mark - buttonClick event
 -(void)chooseButtonClick:(id)sender
 {
-    if ([self.imagePickerPopver isPopoverVisible]) {
-        [self.imagePickerPopver dismissPopoverAnimated:YES];
-        self.imagePickerPopver = nil;
-        return;
-    }
     UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.editing = YES;
     imagePicker.delegate = self;
@@ -84,30 +79,15 @@
     imagePicker.allowsEditing = YES;
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            self.imagePickerPopver = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
-            self.imagePickerPopver.delegate = self;
-            [self.imagePickerPopver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-        else
-        {
-            [self presentViewController:imagePicker animated:YES
-                             completion:nil];
-        }
+       imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:imagePicker animated:YES completion:nil];
     }] ];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-            self.imagePickerPopver = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
-            self.imagePickerPopver.delegate = self;
-            [self.imagePickerPopver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-        else
-        {
+        
             [self presentViewController:imagePicker animated:YES completion:nil];
-        }
+    
         
     }]];
     [alertView addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -117,8 +97,6 @@
                      completion:nil];
     
 }
-
-
 #pragma -
 #pragma mark - UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -173,7 +151,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     NSDictionary *resultData = [manager fetchDataWithReformer:nil];
-    BOOL dict  = resultData[@"data"];
+    BOOL dict  = [resultData[@"data"] boolValue];
     if (dict) {
         UIView * view =   [self.view toastViewForMessage:@"修改头像成功" title:nil image:nil style:nil];
         [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {

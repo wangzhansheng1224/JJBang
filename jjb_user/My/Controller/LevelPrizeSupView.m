@@ -9,9 +9,9 @@
 #import "LevelPrizeSupView.h"
 #import "LevelPrizeView.h"
 
-#define margin 1
-#define cols 4
-#define width ((Screen_Width-40 - (cols + 2) * margin) / cols)
+//#define margin 20
+//#define cols 4
+//#define width ((Screen_Width-40 - margin*(cols-1)) / cols)
 
 @interface LevelPrizeSupView ()
 
@@ -26,14 +26,26 @@
     if (self) {
         for(int i = 0;i <items.count; i++)
         {
+            CGFloat width = 30;
+            int cols = 4;
+            CGFloat margin = (Screen_Width - 60 - cols * width) / (cols+1);
             
             LevelPrizeView * levelPrizeButton = (LevelPrizeView *)items[i];
-            levelPrizeButton.frame = CGRectMake(width*i+15,15, 30, 30);
-//            levelPrizeButton.selected = i;
+            levelPrizeButton.frame = CGRectMake((width+margin)*i+margin,15, 30, 30);
+
+            
+            UIButton * button = (LevelPrizeView *)items[0];
+            button.selected = YES;
+            
             self.selectIndex = levelPrizeButton.tag;
             [self addSubview:levelPrizeButton];
-            
-            JJBLog(@"%@",NSStringFromCGRect(levelPrizeButton.frame));
+                    }
+        NSInteger level = [UserModel currentUser].level;
+
+        for (int j = 0; j<=level; j++) {
+            UIButton * button = (LevelPrizeView *)items[j];
+            button.selected = YES;
+
         }
 
     }
