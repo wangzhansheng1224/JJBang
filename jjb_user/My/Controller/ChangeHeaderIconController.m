@@ -39,6 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     UIImage * image = [[MBImageStore shareMBImageStore]imageForKey:@"MBStore"];
     self.headImageView.image = image;
 }

@@ -43,7 +43,7 @@
     self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
     [self loadData];
-    }
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
