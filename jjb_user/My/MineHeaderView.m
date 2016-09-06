@@ -92,9 +92,10 @@
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-//        make.size.mas_equalTo(CGSizeMake(60, 16));
+        make.height.equalTo(@16);
         make.top.equalTo(self.itemImage.mas_top).with.offset(22);
         make.left.equalTo(self.itemImage.mas_right).with.offset(16);
+        make.right.mas_equalTo(self.levelBtn.mas_left);
     }];
     
     [self.signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,14 +135,9 @@
 #pragma -
 #pragma - configWithData
 - (void)configWithData:(UserModel *)model{
-    [self.nameLabel setText:model.nickName];
     NSURL *url=[NSURL initWithImageURL:model.photo Size:self.itemImage.frame.size];
     [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     self.moneyBtn.bDetail=[NSString stringWithFormat:@" %.2f",model.balance];
-    self.signLabel.text = model.signature;
-
-    
-  
 }
 
 
@@ -187,13 +183,10 @@
 - (void)tapNameLabel {
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
-    if (controller==nil) {
-        
-    } else{
+    if (controller != nil) {
         [navController pushViewController:controller animated:YES];
     }
 }
-
 #pragma -
 #pragma mark - setter and getter
 
@@ -357,5 +350,18 @@
     }
     return _label_line;
 }
+    
+- (void)setIsLogin:(BOOL)islogin {
+    if (islogin) {
+        self.nameLabel.userInteractionEnabled = NO;
+        [self.nameLabel setText:[UserModel currentUser].nickName];
+        [self.signLabel setText:[UserModel currentUser].signature];
+    }else {
+        self.nameLabel.userInteractionEnabled = YES;
+        [self.nameLabel setText:@"登录/注册"];
+        [self.signLabel setText:@"这家伙很懒，什么都没留下！"];
+    }
+}
+    
 
 @end

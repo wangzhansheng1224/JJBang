@@ -8,7 +8,7 @@
 
 #import "ParticipationController.h"
 #import "ActivityListCell.h"
-#import "ActivityListAPIManager.h"
+#import "ParticipationAPIManager.h"
 #import "ActivityListReformer.h"
 #import "ActivityDetailController.h"
 
@@ -18,8 +18,8 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
-@property (nonatomic,strong) LDAPIBaseManager *activityListAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> activityListReformer;
+@property (nonatomic,strong) LDAPIBaseManager *participationAPIManager;
+@property (nonatomic,strong) id<ReformerProtocol> activityListReformer;
 @property (nonatomic,strong) ActivityDetailController *detail;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
@@ -38,7 +38,7 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
     self.pageSize=10;
     [self.view addSubview:self.tableView];
     [self.tableView.mj_header beginRefreshing];
-    [self.activityListAPIManager loadData];
+    [self.participationAPIManager loadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -105,6 +105,9 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[_participationAPIManager class]]) {
+        JJBLog(@"manager111 = %@",manager);
+
     return @{
              @"shop_id":@([ShopModel currentShop].shopID),
              @"user_id":@([UserModel currentUser].userID),
@@ -112,20 +115,21 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
              @"count":@(self.pageSize),
              @"isOwn":@"1"
              };
-}
 
+    }
+    return nil;
+}
 #pragma -
 #pragma mark - getters and setters
 
-- (LDAPIBaseManager *)activityListAPIManager {
-    if (_activityListAPIManager == nil) {
-        _activityListAPIManager = [ActivityListAPIManager  sharedInstance];
-        _activityListAPIManager.delegate=self;
-        _activityListAPIManager.paramSource=self;
+- (LDAPIBaseManager *)participationAPIManager {
+    if (_participationAPIManager == nil) {
+        _participationAPIManager = [ParticipationAPIManager sharedInstance];
+        _participationAPIManager.delegate = self;
+        _participationAPIManager.paramSource = self;
     }
-    return _activityListAPIManager;
+    return _participationAPIManager;
 }
-
 - (id<ReformerProtocol>) activityListReformer{
     
     if (!_activityListReformer) {
@@ -146,12 +150,12 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
-            [self.activityListAPIManager loadData];
+            [self.participationAPIManager loadData];
         }];
         //判断列表数据>=10时才出现上提请求
         if (self.pageIndex >=10){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self.activityListAPIManager loadData];
+            [self.participationAPIManager loadData];
             }];
         }
         [_tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:MyActivityListCellIdentifier];

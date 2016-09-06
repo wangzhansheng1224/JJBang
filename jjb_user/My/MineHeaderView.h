@@ -14,4 +14,7 @@
 @property (nonatomic,strong) UIImageView * itemImage;
 @property (nonatomic,strong) UIImageView * topImage;
 
+@property (nonatomic,assign) BOOL isLogin;
+
+
 @end

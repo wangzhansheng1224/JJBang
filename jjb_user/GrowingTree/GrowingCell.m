@@ -77,8 +77,8 @@
     [_locView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).offset(10);
         make.bottom.mas_equalTo(self.mas_bottom).offset(-10);
-        make.height.mas_equalTo(@15);
-          make.width.mas_equalTo(@15);
+        make.height.mas_equalTo(@13);
+        make.width.mas_equalTo(@12);
     }];
     [_locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@14);
@@ -130,7 +130,7 @@
         [self.view_image addSubview:imageView];
     }
 
-    CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
+    CGSize size = [data[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
     float height = size.height;
     
@@ -213,7 +213,7 @@
     if (!_moodLabel) {
         
         _moodLabel = [[UILabel alloc] init];
-        _moodLabel.font = H2;
+        _moodLabel.font = H4;
         _moodLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _moodLabel.numberOfLines = 0;
     }

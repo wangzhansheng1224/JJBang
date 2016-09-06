@@ -93,7 +93,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     NSDictionary * dic = self.arrData[indexPath.row];
     self.imageArr = dic[kGrowingTreeListImages];
     
-    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H2} context:nil].size;
+    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
     float height = size.height;
     
@@ -104,10 +104,10 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
     if (self.imageArr.count == 0) {
         
-        return 92 + height;
+        return 89 + height;
         
     }else {
-        return (self.imageArr.count+2)/3 *85 +95 + height;
+        return (self.imageArr.count+2)/3 *85 +93 + height;
     }
 }
 

@@ -107,13 +107,18 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{
-             @"shop_id":@([ShopModel currentShop].shopID),
-             @"user_id":@([UserModel currentUser].userID),
-             @"start":@(self.pageIndex),
-             @"count":@(self.pageSize),
-             @"isOwn":@"0"
-             };
+    JJBLog(@"manager = %@",manager);
+
+    if ([manager isKindOfClass:[_activityListAPIManager class]]) {
+        return @{
+                 @"shop_id":@([ShopModel currentShop].shopID),
+                 @"user_id":@([UserModel currentUser].userID),
+                 @"start":@(self.pageIndex),
+                 @"count":@(self.pageSize),
+                 @"isOwn":@"0"
+                 };
+    }
+    return nil;
 }
 
 #pragma -
