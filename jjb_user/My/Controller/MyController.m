@@ -52,6 +52,12 @@
     NSURL * url = [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
     [self.headerView.itemImage setHeader:url];
 
+    UIViewController *controller = [[CTMediator sharedInstance]CTMediator_CheckIsLogin];
+    if (controller == nil) {
+        self.headerView.isLogin = YES;
+    }else {
+        self.headerView.isLogin = NO;
+    }
 }
 
 #pragma -

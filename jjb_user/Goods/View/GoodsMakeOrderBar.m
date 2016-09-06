@@ -24,6 +24,7 @@
 @property (nonatomic,strong) UIButton *addBtn;
 @property (nonatomic,strong) UILabel *numberLabel;
 @property (nonatomic,strong) MakeOrderAPIManager *apiManager;
+@property (nonatomic,assign) float priceN;
 
 @end
 
@@ -92,7 +93,7 @@
     self.studentID=[data[@"studentID"] integerValue];
     float price = [data[@"price"] floatValue];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥%.2f",price]];
-    NSLog(@"%@++",data);
+    _priceN = price;
 }
 
 
@@ -146,15 +147,18 @@
     if (_num > 1) {
         _num --;
         self.numberLabel.text = [NSString stringWithFormat:@"%d",_num];
+        [self.priceLabel setText:[NSString stringWithFormat:@"￥%.2f",_priceN * _num]];
     }else {
         self.reduceBtn.userInteractionEnabled = NO;
         self.numberLabel.text = @"1";
+        [self.priceLabel setText:[NSString stringWithFormat:@"￥%.2f",_priceN]];
     }
 }
 
 - (void)addBtnClick {
     _num ++;
     self.numberLabel.text = [NSString stringWithFormat:@"%d",_num];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥%.2f",_priceN * _num]];
 }
 
 #pragma -
