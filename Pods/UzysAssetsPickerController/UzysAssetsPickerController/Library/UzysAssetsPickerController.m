@@ -908,7 +908,7 @@
                     //카메라 화면으로 가면 강제로 카메라 롤로 변경.
                     NSString *curGroupName =[[strongSelf.assetsGroup valueForProperty:ALAssetsGroupPropertyURL] absoluteString];
                     NSString *cameraRollName = [[strongSelf.groups[0] valueForProperty:ALAssetsGroupPropertyURL] absoluteString];
-                    
+                    NSLog(@"curGroupName=%@++++cameraRollName=%@",curGroupName,cameraRollName);
                     if(![curGroupName isEqualToString:cameraRollName] )
                     {
                         strongSelf.assetsGroup = strongSelf.groups[0];
@@ -1005,7 +1005,6 @@
                 __strong typeof(weakSelf) strongSelf = weakSelf;
                 [[NSNotificationCenter defaultCenter] addObserver:strongSelf selector:@selector(assetsLibraryUpdated:) name:ALAssetsLibraryChangedNotification object:nil];
             });
-            
             
         });
         

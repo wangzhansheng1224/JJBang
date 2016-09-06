@@ -110,6 +110,7 @@
     if (_ActivityImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
+
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         _ActivityImageView = imageView;
