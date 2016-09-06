@@ -119,6 +119,8 @@
         
         _imageView_pic = [[UIImageView alloc] init];
         _imageView_pic.backgroundColor = JJBRandomColor;
+        _imageView_pic.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView_pic.clipsToBounds = YES;
     }
     return _imageView_pic;
 }

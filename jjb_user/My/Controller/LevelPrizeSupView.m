@@ -9,31 +9,41 @@
 #import "LevelPrizeSupView.h"
 #import "LevelPrizeView.h"
 
-#define margin 1
-#define cols 4
-#define width ((Screen_Width-40 - (cols + 2) * margin) / cols)
-
 @interface LevelPrizeSupView ()
-
-
+@property(nonatomic,copy) changeFrameBlock changeFrameBlock;
 @end
 
 @implementation LevelPrizeSupView
 
--(instancetype)initWithItems:(NSArray *)items
+-(instancetype)initWithItems:(NSArray *)items block:(changeFrameBlock)block;
 {
     self = [super init];
+    self.changeFrameBlock = block;
     if (self) {
         for(int i = 0;i <items.count; i++)
         {
+            CGFloat width = 30;
+            int cols = 4;
+            CGFloat margin = (Screen_Width - 60 - cols * width) / (cols+1);
             
-            LevelPrizeView * levelPrizeButton = (LevelPrizeView *)items[i];
-            levelPrizeButton.frame = CGRectMake(width*i+15,15, 30, 30);
-//            levelPrizeButton.selected = i;
-            self.selectIndex = levelPrizeButton.tag;
-            [self addSubview:levelPrizeButton];
+            _levelPrizeButton = (LevelPrizeView *)items[i];
+            _levelPrizeButton.frame = CGRectMake((width+margin)*i+margin,15, 30, 30);
+            self.selectIndex = _levelPrizeButton.tag;
+            [self addSubview:_levelPrizeButton];
+        }
+        NSInteger level = [UserModel currentUser].level;
+
+        for (int j = 0; j<=level; j++) {
+            UIButton * button = (LevelPrizeView *)items[j];
+            button.selected = YES;
             
-            JJBLog(@"%@",NSStringFromCGRect(levelPrizeButton.frame));
+            if(j==level)
+            {
+            
+            CGFloat X = button.centerX+30;
+            block(X);
+            }
+
         }
 
     }
@@ -42,12 +52,4 @@
 
 
 
-//-(void)drawRect:(CGRect)rect
-//{
-//    [super drawRect:rect];
-//    
-//
-//    
-//
-//}
 @end

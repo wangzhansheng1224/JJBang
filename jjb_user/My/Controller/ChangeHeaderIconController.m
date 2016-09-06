@@ -12,7 +12,9 @@
 #import "OSSManager.h"
 #import "ImgModel.h"
 #import "PathHelper.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 @interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
 @property(nonatomic,strong) UIImageView * headImageView;
 @property(nonatomic,strong) LDAPIBaseManager * changeHeaderAPIManager;
 @property(nonatomic,strong)NSMutableArray * imageArray;
@@ -30,14 +32,16 @@
 
     [self setUpNav];
     [self setChildViewContraints];
-//    self.headImageView.image = [UIImage imageWithContentsOfFile:self.ImagePath];
+    self.headImageView.image = [UIImage imageNamed:@"img_default"];
 
     
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     UIImage * image = [[MBImageStore shareMBImageStore]imageForKey:@"MBStore"];
+    
     self.headImageView.image = image;
 }
 - (void)didReceiveMemoryWarning {
@@ -80,14 +84,20 @@
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:imagePicker animated:YES
-                             completion:nil];
-    }] ];
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+
+            }] ];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         
+
         [self presentViewController:imagePicker animated:YES completion:nil];
     
         
@@ -99,22 +109,21 @@
                      completion:nil];
     
 }
-
-
 #pragma -
 #pragma mark - UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-    
+     
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
     NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
-    NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
-    
+    NSString* path =[[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+
+   
     JJBLog(@"%@",path);
     [UserModel currentUser].photo = name;
     JJBLog(@"生成的图片%@",name);
@@ -136,10 +145,9 @@
         [self.changeHeaderAPIManager loadData];
         
     }];
-    
-    
-        [self dismissViewControllerAnimated:YES completion:nil];
-    
+
+ 
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma -
@@ -147,7 +155,7 @@
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
     NSDictionary *resultData = [manager fetchDataWithReformer:nil];
-    BOOL dict  = resultData[@"data"];
+    BOOL dict  = [resultData[@"data"] boolValue];
     if (dict) {
         UIView * view =   [self.view toastViewForMessage:@"修改头像成功" title:nil image:nil style:nil];
         [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {

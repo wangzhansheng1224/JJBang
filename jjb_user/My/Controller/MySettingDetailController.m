@@ -54,6 +54,8 @@
 - (void)createButton {
     _button = [[UIButton alloc] initWithFrame:CGRectMake(50, CGRectGetMaxY(_view_bg.frame) + 20, Screen_Width - 100, 44)];
     _button.backgroundColor = [UIColor orangeColor];
+    [_button.layer setMasksToBounds:YES];
+    [_button.layer setCornerRadius:5.0];
     [_button setTitle:@"保存" forState:UIControlStateNormal];
     [_button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];

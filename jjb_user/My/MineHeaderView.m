@@ -14,6 +14,7 @@
 #import "LevelController.h"
 #import "MyBalanceViewController.h"
 #import "GoodsListController.h"
+#import "ChangeHeaderIconController.h"
 
 #define HeaderView_Height 250
 #define TopImage_Height 150
@@ -139,6 +140,9 @@
     [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     self.moneyBtn.bDetail=[NSString stringWithFormat:@" %.2f",model.balance];
     self.signLabel.text = model.signature;
+
+    
+  
 }
 
 
@@ -172,6 +176,23 @@
     GoodsListController *goodsListController=[[GoodsListController alloc] init];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:goodsListController];
     [navController pushViewController:controller animated:YES];
+}
+
+- (void)tapItem {
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    ChangeHeaderIconController *change=[[ChangeHeaderIconController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:change];
+    [navController pushViewController:controller animated:YES];
+}
+
+- (void)tapNameLabel {
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    if (controller==nil) {
+        
+    } else{
+        [navController pushViewController:controller animated:YES];
+    }
 }
 
 #pragma -
@@ -234,6 +255,9 @@
         _itemImage.layer.cornerRadius = 39;
         _itemImage.layer.masksToBounds = YES;
         _itemImage.contentMode = UIViewContentModeScaleAspectFit;
+        _itemImage.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapItem)];
+        [_itemImage addGestureRecognizer:tapGR];
     }
     return _itemImage;
 }
@@ -243,6 +267,10 @@
         _nameLabel = [[UILabel alloc] init];
         [_nameLabel sizeToFit];
         _nameLabel.textColor=COLOR_WHITE;
+        _nameLabel.text = @"登录/注册";
+        _nameLabel.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapNameLabel)];
+        [_nameLabel addGestureRecognizer:tapGR];
     }
     return _nameLabel;
 }

@@ -32,15 +32,13 @@
 {
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(10);
-        make.left.equalTo(self.mas_left);
-        make.right.equalTo(self.mas_right).offset(-20);
+
+        make.centerX.equalTo(self.mas_centerX);
         make.bottom.equalTo(self.mas_bottom);
     }];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.imageView.mas_top).offset(8);
-//        make.left.equalTo(self.imageView.mas_left).offset(10);
         make.centerX.equalTo(self.imageView.mas_centerX);
-        make.centerY.equalTo(self.imageView.mas_centerY);
+        make.centerY.equalTo(self.imageView.mas_centerY).offset(-2);
         
     }];
 }
@@ -61,9 +59,9 @@
 {
     if (_label == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"升级还需:充值3000";
+        label.text = @"累计充值:充值0";
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = FONT_SIZE(13);
+        label.font = FONT_SIZE(12);
         [label sizeToFit];
         _label = label;
         [self.imageView addSubview:_label];

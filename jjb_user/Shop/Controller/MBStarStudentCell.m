@@ -79,6 +79,8 @@
     if (_starStudentImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
+        imageView.clipsToBounds = YES;
+        
         _starStudentImageView = imageView;
     }
     return _starStudentImageView;

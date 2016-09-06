@@ -22,11 +22,15 @@
 #import "ExplainLevelController.h"
 #import "ContactServiceController.h"
 #import "ImgModel.h"
+#import "ChangeHeaderIconController.h"
+
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) MineHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *array_data;
+@property (nonatomic,strong) UITapGestureRecognizer *tapGR;
+
 @end
 
 
@@ -39,7 +43,7 @@
     self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
     [self loadData];
-    }
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

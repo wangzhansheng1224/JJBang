@@ -121,6 +121,7 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.scrollEnabled = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerClass:[MyQuestionCell class] forCellReuseIdentifier:@"MyQuestionCellIdentifier"];
     }

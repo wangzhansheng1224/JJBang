@@ -225,6 +225,8 @@
     if (!_locView) {
         _locView = [[UIImageView alloc] init];
         _locView.image = [UIImage imageNamed:@"growing_loc"];
+        _locView.contentMode = UIViewContentModeScaleAspectFill;
+        _locView.clipsToBounds = YES;
     }
     return _locView;
 }
