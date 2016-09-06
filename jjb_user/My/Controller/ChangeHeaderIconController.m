@@ -74,6 +74,7 @@
     UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.editing = YES;
     imagePicker.delegate = self;
+
     //允许编辑图片
     imagePicker.allowsEditing = YES;
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
