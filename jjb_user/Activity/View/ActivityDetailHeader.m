@@ -149,10 +149,19 @@
 - (void) signUpClick:(id)sender{
    
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     if (controller==nil) {
-        [self.registerAPIManager loadData];
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"报名" message:@"请您确认是否报名?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancleAction];
+        
+        UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.registerAPIManager loadData];
+        }];
+        [alert addAction:sureAction];
+        [navController presentViewController:alert animated:YES completion:nil];
     } else{
-        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
         [navController pushViewController:controller animated:YES];
     }
     

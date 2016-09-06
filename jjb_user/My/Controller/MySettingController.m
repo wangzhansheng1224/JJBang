@@ -52,7 +52,7 @@
     }];
     [self.quitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.tableView.mas_centerX);
-        make.top.equalTo(self.tableView.mas_top).offset(326);
+        make.top.equalTo(self.tableView.mas_top).offset(276);
         make.left.equalTo(self.tableView.mas_left).offset(30);
     }];
 }
@@ -122,8 +122,16 @@
 #pragma mark - getters and setters
 -(void)quit:(UIButton *)btn
 {
-    [UserModel removeUser];
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"是否要退出当前帐号?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancleAction];
+    
+    UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UserModel removeUser];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alert addAction:sureAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma -
@@ -147,7 +155,7 @@
         _tableView = [[UITableView alloc] init];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        
+        _tableView.scrollEnabled = NO;
         [_tableView registerClass:[MySettingCell class] forCellReuseIdentifier:@"MySettingCellIdentifier"];
         [_tableView registerClass:[MySettingIconCell class] forCellReuseIdentifier:@"MySettingIconCellIdentifier"];
 
