@@ -84,12 +84,12 @@
                   moduleName = "jjb_user"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/igwvfp/git/jjb_user/Pods/UzysAssetsPickerController/UzysAssetsPickerController/Library/UzysAssetsPickerController.m"
-                  timestampString = "494765320.242342"
+                  timestampString = "494825635.621675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "906"
                   endingLineNumber = "906"
-                  offsetFromSymbolStart = "616">
+                  offsetFromSymbolStart = "677">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -99,12 +99,12 @@
                   moduleName = "jjb_user"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/igwvfp/git/jjb_user/Pods/UzysAssetsPickerController/UzysAssetsPickerController/Library/UzysAssetsPickerController.m"
-                  timestampString = "494765320.242559"
+                  timestampString = "494825635.621974"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "907"
                   endingLineNumber = "907"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

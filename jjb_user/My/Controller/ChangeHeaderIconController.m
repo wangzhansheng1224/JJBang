@@ -12,6 +12,7 @@
 #import "OSSManager.h"
 #import "ImgModel.h"
 #import "PathHelper.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 @interface ChangeHeaderIconController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,strong) UIImageView * headImageView;
@@ -82,8 +83,12 @@
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
-       imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         [self presentViewController:imagePicker animated:YES completion:nil];
+        
 
             }] ];
     

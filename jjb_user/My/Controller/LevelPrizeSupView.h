@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LevelPrizeView;
 
+typedef void(^changeFrameBlock)(CGFloat changeFrameX);
 @interface LevelPrizeSupView : UIView
--(instancetype)initWithItems:(NSArray *)items;
+
+
+-(instancetype)initWithItems:(NSArray *)items block:(changeFrameBlock)block;
 //-(instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items;
 @property(nonatomic,assign) NSInteger selectIndex;
+@property (nonatomic,strong) LevelPrizeView * levelPrizeButton;
+
+
 @end
