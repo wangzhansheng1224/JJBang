@@ -86,6 +86,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
+//    JJBLog(@"manager = %@",manager);
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
@@ -107,13 +108,18 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
-    return @{
-             @"shop_id":@([ShopModel currentShop].shopID),
-             @"user_id":@([UserModel currentUser].userID),
-             @"start":@(self.pageIndex),
-             @"count":@(self.pageSize),
-             @"isOwn":@"0"
-             };
+    JJBLog(@"manager = %@",manager);
+
+    if ([manager isKindOfClass:[_activityListAPIManager class]]) {
+        return @{
+                 @"shop_id":@([ShopModel currentShop].shopID),
+                 @"user_id":@([UserModel currentUser].userID),
+                 @"start":@(self.pageIndex),
+                 @"count":@(self.pageSize),
+                 @"isOwn":@"0"
+                 };
+    }
+    return nil;
 }
 
 #pragma -

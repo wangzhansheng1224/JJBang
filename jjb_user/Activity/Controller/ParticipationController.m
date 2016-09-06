@@ -105,6 +105,9 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
 #pragma mark - LDAPIManagerParamSourceDelegate
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
+    if ([manager isKindOfClass:[_activityListAPIManager class]]) {
+        JJBLog(@"manager111 = %@",manager);
+
     return @{
              @"shop_id":@([ShopModel currentShop].shopID),
              @"user_id":@([UserModel currentUser].userID),
@@ -112,8 +115,10 @@ static NSString  *const MyActivityListCellIdentifier=@"MyActivityListCellIdentif
              @"count":@(self.pageSize),
              @"isOwn":@"1"
              };
-}
 
+    }
+    return nil;
+}
 #pragma -
 #pragma mark - getters and setters
 
