@@ -32,7 +32,6 @@
 
     [self setUpNav];
     [self setChildViewContraints];
-//    self.headImageView.image = [UIImage imageWithContentsOfFile:self.ImagePath];
     self.headImageView.image = [UIImage imageNamed:@"img_default"];
 
     
