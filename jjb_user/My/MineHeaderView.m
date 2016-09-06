@@ -14,6 +14,7 @@
 #import "LevelController.h"
 #import "MyBalanceViewController.h"
 #import "GoodsListController.h"
+#import "ChangeHeaderIconController.h"
 
 #define HeaderView_Height 250
 #define TopImage_Height 150
@@ -134,11 +135,22 @@
 #pragma -
 #pragma - configWithData
 - (void)configWithData:(UserModel *)model{
-    [self.nameLabel setText:model.nickName];
+//    [self.nameLabel setText:model.nickName];
     NSURL *url=[NSURL initWithImageURL:model.photo Size:self.itemImage.frame.size];
     [self.itemImage sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
     self.moneyBtn.bDetail=[NSString stringWithFormat:@" %.2f",model.balance];
     self.signLabel.text = model.signature;
+
+    
+//    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin];
+//    if (controller==nil) {
+//        self.definesPresentationContext = YES;
+//        [self presentViewController:select animated:YES completion:nil];
+//    } else{
+//        UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+//        [navController pushViewController:controller animated:YES];
+//    }
+
 }
 
 
@@ -171,6 +183,13 @@
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     GoodsListController *goodsListController=[[GoodsListController alloc] init];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:goodsListController];
+    [navController pushViewController:controller animated:YES];
+}
+
+- (void)tapItem {
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    ChangeHeaderIconController *change=[[ChangeHeaderIconController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:change];
     [navController pushViewController:controller animated:YES];
 }
 
@@ -234,6 +253,9 @@
         _itemImage.layer.cornerRadius = 39;
         _itemImage.layer.masksToBounds = YES;
         _itemImage.contentMode = UIViewContentModeScaleAspectFit;
+        _itemImage.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapItem)];
+        [_itemImage addGestureRecognizer:tapGR];
     }
     return _itemImage;
 }
@@ -243,6 +265,7 @@
         _nameLabel = [[UILabel alloc] init];
         [_nameLabel sizeToFit];
         _nameLabel.textColor=COLOR_WHITE;
+        _nameLabel.text = @"登录/注册";
     }
     return _nameLabel;
 }
