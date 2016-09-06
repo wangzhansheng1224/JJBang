@@ -32,9 +32,9 @@
 
     [self setUpNav];
     [self setChildViewContraints];
-    self.headImageView.image = [UIImage imageNamed:@"img_default"];
+//    self.headImageView. = [UIImage imageNamed:@"img_default"];
 
-    
+    self.headImageView.layer.contents= (id)[[UIImage imageNamed:@"img_default"]CGImage];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
