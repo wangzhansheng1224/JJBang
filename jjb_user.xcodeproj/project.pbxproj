@@ -217,6 +217,7 @@
 		73EDB7A31D74E02A00F8D40A /* Target_order.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A21D74E02A00F8D40A /* Target_order.m */; };
 		73EDB7AA1D76B4B200F8D40A /* FamliyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A91D76B4B200F8D40A /* FamliyModel.m */; };
 		8495FBE31D7D1CFD001BF926 /* GoodsMakeOrderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */; };
+		84C3B7E71D7ECF9A005AC61B /* ParticipationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B7E61D7ECF9A005AC61B /* ParticipationAPIManager.m */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
 		AC0EF2B41D6D996600054421 /* ShopListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B31D6D996600054421 /* ShopListAPIManager.m */; };
 		AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B61D6ECB2500054421 /* ExplainLevelController.m */; };
@@ -786,6 +787,8 @@
 		73EDB7A91D76B4B200F8D40A /* FamliyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamliyModel.m; sourceTree = "<group>"; };
 		8495FBE11D7D1CFD001BF926 /* GoodsMakeOrderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsMakeOrderBar.h; sourceTree = "<group>"; };
 		8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsMakeOrderBar.m; sourceTree = "<group>"; };
+		84C3B7E51D7ECF9A005AC61B /* ParticipationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipationAPIManager.h; sourceTree = "<group>"; };
+		84C3B7E61D7ECF9A005AC61B /* ParticipationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipationAPIManager.m; sourceTree = "<group>"; };
 		AC0EF2AF1D6D6D8400054421 /* MBNavgationCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavgationCenterView.h; sourceTree = "<group>"; };
 		AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavgationCenterView.m; sourceTree = "<group>"; };
 		AC0EF2B21D6D996600054421 /* ShopListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListAPIManager.h; sourceTree = "<group>"; };
@@ -2354,6 +2357,8 @@
 				73886D5D1D50841700643BBA /* ActivityListAPIManager.m */,
 				73886D5E1D50841700643BBA /* ActivityDetailAPIManager.h */,
 				73886D5F1D50841700643BBA /* ActivityDetailAPIManager.m */,
+				84C3B7E51D7ECF9A005AC61B /* ParticipationAPIManager.h */,
+				84C3B7E61D7ECF9A005AC61B /* ParticipationAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -3487,6 +3492,7 @@
 				512F233B1D5172ED00E33A92 /* MineHeaderView.m in Sources */,
 				51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */,
 				73886D271D4F735D00643BBA /* NSURLRequest+LDNetworkingMethods.m in Sources */,
+				84C3B7E71D7ECF9A005AC61B /* ParticipationAPIManager.m in Sources */,
 				519843A21D6DBC0E00A69A33 /* MyQuestionCell.m in Sources */,
 				738F523F1D6D262C00AFBD3D /* StudentDetailAPIManager.m in Sources */,
 				BB717C091D742C3F0077CAD1 /* VideosDetailCell.m in Sources */,

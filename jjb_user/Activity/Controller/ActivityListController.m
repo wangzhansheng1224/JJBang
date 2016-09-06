@@ -86,7 +86,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     NSArray *resultData = [manager fetchDataWithReformer:self.activityListReformer];
-//    JJBLog(@"manager = %@",manager);
     [self.arrData addObjectsFromArray:resultData];
     self.pageIndex=[self.arrData count];
     [self.tableView.mj_header endRefreshing];
