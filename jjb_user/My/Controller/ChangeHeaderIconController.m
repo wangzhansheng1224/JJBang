@@ -33,6 +33,7 @@
     [self setUpNav];
     [self setChildViewContraints];
 //    self.headImageView.image = [UIImage imageWithContentsOfFile:self.ImagePath];
+    self.headImageView.image = [UIImage imageNamed:@"img_default"];
 
     
 }
@@ -41,6 +42,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     UIImage * image = [[MBImageStore shareMBImageStore]imageForKey:@"MBStore"];
+    
     self.headImageView.image = image;
 }
 - (void)didReceiveMemoryWarning {
@@ -113,14 +115,15 @@
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-    
+     
     UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
     NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
-    NSString* path = [[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
-    
+    NSString* path =[[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+
+   
     JJBLog(@"%@",path);
     [UserModel currentUser].photo = name;
     JJBLog(@"生成的图片%@",name);
@@ -142,10 +145,9 @@
         [self.changeHeaderAPIManager loadData];
         
     }];
-    
-    
-        [self dismissViewControllerAnimated:YES completion:nil];
-    
+
+ 
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma -

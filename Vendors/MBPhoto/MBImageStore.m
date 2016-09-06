@@ -46,6 +46,7 @@ SingleM(MBImageStore)
     UIImage * image = [self.dictionary objectForKey:key];
     if (!image) {
         NSString * path = [self imagePathForKey:key];
+        JJBLog(@"头像路径%@",path)
         image = [UIImage imageWithContentsOfFile:path];
         if (image) {
             [self.dictionary setObject:image forKey:key];
@@ -63,7 +64,7 @@ SingleM(MBImageStore)
 {
     NSArray * documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString * documentDirectory = [documentDirectories firstObject];
-    return [documentDirectory stringByAppendingString:key];
+    return [documentDirectory stringByAppendingPathComponent:key];
 }
 
 -(void)clearCaches:(NSNotificationCenter *)nfc
