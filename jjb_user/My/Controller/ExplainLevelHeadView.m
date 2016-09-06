@@ -19,6 +19,7 @@
 @property(nonatomic,strong) LevelPrizeView * levelPrizeButton;
 @property(nonatomic,strong) LevelPrizeSupView * levelPrizeView;
 @property(nonatomic,strong) MyBubbleView * bubbleView;
+@property(nonatomic,assign) CGFloat BubbleX;
 @end
 
 @implementation ExplainLevelHeadView
@@ -69,8 +70,12 @@
             LevelPrizeView * cell  = [[LevelPrizeView alloc]initWithImage:[NSString stringWithFormat:@"L_normal_%d",i] selectImage:[NSString stringWithFormat:@"L_select_%d",i]];
             cell.tag = i;
             [array addObject:cell];
+
         }
-        LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithItems:array];
+//        LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithItems:array];
+        LevelPrizeSupView * view = [[LevelPrizeSupView alloc]initWithItems:array block:^(CGFloat changeFrameX) {
+            self.BubbleX = changeFrameX;
+        }];
         _levelPrizeView = view;
         
     }
@@ -117,6 +122,7 @@
     if (_bubbleView == nil) {
         _bubbleView = [[MyBubbleView alloc]init];
         _bubbleView.frame = CGRectMake(0, 170, 140, 40);
+        _bubbleView.centerX = self.BubbleX;
     }
     return _bubbleView;
 }
