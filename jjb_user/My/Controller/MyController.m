@@ -22,11 +22,15 @@
 #import "ExplainLevelController.h"
 #import "ContactServiceController.h"
 #import "ImgModel.h"
+#import "ChangeHeaderIconController.h"
+
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) MineHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *array_data;
+@property (nonatomic,strong) UITapGestureRecognizer *tapGR;
+
 @end
 
 
@@ -166,6 +170,15 @@
 }
 
 
+- (void)tapItem {
+    
+    UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
+    ChangeHeaderIconController *changeHeader = [[ChangeHeaderIconController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:changeHeader];
+    [navController pushViewController:controller animated:YES];
+    
+}
+
 #pragma mark -- getter and setter
 - (UITableView *)tableView {
     
@@ -195,4 +208,11 @@
     return _array_data;
 }
 
+- (UITapGestureRecognizer *)tapGR {
+    if (!_tapGR) {
+        _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapItem)];
+        [_headerView.itemImage addGestureRecognizer:_tapGR];
+    }
+    return _tapGR;
+}
 @end
