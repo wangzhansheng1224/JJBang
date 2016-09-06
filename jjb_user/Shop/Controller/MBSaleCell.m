@@ -82,7 +82,8 @@
     if (_scaleImageView == nil) {
         UIImageView * scaleImageView = [[UIImageView alloc]init];
         scaleImageView.image = [UIImage imageNamed:@"img_default"];
-    
+        scaleImageView.contentMode = UIViewContentModeScaleAspectFill;
+        scaleImageView.clipsToBounds = YES;
         [self.contentView addSubview:scaleImageView];
         _scaleImageView = scaleImageView;
         

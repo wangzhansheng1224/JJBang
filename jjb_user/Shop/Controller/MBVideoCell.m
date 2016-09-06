@@ -94,6 +94,7 @@
     self.videoTitleLabel.text=data[kShopIndexCourseName];
     NSURL *url=[NSURL initWithImageURL:data[kShopIndexCourseImg] Width:Screen_Width Height:Screen_Width*2/3.0f];
     [self.videoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"img_default"]];
+    
 }
 #pragma 
 #pragma mark - getter and setter
@@ -102,6 +103,8 @@
     if (_videoImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
         [self.contentView addSubview:imageView];
         _videoImageView = imageView;
     }
