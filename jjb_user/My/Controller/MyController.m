@@ -30,11 +30,22 @@
 @property (nonatomic,strong) MineHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *array_data;
 @property (nonatomic,strong) UITapGestureRecognizer *tapGR;
+//记录tableview偏移量
+@property (nonatomic,assign) CGFloat orginOffsetY;
+@property(nonatomic,assign) CGFloat myheadH;
+//背景图片的高度约束
+@property (nonatomic,strong) NSLayoutConstraint * headViewConstraintH;
 
 @end
 
 
 @implementation MyController
+
+
+#define HeadMinH 0
+#define TabH 44
+#define HeadH 278
+
 #pragma mark -- life cycle
 -(void)viewDidLoad
 {
@@ -43,6 +54,13 @@
     self.tableView.tableHeaderView=self.headerView;
     [self configMasonry];
     [self loadData];
+//    [self layoutSubViews];
+    
+    /*
+    self.orginOffsetY = -(HeadH+TabH);
+    self.tableView.contentInset = UIEdgeInsetsMake(HeadH+TabH, 0, 0, 0);
+    self.headerView.topImage.clipsToBounds = YES;
+    */
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,6 +70,27 @@
     NSURL * url = [NSURL initWithImageURL:[UserModel currentUser].photo Width:100 Height:100];
     [self.headerView.itemImage setHeader:url];
 
+}
+
+#pragma -
+#pragma - mark autoLayout
+-(void)layoutSubViews
+{
+       self.headViewConstraintH = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:278.0f];
+
+    NSLayoutConstraint *Top = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    
+    NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.headerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    
+    
+    [self.headerView.topImage addConstraint:self.headViewConstraintH];
+    [self.view addConstraint:Top];
+    [self.view addConstraint:left];
+    [self.view addConstraint:right];
+    [self.headerView addConstraint:bottom];
+    
 }
 
 #pragma -
@@ -169,6 +208,27 @@
     }
 }
 
+
+#pragma -
+#pragma mark - UIScrollViewDelegate
+/*
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    CGFloat currentOffsetY = scrollView.contentOffset.y;
+    CGFloat delta = currentOffsetY - self.orginOffsetY;
+//    CGFloat headH = self.headerView.height - delta;
+    self.myheadH = HeadH - delta;
+    if (self.myheadH < HeadMinH) {
+        self.myheadH = HeadMinH;
+        JJBLog(@"上上%lf",self.myheadH);
+    }
+    self.headViewConstraintH.constant = self.myheadH;
+    JJBLog(@"上上%lf",self.myheadH);
+
+    
+}
+*/
 
 #pragma mark -- getter and setter
 - (UITableView *)tableView {

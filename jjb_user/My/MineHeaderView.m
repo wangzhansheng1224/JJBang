@@ -26,7 +26,6 @@
 
 @interface MineHeaderView ()
 
-@property (nonatomic,strong) UIImageView * topImage;
 @property (nonatomic,strong) UIButton * setBtn;
 @property (nonatomic,strong) UIButton * emailBtn;
 @property (nonatomic,strong) UILabel * nameLabel;

@@ -72,6 +72,7 @@
     if (_starTeacherImageView == nil) {
         UIImageView * imageView =[[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"img_default"];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         _starTeacherImageView = imageView;
         [self.contentView addSubview:imageView];
