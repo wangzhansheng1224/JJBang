@@ -88,10 +88,13 @@ alpha:(a)]
 //#endif
 
 #define JJBLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define Server @"http://115.29.221.199:8081/sys/rest/"
 #else
 #define JJBLog(...)
-#endif
+#define  Server @"http://139.129.110.116:8080/sys/rest/"
 
+
+#endif
 //文件操作
 #define FILEHOMENAME @"File_cache" 
 
