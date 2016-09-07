@@ -30,7 +30,7 @@ NSString * const kTeacherPhone = @"TeacherPhone";
     if ([manager isKindOfClass:[TeacherDetailAPIManager class]]) {
         
         NSDictionary *dataDic=[data objectForKey:@"data"];
-//        JJBLog(@"!!!!!!!%@",dataDic);
+        JJBLog(@"!!!!!!!%@",dataDic);
         return @{
                  kTeacherID:dataDic[@"user_id"],
                  kTeacherName:dataDic[@"nickname"],
