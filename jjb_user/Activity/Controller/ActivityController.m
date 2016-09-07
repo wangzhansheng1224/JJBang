@@ -32,7 +32,6 @@
     
     [super viewWillAppear:animated];
     [self.view addSubview:self.list.view];
-    JJBLog(@"ActivityController_viewWillAppear");
     [self.tabbarControl setSelectedSegmentIndex:0];
 }
 

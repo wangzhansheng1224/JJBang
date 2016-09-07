@@ -105,9 +105,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     ShopModel * shop = notification.userInfo[@"selectShop"];
     [ShopModel save:shop];
+
     //切换门店之后tableView自动置顶
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-
+    
     self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
     
     [ShopModel currentShop].shopID = shop.shopID;
@@ -118,6 +119,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     JJBLog(@"######change");
     JJBLog(@"111112222%ld",string);
     [self.shopIndexAPIManager loadData];
+    [self.view makeToast:@"切换门店" duration:1.0f position:CSToastPositionCenter];
+
+//        [self.view makeToast:@"切换门店"];
+//    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"切换门店" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 #pragma -
@@ -378,6 +386,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [_adScrollView play];
         
         [self.tableView reloadData];
+
     }
     
 }
