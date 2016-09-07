@@ -100,7 +100,8 @@
                  @"id":@(self.objectID),
                  @"user_id":@([UserModel currentUser].userID),
                  @"shop_id":@([ShopModel currentShop].shopID),
-                 @"student_id":@(self.studentID)
+                 @"student_id":@(self.studentID),
+                 @"num":@(1)
                  };
 }
 

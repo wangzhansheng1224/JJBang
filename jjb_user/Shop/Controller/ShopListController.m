@@ -34,6 +34,10 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     [self.NavView addSubview:self.backButton];
 }
 
+-(void)dealloc
+{
+//    [self removeObserver:self forKeyPath:@"newShopId"];
+}
 -(void)setupNav
 {
     self.navigationItem.title = @"所有门店";
@@ -77,6 +81,7 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"changeShopName" object:nil userInfo:@{@"selectShop":model}];
     }];
+    [model addObserver:self forKeyPath:@"shopID" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:@"first"];
 }
 
 #pragma -

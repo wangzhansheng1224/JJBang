@@ -36,14 +36,14 @@
     [self.noteView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(superView.mas_top).offset(10);
-        make.height.mas_equalTo(@800);
+        make.height.mas_equalTo(@200);
         make.right.mas_equalTo(superView.mas_right);
     }];
     
     [self.summaryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(_noteView.mas_bottom).offset(10);
-        make.height.mas_equalTo(@200);
+//        make.height.mas_equalTo(@200);
         make.right.mas_equalTo(superView.mas_right);
     }];
     
@@ -52,7 +52,8 @@
 #pragma -
 #pragma mark - configWithData
 
-- (void)configWithData:(NSDictionary *)data{
+- (void)configWithData:(NSDictionary *)data block:(backHeightBlock)backBlock
+{
     
     [self.noteView configWithData:@{
                                     kTeacherTitle:@"个人宣言",
@@ -62,6 +63,25 @@
                                     kTeacherTitle:@"自我介绍",
                                     kTeacherContent:data[kTeacherSummary]
                                     }];
+    
+    CGSize size = [data[kTeacherSummary] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+    
+    float height = size.height;
+    JJBLog(@"返回的%f",height);
+    if ([data[kTeacherSummary] length] <= 0) {
+        
+        height = 0;
+        backBlock(height);
+    }
+    backBlock(height);
+    [self.summaryView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.mas_equalTo(self.mas_left);
+        make.top.mas_equalTo(_noteView.mas_bottom).offset(10);
+        make.height.mas_equalTo(@(height));
+        make.right.mas_equalTo(self.mas_right);
+    }];
+
 }
 
 #pragma -
@@ -71,7 +91,7 @@
 {
     if (!_noteView) {
         _noteView=[[TeacherTileView alloc] init];
-    }
+            }
     return _noteView;
 }
 
@@ -79,6 +99,7 @@
 {
     if (!_summaryView) {
         _summaryView=[[TeacherTileView alloc] init];
+
     }
     return _summaryView;
 }

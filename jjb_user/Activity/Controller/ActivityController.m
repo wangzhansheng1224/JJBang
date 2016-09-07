@@ -30,7 +30,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-     [self.view addSubview:self.list.view];
+    [self.view addSubview:self.list.view];
     [self.tabbarControl setSelectedSegmentIndex:0];
 }
 

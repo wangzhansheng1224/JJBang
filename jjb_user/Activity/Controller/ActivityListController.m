@@ -45,14 +45,29 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    [self.tableView.mj_header beginRefreshing];
+//    self.navigationController.navigationBarHidden = YES;
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-
+-(void)dealloc
+{
+    
+}
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -82,6 +97,11 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [navController pushViewController:self.detail animated:YES];
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    NSString * string = change[@"new"];
+    NSString * str = change[@"old"];
+}
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
@@ -120,6 +140,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     }
     return nil;
 }
+
 
 #pragma -
 #pragma mark - getters and setters

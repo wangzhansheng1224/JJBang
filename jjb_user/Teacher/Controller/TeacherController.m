@@ -35,6 +35,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSMutableArray *GrowingTreeDataArr;
 @property(nonatomic,strong) NSDictionary *detailDic;
+@property(nonatomic,assign) CGFloat teacherDetailHeight;
 @end
 
 @implementation TeacherController
@@ -96,13 +97,39 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }   else {
         
         TeacherDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:TeacherDetailCellIdentifier forIndexPath:indexPath];
-        [cell configWithData:self.detailDic];
+//        [cell configWithData:self.detailDic];
+        [cell configWithData:self.detailDic block:^(CGFloat height) {
+            self.teacherDetailHeight =   height;
+            JJBLog(@"接受的%f",height);
+        }];
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_tabbarControl.selectedSegmentIndex == 1) {
+    
+    
+    if(_tabbarControl.selectedSegmentIndex == 0)
+    {
+//        NSDictionary * dict = self.detailDic[indexPath.row];
+//        NSDictionary * dict = self.detailDic;
+//        CGSize size = [self.detailDic[@"notes1"] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+//        
+//        float height = size.height;
+//        JJBLog(@"!!!!!!!%@",self.detailDic[@"notes1"]);
+//        if ([self.detailDic[@"notes1"] length] <= 0) {
+//            
+//            height = 0;
+//            return height;
+//        }
+//        else
+//        {
+//            return height;
+//        }
+        JJBLog(@"赋值的!!!!!!!!!!!%fl",self.teacherDetailHeight);
+        return self.teacherDetailHeight;
+    }
+   else if (_tabbarControl.selectedSegmentIndex == 1) {
         
         NSDictionary * dic = self.GrowingTreeDataArr[indexPath.row];
         self.imageArr = dic[kGrowingTreeListImages];
@@ -114,6 +141,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         if ([dic[kGrowingTreeListContent] length] <= 0) {
             
             height = 0;
+            
         }
         
         if (self.imageArr.count == 0) {
@@ -123,8 +151,10 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
         }else {
             return (self.imageArr.count+2)/3 *85 +92 + height;
         }
-    } else {
-        return Screen_Height-204-44;
+    }
+    else
+    {
+        return 1008;
     }
 }
 
@@ -153,7 +183,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     if ([manager isKindOfClass:[TeacherDetailAPIManager class]])
     {
         self.detailDic = [manager fetchDataWithReformer:self.detailReformer];
-        [self.headerView configWithData:_detailDic];
+//        self.detailDic = [manager fetchDataWithReformer:nil];
+        [self.headerView configWithData:self.detailDic];
         [self.tableView.mj_header endRefreshing];
         [self addTableViewFooter];
         [self.tableView reloadData];
