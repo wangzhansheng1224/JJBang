@@ -23,6 +23,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 @property (nonatomic,strong) ActivityDetailController *detail;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
+@property(nonatomic,assign) NSInteger oldShopID;
 
 @end
 
@@ -37,14 +38,16 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     self.pageIndex=0;
     self.pageSize=10;
     [self.view addSubview:self.tableView];
-    [self.tableView.mj_header beginRefreshing];
-    [self.activityListAPIManager loadData];
-
+//    [self.tableView.mj_header beginRefreshing];
+    self.oldShopID = [ShopModel currentShop].shopID;
+    
+ 
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+<<<<<<< HEAD
     [self.tableView.mj_header beginRefreshing];
 //    self.navigationController.navigationBarHidden = YES;
 }
@@ -59,9 +62,24 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 -(void)viewDidDisappear:(BOOL)animated
 {
     
+=======
+    JJBLog(@"更新前的%ld",self.oldShopID);
+    if (self.oldShopID != [ShopModel currentShop].shopID) {
+        [self.tableView.mj_header beginRefreshing];
+        self.oldShopID = [ShopModel currentShop].shopID;
+        
+    }
+    JJBLog(@"更新后的%ld",self.oldShopID);
+    
+    
+    
+    self.navigationController.navigationBarHidden = YES;
+
+>>>>>>> 5d1c54907e3847c6fc04044a30c40e856349ab04
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
 }
 
 -(void)dealloc

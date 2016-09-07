@@ -74,7 +74,7 @@
 }
 -(void)configDataSize:(NSString *)dataString{
     
-    CGSize size = [dataString boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+    CGSize size = [dataString boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
     float height = size.height;
     
@@ -105,7 +105,7 @@
     
     if (!_detailLabel) {
         _detailLabel=[[UILabel alloc] init];
-        _detailLabel.font = H6;
+        _detailLabel.font = H4;
         _detailLabel.textColor =  COLOR_GRAY;
         _detailLabel.numberOfLines=0;
         [_detailLabel sizeToFit];

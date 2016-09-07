@@ -90,7 +90,6 @@
 {
     if (_starStudentNameLabel == nil) {
         _starStudentNameLabel = [[UILabel alloc]init];
-        _starStudentNameLabel.text = @"刘银祥";
         _starStudentNameLabel.font = H4;
         _starStudentNameLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -100,7 +99,6 @@
 {
     if (_starStudentGrowLabel == nil) {
         _starStudentGrowLabel = [[UILabel alloc]init];
-        _starStudentGrowLabel.text = @"45成长";
         _starStudentGrowLabel.font = H4;
         _starStudentGrowLabel.textColor=COLOR_GRAY;
         _starStudentGrowLabel.textAlignment = NSTextAlignmentRight;
