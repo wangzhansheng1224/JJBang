@@ -26,18 +26,20 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView=self.tabbarControl;
+    JJBLog(@"ActivityController_viewDidLoad");
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-     [self.view addSubview:self.list.view];
+    [self.view addSubview:self.list.view];
+    JJBLog(@"ActivityController_viewWillAppear");
     [self.tabbarControl setSelectedSegmentIndex:0];
 }
 
 
 #pragma -
 #pragma mark - event response
-- (void)tabBarControlChangeValue:(id)sender{
+- (void)ActivityTabBarControlChangeValue:(id)sender{
     [self.list.view removeFromSuperview];
     [self.participation.view removeFromSuperview];
     if (_tabbarControl.selectedSegmentIndex==0) {
@@ -67,7 +69,7 @@
         _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         _tabbarControl.selectionIndicatorHeight = 2.0f;
-        [_tabbarControl addTarget:self action:@selector(tabBarControlChangeValue:) forControlEvents:UIControlEventValueChanged];
+        [_tabbarControl addTarget:self action:@selector(ActivityTabBarControlChangeValue:) forControlEvents:UIControlEventValueChanged];
     }
     return _tabbarControl;
 }

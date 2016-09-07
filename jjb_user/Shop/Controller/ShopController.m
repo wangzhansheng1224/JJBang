@@ -367,7 +367,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
             
             NSDictionary * dic = arr[i];
             
-            [mutArr addObject:[NSString stringWithFormat:@"%@%@", ImageServer,dic[kShopIndexActImgImagePath]]];
+            [mutArr addObject:[NSString stringWithFormat:@"%@%@@!sy_1242_828", ImageServer,dic[kShopIndexActImgImagePath]]];
             
         }
         _adScrollView = nil;
