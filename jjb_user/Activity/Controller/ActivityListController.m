@@ -47,7 +47,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-<<<<<<< HEAD
     [self.tableView.mj_header beginRefreshing];
 //    self.navigationController.navigationBarHidden = YES;
 }
@@ -61,8 +60,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    
-=======
+/*
     JJBLog(@"更新前的%ld",self.oldShopID);
     if (self.oldShopID != [ShopModel currentShop].shopID) {
         [self.tableView.mj_header beginRefreshing];
@@ -72,10 +70,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     JJBLog(@"更新后的%ld",self.oldShopID);
     
     
-    
     self.navigationController.navigationBarHidden = YES;
-
->>>>>>> 5d1c54907e3847c6fc04044a30c40e856349ab04
+*/
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

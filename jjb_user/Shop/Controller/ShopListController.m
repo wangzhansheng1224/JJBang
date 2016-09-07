@@ -78,6 +78,8 @@ static NSString * const shopListCellIdentifer = @"shopListCellIdentifier";
     ShopModel * model = self.shopListArray[indexPath.row];
     
     [self dismissViewControllerAnimated:YES completion:^{
+        
+//     [self.view makeToast:@"切换门店" duration:1.0f position:CSToastPositionCenter];
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"changeShopName" object:nil userInfo:@{@"selectShop":model}];
     }];
