@@ -66,7 +66,7 @@
     }];
     [_sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(16, 16));
+//        make.size.mas_equalTo(CGSizeMake(25, 16));
         make.left.equalTo(self.iconImageV.mas_right).with.offset(14);
         make.top.equalTo(self.nameLabel.mas_bottom).with.offset(6);
     }];
@@ -134,6 +134,7 @@
         _nameLabel.text = @"王鹿晗";
         _nameLabel.font = H3;
         _nameLabel.textColor = COLOR_WHITE;
+        [_nameLabel sizeToFit];
     }
     return _nameLabel;
 }
@@ -146,6 +147,7 @@
         _sexLabel.text = @"男";
         _sexLabel.font = H3;
         _sexLabel.textColor = COLOR_WHITE;
+        [_sexLabel sizeToFit];
     }
     return _sexLabel;
 }
