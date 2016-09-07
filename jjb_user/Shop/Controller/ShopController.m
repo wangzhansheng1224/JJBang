@@ -218,6 +218,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, (Screen_Width-40.0f)/2.0f+30.0f) collectionViewItemSize:CGSizeMake(0, 0)];
         [saleCollectionView configWithData:self.dataDic[kShopIndexGoodsList]];
+        JJBLog(@"优惠商品=%@===%@",self.dataDic[kShopIndexGoodsList],self.dataDic);
         [cell.contentView addSubview:saleCollectionView];
         
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, (Screen_Width-40.0f)/2.0f+30.0f+30.0f, Screen_Width, 10)];

@@ -18,4 +18,5 @@ extern NSString *const kActivityDetailImages;
 extern NSString *const kActivityDetailIsRegist;
 extern NSString *const kActivityDetailState;
 extern NSString *const kActivityDetailAddress;
+extern NSString *const kActivityDetailEndTime;//结束时间
 #endif /* ActivityDetailKey_h */

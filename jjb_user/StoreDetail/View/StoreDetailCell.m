@@ -39,22 +39,21 @@
 -(void)layoutSubviews{
     UIView *superView=self;
     [self.orangeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superView.mas_top).offset(10);
+        make.top.mas_equalTo(superView.mas_top).offset(10);
         make.left.equalTo(superView.mas_left);
         make.height.equalTo(@(20));
         make.width.equalTo(@(10));
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superView.mas_top).offset(10);
+        make.top.mas_equalTo(superView.mas_top).offset(10);
         make.left.equalTo(superView.mas_left).offset(10);
         make.right.equalTo(superView.mas_right);
         make.height.equalTo(@(20));
     }];
     
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_titleLabel.mas_bottom);
-//        make.height.equalTo(@(100));
+        make.top.mas_equalTo(_titleLabel.mas_bottom);
         make.left.equalTo(superView.mas_left).offset(10);
         make.right.equalTo(superView.mas_right).offset(-10);
     }];
