@@ -47,7 +47,7 @@
 - (void)configWithData:(NSDictionary *)data{
     [self.descLabel setText:data[kCourseCatalogDesc]];
     
-    CGSize size = [data[kCourseCatalogDesc] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+    CGSize size = [data[kCourseCatalogDesc] boundingRectWithSize:CGSizeMake(Screen_Width-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
     float height = size.height;
     
@@ -70,8 +70,8 @@
     
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] init];
-        _descLabel.font = H3;
-//        _descLabel.backgroundColor=JJBRandomColor;
+        _descLabel.text = @"第一节课 拉伸运动";
+        _descLabel.font = H4;
         _descLabel.textColor=COLOR_GRAY;
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _descLabel.numberOfLines = 0;

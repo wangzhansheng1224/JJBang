@@ -50,19 +50,20 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource, RHADScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property (nonatomic,strong) LDAPIBaseManager * shopListAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
+@property (nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 
-@property(nonatomic,weak) UICollectionView * collectionView;
+@property (nonatomic,weak) UICollectionView * collectionView;
 @property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
-@property(nonatomic,strong) NSDictionary *dataDic;
-@property(nonatomic,assign) double currentLongitude;  //当前经度
-@property(nonatomic,assign) double currentLatitude;    //当前纬度
+@property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,assign) double currentLongitude;  //当前经度
+@property (nonatomic,assign) double currentLatitude;    //当前纬度
 @property (nonatomic,copy) NSMutableArray *shopList;
 @property (nonatomic,strong) ShopModel *currentShop;
-@property(nonatomic,strong) RHADScrollView * adScrollView;
-@property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
+@property (nonatomic,strong) RHADScrollView * adScrollView;
+@property (nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
+@property (nonatomic,copy) NSString *courseImageStr;//直播课程图片字符串
 @end
 
 @implementation ShopController
@@ -105,9 +106,10 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 {
     ShopModel * shop = notification.userInfo[@"selectShop"];
     [ShopModel save:shop];
+
     //切换门店之后tableView自动置顶
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-
+    
     self.coustomNavCenterView.shopNameLabel.text = shop.shopName;
     
     [ShopModel currentShop].shopID = shop.shopID;
@@ -118,6 +120,13 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     JJBLog(@"######change");
     JJBLog(@"111112222%ld",string);
     [self.shopIndexAPIManager loadData];
+    [self.view makeToast:@"切换门店" duration:1.0f position:CSToastPositionCenter];
+
+//        [self.view makeToast:@"切换门店"];
+//    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"切换门店" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 #pragma -
@@ -157,9 +166,17 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (indexPath.section==3){
         VideosDetailController* detail= [[VideosDetailController alloc] init];
         NSArray *ary = self.dataDic[@"VideosList"];
-        detail.VideosID=[ary[indexPath.row][kShopIndexVideoID] integerValue];
-        [self.navigationController pushViewController:detail animated:YES];
-
+        detail.VideosID=[ary[0][kShopIndexVideoID] integerValue];
+        _courseImageStr = ary[0][kShopIndexCourseImg];
+        //如果课程名称为空，则弹出提示
+        if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr.length == 0) {
+            UIView * view = [self.view toastViewForMessage:@"尚无课程视频" title:nil image:nil style:nil];
+            [self.view showToast:view duration:1.0 position:CSToastPositionCenter completion:^(BOOL didTap) {
+                
+            }];
+        }else{
+           [self.navigationController pushViewController:detail animated:YES];
+        }
     }
         
 }
@@ -218,6 +235,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         
         MBSaleCollectionView * saleCollectionView = [[MBSaleCollectionView alloc]initWithFrame:CGRectMake(0, 30, Screen_Width, (Screen_Width-40.0f)/2.0f+30.0f) collectionViewItemSize:CGSizeMake(0, 0)];
         [saleCollectionView configWithData:self.dataDic[kShopIndexGoodsList]];
+        JJBLog(@"优惠商品=%@===%@",self.dataDic[kShopIndexGoodsList],self.dataDic);
         [cell.contentView addSubview:saleCollectionView];
         
         UIView *lineView=[[UIView alloc] initWithFrame:CGRectMake(0, (Screen_Width-40.0f)/2.0f+30.0f+30.0f, Screen_Width, 10)];
@@ -235,12 +253,18 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
         
-        VideosListController *video = [[VideosListController alloc]init];
-        [titleBar moreButtonClick:^(TitleBar *sender) {
-//            UIViewController *controller= [[CTMediator sharedInstance] CTMediator_VideosList:nil];
-            [self.navigationController pushViewController:video animated:YES];
-        }];
-
+            VideosListController *video = [[VideosListController alloc]init];
+            [titleBar moreButtonClick:^(TitleBar *sender) {
+                //如果课程名称为空，则弹出提示
+                if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr.length == 0) {
+                    UIView * view = [self.view toastViewForMessage:@"尚无课程视频" title:nil image:nil style:nil];
+                    [self.view showToast:view duration:1.0 position:CSToastPositionCenter completion:^(BOOL didTap) {
+                        
+                    }];
+                }else{
+                   [self.navigationController pushViewController:video animated:YES];
+                }
+            }];
         return cell;
     }
     else if(indexPath.section == 4)
@@ -362,12 +386,17 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [self.view hideToastActivity];
         self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
         NSArray * arr = self.dataDic[kShopIndexActImg];
+        
+        NSString *shopIDString = [NSString stringWithFormat:@"%ld",[ShopModel currentShop].shopID ];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setValue:shopIDString forKey:kShopIndexShopID];
+        
         NSMutableArray * mutArr = [[NSMutableArray alloc] init];
         for (int i = 0; i < arr.count; i++) {
             
             NSDictionary * dic = arr[i];
             
-            [mutArr addObject:[NSString stringWithFormat:@"%@%@", ImageServer,dic[kShopIndexActImgImagePath]]];
+            [mutArr addObject:[NSString stringWithFormat:@"%@%@@!sy_1242_828", ImageServer,dic[kShopIndexActImgImagePath]]];
             
         }
         _adScrollView = nil;
@@ -377,6 +406,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [_adScrollView play];
         
         [self.tableView reloadData];
+
     }
     
 }
@@ -554,5 +584,4 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
     
 }
-
 @end

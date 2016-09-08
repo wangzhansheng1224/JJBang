@@ -32,7 +32,6 @@
     [_descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(@10);
         make.right.equalTo(@-10);
-        make.height.equalTo(@20);
     }];
 }
 
@@ -40,7 +39,7 @@
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
     [self.descLabel setText:data[kCourseDescribe]];
-    CGSize size = [data[kCourseDescribe] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+    CGSize size = [data[kCourseDescribe] boundingRectWithSize:CGSizeMake(Screen_Width-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
     float height = size.height;
     
@@ -49,7 +48,7 @@
     }
     
     [_descLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(height));
+        make.height.mas_equalTo(@(height+10));
         make.top.mas_equalTo(@10);
         make.left.mas_equalTo(@10);
         make.right.mas_equalTo(@-10);
@@ -61,8 +60,11 @@
 - (UILabel *)descLabel {
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] init];
-        _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _descLabel.font = H4;
+        _descLabel.textColor=COLOR_GRAY;
+        [_descLabel sizeToFit];
         _descLabel.numberOfLines = 0;
+        _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descLabel;
 }

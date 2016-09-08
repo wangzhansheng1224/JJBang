@@ -99,7 +99,6 @@
 {
     if (_starStudentGrowLabel == nil) {
         _starStudentGrowLabel = [[UILabel alloc]init];
-        _starStudentGrowLabel.text = @"45成长";
         _starStudentGrowLabel.font = H4;
         _starStudentGrowLabel.textColor=COLOR_GRAY;
         _starStudentGrowLabel.textAlignment = NSTextAlignmentRight;

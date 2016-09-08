@@ -47,7 +47,10 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+}
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {

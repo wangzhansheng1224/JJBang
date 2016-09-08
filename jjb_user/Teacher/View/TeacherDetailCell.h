@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^backHeightBlock)(CGFloat height);
 @interface TeacherDetailCell : UITableViewCell
-- (void)configWithData:(NSDictionary *)data;
+- (void)configWithData:(NSDictionary *)data block:(backHeightBlock)backBlock;
 @end

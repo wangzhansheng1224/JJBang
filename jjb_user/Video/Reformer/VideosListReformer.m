@@ -32,7 +32,7 @@ NSString *const kVideosListEndTime = @"VideosListEndTime";
             NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"startTime"] doubleValue]/1000];
             
             NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"endTime"] doubleValue]/1000];
-            NSString *startEndTime=[NSString stringWithFormat:@"%@ 至 %@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+            NSString *startEndTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"],[endTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"]];
             NSURL *courseImagUrl;
             if (arrData[i][@"courseImg"]!=[NSNull null]) {
                 courseImagUrl=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@",arrData[i][@"courseImg"]]];

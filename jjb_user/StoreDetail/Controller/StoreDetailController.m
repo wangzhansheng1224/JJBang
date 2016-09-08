@@ -84,13 +84,13 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        CGSize size = [self.storeDetailDictionary[kStoreSummary] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
+        CGSize size = [self.storeDetailDictionary[kStoreSummary] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
     
-        return size.height+40+10;
+        return size.height+40+10 +10;
     }
     if (indexPath.row == 1) {
-        CGSize size = [self.storeDetailDictionary[kStoreVotes] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H6} context:nil].size;
-        return size.height+40+10;
+        CGSize size = [self.storeDetailDictionary[kStoreVotes] boundingRectWithSize:CGSizeMake(Screen_Width -20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
+        return size.height+40+10 +10;
     }
     
         return 100;
@@ -153,7 +153,8 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 - (StoreDetailHeaderView *)headerView {
     
     if (!_headerView) {
-        _headerView = [[StoreDetailHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 280+10))];
+        
+        _headerView = [[StoreDetailHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 263 + 40))];
         _headerView.backgroundColor = COLOR_WHITE;
     }
     return _headerView;

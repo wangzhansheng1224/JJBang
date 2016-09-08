@@ -31,7 +31,7 @@ NSString *const kActivityListIsRegist=@"ActivityListIsRegist";
             NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"starttime"] doubleValue]/1000];
             
             NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[arrData[i][@"endtime"] doubleValue]/1000];
-            NSString *strTime=[NSString stringWithFormat:@"%@ 至 %@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+            NSString *strTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"],[endTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"]];
             NSURL *url;
             if (arrData[i][@"image"]!=[NSNull null]) {
                 url=   [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",ImageServer,arrData[i][@"image"]]];

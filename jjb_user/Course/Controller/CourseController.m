@@ -109,7 +109,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
     }];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.bottom.left.right.equalTo(@0);
+        make.left.right.equalTo(@0);
+        make.bottom.equalTo(@-0);
         make.height.equalTo(@50);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -178,16 +179,15 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tabbarControl.selectedSegmentIndex == 0) {
-        CGSize size = [self.detailData[@"describe"] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+        CGSize size = [self.detailData[kCourseDescribe] boundingRectWithSize:CGSizeMake(Screen_Width-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
         
         float height = size.height;
-        
-        return height;
+        return height + 30 ;
     } else if(_tabbarControl.selectedSegmentIndex == 1){
         
         NSDictionary * dic = self.catalogData[indexPath.row];
         
-        CGSize size = [dic[@"CourseCatalogDesc"] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+        CGSize size = [dic[@"CourseCatalogDesc"] boundingRectWithSize:CGSizeMake(Screen_Width-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
         
         float height = size.height;
         

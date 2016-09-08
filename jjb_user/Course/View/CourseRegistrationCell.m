@@ -120,6 +120,7 @@
         _remarkLabel = [[UILabel alloc] init];
         _remarkLabel.font = H4;
         _remarkLabel.numberOfLines = 0;
+        _remarkLabel.textColor=COLOR_GRAY;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [_remarkLabel setContentMode:UIViewContentModeTop];
         

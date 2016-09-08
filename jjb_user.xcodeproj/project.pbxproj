@@ -2986,6 +2986,7 @@
 		BB717C0D1D7432390077CAD1 /* StoreDetail */ = {
 			isa = PBXGroup;
 			children = (
+				BB717C0F1D74325B0077CAD1 /* Reformer */,
 				BB717C111D74326C0077CAD1 /* APIManager */,
 				BB717C101D7432630077CAD1 /* Controller */,
 				BB717C0E1D7432530077CAD1 /* View */,
@@ -3000,7 +3001,6 @@
 				BBAE6A421D766A48001032FA /* StoreDetailHeaderView.m */,
 				BB717C1E1D7434100077CAD1 /* StoreDetailCell.h */,
 				BB717C1F1D7434100077CAD1 /* StoreDetailCell.m */,
-				BB717C0F1D74325B0077CAD1 /* Reformer */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3157,6 +3157,7 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3748,7 +3749,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3803,7 +3804,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
