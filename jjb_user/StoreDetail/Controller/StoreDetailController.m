@@ -107,7 +107,6 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
         self.storeDetailDictionary = [manager fetchDataWithReformer:self.storeDetailReformer];
         [self.headerView configWithData:_storeDetailDictionary];
         [self.tableView.mj_header endRefreshing];
-        JJBLog(@"xiangqing:%@",self.storeDetailDictionary);
         [self.tableView reloadData];
     }
 }
@@ -154,7 +153,8 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 - (StoreDetailHeaderView *)headerView {
     
     if (!_headerView) {
-        _headerView = [[StoreDetailHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 280+10))];
+        
+        _headerView = [[StoreDetailHeaderView alloc] initWithFrame:(CGRectMake(0, 0, Screen_Width, 263 + 40))];
         _headerView.backgroundColor = COLOR_WHITE;
     }
     return _headerView;

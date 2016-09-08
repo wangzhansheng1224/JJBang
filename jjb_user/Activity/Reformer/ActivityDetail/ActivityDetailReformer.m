@@ -19,6 +19,7 @@ NSString *const kActivityDetailImages=@"ActivityDetailImages";
 NSString *const kActivityDetailIsRegist=@"ActivityDetailIsRegist";
 NSString *const kActivityDetailState=@"ActivityDetailState";
 NSString *const kActivityDetailAddress=@"ActivityDetailAddress";
+NSString *const kActivityDetailEndTime=@"ActivityDetailEndTime";
 
 @implementation ActivityDetailReformer
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
@@ -27,12 +28,24 @@ NSString *const kActivityDetailAddress=@"ActivityDetailAddress";
          
          NSDictionary *dicData=data[@"data"];
          NSDate *startTime=[NSDate dateWithTimeIntervalSince1970:[dicData[@"starttime"] doubleValue]/1000];
-         
+         //结束时间
          NSDate *endTime=[NSDate dateWithTimeIntervalSince1970:[dicData[@"endtime"] doubleValue]/1000];
-         NSString *strTime=[NSString stringWithFormat:@"%@ 至 %@",[startTime formattedDateWithFormat:@"MM-dd hh:mm"],[endTime formattedDateWithFormat:@"MM-dd hh:mm"]];
+         NSString *endTimeString = [endTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"];
+         //现在的时间
+         NSDate * date = [NSDate date];
          
+         NSString *strTime=[NSString stringWithFormat:@"%@至%@",[startTime formattedDateWithFormat:@"YYYY-MM-dd hh:mm"],endTimeString];
+         NSString *endInteger = nil;
+         //时间结束
+         if ([date compare:endTime] == -1){
+             //结束
+             endInteger = @"0";
+         }else{
+             endInteger = @"1";
+         }
        return  @{
            kActivityDetailID:dicData[@"id"],
+           kActivityDetailEndTime:endInteger,
            kActivityDetailTitle:dicData[@"title"],
            kActivityDetailTime:strTime,
            kActivityDetailContent:dicData[@"content"],

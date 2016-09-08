@@ -26,7 +26,7 @@
 @property (nonatomic,strong) NSMutableDictionary *data;
 @property (nonatomic,strong) ActivityRegisterAPIManager *registerAPIManager;
 @property (nonatomic,strong) RHADScrollView *adScrollView;
-
+@property (nonatomic,strong) NSString *endTimeStr;//判断报名是否结束
 @end
 
 @implementation ActivityDetailHeader
@@ -116,6 +116,7 @@
 - (void)configWithData:(NSDictionary *)data{
     self.data=[[NSMutableDictionary alloc] initWithDictionary:data];
     self.activity_id=[data[kActivityDetailID] integerValue];
+    self.endTimeStr = data[kActivityDetailEndTime];
     [self.label_title setText:data[kActivityDetailTitle]];
     [self.label_location setText:data[kActivityDetailAddress]];
     [self.label_status setText:data[kActivityDetailState]];
@@ -138,10 +139,19 @@
         [self.signupButton setTitle:@"已报名" forState:UIControlStateNormal];
         [self.signupButton setBackgroundColor:COLOR_GRAY];
     } else {
-        [self.signupButton setEnabled:YES];
-        [self.signupButton setTitle:@"立即报名" forState:UIControlStateNormal];
-        [self.signupButton setBackgroundColor:COLOR_ORANGE];
+        //活动已结束
+        if ([self.endTimeStr isEqualToString:@"1"]) {
+            [self.signupButton setEnabled:NO];
+            [self.signupButton setTitle:@"已结束" forState:UIControlStateNormal];
+            [self.signupButton setBackgroundColor:COLOR_GRAY];
+
+        }else{
+            [self.signupButton setEnabled:YES];
+            [self.signupButton setTitle:@"立即报名" forState:UIControlStateNormal];
+            [self.signupButton setBackgroundColor:COLOR_ORANGE];
+        }
     }
+    
 }
 
 #pragma -
