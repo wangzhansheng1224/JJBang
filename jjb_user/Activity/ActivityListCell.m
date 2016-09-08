@@ -90,9 +90,9 @@
 - (void)configWithData:(NSDictionary *)data{
         
     [self.label_title setText:data[kActivityListTitle]];
-    [self.label_location setText:[NSString stringWithFormat:@"活动地址：%@",data[kActivityListAddress]]];
+    [self.label_location setText:[NSString stringWithFormat:@"地址：%@",data[kActivityListAddress]]];
     [self.label_status setText:data[kActivityListState]];
-    [self.label_time setText:[NSString stringWithFormat:@"活动时间：%@",data[kActivityListDate]]];
+    [self.label_time setText:[NSString stringWithFormat:@"时间：%@",data[kActivityListDate]]];
     [self.imageView_pic sd_setImageWithURL:data[kActivityListImageURL] placeholderImage:[UIImage imageNamed:@"img_default"]];
 }
 

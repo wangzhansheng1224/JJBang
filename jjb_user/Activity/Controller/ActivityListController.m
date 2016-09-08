@@ -29,6 +29,14 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 @implementation ActivityListController
 
+- (id)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDataActivityList:) name:@"ShopIndexShopIDNotification" object:nil];
+    return self;
+}
 #pragma mark -- life cycle
 -(void)viewDidLoad
 {
@@ -57,35 +65,18 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [self.tableView.mj_header beginRefreshing];
 //    self.navigationController.navigationBarHidden = YES;
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-    
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    
-}
--(void)viewDidDisappear:(BOOL)animated
-{
-/*
-    JJBLog(@"更新前的%ld",self.oldShopID);
-    if (self.oldShopID != [ShopModel currentShop].shopID) {
+//刷新活动列表内容
+-(void)refreshDataActivityList:(NSNotification *)notification {
         [self.tableView.mj_header beginRefreshing];
-        self.oldShopID = [ShopModel currentShop].shopID;
-        
-    }
-    JJBLog(@"更新后的%ld",self.oldShopID);
-    
-    
-    self.navigationController.navigationBarHidden = YES;
-*/
+
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
 - (void)dealloc {
-
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -- UITableViewDelegate

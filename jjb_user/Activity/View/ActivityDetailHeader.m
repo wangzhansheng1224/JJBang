@@ -103,9 +103,9 @@
     self.activity_id=[data[kActivityDetailID] integerValue];
     self.endTimeStr = data[kActivityDetailEndTime];
     [self.label_title setText:data[kActivityDetailTitle]];
-    [self.label_location setText:[NSString stringWithFormat:@"活动地址：%@",data[kActivityDetailAddress]]];
+    [self.label_location setText:[NSString stringWithFormat:@"地址：%@",data[kActivityDetailAddress]]];
     [self.label_status setText:data[kActivityDetailState]];
-    [self.label_time setText:[NSString stringWithFormat:@"活动时间：%@",data[kActivityDetailTime]]];
+    [self.label_time setText:[NSString stringWithFormat:@"时间：%@",data[kActivityDetailTime]]];
     
     NSArray * array = data[kActivityDetailImages];
     

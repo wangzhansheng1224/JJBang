@@ -45,6 +45,7 @@
     [self.view bringSubviewToFront:self.tileView];
     [self.view addSubview:self.issueLocationView];
     [self layoutPageSubviews];
+    
 }
 
 #pragma -
@@ -97,16 +98,15 @@
 {
     _textView = textView;
 }
-
 #pragma
 #pragma mark - event response
 - (void)itemClick {
 
-    if (_tileView.dataList.count == 0) {
-        [self.view endEditing:YES];
-        [self.view makeToast:@"请选择要上传的图片！" duration:1.0f position:CSToastPositionCenter];
-        return;
-    }
+//    if (_tileView.dataList.count == 0) {
+//        [self.view endEditing:YES];
+//        [self.view makeToast:@"请选择要上传的图片！" duration:1.0f position:CSToastPositionCenter];
+//        return;
+//    }
     if (_textView.text.length == 0) {
 
         [self.view endEditing:YES];
@@ -117,7 +117,9 @@
     }
     [self.view makeToastActivity:CSToastPositionCenter];
     _arrImgs = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i = 0; i < [_tileView.dataList count]; i++) {
+    //有图
+    if ([_tileView.dataList count]>0) {
+       for (int i = 0; i < [_tileView.dataList count]; i++) {
         ALAsset* asset = _tileView.dataList[i];
         UIImage* tempImg = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
         NSData* editImageData = UIImageJPEGRepresentation(tempImg, 0.8f);
@@ -132,9 +134,13 @@
         model.status=NO;
         [_arrImgs addObject:model];
     }
-    [[OSSManager shareInstance] uploadFiles:_arrImgs withTargetSubPath:OSSMessagePath withBlock:^() {
-        [self.publishAPIManager loadData];
-    }];
+       [[OSSManager shareInstance] uploadFiles:_arrImgs withTargetSubPath:OSSMessagePath withBlock:^() {
+           [self.publishAPIManager loadData];
+       }];
+    }else{//无图
+       [self.publishAPIManager loadData];
+    }
+
 }
 
 #pragma -
@@ -159,10 +165,18 @@
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     
     NSMutableString *imgStrings=[[NSMutableString alloc] initWithCapacity:0] ;
+    
     for (ImgModel* img in _arrImgs) {
         [imgStrings appendFormat:@"%@@",img.imagename];
     }
-    [imgStrings deleteCharactersInRange:NSMakeRange(imgStrings.length-1,1)];
+    //没有图片字符
+    if ( [imgStrings isKindOfClass:[NSNull class]] ||imgStrings == NULL || imgStrings == nil ||[imgStrings isEqualToString: @""]) {
+        
+    }else{
+        
+        [imgStrings deleteCharactersInRange:NSMakeRange(imgStrings.length-1,1)];
+ 
+    }
     
     return @{
              @"user_id":@([UserModel currentUser].userID),
