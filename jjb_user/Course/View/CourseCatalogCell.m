@@ -70,7 +70,6 @@
     
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] init];
-        _descLabel.text = @"第一节课 拉伸运动";
         _descLabel.font = H3;
 //        _descLabel.backgroundColor=JJBRandomColor;
         _descLabel.textColor=COLOR_GRAY;

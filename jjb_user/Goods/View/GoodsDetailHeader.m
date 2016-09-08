@@ -125,7 +125,6 @@
     if (!_titleLabel) {
         
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"曲奇 饼干";
         _titleLabel.font = H2;
         [_titleLabel sizeToFit];
         _titleLabel.textColor = [UIColor blackColor];

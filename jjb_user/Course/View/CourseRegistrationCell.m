@@ -109,7 +109,6 @@
         _nicknameLabel.textColor=COLOR_GRAY;
         _nicknameLabel.numberOfLines = 1;
         [_nicknameLabel sizeToFit];
-        _nicknameLabel.text = @"吴为问";
     }
     return _nicknameLabel;
 }
@@ -122,7 +121,6 @@
         _remarkLabel.font = H4;
         _remarkLabel.numberOfLines = 0;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        //_remarkLabel.text = @"心情不错";
         [_remarkLabel setContentMode:UIViewContentModeTop];
         
     }

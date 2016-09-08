@@ -65,7 +65,6 @@
     
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"第一节课 拉伸运动";
         _titleLabel.font = H3;
         _titleLabel.textColor=COLOR_GRAY;
         [_titleLabel sizeToFit];

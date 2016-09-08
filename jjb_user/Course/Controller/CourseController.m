@@ -82,6 +82,7 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
     
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+//    [self.tableView.mj_header beginRefreshing];
     [self loadData];
 }
 
@@ -245,7 +246,6 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
         if (self.pageIndex >=10){
             [self.tableView.mj_footer endRefreshing];
         }
-        [self.tableView reloadData];
     }
     if ([manager isKindOfClass:[CourseRegisterListAPIManager class]]) {
         NSArray *resultData = [manager fetchDataWithReformer:self.registerListReformer];
@@ -258,8 +258,8 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
         if (self.pageIndex >=10){
            [self.tableView.mj_footer endRefreshing];
         }
-        [self.tableView reloadData];
     }
+    [self.tableView reloadData];
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -349,6 +349,7 @@ static NSString  *const CourseDetailCellIdentifier=@"CourseDetailCellIdentifier"
 {
     if (!_tabbarControl) {
         _tabbarControl=[[HMSegmentedControl alloc] initWithSectionTitles:@[@"课程详情",@"课程目录",@"报名信息"]];
+        _tabbarControl.selectedSegmentIndex = 0;
         _tabbarControl.selectionIndicatorColor=COLOR_ORANGE;
         _tabbarControl.titleTextAttributes=@{NSForegroundColorAttributeName:COLOR_GRAY,NSFontAttributeName:H3};
         _tabbarControl.selectionIndicatorLocation=HMSegmentedControlSelectionIndicatorLocationDown;

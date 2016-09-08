@@ -76,7 +76,6 @@
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.font = H2;
-        _nameLabel.text = @"家家帮成长馆";
         _nameLabel.textColor = COLOR_DARK_GRAY;
     }
     return _nameLabel;
@@ -86,7 +85,6 @@
         _locationLabel = [[UILabel alloc] init];
         _locationLabel.font = H3;
         _locationLabel.textColor = COLOR_GRAY;
-        _locationLabel.text = @"常营";
         _locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _locationLabel.numberOfLines = 0;
     }
@@ -97,7 +95,6 @@
         _phoneLabel = [[UILabel alloc] init];
         _phoneLabel.font = H3;
         _phoneLabel.textColor = COLOR_GRAY;
-        _phoneLabel.text = @"1235433553";
     }
     return _phoneLabel;
 }

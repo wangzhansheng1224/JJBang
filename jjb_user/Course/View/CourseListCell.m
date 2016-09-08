@@ -145,7 +145,6 @@
 {
     if (_couseNameLabel == nil) {
         _couseNameLabel = [[UILabel alloc]init];
-        _couseNameLabel.text = @"少儿美术";
         _couseNameLabel.font = H3;
         [_couseNameLabel sizeToFit];
     }
@@ -155,7 +154,6 @@
 {
     if (_numbercouseLabel == nil) {
         _numbercouseLabel = [[UILabel alloc]init];
-        _numbercouseLabel.text = @"98人报名";
         _numbercouseLabel.font = H4;
         _numbercouseLabel.textColor = COLOR_GRAY;
         _numbercouseLabel.textAlignment=NSTextAlignmentRight;
@@ -186,7 +184,6 @@
     if(_cousePriceLabel == nil)
     {
         _cousePriceLabel = [[UILabel alloc]init];
-        _cousePriceLabel.text = @"￥1080";
         _cousePriceLabel.font = H3;
         _cousePriceLabel.textColor=COLOR_ORANGE;
         _cousePriceLabel.textAlignment = NSTextAlignmentRight;

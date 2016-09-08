@@ -90,7 +90,6 @@
 {
     if (_starStudentNameLabel == nil) {
         _starStudentNameLabel = [[UILabel alloc]init];
-        _starStudentNameLabel.text = @"刘银祥";
         _starStudentNameLabel.font = H4;
         _starStudentNameLabel.textAlignment = NSTextAlignmentLeft;
     }

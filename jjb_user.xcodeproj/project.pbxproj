@@ -216,6 +216,16 @@
 		73ED4F171D4EFA410022BF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73ED4F151D4EFA410022BF79 /* LaunchScreen.storyboard */; };
 		73EDB7A31D74E02A00F8D40A /* Target_order.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A21D74E02A00F8D40A /* Target_order.m */; };
 		73EDB7AA1D76B4B200F8D40A /* FamliyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EDB7A91D76B4B200F8D40A /* FamliyModel.m */; };
+		8432526F1D7FB90C003D3951 /* MyFamilyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432526E1D7FB90C003D3951 /* MyFamilyCell.m */; };
+		843252751D7FDFC7003D3951 /* MyGrowingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252741D7FDFC7003D3951 /* MyGrowingController.m */; };
+		843252781D7FE03C003D3951 /* GrowingMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252771D7FE03C003D3951 /* GrowingMainController.m */; };
+		8432527B1D7FF354003D3951 /* MyFamilyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432527A1D7FF354003D3951 /* MyFamilyController.m */; };
+		8432527E1D7FFCFC003D3951 /* MyFamilyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432527D1D7FFCFC003D3951 /* MyFamilyDetailCell.m */; };
+		843252891D800DC7003D3951 /* FamilyAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252861D800DC7003D3951 /* FamilyAPIManager.m */; };
+		8432528A1D800DC7003D3951 /* UpdateFamilyAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252881D800DC7003D3951 /* UpdateFamilyAPIManager.m */; };
+		8432528F1D801491003D3951 /* FamilyInsertReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432528E1D801491003D3951 /* FamilyInsertReformer.m */; };
+		843252921D8014A4003D3951 /* FamilyUpdateReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252911D8014A4003D3951 /* FamilyUpdateReformer.m */; };
+		843252981D801772003D3951 /* MyFamilyInsertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252971D801772003D3951 /* MyFamilyInsertController.m */; };
 		8495FBE31D7D1CFD001BF926 /* GoodsMakeOrderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */; };
 		84C3B7E71D7ECF9A005AC61B /* ParticipationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B7E61D7ECF9A005AC61B /* ParticipationAPIManager.m */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
@@ -785,6 +795,28 @@
 		73EDB7A21D74E02A00F8D40A /* Target_order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_order.m; path = Actions/Target_order.m; sourceTree = "<group>"; };
 		73EDB7A81D76B4B200F8D40A /* FamliyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamliyModel.h; sourceTree = "<group>"; };
 		73EDB7A91D76B4B200F8D40A /* FamliyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamliyModel.m; sourceTree = "<group>"; };
+		8432526D1D7FB90C003D3951 /* MyFamilyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFamilyCell.h; sourceTree = "<group>"; };
+		8432526E1D7FB90C003D3951 /* MyFamilyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFamilyCell.m; sourceTree = "<group>"; };
+		843252731D7FDFC7003D3951 /* MyGrowingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGrowingController.h; sourceTree = "<group>"; };
+		843252741D7FDFC7003D3951 /* MyGrowingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGrowingController.m; sourceTree = "<group>"; };
+		843252761D7FE03C003D3951 /* GrowingMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingMainController.h; sourceTree = "<group>"; };
+		843252771D7FE03C003D3951 /* GrowingMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingMainController.m; sourceTree = "<group>"; };
+		843252791D7FF354003D3951 /* MyFamilyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFamilyController.h; sourceTree = "<group>"; };
+		8432527A1D7FF354003D3951 /* MyFamilyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFamilyController.m; sourceTree = "<group>"; };
+		8432527C1D7FFCFC003D3951 /* MyFamilyDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFamilyDetailCell.h; sourceTree = "<group>"; };
+		8432527D1D7FFCFC003D3951 /* MyFamilyDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFamilyDetailCell.m; sourceTree = "<group>"; };
+		843252851D800DC7003D3951 /* FamilyAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyAPIManager.h; path = APIManager/FamilyAPIManager.h; sourceTree = "<group>"; };
+		843252861D800DC7003D3951 /* FamilyAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyAPIManager.m; path = APIManager/FamilyAPIManager.m; sourceTree = "<group>"; };
+		843252871D800DC7003D3951 /* UpdateFamilyAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateFamilyAPIManager.h; path = APIManager/UpdateFamilyAPIManager.h; sourceTree = "<group>"; };
+		843252881D800DC7003D3951 /* UpdateFamilyAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateFamilyAPIManager.m; path = APIManager/UpdateFamilyAPIManager.m; sourceTree = "<group>"; };
+		8432528B1D80145D003D3951 /* FamilyInsertKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyInsertKey.h; sourceTree = "<group>"; };
+		8432528C1D801472003D3951 /* FamilyUpdateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyUpdateKey.h; sourceTree = "<group>"; };
+		8432528D1D801491003D3951 /* FamilyInsertReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyInsertReformer.h; sourceTree = "<group>"; };
+		8432528E1D801491003D3951 /* FamilyInsertReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyInsertReformer.m; sourceTree = "<group>"; };
+		843252901D8014A4003D3951 /* FamilyUpdateReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyUpdateReformer.h; sourceTree = "<group>"; };
+		843252911D8014A4003D3951 /* FamilyUpdateReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyUpdateReformer.m; sourceTree = "<group>"; };
+		843252961D801772003D3951 /* MyFamilyInsertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFamilyInsertController.h; sourceTree = "<group>"; };
+		843252971D801772003D3951 /* MyFamilyInsertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFamilyInsertController.m; sourceTree = "<group>"; };
 		8495FBE11D7D1CFD001BF926 /* GoodsMakeOrderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsMakeOrderBar.h; sourceTree = "<group>"; };
 		8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsMakeOrderBar.m; sourceTree = "<group>"; };
 		84C3B7E51D7ECF9A005AC61B /* ParticipationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipationAPIManager.h; sourceTree = "<group>"; };
@@ -1326,6 +1358,10 @@
 		731091861D5199310031B443 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				843252851D800DC7003D3951 /* FamilyAPIManager.h */,
+				843252861D800DC7003D3951 /* FamilyAPIManager.m */,
+				843252871D800DC7003D3951 /* UpdateFamilyAPIManager.h */,
+				843252881D800DC7003D3951 /* UpdateFamilyAPIManager.m */,
 				731091881D51998F0031B443 /* MyCourseAPIManager.h */,
 				731091891D51998F0031B443 /* MyCourseAPIManager.m */,
 				731091C71D51B1190031B443 /* MyGrowingTreeAPIManager.h */,
@@ -2104,8 +2140,12 @@
 		73886CC11D4F239500643BBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				843252761D7FE03C003D3951 /* GrowingMainController.h */,
+				843252771D7FE03C003D3951 /* GrowingMainController.m */,
 				BB159CA21D4F3ABD00F46F09 /* GrowingTreeController.h */,
 				511D72F71D548D6E00B7FA7A /* GrowingTreeController.m */,
+				843252731D7FDFC7003D3951 /* MyGrowingController.h */,
+				843252741D7FDFC7003D3951 /* MyGrowingController.m */,
 				514E9B4D1D5086020064EEFD /* IssueController.h */,
 				514E9B4E1D5086020064EEFD /* IssueController.m */,
 				AC27CB0D1D657E7800240089 /* issueLocationController.h */,
@@ -2182,6 +2222,10 @@
 				5189D4EE1D73BF8600AFC01C /* ChangeHeaderIconController.m */,
 				514A8D921D759C9900912E11 /* ContactServiceController.h */,
 				514A8D931D759C9900912E11 /* ContactServiceController.m */,
+				843252791D7FF354003D3951 /* MyFamilyController.h */,
+				8432527A1D7FF354003D3951 /* MyFamilyController.m */,
+				843252961D801772003D3951 /* MyFamilyInsertController.h */,
+				843252971D801772003D3951 /* MyFamilyInsertController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2233,6 +2277,10 @@
 				513A4A911D732CF1008AA661 /* MyQuestionSectionView.m */,
 				5168D6E71D7666D400496453 /* ContactServiceCell.h */,
 				5168D6E81D7666D400496453 /* ContactServiceCell.m */,
+				8432526D1D7FB90C003D3951 /* MyFamilyCell.h */,
+				8432526E1D7FB90C003D3951 /* MyFamilyCell.m */,
+				8432527C1D7FFCFC003D3951 /* MyFamilyDetailCell.h */,
+				8432527D1D7FFCFC003D3951 /* MyFamilyDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2697,6 +2745,12 @@
 				5167DA431D6EDB8000A67457 /* MyOrderPayKey.h */,
 				5167DA401D6EDB7100A67457 /* MyOrderPayReformer.h */,
 				5167DA411D6EDB7100A67457 /* MyOrderPayReformer.m */,
+				8432528B1D80145D003D3951 /* FamilyInsertKey.h */,
+				8432528D1D801491003D3951 /* FamilyInsertReformer.h */,
+				8432528E1D801491003D3951 /* FamilyInsertReformer.m */,
+				8432528C1D801472003D3951 /* FamilyUpdateKey.h */,
+				843252901D8014A4003D3951 /* FamilyUpdateReformer.h */,
+				843252911D8014A4003D3951 /* FamilyUpdateReformer.m */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -3227,6 +3281,7 @@
 				732A96AA1D5E957800BE5800 /* CTMediator+CTMediatorActivityActions.m in Sources */,
 				AC2F2B9E1D5C4D5E0069B411 /* RechargeWeChatAndAliCell.m in Sources */,
 				519E9F3D1D66F18200129EAC /* SelectMenuController.m in Sources */,
+				8432528F1D801491003D3951 /* FamilyInsertReformer.m in Sources */,
 				BB68C96E1D506D500037DA9F /* MBNewFeatureController.m in Sources */,
 				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
@@ -3274,6 +3329,7 @@
 				511D72F81D548D6E00B7FA7A /* GrowingTreeController.m in Sources */,
 				AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */,
 				73886D2D1D4F735D00643BBA /* LDAppContext.m in Sources */,
+				8432526F1D7FB90C003D3951 /* MyFamilyCell.m in Sources */,
 				BB4E4EFF1D54838C000A0855 /* ScanResultViewController.m in Sources */,
 				BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */,
 				731092021D520FA10031B443 /* GrowingTreePublishAPIManager.m in Sources */,
@@ -3287,7 +3343,9 @@
 				AC7CDFAA1D77BC520010D711 /* changeMyInfoAPIManager.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
 				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
+				843252891D800DC7003D3951 /* FamilyAPIManager.m in Sources */,
 				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
+				843252751D7FDFC7003D3951 /* MyGrowingController.m in Sources */,
 				AC540B001D62C16D007636CE /* payRequsestHandler.mm in Sources */,
 				AC3D77DF1D6444CC00AAA3A0 /* MBLocationManager.m in Sources */,
 				731091CC1D51B28D0031B443 /* MyOrderAPIManager.m in Sources */,
@@ -3317,6 +3375,7 @@
 				512F17D71D6C926F00E19DF3 /* RHADScrollView.m in Sources */,
 				51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */,
 				AC540ADC1D61B640007636CE /* DataSigner.m in Sources */,
+				8432527E1D7FFCFC003D3951 /* MyFamilyDetailCell.m in Sources */,
 				BB1E8A5B1D5703C70078D083 /* MBSaleCell.m in Sources */,
 				73AC78301D6BD5FF00A81078 /* MemberModel.m in Sources */,
 				73886D851D508B0200643BBA /* ActivityRegisterListReformer.m in Sources */,
@@ -3393,6 +3452,7 @@
 				517F99311D57A6FB002609E5 /* MySettingController.m in Sources */,
 				73886D301D4F735D00643BBA /* LDLoggerConfiguration.m in Sources */,
 				735C3B151D655A5000E4DB90 /* CourseRegistrationCell.m in Sources */,
+				843252981D801772003D3951 /* MyFamilyInsertController.m in Sources */,
 				51B875DC1D503DD80082558D /* ActivityListController.m in Sources */,
 				BB717C141D7432F20077CAD1 /* StoreDetailInfoAPIManager.m in Sources */,
 				734CC3C61D59A081000AAA27 /* iCarousel.m in Sources */,
@@ -3404,6 +3464,7 @@
 				AC6E138D1D5DC9A600A7C71D /* MyRechargeReformer.m in Sources */,
 				BB717BFB1D742C230077CAD1 /* VideosDetailController.m in Sources */,
 				BB159CC21D4F473200F46F09 /* BaseNavigationController.m in Sources */,
+				843252921D8014A4003D3951 /* FamilyUpdateReformer.m in Sources */,
 				73DD01E41D6E5ACE0092C74A /* CourseRegisterListReformer.m in Sources */,
 				73886D841D508B0200643BBA /* ActivityRegisterReformer.m in Sources */,
 				739F21101D6AA93A00F2CF6A /* LevelController.m in Sources */,
@@ -3436,6 +3497,7 @@
 				AC540B011D62C16D007636CE /* WXUtil.mm in Sources */,
 				512D16DB1D61D19100574307 /* GoodsListAPIManager.m in Sources */,
 				BB613AD21D598B5F004DE299 /* ClerkListController.m in Sources */,
+				8432528A1D800DC7003D3951 /* UpdateFamilyAPIManager.m in Sources */,
 				732A96B11D5E9D4B00BE5800 /* Target_Activity.m in Sources */,
 				BB159CA11D4F3A8A00F46F09 /* MyController.m in Sources */,
 				AC3D77D31D63276000AAA3A0 /* MyRechargeWeChatAPIManager.m in Sources */,
@@ -3459,6 +3521,7 @@
 				51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */,
 				AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */,
 				AC540ADD1D61B640007636CE /* DataVerifier.m in Sources */,
+				843252781D7FE03C003D3951 /* GrowingMainController.m in Sources */,
 				AC27CB211D6A98A500240089 /* MyOrderDetailReformer.m in Sources */,
 				5198439C1D6D920500A69A33 /* MyCommentController.m in Sources */,
 				51ACDDF21D640675001604A6 /* GoodsParameterCell.m in Sources */,
@@ -3483,6 +3546,7 @@
 				73575F3B1D549D6B0037F697 /* AppCache.m in Sources */,
 				73886D351D4F735D00643BBA /* LDService.m in Sources */,
 				51D3D75C1D6444D20062D288 /* OrdersDetailHeader.m in Sources */,
+				8432527B1D7FF354003D3951 /* MyFamilyController.m in Sources */,
 				BB717C1D1D7433AC0077CAD1 /* StoreDetailReformer.m in Sources */,
 				BB4E4EFC1D546AFD000A0855 /* ScanViewController.m in Sources */,
 				5167DA421D6EDB7100A67457 /* MyOrderPayReformer.m in Sources */,

@@ -98,8 +98,6 @@
     {
         [self.sexLabel setText:@"未知"];
     }
-    
-    
 }
 
 #pragma -
@@ -131,7 +129,6 @@
     if (!_nameLabel) {
         
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text = @"王鹿晗";
         _nameLabel.font = H3;
         _nameLabel.textColor = COLOR_WHITE;
     }
@@ -143,7 +140,6 @@
     if (!_sexLabel) {
         
         _sexLabel = [[UILabel alloc] init];
-        _sexLabel.text = @"男";
         _sexLabel.font = H3;
         _sexLabel.textColor = COLOR_WHITE;
     }
