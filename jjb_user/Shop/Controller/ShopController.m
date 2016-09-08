@@ -169,7 +169,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         detail.VideosID=[ary[0][kShopIndexVideoID] integerValue];
         _courseImageStr = ary[0][kShopIndexCourseImg];
         //如果课程名称为空，则弹出提示
-        if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr.length == 0) {
+        if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr == nil) {
             UIView * view = [self.view toastViewForMessage:@"尚无课程视频" title:nil image:nil style:nil];
             [self.view showToast:view duration:1.0 position:CSToastPositionCenter completion:^(BOOL didTap) {
                 
