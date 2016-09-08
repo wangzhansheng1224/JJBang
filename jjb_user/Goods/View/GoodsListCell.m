@@ -101,7 +101,6 @@
     if (!_titleLabel) {
         
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"摩卡 咖啡";
         _titleLabel.font = H2;
     }
     return _titleLabel;
@@ -126,7 +125,6 @@
         _priceLabel = [[UILabel alloc] init];
         _priceLabel.textColor = COLOR_ORANGE;
         _priceLabel.textAlignment = NSTextAlignmentRight;
-        _priceLabel.text = @"￥128";
         _priceLabel.font = H1;
     }
     return _priceLabel;

@@ -83,7 +83,6 @@
 {
     if (_starTeacherNameLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"亓凯";
         label.font = H4;
         label.textAlignment  = NSTextAlignmentLeft;
         

@@ -23,7 +23,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 @property (nonatomic,strong) ActivityDetailController *detail;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-@property(nonatomic,assign) NSInteger oldShopID;
+@property (nonatomic,assign) NSInteger shopID;
 
 @end
 
@@ -37,16 +37,23 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [self.view setBackgroundColor:[UIColor clearColor]];
     self.pageIndex=0;
     self.pageSize=10;
+    self.shopID = [ShopModel currentShop].shopID;
     [self.view addSubview:self.tableView];
+    [self.activityListAPIManager loadData];
 //    [self.tableView.mj_header beginRefreshing];
-    self.oldShopID = [ShopModel currentShop].shopID;
-    
- 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSLog(@"更改前的%ld",self.shopID);
+    self.navigationController.navigationBarHidden = YES;
+    if (self.shopID != [ShopModel currentShop].shopID) {
+        [self.tableView.mj_header beginRefreshing];
+        self.shopID = [ShopModel currentShop].shopID;
+    }
+    NSLog(@"更改后的%ld",self.shopID);
+
     [self.tableView.mj_header beginRefreshing];
 //    self.navigationController.navigationBarHidden = YES;
 }
@@ -77,11 +84,10 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     [super didReceiveMemoryWarning];
     
 }
+- (void)dealloc {
 
--(void)dealloc
-{
-    
 }
+
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -144,6 +150,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
     JJBLog(@"manager = %@",manager);
 
     if ([manager isKindOfClass:[_activityListAPIManager class]]) {
+        NSLog(@"结论是大哥%ld",[ShopModel currentShop].shopID);
+
         return @{
                  @"shop_id":@([ShopModel currentShop].shopID),
                  @"user_id":@([UserModel currentUser].userID),
@@ -151,6 +159,7 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
                  @"count":@(self.pageSize),
                  @"isOwn":@"0"
                  };
+
     }
     return nil;
 }

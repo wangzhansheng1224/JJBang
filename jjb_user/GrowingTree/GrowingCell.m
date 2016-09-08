@@ -187,7 +187,6 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text = @"王老师";
         _nameLabel.font = H3;
         [_nameLabel sizeToFit];
     }
@@ -199,7 +198,6 @@
     if (!_timeLabel) {
         
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.text = @"5小时";
         _timeLabel.font = H4;
         _timeLabel.textColor = COLOR_GRAY;
         [_timeLabel sizeToFit];
@@ -235,7 +233,6 @@
     
     if (!_locLabel) {
         _locLabel = [[UILabel alloc] init];
-        _locLabel.text = @"北京望湖公园店";
         _locLabel.textColor = COLOR_ORANGE;
         _locLabel.font = H6;
     }

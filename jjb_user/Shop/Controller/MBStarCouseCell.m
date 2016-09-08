@@ -142,7 +142,6 @@
 {
     if (_couseNameLabel == nil) {
         _couseNameLabel = [[UILabel alloc]init];
-        _couseNameLabel.text = @"少儿美术";
         _couseNameLabel.font = H4;
         _couseNameLabel.textColor = COLOR_DARK_GRAY;
         [_couseNameLabel sizeToFit];
@@ -153,7 +152,6 @@
 {
     if (_numbercouseLabel == nil) {
         _numbercouseLabel = [[UILabel alloc]init];
-        _numbercouseLabel.text = @"98人报名";
         _numbercouseLabel.font = H5;
         _numbercouseLabel.textColor = COLOR_DARK_GRAY;
         _numbercouseLabel.textAlignment=NSTextAlignmentRight;

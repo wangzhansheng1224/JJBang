@@ -115,7 +115,6 @@
         
         _label_status = [[UILabel alloc] init];
         _label_status.textAlignment = NSTextAlignmentCenter;
-        _label_status.text = @"进行中";
         _label_status.font = H3;
         _label_status.textColor = COLOR_WHITE;
         _label_status.numberOfLines = 1;
@@ -129,7 +128,6 @@
     if (!_label_title) {
         
         _label_title = [[UILabel alloc] init];
-        _label_title.text = @"三峡游开始了，大家快快报名吧";
         _label_title.font = H2;
         [_label_title sizeToFit];
         _label_title.textColor = [UIColor blackColor];
@@ -143,7 +141,6 @@
     if (!_label_location) {
         
         _label_location = [[UILabel alloc] init];
-        _label_location.text = @"社区儿童成长中心兴源店";
         _label_location.textColor = COLOR_GRAY;
         _label_location.font = H4;
         _label_location.numberOfLines = 0;
@@ -157,7 +154,6 @@
     if (!_label_time) {
         
         _label_time = [[UILabel alloc] init];
-        _label_time.text = @"08-02 00:00至08-02 24:00";
         _label_time.textColor = COLOR_GRAY;
         [_label_time sizeToFit];
         _label_time.font = H4;

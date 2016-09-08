@@ -79,7 +79,6 @@
 {
     if (_orderPriceLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"￥ 1080";
         label.textColor = COLOR_ORANGE;
         [label sizeToFit];
         _orderPriceLabel = label;
@@ -92,7 +91,6 @@
     if(_orderNameLabel == nil)
     {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"少儿体育";
         [label sizeToFit];
         _orderNameLabel = label;
         [self addSubview:label];

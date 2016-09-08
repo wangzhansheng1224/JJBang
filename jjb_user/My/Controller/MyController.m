@@ -23,6 +23,8 @@
 #import "ContactServiceController.h"
 #import "ImgModel.h"
 #import "ChangeHeaderIconController.h"
+#import "MyFamilyCell.h"
+#import "MyFamilyController.h"
 
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -102,8 +104,9 @@
 #pragma -
 #pragma mark - CustomMethods
 - (void)loadData {
-    NSArray *array_image1 = @[@"my_order", @"my_course"];
-    NSArray * array_title1 = @[@"我的订单", @"我的课程"];
+    
+    NSArray *array_image1 = @[@""];
+    NSArray * array_title1 = @[@"我的家庭"];
     NSMutableArray * array_section1 = [[NSMutableArray alloc] init];
     for (int i = 0; i < array_image1.count; i++) {
         MineModel * model = [[MineModel alloc] init];
@@ -112,8 +115,9 @@
         [array_section1 addObject:model];
     }
     [self.dataArr addObject:array_section1];
-    NSArray * array_image2 = @[@"my_help", @"my_service", @"my_more"];
-    NSArray * array_title2 = @[@"帮助与反馈", @"联系客服", @"更多"];
+    
+    NSArray *array_image2 = @[@"my_order", @"my_course"];
+    NSArray * array_title2 = @[@"我的订单", @"我的课程"];
     NSMutableArray * array_section2 = [[NSMutableArray alloc] init];
     for (int i = 0; i < array_image2.count; i++) {
         MineModel * model = [[MineModel alloc] init];
@@ -122,6 +126,16 @@
         [array_section2 addObject:model];
     }
     [self.dataArr addObject:array_section2];
+    NSArray * array_image3 = @[@"my_help", @"my_service", @"my_more"];
+    NSArray * array_title3 = @[@"帮助与反馈", @"联系客服", @"更多"];
+    NSMutableArray * array_section3 = [[NSMutableArray alloc] init];
+    for (int i = 0; i < array_image3.count; i++) {
+        MineModel * model = [[MineModel alloc] init];
+        model.image = array_image3[i];
+        model.title = array_title3[i];
+        [array_section3 addObject:model];
+    }
+    [self.dataArr addObject:array_section3];
 }
 
 #pragma mark -- tableView headerView
@@ -152,21 +166,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        MyFamilyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFamilyCellIdentifier" forIndexPath:indexPath];
+        return cell;
+    }else {
+        MineTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MineTableViewCellIdentifier" forIndexPath:indexPath];
     
-    MineTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    if (indexPath.row < [self.dataArr[indexPath.section] count]) {
+        if (indexPath.row < [self.dataArr[indexPath.section] count]) {
         
-        MineModel * model = self.dataArr[indexPath.section][indexPath.row];
+            MineModel * model = self.dataArr[indexPath.section][indexPath.row];
         
-        [cell refreshCellWithModel:model];
-        
+            [cell refreshCellWithModel:model];
+        }
+        return cell;
     }
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.section == 0) {
+        return 200.0f;
+    }
     return 50.0f;
 }
 
@@ -183,6 +202,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            MyFamilyController *family = [[MyFamilyController alloc] init];
+            UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:family];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             MyOrderPayController *order = [[MyOrderPayController alloc] init];
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:order];
@@ -244,7 +269,8 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-        [_tableView registerClass:[MineTableViewCell class] forCellReuseIdentifier:@"Cell"];
+        [_tableView registerClass:[MineTableViewCell class] forCellReuseIdentifier:@"MineTableViewCellIdentifier"];
+        [_tableView registerClass:[MyFamilyCell class] forCellReuseIdentifier:@"MyFamilyCellIdentifier"];
     }
     return _tableView;
 }

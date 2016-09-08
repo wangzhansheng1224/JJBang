@@ -71,7 +71,6 @@
     if (!_label_name) {
         
         _label_name = [[UILabel alloc] init];
-        _label_name.text = @"王璐璐";
         _label_name.font = H3;
         _label_name.textColor = COLOR_DARK_GRAY;
     }

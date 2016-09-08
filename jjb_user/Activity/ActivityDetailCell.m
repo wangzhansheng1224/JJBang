@@ -12,7 +12,8 @@
 @interface ActivityDetailCell ()
 
 @property (nonatomic,strong) UIView *view_line;
-@property (nonatomic,strong) UIWebView *detailWebView;
+//@property (nonatomic,strong) UIWebView *detailWebView;
+@property (nonatomic,strong) UILabel *detailLabel;
 
 @end
 
@@ -25,7 +26,7 @@
     if (self)
     {
         [self addSubview:self.view_line];
-        [self addSubview:self.detailWebView];
+        [self addSubview:self.detailLabel];
         [self layoutPageSubviews];
     }
     return self;
@@ -44,19 +45,39 @@
         make.height.mas_equalTo(@(10));
     }];
 
-    [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(superView.mas_left).offset(10);
+//        make.right.mas_equalTo(superView.mas_right).offset(-10);
+//        make.top.equalTo(self.view_line.mas_bottom);
+//        make.height.equalTo(@(Screen_Height-380));
+//    }];
+    [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
         make.top.equalTo(self.view_line.mas_bottom);
         make.height.equalTo(@(Screen_Height-380));
     }];
-    
 }
 
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSDictionary *)data{
-    [self.detailWebView loadHTMLString:data[kActivityDetailContent] baseURL:nil];
+//    [self.detailWebView loadHTMLString:data[kActivityDetailContent] baseURL:nil];
+    [self.detailLabel setText:data[kActivityDetailContent]];
+    CGSize size = [data[kActivityDetailContent] boundingRectWithSize:CGSizeMake(Screen_Width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
+    
+    float height = size.height;
+    
+    if ([data[kActivityDetailContent] length] <= 0) {
+        height = 0;
+    }
+    
+    [_detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(height));
+        make.left.mas_equalTo(self.mas_left).offset(10);
+        make.right.mas_equalTo(self.mas_right).offset(-10);
+        make.top.equalTo(self.view_line.mas_bottom);
+    }];
 }
 
 
@@ -72,13 +93,23 @@
     return _view_line;
 }
 
--(UIWebView*) detailWebView{
-    
-    if (!_detailWebView) {
-        _detailWebView=[[UIWebView alloc] initWithFrame:CGRectMake(0, Screen_Height-330, Screen_Width, Screen_Height)];
-        _detailWebView.backgroundColor=COLOR_WHITE;
+//-(UIWebView*) detailWebView{
+//    
+//    if (!_detailWebView) {
+//        _detailWebView=[[UIWebView alloc] initWithFrame:CGRectMake(0, Screen_Height-330, Screen_Width, Screen_Height)];
+//        _detailWebView.backgroundColor=COLOR_WHITE;
+//    }
+//    return _detailWebView;
+//}
+- (UILabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [[UILabel alloc] init];
+        _detailLabel.font = H3;
+        _detailLabel.textColor = COLOR_GRAY;
+        _detailLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _detailLabel.numberOfLines = 0;
     }
-    return _detailWebView;
+    return _detailLabel;
 }
 
 @end

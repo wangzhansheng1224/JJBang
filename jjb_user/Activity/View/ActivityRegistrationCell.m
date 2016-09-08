@@ -110,7 +110,6 @@
         _nicknameLabel.textColor=COLOR_GRAY;
         _nicknameLabel.numberOfLines = 1;
         [_nicknameLabel sizeToFit];
-        _nicknameLabel.text = @"活动规则";
     }
     return _nicknameLabel;
 }
@@ -123,7 +122,6 @@
         _remarkLabel.font = H4;
         _remarkLabel.numberOfLines = 0;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        _remarkLabel.text = @"围绕户外美食的文章，图片均可以参加。充分体现在野外活动中快捷，方便制作户外美食和户外和谐氛围的全过程。";
         [_remarkLabel setContentMode:UIViewContentModeTop];
         
     }

@@ -72,7 +72,6 @@
         _descLabel = [[UILabel alloc] init];
         _descLabel.text = @"第一节课 拉伸运动";
         _descLabel.font = H4;
-//        _descLabel.backgroundColor=JJBRandomColor;
         _descLabel.textColor=COLOR_GRAY;
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _descLabel.numberOfLines = 0;

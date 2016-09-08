@@ -88,7 +88,6 @@
     if (!_label_title) {
         
         _label_title = [[UILabel alloc] init];
-        _label_title.text = @"三峡游开始了，大家快快报名吧";
         _label_title.font = H2;
         [_label_title sizeToFit];
         _label_title.numberOfLines = 1;
@@ -100,7 +99,6 @@
     
     if (!_label_num) {
         _label_num = [[UILabel alloc] init];
-        _label_num.text = @"20人报名";
         _label_num.font = H3;
         _label_num.textAlignment=NSTextAlignmentRight;
         _label_num.textColor=COLOR_GRAY;

@@ -122,7 +122,6 @@
         _remarkLabel.numberOfLines = 0;
         _remarkLabel.textColor=COLOR_GRAY;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        //_remarkLabel.text = @"心情不错";
         [_remarkLabel setContentMode:UIViewContentModeTop];
         
     }
