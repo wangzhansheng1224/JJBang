@@ -21,11 +21,13 @@
 
 @implementation ActivityController
 
+
 #pragma mark -- life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.titleView=self.tabbarControl;
+    
     JJBLog(@"ActivityController_viewDidLoad");
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -33,9 +35,8 @@
     [super viewWillAppear:animated];
     [self.view addSubview:self.list.view];
     [self.tabbarControl setSelectedSegmentIndex:0];
+
 }
-
-
 #pragma -
 #pragma mark - event response
 - (void)ActivityTabBarControlChangeValue:(id)sender{

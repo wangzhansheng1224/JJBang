@@ -366,6 +366,7 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
+    
     if ([manager isKindOfClass:[ShopListAPIManager class]]) {
         NSMutableArray *resultData=[manager fetchDataWithReformer:self.shopIndexReformer];
         self.shopList=resultData;
@@ -408,7 +409,12 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [self.tableView reloadData];
 
     }
+    //注册门店ID通知
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ShopIndexShopIDNotification" object:self];
+    });
     
+
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
