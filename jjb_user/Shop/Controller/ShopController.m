@@ -370,6 +370,11 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         [self.view hideToastActivity];
         self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
         NSArray * arr = self.dataDic[kShopIndexActImg];
+        
+        NSString *shopIDString = [NSString stringWithFormat:@"%ld",[ShopModel currentShop].shopID ];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setValue:shopIDString forKey:kShopIndexShopID];
+        
         NSMutableArray * mutArr = [[NSMutableArray alloc] init];
         for (int i = 0; i < arr.count; i++) {
             

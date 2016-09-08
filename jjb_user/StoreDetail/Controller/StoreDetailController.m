@@ -107,6 +107,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
         self.storeDetailDictionary = [manager fetchDataWithReformer:self.storeDetailReformer];
         [self.headerView configWithData:_storeDetailDictionary];
         [self.tableView.mj_header endRefreshing];
+        JJBLog(@"xiangqing:%@",self.storeDetailDictionary);
         [self.tableView reloadData];
     }
 }
