@@ -50,19 +50,20 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 @interface ShopController()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UITableViewDelegate,UITableViewDataSource, RHADScrollViewDelegate>
 @property (nonatomic,strong) LDAPIBaseManager *shopIndexAPIManager;
 @property (nonatomic,strong) LDAPIBaseManager * shopListAPIManager;
-@property(nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
+@property (nonatomic,strong) id<ReformerProtocol> shopIndexReformer;
 
-@property(nonatomic,weak) UICollectionView * collectionView;
+@property (nonatomic,weak) UICollectionView * collectionView;
 @property (nonatomic,strong) UIBarButtonItem * scanButton;  //扫描按钮
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ScanViewController *scanController;
-@property(nonatomic,strong) NSDictionary *dataDic;
-@property(nonatomic,assign) double currentLongitude;  //当前经度
-@property(nonatomic,assign) double currentLatitude;    //当前纬度
+@property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,assign) double currentLongitude;  //当前经度
+@property (nonatomic,assign) double currentLatitude;    //当前纬度
 @property (nonatomic,copy) NSMutableArray *shopList;
 @property (nonatomic,strong) ShopModel *currentShop;
-@property(nonatomic,strong) RHADScrollView * adScrollView;
-@property(nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
+@property (nonatomic,strong) RHADScrollView * adScrollView;
+@property (nonatomic,strong) MBNavgationCenterView * coustomNavCenterView; //自定义的导航栏中间View
+@property (nonatomic,copy) NSString *courseImageStr;//直播课程图片字符串
 @end
 
 @implementation ShopController
@@ -165,9 +166,17 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if (indexPath.section==3){
         VideosDetailController* detail= [[VideosDetailController alloc] init];
         NSArray *ary = self.dataDic[@"VideosList"];
-        detail.VideosID=[ary[indexPath.row][kShopIndexVideoID] integerValue];
-        [self.navigationController pushViewController:detail animated:YES];
-
+        detail.VideosID=[ary[0][kShopIndexVideoID] integerValue];
+        _courseImageStr = ary[0][kShopIndexCourseImg];
+        //如果课程名称为空，则弹出提示
+        if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr.length == 0) {
+            UIView * view = [self.view toastViewForMessage:@"尚无课程视频" title:nil image:nil style:nil];
+            [self.view showToast:view duration:1.0 position:CSToastPositionCenter completion:^(BOOL didTap) {
+                
+            }];
+        }else{
+           [self.navigationController pushViewController:detail animated:YES];
+        }
     }
         
 }
@@ -244,12 +253,18 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
         titleBar.frame=CGRectMake(0, 0, Screen_Width, 30);
         [cell.contentView addSubview:titleBar];
         
-        VideosListController *video = [[VideosListController alloc]init];
-        [titleBar moreButtonClick:^(TitleBar *sender) {
-//            UIViewController *controller= [[CTMediator sharedInstance] CTMediator_VideosList:nil];
-            [self.navigationController pushViewController:video animated:YES];
-        }];
-
+            VideosListController *video = [[VideosListController alloc]init];
+            [titleBar moreButtonClick:^(TitleBar *sender) {
+                //如果课程名称为空，则弹出提示
+                if ( [_courseImageStr isKindOfClass:[NSNull class]] ||_courseImageStr == NULL || _courseImageStr.length == 0) {
+                    UIView * view = [self.view toastViewForMessage:@"尚无课程视频" title:nil image:nil style:nil];
+                    [self.view showToast:view duration:1.0 position:CSToastPositionCenter completion:^(BOOL didTap) {
+                        
+                    }];
+                }else{
+                   [self.navigationController pushViewController:video animated:YES];
+                }
+            }];
         return cell;
     }
     else if(indexPath.section == 4)
@@ -569,5 +584,4 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 
     
 }
-
 @end

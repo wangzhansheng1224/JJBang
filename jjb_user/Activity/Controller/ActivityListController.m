@@ -113,8 +113,8 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
-    NSString * string = change[@"new"];
-    NSString * str = change[@"old"];
+//    NSString * string = change[@"new"];
+//    NSString * str = change[@"old"];
 }
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate

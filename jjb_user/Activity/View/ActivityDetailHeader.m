@@ -16,9 +16,7 @@
 
 @property (nonatomic,strong) UILabel *label_status;
 @property (nonatomic,strong) UILabel *label_title;
-@property (nonatomic,strong) UIImageView *imageView_location;
 @property (nonatomic,strong) UILabel *label_location;
-@property (nonatomic,strong) UIImageView *imageView_time;
 @property (nonatomic,strong) UILabel *label_time;
 @property (nonatomic,strong) UIButton *signupButton;
 @property (nonatomic,strong) UIView *view_line;
@@ -37,9 +35,7 @@
         [self addSubview:self.adScrollView];
         [self addSubview:self.label_status];
         [self addSubview:self.label_title];
-        [self addSubview:self.imageView_location];
         [self addSubview:self.label_location];
-        [self addSubview:self.imageView_time];
         [self addSubview:self.label_time];
         [self addSubview:self.signupButton];
         [self addSubview:self.view_line];
@@ -71,30 +67,19 @@
         make.left.mas_equalTo(superView.mas_left).offset(10);
         make.right.mas_equalTo(superView.mas_right).offset(-10);
     }];
-    [_imageView_location mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_label_title.mas_bottom).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(17, 17));
-        make.left.mas_equalTo(superView.mas_left).offset(10);
-    }];
     [_label_location mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(_label_title.mas_bottom).with.offset(8);
-        make.height.equalTo(@17);
-        make.right.mas_equalTo(_signupButton.mas_left);
-        make.left.equalTo(_imageView_location.mas_right).with.offset(8);
-    }];
-    [_imageView_time mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(_imageView_location.mas_bottom).with.offset(8);
-        make.size.mas_equalTo(CGSizeMake(17, 17));
-        make.left.mas_equalTo(superView.mas_left).offset(10);
+        make.top.equalTo(_label_title.mas_bottom).with.offset(5);
+        make.height.equalTo(@30);
+        make.width.mas_equalTo(Screen_Width - 80);
+        make.left.equalTo(superView.mas_left).with.offset(10);
     }];
     [_label_time mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(_label_location.mas_bottom).with.offset(8);
         make.height.equalTo(@17);
         make.right.mas_equalTo(_signupButton.mas_left);
-        make.left.equalTo(_imageView_time.mas_right).with.offset(8);
+        make.left.equalTo(superView.mas_left).with.offset(10);
     }];
     
     [_signupButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,9 +103,9 @@
     self.activity_id=[data[kActivityDetailID] integerValue];
     self.endTimeStr = data[kActivityDetailEndTime];
     [self.label_title setText:data[kActivityDetailTitle]];
-    [self.label_location setText:data[kActivityDetailAddress]];
+    [self.label_location setText:[NSString stringWithFormat:@"活动地址：%@",data[kActivityDetailAddress]]];
     [self.label_status setText:data[kActivityDetailState]];
-    [self.label_time setText:data[kActivityDetailTime]];
+    [self.label_time setText:[NSString stringWithFormat:@"活动时间：%@",data[kActivityDetailTime]]];
     
     NSArray * array = data[kActivityDetailImages];
     
@@ -239,15 +224,6 @@
     }
     return _label_title;
 }
-- (UIImageView *)imageView_location {
-    
-    if (!_imageView_location) {
-        
-        _imageView_location = [[UIImageView alloc] init];
-        _imageView_location.image = [UIImage imageNamed:@"activity_location"];
-    }
-    return _imageView_location;
-}
 - (UILabel *)label_location {
     
     if (!_label_location) {
@@ -255,19 +231,12 @@
         _label_location = [[UILabel alloc] init];
         _label_location.text = @"社区儿童成长中心兴源店";
         _label_location.textColor = COLOR_GRAY;
-        _label_location.font = H4;
+        _label_location.numberOfLines = 0;
+        _label_location.lineBreakMode = NSLineBreakByWordWrapping;
+        _label_location.font = H6;
         [_label_location sizeToFit];
     }
     return _label_location;
-}
-- (UIImageView *)imageView_time {
-    
-    if (!_imageView_time) {
-        
-        _imageView_time = [[UIImageView alloc] init];
-        _imageView_time.image = [UIImage imageNamed:@"activity_time"];
-    }
-    return _imageView_time;
 }
 - (UILabel *)label_time {
     
@@ -277,7 +246,7 @@
         _label_time.text = @"08-02 00:00至08-02 24:00";
         _label_time.textColor = COLOR_GRAY;
         [_label_time sizeToFit];
-        _label_time.font = H4;
+        _label_time.font = H6;
     }
     return _label_time;
 }
