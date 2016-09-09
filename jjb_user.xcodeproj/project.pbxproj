@@ -226,6 +226,7 @@
 		8432528F1D801491003D3951 /* FamilyInsertReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432528E1D801491003D3951 /* FamilyInsertReformer.m */; };
 		843252921D8014A4003D3951 /* FamilyUpdateReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252911D8014A4003D3951 /* FamilyUpdateReformer.m */; };
 		843252981D801772003D3951 /* MyFamilyInsertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843252971D801772003D3951 /* MyFamilyInsertController.m */; };
+		8432529F1D8166D0003D3951 /* ClerkDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432529E1D8166D0003D3951 /* ClerkDetailReformer.m */; };
 		8495FBE31D7D1CFD001BF926 /* GoodsMakeOrderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */; };
 		84C3B7E71D7ECF9A005AC61B /* ParticipationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3B7E61D7ECF9A005AC61B /* ParticipationAPIManager.m */; };
 		AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0EF2B01D6D6D8400054421 /* MBNavgationCenterView.m */; };
@@ -817,6 +818,9 @@
 		843252911D8014A4003D3951 /* FamilyUpdateReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyUpdateReformer.m; sourceTree = "<group>"; };
 		843252961D801772003D3951 /* MyFamilyInsertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFamilyInsertController.h; sourceTree = "<group>"; };
 		843252971D801772003D3951 /* MyFamilyInsertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFamilyInsertController.m; sourceTree = "<group>"; };
+		8432529C1D81669F003D3951 /* ClerkDetailKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailKeys.h; path = Reformer/ClerkDetailKeys.h; sourceTree = "<group>"; };
+		8432529D1D8166D0003D3951 /* ClerkDetailReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailReformer.h; path = Reformer/ClerkDetailReformer.h; sourceTree = "<group>"; };
+		8432529E1D8166D0003D3951 /* ClerkDetailReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailReformer.m; path = Reformer/ClerkDetailReformer.m; sourceTree = "<group>"; };
 		8495FBE11D7D1CFD001BF926 /* GoodsMakeOrderBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsMakeOrderBar.h; sourceTree = "<group>"; };
 		8495FBE21D7D1CFD001BF926 /* GoodsMakeOrderBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsMakeOrderBar.m; sourceTree = "<group>"; };
 		84C3B7E51D7ECF9A005AC61B /* ParticipationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipationAPIManager.h; sourceTree = "<group>"; };
@@ -2033,9 +2037,12 @@
 		735C3AF51D62F2AF00E4DB90 /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */,
 				735C3AF61D62F2DC00E4DB90 /* ClerkListReformer.h */,
 				735C3AF71D62F2DC00E4DB90 /* ClerkListReformer.m */,
-				739F210A1D67CA6F00F2CF6A /* ClerkKeys.h */,
+				8432529C1D81669F003D3951 /* ClerkDetailKeys.h */,
+				8432529D1D8166D0003D3951 /* ClerkDetailReformer.h */,
+				8432529E1D8166D0003D3951 /* ClerkDetailReformer.m */,
 			);
 			name = Reformer;
 			sourceTree = "<group>";
@@ -3308,6 +3315,7 @@
 				732A96C91D5EB25400BE5800 /* Target_Course.m in Sources */,
 				BB1E8A611D5704100078D083 /* MBStarStudentCell.m in Sources */,
 				AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */,
+				8432529F1D8166D0003D3951 /* ClerkDetailReformer.m in Sources */,
 				BB5679EC1D5834E400C2B61D /* ShopClassifyCell.m in Sources */,
 				AC27CB0F1D657E7800240089 /* issueLocationController.m in Sources */,
 				73886D361D4F735D00643BBA /* LDServiceFactory.m in Sources */,

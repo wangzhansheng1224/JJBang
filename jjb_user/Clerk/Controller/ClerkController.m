@@ -13,7 +13,7 @@
 #import "MyGrowingAPIManager.h"
 #import "TeacherDetailCell.h"
 #import "ClerkDetailAPIManager.h"
-#import "ClerkListReformer.h"
+#import "ClerkDetailReformer.h"
 #import "ClerkDetailCell.h"
 /**
  *  店员界面
@@ -258,7 +258,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
 -(id<ReformerProtocol>)detailReformer
 {
     if (_detailReformer == nil) {
-        _detailReformer = [[ClerkListReformer alloc]init];
+        _detailReformer = [[ClerkDetailReformer alloc]init];
     }
     return _detailReformer;
 }

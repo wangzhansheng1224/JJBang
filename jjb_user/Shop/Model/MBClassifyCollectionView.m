@@ -100,7 +100,6 @@ static NSString * const cellID = @"cell";
     }else if(indexPath.row == 2)
     {
         //店员
-//        ClerkListController * clerkListVC = [];
         ClerkListController * clerkListVC = [[ClerkListController alloc]init];
         [navControler pushViewController:clerkListVC animated:YES];
         

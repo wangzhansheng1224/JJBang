@@ -8,6 +8,7 @@
 
 #import "ClerkListReformer.h"
 #import "ClerkListAPIManager.h"
+#import "ClerkDetailAPIManager.h"
 
 NSString * const kClerkID = @"ClerkID";
 NSString * const kClerkFace = @"ClerkFace";
