@@ -1,16 +1,16 @@
 //
-//  TeacherHeaderView.m
+//  ClerkDetailHeaderView.m
 //  jjb_user
 //
 //  Created by Aimee on 16/8/24.
 //  Copyright © 2016年 北京家家帮科技有限公司. All rights reserved.
 //
 
-#import "TeacherHeaderView.h"
-#import "TeacherKeys.h"
+#import "ClerkDetailHeaderView.h"
+#import "ClerkDetailKeys.h"
 #import "StarView.h"
 
-@interface TeacherHeaderView ()
+@interface ClerkDetailHeaderView ()
 
 @property (nonatomic,strong) UILabel *nameLabel;
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation TeacherHeaderView
+@implementation ClerkDetailHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -66,7 +66,7 @@
     }];
     [_sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-//        make.size.mas_equalTo(CGSizeMake(25, 16));
+        make.size.mas_equalTo(CGSizeMake(25, 16));
         make.left.equalTo(self.iconImageV.mas_right).with.offset(14);
         make.top.equalTo(self.nameLabel.mas_bottom).with.offset(6);
     }];
@@ -85,13 +85,13 @@
 
 
 - (void)configWithData:(NSDictionary *)data{
-    NSURL *url=[NSURL initWithImageURL:data[kTeacherPhoto] Width:50 Height:50];
+    NSURL *url=[NSURL initWithImageURL:data[kClerkDetailUserFace] Width:50 Height:50];
     [self.iconImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"user_default"]];
-    [self.nameLabel setText:data[kTeacherName]];
-    //[self.ageLabel setText:data[kTeacherAge]];
-    if ([data[kTeacherSex] integerValue]==1) {
+    [self.nameLabel setText:data[kClerkDetailNickName]];
+    //[self.ageLabel setText:data[kClerkDetailAge]];
+    if ([data[kClerkDetailSex] integerValue]==1) {
         [self.sexLabel setText:@"男"];
-    } else if ([data[kTeacherSex] integerValue]==0)
+    } else if ([data[kClerkDetailSex] integerValue]==0)
     {
         [self.sexLabel setText:@"女"];
     } else
@@ -105,7 +105,6 @@
 - (UIImageView *)picImageV {
     
     if (!_picImageV) {
-        
         _picImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_background"]];
         _picImageV.backgroundColor = COLOR_GRAY;
     }

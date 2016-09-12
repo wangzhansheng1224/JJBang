@@ -145,7 +145,6 @@
 		73575F781D54EEA00037F697 /* CTMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F761D54EEA00037F697 /* CTMediator.m */; };
 		73575F821D553C510037F697 /* CTMediator+CTMediatorSystemActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F811D553C510037F697 /* CTMediator+CTMediatorSystemActions.m */; };
 		73575F861D5546B80037F697 /* Target_System.m in Sources */ = {isa = PBXBuildFile; fileRef = 73575F851D5546B80037F697 /* Target_System.m */; };
-		735C3AF01D62F1E300E4DB90 /* ClerkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3AEF1D62F1E300E4DB90 /* ClerkListCell.m */; };
 		735C3AF41D62F28500E4DB90 /* ClerkListAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3AF31D62F28500E4DB90 /* ClerkListAPIManager.m */; };
 		735C3AF81D62F2DC00E4DB90 /* ClerkListReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3AF71D62F2DC00E4DB90 /* ClerkListReformer.m */; };
 		735C3AFB1D62F59F00E4DB90 /* StarStudentListAPIManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 735C3AFA1D62F59F00E4DB90 /* StarStudentListAPIManger.m */; };
@@ -293,13 +292,15 @@
 		AC842C941D5C6C320065A71C /* RechargeWeChatAndAliView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC842C931D5C6C320065A71C /* RechargeWeChatAndAliView.m */; };
 		AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */; };
 		AC9C410E1D6FF0CC00EC6C65 /* MyBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */; };
-		AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */; };
 		AC9C41171D74056200EC6C65 /* ClerkDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */; };
 		ACA639361D5B318900BAFF2F /* MyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA639351D5B318900BAFF2F /* MyBalanceViewController.m */; };
 		ACB8BF451D7962C70039A6C1 /* MyBalanceAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB8BF441D7962C70039A6C1 /* MyBalanceAPIManager.m */; };
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
 		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
+		ACF099D31D8284AA0054584D /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */; };
+		ACF099D41D8284AA0054584D /* ClerkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099D01D8284AA0054584D /* ClerkListCell.m */; };
+		ACF099D51D8284AA0054584D /* ClerkDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */; };
 		BB08C10B1D6F53AF006ABE17 /* MyNewPrivilegeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */; };
 		BB1294261D50A6B10048927D /* MBAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294251D50A6B10048927D /* MBAdViewController.m */; };
 		BB1294291D50A8D60048927D /* MBAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1294281D50A8D60048927D /* MBAdItem.m */; };
@@ -642,8 +643,6 @@
 		73575F841D5546B80037F697 /* Target_System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Target_System.h; path = Actions/Target_System.h; sourceTree = "<group>"; };
 		73575F851D5546B80037F697 /* Target_System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Target_System.m; path = Actions/Target_System.m; sourceTree = "<group>"; };
 		735C3AED1D62B97900E4DB90 /* CourseKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseKeys.h; sourceTree = "<group>"; };
-		735C3AEE1D62F1E300E4DB90 /* ClerkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkListCell.h; path = jjb_user/View/ClerkListCell.h; sourceTree = SOURCE_ROOT; };
-		735C3AEF1D62F1E300E4DB90 /* ClerkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkListCell.m; path = jjb_user/View/ClerkListCell.m; sourceTree = SOURCE_ROOT; };
 		735C3AF21D62F28500E4DB90 /* ClerkListAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkListAPIManager.h; path = APIManager/ClerkListAPIManager.h; sourceTree = "<group>"; };
 		735C3AF31D62F28500E4DB90 /* ClerkListAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkListAPIManager.m; path = APIManager/ClerkListAPIManager.m; sourceTree = "<group>"; };
 		735C3AF61D62F2DC00E4DB90 /* ClerkListReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkListReformer.h; path = Reformer/ClerkListReformer.h; sourceTree = "<group>"; };
@@ -1021,8 +1020,6 @@
 		AC9C410A1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFeaturePrivilegecell.m; path = Vendors/Category/MyFeaturePrivilegecell.m; sourceTree = SOURCE_ROOT; };
 		AC9C410C1D6FF0CC00EC6C65 /* MyBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBubbleView.h; path = Vendors/Category/MyBubbleView.h; sourceTree = SOURCE_ROOT; };
 		AC9C410D1D6FF0CC00EC6C65 /* MyBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBubbleView.m; path = Vendors/Category/MyBubbleView.m; sourceTree = SOURCE_ROOT; };
-		AC9C410F1D70580600EC6C65 /* ClerkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailCell.h; path = Vendors/Category/ClerkDetailCell.h; sourceTree = SOURCE_ROOT; };
-		AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailCell.m; path = Vendors/Category/ClerkDetailCell.m; sourceTree = SOURCE_ROOT; };
 		AC9C41151D74056200EC6C65 /* ClerkDetailAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClerkDetailAPIManager.h; path = APIManager/ClerkDetailAPIManager.h; sourceTree = "<group>"; };
 		AC9C41161D74056200EC6C65 /* ClerkDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClerkDetailAPIManager.m; path = APIManager/ClerkDetailAPIManager.m; sourceTree = "<group>"; };
 		ACA639341D5B318900BAFF2F /* MyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBalanceViewController.h; sourceTree = "<group>"; };
@@ -1035,6 +1032,12 @@
 		ACE811201D6AD966006402A5 /* MBOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayController.m; sourceTree = "<group>"; };
 		ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayHeadView.h; sourceTree = "<group>"; };
 		ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayHeadView.m; sourceTree = "<group>"; };
+		ACF099CD1D8284AA0054584D /* ClerkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkDetailCell.h; sourceTree = "<group>"; };
+		ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkDetailCell.m; sourceTree = "<group>"; };
+		ACF099CF1D8284AA0054584D /* ClerkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkListCell.h; sourceTree = "<group>"; };
+		ACF099D01D8284AA0054584D /* ClerkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkListCell.m; sourceTree = "<group>"; };
+		ACF099D11D8284AA0054584D /* ClerkDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkDetailHeaderView.h; sourceTree = "<group>"; };
+		ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkDetailHeaderView.m; sourceTree = "<group>"; };
 		BB08C1091D6F53AF006ABE17 /* MyNewPrivilegeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyNewPrivilegeCell.h; path = jjb_user/My/MyNewPrivilegeCell.h; sourceTree = SOURCE_ROOT; };
 		BB08C10A1D6F53AF006ABE17 /* MyNewPrivilegeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyNewPrivilegeCell.m; path = jjb_user/My/MyNewPrivilegeCell.m; sourceTree = SOURCE_ROOT; };
 		BB1294241D50A6B10048927D /* MBAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAdViewController.h; sourceTree = "<group>"; };
@@ -2771,6 +2774,19 @@
 			path = MBPhoto;
 			sourceTree = "<group>";
 		};
+		ACF099CC1D8284AA0054584D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACF099CD1D8284AA0054584D /* ClerkDetailCell.h */,
+				ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */,
+				ACF099CF1D8284AA0054584D /* ClerkListCell.h */,
+				ACF099D01D8284AA0054584D /* ClerkListCell.m */,
+				ACF099D11D8284AA0054584D /* ClerkDetailHeaderView.h */,
+				ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BB1294201D50A6970048927D /* Ad */ = {
 			isa = PBXGroup;
 			children = (
@@ -2915,7 +2931,7 @@
 				735C3AF51D62F2AF00E4DB90 /* Reformer */,
 				735C3AF11D62F25700E4DB90 /* APIManager */,
 				BB613ACB1D598B0E004DE299 /* Controller */,
-				BB613ACC1D598B0E004DE299 /* View */,
+				ACF099CC1D8284AA0054584D /* View */,
 			);
 			path = Clerk;
 			sourceTree = "<group>";
@@ -2929,17 +2945,6 @@
 				BB613AD11D598B5F004DE299 /* ClerkListController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		BB613ACC1D598B0E004DE299 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				735C3AEE1D62F1E300E4DB90 /* ClerkListCell.h */,
-				735C3AEF1D62F1E300E4DB90 /* ClerkListCell.m */,
-				AC9C410F1D70580600EC6C65 /* ClerkDetailCell.h */,
-				AC9C41101D70580600EC6C65 /* ClerkDetailCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BB68C9681D506D120037DA9F /* NewFeature */ = {
@@ -3164,7 +3169,6 @@
 				TargetAttributes = {
 					73ED4F031D4EFA410022BF79 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = P9MXXT45RU;
 					};
 				};
 			};
@@ -3294,6 +3298,7 @@
 				51F6944C1D609FE20099909A /* StarTeacherController.m in Sources */,
 				BBC3F44A1D51FD22001BCEEF /* MBloginButton.m in Sources */,
 				AC3D77DC1D643F9900AAA3A0 /* MBLocation.m in Sources */,
+				ACF099D51D8284AA0054584D /* ClerkDetailHeaderView.m in Sources */,
 				BB5679EF1D586B5C00C2B61D /* MBClassifyCollectionView.m in Sources */,
 				518CBFA11D74808B00ED9DE8 /* UIButton+Custom.m in Sources */,
 				AC540AE11D61B640007636CE /* RSADataSigner.m in Sources */,
@@ -3330,6 +3335,7 @@
 				731091FC1D51E91E0031B443 /* ActivityListReformer.m in Sources */,
 				51181DBF1D53A96400F54210 /* ActivityInfoCell.m in Sources */,
 				73575F861D5546B80037F697 /* Target_System.m in Sources */,
+				ACF099D31D8284AA0054584D /* ClerkDetailCell.m in Sources */,
 				738F524E1D6D6F2D00AFBD3D /* TeacherTileView.m in Sources */,
 				BB1E8A671D5704380078D083 /* MBStarCouseCell.m in Sources */,
 				512F23411D51773500E33A92 /* MineTableViewCell.m in Sources */,
@@ -3379,6 +3385,7 @@
 				731091851D51991E0031B443 /* MyCourseController.m in Sources */,
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
+				ACF099D41D8284AA0054584D /* ClerkListCell.m in Sources */,
 				AC27CB1D1D6A968A00240089 /* MyOrderDetailAPIManager.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				512F17D71D6C926F00E19DF3 /* RHADScrollView.m in Sources */,
@@ -3525,7 +3532,6 @@
 				BBAE6A441D766A48001032FA /* StoreDetailHeaderView.m in Sources */,
 				73575F451D54D2A20037F697 /* CourseListController.m in Sources */,
 				5168D6EC1D76B4F600496453 /* CourseDetailCell.m in Sources */,
-				AC9C41111D70580600EC6C65 /* ClerkDetailCell.m in Sources */,
 				73575F4F1D54D2D10037F697 /* CourseInfoReformer.m in Sources */,
 				51A033AD1D6B02530058CDD4 /* CoursePackagesAPIManager.m in Sources */,
 				AC2F2B9B1D5C0DEA0069B411 /* MyOrderDetailController.m in Sources */,
@@ -3577,7 +3583,6 @@
 				51A033B31D6C46210058CDD4 /* CourseListCell.m in Sources */,
 				734CC3CC1D5AC591000AAA27 /* ActivityRegistrationCell.m in Sources */,
 				732A96BD1D5EA01300BE5800 /* GoodsDetailController.m in Sources */,
-				735C3AF01D62F1E300E4DB90 /* ClerkListCell.m in Sources */,
 				73886D281D4F735D00643BBA /* UIDevice+IdentifierAddition.m in Sources */,
 				BB717BF61D742C0D0077CAD1 /* VideosListAPIManager.m in Sources */,
 				51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */,
@@ -3757,7 +3762,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3812,7 +3817,7 @@
 					"$(PROJECT_DIR)/jjb_user/AliPay",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabanga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happycity777.jiajiabang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

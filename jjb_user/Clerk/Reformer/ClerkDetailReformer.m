@@ -22,22 +22,17 @@ NSString *const kClerkDetailRoleName=@"kClerkDetailRoleName";
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data {
     if ([manager isKindOfClass:[ClerkDetailAPIManager class]]) {
-        NSMutableArray* resultArr=[[NSMutableArray alloc] initWithCapacity:0];
-        NSArray *dataArr=data[@"data"];
-        for (NSDictionary *dic in dataArr) {
-            
-            [resultArr addObject:@{
-                                    kClerkDetailID:dic[@"user_id"],
-                                    kClerkDetailNickName:dic[@"nickname"],
-                                    kClerkDetailUserFace:dic[@"userface"],
-                                    kClerkDetailSex:dic[@"sex"],
-                                    kClerkDetailAge:dic[@"age"],
-                                    kClerkDetailBrithday:dic[@"birthday"],
-                                    kClerkDetailNotes:dic[@"notes"],
-                                    kClerkDetailRoleName:dic[@"role_name"],
-                                    }];
-        }
-        return resultArr;
+        NSDictionary *dic=data[@"data"];
+            return @{
+                                    kClerkDetailID:dic[@"user_id"]!= [NSNull null]?dic[@"user_id"]:@"",
+                                    kClerkDetailNickName:dic[@"nickname"]!= [NSNull null]?dic[@"nickname"]:@"",
+                                    kClerkDetailUserFace:dic[@"userface"]!= [NSNull null]?dic[@"userface"]:@"",
+                                    kClerkDetailSex:dic[@"sex"]!= [NSNull null]?dic[@"sex"]:@"",
+                                    kClerkDetailAge:dic[@"age"]!= [NSNull null]?dic[@"age"]:@"",
+                                    kClerkDetailBrithday:dic[@"birthday"]!= [NSNull null]?dic[@"birthday"]:@"",
+                                    kClerkDetailNotes:dic[@"notes"]!= [NSNull null]?dic[@"notes"]:@"",
+                                    kClerkDetailRoleName:dic[@"role_name"]!= [NSNull null]?dic[@"role_name"]:@"",
+                                    };
     }
     return nil;
 }

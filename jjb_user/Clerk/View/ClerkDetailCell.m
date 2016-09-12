@@ -15,7 +15,6 @@ NSString * const kClerkTitle = @"ClerkTitle";
 NSString * const kClerkContent = @"ClerkContent";
 @interface ClerkDetailCell ()
 @property(nonatomic,strong) UIView * lineView;
-//@property(nonatomic,strong) TeacherTileView * noteView;
 @property(nonatomic,strong) TeacherTileView * summaryView;
 
 @end
@@ -24,7 +23,6 @@ NSString * const kClerkContent = @"ClerkContent";
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=COLOR_LIGHT_GRAY;
-//        [self addSubview:self.noteView];
         [self addSubview:self.summaryView];
     }
     return self;
@@ -55,10 +53,6 @@ NSString * const kClerkContent = @"ClerkContent";
 
 - (void)configWithData:(NSDictionary *)data{
     
-//    [self.noteView configWithData:@{
-//                                    kClerkTitle:@"个人宣言",
-//                                    kClerkContent:data[kTeacherNotes]
-//                                    }];
     [self.summaryView configWithData:@{
                                        kClerkTitle:@"自我介绍",
                                        kClerkContent:data[kTeacherSummary]
@@ -68,14 +62,6 @@ NSString * const kClerkContent = @"ClerkContent";
 #pragma -
 #pragma mark - getter and setter
 
-//-(TeacherTileView *) noteView
-//{
-//    if (!_noteView) {
-//        _noteView=[[TeacherTileView alloc] init];
-//    }
-//    return _noteView;
-//}
-//
 -(TeacherTileView *) summaryView
 {
     if (!_summaryView) {
