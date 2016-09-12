@@ -39,6 +39,7 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
     self.growingIndex=0;
     [self.view addSubview:self.tableView];
     
+    //7888999
     self.tableView.tableHeaderView=self.headerView;
     
     [self layoutPageSubviews];
@@ -103,6 +104,8 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
     
+    
+    
     if ([manager isKindOfClass:[StoreDetailInfoAPIManager class]]){
         self.storeDetailDictionary = [manager fetchDataWithReformer:self.storeDetailReformer];
         [self.headerView configWithData:_storeDetailDictionary];
@@ -161,6 +164,8 @@ static NSString  *const StoreDetailCellIdentifier=@"StoreDetailCellIdentifier";
 }
 
 - (LDAPIBaseManager *)storeDetailInfoAPIManager {
+    
+    
     if (_storeDetailInfoAPIManager == nil) {
         _storeDetailInfoAPIManager = [StoreDetailInfoAPIManager  sharedInstance];
         _storeDetailInfoAPIManager.delegate=self;

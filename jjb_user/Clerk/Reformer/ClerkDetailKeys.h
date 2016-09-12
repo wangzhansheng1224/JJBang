@@ -19,4 +19,5 @@ extern NSString *const kClerkDetailNotes;//店员介绍
 extern NSString *const kClerkDetailRoleName;//角色
 
 
+
 #endif /* ClerkDetailKeys_h */
