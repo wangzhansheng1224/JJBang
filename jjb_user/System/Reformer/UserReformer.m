@@ -9,6 +9,8 @@
 #import "UserReformer.h"
 #import "UserModel.h"
 #import "LoginAPIManager.h"
+#import "FamilyAPIManager.h"
+#import "UpdateFamilyAPIManager.h"
 
 @implementation UserReformer
 

@@ -16,6 +16,7 @@
     member.id= [dic[@"id"] integerValue];
     member.name=dic[@"name"];
     member.photo=dic[@"photo"];
+    member.role = [dic[@"role"] integerValue];
     return member;
 }
 
@@ -35,6 +36,7 @@
         self.id=[aDecoder decodeIntegerForKey:@"id"];
         self.name=[[aDecoder decodeObjectForKey:@"name"] copy];
         self.photo=[[aDecoder decodeObjectForKey:@"photo"] copy];
+        self.id=[aDecoder decodeIntegerForKey:@"id"];
     }
     return self;
 }
@@ -43,6 +45,7 @@
     [aCoder encodeInteger:self.id forKey:@"id"];
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeObject:self.photo forKey:@"photo"];
+    [aCoder encodeInteger:self.role forKey:@"role"];
 }
 
 @end

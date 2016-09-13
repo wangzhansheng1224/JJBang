@@ -7,6 +7,7 @@
 //
 
 #import "MyFamilyCell.h"
+#import "MemberModel.h"
 
 @interface MyFamilyCell ()
 
@@ -15,8 +16,6 @@
 @property (nonatomic,strong) UILabel *moreLabel;
 @property (nonatomic,strong) UILabel *line;
 @property (nonatomic,strong) UIScrollView *familySV;
-@property (nonatomic,strong) NSMutableArray *nameArr;
-@property (nonatomic,strong) NSMutableArray *photoArr;
 
 @end
 
@@ -29,8 +28,8 @@
         [self.contentView addSubview:self.iconImageV];
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.moreLabel];
-        [self.contentView addSubview:self.line];
         [self.contentView addSubview:self.familySV];
+        [self.contentView addSubview:self.line];
         [self layoutPageSubviews];
     }
     return self;
@@ -60,6 +59,7 @@
         make.right.left.equalTo(@0);
         make.height.equalTo(@1);
     }];
+    
     [_familySV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_line.mas_bottom).with.offset(10);
         make.left.right.equalTo(@0);
@@ -69,11 +69,44 @@
 
 #pragma -
 #pragma mark - configWithData
-- (void)configWithData:(NSDictionary *)data {
-
-    NSDictionary *dic = data[@"myFamily"];
-    self.photoArr = dic[@"familyMember"];
-
+- (void)configWithData:(NSArray *)data {
+    
+    if (data.count > 0) {
+        
+        CGFloat width = 60;
+        int cols = 3;
+        CGFloat margin = (Screen_Width - 100 - cols * width) /4;
+        _familySV.contentSize = CGSizeMake((width + 16) * data.count + 16, 80);
+        _familySV.bounces = NO;
+        _familySV.showsHorizontalScrollIndicator = NO;
+        for (UIView * view in _familySV.subviews) {
+            [view removeFromSuperview];
+        }
+        for (int i = 0; i < data.count; i++) {
+            MemberModel * model = data[i];
+            UIImageView *headerView = [[UIImageView alloc] init];
+            headerView.frame = CGRectMake((width+margin)*i+margin, 0, width, width);
+            headerView.layer.cornerRadius = width/2.0;
+            headerView.clipsToBounds = YES;
+            [headerView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageServer,model.photo]] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageCacheMemoryOnly];
+            
+            UILabel *nameLabel = [[UILabel alloc] init];
+            nameLabel.frame = CGRectMake((width+margin)*i+margin, width+10, width, 20);
+            nameLabel.textAlignment = NSTextAlignmentCenter;
+            [nameLabel setText:model.name];
+            [_familySV addSubview:headerView];
+            [_familySV addSubview:nameLabel];
+        }
+    }else {
+        
+        for (UIView * view in self.familySV.subviews) {
+            
+            if ([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
+                
+                [view removeFromSuperview];
+            }
+        };
+    }
 }
 
 
@@ -99,58 +132,21 @@
         _moreLabel = [[UILabel alloc] init];
         _moreLabel.text = @"更多...";
         _moreLabel.font = H3;
-        _moreLabel.textColor = COLOR_GRAY;
     }
     return _moreLabel;
 }
 - (UILabel *)line {
     if (!_line) {
         _line = [[UILabel alloc] init];
-        _line.backgroundColor = COLOR_LIGHT_GRAY;
     }
     return _line;
 }
 - (UIScrollView *)familySV {
     if (!_familySV) {
-        float width1 = (Screen_Width - 16 * (3 + 1))/3;
         _familySV = [[UIScrollView alloc] init];
-        _familySV.contentSize = CGSizeMake((width1 + 16) * 3 + 16, 30);
-        _familySV.bounces = NO;
-        _familySV.showsHorizontalScrollIndicator = NO;
-        for (int i = 0; i < 10; i++) {
-            UIImageView *headerView = [[UIImageView alloc] init];
-            CGFloat width = 60;
-            int cols = 3;
-            CGFloat margin = (Screen_Width - 80 - cols * width) /4;
-
-//            headerView.frame = CGRectMake(i * (width + 16)+16, 0, width, width);
-            headerView.frame = CGRectMake((width+margin)*i+margin, 0, width, width);
-            headerView.layer.cornerRadius = width/2.0;
-            headerView.clipsToBounds = YES;
-            headerView.backgroundColor = JJBRandomColor;
-            
-            UILabel *nameLabel = [[UILabel alloc] init];
-            nameLabel.frame = CGRectMake((width+margin)*i+margin, width+10, width, 20);
-            nameLabel.backgroundColor = JJBRandomColor;
-            
-            
-            [_familySV addSubview:headerView];
-            [_familySV addSubview:nameLabel];
-        }
     }
     return _familySV;
 }
-- (NSMutableArray *)nameArr {
-    if (!_nameArr) {
-        _nameArr = [[NSMutableArray alloc] init];
-    }
-    return _nameArr;
-}
-- (NSMutableArray *)photoArr {
-    if (!_photoArr) {
-        _photoArr = [[NSMutableArray alloc] init];
-    }
-    return _photoArr;
-}
+
 
 @end

@@ -14,6 +14,8 @@
 #import "MyController.h"
 #import "BaseNavigationController.h"
 #import "UIImage+image.h"
+#import "GrowingMainController.h"
+
 @interface BaseTabBarController ()<MBTabBarDelegate>
 
 @property(nonatomic,strong) NSMutableArray * items;
@@ -66,7 +68,8 @@
     /**
      成长界面
      */
-    GrowingTreeController * growingTreeVC = [[GrowingTreeController alloc]init];
+    GrowingMainController *growingTreeVC = [[GrowingMainController alloc] init];
+//    GrowingTreeController * growingTreeVC = [[GrowingTreeController alloc]init];
     [self setUpOneChildController:growingTreeVC image:[UIImage imageNamed:@"b"] clickImage:[UIImage imageNamed:@"b1"] title:@"动态"];
     /**
      *  活动界面

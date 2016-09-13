@@ -10,4 +10,6 @@
 
 @interface MyFamilyController : UIViewController
 
+@property (nonatomic,strong) NSMutableArray *dataArr;
+
 @end

@@ -40,7 +40,7 @@
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height));
+        make.size.mas_equalTo(CGSizeMake(Screen_Width, Screen_Height - 64));
         make.top.left.equalTo(@0);
     }];
 }
@@ -49,13 +49,13 @@
 #pragma -
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     MyFamilyDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFamilyDetailCellIdentifier" forIndexPath:indexPath];
-    
+    [cell configWithData:self.dataArr[indexPath.row]];;
     return cell;
 }
 
@@ -87,11 +87,10 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];
-//        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//            [self.arrData removeAllObjects];
-//            self.pageIndex=0;
-//            [self.growingTreeListAPIManager loadData];
-//        }];
+        _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [_tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
+        }];
 //        //判断列表数据>=10时才出现上提请求
 //        if ([self.arrData count] >=10){
 //            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{

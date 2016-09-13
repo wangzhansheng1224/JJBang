@@ -30,6 +30,15 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @implementation GrowingTreeController
 
 #pragma mark -- life cycle
+- (id)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDataActivityList:) name:@"ShopIndexShopIDNotification" object:nil];
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,15 +50,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     [self layoutPageSubviews];
     [self.growingTreeListAPIManager loadData];
     [self.tableView reloadData];
-    [self setNav];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
 }
 #pragma -
 #pragma mark - layoutPageSubviews
@@ -64,12 +72,8 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }];
 }
 
-#pragma -
-#pragma mark - set Nav
-- (void)setNav {
-    
-    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"img_pulish"] highImage:[UIImage imageNamed:@"img_pulish"] target:self action:@selector(itemClick)];
-    self.navigationItem.rightBarButtonItem = btn_issue;
+-(void)refreshDataActivityList:(NSNotification *)notification {
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma -
@@ -81,10 +85,12 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
+    if (_arrData.count <= 0) {
+        return cell;
+    }
     if (cell == nil) {
         cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
     }
-    
     NSDictionary * dic = self.arrData[indexPath.row];
     
     [cell configWithData:dic];
@@ -148,16 +154,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 }
 
 #pragma -
-#pragma mark - event response
-- (void)itemClick {
-    IssueController *issueVC= [[IssueController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
-    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:issueVC];
-    [self.navigationController pushViewController:controller animated:YES];
-
-}
-
-#pragma -
 #pragma mark - getter and setter
 - (UITableView *)tableView {
     
@@ -200,7 +196,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     return _growingTreeListAPIManager;
 }
 
-- (id<ReformerProtocol>) growingTreeListReformer{
+- (id<ReformerProtocol>)growingTreeListReformer {
     
     if (!_growingTreeListReformer) {
         _growingTreeListReformer=[[GrowingTreeListReformer alloc] init];

@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView=self.tabbarControl;
-    
+    [self setNav];
     JJBLog(@"ActivityController_viewDidLoad");
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -35,7 +35,10 @@
     [super viewWillAppear:animated];
     [self.view addSubview:self.list.view];
     [self.tabbarControl setSelectedSegmentIndex:0];
-
+}
+- (void)setNav {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:nil];
 }
 #pragma -
 #pragma mark - event response
@@ -64,9 +67,9 @@
     if (!_tabbarControl) {
         _tabbarControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"活动列表",@"我参与的"]];
         _tabbarControl.backgroundColor=[UIColor clearColor];
-        _tabbarControl.frame=CGRectMake(0, 0, 200, 44);
+        _tabbarControl.frame=CGRectMake(0, 0, Screen_Width, 44);
         _tabbarControl.selectionIndicatorColor = COLOR_WHITE;
-        _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H3};
+        _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H1};
         _tabbarControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         _tabbarControl.selectionIndicatorHeight = 2.0f;
         [_tabbarControl addTarget:self action:@selector(ActivityTabBarControlChangeValue:) forControlEvents:UIControlEventValueChanged];

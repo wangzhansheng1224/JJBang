@@ -7,34 +7,42 @@
 //
 
 #import "MyGrowingController.h"
+#import "GrowingCell.h"
+#import "LoginViewController.h"
+#import "MyGrowingAPIManager.h"
+#import "GrowingTreeListReformer.h"
+
+static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 
 @interface MyGrowingController ()<UITableViewDelegate,UITableViewDataSource,LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
 
-@property (nonatomic,strong) LDAPIBaseManager *growingTreeListAPIManager;
+@property (nonatomic,strong) LDAPIBaseManager *myGrowingAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> growingTreeListReformer;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *arrData;
+@property (nonatomic,strong) NSArray *imageArr;
 @property (nonatomic,assign) NSInteger pageIndex;
 @property (nonatomic,assign) NSInteger pageSize;
-@property (nonatomic,strong) NSArray *imageArr;
-
 
 @end
 
 @implementation MyGrowingController
 
 #pragma mark -- life cycle
--(void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.pageIndex=0;
     self.pageSize=10;
     [self.view addSubview:self.tableView];
     [self layoutPageSubviews];
-    [self.growingTreeListAPIManager loadData];
+    [self.myGrowingAPIManager loadData];
     [self.tableView reloadData];
-    [self setNav];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,16 +58,8 @@
         make.top.mas_equalTo(superView.mas_top);
         make.left.mas_equalTo(superView.mas_left);
         make.width.mas_equalTo(superView.mas_width);
-        make.height.mas_equalTo(superView.mas_height);
+        make.height.equalTo(@(Screen_Height - 64 - 50));
     }];
-}
-
-#pragma -
-#pragma mark - set Nav
-- (void)setNav {
-    
-    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"img_pulish"] highImage:[UIImage imageNamed:@"img_pulish"] target:self action:@selector(itemClick)];
-    self.navigationItem.rightBarButtonItem = btn_issue;
 }
 
 #pragma -
@@ -68,41 +68,43 @@
     return [self.arrData count];
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
-//    if (cell == nil) {
-//        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
-//    }
-//    
-//    NSDictionary * dic = self.arrData[indexPath.row];
-//    
-//    [cell configWithData:dic];
-//    return cell;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    NSDictionary * dic = self.arrData[indexPath.row];
-//    self.imageArr = dic[kGrowingTreeListImages];
-//    
-//    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
-//    
-//    float height = size.height;
-//    
-//    if ([dic[kGrowingTreeListContent] length] <= 0) {
-//        
-//        height = 0;
-//    }
-//    
-//    if (self.imageArr.count == 0) {
-//        
-//        return 89 + height;
-//        
-//    }else {
-//        return (self.imageArr.count+2)/3 *85 +93 + height;
-//    }
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    GrowingCell *cell = [tableView dequeueReusableCellWithIdentifier:GrowingCellIdentifier forIndexPath:indexPath];
+    if (_arrData.count <= 0) {
+        return cell;
+    }
+    if (cell == nil) {
+        cell = [[GrowingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GrowingCellIdentifier];
+    }
+    NSDictionary * dic = self.arrData[indexPath.row];
+    
+    [cell configWithData:dic];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary * dic = self.arrData[indexPath.row];
+    self.imageArr = dic[kGrowingTreeListImages];
+    
+    CGSize size = [dic[kGrowingTreeListContent] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H4} context:nil].size;
+    
+    float height = size.height;
+    
+    if ([dic[kGrowingTreeListContent] length] <= 0) {
+        
+        height = 0;
+    }
+    
+    if (self.imageArr.count == 0) {
+        
+        return 89 + height;
+        
+    }else {
+        return (self.imageArr.count+2)/3 *85 +93 + height;
+    }
+}
 
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
@@ -115,8 +117,7 @@
     if(self.pageIndex >= 10){
         [self.tableView.mj_footer endRefreshing];
     }
-    [self.tableView reloadData];
-}
+    [self.tableView reloadData];}
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
     [self.tableView.mj_header endRefreshing];
@@ -124,7 +125,6 @@
     if(self.pageIndex >= 10){
         [self.tableView.mj_footer endRefreshing];
     }
-    //    [self.tableView reloadData];
 }
 
 #pragma -
@@ -132,20 +132,11 @@
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     return @{
              @"shop_id":@([ShopModel currentShop].shopID),
+             @"user_id":@([UserModel currentUser].userID),
              @"start":@(self.pageIndex),
              @"count":@(self.pageSize)
              };
 }
-
-#pragma -
-#pragma mark - event response
-//- (void)itemClick {
-//    IssueController *issueVC= [[IssueController alloc] init];
-//    //    [self.navigationController pushViewController:controller animated:YES];
-//    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:issueVC];
-//    [self.navigationController pushViewController:controller animated:YES];
-//    
-//}
 
 #pragma -
 #pragma mark - getter and setter
@@ -159,15 +150,15 @@
         _tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.arrData removeAllObjects];
             self.pageIndex=0;
-            [self.growingTreeListAPIManager loadData];
+            [self.myGrowingAPIManager loadData];
         }];
         //判断列表数据>=10时才出现上提请求
         if ([self.arrData count] >=10){
             _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                [self.growingTreeListAPIManager loadData];
+                [self.myGrowingAPIManager loadData];
             }];
         }
-//        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
+        [_tableView registerClass:[GrowingCell class] forCellReuseIdentifier:GrowingCellIdentifier];
     }
     return _tableView;
 }
@@ -180,23 +171,22 @@
     return _arrData;
 }
 
-//
-//- (LDAPIBaseManager *)growingTreeListAPIManager {
-//    if (_growingTreeListAPIManager == nil) {
-//        _growingTreeListAPIManager = [GrowingTreeListAPIManager  sharedInstance];
-//        _growingTreeListAPIManager.delegate=self;
-//        _growingTreeListAPIManager.paramSource=self;
-//    }
-//    return _growingTreeListAPIManager;
-//}
-//
-//- (id<ReformerProtocol>) growingTreeListReformer{
-//    
-//    if (!_growingTreeListReformer) {
-//        _growingTreeListReformer=[[GrowingTreeListReformer alloc] init];
-//    }
-//    return _growingTreeListReformer;
-//}
+- (LDAPIBaseManager *)myGrowingAPIManager {
+    if (_myGrowingAPIManager == nil) {
+        _myGrowingAPIManager = [MyGrowingAPIManager  sharedInstance];
+        _myGrowingAPIManager.delegate=self;
+        _myGrowingAPIManager.paramSource=self;
+    }
+    return _myGrowingAPIManager;
+}
+
+- (id<ReformerProtocol>)growingTreeListReformer {
+    
+    if (!_growingTreeListReformer) {
+        _growingTreeListReformer=[[GrowingTreeListReformer alloc] init];
+    }
+    return _growingTreeListReformer;
+}
 
 
 @end

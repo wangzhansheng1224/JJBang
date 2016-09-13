@@ -9,13 +9,13 @@
 #import "GrowingMainController.h"
 #import "GrowingTreeController.h"
 #import "MyGrowingController.h"
+#import "IssueController.h"
 
 @interface GrowingMainController ()
 
 @property (nonatomic,strong) GrowingTreeController *growingTree;
 @property (nonatomic,strong) MyGrowingController *myGrowing;
 @property (nonatomic,strong) HMSegmentedControl  *tabbarControl;
-
 
 @end
 
@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.titleView=self.tabbarControl;
+    [self setNav];
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -35,7 +36,15 @@
     [self.tabbarControl setSelectedSegmentIndex:0];
 }
 
-
+                                              
+#pragma -
+#pragma mark - set Nav
+- (void)setNav {
+    UIBarButtonItem *btn_issue = [UIBarButtonItem itemWithNormalImage:[UIImage imageNamed:@"img_pulish"] highImage:[UIImage imageNamed:@"img_pulish"] target:self action:@selector(itemClick)];
+    self.navigationItem.rightBarButtonItem = btn_issue;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:nil];
+}
+                                              
 #pragma -
 #pragma mark - event response
 - (void)tabBarControlChangeValue:(id)sender{
@@ -56,15 +65,23 @@
 }
 
 #pragma -
+#pragma mark - event response
+- (void)itemClick {
+    IssueController *issueVC= [[IssueController alloc] init];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:issueVC];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma -
 #pragma mark - getters and setters
 - (HMSegmentedControl *)tabbarControl {
     
     if (!_tabbarControl) {
         _tabbarControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"社区动态",@"我的成长"]];
         _tabbarControl.backgroundColor=[UIColor clearColor];
-        _tabbarControl.frame=CGRectMake(0, 0, 200, 44);
+        _tabbarControl.frame=CGRectMake(0, 0, Screen_Width, 44);
         _tabbarControl.selectionIndicatorColor = COLOR_WHITE;
-        _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H3};
+        _tabbarControl.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_WHITE,NSFontAttributeName:H1};
         _tabbarControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         _tabbarControl.selectionIndicatorHeight = 2.0f;
         [_tabbarControl addTarget:self action:@selector(tabBarControlChangeValue:) forControlEvents:UIControlEventValueChanged];

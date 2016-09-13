@@ -12,6 +12,7 @@
 @property (nonatomic,assign) NSInteger id;
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* photo;
+@property (nonatomic,assign) NSInteger role;
 
 + (MemberModel*)JsonParse:(NSDictionary*)dic;
 @end

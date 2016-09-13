@@ -26,6 +26,7 @@
 #import "MyFamilyCell.h"
 #import "MyFamilyController.h"
 
+
 @interface MyController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -78,13 +79,14 @@
     }else {
         self.headerView.isLogin = NO;
     }
+    [self.tableView reloadData];
 }
 
 #pragma -
 #pragma - mark autoLayout
 -(void)layoutSubViews
 {
-       self.headViewConstraintH = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:278.0f];
+    self.headViewConstraintH = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:278.0f];
 
     NSLayoutConstraint *Top = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.headerView.topImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
@@ -138,9 +140,6 @@
     [self.dataArr addObject:array_section3];
 }
 
-#pragma mark -- tableView headerView
-
-
 
 #pragma mark -- Masonry
 - (void)configMasonry {
@@ -168,6 +167,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         MyFamilyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFamilyCellIdentifier" forIndexPath:indexPath];
+        UIViewController *controller = [[CTMediator sharedInstance]CTMediator_CheckIsLogin];
+        if (controller == nil) {
+            
+            [cell configWithData:[UserModel currentUser].myFamily.family_member];
+        }else {
+            
+            [cell configWithData:@[]];
+        }
         return cell;
     }else {
         MineTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MineTableViewCellIdentifier" forIndexPath:indexPath];
@@ -184,7 +191,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 200.0f;
+        return 160.0f;
     }
     return 50.0f;
 }
@@ -198,12 +205,12 @@
     
     return 0.0001;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             MyFamilyController *family = [[MyFamilyController alloc] init];
+            family.dataArr = [UserModel currentUser].myFamily.family_member;
             UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:family];
             [self.navigationController pushViewController:controller animated:YES];
         }

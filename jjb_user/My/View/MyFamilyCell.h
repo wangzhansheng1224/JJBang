@@ -10,6 +10,6 @@
 
 @interface MyFamilyCell : UITableViewCell
 
-- (void)configWithData:(NSDictionary *)data;
+- (void)configWithData:(NSArray *)data;
 
 @end

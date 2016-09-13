@@ -267,7 +267,8 @@
 }
 - (UIScrollView *)membersSV {
     if (!_membersSV) {
-        float width = (Screen_Width - 16 * (_membersData.count + 1))/3;
+//        float width = (Screen_Width - 16 * (_membersData.count + 1))/3;
+        float width = 60;
         _membersSV = [[UIScrollView alloc] init];
         _membersSV.contentSize = CGSizeMake((width + 16) * _membersData.count + 16, 30);
         _membersSV.bounces = NO;

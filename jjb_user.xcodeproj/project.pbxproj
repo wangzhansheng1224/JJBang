@@ -57,7 +57,6 @@
 		51B50F361D6417C5001733C8 /* GoodsDetailReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B50F351D6417C5001733C8 /* GoodsDetailReformer.m */; };
 		51B50F3A1D64193A001733C8 /* GoodsDetailAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B50F391D64193A001733C8 /* GoodsDetailAPIManager.m */; };
 		51B50F3F1D642953001733C8 /* OrdersDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B50F3E1D642953001733C8 /* OrdersDetailController.m */; };
-		51B875CB1D5033D30082558D /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CA1D5033D30082558D /* GrowingCell.m */; };
 		51B875D31D503DB20082558D /* RHMenuButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875CE1D503DB20082558D /* RHMenuButtonItem.m */; };
 		51B875D41D503DB20082558D /* RHMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D01D503DB20082558D /* RHMenuView.m */; };
 		51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875D21D503DB20082558D /* RHMenuViewController.m */; };
@@ -66,7 +65,8 @@
 		51B875DE1D503DD80082558D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875DB1D503DD80082558D /* SponsorViewController.m */; };
 		51B875E11D503E880082558D /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B875E01D503E880082558D /* ActivityListCell.m */; };
 		51C137CD1D702CB700EBEA35 /* MySettingIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C137CC1D702CB700EBEA35 /* MySettingIconCell.m */; };
-		51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */; };
+		51C4513E1D829A540067A8C2 /* MyGrowingAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4513D1D829A540067A8C2 /* MyGrowingAPIManager.m */; };
+		51C4514B1D868D360067A8C2 /* GrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4514A1D868D360067A8C2 /* GrowingCell.m */; };
 		51D348A11D57924E002D761C /* MyHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A01D57924E002D761C /* MyHelpCell.m */; };
 		51D348A41D5797E3002D761C /* MyMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D348A31D5797E3002D761C /* MyMemberController.m */; };
 		51D3D7591D6442FF0062D288 /* OrdersDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3D7581D6442FF0062D288 /* OrdersDetailCell.m */; };
@@ -461,8 +461,6 @@
 		51B50F391D64193A001733C8 /* GoodsDetailAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailAPIManager.m; sourceTree = "<group>"; };
 		51B50F3D1D642953001733C8 /* OrdersDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersDetailController.h; sourceTree = "<group>"; };
 		51B50F3E1D642953001733C8 /* OrdersDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersDetailController.m; sourceTree = "<group>"; };
-		51B875C91D5033D30082558D /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowingCell.h; path = jjb_user/GrowingTree/GrowingCell.h; sourceTree = SOURCE_ROOT; };
-		51B875CA1D5033D30082558D /* GrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowingCell.m; path = jjb_user/GrowingTree/GrowingCell.m; sourceTree = SOURCE_ROOT; };
 		51B875CC1D503DB20082558D /* RHHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHHeader.h; sourceTree = "<group>"; };
 		51B875CD1D503DB20082558D /* RHMenuButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHMenuButtonItem.h; sourceTree = "<group>"; };
 		51B875CE1D503DB20082558D /* RHMenuButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHMenuButtonItem.m; sourceTree = "<group>"; };
@@ -480,8 +478,10 @@
 		51B875E01D503E880082558D /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityListCell.m; path = jjb_user/Activity/ActivityListCell.m; sourceTree = SOURCE_ROOT; };
 		51C137CB1D702CB700EBEA35 /* MySettingIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingIconCell.h; sourceTree = "<group>"; };
 		51C137CC1D702CB700EBEA35 /* MySettingIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingIconCell.m; sourceTree = "<group>"; };
-		51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGrowingAPIManager.h; path = jjb_user/APIManager/MyGrowingAPIManager.h; sourceTree = SOURCE_ROOT; };
-		51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingAPIManager.m; path = jjb_user/APIManager/MyGrowingAPIManager.m; sourceTree = SOURCE_ROOT; };
+		51C4513C1D829A540067A8C2 /* MyGrowingAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGrowingAPIManager.h; path = APIManager/MyGrowingAPIManager.h; sourceTree = "<group>"; };
+		51C4513D1D829A540067A8C2 /* MyGrowingAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGrowingAPIManager.m; path = APIManager/MyGrowingAPIManager.m; sourceTree = "<group>"; };
+		51C451491D868D360067A8C2 /* GrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingCell.h; sourceTree = "<group>"; };
+		51C4514A1D868D360067A8C2 /* GrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingCell.m; sourceTree = "<group>"; };
 		51D3489F1D57924E002D761C /* MyHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHelpCell.h; path = jjb_user/My/MyHelpCell.h; sourceTree = SOURCE_ROOT; };
 		51D348A01D57924E002D761C /* MyHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHelpCell.m; path = jjb_user/My/MyHelpCell.m; sourceTree = SOURCE_ROOT; };
 		51D348A21D5797E3002D761C /* MyMemberController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMemberController.h; sourceTree = "<group>"; };
@@ -1593,6 +1593,8 @@
 			children = (
 				731091C41D51B0660031B443 /* GrowingTreeListAPIManager.h */,
 				731091C51D51B0660031B443 /* GrowingTreeListAPIManager.m */,
+				51C4513C1D829A540067A8C2 /* MyGrowingAPIManager.h */,
+				51C4513D1D829A540067A8C2 /* MyGrowingAPIManager.m */,
 				731092001D520FA10031B443 /* GrowingTreePublishAPIManager.h */,
 				731092011D520FA10031B443 /* GrowingTreePublishAPIManager.m */,
 			);
@@ -1933,8 +1935,6 @@
 			children = (
 				735C3AF91D62F59F00E4DB90 /* StarStudentListAPIManger.h */,
 				735C3AFA1D62F59F00E4DB90 /* StarStudentListAPIManger.m */,
-				51CAC2C41D63028B008B289B /* MyGrowingAPIManager.h */,
-				51CAC2C51D63028B008B289B /* MyGrowingAPIManager.m */,
 				738F523D1D6D262C00AFBD3D /* StudentDetailAPIManager.h */,
 				738F523E1D6D262C00AFBD3D /* StudentDetailAPIManager.m */,
 			);
@@ -2164,12 +2164,12 @@
 		73886CC51D4F239500643BBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51C451491D868D360067A8C2 /* GrowingCell.h */,
+				51C4514A1D868D360067A8C2 /* GrowingCell.m */,
 				738B820A1D5F741D00765F6F /* AlbumImageTileView.h */,
 				738B820B1D5F741D00765F6F /* AlbumImageTileView.m */,
 				738B820C1D5F741D00765F6F /* PublishAlbumTopView.h */,
 				738B820D1D5F741D00765F6F /* PublishAlbumTopView.m */,
-				51B875C91D5033D30082558D /* GrowingCell.h */,
-				51B875CA1D5033D30082558D /* GrowingCell.m */,
 				738B82041D5F485D00765F6F /* TileView.h */,
 				738B82051D5F485D00765F6F /* TileView.m */,
 				738B82071D5F48B500765F6F /* TileViewItem.h */,
@@ -3256,6 +3256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC3F44D1D51FE5E001BCEEF /* MBotherLoginView.m in Sources */,
+				51C4513E1D829A540067A8C2 /* MyGrowingAPIManager.m in Sources */,
 				73886D8B1D508B7D00643BBA /* ActivityRegisterListAPIManager.m in Sources */,
 				735C3AF41D62F28500E4DB90 /* ClerkListAPIManager.m in Sources */,
 				AC0EF2B71D6ECB2500054421 /* ExplainLevelController.m in Sources */,
@@ -3351,7 +3352,6 @@
 				735C3AF81D62F2DC00E4DB90 /* ClerkListReformer.m in Sources */,
 				AC7CDFAA1D77BC520010D711 /* changeMyInfoAPIManager.m in Sources */,
 				73886D1F1D4F735D00643BBA /* LDRequestGenerator.m in Sources */,
-				51B875CB1D5033D30082558D /* GrowingCell.m in Sources */,
 				843252891D800DC7003D3951 /* FamilyAPIManager.m in Sources */,
 				5155CE711D581F0B00306150 /* StudentListCell.m in Sources */,
 				843252751D7FDFC7003D3951 /* MyGrowingController.m in Sources */,
@@ -3380,6 +3380,7 @@
 				73ED4F0C1D4EFA410022BF79 /* AppDelegate.m in Sources */,
 				73886D7B1D5088EC00643BBA /* ActivityDetailReformer.m in Sources */,
 				AC27CB1D1D6A968A00240089 /* MyOrderDetailAPIManager.m in Sources */,
+				51C4514B1D868D360067A8C2 /* GrowingCell.m in Sources */,
 				51B875DD1D503DD80082558D /* ParticipationController.m in Sources */,
 				512F17D71D6C926F00E19DF3 /* RHADScrollView.m in Sources */,
 				51A033AA1D6B02440058CDD4 /* CoursePackagesReformer.m in Sources */,
@@ -3418,7 +3419,6 @@
 				5126C1FB1D56E70D005D23F3 /* MyOrderPayController.m in Sources */,
 				BB613AC91D597D85004DE299 /* NSDate+NSString.m in Sources */,
 				51B875D51D503DB20082558D /* RHMenuViewController.m in Sources */,
-				51CAC2C61D63028B008B289B /* MyGrowingAPIManager.m in Sources */,
 				732A96D01D5EB5C300BE5800 /* CTMediator+CTMediatorCourseActions.m in Sources */,
 				AC6E13991D5DECC000A7C71D /* NSString+MBMD5.m in Sources */,
 				735C3B271D65C13000E4DB90 /* OrderDetailAPIManager.m in Sources */,

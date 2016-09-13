@@ -140,7 +140,6 @@
     }else{//无图
        [self.publishAPIManager loadData];
     }
-
 }
 
 #pragma -

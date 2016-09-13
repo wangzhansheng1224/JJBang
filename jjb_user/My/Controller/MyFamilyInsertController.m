@@ -11,8 +11,14 @@
 #import "FamilyInsertReformer.h"
 #import "UpdateFamilyAPIManager.h"
 #import "FamilyUpdateReformer.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "MBImageStore.h"
+#import "OSSManager.h"
+#import "PathHelper.h"
+#import "MemberModel.h"
+#import "ImgModel.h"
 
-@interface MyFamilyInsertController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate>
+@interface MyFamilyInsertController ()<LDAPIManagerApiCallBackDelegate,LDAPIManagerParamSourceDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) LDAPIBaseManager *familyAPIManager;
 @property (nonatomic,strong) id<ReformerProtocol> insertReformer;
@@ -21,7 +27,7 @@
 @property (nonatomic,strong) UILabel *nameLabel;
 @property (nonatomic,strong) UITextField *nameTF;
 @property (nonatomic,strong) UILabel *chooseLabel;
-@property (nonatomic,strong) UIView *titleView;
+@property (nonatomic,strong) UIScrollView *titleView;
 @property (nonatomic,strong) UILabel *line1;
 @property (nonatomic,strong) UILabel *line2;
 @property (nonatomic,strong) UILabel *line3;
@@ -29,10 +35,14 @@
 @property (nonatomic,strong) UIImageView *headerImageV;
 @property (nonatomic,strong) UIButton *uploadBtn;
 @property (nonatomic,strong) NSArray *titleArr;
+@property (nonatomic,assign) int index;
+@property(nonatomic,strong) NSMutableArray *imageArray;
+@property(nonatomic,copy) NSString *ImagePath;
 
 @end
 
 @implementation MyFamilyInsertController
+
 
 #pragma -
 #pragma mark - life cycle
@@ -111,36 +121,36 @@
     }];
 }
 
-
-
-#pragma -
-#pragma mark - event respone
-- (void)tapHeaderImageV {
-
-
-}
-
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-    NSArray *resultData = [manager fetchDataWithReformer:self.insertReformer];
-//    [self.arrData addObjectsFromArray:resultData];
-//    self.pageIndex=[self.arrData count];
+
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
 
 }
+
 #pragma -
 #pragma mark - LDAPIManagerParamSourceDelegate
-
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager{
     if ([manager isKindOfClass:[_familyAPIManager class]]) {
+        
+        NSMutableString * imgString = [NSMutableString string];
+        for (ImgModel * img in self.imageArray) {
+            [imgString appendFormat:@"%@@",img.imagename];
+        }
+        [imgString deleteCharactersInRange:NSMakeRange(imgString.length-1, 1)];
+        MemberModel *model = [[MemberModel alloc]init];
+        model.photo = imgString;
+        [UserModel save:[UserModel currentUser]];
+        JJBLog(@"%@",imgString);
+
         return @{
                  @"family_id":@([UserModel currentUser].myFamily.family_id),
-                 @"role":@"",
+                 @"role":@(_index),
                  @"name":self.nameTF.text,
-                 @"userface":@""
+                 @"userface":imgString
                  };
     }else if ([manager isKindOfClass:[_updateAPIManager class]]) {
     
@@ -150,10 +160,94 @@
 }
 
 #pragma -
+#pragma mark - event respone
+- (void)tapHeaderImageV {
+    UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.editing = YES;
+    imagePicker.delegate = self;
+    
+    //允许编辑图片
+    imagePicker.allowsEditing = YES;
+    UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }] ];
+    
+    [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }]];
+    [alertView addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertView animated:YES
+                     completion:nil];
+}
+
+- (void)btnClick:(UIButton *)btn {
+    _index = btn.tag - 300;
+    for (UIView * view in self.titleView.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton * button = (UIButton *)view;
+            if (button == btn) {
+                button.selected = YES;
+                button.backgroundColor = COLOR_ORANGE;
+            }else {
+                button.selected = NO;
+                button.backgroundColor = COLOR_LIGHT_GRAY;
+            }
+        }
+    }
+}
+
+- (void)uploadClick {
+
+    [self.familyAPIManager loadData];
+}
+
+#pragma -
+#pragma mark - UIImagePickerControllerDelegate
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
+    [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
+    
+    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    
+    NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
+    NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
+    
+    NSString* path =[[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
+    JJBLog(@"%@",path);
+    MemberModel *model = [[MemberModel alloc] init];
+    model.photo = name;
+    JJBLog(@"生成的图片%@",name);
+    [UserModel save:[UserModel currentUser]];
+    [editImageData writeToFile:path atomically:YES];
+    self.ImagePath = path;
+    self.imageArray = [NSMutableArray array];
+    ImgModel *imgModel = [[ImgModel alloc]init];
+    imgModel.imgpath = path;
+    imgModel.status = NO;
+    [self.imageArray addObject:imgModel];
+    [self.view makeToast:@"正在上传" duration:1.0f position:CSToastPositionCenter];
+    [[OSSManager shareInstance]uploadFiles:self.imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
+        [self.familyAPIManager loadData];
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma -
 #pragma mark - getters and setters
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"父亲",@"母亲",@"宝贝"];
+        _titleArr = @[@"爸爸",@"妈妈",@"小孩",@"爷爷",@"奶奶"];
     }
     return _titleArr;
 }
@@ -182,16 +276,24 @@
     }
     return _chooseLabel;
 }
-- (UIView *)titleView {
+- (UIScrollView *)titleView {
     if (!_titleView) {
-        _titleView = [[UIView alloc] init];
+        _titleView = [[UIScrollView alloc] init];
+        CGFloat width = 60;
+        _titleView.contentSize = CGSizeMake((width + 16) * 5 + 16, 30);
+        _titleView.bounces = NO;
+        _titleView.showsHorizontalScrollIndicator = NO;
         for (int i = 0; i < self.titleArr.count; i++) {
             UIButton *btn = [[UIButton alloc] init];
-            btn.frame = CGRectMake(i * (50 + 30), 0, 50, 30);
-            btn.backgroundColor = JJBRandomColor;
+            btn.frame = CGRectMake(i * (width + 16)+16, 0, width, 30);
             btn.layer.cornerRadius = 5;
             btn.clipsToBounds = YES;
+            btn.tag = 300 + i;
+            btn.backgroundColor = COLOR_LIGHT_GRAY;
             [btn setTitle:self.titleArr[i] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:COLOR_WHITE forState:UIControlStateSelected];
+            [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
             [_titleView addSubview:btn];
         }
     }
@@ -243,6 +345,7 @@
         _uploadBtn = [[UIButton alloc] init];
         [_uploadBtn setTitle:@"保存" forState:UIControlStateNormal];
         [_uploadBtn setTitleColor:COLOR_WHITE forState:UIControlStateNormal];
+        [_uploadBtn addTarget:self action:@selector(uploadClick) forControlEvents:UIControlEventTouchUpInside];
         _uploadBtn.backgroundColor = COLOR_ORANGE;
         _uploadBtn.layer.cornerRadius = 15;
         _uploadBtn.clipsToBounds = YES;
