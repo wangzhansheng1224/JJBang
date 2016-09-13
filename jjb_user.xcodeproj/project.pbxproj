@@ -298,6 +298,7 @@
 		ACE674811D5D58EA00B57938 /* MyOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE674801D5D58EA00B57938 /* MyOrderDetailCell.m */; };
 		ACE811211D6AD966006402A5 /* MBOrderPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811201D6AD966006402A5 /* MBOrderPayController.m */; };
 		ACE811241D6ADA4A006402A5 /* MBOrderPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */; };
+		ACEFBBA01D880B85003F2A26 /* ClerkDetailTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEFBB9E1D880B85003F2A26 /* ClerkDetailTileView.m */; };
 		ACF099D31D8284AA0054584D /* ClerkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */; };
 		ACF099D41D8284AA0054584D /* ClerkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099D01D8284AA0054584D /* ClerkListCell.m */; };
 		ACF099D51D8284AA0054584D /* ClerkDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */; };
@@ -1032,6 +1033,8 @@
 		ACE811201D6AD966006402A5 /* MBOrderPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayController.m; sourceTree = "<group>"; };
 		ACE811221D6ADA4A006402A5 /* MBOrderPayHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBOrderPayHeadView.h; sourceTree = "<group>"; };
 		ACE811231D6ADA4A006402A5 /* MBOrderPayHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBOrderPayHeadView.m; sourceTree = "<group>"; };
+		ACEFBB9E1D880B85003F2A26 /* ClerkDetailTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkDetailTileView.m; sourceTree = "<group>"; };
+		ACEFBB9F1D880B85003F2A26 /* ClerkDetailTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkDetailTileView.h; sourceTree = "<group>"; };
 		ACF099CD1D8284AA0054584D /* ClerkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkDetailCell.h; sourceTree = "<group>"; };
 		ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClerkDetailCell.m; sourceTree = "<group>"; };
 		ACF099CF1D8284AA0054584D /* ClerkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClerkListCell.h; sourceTree = "<group>"; };
@@ -2781,6 +2784,8 @@
 				ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */,
 				ACF099CF1D8284AA0054584D /* ClerkListCell.h */,
 				ACF099D01D8284AA0054584D /* ClerkListCell.m */,
+				ACEFBB9E1D880B85003F2A26 /* ClerkDetailTileView.m */,
+				ACEFBB9F1D880B85003F2A26 /* ClerkDetailTileView.h */,
 				ACF099D11D8284AA0054584D /* ClerkDetailHeaderView.h */,
 				ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */,
 			);
@@ -3368,6 +3373,7 @@
 				AC540ADE1D61B640007636CE /* MD5DataSigner.m in Sources */,
 				731091C61D51B0660031B443 /* GrowingTreeListAPIManager.m in Sources */,
 				AC0EF2B11D6D6D8400054421 /* MBNavgationCenterView.m in Sources */,
+				ACEFBBA01D880B85003F2A26 /* ClerkDetailTileView.m in Sources */,
 				BB4C13131D52E23E002C13FA /* LoginRegisterView.m in Sources */,
 				AC9C410B1D6FD53300EC6C65 /* MyFeaturePrivilegecell.m in Sources */,
 				BB68C9771D5074510037DA9F /* MBNewFeatureCollectionViewCell.m in Sources */,

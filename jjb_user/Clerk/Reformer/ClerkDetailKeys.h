@@ -17,6 +17,7 @@ extern NSString *const kClerkDetailAge;//店员年龄
 extern NSString *const kClerkDetailBrithday;//店员出生日期
 extern NSString *const kClerkDetailNotes;//店员介绍
 extern NSString *const kClerkDetailRoleName;//角色
+extern NSString *const kClerkDetailTitle;//标题
 
 
 

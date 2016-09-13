@@ -7,15 +7,13 @@
 //
 
 #import "ClerkDetailCell.h"
-#import "TeacherTileView.h"
+#import "ClerkDetailTileView.h"
 #import "ClerkDetailKeys.h"
-#import "TeacherKeys.h"
+#import "ClerkDetailCell.h"
 
-NSString * const kClerkTitle = @"ClerkTitle";
-NSString * const kClerkContent = @"ClerkContent";
 @interface ClerkDetailCell ()
 @property(nonatomic,strong) UIView * lineView;
-@property(nonatomic,strong) TeacherTileView * summaryView;
+@property(nonatomic,strong) ClerkDetailTileView * summaryView;
 
 @end
 @implementation ClerkDetailCell
@@ -31,14 +29,7 @@ NSString * const kClerkContent = @"ClerkContent";
 
 -(void) layoutSubviews{
     UIView *superView=self;
-    
-//    [self.noteView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(superView.mas_left);
-//        make.top.mas_equalTo(superView.mas_top).offset(10);
-//        make.height.mas_equalTo(@200);
-//        make.right.mas_equalTo(superView.mas_right);
-//    }];
-    
+    //介绍
     [self.summaryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(superView.mas_top).offset(10);
@@ -54,18 +45,18 @@ NSString * const kClerkContent = @"ClerkContent";
 - (void)configWithData:(NSDictionary *)data{
     
     [self.summaryView configWithData:@{
-                                       kClerkTitle:@"自我介绍",
-                                       kClerkContent:data[kTeacherSummary]
+                                       kClerkDetailTitle:@"自我介绍",
+                                       kClerkDetailNotes:data[kClerkDetailNotes]
                                        }];
 }
 
 #pragma -
 #pragma mark - getter and setter
 
--(TeacherTileView *) summaryView
+-(ClerkDetailTileView *) summaryView
 {
     if (!_summaryView) {
-        _summaryView=[[TeacherTileView alloc] init];
+        _summaryView=[[ClerkDetailTileView alloc] init];
     }
     return _summaryView;
 }

@@ -18,7 +18,10 @@ NSString *const kClerkDetailSex=@"ClerkDetailSex";
 NSString *const kClerkDetailAge=@"ClerkDetailAge";
 NSString *const kClerkDetailBrithday=@"ClerkDetailBrithday";
 NSString *const kClerkDetailNotes=@"ClerkDetailNotes";
-NSString *const kClerkDetailRoleName=@"kClerkDetailRoleName";
+NSString *const kClerkDetailRoleName=@"ClerkDetailRoleName";
+NSString *const kClerkDetailTitle=@"ClerkDetailTitle";
+
+
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data {
     if ([manager isKindOfClass:[ClerkDetailAPIManager class]]) {
