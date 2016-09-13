@@ -46,8 +46,14 @@
 //    BaseTabBarController * tabBarVC = [[BaseTabBarController alloc]init];
 //    self.window.rootViewController = tabBarVC;
 //    [self.window makeKeyAndVisible];
+    
+    
+    
     //判断是否有新特性
     [MBGuideTool selectRootViewController:self.window];
+    
+    
+    
 //    MBAdViewController * tab = [[MBAdViewController alloc]init];
 //    self.window.rootViewController = tab;
 //    [self.window makeKeyAndVisible];

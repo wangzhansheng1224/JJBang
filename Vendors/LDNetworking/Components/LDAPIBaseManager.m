@@ -109,6 +109,7 @@
 
 - (id)fetchDataWithReformer:(id<ReformerProtocol>)reformer
 {
+    
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(manager:reformData:)]) {
         resultData = [reformer manager:self reformData:self.fetchedRawData];
@@ -120,8 +121,13 @@
 
 #pragma mark - calling api
 - (NSInteger)loadData {
+    
+    
+    
   NSDictionary *params = [self.paramSource paramsForApi:self];
+    
   NSInteger requestId = [self loadDataWithParams:params];
+    
   return requestId;
 }
 

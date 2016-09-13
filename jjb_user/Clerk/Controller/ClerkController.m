@@ -7,11 +7,11 @@
 //
 
 #import "ClerkController.h"
-#import "TeacherHeaderView.h"
+#import "ClerkDetailHeaderView.h"
 #import "GrowingCell.h"
 #import "GrowingTreeListReformer.h"
 #import "MyGrowingAPIManager.h"
-#import "TeacherDetailCell.h"
+#import "ClerkDetailCell.h"
 #import "ClerkDetailAPIManager.h"
 #import "ClerkDetailReformer.h"
 #import "ClerkDetailCell.h"
@@ -25,7 +25,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
 
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)HMSegmentedControl * tabbarControl;
-@property(nonatomic,strong)TeacherHeaderView * headerView;
+@property(nonatomic,strong)ClerkDetailHeaderView * headerView;
 @property(nonatomic,strong)NSArray * imageArray;
 @property(nonatomic,strong)LDAPIBaseManager * myGrowingAPIManager;
 @property(nonatomic,strong)id<ReformerProtocol> growingTreeListReformer;
@@ -157,6 +157,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
     if ([manager isKindOfClass:[ClerkDetailAPIManager class]])
     {
         self.detailDictionary = [manager fetchDataWithReformer:self.detailReformer];
+        JJBLog(@"self.detailDictionary=%@",self.detailDictionary);
         [self.headerView configWithData:self.detailDictionary];
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
@@ -269,6 +270,13 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
     }
     return _growTreeDataArray;
 }
+-(NSDictionary *)detailDictionary{
+    if (_detailDictionary == nil) {
+        _detailDictionary = [[NSDictionary alloc]init];
+    }
+    return _detailDictionary;
+
+}
 -(HMSegmentedControl *)tabbarControl
 {
     if (_tabbarControl == nil) {
@@ -281,10 +289,10 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
     return _tabbarControl;
 
 }
--(TeacherHeaderView *)headerView
+-(ClerkDetailHeaderView *)headerView
 {
     if (_headerView == nil) {
-        _headerView = [[TeacherHeaderView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 194+10)];
+        _headerView = [[ClerkDetailHeaderView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 194+10)];
         _headerView.backgroundColor = COLOR_WHITE;
         
     }

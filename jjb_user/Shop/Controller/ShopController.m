@@ -368,6 +368,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     
     
     if ([manager isKindOfClass:[ShopListAPIManager class]]) {
+        
+        
         NSMutableArray *resultData=[manager fetchDataWithReformer:self.shopIndexReformer];
         self.shopList=resultData;
         if ([resultData count]>0) {
@@ -385,6 +387,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
     if ([manager isKindOfClass:[ShopIndexAPIManager class]]) {
         [self.tableView.mj_header endRefreshing];
         [self.view hideToastActivity];
+        
+        
         self.dataDic = [manager fetchDataWithReformer:self.shopIndexReformer];
         NSArray * arr = self.dataDic[kShopIndexActImg];
         

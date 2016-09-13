@@ -98,6 +98,7 @@
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
+    
     self.dataDic = [manager fetchDataWithReformer:self.storeDetailReformer];
     [self.tableView reloadData];
 }

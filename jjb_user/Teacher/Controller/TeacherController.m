@@ -34,7 +34,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
 @property (nonatomic,assign) NSInteger growingIndex;
 @property (nonatomic,assign) NSInteger pageSize;
 @property (nonatomic,strong) NSMutableArray *GrowingTreeDataArr;
-@property(nonatomic,strong) NSDictionary *detailDic;
+@property(nonatomic,strong)  NSDictionary *detailDic;
 @property(nonatomic,assign) CGFloat teacherDetailHeight;
 @end
 

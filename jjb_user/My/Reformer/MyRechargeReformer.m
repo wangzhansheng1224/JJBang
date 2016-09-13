@@ -16,6 +16,8 @@
 
 -(id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
+    
+    
     if ([manager isKindOfClass:[MyRechargeAPIManager class]]) {
         NSMutableArray * arrResult = [NSMutableArray array];
         NSArray * arrData = data[@"data"];

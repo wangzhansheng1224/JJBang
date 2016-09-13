@@ -23,6 +23,8 @@ NSString *const kCourseDescribe=@"CourseDescribe";
 
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data
 {
+    
+    
     if ([manager isKindOfClass:[CourseDetailAPIManager class]]) {
             NSDictionary *dicData=data[@"data"];
             return  @{

@@ -60,7 +60,6 @@ static NSString  *const ActivityListCellIdentifier=@"ActivityListCellIdentifier"
         [self.tableView.mj_header beginRefreshing];
         self.shopID = [ShopModel currentShop].shopID;
     }
-    NSLog(@"更改后的%ld",self.shopID);
 
     [self.tableView.mj_header beginRefreshing];
 //    self.navigationController.navigationBarHidden = YES;

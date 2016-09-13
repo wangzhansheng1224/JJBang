@@ -107,6 +107,7 @@ static NSString *const kLDAPIBaseManagerRequestID =
  }
  */
 - (id)manager:(LDAPIBaseManager *)manager reformData:(NSDictionary *)data;
+
 @end
 
 

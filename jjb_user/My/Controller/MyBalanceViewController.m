@@ -114,9 +114,9 @@
         NSDictionary * dict = [manager fetchDataWithReformer:nil];
         JJBLog(@"返回的dict%@",dict);
         NSDictionary * data = dict[@"data"];
-        self.myBalance = [data[@"balance"] doubleValue];
-        JJBLog(@"返回的余额%lf",self.myBalance);
-        self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
+//        self.myBalance = data[@"balance"];
+        JJBLog(@"返回的状态%@",data[@"balance"]);
+//        self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
     }
     
     

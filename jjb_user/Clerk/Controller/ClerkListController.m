@@ -82,8 +82,7 @@ static NSString  *const ClerkListCellIdentifier=@"ClerkListCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ClerkController *detail=[[ClerkController alloc] init];
-//    detail.clerkID = [self.arrData[indexPath.row][kClerkID]];
-        detail.clerkID=[self.arrData[indexPath.row][kClerkID]integerValue];
+    detail.clerkID=[self.arrData[indexPath.row][kClerkID]integerValue];
     [self.navigationController pushViewController:detail animated:YES];
 }
 
