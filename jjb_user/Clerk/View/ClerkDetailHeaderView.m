@@ -66,7 +66,7 @@
     }];
     [_sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.size.mas_equalTo(CGSizeMake(125, 20));
+        make.size.mas_equalTo(CGSizeMake(125, 25));
         make.left.equalTo(self.iconImageV.mas_right).with.offset(14);
         make.top.equalTo(self.nameLabel.mas_bottom).with.offset(6);
     }];

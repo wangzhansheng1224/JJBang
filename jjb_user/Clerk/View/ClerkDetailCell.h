@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ClerkDetailCell : UITableViewCell
--(void)configWithData:(NSDictionary *)data;
+-(void)configWithNoteData:(NSDictionary *)data;
 @end

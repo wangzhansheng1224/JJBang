@@ -61,8 +61,8 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
         cell = [[ClerkDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ClerkDetailCellIdentifier];
     }
 
-    [cell configWithData:self.detailDictionary];
-        return cell;
+    [cell configWithNoteData:self.detailDictionary];
+    return cell;
     
 }
 

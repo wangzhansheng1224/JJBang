@@ -42,7 +42,7 @@
 #pragma -
 #pragma mark - configWithData
 
-- (void)configWithData:(NSDictionary *)data{
+- (void)configWithNoteData:(NSDictionary *)data{
     
     [self.summaryView configWithData:@{
                                        kClerkDetailTitle:@"自我介绍",

@@ -2784,8 +2784,8 @@
 				ACF099CE1D8284AA0054584D /* ClerkDetailCell.m */,
 				ACF099CF1D8284AA0054584D /* ClerkListCell.h */,
 				ACF099D01D8284AA0054584D /* ClerkListCell.m */,
-				ACEFBB9E1D880B85003F2A26 /* ClerkDetailTileView.m */,
 				ACEFBB9F1D880B85003F2A26 /* ClerkDetailTileView.h */,
+				ACEFBB9E1D880B85003F2A26 /* ClerkDetailTileView.m */,
 				ACF099D11D8284AA0054584D /* ClerkDetailHeaderView.h */,
 				ACF099D21D8284AA0054584D /* ClerkDetailHeaderView.m */,
 			);
