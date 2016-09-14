@@ -190,7 +190,7 @@ static NSString * const RechargeCellIdentifier = @"rechargeIdentifier";
     
     if ([self.moneyTextfield.text doubleValue] < 0.01)
     {
-        [self.view makeToast:@"输入的金额应大于0.01元,请重新输入" duration:1.0f position:CSToastPositionCenter];
+        [self.view makeToast:@"请输入金额" duration:1.0f position:CSToastPositionCenter];
         return;
     }
     
@@ -273,6 +273,7 @@ return YES;
 #pragma mark -  UITapGestureRecognizer
 -(void)GestureRecognizer:(UITapGestureRecognizer *)gestureRecognizer
 {
+    
     [self.moneyTextfield becomeFirstResponder];
 }
 
