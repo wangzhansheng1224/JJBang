@@ -35,7 +35,7 @@
 @property (nonatomic,strong) UIImageView *headerImageV;
 @property (nonatomic,strong) UIButton *uploadBtn;
 @property (nonatomic,strong) NSArray *titleArr;
-@property (nonatomic,assign) int index;
+@property (nonatomic,assign) NSInteger index;
 @property(nonatomic,strong) NSMutableArray *imageArray;
 @property(nonatomic,copy) NSString *ImagePath;
 
@@ -60,7 +60,7 @@
     [self.view addSubview:self.uploadLabel];
     [self.view addSubview:self.headerImageV];
     [self.view addSubview:self.uploadBtn];
-
+    
     [self layoutPageSubviews];
 }
 
@@ -124,11 +124,10 @@
 #pragma -
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (void)apiManagerCallDidSuccess:(LDAPIBaseManager *)manager{
-
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-
+    
 }
 
 #pragma -
@@ -145,7 +144,7 @@
         model.photo = imgString;
         [UserModel save:[UserModel currentUser]];
         JJBLog(@"%@",imgString);
-
+        NSLog(@"%ld",_index);
         return @{
                  @"family_id":@([UserModel currentUser].myFamily.family_id),
                  @"role":@(_index),
@@ -153,7 +152,7 @@
                  @"userface":imgString
                  };
     }else if ([manager isKindOfClass:[_updateAPIManager class]]) {
-    
+        
         return nil;
     }
     return nil;
@@ -207,8 +206,29 @@
 }
 
 - (void)uploadClick {
+    
+    if (_nameTF.text.length == 0) {
+        
+        [self.view endEditing:YES];
+        [self.view makeToast:@"请输入姓名！" duration:1.0f position:CSToastPositionCenter];
+        return;
+    }
+    if (self.imageArray.count == 0) {
+        [self.view endEditing:YES];
+        [self.view makeToast:@"请选择图片！" duration:1.0f position:CSToastPositionCenter];
+        return;
+    }else {
+        [[OSSManager shareInstance]uploadFiles:self.imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
+            [self.familyAPIManager loadData];
+        }];
+        [self.view makeToast:@"保存成功……" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
+}
 
-    [self.familyAPIManager loadData];
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.nameTF resignFirstResponder];
 }
 
 #pragma -
@@ -218,7 +238,7 @@
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
     
-    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    //    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
     NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
@@ -236,11 +256,10 @@
     imgModel.imgpath = path;
     imgModel.status = NO;
     [self.imageArray addObject:imgModel];
-    [self.view makeToast:@"正在上传" duration:1.0f position:CSToastPositionCenter];
-    [[OSSManager shareInstance]uploadFiles:self.imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
-        [self.familyAPIManager loadData];
-    }];
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.headerImageV.layer.cornerRadius = Screen_Width/6.0;
+    self.headerImageV.clipsToBounds = YES;
+    self.headerImageV.image = [UIImage imageNamed:imgModel.imgpath];
 }
 
 #pragma -
@@ -263,7 +282,7 @@
 - (UITextField *)nameTF {
     if (!_nameTF) {
         _nameTF = [[UITextField alloc] init];
-        
+        //        _nameTF.placeholder = self.name;
     }
     return _nameTF;
 }
@@ -294,6 +313,10 @@
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [btn setTitleColor:COLOR_WHITE forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+            if (i == 0) {
+                btn.selected = YES;
+                btn.backgroundColor = COLOR_ORANGE;
+            }
             [_titleView addSubview:btn];
         }
     }
@@ -369,4 +392,7 @@
     return _insertReformer;
 }
 
+//- (void)setName:(NSString *)name {
+//    _name = name;
+//}
 @end

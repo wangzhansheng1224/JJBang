@@ -36,7 +36,7 @@
         self.id=[aDecoder decodeIntegerForKey:@"id"];
         self.name=[[aDecoder decodeObjectForKey:@"name"] copy];
         self.photo=[[aDecoder decodeObjectForKey:@"photo"] copy];
-        self.id=[aDecoder decodeIntegerForKey:@"id"];
+        self.role=[aDecoder decodeIntegerForKey:@"role"];
     }
     return self;
 }

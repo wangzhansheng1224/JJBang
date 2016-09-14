@@ -125,6 +125,7 @@ alpha:(a)]
 #import "CTMediator+CTMediatorStudentActions.h"
 #import "CTMediator+CTMediatorVideos.h"
 #import "QAlert.h"
+#import "QRCodeGenerator.h"
 
 #import "NSDate+NSString.h"
 #import "DateTools.h"

@@ -32,7 +32,7 @@
 }
 
 - (void)layoutSubviews {
-
+    
     [_headerImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@10);
         make.size.mas_equalTo(CGSizeMake(80, 80));
@@ -58,11 +58,11 @@
 #pragma -
 #pragma mark - configWithData
 - (void)configWithData:(NSArray *)data {
-
+    
     MemberModel *model = data;
     [_headerImageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImageServer,model.photo]] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageCacheMemoryOnly];
     [_nameLabel setText:model.name];
-    if (model.role ) {
+    if (model.role == 0 ) {
         [_roleLabel setText:@"爸爸"];
     } else if (model.role == 1) {
         [_roleLabel setText:@"妈妈"];

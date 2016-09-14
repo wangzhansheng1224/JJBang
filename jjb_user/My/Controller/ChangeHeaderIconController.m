@@ -29,20 +29,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-
+    
     [self setUpNav];
     [self setChildViewContraints];
-//    self.headImageView. = [UIImage imageNamed:@"img_default"];
-
-    self.headImageView.layer.contents= (id)[[UIImage imageNamed:@"img_default"]CGImage];
+    //self.headImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[UserModel currentUser].photo]];
+    //    self.headImageView.layer.contents= (id)[[UIImage imageNamed:@"img_default"]CGImage];
+    //    NSURL *url=[NSURL initWithImageURL:[UserModel currentUser].photo Size:CGSizeMake(Screen_Width, Screen_Height - 80)];
+    NSURL *url = [NSURL initWithImageURL:[UserModel currentUser].photo Height:Screen_Height - 80];
+    [self.headImageView sd_setImageWithURL:url];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    UIImage * image = [[MBImageStore shareMBImageStore]imageForKey:@"MBStore"];
-    
-    self.headImageView.image = image;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,7 +51,7 @@
 -(void)setUpNav
 {
     self.navigationItem.title = @"修改头像";
-
+    
     UIBarButtonItem * chooseBtn = [UIBarButtonItem itmeWithNormalImage:[UIImage imageNamed:@"my_choose_header_button"] high:nil target:self action:@selector(chooseButtonClick:) norColor:nil highColor:nil title:nil];
     self.navigationItem.rightBarButtonItem = chooseBtn;
     
@@ -78,36 +77,30 @@
     UIImagePickerController * imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.editing = YES;
     imagePicker.delegate = self;
-
+    
     //允许编辑图片
     imagePicker.allowsEditing = YES;
     UIAlertController * alertView = [UIAlertController alertControllerWithTitle:@"请选择打开方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
+        
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
         imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
         imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         [self presentViewController:imagePicker animated:YES completion:nil];
         
-
-            }] ];
+    }] ];
     
     [alertView addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
-
         [self presentViewController:imagePicker animated:YES completion:nil];
-    
-        
     }]];
     [alertView addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     [self presentViewController:alertView animated:YES
                      completion:nil];
-    
 }
 #pragma -
 #pragma mark - UIImagePickerControllerDelegate
@@ -115,39 +108,36 @@
 {
     UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
     [[MBImageStore shareMBImageStore] setImage:image forKey:@"MBStore"];
-     
-    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    
+    //    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     
     NSData * editImageData = UIImageJPEGRepresentation(image, 0.8f);
     NSString * name =  [NSString stringWithFormat:@"%@.jpg",[[OSSManager shareInstance]currentTimeByJava]];
     
     NSString* path =[[PathHelper cacheDirectoryPathWithName:MSG_Img_Dir_Name] stringByAppendingPathComponent:name];
-
-   
+    
+    
     JJBLog(@"%@",path);
     [UserModel currentUser].photo = name;
     JJBLog(@"生成的图片%@",name);
-   
+    
     [UserModel save:[UserModel currentUser]];
     [editImageData writeToFile:path atomically:YES];
     self.ImagePath = path;
     self.imageArray = [NSMutableArray array];
-
+    
     ImgModel * model = [[ImgModel alloc]init];
     model.imgpath = path;
     model.status = NO;
     
     [self.imageArray addObject:model];
-
+    self.headImageView.image = [UIImage imageNamed:model.imgpath];
+    
     [self.view makeToast:@"正在上传" duration:1.0f position:CSToastPositionCenter];
     [[OSSManager shareInstance]uploadFiles:self.imageArray withTargetSubPath:OSSHeaderPath withBlock:^{
-       
         [self.changeHeaderAPIManager loadData];
-        
     }];
-
-
-     [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma -
@@ -166,7 +156,7 @@
     {
         UIView * view =   [self.view toastViewForMessage:@"修改头像失败" title:nil image:nil style:nil];
         [self.view showToast:view duration:1.0f position:CSToastPositionCenter completion:^(BOOL didTap) {
-//            [self.navigationController popViewControllerAnimated:YES];
+            //            [self.navigationController popViewControllerAnimated:YES];
             
         }];
     }
@@ -174,7 +164,7 @@
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
-[self.view makeToast:@"修改头像失败" duration:1.0f position:CSToastPositionCenter];
+    [self.view makeToast:@"修改头像失败" duration:1.0f position:CSToastPositionCenter];
 }
 
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager
@@ -202,7 +192,7 @@
     if (_headImageView == nil) {
         UIImageView * imageView = [[UIImageView alloc]init];
         
-        imageView.image = [UIImage imageNamed:[UserModel currentUser].photo];
+        //        imageView.image = [UIImage imageNamed:[UserModel currentUser].photo];
         [self.view addSubview:imageView];
         _headImageView = imageView;
     }

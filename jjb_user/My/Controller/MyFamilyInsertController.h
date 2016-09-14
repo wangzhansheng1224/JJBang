@@ -10,5 +10,6 @@
 
 @interface MyFamilyInsertController : UIViewController
 
+@property (nonatomic,copy) NSString *name;
 
 @end

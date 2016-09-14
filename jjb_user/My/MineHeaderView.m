@@ -52,7 +52,7 @@
         [self addSubview:self.label_line];
         [self addSubview:self.signLabel];
         [self addSubview:self.itemImage];
-//        [self addSubview:self.emailBtn];
+        //        [self addSubview:self.emailBtn];
         [self addSubview:self.nameLabel];
         [self addSubview:self.levelBtn];
         [self addSubview:self.setBtn];
@@ -66,23 +66,23 @@
 #pragma -
 #pragma mark - layoutPageSubviews
 - (void)layoutPageSubviews {
-
+    
     [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(Screen_Width,194.0f));
         make.top.left.mas_equalTo(@0);
     }];
-
+    
     [self.setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(30, 30));
         make.top.equalTo(@30);
         make.right.equalTo(@-10);
     }];
     
-//    [self.emailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(30, 30));
-//        make.top.equalTo(@10);
-//        make.right.equalTo(self.setBtn.mas_left).with.offset(-10);
-//    }];
+    //    [self.emailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.size.mas_equalTo(CGSizeMake(30, 30));
+    //        make.top.equalTo(@10);
+    //        make.right.equalTo(self.setBtn.mas_left).with.offset(-10);
+    //    }];
     
     [self.itemImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(78, 78));
@@ -142,12 +142,12 @@
 
 
 #pragma -
-#pragma - Event 
+#pragma - Event
 
 -(void)settingClick:(id)sender{
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     MySettingController *setting=[[MySettingController alloc] init];
-      UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:setting];
+    UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:setting];
     [navController pushViewController:controller animated:YES];
 }
 
@@ -161,12 +161,13 @@
 -(void)moneyBtnClick:(id)sender{
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     MyBalanceViewController *balanceController=[[MyBalanceViewController alloc] init];
+    balanceController.money = [UserModel currentUser].balance;
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:balanceController];
     [navController pushViewController:controller animated:YES];
 }
 
 - (void)goodsBtnClick:(id)sender {
-
+    
     UINavigationController *navController=((AppDelegate*)[UIApplication sharedApplication].delegate).navController;
     GoodsListController *goodsListController=[[GoodsListController alloc] init];
     UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:goodsListController];
@@ -230,7 +231,7 @@
         _emailBtn.backgroundColor = COLOR_GRAY;
         _emailBtn.layer.cornerRadius = 15;
         _emailBtn.clipsToBounds = YES;
-         [_emailBtn setImage:[UIImage imageNamed:@"my_email"] forState:UIControlStateNormal];
+        [_emailBtn setImage:[UIImage imageNamed:@"my_email"] forState:UIControlStateNormal];
     }
     return _emailBtn;
 }
@@ -305,8 +306,8 @@
             default:
                 break;
         }
-
-         _levelBtn.lTitle = string;
+        
+        _levelBtn.lTitle = string;
     }
     return _levelBtn;
     
@@ -350,7 +351,7 @@
     }
     return _label_line;
 }
-    
+
 - (void)setIsLogin:(BOOL)islogin {
     if (islogin) {
         self.nameLabel.userInteractionEnabled = NO;
@@ -362,6 +363,6 @@
         [self.signLabel setText:@"这家伙很懒，什么都没留下！"];
     }
 }
-    
+
 
 @end

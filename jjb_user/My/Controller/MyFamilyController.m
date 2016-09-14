@@ -53,21 +53,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     MyFamilyDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFamilyDetailCellIdentifier" forIndexPath:indexPath];
     [cell configWithData:self.dataArr[indexPath.row]];;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MyFamilyInsertController *insert = [[MyFamilyInsertController alloc] init];
+    //    insert.name =
     [self.navigationController pushViewController:insert animated:YES];
 }
 
@@ -91,12 +92,12 @@
             [_tableView reloadData];
             [self.tableView.mj_header endRefreshing];
         }];
-//        //判断列表数据>=10时才出现上提请求
-//        if ([self.arrData count] >=10){
-//            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//                [self.growingTreeListAPIManager loadData];
-//            }];
-//        }
+        //        //判断列表数据>=10时才出现上提请求
+        //        if ([self.arrData count] >=10){
+        //            _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //                [self.growingTreeListAPIManager loadData];
+        //            }];
+        //        }
         [_tableView registerClass:[MyFamilyDetailCell class] forCellReuseIdentifier:@"MyFamilyDetailCellIdentifier"];
     }
     return _tableView;

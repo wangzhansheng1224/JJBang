@@ -11,6 +11,8 @@
 #import "LBXScanWrapper.h"
 #import "LBXScanVideoZoomView.h"
 #import "ScanResultViewController.h"
+#import "QRCodeController.h"
+
 @interface ScanViewController ()
 @property (nonatomic, strong) LBXScanVideoZoomView *zoomView;
 @end
@@ -201,9 +203,9 @@
         return;
     }
     //震动提醒
-     [LBXScanWrapper systemVibrate];
+    [LBXScanWrapper systemVibrate];
     //声音提醒
-     [LBXScanWrapper systemSound];
+    [LBXScanWrapper systemSound];
     
     UIViewController *vc=[[CTMediator sharedInstance] performActionWithUrl:[[NSURL alloc] initWithString:strResult]  completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
@@ -245,7 +247,8 @@
 
 - (void)myQRCode
 {
-    [self.view makeToast:@"正在开发中，敬请期待。。。"];
+    QRCodeController *QRCode = [[QRCodeController alloc] init];
+    [self.navigationController pushViewController:QRCode animated:YES];
 }
 
 
