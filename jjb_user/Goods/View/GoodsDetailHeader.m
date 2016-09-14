@@ -141,7 +141,6 @@
         _salesLabel.textColor = COLOR_ORANGE;
         _salesLabel.font = H4;
         _salesLabel.textAlignment = NSTextAlignmentRight;
-        [_salesLabel sizeToFit];
     }
     return _salesLabel;
 }
