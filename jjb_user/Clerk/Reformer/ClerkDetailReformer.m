@@ -19,7 +19,7 @@ NSString *const kClerkDetailAge=@"ClerkDetailAge";
 NSString *const kClerkDetailBrithday=@"ClerkDetailBrithday";
 NSString *const kClerkDetailNotes=@"ClerkDetailNotes";
 NSString *const kClerkDetailRoleName=@"ClerkDetailRoleName";
-NSString *const kClerkDetailTitle=@"ClerkDetailTitle";
+//NSString *const kClerkDetailTitle=@"ClerkDetailTitle";
 
 
 

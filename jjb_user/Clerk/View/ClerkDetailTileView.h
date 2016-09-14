@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//extern NSString *const kClerkDetailTitle;
+extern NSString *const kClerkDetailTitle;
 extern NSString *const kClerkDetailContent;
 
 @interface ClerkDetailTileView : UIView
