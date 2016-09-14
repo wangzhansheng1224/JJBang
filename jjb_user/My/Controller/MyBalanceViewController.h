@@ -10,4 +10,6 @@
 
 @interface MyBalanceViewController : UIViewController
 
+@property (nonatomic,assign) float money;
+
 @end

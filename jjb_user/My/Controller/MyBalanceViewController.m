@@ -27,7 +27,7 @@
 
 @implementation MyBalanceViewController
 
-#pragma 
+#pragma
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +37,7 @@
     [self addChildViews];
     [self addChildVIewConstraints];
     [self.MyBalanceAPIManager loadData];
-//    self.moneyLabel.text=[NSString stringWithFormat:@"%.2f",[UserModel currentUser].balance] ;
-
+    self.moneyLabel.text=[NSString stringWithFormat:@"%.2f",_money] ;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -47,11 +46,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
+    //    self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
     self.navigationController.navigationBarHidden = NO;
 }
 
-#pragma 
+#pragma
 #pragma mark - private methods
 
 -(void)setupNav
@@ -60,9 +59,9 @@
     UIBarButtonItem * orderDetailButton = [UIBarButtonItem itmeWithNormalImage:nil high:nil target:self action:@selector(gotoOrderDetailVC:) norColor:nil highColor:nil title:@"明细"];
     self.navigationItem.rightBarButtonItem = orderDetailButton;
     self.navigationItem.title = @"余额";
-    }
+}
 
- //跳转明细界面
+//跳转明细界面
 -(void)gotoOrderDetailVC:(UIButton *)btn
 {
     MyOrderDetailController * MyOrderDetailVC = [[MyOrderDetailController alloc]init];
@@ -93,7 +92,7 @@
     [self.presentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bjView.mas_top).offset(24);
         make.left.equalTo(self.bjView.mas_left).offset(24);
-//        make.right.equalTo(self.bjView.)
+        //        make.right.equalTo(self.bjView.)
     }];
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.presentLabel.mas_bottom).offset(8);
@@ -114,12 +113,10 @@
         NSDictionary * dict = [manager fetchDataWithReformer:nil];
         JJBLog(@"返回的dict%@",dict);
         NSDictionary * data = dict[@"data"];
-//        self.myBalance = data[@"balance"];
+        //        self.myBalance = data[@"balance"];
         JJBLog(@"返回的状态%@",data[@"balance"]);
-//        self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",self.myBalance];
+        self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",_money];
     }
-    
-    
 }
 
 - (void)apiManagerCallDidFailed:(LDAPIBaseManager *)manager{
@@ -133,10 +130,10 @@
 {
     if([manager isKindOfClass:[MyBalanceAPIManager class]])
     {
-
+        
         
         ((MyBalanceAPIManager *)manager).methodName =  [NSString stringWithFormat:@"gateway/balance/%@",@([UserModel currentUser].userID)];
-                                                        }
+    }
     return nil;
 }
 
@@ -145,7 +142,7 @@
 
 
 
-#pragma 
+#pragma
 #pragma mark - getter and setter
 -(UILabel *)presentLabel
 {
@@ -157,7 +154,7 @@
         [label sizeToFit];
         _presentLabel  = label;
         [self.bjView addSubview:label];
-
+        
     }
     return _presentLabel;
 }
@@ -165,8 +162,6 @@
 {
     if (_moneyLabel == nil) {
         UILabel * label = [[UILabel alloc]init];
-        
-        label.text = @"88.88";
         label.font = FONT_SIZE(30);
         label.textColor = COLOR_WHITE;
         [label sizeToFit];

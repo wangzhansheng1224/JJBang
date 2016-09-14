@@ -41,7 +41,8 @@
 - (void)configWithData:(NSDictionary *)data
 {
     [self.courseNameLabel setText:data[kMyOrderDetailName]];
-    [self.courseMoneyLabel setText:data[kMyOrderDetailPrice]];
+    float price = [data[kMyOrderDetailPrice] floatValue];
+    [self.courseMoneyLabel setText:[NSString stringWithFormat:@"%.2f",price]];
     [self.courseTimeLabel setText:data[kMyOrderDetailTime]];
 }
 -(void)addSubViewConstraints
