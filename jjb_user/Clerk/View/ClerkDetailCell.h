@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^backHeightBlock)(CGFloat height);
 @interface ClerkDetailCell : UITableViewCell
--(void)configWithNoteData:(NSDictionary *)data;
+-(void)configWithNoteData:(NSDictionary *)data block:(backHeightBlock)backBlock;
 @end

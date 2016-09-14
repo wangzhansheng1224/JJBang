@@ -33,13 +33,7 @@
 -(void) layoutSubviews{
     UIView *superView=self;
     
-//    [self.noteView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(superView.mas_left);
-//        make.top.mas_equalTo(superView.mas_top).offset(10);
-//        make.height.mas_equalTo(@200);
-//        make.right.mas_equalTo(superView.mas_right);
-//    }];
-//    
+    
     [self.summaryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(superView.mas_top).offset(10);
@@ -55,10 +49,6 @@
 - (void)configWithData:(NSDictionary *)data block:(backHeightBlock)backBlock
 {
     
-//    [self.noteView configWithData:@{
-//                                    kTeacherTitle:@"个人宣言",
-//                                    kTeacherContent:data[kTeacherNotes]
-//                                    }];
     [self.summaryView configWithData:@{
                                     kTeacherTitle:@"自我介绍",
                                     kTeacherContent:data[kTeacherSummary]
@@ -70,7 +60,7 @@
     JJBLog(@"返回的%f",height);
     if ([data[kTeacherSummary] length] <= 0) {
         
-        height = 0;
+        height = 50;
         backBlock(height);
     }
     backBlock(height+50.f);
@@ -86,15 +76,6 @@
 
 #pragma -
 #pragma mark - getter and setter
-/*
--(TeacherTileView *) noteView
-{
-    if (!_noteView) {
-        _noteView=[[TeacherTileView alloc] init];
-            }
-    return _noteView;
-}
- */
 
 -(TeacherTileView *) summaryView
 {

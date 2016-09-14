@@ -79,6 +79,7 @@ NSString * const kTeacherContent = @"TeacherContent";
     if (!_detailLabel) {
         _detailLabel=[[UILabel alloc] init];
         _detailLabel.numberOfLines=0;
+        _detailLabel.textColor = COLOR_GRAY;
         _detailLabel.font = H4;
         [_detailLabel sizeToFit];
     }

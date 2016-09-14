@@ -9,7 +9,7 @@
 #import "ClerkDetailTileView.h"
 
 NSString * const kClerkDetailTitle = @"ClerkDetailTitle";
-NSString * const kClerkDetailContent = @"ClerkDetailContent";
+NSString * const kClerkDetailContent = @"ClerkDetailNotes";
 
 @interface ClerkDetailTileView()
 @property(nonatomic,strong) UIView *orangeView;
@@ -56,7 +56,7 @@ NSString * const kClerkDetailContent = @"ClerkDetailContent";
 
 #pragma -
 #pragma mark - configWithData
-- (void)configWithData:(NSDictionary *)data{
+- (void)configWithCellData:(NSDictionary *)data{
     [self.titleLabel setText:data[kClerkDetailTitle]];
     [self.detailLabel setText:data[kClerkDetailContent]];
 }
@@ -79,6 +79,7 @@ NSString * const kClerkDetailContent = @"ClerkDetailContent";
         _detailLabel=[[UILabel alloc] init];
         _detailLabel.numberOfLines=0;
         _detailLabel.font = H4;
+        _detailLabel.textColor = COLOR_GRAY;
         [_detailLabel sizeToFit];
     }
     return _detailLabel;

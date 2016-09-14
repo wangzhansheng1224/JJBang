@@ -111,22 +111,6 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     
     if(_tabbarControl.selectedSegmentIndex == 0)
     {
-//        NSDictionary * dict = self.detailDic[indexPath.row];
-//        NSDictionary * dict = self.detailDic;
-//        CGSize size = [self.detailDic[@"notes1"] boundingRectWithSize:CGSizeMake(Screen_Width - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:H3} context:nil].size;
-//        
-//        float height = size.height;
-//        JJBLog(@"!!!!!!!%@",self.detailDic[@"notes1"]);
-//        if ([self.detailDic[@"notes1"] length] <= 0) {
-//            
-//            height = 0;
-//            return height;
-//        }
-//        else
-//        {
-//            return height;
-//        }
-        JJBLog(@"赋值的!!!!!!!!!!!%fl",self.teacherDetailHeight);
         return self.teacherDetailHeight;
     }
    else if (_tabbarControl.selectedSegmentIndex == 1) {
@@ -154,7 +138,7 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }
     else
     {
-        return 1008;
+        return 108;
     }
 }
 

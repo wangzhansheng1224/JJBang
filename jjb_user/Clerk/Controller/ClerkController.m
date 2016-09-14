@@ -28,6 +28,7 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
 @property(nonatomic,strong)ClerkDetailAPIManager * detailAPIManager;
 @property(nonatomic,strong)id<ReformerProtocol> detailReformer;
 @property(nonatomic,strong)NSDictionary * detailDictionary;
+@property(nonatomic,assign)CGFloat clerkDetailHeight;
 @end
 
 
@@ -60,8 +61,9 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
     if (cell == nil) {
         cell = [[ClerkDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ClerkDetailCellIdentifier];
     }
-
-    [cell configWithNoteData:self.detailDictionary];
+    [cell configWithNoteData:self.detailDictionary block:^(CGFloat height) {
+        self.clerkDetailHeight = height;
+    }];
     return cell;
     
 }
@@ -89,8 +91,10 @@ static NSString * const ClerkDetailGrowingCellIdentifier = @"ClerkDetailGrowingC
 //            return (self.imageArray.count+2)/3 *85 +92 + height;
 //        }
 //    } else {
-        return Screen_Height-204-44;
+    
+//        return Screen_Height-204-44;
 //    }
+    return self.clerkDetailHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
