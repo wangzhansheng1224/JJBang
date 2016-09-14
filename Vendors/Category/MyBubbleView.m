@@ -51,6 +51,7 @@
         UIImageView * imageView =[[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"my_levelBUbble"];
         _imageView = imageView;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:imageView];
     }
     return _imageView;
@@ -59,7 +60,7 @@
 {
     if (_label == nil) {
         UILabel * label = [[UILabel alloc]init];
-        label.text = @"累计充值:充值0";
+        label.text = @"累计充值:充值100001";
         label.textAlignment = NSTextAlignmentCenter;
         label.font = FONT_SIZE(12);
         [label sizeToFit];
