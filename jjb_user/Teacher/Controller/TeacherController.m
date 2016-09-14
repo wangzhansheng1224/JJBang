@@ -97,10 +97,14 @@ static NSString  *const GrowingCellIdentifier=@"GrowingCellIdentifier";
     }   else {
         
         TeacherDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:TeacherDetailCellIdentifier forIndexPath:indexPath];
-//        [cell configWithData:self.detailDic];
+        if (cell == nil) {
+            cell = [[TeacherDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TeacherDetailCellIdentifier];
+        }
+
+        JJBLog(@"接收的数据%@",self.detailDic);
+
         [cell configWithData:self.detailDic block:^(CGFloat height) {
             self.teacherDetailHeight =   height;
-            JJBLog(@"接受的%f",height);
         }];
         return cell;
     }

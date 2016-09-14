@@ -36,6 +36,7 @@ isCorrectWithCallBackData:(NSDictionary *)data {
     if ([data[@"code"] isEqualToString:@"200"] ){
 
         if (data[@"data"] !=nil && ![data[@"data"] isKindOfClass:[NSNull class]] && [data[@"data"] count] != 0){
+            JJBLog(@"返回YES!!!");
             return YES;
         }
     }

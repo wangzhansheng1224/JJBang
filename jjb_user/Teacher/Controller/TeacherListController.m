@@ -84,6 +84,7 @@ static NSString  *const TeacherListCellIdentifier=@"TeacherListCellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TeacherController *detail =[[TeacherController alloc] init];
     detail.teacherID=[self.arrData[indexPath.row][kTeacherID] integerValue];
+    JJBLog(@"detail.teacherID =%@==%@",self.arrData[indexPath.row],self.arrData[indexPath.row][kTeacherID]);
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma -
