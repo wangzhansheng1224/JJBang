@@ -84,7 +84,7 @@
 -(void)setUpBgImageView
 {
     if (iPhone6P) {
-        self.adBgImageView.image= [UIImage imageNamed:@""];
+        self.adBgImageView.image= [UIImage imageNamed:@"guide_1"];
     
     }else if (iPhone6)
     {

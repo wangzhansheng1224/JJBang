@@ -134,8 +134,8 @@ static NSString * const ShopClassifyCellIdentifier = @"ShopClassifyCellIdentifie
 //扫一扫
 -(void)gotoScan:(id)sender
 {
-  UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:self.scanController];
-    [self.navigationController pushViewController:controller animated:YES];
+//  UIViewController *controller=[[CTMediator sharedInstance] CTMediator_CheckIsLogin:self.scanController];
+    [self.navigationController pushViewController:self.scanController animated:YES];
 }
 //更改店铺
 -(void)changeShop:(UITapGestureRecognizer *)recognizer
